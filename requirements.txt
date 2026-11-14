@@ -7,3 +7,4 @@ rdflib>=7.0
 pyshacl>=0.26
 owlrl>=6.0
 pydantic>=2.0
+cryptography>=3.1

@@ -1,0 +1,111 @@
+{
+  "about": {
+    "status": "real machines, real public manuals; only the links, fingerprints and short quotes are committed (the PDFs are copyrighted and stay in raw/, which git ignores)",
+    "retrieved": "2026-11-14",
+    "check": "python data/machines/fetch.py downloads the PDFs into data/machines/raw/, checks every sha256 and finds every quote on its page",
+    "quotes": "verbatim from the text extracted with pypdf, whitespace normalised; page = PDF page number (1-based)",
+    "cell_role": "the role each machine plays in the scenario cell (scenario data is in data/scenario/, written by us)"
+  },
+  "documents": [
+    {
+      "id": "ur5e-manual",
+      "machine": "UR5e",
+      "manufacturer": "Universal Robots A/S",
+      "title": "UR5e User Manual, PolyScope 5, original instructions (en)",
+      "doc_number": "710-965-00",
+      "url": "https://www.universal-robots.com/manuals/EN/PDF/SW5_25_1/user-manual-UR5e-PDF_online/710-965-00_UR5e_User_Manual_en_Global.pdf",
+      "file": "ur5e.pdf",
+      "bytes": 21443808,
+      "pages": 241,
+      "sha256": "2e6a3e17e59fd8435069421f52251429ee88c50440cf7e696e6846b6b72dbd3d"
+    },
+    {
+      "id": "ur10e-manual",
+      "machine": "UR10e",
+      "manufacturer": "Universal Robots A/S",
+      "title": "UR10e User Manual, PolyScope 5, original instructions (en)",
+      "doc_number": "711-039-00",
+      "url": "https://www.universal-robots.com/manuals/EN/PDF/SW5_25_1/user-manual-UR10e-PDF_online/711-039-00_UR10e_User_Manual_en_Global.pdf",
+      "file": "ur10e.pdf",
+      "bytes": 21834957,
+      "pages": 249,
+      "sha256": "b2fa5eca77db5514bfa97c664ebd48ab7ff5094f1d70692ea1f2ff65f5a490a4"
+    },
+    {
+      "id": "nanoscan3-manual",
+      "machine": "nanoScan3 I/O",
+      "manufacturer": "SICK AG",
+      "title": "nanoScan3 I/O safety laser scanner, operating instructions (en)",
+      "doc_number": "8024596/1W27/2026-05-26",
+      "url": "https://cdn.sick.com/media/docs/7/37/137/operating_instructions_nanoscan3_i_o_en_im0087137.pdf",
+      "file": "nanoscan3.pdf",
+      "bytes": 12415175,
+      "pages": 156,
+      "sha256": "0adf76c9f77e8f5a44dfb7bbdc1b3dba2563d540fe3bb6d2b151911854a393bf"
+    },
+    {
+      "id": "mastar-manual",
+      "machine": "MA STAR 3.5 A",
+      "manufacturer": "MAHA SE & Co. KG",
+      "title": "MA STAR two post lifts, original operating instructions (en), with the EC declaration of conformity",
+      "doc_number": "BA364501-en, 2026-11",
+      "url": "https://www.maha.de/support_documents/dokumente/Betriebsanleitungen/02%20Hebetechnik/Zwei-S%C3%A4ulen-Hebeb%C3%BChne/BA364501-en.pdf",
+      "file": "mastar.pdf",
+      "bytes": 1783650,
+      "pages": 40,
+      "sha256": "566fd76172af117c5e9d6d8c062edcfa73a023372bf436f2b892152fb82af785"
+    }
+  ],
+  "machines": [
+    {
+      "id": "UR5e",
+      "type": "industrial robot arm (collaborative)",
+      "cell_role": "the robot arm in the cell today",
+      "facts": [
+        {"fact": "reach_mm", "value": 850, "doc": "ur5e-manual", "quote": "Reach 850 mm/33.5 in"},
+        {"fact": "max_payload_kg", "value": 5, "doc": "ur5e-manual", "quote": "Maximum payload 5 kg/11 lb"},
+        {"fact": "legal_status", "value": "partly completed machinery", "doc": "ur5e-manual", "quote": "The robot is partly completed machinery, as such a Declaration of Incorporation is provided."},
+        {"fact": "declaration", "value": "Declaration of Incorporation, Directive 2006/42/EC Annex II B", "doc": "ur5e-manual", "quote": "EU Declaration of Incorporation (DOI) (in accordance with 2006/42/EC Annex II B)"},
+        {"fact": "put_into_service_only_when", "value": "integrated into a complete machine that conforms", "doc": "ur5e-manual", "quote": "shall only be put into service upon being integrated into a final complete machine (robot application or cell)"}
+      ]
+    },
+    {
+      "id": "UR10e",
+      "type": "industrial robot arm (collaborative)",
+      "cell_role": "the larger arm that replaces the UR5e (the factory changes)",
+      "facts": [
+        {"fact": "reach_mm", "value": 1300, "doc": "ur10e-manual", "quote": "Reach 1300 mm/51.2 in"},
+        {"fact": "legal_status", "value": "partly completed machinery", "doc": "ur10e-manual", "quote": "The robot is partly completed machinery, as such a Declaration of Incorporation is provided."},
+        {"fact": "declaration", "value": "Declaration of Incorporation, Directive 2006/42/EC Annex II B", "doc": "ur10e-manual", "quote": "EU Declaration of Incorporation (DOI) (in accordance with 2006/42/EC Annex II B)"}
+      ]
+    },
+    {
+      "id": "nanoScan3",
+      "type": "safety laser scanner (safety component)",
+      "cell_role": "guards the hazardous area around the arm",
+      "facts": [
+        {"fact": "minimum_distance_formula", "value": "S = 1600 mm/s × T + TZ + ZR + CRO (hazardous area protection, ISO 13855:2010)", "doc": "nanoscan3-manual", "quote": "S = 1,600 mm/s × T + TZ + ZR + CRO"},
+        {"fact": "cro_default_mm", "value": 1200, "doc": "nanoscan3-manual", "quote": "If there is sufficient space in front of the hazardous area, use CRO = 1,200 mm."},
+        {"fact": "max_resolution_hazardous_area_mm", "value": 70, "doc": "nanoscan3-manual", "quote": "Resolutions coarser than 70 mm are not permitted."},
+        {"fact": "regular_check_interval", "value": "P1Y", "doc": "nanoscan3-manual", "quote": "Carry out tests at least once a year."}
+      ]
+    },
+    {
+      "id": "MA STAR 3.5 A",
+      "type": "two-post vehicle lift",
+      "cell_role": "the vehicle lift in the bay next to the cell",
+      "facts": [
+        {"fact": "declaration", "value": "EC declaration of conformity under Directive 2006/42/EC, no notified body named", "doc": "mastar-manual", "quote": "Original EC Declaration of Conformity"},
+        {"fact": "harmonised_standard", "value": "EN 1493:2022", "doc": "mastar-manual", "quote": "EN 1493:2022"},
+        {"fact": "declaration_date", "value": "2025-11-17", "doc": "mastar-manual", "quote": "Haldenwang, 2025-11-17"},
+        {"fact": "rated_load_kg", "value": 3500, "doc": "mastar-manual", "quote": "Rated load capacity [kg] 3500"},
+        {"fact": "load_nut_check_interval", "value": "P6M", "doc": "mastar-manual", "quote": "The load nut’s wear indicator must be checked every 6 months"}
+      ]
+    }
+  ],
+  "not_yet": [
+    "a mobile robot (MiR250): no manual found on the manufacturer's own site, only on third-party mirrors",
+    "a press or welding unit",
+    "the DoC of the MA STAR names no notified body: that it was self-certified under Art. 12(3)(a) of the Directive depends on EN 1493:2022 being a cited harmonised standard [not verified]"
+  ]
+}

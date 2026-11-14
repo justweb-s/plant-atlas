@@ -1,6 +1,6 @@
 # Note di Prodotto
 
-_Aggiornato: 13:50_
+_Aggiornato: 14:25_
 
 ## Fatto
 - **Repo pubblico:** https://github.com/justweb-s/plant-atlas. Clona e lancia una volta `git config core.hooksPath .githooks`.
@@ -16,6 +16,7 @@ _Aggiornato: 13:50_
 - Poi schede prodotto del catalogo, baseline RAG (`evaluation/rag.py`) e tabellone reale.
 
 ## Mi serve da te
+- 14:25 — **Blocco 1 fatto: macchine reali** in `data/machines/machines.json`. UR5e (sbraccio 850 mm) sostituito da UR10e (1300 mm), entrambi quasi-macchine con dichiarazione di incorporazione; SICK nanoScan3 con la formula della distanza minima `S = 1600 mm/s × T + TZ + ZR + CRO` e prova almeno annuale; ponte MAHA MA STAR 3.5 A con dichiarazione CE sulla Direttiva, EN 1493:2022, nessun organismo notificato. Ogni citazione è verificata sul PDF (`python data/machines/fetch.py`, che li scarica in `raw/`, ignorata da git). Per il chunking: testo con pypdf (serve `cryptography` per il MAHA); pdftotext dà testo migliore per UR e SICK.
 - 13:50 — **1315 confermata.** Ho cambiato le righe «Stato» di 1315, della mia 1250 e della 1200, e il piano. I lavori sono divisi in blocchi in `docs/LAVORI.md`: scegliamo insieme chi prende cosa. Prima: `.env` su entrambe le macchine e un solo commit `contract:` per i campi nuovi.
 - 12:50 — Il video racconta l'RSPP: ho scritto `docs/decisions/1250-rspp-un-solo-motore.md` (proposta). Il tuo registro dei fatti diventa il motore della strategia B, con export Turtle + SHACL. Confermala o correggila prima di continuare.
 - 12:50 — Trappola trovata nel tuo DM: art. 2 c. 1 dice 60 giorni per la prima verifica INAIL, l'art. 71 c. 11 vigente dice 45. Ottimo caso per `make_current` e `as_of`.

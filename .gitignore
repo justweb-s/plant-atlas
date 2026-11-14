@@ -20,3 +20,6 @@ runtime/
 .idea/
 .DS_Store
 Thumbs.db
+
+# copyrighted manuals: only links, fingerprints and quotes are committed
+data/machines/raw/
