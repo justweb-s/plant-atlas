@@ -35,7 +35,7 @@ export default function AtlasView() {
                 {label}
               </a>
             ))}
-            <Link href="/app" className="rounded-lg px-3 py-1.5 text-sm font-medium text-muted transition hover:text-foreground">
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-muted transition hover:text-foreground">
               App per l&apos;RSPP
             </Link>
           </nav>
