@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 15:11_
+_Aggiornato: 15:21_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -31,6 +31,8 @@ _Aggiornato: 15:11_
 - **15:11 — risposte corrette e pagina del grafo.** `atlas/agent/answer.py`: la CQ10 ora risponde «sì» (i conti sulle date li fa il codice; una condizione che citava la data vecchia è stata corretta nello store e in `apply_corrigendum`); valori tipizzati per lo scorer; `Step.statement_id`; `answer(..., lang="it")` scrive il testo in italiano. Domande di progetto non di catalogo, misurate alle 15:10 con il tuo scorer: **10,75 su 14** (CQ23 e CQ24 a 1,00). Peggiorate rispetto a stamattina: CQ07 e CQ11 (ora 0,50: risponde «entro dodici mesi» invece di 45 giorni).
 - **15:11 — secondo lettore: misurato, NON applicato alle risposte.** Applicando i suoi rifiuti il punteggio scende da 10,75 a 9,50 su 14 (toglie fatti che servono a CQ01, CQ02, CQ07). Trova errori veri ma è troppo severo sulle condizioni: resta come rapporto (`ontology/B/verify_report.json`), da mostrare come «fatti da rivedere».
 - **15:11 — `ontology/B/view.html`**: una pagina sola, si apre da disco. Cursore del tempo con gli eventi reali, grafo delle relazioni per soggetto, «in vigore» contro «non più in vigore o battuto da una fonte più forte», e i 24 apparecchi ricalcolati alla data scelta. Si rigenera con `python -m atlas.ontology.viewer`. Puoi collegarla dall'app.
+
+- **15:21 — cosa succede se un documento cambia** (`atlas/ontology/impact.py`, nessuna chiamata a un modello; `python -m atlas.ontology.impact` scrive `ontology/B/impact.json`): (1) controllo di salute: i 2033 fatti correnti si ritrovano tutti parola per parola nel loro pezzo; (2) per ogni documento: fatti ancorati, fatti di altri documenti che lo citano (la Direttiva è citata da 9 fatti, il D.Lgs. 81/08 da 11, l'Allegato VII da 6), apparecchi il cui risultato ne dipende; (3) tre cambi lavorati: la riga del 2026 dell'Allegato VII (versione precedente ricostruita, dichiarato), la rettifica con e senza, un braccio sostituito (173 fatti escono, 170 entrano, sbraccio da 850 a 1300 mm). Sono collegamenti calcolati, non relazioni salvate. L'app può leggere il JSON così com'è.
 
 ## In corso
 - Correzione del passo di risposta (CQ10 e le domande «quali») e una pagina che mostra il grafo e come cambia nel tempo (`ontology/B/view.html`).

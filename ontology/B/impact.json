@@ -1,0 +1,668 @@
+{
+ "generated": "2026-11-14T15:21:32",
+ "health": {
+  "checked": 2033,
+  "quote_found": 2033,
+  "quote_missing": 0,
+  "piece_missing": 0
+ },
+ "health_problems": [],
+ "documents": [
+  {
+   "source": "REG",
+   "title": "Regulation (EU) 2023/1230 on machinery",
+   "layer": "law",
+   "pieces": 579,
+   "facts_anchored": 694,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 694 facts anchored in it would be checked again."
+  },
+  {
+   "source": "DIR",
+   "title": "Directive 2006/42/EC on machinery",
+   "layer": "law",
+   "pieces": 281,
+   "facts_anchored": 422,
+   "referred_by": [
+    {
+     "layer": "company",
+     "count": 1,
+     "examples": [
+      {
+       "id": "company-st-0110",
+       "subject": "costruttore di un macchinario",
+       "predicate": "hasObligation",
+       "value": "fornire in formato cartaceo le istruzioni per l'uso sicuro",
+       "source_doc": "univpm-guideline",
+       "anchor": "p. 7",
+       "quote": "Con l’entrata in vigore della Direttiva Macchine 2006/42/CE il costruttore di un macchinario è obbligato a fornire in formato cartaceo le istruzioni per l'uso sicuro."
+      }
+     ]
+    },
+    {
+     "layer": "manufacturer",
+     "count": 8,
+     "examples": [
+      {
+       "id": "manufacturer-st-0166",
+       "subject": "Universal Robots e-Series partly completed machine",
+       "predicate": "hasDeclaration",
+       "value": "EU Declaration of Incorporation (DOI) (in accordance with 2006/42/EC Annex II B)",
+       "source_doc": "ur5e-manual",
+       "anchor": "p. 220",
+       "quote": "Declaration of Incorporation (original) EU Declaration of Incorporation (DOI) (in accordance with 2006/42/EC Annex II B) Manufacturer:"
+      },
+      {
+       "id": "manufacturer-st-0172",
+       "subject": "Universal Robots e-Series",
+       "predicate": "conformsToStandard",
+       "value": "Machinery Directive 2006/42/EC",
+       "source_doc": "ur5e-manual",
+       "anchor": "p. 220",
+       "quote": "Machinery Directive 2006/42/EC The following essential requirements have been fulfilled:"
+      },
+      {
+       "id": "manufacturer-st-0402",
+       "subject": "Universal Robots e-Series (UR3e, UR5e, UR7e, UR10e, UR12e and UR16e)",
+       "predicate": "hasDeclaration",
+       "value": "Declaration of Incorporation (original)",
+       "source_doc": "ur10e-manual",
+       "anchor": "p. 227",
+       "quote": "Declaration of Incorporation (original) EU Declaration of Incorporation (DOI) (in accordance with 2006/42/EC Annex II B) Manufacturer:"
+      }
+     ]
+    }
+   ],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 422 facts anchored in it would be checked again, 9 facts in other documents cite it and would be flagged for review."
+  },
+  {
+   "source": "ur5e-manual",
+   "title": "UR5e User Manual, PolyScope 5, original instructions (en)",
+   "layer": "manufacturer",
+   "pieces": 240,
+   "facts_anchored": 173,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 173 facts anchored in it would be checked again."
+  },
+  {
+   "source": "ur10e-manual",
+   "title": "UR10e User Manual, PolyScope 5, original instructions (en)",
+   "layer": "manufacturer",
+   "pieces": 248,
+   "facts_anchored": 170,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 170 facts anchored in it would be checked again."
+  },
+  {
+   "source": "inail-guide",
+   "title": "INAIL, Guida ai servizi di verifica di attrezzature, macchine e impianti (2019)",
+   "layer": "guidance",
+   "pieces": 52,
+   "facts_anchored": 119,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 119 facts anchored in it would be checked again."
+  },
+  {
+   "source": "nanoscan3-manual",
+   "title": "nanoScan3 I/O safety laser scanner, operating instructions (en)",
+   "layer": "manufacturer",
+   "pieces": 156,
+   "facts_anchored": 112,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 112 facts anchored in it would be checked again."
+  },
+  {
+   "source": "unict-guideline",
+   "title": "Universita' di Catania, Gestione delle attrezzature di lavoro, linea guida",
+   "layer": "company",
+   "pieces": 20,
+   "facts_anchored": 80,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 80 facts anchored in it would be checked again."
+  },
+  {
+   "source": "igea-equipment",
+   "title": "IGEA S.p.A., Scheda tecnica: verifica periodica degli apparecchi di sollevamento 2019-2021 (elenco di 24 apparecchi)",
+   "layer": "plant",
+   "pieces": 9,
+   "facts_anchored": 73,
+   "referred_by": [],
+   "devices_affected": 24,
+   "if_changed": "If this document changed, 73 facts anchored in it would be checked again, and the result for 24 lifting devices depends on it."
+  },
+  {
+   "source": "DLGS",
+   "title": "D.Lgs. 81/2008, articles 69 to 73",
+   "layer": "law",
+   "pieces": 29,
+   "facts_anchored": 48,
+   "referred_by": [
+    {
+     "layer": "company",
+     "count": 7,
+     "examples": [
+      {
+       "id": "company-st-0001",
+       "subject": "datore di lavoro",
+       "predicate": "hasObligation",
+       "value": "provvedere affinché tali attrezzature siano oggetto di idonea manutenzione",
+       "source_doc": "unict-guideline",
+       "anchor": "p. 1",
+       "quote": "(Testo Unico), articolo 71, in virtù del quale il datore di lavoro deve, non solo mettere a disposizione dei lavoratori attrezzature conformi ai requisiti di sicurezza, conformemente alle disposizioni legislative nazionali o di recepimento delle direttive comunitarie e adeguate a"
+      },
+      {
+       "id": "company-st-0018",
+       "subject": "attrezzatura di lavoro",
+       "predicate": "mustKeepRegister",
+       "value": "REGISTRO DELLE MANUTENZIONI E DEI CONTROLLI",
+       "source_doc": "unict-guideline",
+       "anchor": "p. 6",
+       "quote": "FRONTESPIZIO – fac-simile REGISTRO DELLE MANUTENZIONI E DEI CONTROLLI (D.Lgs. 81/08 art. 71) Attrezzatura Costruttore e modello Matricola Anno di fabbricazione Inventario N° Collocazione Manuale d'uso e manutenzione SI NO Collocazione Tecnico incaricato"
+      },
+      {
+       "id": "company-st-0090",
+       "subject": "datore di lavoro",
+       "predicate": "hasObligation",
+       "value": "provvedere affinché tali attrezzature siano oggetto di idonea manutenzione",
+       "source_doc": "univpm-guideline",
+       "anchor": "p. 4",
+       "quote": "(Testo Unico), articolo 71, in virtù del quale il datore di lavoro, non solo deve mettere a disposizione dei lavoratori attrezzature conformi ai requisiti di sicurezza, conformemente alle disposizioni legislative nazionali o di recepimento delle direttive comunitarie e adeguate a"
+      }
+     ]
+    },
+    {
+     "layer": "law",
+     "count": 4,
+     "examples": [
+      {
+       "id": "law_verification-dm2011-02",
+       "subject": "verifiche periodiche di cui all'articolo 71, comma 11",
+       "predicate": "verifiedBy",
+       "value": "soggetti pubblici o privati",
+       "source_doc": "DM2011",
+       "anchor": "art. 1, c. 1",
+       "quote": "81/2008, nonche' i criteri per l'abilitazione dei soggetti pubblici o privati e individua le condizioni in presenza delle quali l'INAIL e le ASL possono avvalersi del supporto di soggetti pubblici o privati, ai sensi dell'articolo 71, comma 12, del decreto legislativo n. 81/2008,"
+      },
+      {
+       "id": "law_verification-dm2011-04",
+       "subject": "first periodic verification",
+       "predicate": "verifiedBy",
+       "value": "INAIL",
+       "source_doc": "DM2011",
+       "anchor": "art. 2, c. 1",
+       "quote": "81/2008, l'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta, mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta."
+      },
+      {
+       "id": "law_verification-dm2011-06",
+       "subject": "subsequent periodic verifications",
+       "predicate": "verifiedBy",
+       "value": "ASL",
+       "source_doc": "DM2011",
+       "anchor": "art. 2, c. 1",
+       "quote": "81/2008, l'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta, mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta."
+      }
+     ]
+    }
+   ],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 48 facts anchored in it would be checked again, 11 facts in other documents cite it and would be flagged for review."
+  },
+  {
+   "source": "DLGSALLVII",
+   "title": "D.Lgs. 81/2008, Annex VII",
+   "layer": "law",
+   "pieces": 29,
+   "facts_anchored": 39,
+   "referred_by": [
+    {
+     "layer": "company",
+     "count": 1,
+     "examples": [
+      {
+       "id": "company-st-0002",
+       "subject": "verifiche periodiche delle attrezzature dell'Allegato VII",
+       "predicate": "verifiedBy",
+       "value": "personale specializzato dell’ASP di competenza o Organismo privato riconosciuto",
+       "source_doc": "unict-guideline",
+       "anchor": "p. 1",
+       "quote": "Per particolari attrezzature, il cui utilizzo comporta pericoli particolari e riportate nell’Allegato VII del T.U. e ss.mm.ii., occorre eseguire verifiche periodiche con una periodicità stabilita dal legislatore da parte di personale specializzato dell’ASP di competenza o Organis"
+      }
+     ]
+    },
+    {
+     "layer": "guidance",
+     "count": 2,
+     "examples": [
+      {
+       "id": "guidance-st-0002",
+       "subject": "datore di lavoro",
+       "predicate": "hasObligation",
+       "value": "deve provvedere a richiedere all’Inail",
+       "source_doc": "inail-guide",
+       "anchor": "p. 6",
+       "quote": "Per gli impianti con potenzialità superiore a 116 kW, il datore di lavoro, ai sensi del decreto legislativo 9 aprile 2008, n. 81 e successive modificazioni, in conformi- tà alla periodicità stabilita dall’allegato VII al medesimo decreto, deve provvedere a richiedere all’Inail la"
+      },
+      {
+       "id": "guidance-st-0118",
+       "subject": "richiesta di prima verifica periodica",
+       "predicate": "hasObligation",
+       "value": "deve essere inoltrata anticipatamente",
+       "source_doc": "inail-guide",
+       "anchor": "p. 37",
+       "quote": "MODALITÀ DI TRASMISSIONE La richiesta di prima verifica periodica deve essere inoltrata anticipatamente ri- spetto alle scadenze prescritte dall’allegato VII al decreto legislativo 9 aprile 2008, n."
+      }
+     ]
+    },
+    {
+     "layer": "law",
+     "count": 3,
+     "examples": [
+      {
+       "id": "st-1576",
+       "subject": "modalità di effettuazione delle verifiche periodiche",
+       "predicate": "hasTimeLimit",
+       "value": "entro dodici mesi",
+       "source_doc": "DLGS71",
+       "anchor": "art. 71, c. 13",
+       "quote": "Le modalità di effettuazione delle verifiche periodiche di cui all'allegato VII, nonché i criteri per l'abilitazione dei soggetti pubblici o privati di cui al comma precedente sono stabiliti con decreto del Ministro del lavoro, della salute e delle politiche sociali e del Ministr"
+      },
+      {
+       "id": "st-1578",
+       "subject": "periodic verifications of comma 11 for equipment in annex VII",
+       "predicate": "verifiedBy",
+       "value": "Corpo nazionale dei vigili del fuoco",
+       "source_doc": "DLGS71",
+       "anchor": "art. 71, c. 13-bis",
+       "quote": "Al fine di garantire la continuità e l'efficienza dei servizi di soccorso pubblico e di prevenzione ed estinzione degli incendi, il Corpo nazionale dei vigili del fuoco può effettuare direttamente le verifiche periodiche di cui al comma 11, relativamente alle attrezzature riporta"
+      },
+      {
+       "id": "law_verification-dm2011-01",
+       "subject": "attrezzature di lavoro soggette a verifiche periodiche",
+       "predicate": "listedIn",
+       "value": "allegato VII",
+       "source_doc": "DM2011",
+       "anchor": "art. 1, c. 1",
+       "quote": "Il presente decreto disciplina le modalita' di effettuazione delle verifiche periodiche cui sono sottoposte le attrezzature di lavoro di cui all'allegato VII del decreto legislativo n."
+      }
+     ]
+    }
+   ],
+   "devices_affected": 23,
+   "if_changed": "If this document changed, 39 facts anchored in it would be checked again, 6 facts in other documents cite it and would be flagged for review, and the result for 23 lifting devices depends on it."
+  },
+  {
+   "source": "univpm-guideline",
+   "title": "Universita' Politecnica delle Marche, Linee guida gestione attrezzature di laboratorio, v1.0 (2024)",
+   "layer": "company",
+   "pieces": 12,
+   "facts_anchored": 31,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 31 facts anchored in it would be checked again."
+  },
+  {
+   "source": "mastar-manual",
+   "title": "MA STAR two post lifts, original operating instructions (en), with the EC declaration of conformity",
+   "layer": "manufacturer",
+   "pieces": 37,
+   "facts_anchored": 26,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 26 facts anchored in it would be checked again."
+  },
+  {
+   "source": "robot-cell-sheet",
+   "title": "Scheda 2.4.16 Isola robotizzata (EBER, EBAM, INAIL, Regione Emilia-Romagna, Regione Marche)",
+   "layer": "guidance",
+   "pieces": 6,
+   "facts_anchored": 25,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 25 facts anchored in it would be checked again."
+  },
+  {
+   "source": "DM2011",
+   "title": "Ministerial decree of 11 April 2011",
+   "layer": "law",
+   "pieces": 11,
+   "facts_anchored": 12,
+   "referred_by": [
+    {
+     "layer": "guidance",
+     "count": 4,
+     "examples": [
+      {
+       "id": "guidance-st-0061",
+       "subject": "datore di lavoro",
+       "predicate": "hasObligation",
+       "value": "comunicazione di messa in servizio all’Unità operativa territoriale dell’Inail competente",
+       "source_doc": "inail-guide",
+       "anchor": "p. 26",
+       "quote": "Per questi idroestrattori il decreto ministeriale 11 aprile 2011 prescrive che il da- tore di lavoro inoltri: 1. comunicazione di messa in servizio all’Unità operativa territoriale dell’Inail competente1 all’atto della messa in servizio;"
+      },
+      {
+       "id": "guidance-st-0069",
+       "subject": "datore di lavoro (Plac)",
+       "predicate": "hasObligation",
+       "value": "comunicazione di messa in servizio all’Unità operativa territoriale dell’Inail competente all’atto della messa in servizio",
+       "source_doc": "inail-guide",
+       "anchor": "p. 28",
+       "quote": "Piattaforme di lavoro autosollevanti su colonne (Plac) Per le Plac il decreto ministeriale 11 aprile 2011 prescrive che il datore di lavoro inoltri: 1. comunicazione di messa in servizio all’Unità operativa territoriale dell’Inail competente all’atto della messa in servizio;"
+      },
+      {
+       "id": "guidance-st-0073",
+       "subject": "datore di lavoro (Plac)",
+       "predicate": "hasObligation",
+       "value": "la richiesta di prima verifica periodica (punto 2) costituisce adempimento anche per la comunicazione di messa in servizio (punto 1)",
+       "source_doc": "inail-guide",
+       "anchor": "p. 28",
+       "quote": "Per le Plac già messe in servizio alla data del 23 maggio 2012, data di entrata in vigore del decreto ministeriale 11 aprile 2011, la richiesta di prima verifica periodica (punto 2) costituisce adempimento anche per la comunicazione di messa in servizio (punto 1), come evidente d"
+      }
+     ]
+    }
+   ],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 12 facts anchored in it would be checked again, 4 facts in other documents cite it and would be flagged for review."
+  },
+  {
+   "source": "CORR",
+   "title": "Corrigendum to Regulation (EU) 2023/1230, 4 July 2023",
+   "layer": "law",
+   "pieces": 14,
+   "facts_anchored": 9,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 9 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2004-37",
+   "title": "eu-dir-2004-37",
+   "layer": "law",
+   "pieces": 72,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2009-104",
+   "title": "eu-dir-2009-104",
+   "layer": "law",
+   "pieces": 58,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2010-75",
+   "title": "eu-dir-2010-75",
+   "layer": "law",
+   "pieces": 386,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2012-18",
+   "title": "eu-dir-2012-18",
+   "layer": "law",
+   "pieces": 152,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2014-30",
+   "title": "eu-dir-2014-30",
+   "layer": "law",
+   "pieces": 209,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2014-33",
+   "title": "eu-dir-2014-33",
+   "layer": "law",
+   "pieces": 294,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2014-34",
+   "title": "eu-dir-2014-34",
+   "layer": "law",
+   "pieces": 315,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2014-35",
+   "title": "eu-dir-2014-35",
+   "layer": "law",
+   "pieces": 141,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-dir-2014-68",
+   "title": "eu-dir-2014-68",
+   "layer": "law",
+   "pieces": 400,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-reg-2016-425",
+   "title": "eu-reg-2016-425",
+   "layer": "law",
+   "pieces": 315,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-reg-2023-988",
+   "title": "eu-reg-2023-988",
+   "layer": "law",
+   "pieces": 334,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  },
+  {
+   "source": "eu-reg-2024-1689",
+   "title": "eu-reg-2024-1689",
+   "layer": "law",
+   "pieces": 796,
+   "facts_anchored": 0,
+   "referred_by": [],
+   "devices_affected": 0,
+   "if_changed": "If this document changed, 0 facts anchored in it would be checked again."
+  }
+ ],
+ "what_if": [
+  {
+   "id": "annex-vii-2026",
+   "title": "Annex VII gains a row (Law 11 March 2026, n. 34)",
+   "note": "The earlier version is reconstructed by leaving out the row the archive marks as added in 2026; we do not hold the earlier official text. Rows are matched by content, so rows that only moved down one place count as unchanged.",
+   "added": [
+    "Allegato VII, riga 3"
+   ],
+   "removed": [],
+   "modified": [],
+   "facts_affected": [
+    {
+     "id": "law_verification-annex7-r03",
+     "subject": "Piattaforme di lavoro mobili elevabili e piattaforme di lavoro fuori strada per operazioni in frutteto",
+     "predicate": "verificationInterval",
+     "value": "Verifica triennale",
+     "source_doc": "DLGSALLVII",
+     "anchor": "Allegato VII, riga 3",
+     "quote": "Piattaforme di lavoro mobili elevabili e piattaforme di lavoro fuori strada per operazioni in frutteto | Verifica triennale"
+    }
+   ],
+   "devices_affected": [],
+   "result": "1 fact added, 38 facts untouched, 0 of 24 lifting devices get a different interval."
+  },
+  {
+   "id": "corrigendum-withdrawn",
+   "title": "The corrigendum of 4 July 2023, with and without",
+   "note": "Without the corrigendum the Regulation's printed dates stand; with it, each is closed and replaced. Both versions stay in the store.",
+   "added": [],
+   "removed": [],
+   "modified": [
+    "Corrigendum, point 3",
+    "Corrigendum, point 5",
+    "Corrigendum, point 6",
+    "Corrigendum, point 7",
+    "Corrigendum, point 10",
+    "Corrigendum, point 11",
+    "Corrigendum, point 12",
+    "Corrigendum, point 13",
+    "Corrigendum, point 14"
+   ],
+   "facts_affected": [
+    {
+     "id": "st-1594",
+     "subject": "power to adopt delegated acts",
+     "predicate": "appliesFrom",
+     "value": "19 July 2023",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 3",
+     "quote": "read: ‘ 19 July 2023 ’.",
+     "before": "13 July 2023"
+    },
+    {
+     "id": "st-1595",
+     "subject": "Directive 2006/42/EC",
+     "predicate": "repealedFrom",
+     "value": "20 January 2027",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 5",
+     "quote": "read: ‘ 20 January 2027 ’.",
+     "before": "14 January 2027"
+    },
+    {
+     "id": "st-1596",
+     "subject": "products placed on the market in conformity with Directive 2006/42/EC",
+     "predicate": "placingAllowedUntil",
+     "value": "20 January 2027",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 6",
+     "quote": "read: ‘ 20 January 2027 ’.",
+     "before": "14 January 2027"
+    },
+    {
+     "id": "st-1597",
+     "subject": "Chapter VI of this Regulation (mutatis mutandis to such products)",
+     "predicate": "appliesFrom",
+     "value": "19 July 2023",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 7",
+     "quote": "read: ‘ 19 July 2023 ’.",
+     "before": "13 July 2023"
+    },
+    {
+     "id": "st-1598",
+     "subject": "Regulation",
+     "predicate": "appliesFrom",
+     "value": "20 January 2027",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 10",
+     "quote": "read: ‘ 20 January 2027 ’.",
+     "before": "14 January 2027"
+    },
+    {
+     "id": "st-1599",
+     "subject": "Articles 26 to 42",
+     "predicate": "appliesFrom",
+     "value": "20 January 2024",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 11",
+     "quote": "read: ‘ 20 January 2024 ’.",
+     "before": "14 January 2024"
+    },
+    {
+     "id": "st-1600",
+     "subject": "Article 50(1)",
+     "predicate": "appliesFrom",
+     "value": "20 October 2026",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 12",
+     "quote": "read: ‘ 20 October 2026 ’.",
+     "before": "14 October 2023"
+    },
+    {
+     "id": "st-1601",
+     "subject": "Article 6(7) and Articles 48 and 52",
+     "predicate": "appliesFrom",
+     "value": "19 July 2023",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 13",
+     "quote": "read: ‘ 19 July 2023 ’.",
+     "before": "13 July 2023"
+    },
+    {
+     "id": "st-1602",
+     "subject": "Article 6(2) to (6), (8) and (11) and Articles 47 and 53(3)",
+     "predicate": "appliesFrom",
+     "value": "20 July 2024",
+     "source_doc": "CORR",
+     "anchor": "Corrigendum, point 14",
+     "quote": "read: ‘ 20 July 2024 ’.",
+     "before": "14 July 2024"
+    }
+   ],
+   "devices_affected": [],
+   "result": "9 dates change; the old ones are closed and kept."
+  },
+  {
+   "id": "arm-replaced",
+   "title": "A robot arm is replaced by a larger one",
+   "note": "Both manuals are real. Which arm stands in the cell is the plant's choice, not a document.",
+   "added": [
+    "ur10e-manual"
+   ],
+   "removed": [
+    "ur5e-manual"
+   ],
+   "modified": [],
+   "facts_affected": [
+    {
+     "id": "manufacturer-st-0264",
+     "subject": "UR10e robot",
+     "predicate": "hasReach",
+     "value": "1300 mm",
+     "source_doc": "ur10e-manual",
+     "anchor": "p. 47",
+     "quote": "The robot extends 1300 mm from the base joint.",
+     "before": "850 mm"
+    }
+   ],
+   "devices_affected": [],
+   "result": "173 facts of the old manual stop applying to the cell and 170 of the new one start; reach goes from 850 mm to 1300 mm."
+  }
+ ]
+}
