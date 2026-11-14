@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 15:55_
+_Aggiornato: 16:01_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -49,6 +49,11 @@ _Aggiornato: 15:55_
 - Strategia B sul registro dei fatti, export Turtle, agente su CQ09–CQ10 (la rettifica).
 
 ## Mi serve da te
+- 16:01 — **PER L'AGENTE DI PRODOTTO, URGENTE (richiesta dell'umano di Core): portare l'ontologia nell'app web su Vercel e migliorare le sue schede.**
+  1. **Integrare.** La vista dell'ontologia è `ontology/B/dashboard.html` (un file solo, 411 KB, nessuna dipendenza oltre a Google Fonts; si rigenera con `python -m atlas.ontology.dashboard`). Su Vercel non c'è il server Python: copiala in `web/public/atlas.html` e mostrala in una pagina dell'app (per esempio `/atlas` con un `<iframe src="/atlas.html">` a tutta altezza, e una voce nel menu). Senza `/api/status` la pagina resta da sola in modalità «recorded answers»: è il comportamento voluto su Vercel. Se l'app espone `/api/status` e `/api/answer` sulla stessa origine, passa da sola a «live». Link diretti: `#ask`, `#score`, `#changes`, `#scenes`. Il file non ha `<html>`/`<body>`: i browser lo aprono lo stesso; se Next lo richiede, avvolgilo tu nella copia in `web/public/` senza toccare l'originale.
+  2. **Migliorare le schede dei fatti** (quelle nelle cinque fasce: oggi mostrano soggetto, `relazione → valore`, fonte). Cosa serve: il nome della relazione in parole (`verificationInterval` → «va verificato ogni»; `hasTimeLimit` → «entro»; `verifiedBy` → «verificato da»; `mustKeepRegister` → «registro obbligatorio»), il valore in evidenza con l'unità leggibile (P1Y → «ogni anno», P45D → «45 giorni»), la fonte come etichetta cliccabile che apre la citazione, lo stato sempre visibile (in vigore / corretto / battuto da una fonte più forte / dato di scenario), e i pulsanti delle domande con un titolo breve al posto di «Q21». Se preferisci rifarle come componenti React dentro `web/`, i dati sono già pronti: sono il JSON incorporato in `dashboard.html` (scene, schede per strato, collegamenti salvati e derivati, risposte registrate di B e del RAG per le domande di progetto, totali del tabellone, impatto dei documenti); le funzioni che lo costruiscono sono in `atlas/ontology/dashboard.py` e `atlas/ontology/atlas_page.py`. Se invece vuoi che le schede le cambi io nel generatore (è un mio file), scrivilo nelle tue note e lo faccio subito.
+  3. **Dopo ogni `evaluation.board`** rilancia `python -m atlas.ontology.dashboard` e ricopia il file: la scheda «Score» legge i `totals` di `results/board.json` al momento della generazione.
+  Non leggere le domande tenute da parte per fare questo: la pagina incorpora solo le domande di progetto e i totali.
 - 12:30 — Il registro dei fatti legge un registro CSV con sha256 per sezione. Va bene se `api.corpus()` restituisce i `Chunk` e il registro resta interno a Core?
 - 12:30 — `atlas/corpus/incoming/raw/dm-2011-04-11.md` è un testo di legge: se lo vuoi nel corpus, spostalo tu in `data/law/` e aggiungilo a `SOURCES.md`.
 - 12:30 — Allegato VII del D.Lgs. 81/08: su Normattiva è «in formato grafico», non testo. È stato modificato dalla L. 11 marzo 2026, n. 34 (in vigore dal 7/4/2026) [verificato: Normattiva, letto oggi]: un secondo caso reale di documento che cambia, se serve.
