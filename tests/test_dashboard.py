@@ -112,3 +112,16 @@ def test_build_player(page):
 def test_solo_mode_is_handled(page):
     assert 'tokens.has("solo")' in page and 'id="side"' in page
     assert ".app.solo .right { display: none; }" in page or ".app.solo .top, .app.solo .why, .app.solo .right { display: none; }" in page
+
+
+def test_verdicts(page):
+    qs = _data(page)["questions"]
+    design = {q["id"] for q in json.loads((ROOT / "data" / "cq" / "cqs.json").read_text(encoding="utf-8"))["cqs"] if q["split"] == "design"}
+    assert {q["id"] for q in qs} == design
+    assert all(isinstance(q.get("verdict"), dict) and q["verdict"].get("kind") and q["verdict"].get("say") for q in qs)
+    path = ROOT / "ontology" / "B" / "skill_traces.json"
+    traced = {k for k in json.loads(path.read_text(encoding="utf-8")) if k in design} if path.exists() else set()
+    for q in qs:
+        if q["id"] in traced and q["B"] and q["B"]["score"] >= 0.999:
+            assert q["verdict"]["kind"] == "procedure" and q["verdict"]["chain"]
+        assert q["verdict"]["ok"] == bool(q["B"] and q["B"]["score"] >= 0.999)

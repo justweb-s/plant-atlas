@@ -204,6 +204,109 @@ def _docmap(store, impact_data: dict, questions: list, facts: dict, vb: dict) ->
     return {"docs": docs, "edges": list(edges.values()), "group": group, "order": order, "addfacts": addfacts}
 
 
+SKILL_WORDS = {"verification_interval": "the verification rule", "value_on_date": "a date read from the timetable",
+               "single_value": "one value, checked against other sources"}
+STRUCTURE_KINDS = ("procedure", "history", "order", "layers")
+
+
+def _root(locator) -> str:
+    import re
+    low = re.sub(r"^directive,\s*", "", str(locator).strip().lower())
+    m = re.match(r"(art\.?\s*\d+|annex\s+[ivx]+|allegato\s+[ivx]+|p\.\s*\d+|corrigendum, point \d+)", low)
+    return re.sub(r"\s+", " ", m.group(1)).replace("art ", "art. ") if m else low
+
+
+def _alike(a, b) -> bool:
+    from difflib import SequenceMatcher
+    a, b = str(a).lower().strip(), str(b).lower().strip()
+    return bool(a and b) and (a in b or b in a or SequenceMatcher(None, a, b).ratio() >= 0.6)
+
+
+def _verdicts(vb: dict, questions: list, facts: dict) -> None:
+    """One verdict per design question: why it succeeded, or why it failed. Design rows only."""
+    gold = {q["id"]: q for q in _load(ROOT / "data" / "cq" / "cqs.json")["cqs"] if q["split"] == DESIGN}
+    tpath, mpath = ROOT / "ontology" / "B" / "skill_traces.json", ROOT / "ontology" / "B" / "skill_metrics.json"
+    traces = {k: v for k, v in _load(tpath).items() if k in gold} if tpath.exists() else {}
+    by_skill = _load(mpath).get("by_skill", {}) if mpath.exists() else {}
+    vbf = {f["id"]: f for f in vb["facts"]}
+    current = [f for f in vb["facts"] if f.get("st") == "current"]
+    known = set(vb["sources"]) | {f["d"] for f in vb["facts"]}
+
+    def keep(i):
+        facts.setdefault(i, dict(vbf[i], n=vb["sources"][vbf[i]["d"]]["noun"]))
+        return i
+
+    for q in questions:
+        b, r, tr = q.get("B") or {}, q.get("rag") or {}, traces.get(q["id"])
+        score = b.get("score") or 0
+        used = []
+        for i in [st.get("f") for st in q.get("steps") or []] + [i for n in (tr or {}).get("trace", {}).get("nodes", []) for i in n.get("fact_ids") or []]:
+            if i in vbf and i not in used:
+                used.append(i)
+        evidence = [{"source": e["source"], "locator": e["locator"], "quote": (e.get("quote") or "")[:220]} for e in gold[q["id"]].get("evidence", [])]
+        v: dict = {}
+        if score >= 0.999:
+            beat = " Plain search did not get it right." if (r.get("score") or 0) < 0.999 else ""
+            closed = next(((vbf[vbf[i]["x"]], vbf[i]) for i in used if vbf[i].get("x") in vbf and vbf[vbf[i]["x"]].get("st") == "closed"), None)
+            lost = next((g for g in vb["facts"] if g.get("st") == "conflict" and (g.get("x") in used or any(vbf[i].get("x") == g["id"] for i in used))), None)
+            layers = []
+            for i in used:
+                if vbf[i]["l"] not in layers:
+                    layers.append(vbf[i]["l"])
+            if tr:
+                m = by_skill.get(tr["skill"], {})
+                n = m.get("answered") or 0
+                v = {"kind": "procedure", "say": "A fixed procedure walked the ontology: " + SKILL_WORDS.get(tr["skill"], tr["skill"].replace("_", " ")) + "." + beat,
+                     "chain": [{"id": x["id"], "out": str(x.get("output") or "")[:90]} for x in tr["trace"]["nodes"] if x.get("status") == "run"]}
+                if n and m.get("model_calls_without"):
+                    w, wo = round(m["model_calls_with"] / n), round(m["model_calls_without"] / n)
+                    v["calls"] = f"{w} model call{'' if w == 1 else 's'} instead of {wo}"
+            elif closed:
+                v = {"kind": "history", "say": f"The answer rests on a corrected fact: {closed[0].get('w') or closed[0]['o']} became {closed[1].get('w') or closed[1]['o']}; the old value is kept." + beat}
+            elif lost:
+                v = {"kind": "order", "say": f"Two sources disagreed; the stronger one was used and the other ({lost['d']}, {lost.get('w') or lost['o']}) is kept as lost." + beat}
+            elif len(layers) >= 2:
+                v = {"kind": "layers", "say": "The facts used come from " + str(len(layers)) + " layers: " + ", then ".join(layers) + "." + beat}
+            else:
+                v = {"kind": "single", "say": ("One checked fact was enough" if used else "Answered from checked facts; its steps are not recorded on this page") + ": the structure was not needed here." + beat}
+            v["cons"] = "structure did the work" if v["kind"] in STRUCTURE_KINDS else "a lookup was enough"
+        else:
+            match = [[f["id"] for f in current if f["d"] == e["source"] and _root(f["a"]) == _root(e["locator"])] for e in evidence]
+            every = {i for ids in match for i in ids}
+            absent = [e for e in evidence if e["source"] not in known]
+            never = [e for e, ids in zip(evidence, match) if not ids]
+            if absent:
+                v = {"kind": "nodoc", "cons": "document to add", "ev": absent[0],
+                     "say": "The expected answer needs " + absent[0]["source"] + ", which was never read into the ontology."}
+            elif never:
+                v = {"kind": "noextract", "cons": "extraction to improve", "ev": never[0],
+                     "say": "The document is in, but no fact in force was extracted from the passage the answer needs."}
+            elif used and not (set(used) & every):
+                v = {"kind": "unused", "cons": "retrieval to improve", "fact": keep(sorted(every)[0]),
+                     "say": "The ontology holds facts from the expected passage; the agent answered from other facts."}
+            elif 0 < score < 1:
+                want = gold[q["id"]]["answer"]["value"]
+                want = want if isinstance(want, list) else [want]
+                got = b.get("value") if isinstance(b.get("value"), list) else [b.get("value")]
+                got = [g for g in got if g not in (None, "")]
+                items = [{"t": str(g)[:90], "m": "matched" if any(_alike(g, w) for w in want) else "extra"} for g in got]
+                items += [{"t": str(w)[:90], "m": "missing"} for w in want if not any(_alike(g, w) for g in got)]
+                v = {"kind": "list", "cons": "answer wording", "items": items,
+                     "say": ("The answer used facts from the expected passages" if set(used) & every else "The store holds facts from the expected passages")
+                     + f"; the answer scores {score:.2f} because items are missing or extra."}
+            elif b.get("value") in (None, ""):
+                v = {"kind": "unknown", "cons": "retrieval to improve", "ev": evidence[0] if evidence else None,
+                     "say": "The facts exist but the agent did not reach an answer and said unknown."}
+            else:
+                v = {"kind": "neighbour", "cons": "fact selection to improve", "ev": evidence[0] if evidence else None,
+                     "say": "The agent answered from a fact next to the right one."}
+                if used:
+                    v["fact"] = keep(used[0])
+        v["ok"] = score >= 0.999
+        v["structure"] = v["kind"] in STRUCTURE_KINDS
+        q["verdict"] = v
+
+
 def _load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -258,6 +361,7 @@ def build(store=None, today: date | None = None) -> dict:
     vb = atlas_page.viewer.build_data(store, today)
     whole, flagged = _whole(vb, verify["verdicts"], impact, base["facts"], store)
     dmap = _docmap(store, impact, questions, base["facts"], vb)
+    _verdicts(vb, questions, base["facts"])
     index = {}
     for f in vb["facts"]:
         if f.get("st") == "current" and f["id"] not in base["facts"]:
@@ -559,6 +663,30 @@ svg.links .pend { opacity: 0; }
 .why a { color: inherit; }
 .app.embed { padding: 0; }
 .app.embed .top, .app.embed .why { display: none; }
+.verdict { border-radius: 10px; padding: 8px 12px; margin-bottom: 10px; border: 1px solid var(--line); font-size: 13px; }
+.verdict.ok { background: var(--right-bg); border-color: var(--right); }
+.verdict.bad { background: var(--wrong-bg); border-color: var(--wrong); }
+.verdict.plain { background: var(--surface-2); }
+.vh { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.vh b { font-family: "Space Grotesk", Inter, sans-serif; font-size: 15px; }
+.vh span { font-size: 12px; font-weight: 600; }
+.verdict p { margin: 3px 0 0; }
+.chain { display: flex; gap: 6px; overflow-x: auto; margin-top: 6px; padding-bottom: 2px; }
+.chain div { flex: 0 0 128px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 4px 7px; font-size: 11.5px; line-height: 1.3; animation: rise .35s ease-out both; overflow-wrap: anywhere; }
+.chain b { display: block; font-size: 11px; color: var(--right); }
+.items { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.items span { font-size: 11.5px; padding: 2px 8px; border-radius: 999px; background: var(--surface); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.items .matched { color: var(--right); } .items .extra { color: var(--unknown); } .items .missing { color: var(--wrong); }
+.evq { font-size: 12px; color: var(--muted); }
+.qh { width: 100%; font-size: 11px; font-weight: 700; color: var(--muted); margin-top: 2px; }
+.qs { max-height: 168px; }
+.vi { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; background: var(--notinforce); }
+.vi.ok { background: var(--right); } .vi.bad { background: var(--wrong); }
+.vsum { display: grid; gap: 3px; margin: 6px 0 10px; font-size: 12.5px; }
+.vrow { display: grid; grid-template-columns: minmax(0, 250px) 1fr 22px; gap: 8px; align-items: center; }
+.vrow span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vrow i { height: 10px; border-radius: 999px; background: var(--right); }
+.vrow.plain i { background: var(--law); } .vrow.bad i { background: var(--manufacturer); }
 #player { flex: none; display: grid; gap: 4px; margin-bottom: 8px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); font-size: 12px; }
 .prow { display: flex; gap: 6px; align-items: center; min-width: 0; }
 .prow strong { font-family: "Space Grotesk", Inter, sans-serif; font-size: 14px; margin-right: 4px; white-space: nowrap; }
@@ -859,13 +987,35 @@ function stepsHtml(a) {
   return "<div class='row' style='justify-content:space-between'><h3 style='margin:0'>The path: " + a.steps.length + " steps through the ontology</h3><button class='btn ghost' id='showfacts'>Replay path</button></div><ol class='steps'>" +
     a.steps.map((s, i) => "<li><button data-step='" + i + "'><span class='n'>" + (i + 1) + "</span>" + esc(s.text || "") + (s.quote ? "<q>" + esc(s.quote) + "</q>" : "") + "<span class='loc'>" + esc(s.locator || "") + "</span></button></li>").join("") + "</ol>";
 }
+const VK = {procedure: "Answered by a procedure graph", history: "Answered through history", order: "Answered by the order of sources", layers: "Answered across layers", single: "Answered from one checked fact", nodoc: "The document is not in the ontology", noextract: "The fact was never extracted", unused: "The fact is there, the agent did not use it", list: "Right facts, incomplete or over-complete list", unknown: "Said unknown", neighbour: "Wrong value from a neighbouring fact"};
+function vClass(v) { return v.ok ? (v.structure ? "ok" : "plain") : "bad"; }
+function verdictHtml(q) {
+  const v = q && q.verdict; if (!v) return "";
+  let h = "<div class='verdict " + vClass(v) + "'><div class='vh'><b>" + esc(VK[v.kind]) + "</b><span>" + esc(v.cons) + (v.calls ? " \u00b7 " + esc(v.calls) : "") + "</span></div><p>" + esc(v.say) + "</p>";
+  if (v.chain) h += "<div class='chain' aria-label='Execution graph'>" + v.chain.map((n, i) => "<div style='animation-delay:" + (i * .28).toFixed(2) + "s'><b>" + (i + 1) + ". " + esc(n.id.replace(/_/g, " ")) + "</b>" + esc(n.out) + "</div>").join("") + "</div>";
+  if (v.items) h += "<div class='items'>" + v.items.map(i => "<span class='" + i.m + "' title=\"" + esc(i.t) + "\">" + i.m + ": " + esc(i.t) + "</span>").join("") + "</div>";
+  if (v.ev) h += "<p class='evq'><b>Expected passage: " + esc(v.ev.source + " \u00b7 " + v.ev.locator) + "</b> " + (v.ev.quote ? "\u201C" + esc(v.ev.quote) + "\u201D" : "") + "</p>";
+  if (v.fact && D.facts[v.fact]) { const c = factCard(v.fact); h += "<p class='evq'><b>Fact in the store:</b> " + esc(c.s + " " + c.rel + " " + c.val + " (" + c.src + ")") + "</p>"; }
+  return h + "</div>";
+}
+function summaryHtml() {
+  const n = {}; D.questions.forEach(x => { n[x.verdict.kind] = (n[x.verdict.kind] || 0) + 1; });
+  const max = Math.max.apply(null, Object.values(n)); const st = D.questions.filter(x => x.verdict.ok && x.verdict.structure).length;
+  return "<h3>Why each design answer went the way it did</h3><div class='vsum'>" + Object.keys(VK).filter(k => n[k]).map(k => { const v = D.questions.find(x => x.verdict.kind === k).verdict; return "<div class='vrow " + vClass(v) + "'><span>" + esc(VK[k]) + "</span><div><i style='display:block;width:" + Math.round(100 * n[k] / max) + "%'></i></div><b>" + n[k] + "</b></div>"; }).join("") + "</div>" +
+    (st > 0 ? "<p class='say' style='margin-bottom:12px'>Where the structure does the work, Plant Atlas is right; where it only searches its facts, it behaves like search.</p>" : "");
+}
+function qBtn(x, q) { return "<button data-q='" + x.id + "' title=\"" + esc(x[S.lang]) + "\" aria-pressed='" + (q && q.id === x.id) + "'><i class='vi " + vClass(x.verdict) + "'></i><small>" + x.id.replace("CQ", "Q") + "</small> " + esc(x.short) + "</button>"; }
+function qGroups(q) {
+  return [["Answered thanks to the structure", x => x.verdict.ok && x.verdict.structure], ["Where it fails, and why", x => !x.verdict.ok], ["Other", x => x.verdict.ok && !x.verdict.structure]]
+    .map(p => { const l = D.questions.filter(p[1]); return l.length ? "<div class='qh'>" + p[0] + " (" + l.length + ")</div>" + l.map(x => qBtn(x, q)).join("") : ""; }).join("");
+}
 function renderAsk() {
   const q = S.q; const text = S.text != null ? S.text : (q ? q[S.lang] : "");
   let h = "<form class='askbox' id='askform'><input type='text' id='qtext' aria-label='Question' placeholder='Ask a question about the plant, its machines or the rules' value=\"" + esc(text) + "\"><button class='btn'>Ask</button></form>" +
     "<div class='row opts'><span class='seg' aria-label='Question language'><button type='button' data-lang='en' aria-pressed='" + (S.lang === "en") + "'>EN</button><button type='button' data-lang='it' aria-pressed='" + (S.lang === "it") + "'>IT</button></span>" +
     "<label>as of <input type='date' id='asof' value='" + esc(S.asof || "") + "'></label><span>" + (S.live ? "answers computed now" : "the date is used by live answers only") + "</span></div>" +
-    "<div class='qs' aria-label='Design questions'>" + D.questions.map(x => "<button data-q='" + x.id + "' title=\"" + esc(x[S.lang]) + "\" class='" + (x.steps ? "has" : "") + "' aria-pressed='" + (q && q.id === x.id) + "'><small>" + x.id.replace("CQ", "Q") + "</small> " + esc(x.short) + "</button>").join("") + "</div>";
-  if (S.answer) h += "<div class='duo'>" + ansPanel("atlas", "Plant Atlas, from checked facts", S.answer.B) + ansPanel("rag", "Plain search (RAG)", S.answer.rag) + "</div>" + stepsHtml(S.answer.B);
+    "<div class='qs' aria-label='Design questions'>" + qGroups(q) + "</div>";
+  if (S.answer) h += verdictHtml(S.q) + "<div class='duo'>" + ansPanel("atlas", "Plant Atlas, from checked facts", S.answer.B) + ansPanel("rag", "Plain search (RAG)", S.answer.rag) + "</div>" + stepsHtml(S.answer.B);
   else if (S.miss) h += "<p class='note'>" + esc(S.miss) + "</p>";
   $("#panel").innerHTML = h;
 }
@@ -1024,8 +1174,8 @@ function renderSide() {
   } else {
     const q = S.q; const a = S.answer || {};
     h = "<select id='soloq' aria-label='Recorded question'>" + D.questions.map(x => "<option value='" + x.id + "'" + (q && q.id === x.id ? " selected" : "") + ">" + esc(x.id.replace("CQ", "Q") + " " + x.short) + "</option>").join("") + "</select>" +
-      "<p class='qtext'>" + esc(q ? q.en : "") + "</p>" + ansPanel("atlas", "Plant Atlas, from checked facts", a.B) + ansPanel("rag", "Plain search (RAG)", a.rag) +
-      "<div class='row'><button class='btn ghost' id='soloreplay'>Replay path</button></div>";
+      "<p class='qtext'>" + esc(q ? q.en : "") + "</p>" + verdictHtml(q) + ansPanel("atlas", "Plant Atlas, from checked facts", a.B) + ansPanel("rag", "Plain search (RAG)", a.rag) +
+      "<div class='row' style='margin-bottom:10px'><button class='btn ghost' id='soloreplay'>Replay path</button></div>" + summaryHtml();
   }
   o.innerHTML = h; o.hidden = false;
 }
@@ -1099,7 +1249,7 @@ function renderScore() {
     "<div class='keys'><span><i style='background:var(--right)'></i>right</span><span><i style='background:var(--unknown-bg);border:1px solid var(--unknown)'></i>says unknown</span><span><i style='background:var(--wrong)'></i>wrong or partly right</span></div>" +
     grp("design", "Design questions") + "<div class='strip' aria-label='Design questions one by one: Plant Atlas, then plain search'>" + D.questions.map(q => "<div title=\"" + esc(q.en) + "\">" + q.id.replace("CQ", "Q") + "<span>" + m(q.B) + m(q.rag) + "</span></div>").join("") + "</div><p class='note'>Each box: Plant Atlas, then plain search.</p></div>" +
     grp("held", "Held-out questions") + "</div>" +
-    (D.not_run.length ? "<p class='note' style='margin:-6px 0 12px'>Strategy " + esc(D.not_run.join(", ")) + ": not run.</p>" : "") +
+    summaryHtml() + (D.not_run.length ? "<p class='note' style='margin:-6px 0 12px'>Strategy " + esc(D.not_run.join(", ")) + ": not run.</p>" : "") +
     "<h3>The rule in numbers: no quote, no fact</h3><div class='facts'><div><b>" + num(R.proposed) + "</b>facts proposed</div><div><b>" + num(R.accepted) + "</b>accepted with their quote</div><div><b>" + num(R.rejected) + "</b>refused</div></div>" +
     "<p class='note'><b style='color:var(--ink)'>" + num(H.quote_found) + " of " + num(H.checked) + "</b> checked facts are still found word for word in their documents today. Second reader: " + num(V.checked) + " facts re-read, " + num(V.passed) + " passed, " + num(V.back) + " sent back; not applied to the answers.</p>";
 }
@@ -1167,7 +1317,8 @@ $("#panel").addEventListener("change", e => { if (e.target.id === "docpick") { S
 
 (function start() {
   const first = D.questions.find(q => q.steps && q.steps.length >= 3 && q.B && q.B.score >= 0.999) || D.questions.find(q => q.steps) || D.questions[0];
-  S.q = first; S.text = first.en; S.answer = recorded(first); S.asked = true;
+  const mq = /q=(CQ\d+)/.exec((location.hash || "") + (location.search || "")); const asked = mq && D.questions.find(x => x.id === mq[1]);
+  if (asked) { S.q = asked; S.text = asked.en; S.answer = recorded(asked); S.asked = true; } else { S.q = first; S.text = first.en; S.answer = recorded(first); S.asked = true; }
   const tokens = new Set(((location.hash || "") + "&" + (location.search || "")).split(/[#&?=,]/).filter(Boolean));
   if (tokens.has("docs")) S.left = "docs";
   let auto = false;
