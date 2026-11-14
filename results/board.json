@@ -59,21 +59,21 @@
     "correct": 14,
     "unknown": 3,
     "wrong": 5,
-    "mean": 0.729
+    "mean": 0.733
    },
    "heldout": {
     "n": 12,
     "correct": 4,
-    "unknown": 3,
-    "wrong": 5,
+    "unknown": 5,
+    "wrong": 3,
     "mean": 0.361
    },
    "covered_by_b": {
     "n": 31,
     "correct": 18,
-    "unknown": 3,
-    "wrong": 10,
-    "mean": 0.657
+    "unknown": 5,
+    "wrong": 8,
+    "mean": 0.66
    },
    "answered": 34,
    "of": 34
@@ -88,7 +88,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.545
+   "B": 0.727
   },
   {
    "id": "CQ02",
@@ -98,7 +98,7 @@
    "covered_by_b": true,
    "rag": 0.667,
    "A": null,
-   "B": 0.667
+   "B": 0.571
   },
   {
    "id": "CQ03",
@@ -388,7 +388,7 @@
    "covered_by_b": true,
    "rag": 1.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ32",
@@ -398,7 +398,7 @@
    "covered_by_b": true,
    "rag": 1.0,
    "A": null,
-   "B": 1.0
+   "B": 0.0
   },
   {
    "id": "CQ33",

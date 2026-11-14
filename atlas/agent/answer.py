@@ -237,6 +237,12 @@ ASSUMPTIONS = {
           "cavalletto e i paranchi come fissi, e il settore del sito vale per ogni apparecchio."}
 
 
+FREQUENCY = re.compile(r"how often|every how many|how frequent|periodicit|interval|frequen|ogni quant|cadenz", re.I)
+VERIFIED_ON = re.compile(r"(last|next|latest|previous|ultim|prossim|date|data|due|scaden).*verif|"
+                         r"verif.*(date|data|due|scaden|last|next|ultim|prossim)", re.I)
+NO_DATES = "no fact in the store gives a last or next verification date for these devices"
+
+
 def _words(text: str) -> set[str]:
     """Content words of a text, lower case, camelCase split, crude singular (English and Italian)."""
     spaced = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", text or "")
@@ -436,6 +442,17 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         f"\n- IGEA device {r['device']['position']} ({r['device'].get('kind', '?')}): verification interval on {on} = "
         + (f"{r['interval']}, because {r['because']}" if r["interval"] else f"unknown, because {r['why']}")
         + f" [rests on facts {', '.join(str(index[s.id]) for s in r['facts'])}]" for r in rule)
+    frequency = bool(FREQUENCY.search(question))   # the rule answers only "how often"
+    if rule and not frequency:
+        # The interval is context only. Whether the plant records a verification date is looked up, not assumed.
+        sources = {s.source_doc for r in rule for s in r["facts"] if s.subject.startswith("IGEA device")}
+        dated = [s for s in facts if (getattr(s, "layer", "") == "plant" or s.source_doc in sources)
+                 and VERIFIED_ON.search(f"{s.predicate} {s.subject}")]
+        computed += ("\n- The intervals above say only how often a device must be verified; they do not say when it "
+                     "was last verified, when the next verification is due, whether it is overdue or compliant, or "
+                     "who verified it.")
+        if not dated:
+            computed += f"\n- {NO_DATES}: a question about such a date, or about being overdue, is unknown."
     numbered = "\n".join(f"[{i}] {_line(s)}{_notes(s, asked, corrected)}"
                          + (" [note: filed under a place the question names]" if s.id in named else "")
                          for i, s in enumerate(chosen))
@@ -461,7 +478,7 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         value, used, missing = grounded(str(data.get("kind") or ""), value, used, question)
         if value is None:
             text = f"{UNKNOWN.get(lang, UNKNOWN['en'])} ({missing})"
-    if rule:   # the rule's facts are always cited and its assumptions always stated
+    if rule and frequency:   # the rule's facts are always cited and its assumptions always stated
         if len(rule) == 1 and str(data.get("kind") or "") in ("duration", "unknown", ""):
             only = rule[0]   # one device asked about: the rule decides, the model only words it
             value = typed("duration", only["interval"]) if only["interval"] else None

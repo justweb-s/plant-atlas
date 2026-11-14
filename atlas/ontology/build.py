@@ -23,12 +23,39 @@ def folder(strategy: str) -> Path:
 @lru_cache(maxsize=None)
 def store_for(strategy: str):
     """The store the answers read: the built one, with the decisions of ontology/B/changes/ applied."""
+    import os
+
     store = raw_store(strategy)
     if strategy == "B":
         from atlas.ontology import change
 
-        return change.current_view(store)   # no decision recorded: the store itself
+        store = change.current_view(store)   # no decision recorded: the store itself
+        if os.getenv("ATLAS_SECOND_READER", "0") == "1":
+            store = without_unsupported(store)
     return store
+
+
+def without_unsupported(store):
+    """Facts the second reader found NOT STATED by their text (or could not judge) do not feed the answers.
+
+    They go back to "proposed" in a copy of the store; nothing is deleted and the committed store is unchanged.
+    Facts flagged only for a possibly dropped condition stay: measured on the design questions, removing
+    them takes away more right answers than wrong ones. It is off by default: on the design questions it lowered the score (16.13 -> 15.66 of 22). ATLAS_SECOND_READER=1 switches it on.
+    """
+    import copy
+
+    from atlas.ontology.verify import apply_verdicts, load_verdicts
+
+    try:
+        verdicts = {key: v for key, v in load_verdicts().items() if v.get("states") != "yes"}
+    except (FileNotFoundError, ValueError):
+        return store
+    if not verdicts:
+        return store
+    view = copy.deepcopy(store)
+    view.path = None
+    apply_verdicts(view, verdicts)
+    return view
 
 
 @lru_cache(maxsize=None)

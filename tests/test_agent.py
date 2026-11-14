@@ -143,5 +143,8 @@ def test_the_verification_rule_decides_for_a_named_device(monkeypatch):
     a, _ = _ask({"kind": "duration", "value": "P2Y", "text": "t", "used": [0]}, monkeypatch,
                 question.replace("7", "9"), facts)
     assert a.value is None and "not mapped" in a.text   # no interval from the rule: unknown, with its reason
+    a, seen = _ask({"kind": "unknown", "value": None, "text": "t", "used": []}, monkeypatch,
+                   "When is the next verification of the crane at position 7 due?", facts)
+    assert a.value is None and agent.NO_DATES in seen["user"] and a.steps == []   # shown as context, never the value
     a, seen = _ask({"kind": "unknown", "value": None, "used": []}, monkeypatch, "What is at position 7?", facts)
     assert a.value is None and "Computed by rule" not in seen["user"]   # not a verification question: no rule
