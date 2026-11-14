@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 27\n\nPROJECT PLANNING 5 o tI = processing time for the selected switching type in milliseconds (ms) O Local control input: tI = 12 ms 2. Calculate how much time is available in the response time for switching between monitoring cases: tCSA = (n – nCS) × tS where: o tCSA = time available for switching between monitoring cases in milliseconds (ms) o n = Multiple sampling setting (default: n = 2) o nCS = multiple sampling after switching between monitoring cases (with set- ting Fast (presetting): nCS = 1, with setting Reliable: nCS = n – 1, with setting User-defined: nCS ≤ n – 1) o tS = scan cycle time in milliseconds (ms) 3. Compare whether there is enough time available for switching between monitoring cases: o If tCSA ≥ tCSR: earlier start is not necessary. o If tCSA < tCSR: switching between monitoring cases must start earlier. Required time advance tCSP: tCSP = tCSR – tCSA Complementary information O In some cases, it is not possible to define when to switch (for example because processing times of the machine vary) or the time advance means that the moni- toring of an area finishes too early. Remedial measures: o Allow both protective fields to partially overlap. o Temporarily monitor both hazardous areas simultaneously. Further topics O \"Input delay\", page 89 5.3.5 Minimum distance for stationary applications Overview The protective field must be designed to recognize a person, at the latest, when he or she reaches the minimum distance from the hazardous point The minimum distance means that the dangerous state can be ended in good time before the person reaches the hazardous point. Minimum distance for stationary applications The calculation of the minimum distance is based on international or national standards and statutory requirements applicable at the place of installation of the machine. If the minimum distance is calculated according to ISO 13855:2010, then it depends on the following points: O Machine stopping time (time interval between triggering the sensor function and the end of the machine’s dangerous state, if necessary including signal propaga- tion times in the network and processing time in the control) O Response time of the protective device O Reach or approach speed of the person O Resolution (detection capability) of the safety laser scanner O Type of approach: parallel for hazardous area protection, orthogonal for hazardous area protection and access protection O Switching time between monitoring cases 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 27 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Local control input | hasProcessingTime | tI = 12 ms | \"\" | \"O Local control input: tI = 12 ms\"\ntime available for switching between monitoring cases (tCSA) | isCalculatedAs | (n – nCS) × tS | \"\" | \"tCSA = (n – nCS) × tS\"\nmultiple sampling setting n | defaultValue | 2 | \"\" | \"n = Multiple sampling setting (default: n = 2)\"\nnCS | equals | 1 | setting Fast (presetting) | \"with setting Fast (presetting): nCS = 1\"\nnCS | equals | n – 1 | setting Reliable | \"with setting Reliable: nCS = n – 1\"\nnCS | isAtMost | n – 1 | setting User-defined | \"with setting User-defined: nCS ≤ n – 1\"\nearlier start for switching between monitoring cases | isNotNecessary | tCSA ≥ tCSR | tCSA ≥ tCSR | \"If tCSA ≥ tCSR: earlier start is not necessary.\"\nswitching between monitoring cases | mustStartEarlier | by tCSP | tCSA < tCSR | \"If tCSA < tCSR: switching between monitoring cases must start earlier.\"\nrequired time advance (tCSP) | isCalculatedAs | tCSR – tCSA | \"\" | \"Required time advance tCSP: tCSP = tCSR – tCSA\"\nboth protective fields | mayPartiallyOverlap | \"\" | when it is not possible to define when to switch, or the time advance makes monitoring finish too early | \"Allow both protective fields to partially overlap.\"\nprotective field | mustRecognizePersonAt | minimum distance from the hazardous point | \"\" | \"The protective field must be designed to recognize a person, at the latest, when he or she reaches the minimum distance from the hazardous point\"\nminimum distance (ISO 13855:2010) | dependsOn | machine stopping time, response time of the protective device, reach or approach speed, resolution, type of approach, switching time between monitoring cases | minimum distance calculated according to ISO 13855:2010 | \"If the minimum distance is calculated according to ISO 13855:2010, then it depends on the following points\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1458,
+   "prompt_tokens": 1054,
+   "total_tokens": 2512,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 722,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008344,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008344,
+   "gateway_cost": 0.0008344
+  }
+ }
+}

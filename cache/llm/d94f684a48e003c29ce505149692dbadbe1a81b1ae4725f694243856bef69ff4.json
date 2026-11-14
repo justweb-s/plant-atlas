@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 198\n\n15.3. Modes Description You access and activate different modes using Teach Pendant or the Dashboard Server. If an external mode selector is integrated, it control the modes - not PolyScope or the Dashboard Server. Automatic Mode Once activated, the robot can only execute a program of pre-defined tasks. You cannot modify or save programs and installations. Manual Mode Once activated, you can program the robot. You can modify and save programs and installations. The speeds used in Manual Mode must be limited to prevent injury. When the robot is operating in Manual Mode, a person could be positioned within reach of the robot. The speed must be limited to the value that is appropriate for the application risk assessment. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. WARNING Injury can occur if the speed used, while the robot is operating in Manual Mode, is too high. High Speed Manual Mode can be used. It allows both tool speed and elbow speed to temporarily exceed 250 mm/s, while a hold-to-run is used. Hold-to-run is performed by continuous contact with the Speed Slider. The robot performs a Safeguard Stop in Manual mode, if a Three-Position Enabling Device is configured, and either released (not pressed) or it is fully compressed. Switching between Automatic mode to Manual mode requires the Three-Position Enabling Device to be fully released and pressed again to allow the robot to move. When using High Speed Manual Mode, use safety joint limits or safety planes to restrict the robot’s moving space. Mode Operational mode Manual Automatic switching Freedrive x * Move robot with arrows on Move Tab x * Edit & save program & installation x Reduced Execute Programs * speed** Start program from selected node x *Only when no Three-Position Enabling Device is configured. ** If a Three-Position Enabling Device is configured, the robot operates at Manual Reduced Speed unless High Speed Manual Mode is activated. UR10e 201 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Teach Pendant or Dashboard Server | usedToAccessAndActivate | operational modes | | You access and activate different modes using Teach Pendant or the Dashboard Server.\nExternal mode selector | controlsModes | robot operational modes | if an external mode selector is integrated | If an external mode selector is integrated, it control the modes - not PolyScope or the Dashboard Server.\nAutomatic Mode | permitsOnly | execution of a program of pre-defined tasks | | Once activated, the robot can only execute a program of pre-defined tasks.\nAutomatic Mode | prohibits | modifying or saving programs and installations | | You cannot modify or save programs and installations.\nManual Mode | permits | programming the robot, modifying and saving programs and installations | | Once activated, you can program the robot. You can modify and save programs and installations.\nManual Mode speed | mustBeLimitedTo | value appropriate for the application risk assessment | when a person could be positioned within reach of the robot | The speed must be limited to the value that is appropriate for the application risk assessment.\nHigh Speed Manual Mode | allowsExceeding | 250 mm/s for tool speed and elbow speed | while hold-to-run is used | It allows both tool speed and elbow speed to temporarily exceed 250 mm/s, while a hold-to-run is used.\nHold-to-run | requires | continuous contact with the Speed Slider | | Hold-to-run is performed by continuous contact with the Speed Slider.\nRobot | performsSafeguardStop | in Manual mode | if a Three-Position Enabling Device is configured and either released (not pressed) or fully compressed | The robot performs a Safeguard Stop in Manual mode, if a Three-Position Enabling Device is configured, and either released (not pressed) or it is fully compressed.\nSwitching from Automatic mode to Manual mode | requiresReleaseAndRepress | Three-Position Enabling Device | to allow the robot to move | Switching between Automatic mode to Manual mode requires the Three-Position Enabling Device to be fully released and pressed again to allow the robot to move.\nHigh Speed Manual Mode | requires | safety joint limits or safety planes to restrict moving space | when High Speed Manual Mode is used | When using High Speed Manual Mode, use safety joint limits or safety planes to restrict the robot's moving space.\nFreedrive | isAvailableIn | Manual Mode | only when no Three-Position Enabling Device is configured | *Only when no Three-Position Enabling Device is configured.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1579,
+   "prompt_tokens": 869,
+   "total_tokens": 2448,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 726,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008764,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008764,
+   "gateway_cost": 0.0008764
+  }
+ }
+}

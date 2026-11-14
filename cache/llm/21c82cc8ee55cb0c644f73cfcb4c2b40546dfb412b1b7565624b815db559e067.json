@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 124\n\nDescription The safety system limits are defined in the Safety Configuration . The safety system receives values from the input fields and detects any violation if any the values are exceeded. The robot controller prevents violations by making a robot stop or by reducing the speed. Robot Limits Description Robot Limits restrict general robot movements. The Robot Limits screen has two configuration options: Factory Presets and Custom. Factory Factory Presets is where you can use the slider to select a predefined safety setting . The Presets values in the table are updated to reflect the preset values ranging from Most Restricted to Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Least Restricted NOTICE Slider values are only suggestions and do not substitute a proper risk assessment. UR5e 127 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety system limits | are defined in | Safety Configuration | | The safety system limits are defined in the Safety Configuration\nSafety system | receives values from | input fields | | The safety system receives values from the input fields\nSafety system | detects | violation of limits | values are exceeded | detects any violation if any the values are exceeded\nRobot controller | prevents violations by | stopping the robot or reducing its speed | | The robot controller prevents violations by making a robot stop or by reducing the speed\nRobot Limits | restrict | general robot movements | | Robot Limits restrict general robot movements\nRobot Limits screen | offers | two configuration options: Factory Presets and Custom | | The Robot Limits screen has two configuration options: Factory Presets and Custom\nFactory Presets | allows selecting | predefined safety setting via slider | | you can use the slider to select a predefined safety setting\nPresets values | range from | Most Restricted to Least Restricted | | The Presets values in the table are updated to reflect the preset values ranging from Most Restricted to Least Restricted\nSlider values | are | only suggestions | | Slider values are only suggestions and do not substitute a proper risk assessment\nSlider values | do not substitute | proper risk assessment | | Slider values are only suggestions and do not substitute a proper risk assessment",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 927,
+   "prompt_tokens": 465,
+   "total_tokens": 1392,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 492,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.00051,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.00051,
+   "gateway_cost": 0.00051
+  }
+ }
+}

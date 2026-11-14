@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 117\n\nWorkspace Front Tilted Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Due to the physical properties of the robot arm, certain workspace areas require attention regarding pinching hazards. One area (left) is defined for radial motions when the wrist 1 joint is at least 450 mm from the base of the robot. The other area (right) is within 200 mm of the base of the robot, when moving tangentially. 10.2.4. Safety Functions Description The safety system acts by monitoring if any of the safety limits are exceeded or if an Emergency Stop or a Safeguard Stop is initiated. The reactions of the safety system are: Trigger Reaction Emergency Stop Stop Category 1 Safeguard Stop Stop Category 2 3PE Stop (if a 3-Position Enabling device is connected) Stop Category 2 Limit Violation Stop Category 0 Fault Detection Stop Category 0 NOTICE If the safety system detects any fault or violation, all safety outputs re- set to low. User Manual 120 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Pinching hazard area (left) | is defined for | radial motions | wrist 1 joint is at least 450 mm from the base of the robot | \"One area (left) is defined for radial motions when the wrist 1 joint is at least 450 mm from the base of the robot.\"\nPinching hazard area (right) | is located | within 200 mm of the base of the robot | when moving tangentially | \"The other area (right) is within 200 mm of the base of the robot, when moving tangentially.\"\nSafety system | monitors | whether any safety limits are exceeded or an Emergency Stop or Safeguard Stop is initiated | | \"The safety system acts by monitoring if any of the safety limits are exceeded or if an Emergency Stop or a Safeguard Stop is initiated.\"\nEmergency Stop | triggers reaction | Stop Category 1 | | \"Emergency Stop Stop Category 1\"\nSafeguard Stop | triggers reaction | Stop Category 2 | | \"Safeguard Stop Stop Category 2\"\n3PE Stop | triggers reaction | Stop Category 2 | a 3-Position Enabling device is connected | \"3PE Stop (if a 3-Position Enabling device is connected) Stop Category 2\"\nLimit Violation | triggers reaction | Stop Category 0 | | \"Limit Violation Stop Category 0\"\nFault Detection | triggers reaction | Stop Category 0 | | \"Fault Detection Stop Category 0\"\nSafety system | resets to low | all safety outputs | the safety system detects any fault or violation | \"If the safety system detects any fault or violation, all safety outputs reset to low.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1015,
+   "prompt_tokens": 563,
+   "total_tokens": 1578,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 469,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005638,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005638,
+   "gateway_cost": 0.0005638
+  }
+ }
+}

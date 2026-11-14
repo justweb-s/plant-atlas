@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 189\n\n15. Emergency Events 15. Emergency Events Description Follow the instructions here to handle emergency situations, such as activating the emergency stop using the red push-button. This section also describes how to manually move the system without power. 15.1. Emergency Stop Description The Emergency Stop or E-stop is the red push-button located on the Teach Pendant. Press the emergency stop push-button to stop all robot motion. Activating the emergency stop push-button causes a stop category one (IEC 60204-1). Emergency stops are not safeguards (ISO 12100). Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Emergency stops are complementary protective measures that do not prevent injury. The risk assessment of the robot application determines if additional emergency stop push- buttons are required. The emergency stop function and the actuating device must comply with ISO 13850. After an emergency stop is actuated, the push-button latches in that setting. As such, each time an emergency stop is activated, it must be manually reset at the push-button that initiated the stop. Before resetting the emergency stop push-button, you must visually identify and assess the reason the E-stop was first activated. Visual assessment of all the equipment in the application is required. Once the problem is solved, reset the emergency stop push- button. To reset the emergency stop push-button 1. Hold the push-button and twist clockwise until the latching disengages. You should feel when the latching is disengaged, indicating the push-button is reset. 2. Verify the situation and whether to reset the emergency stop. 3. After resetting the emergency stop, restore power to the robot and resume operation. User Manual 192 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Emergency Stop (E-stop) | isLocatedOn | Teach Pendant | | The Emergency Stop or E-stop is the red push-button located on the Teach Pendant.\nEmergency stop push-button | stopsAllRobotMotion | all robot motion | | Press the emergency stop push-button to stop all robot motion.\nActivating emergency stop push-button | causes | stop category one (IEC 60204-1) | | Activating the emergency stop push-button causes a stop category one (IEC 60204-1).\nEmergency stops | areNotSafeguards | ISO 12100 | | Emergency stops are not safeguards (ISO 12100).\nEmergency stops | doNotPreventInjury | injury | | Emergency stops are complementary protective measures that do not prevent injury.\nAdditional emergency stop push-buttons | areRequiredWhen | risk assessment determines them required | the risk assessment of the robot application determines they are required | The risk assessment of the robot application determines if additional emergency stop push-buttons are required.\nEmergency stop function and actuating device | mustComply | ISO 13850 | | The emergency stop function and the actuating device must comply with ISO 13850.\nEmergency stop push-button | latchesInStopSetting | latched position | after an emergency stop is actuated | After an emergency stop is actuated, the push-button latches in that setting.\nEmergency stop | mustBeResetManuallyAt | push-button that initiated the stop | each time an emergency stop is activated | each time an emergency stop is activated, it must be manually reset at the push-button that initiated the stop.\nReason for E-stop activation | mustBeVisuallyIdentifiedAndAssessed | before resetting | before resetting the emergency stop push-button | Before resetting the emergency stop push-button, you must visually identify and assess the reason the E-stop was first activated.\nEmergency stop push-button reset | requires | holding the push-button and twisting clockwise until latching disengages | | Hold the push-button and twist clockwise until the latching disengages.\nRobot power and operation | areRestored | after resetting the emergency stop | after resetting the emergency stop | After resetting the emergency stop, restore power to the robot and resume operation.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1566,
+   "prompt_tokens": 748,
+   "total_tokens": 2314,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 823,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008578,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008578,
+   "gateway_cost": 0.0008578
+  }
+ }
+}

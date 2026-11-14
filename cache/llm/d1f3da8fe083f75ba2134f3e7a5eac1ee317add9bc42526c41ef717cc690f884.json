@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 97\n\nCONFIGURATION 8 m The display of the connected device flashes blue. 2. If the checksums on the computer and the device differ, click on Transfer to device. m The transmission process is shown in Safety Designer and on the device. m Safety Designer displays the verification report. 3. Click on OK. m Device configuration is shown as verified. 8.18 Starting and stopping safety function Overview In some situations, for example tests during commissioning, you can start or stop the safety function manually. Procedure Start safety function → Click on the button. Stop the safety function → Click on the button. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 97 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "display of connected device | flashes | blue | |The display of the connected device flashes blue.\nchecksums on computer and device | differ | prompt to transfer configuration to device | if checksums differ | If the checksums on the computer and the device differ, click on Transfer to device.\ntransmission process | is shown in | Safety Designer and on the device | |The transmission process is shown in Safety Designer and on the device.\nSafety Designer | displays | verification report | |Safety Designer displays the verification report.\ndevice configuration | isShownAs | verified | after verification report confirmed with OK | Click on OK. m Device configuration is shown as verified.\nsafety function | canBeStartedManually | by clicking the start button | in situations such as tests during commissioning | In some situations, for example tests during commissioning, you can start or stop the safety function manually.\nsafety function | canBeStoppedManually | by clicking the stop button | in situations such as tests during commissioning | Stop the safety function → Click on the button.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 610,
+   "prompt_tokens": 449,
+   "total_tokens": 1059,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 292,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003499,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003499,
+   "gateway_cost": 0.0003499
+  }
+ }
+}

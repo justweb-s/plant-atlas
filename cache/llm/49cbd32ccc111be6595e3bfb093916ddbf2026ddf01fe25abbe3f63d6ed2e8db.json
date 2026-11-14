@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 241\n\n21. Safety Functions Table SF18 Description What happens? Tolerance Affects (3-position A 3-position enabling device 9 has 3 switch positions: enabling) off, on, off (in order of actuation when squeezing). Safety When released completely, the device is off. When Function 8 In manual mode, when pressed/squeezed to the centre position, it is on. Inputs the SF18 Input is LOW, Completely pressing (squeezing) results in an off state. Robot and SF2 is triggered When the 3P enabling device is “ON”, motion is external internally N/A enabled. connection to Stop Category 2 (IEC When in Manual Mode and when an external Enabling SF19 & SF20 60204-1) SS2 (IEC Device connection is OFF, internally the safety system 61800-5-2) initiates SF2, which is a Stop Category 2. Recommendation: Use with a mode switch as a safety input.10 SF19 Description What happens? Tolerance Affects 3PE (3- In Automatic Mode (“running”), SF19’s outputs are position Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. HIGH. enabling) In Manual Mode and when any Enabling Device11 is in the Safety OFF state (not in the centre-ON position, meaning the Function8 enabling device is released or fully pressed), a SF2 is with Digital triggered causing a Stop Category 2 (SS2) and SF19’s Outputs In manual mode, when outputs are Low. 8 the 3PE is in the Off In Manual mode, when Freedrive and the 3PE are used: state, the outputs are External • If Freedrive is activated and LOW and SF2 is connection to N/A • ALL 3PE are in the OFF state, SF19’s triggered internally logic and/or outputs are HIGH. Stop Category 2 (IEC equipment • Any 3PE is in the ON state, SF19’s 60204-1) SS2 (IEC outputs are LOW. 61800-5-2) • If Freedrive is not activated, and • ALL 3PE are in the ON state, SF19’s outputs are HIGH. • Any 3PE is in the OFF state, SF19’s outputs are LOW. User Manual 244 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "SF18 3-position enabling device | has | 3 switch positions: off, on, off | | A 3-position enabling device has 3 switch positions: off, on, off (in order of actuation when squeezing).\nSF18 3-position enabling device | is off | when released completely | | When released completely, the device is off.\nSF18 3-position enabling device | is on | when pressed to the centre position in manual mode | in manual mode | In manual mode, when pressed/squeezed to the centre position, it is on.\nSF18 motion | is enabled | when the 3P enabling device is ON | | When the 3P enabling device is \"ON\", motion is enabled.\nSF18 input | goes LOW | when the device is completely pressed (squeezed) | | Completely pressing (squeezing) results in an off state.\nSF18 external enabling device connection OFF | triggers | SF2 (Stop Category 2) | in Manual Mode | When in Manual Mode and when an external Enabling Device connection is OFF, internally the safety system initiates SF2, which is a Stop Category 2 (IEC 60204-1 / SS2 IEC 61800-5-2).\nSF18 usage | recommended | use with a mode switch as a safety input | | Recommendation: Use with a mode switch as a safety input.\nSF19 outputs | are HIGH | in Automatic Mode (\"running\") | | In Automatic Mode (\"running\"), SF19's outputs are HIGH.\nSF19 enabling device in safety OFF state | triggers | SF2 (Stop Category 2) | in Manual Mode | In Manual Mode and when any Enabling Device is in the Safety OFF state (not in the centre-ON position...), a SF2 is triggered causing a Stop Category 2 (SS2).\nSF19 outputs | are LOW | in Manual Mode when the 3PE is in the Off state | in Manual Mode | In manual mode, when the 3PE is in the Off state, the outputs are Low and SF2 is triggered.\nSF19 outputs with Freedrive | are HIGH | when Freedrive is activated and ALL 3PE are in the OFF state | Freedrive activated | If Freedrive is activated and ALL 3PE are in the OFF state, SF19's outputs are HIGH.\nSF19 outputs with Freedrive | are LOW | when Freedrive is not activated and any 3PE is in the OFF state | Freedrive not activated | If Freedrive is not activated, and any 3PE is in the OFF state, SF19's outputs are LOW.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1589,
+   "prompt_tokens": 968,
+   "total_tokens": 2557,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 748,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008913,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008913,
+   "gateway_cost": 0.0008913
+  }
+ }
+}

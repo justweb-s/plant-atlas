@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 29\n\nPROJECT PLANNING 5 Complementary information It is recommended to mark the course of the protective field boundaries on the floor. By doing this, you allow machine operators to see the protective field boundaries and make it easier to thoroughly check the protective function at a later date. 5.3.7.1 Protective field In hazardous area protection, the minimum distance typically defines the protective field size required. If you define a number of monitoring cases with different protective fields, you must calculate the protective field size separately for each protective field used. In many cases, a resolution of 50 mm to 70 mm is suitable for hazardous area protec- tion. Resolutions coarser than 70 mm are not permitted. 5.3.7.2 Supplement CRO to protect against reaching over Overview Under certain circumstances, a person can reach the hazardous area by reaching over, before the protective device stops the dangerous state. The supplement CRO prevents this. CRO = 1200 mm HD ≈ 0 mm Figure 16: Protection against reaching over with low scan plane (dimensions in mm) 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 29 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Protective field boundaries | should be marked | on the floor | recommended practice | It is recommended to mark the course of the protective field boundaries on the floor.\nMinimum distance | defines | protective field size required | in hazardous area protection | In hazardous area protection, the minimum distance typically defines the protective field size required.\nProtective field size | must be calculated | separately for each protective field used | when a number of monitoring cases with different protective fields are defined | you must calculate the protective field size separately for each protective field used\nResolution | is suitable | 50 mm to 70 mm | in many cases for hazardous area protection | In many cases, a resolution of 50 mm to 70 mm is suitable for hazardous area protection.\nResolution | is not permitted | coarser than 70 mm | | Resolutions coarser than 70 mm are not permitted.\nSupplement CRO | prevents | reaching over into the hazardous area | under certain circumstances | The supplement CRO prevents this.\nCRO | has value | 1200 mm | | CRO = 1200 mm\nHD | has value | approximately 0 mm | low scan plane configuration (Figure 16) | HD ≈ 0 mm",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 859,
+   "prompt_tokens": 612,
+   "total_tokens": 1471,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 469,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004907,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004907,
+   "gateway_cost": 0.0004907
+  }
+ }
+}

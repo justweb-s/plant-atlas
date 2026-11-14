@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 205\n\n16. Commissioning 16. Commissioning Descrip The following tests must be conducted before using the robot application for the first time or after tion making any modifications. • Verify all safety inputs and outputs are correctly connected. • Test all connected safety input and output, including devices common to multiple machines or robots, are functioning as intended. • Test emergency stop buttons and inputs to verify the robot stops and the brakes engage. • Test safeguard inputs to verify the robot motion stops. If safeguard reset is configured, check that it functions as intended. • Look at the initialization screen, activate the reduced input and verify the screen changes. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. • Change the operational mode to verify the mode icon changes in top right corner of PolyScope screen. • Test the 3-position enabling device to verify that pressing to the center on position enables motion in manual mode at a reduced speed. • If the Emergency Stop outputs are used, press the Emergency Stop push-button and verify that there is a stop of the whole system. • Test the system connected to Safety I/O Signals in the Installation section to verify the output changes are detected. • Determine the commissioning requirements of your robot application. User Manual 208 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety inputs and outputs | mustBeCorrectlyConnected | safety inputs and outputs | \"\" | \"Verify all safety inputs and outputs are correctly connected.\"\nConnected safety I/O devices | mustFunctionAsIntended | connected safety input and output devices | \"\" | \"Test all connected safety input and output, including devices common to multiple machines or robots, are functioning as intended.\"\nEmergency stop buttons and inputs | mustStopRobot | robot stops and brakes engage | \"\" | \"Test emergency stop buttons and inputs to verify the robot stops and the brakes engage.\"\nSafeguard inputs | mustStopMotion | robot motion stops | \"\" | \"Test safeguard inputs to verify the robot motion stops.\"\nSafeguard reset | mustFunctionAsIntended | safeguard reset | If safeguard reset is configured | \"If safeguard reset is configured, check that it functions as intended.\"\nReduced input activation | mustChangeScreen | initialization screen | \"\" | \"Look at the initialization screen, activate the reduced input and verify the screen changes.\"\nOperational mode change | mustChangeIcon | mode icon in top right corner of PolyScope screen | \"\" | \"Change the operational mode to verify the mode icon changes in top right corner of PolyScope screen.\"\n3-position enabling device | enablesMotion | motion in manual mode at a reduced speed | pressed to the center on position | \"Test the 3-position enabling device to verify that pressing to the center on position enables motion in manual mode at a reduced speed.\"\nEmergency Stop push-button | stopsWholeSystem | whole system | If the Emergency Stop outputs are used | \"If the Emergency Stop outputs are used, press the Emergency Stop push-button and verify that there is a stop of the whole system.\"\nSafety I/O output changes | mustBeDetected | output changes in the connected system | system connected to Safety I/O Signals in the Installation section | \"Test the system connected to Safety I/O Signals in the Installation section to verify the output changes are detected.\"\nRobot application commissioning requirements | mustBeDetermined | commissioning requirements of the robot application | \"\" | \"Determine the commissioning requirements of your robot application.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1445,
+   "prompt_tokens": 616,
+   "total_tokens": 2061,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 709,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007841,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007841,
+   "gateway_cost": 0.0007841
+  }
+ }
+}

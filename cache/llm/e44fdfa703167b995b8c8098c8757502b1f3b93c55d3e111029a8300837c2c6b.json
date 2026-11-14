@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 32\n\n5 PROJECT PLANNING 1 Figure 19: Distance of the protective field from the wall 1 Recommended distance of the protective field from the wall. If the distance between the protective field and the wall is so large that a person can stand in it, this person might not be detected. In this case, appropriate measures are required to prevent it, e.g. deflector plates or a fence. 5.3.8 Hazardous point protection Overview The safety laser scanner is mounted with a vertical scan plane in a stationary applica- tion. This is, for example, on a machine where the operator must stay close to the hazardous point. A fixed barrier with a height of at least 1200 mm is located in front of the hazardous point. The operator can reach over the barrier and through the scan plane into the hazardous point. But the operator cannot climb over the barrier. If there is no such barrier available, access protection may be required. During hazardous point protection, the safety laser scanner detects a person’s hand or other part of their body of at least the same size. The protective field is orthogonal to the direction of approach. You must monitor a reference contour to protect the safety laser scanner from acciden- tal misalignment or manipulation. 32 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "nanoScan3 safety laser scanner | detectsPerson | may not detect a person standing between the protective field and the wall | distance between protective field and wall is so large that a person can stand in it | If the distance between the protective field and the wall is so large that a person can stand in it, this person might not be detected.\nappropriate measures | preventNonDetection | deflector plates or a fence | protective field is far enough from the wall that a person can stand in the gap | e.g. deflector plates or a fence\nsafety laser scanner | mountingOrientation | vertical scan plane in a stationary application | stationary application where the operator must stay close to the hazardous point | The safety laser scanner is mounted with a vertical scan plane in a stationary application.\nfixed barrier | minimumHeight | at least 1200 mm, located in front of the hazardous point | hazardous point protection with a barrier available | A fixed barrier with a height of at least 1200 mm is located in front of the hazardous point.\noperator | canReachInto | hazardous point over the barrier and through the scan plane | barrier is present | The operator can reach over the barrier and through the scan plane into the hazardous point.\noperator | cannotClimb | over the barrier | barrier is at least 1200 mm high | But the operator cannot climb over the barrier.\naccess protection | isRequired | when no fixed barrier is available | no such barrier available | If there is no such barrier available, access protection may be required.\nsafety laser scanner | detects | a person's hand or other body part of at least the same size | hazardous point protection | the safety laser scanner detects a person's hand or other part of their body of at least the same size.\nprotective field | orientation | orthogonal to the direction of approach | hazardous point protection | The protective field is orthogonal to the direction of approach.\nreference contour | mustBeMonitored | to protect the safety laser scanner from accidental misalignment or manipulation | none | You must monitor a reference contour to protect the safety laser scanner from accidental misalignment or manipulation.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1100,
+   "prompt_tokens": 640,
+   "total_tokens": 1740,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 444,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000614,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000614,
+   "gateway_cost": 0.000614
+  }
+ }
+}

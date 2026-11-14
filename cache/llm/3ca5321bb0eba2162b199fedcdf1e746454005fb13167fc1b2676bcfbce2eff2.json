@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 109\n\n10. Configuration 10. Configuration Description This section describes how you get started using the robot. Among other things, it covers easy start-up, an overview of the PolyScope user interface and how to set up your first program. Additionally, it covers freedrive mode and basic operation. 10.1. Quick System Start-up Quick System Start MANDATORY ACTION Before using the PolyScope, verify that the robot arm and Control Box are Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. correctly installed. This is how you quickly start up the robot. 1. On the Teach Pendant, press the emergency stop button. 2. On the Teach Pendant, press the power button and allow the system to start, displaying text on the PolyScope. 3. A popup appears on the touch screen indicating that the system is ready and that the robot must be initialized. 4. In the popup dialog, tap Go to Initialize Screen to access the Initialize screen. 5. Unlock the emergency stop button to change the robot state from Emergency Stopped to Power off. 6. Step outside the reach (workspace) of the robot. 7. On the Initialize Robot screen, tap the ON button and allow the robot state to change to Idle. 8. In the Payload field, in Active Payload, verify the payload mass. You can also verify that the mounting position is correct, in the Robot field. 9. Tap the Start button, for the robot to release its brake system. The robot vibrates and makes clicking sounds, indicating it is ready to be programmed. NOTICE Learn to program your Universal Robots robot on www.universal- robots.com/academy/ User Manual 112 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "robot arm and Control Box | must be verified as correctly installed | before using the PolyScope | | verify that the robot arm and Control Box are correctly installed\noperator | presses | emergency stop button on Teach Pendant | at start-up, step 1 of quick system start-up | On the Teach Pendant, press the emergency stop button.\nrobot | must be initialized | robot | when the popup indicates the system is ready | indicating that the system is ready and that the robot must be initialized\nemergency stop unlock | changes robot state from Emergency Stopped to Power off | robot state | when the emergency stop button is unlocked | Unlock the emergency stop button to change the robot state from Emergency Stopped to Power off.\noperator | must step outside | reach (workspace) of the robot | before tapping the ON button | Step outside the reach (workspace) of the robot.\nON button | changes robot state to | Idle | after tapping ON on the Initialize Robot screen | tap the ON button and allow the robot state to change to Idle\noperator | verifies | payload mass in Active Payload | on the Initialize Robot screen, before starting the robot | verify the payload mass\nStart button | releases | robot brake system | when the Start button is tapped | tap the Start button, for the robot to release its brake system\nrobot | indicates readiness by | vibrating and making clicking sounds | after the brake system is released | The robot vibrates and makes clicking sounds, indicating it is ready to be programmed.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1246,
+   "prompt_tokens": 750,
+   "total_tokens": 1996,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 764,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000698,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000698,
+   "gateway_cost": 0.000698
+  }
+ }
+}

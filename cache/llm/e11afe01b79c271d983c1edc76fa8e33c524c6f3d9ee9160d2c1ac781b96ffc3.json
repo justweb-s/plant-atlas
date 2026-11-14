@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 22\n\n5 PROJECT PLANNING Prerequisites O No obstacles interfere with the view in the protective field of the safety laser scanner. Where there are unavoidable obstacles, additional protective measures are applied. O If people can stay between the protective device and the hazardous point without being detected, additional protective measures (e.g. restart interlock) are applied. O Reaching under, over and around, crawling beneath and stepping over the safety laser scanner, as well as moving it, are prevented. Figure 10: Prevent crawling beneath Figure 11: Prevent stepping over Complementary information Certain optical and electromagnetic ambient conditions can affect the safety laser scanner and thus reduce the availability of the machine. Examples: O Condensation on the optics cover O Strong electrical fields (e.g. welding cables or induction cables) Further topics O \"Mounting\", page 54 O \"Dimensional drawings\", page 139 5.3.1 Protection from interference Influence by laser Laser sources located close to the machine can influence the safety laser scanner and thus reduce the availability of the machine. Measures to increase availability: → Avoid laser sources in the scan plane. → Set multiple sampling to the highest value permitted in your application, taking the minimum distances into account, see \"Multiple sampling\", page 72. 22 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "No obstacles interfere with the view in the protective field of the safety laser scanner. | mustNotInterfere | view in protective field of safety laser scanner | | No obstacles interfere with the view in the protective field of the safety laser scanner.\nUnavoidable obstacles | requireAdditional | additional protective measures are applied | where unavoidable obstacles are present | Where there are unavoidable obstacles, additional protective measures are applied.\nPeople staying between protective device and hazardous point without being detected | requireAdditional | additional protective measures (e.g. restart interlock) | people can stay between the protective device and the hazardous point without being detected | If people can stay between the protective device and the hazardous point without being detected, additional protective measures (e.g. restart interlock) are applied.\nReaching under, over and around, crawling beneath, stepping over, and moving the safety laser scanner | arePrevented | | | Reaching under, over and around, crawling beneath and stepping over the safety laser scanner, as well as moving it, are prevented.\nCertain optical and electromagnetic ambient conditions | canReduce | availability of the machine | | Certain optical and electromagnetic ambient conditions can affect the safety laser scanner and thus reduce the availability of the machine.\nCondensation on the optics cover | canAffect | safety laser scanner | | Condensation on the optics cover\nStrong electrical fields (e.g. welding cables or induction cables) | canAffect | safety laser scanner | | Strong electrical fields (e.g. welding cables or induction cables)\nLaser sources located close to the machine | canInfluence | safety laser scanner and reduce availability of the machine | | Laser sources located close to the machine can influence the safety laser scanner and thus reduce the availability of the machine.\nLaser sources in the scan plane | shouldBeAvoided | | to increase availability | Avoid laser sources in the scan plane.\nMultiple sampling | setTo | highest value permitted in your application | taking the minimum distances into account | Set multiple sampling to the highest value permitted in your application, taking the minimum distances into account",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1214,
+   "prompt_tokens": 692,
+   "total_tokens": 1906,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 519,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006762,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006762,
+   "gateway_cost": 0.0006762
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 164\n\n11. The First Program Home The Home button accesses the Move Robot into Position screen, where you can hold down the Auto button to move robot into position previously defined under Installation. The Home button’s default setting returns the Robo Arm to an upright position . Freedrive The on-screen Freedrive button allows the Robot Arm to be pulled into desired positions/poses. Align The Align button allows the Z axis of the active TCP to align to a selected feature. Tool Position The text boxes display the full coordinate values of the TCP relative to the selected feature. You can configure several named TCPs. You can also tap Edit pose to access the Pose Editor screen. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Joint The Joint Position field allows you to directly control individual joints. Each joint moves Position along a default joint limit range from − 360∘ to + 360∘ , defined by a horizontal bar. Once the limit is reached you cannot move a joint any further. You can configure joints with a position range different from the default, this new range is indicated with red zone inside the horizontal bar. Using The Freedrive button shall only be used in applications if allowed by the risk assessment. Freedrive in the Move tab WARNING Failure to correctly configure the mounting setting can result in unwanted robot arm movement when you use the Freedrive button. • Payload settings and robot mounting settings shall be set correctly before using Freedrive. • All personnel shall remain outside the reach of the robot arm, when Freedrive is in use. WARNING Failure to correctly configure the installation settings, can increase the risk of the robot arm falling during Freedrive, due to payload errors. • Verify the installation settings are correct (e.g. Robot mounting angle, payload mass and payload center of gravity offset) . Save and load the installation files along with the program. • Save and load the installation files along with the program. UR10e 167 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Home button | returns | Robo Arm to an upright position | default setting | The Home button’s default setting returns the Robo Arm to an upright position\nHome button | accesses | Move Robot into Position screen | | The Home button accesses the Move Robot into Position screen\nFreedrive button | shall only be used | in applications allowed by the risk assessment | if allowed by the risk assessment | The Freedrive button shall only be used in applications if allowed by the risk assessment\nJoint | moves along | default joint limit range from −360° to +360° | | Each joint moves along a default joint limit range from − 360∘ to + 360∘\nJoint | cannot move further | once its limit is reached | once the limit is reached | Once the limit is reached you cannot move a joint any further\nJoint position range | is indicated by | red zone inside the horizontal bar | joint configured with a range different from the default | this new range is indicated with red zone inside the horizontal bar\nPayload settings and robot mounting settings | shall be set | correctly | before using Freedrive | Payload settings and robot mounting settings shall be set correctly before using Freedrive\nPersonnel | shall remain | outside the reach of the robot arm | when Freedrive is in use | All personnel shall remain outside the reach of the robot arm, when Freedrive is in use\nIncorrect mounting setting | can result in | unwanted robot arm movement | when using the Freedrive button | Failure to correctly configure the mounting setting can result in unwanted robot arm movement when you use the Freedrive button\nIncorrect installation settings | can increase | risk of robot arm falling during Freedrive | due to payload errors | Failure to correctly configure the installation settings, can increase the risk of the robot arm falling during Freedrive, due to payload errors\nInstallation settings | shall be verified | correct (robot mounting angle, payload mass, payload center of gravity offset) | | Verify the installation settings are correct (e.g. Robot mounting angle, payload mass and payload center of gravity offset)\nInstallation files | shall be saved and loaded | along with the program | | Save and load the installation files along with the program",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1437,
+   "prompt_tokens": 833,
+   "total_tokens": 2270,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 738,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008018,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008018,
+   "gateway_cost": 0.0008018
+  }
+ }
+}

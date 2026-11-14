@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 46\n\n5 PROJECT PLANNING O Errors with a common cause on both encoders are excluded. Possible measures: o Each encoder has its own electrical power supply and its own supply line in its own sheathed cable. o Both encoders and the device have a common electrical power supply at a protected location (e.g. in the control cabinet). Each encoder and device has its own supply line in its own sheathed cable. Incremental encoder Each incremental encoder must have a 0° output and a 90° output so that the direction of travel can be detected. Requirements for incremental encoders: O Dual-channel encoder with 90° phase separation O Outputs: push-pull O Shielded cable O Max pulse rate: 100 kHz O Minimum number of pulses: 100 pulses per cm Suitable incremental encoders are available from SICK. Additional information can be obtained from your SICK subsidiary. 5.4.6 Universal inputs, universal outputs, universal I/Os Universal I/O can be configured as universal input or as universal output. In addition, certain universal I/Os can be used in pairs as OSSD pairs, depending on the device. Depending on the device, a universal input can be used for resetting, external device monitoring (EDM), sleep mode, or restarting the protective device, for example. If sleep mode is activated by a universal input, the sleep mode must not be used for safety applications. Certain universal inputs can also be used in pairs as a static control input. The function of a universal output is configurable. Which functions are available depends on the device. Possible signals are, for example: reset required, contamination warning. A universal output must not be used for safety functions. Further topics O \"Electrical installation\", page 56 O \"Technical data\", page 128 5.4.7 Restart interlock Overview Depending on the regulations which apply at the place of installation, a restart interlock may be required. The restart interlock prevents the machine from automatically starting up, for example after a protective device has responded while the machine is operating or after chang- ing the machine’s operating mode. First, the operator must press a reset pushbutton to return the protective device to monitoring status. Then, in a second step, the operator can restart the machine. 46 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Incremental encoder | mustHave | a 0° output and a 90° output | so that the direction of travel can be detected | Each incremental encoder must have a 0° output and a 90° output so that the direction of travel can be detected.\nIncremental encoder | mustBe | dual-channel with 90° phase separation | | Requirements for incremental encoders: Dual-channel encoder with 90° phase separation\nIncremental encoder outputs | mustBe | push-pull | | Outputs: push-pull\nIncremental encoder cable | mustBe | shielded | | Shielded cable\nIncremental encoder maximum pulse rate | is | 100 kHz | | Max pulse rate: 100 kHz\nIncremental encoder minimum resolution | is | 100 pulses per cm | | Minimum number of pulses: 100 pulses per cm\nEach encoder | mustHave | its own electrical power supply and its own supply line in its own sheathed cable | | Each encoder has its own electrical power supply and its own supply line in its own sheathed cable.\nErrors with a common cause on both encoders | areExcluded | | when one of the listed possible measures is applied | Errors with a common cause on both encoders are excluded. Possible measures:\nSleep mode activated by a universal input | mustNotBeUsedFor | safety applications | | If sleep mode is activated by a universal input, the sleep mode must not be used for safety applications.\nUniversal output | mustNotBeUsedFor | safety functions | | A universal output must not be used for safety functions.\nRestart interlock | mayBeRequired | | depending on the regulations which apply at the place of installation | Depending on the regulations which apply at the place of installation, a restart interlock may be required.\nOperator | mustPressFirst | reset pushbutton to return the protective device to monitoring status | before the machine is restarted | First, the operator must press a reset pushbutton to return the protective device to monitoring status. Then, in a second step, the operator can restart the machine.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1843,
+   "prompt_tokens": 961,
+   "total_tokens": 2804,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1185,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010176,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010176,
+   "gateway_cost": 0.0010176
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 37\n\nOriginal-EG-Konformitätserklärung Original EC Declaration of Conformity CE364501-de-en MAHA SE & Co. KG erklärt hiermit als Hersteller in alleiniger Verantwor- herewith declares as a manufacturer its sole respon- tung, dass nachstehend bezeichnetes Produkt in sibility to ensure that the product named hereafter Konzeption und Bauart den grundlegenden Sicher- meets the safety and health regulations both in de- heits- und Gesundheitsanforderungen der hier ge- sign and construction required by the directives nannten Richtlinien entspricht. stated below. Bei Änderungen am Produkt, die nicht von oben ge- This declaration becomes void if any change is nannter Firma genehmigt wurden, verliert diese Er- made to the product that was not approved by klärung ihre Gültigkeit. named company beforehand. Typ | Model Serialnummer | Serial Number MA STAR 3.5 A STOCK ......................... VP 251230 MA STAR 3.5 S STOCK ......................... VP 251231 MA STAR 3.5 A......................................... VP 251232 MA STAR 3.5 S ......................................... VP 251233 MA STAR 3.5 A BMW ............................ VP 251234 MA STAR 3.5 A MB................................. VP 251235 VAS 771 043 (MA STAR 3.5 A) .......... VP 251236 MA STAR 5.5 STOCK ............................. VP 451186 MA STAR 5.5 ............................................. VP 451187 MA STAR 5.5 MB ..................................... VP 451188 VAS 771 045 (MA STAR 5.5) .............. VP 451192 MA STAR 6.5 STOCK ............................. VP 451189 MA STAR 6.5 ............................................. VP 451190 MA STAR 6.5 MB ..................................... VP 451194 Bezeichnung | Designation Zwei-Säulen-Hebebühne Two Post Lift Richtlinien | Directives 2006/42/EG 2006/42/EC 2014/53/EU 2014/53/EU Normen | Standards EN 1493:2022 EN 60204-1:2018 EN ISO 13849-1:2023 Bevollmächtigter für die Zusammenstellung der technischen Unterlagen Person Authorised to Compile the Technical File Ralf Kerkmeier • MAHA SE & Co. KG • Hoyen 20 • 87490 Haldenwang • Germany Haldenwang, 2025-11-17 Dr. Peter Geigle Geschäftsführer | Managing Director MAHA SE & Co. KG · Hoyen 20 · 87490 Haldenwang · Germany ☎ +49 8374 585-0 ·  maha@maha.de ·  maha.de"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "MA STAR product models | conform to safety and health requirements | the grundlegenden Sicherheits- und Gesundheitsanforderungen of the listed directives, in design and construction | none | \"MAHA SE & Co. KG erklärt hiermit als Hersteller in alleiniger Verantwortung, dass nachstehend bezeichnetes Produkt in Konzeption und Bauart den grundlegenden Sicherheits- und Gesundheitsanforderungen der hier genannten Richtlinien entspricht.\"\nDeclaration | becomesVoid | \"\" | a change is made to the product that was not approved by the named company beforehand | \"Bei Änderungen am Produkt, die nicht von oben genannter Firma genehmigt wurden, verliert diese Erklärung ihre Gültigkeit.\"\nProducts listed in the declaration | designation | Zwei-Säulen-Hebebühne (Two Post Lift) | none | \"Bezeichnung | Designation Zwei-Säulen-Hebebühne Two Post Lift\"\nProducts listed in the declaration | applicableDirective | 2006/42/EC (Machinery Directive) | none | \"Richtlinien | Directives 2006/42/EG 2006/42/EC\"\nProducts listed in the declaration | applicableDirective | 2014/53/EU | none | \"2014/53/EU 2014/53/EU\"\nProducts listed in the declaration | appliedStandard | EN 1493:2022 | none | \"Normen | Standards EN 1493:2022\"\nProducts listed in the declaration | appliedStandard | EN 60204-1:2018 | none | \"EN 60204-1:2018\"\nProducts listed in the declaration | appliedStandard | EN ISO 13849-1:2023 | none | \"EN ISO 13849-1:2023\"\nRalf Kerkmeier | authorisedToCompileTechnicalFile | technical documentation of the products | none | \"Bevollmächtigter für die Zusammenstellung der technischen Unterlagen Person Authorised to Compile the Technical File Ralf Kerkmeier\"\nMA STAR 3.5 A STOCK | serialNumber | VP 251230 | none | \"MA STAR 3.5 A STOCK ......................... VP 251230\"\nDeclaration | signedBy | Dr. Peter Geigle, Geschäftsführer (Managing Director) | none | \"Dr. Peter Geigle Geschäftsführer | Managing Director\"\nDeclaration | issuedOn | 2025-11-17 (Haldenwang) | none | \"Haldenwang, 2025-11-17\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1386,
+   "prompt_tokens": 1176,
+   "total_tokens": 2562,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 514,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008106,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008106,
+   "gateway_cost": 0.0008106
+  }
+ }
+}

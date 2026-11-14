@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 238\n\n21. Safety Functions Table SF6 Description What happens? Tolerance Affects Speed A robot stop will Limit TCP be initiated to & Elbow Monitors the TCP and elbow speed to prevent exceeding a speed limit. prevent exceeding Equivalent to monitoring the whole arm as the sections between the any limit. TCP and elbow cannot move faster than the endpoints of these 50 mm/s TCP sections. Will not allow motion to exceed any limit settings. SF7 What Description Tolerance Affects Force happens? Limit The Force Limit is the force exerted by the robot at the TCP (tool center point) (TCP) A robot stop and “elbow”. The safety function continuously calculates the torques allowed will be for each joint to stay within the defined force limit for both the TCP & the initiated to elbow. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. prevent The joints control their torque output to stay within the allowed torque range. exceeding This means that the forces at the TCP or elbow will stay within the defined any limit. 25 N TCP force limit. When a stop is initiated by the Force Limit SF, the robot will stop. The UR Will not allow standard controller will cause motion to “back-off” to the position before the motion to force limit was exceeded. This “back-off” is not part of the safety function as it exceed any is done by the standard controller. The safety controller has a fixed time (part limit settings. of the response time) allowed before a robot stop is initiated. wrist clamping Force Limits may be exceeded by the three wrist joints if the \"wrist clamping torque\" safety function is disabled. torque SF8 Description What happens? Tolerance Affects Momentum A robot stop will be initiated to prevent Limit The momentum limit is very useful for exceeding any limit. limiting transient impacts. The Momentum Limit affects the entire 3 kg m/s Robot Will not allow motion to exceed any robot. limit settings. SF9 Description What happens? Tolerance Affects Power This function monitors the mechanical work (sum of joint torques times Limit Dynamic limiting joint angular speeds) performed by the robot, which also affects the of the 10 W Robot current to the robot arm as well as the robot speed. This safety function current/torque dynamically limits the current/torque but maintains the speed. UR10e 241 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Limit TCP & Elbow Speed safety function | triggers robot stop | when TCP or elbow speed would exceed the speed limit | \"\" | A robot stop will be initiated to prevent exceeding any limit.\nSpeed limit tolerance | is | 50 mm/s | \"\" | Tolerance ... 50 mm/s\nForce Limit at TCP | is | 25 N | \"\" | 25 N TCP force limit.\nForce Limit safety function | triggers robot stop | when force at TCP or elbow would exceed the force limit | \"\" | When a stop is initiated by the Force Limit SF, the robot will stop.\nSafety controller | allows | a fixed time before robot stop initiation, part of the response time | \"\" | The safety controller has a fixed time (part of the response time) allowed before a robot stop is initiated.\nBack-off motion after force stop | is performed by | the UR standard controller | \"\" | The UR standard controller will cause motion to \"back-off\" to the position before the motion to force limit was exceeded.\nBack-off motion | is not part of | the safety function | \"\" | This \"back-off\" is not part of the safety function as it is done by the standard controller.\nThree wrist joints | may exceed | Force Limits | \"wrist clamping torque\" safety function is disabled | Force Limits may be exceeded by the three wrist joints if the \"wrist clamping torque\" safety function is disabled.\nMomentum Limit | is | 3 kg m/s | \"\" | Momentum ... 3 kg m/s\nMomentum Limit | affects | the entire robot | \"\" | The Momentum Limit affects the entire robot.\nPower Limit | is | 10 W | \"\" | Power Limit ... 10 W\nPower Limit | dynamically limits | current/torque while maintaining speed | \"\" | This safety function dynamically limits the current/torque but maintains the speed.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1419,
+   "prompt_tokens": 1001,
+   "total_tokens": 2420,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 806,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008096,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008096,
+   "gateway_cost": 0.0008096
+  }
+ }
+}

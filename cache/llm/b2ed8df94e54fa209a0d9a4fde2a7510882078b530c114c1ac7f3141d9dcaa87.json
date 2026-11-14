@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 115\n\n10.2.3. Configurable Safety Functions Description Universal Robots robot safety functions, as listed in the table below, are in the robot but are meant to control the robot system i.e. the robot with its attached tool/end effector. The robot safety functions are used to reduce robot system risks determined by the risk assessment. Positions and speeds are relative to the base of the robot. Safety Description Function Joint Position Sets upper and lower limits for the allowed joint positions. Limit Joint Speed Sets an upper limit for joint speed. Limit Defines planes, in space, that limit robot position. Safety planes limit Safety either the tool/end effector alone or both the tool/end effector and the Planes Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. elbow. Tool Defines allowable orientation limits for the tool. Orientation Limits maximum robot speed. The speed is limited at the elbow, at the Speed Limit tool/end effector flange, and at the center of the user-defined tool/end effector positions. Limits maximum force exerted by the robot tool/end effector and elbow Force Limit in clamping situations. The force is limited at the tool/end effector, elbow flange and center of the user-defined tool/end effector positions. Momentum Limits maximum momentum of the robot. Limit Power Limit Limits mechanical work performed by the robot. Stopping Limits maximum time the robot uses for stopping after a protective stop Time Limit is initiated. Stopping Limits maximum distance travelled by the robot after a protective stop is Distance initiated. Limit Safety When performing the application risk assessment, it is necessary to take into account the Function motion of the robot after a stop has been initiated. In order to ease this process, the safety functions Stopping Time Limit and Stopping Distance Limit can be used. These safety functions dynamically reduces the speed of the robot motion such that it can always be stopped within the limits. The joint position limits, the safety planes and the tool/end effector orientation limits take the expected stopping distance travel into account i.e. the robot motion will slow down before the limit is reached. The functional safety can be summarized as: User Manual 118 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Robot safety functions | are meant to control | the robot system, meaning the robot with its attached tool/end effector | | \"are meant to control the robot system i.e. the robot with its attached tool/end effector\"\nRobot safety functions | reduce | robot system risks determined by the risk assessment | | \"The robot safety functions are used to reduce robot system risks determined by the risk assessment.\"\nPositions and speeds | are relative to | the base of the robot | | \"Positions and speeds are relative to the base of the robot.\"\nJoint Position Limit | sets | upper and lower limits for the allowed joint positions | | \"Sets upper and lower limits for the allowed joint positions.\"\nJoint Speed Limit | sets | an upper limit for joint speed | | \"Sets an upper limit for joint speed.\"\nSafety Planes | limit | robot position by defined planes in space, limiting either the tool/end effector alone or both the tool/end effector and the elbow | | \"Defines planes, in space, that limit robot position. Safety either the tool/end effector alone or both the tool/end effector and the elbow.\"\nTool Orientation Limits | define | allowable orientation limits for the tool | | \"Defines allowable orientation limits for the tool.\"\nSpeed Limit | limits | maximum robot speed at the elbow, the tool/end effector flange, and the center of user-defined tool positions | | \"Limits maximum robot speed. The speed is limited at the elbow, at the tool/end effector flange, and at the center of the user-defined tool/end effector positions.\"\nForce Limit | limits | maximum force exerted by the tool/end effector and elbow in clamping situations | | \"Limits maximum force exerted by the robot tool/end effector and elbow in clamping situations.\"\nStopping Time Limit | limits | maximum time the robot uses for stopping after a protective stop is initiated | | \"Limits maximum time the robot uses for stopping after a protective stop is initiated.\"\nStopping Distance Limit | limits | maximum distance travelled by the robot after a protective stop is initiated | | \"Limits maximum distance travelled by the robot after a protective stop is initiated.\"\nStopping Time Limit and Stopping Distance Limit | dynamically reduce | the speed of robot motion so the robot can always be stopped within the limits | | \"These safety functions dynamically reduces the speed of the robot motion such that it can always be stopped within the limits.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1528,
+   "prompt_tokens": 928,
+   "total_tokens": 2456,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 734,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008568,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008568,
+   "gateway_cost": 0.0008568
+  }
+ }
+}

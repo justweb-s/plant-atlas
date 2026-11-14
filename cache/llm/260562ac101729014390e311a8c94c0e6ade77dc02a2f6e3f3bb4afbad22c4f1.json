@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 52\n\n6. Assembly and Mounting 6.7. Mains Connections Description The mains cable from the Control Box has a standard IEC plug at the end. Connect a country specific mains plug, or cable, to the IEC plug. NOTICE • IEC 61000-6-4:Chapter 1 scope: “This part of IEC 61000 for emission requirement applies to electrical and electronic equipment intended for use within the environment of existing at industrial (see 3.1.12) locations.” • IEC 61000-6-4:Chapter 3.1.12 industrial location: “Locations characterized by a separate power network, supplied from a high- or medium-voltage transformer, dedicated for the supply of the installation” Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Mains To power the robot, the Control Box shall be connected to the mains via the supplied connections power cord. The IEC C13 connecter on the power cord connects to the IEC C14 appliance inlet at the bottom of the Control Box. WARNING: ELECTRICITY Failure to correctly place the mains connection can result in injury. • The power plug for the mains connection shall be placed outside the reach of the robot, such that power can be removed without exposing personnel to potential hazards. • If additional safeguarding is implemented, the power plug for the mains connection shall also be placed outside the safeguarded space such that power can be removed without exposure to any potential hazards. NOTICE Always use a power cord with a country specific wall plug when connecting to the Control Box. For <200 Vac countries, use power cord with 15A ampacity. For >200 Vac countries, use power cord with 10A ampacity. Do not use an adapter. UR10e 55 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Control Box mains cable | has | standard IEC plug at the end | | The mains cable from the Control Box has a standard IEC plug at the end.\nCountry specific mains plug or cable | connects to | IEC plug | | Connect a country specific mains plug, or cable, to the IEC plug.\nControl Box | shall be connected to | mains via the supplied power cord | | the Control Box shall be connected to the mains via the supplied connections power cord.\nIEC C13 connector on power cord | connects to | IEC C14 appliance inlet at bottom of Control Box | | The IEC C13 connecter on the power cord connects to the IEC C14 appliance inlet at the bottom of the Control Box.\nPower plug for mains connection | shall be placed | outside the reach of the robot | so power can be removed without exposing personnel to potential hazards | The power plug for the mains connection shall be placed outside the reach of the robot, such that power can be removed without exposing personnel to potential hazards.\nPower plug for mains connection | shall be placed | outside the safeguarded space | additional safeguarding is implemented | If additional safeguarding is implemented, the power plug for the mains connection shall also be placed outside the safeguarded space such that power can be removed without exposure to any potential hazards.\nPower cord | shall have | country specific wall plug | when connecting to the Control Box | Always use a power cord with a country specific wall plug when connecting to the Control Box.\nPower cord for <200 Vac countries | has | 15A ampacity | country supply is <200 Vac | For <200 Vac countries, use power cord with 15A ampacity.\nPower cord for >200 Vac countries | has | 10A ampacity | country supply is >200 Vac | For >200 Vac countries, use power cord with 10A ampacity.\nAdapter | shall not be used | when connecting to the Control Box | | Do not use an adapter.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1219,
+   "prompt_tokens": 777,
+   "total_tokens": 1996,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 592,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006872,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006872,
+   "gateway_cost": 0.0006872
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 122\n\n10.3.1. Changing the Software Safety Configuration Description Changes to the Safety Configuration settings must comply with the risk assessment conducted by the integrator. Recommended To change the safety configuration procedure for the 1. Verify that changes comply with the risk assessment conducted by the integrator. integrator: 2. Adjust safety settings to the appropriate level defined by the risk assessment conducted by the integrator. 3. Verify that the settings are applied. 4. Place following text in the operators’ manuals: Before working near the robot, make sure that the safety configuration is as expected. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. This can be verified e.g. by inspecting the Safety Checksum in the top right corner of PolyScope for any changes. 10.3.2. Applying a New Software Safety Configuration Description The robot is powered off while you make changes to the configuration. Your changes only take effect after you tap the Apply button. The robot cannot be powered on again until you select Apply and Restart to visually inspect your robot Safety Configuration which, for safety reasons, is displayed in SI Units in a popup. You can select Revert Changes to return to the previous configuration. When your visual inspection is complete you can select Confirm Safety Configuration and the changes are automatically saved as part of the current robot installation. Safety Checksum UR10e 125 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Changes to the Safety Configuration settings | must comply with | the risk assessment conducted by the integrator | | Changes to the Safety Configuration settings must comply with the risk assessment conducted by the integrator.\nIntegrator | verifies | that changes comply with the risk assessment | | Verify that changes comply with the risk assessment conducted by the integrator.\nSafety settings | are adjusted to | the appropriate level defined by the risk assessment | | Adjust safety settings to the appropriate level defined by the risk assessment conducted by the integrator.\nOperators' manuals | include warning | Before working near the robot, make sure that the safety configuration is as expected | | Place following text in the operators’ manuals: Before working near the robot, make sure that the safety configuration is as expected.\nSafety configuration | can be verified by | inspecting the Safety Checksum in the top right corner of PolyScope | | This can be verified e.g. by inspecting the Safety Checksum in the top right corner of PolyScope for any changes.\nRobot | is powered off | while configuration changes are made | | The robot is powered off while you make changes to the configuration.\nConfiguration changes | take effect | after the Apply button is tapped | | Your changes only take effect after you tap the Apply button.\nRobot | cannot be powered on again | until Apply and Restart is selected | | The robot cannot be powered on again until you select Apply and Restart to visually inspect your robot Safety Configuration\nSafety configuration | is displayed in | SI Units in a popup | for safety reasons | which, for safety reasons, is displayed in SI Units in a popup.\nPrevious configuration | is restored by | selecting Revert Changes | | You can select Revert Changes to return to the previous configuration.\nConfiguration changes | are saved automatically | as part of the current robot installation | after visual inspection is complete and Confirm Safety Configuration is selected | When your visual inspection is complete you can select Confirm Safety Configuration and the changes are automatically saved as part of the current robot installation.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1368,
+   "prompt_tokens": 666,
+   "total_tokens": 2034,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 698,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007506,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007506,
+   "gateway_cost": 0.0007506
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 21\n\nPROJECT PLANNING 5 5 Project planning 5.1 Manufacturer of the machine The manufacturer of the machinery must carry out a risk assessment and apply appro- priate protective measures. Further protective measures may be required in addition to the product. The product must not be tampered with or changed, except for the procedures descri- bed in this document. The product must only be repaired by the manufacturer of the product or by someone authorized by the manufacturer. Improper repair can result in the product not providing the expected protection. 5.2 Operating entity of the machine Changes to the electrical integration of the product in the machine controller and changes to the mechanical mounting of the product necessitate a new risk assessment. The results of this risk assessment may require the entity operating the machine to meet the obligations of a manufacturer. After each change to the configuration, it is necessary to check whether the protective measure provides the necessary protection. The person making the change is respon- sible for ensuring that the protection measure provides the necessary protection. The product must not be tampered with or changed, except for the procedures descri- bed in this document. The product must only be repaired by the manufacturer of the product or by someone authorized by the manufacturer. Improper repair can result in the product not providing the expected protection. 5.3 Design Important information DANGER Hazard due to lack of effectiveness of the protective device Persons or parts of the body to be protected may not be recognized or not recognized in time in case of non-observance. → Make sure that there are no mirrors or other highly reflective objects in the protec- tive field of the safety laser scanner. → Make sure that there is no smoke in the protective field of the safety laser scanner. → Prevent interference in the optical beam path. If, for example, the device is instal- led in a paneling, the viewing slit must be sufficiently large. → Do not use an additional front screen. → Ensure that there are no small objects (e.g. cables) in the protective field of the safety laser scanner, even if they do not trigger an object detection. NOTE If you are not integrating the product in accordance with ISO 13855:2010, you must carry out an individual impact analysis. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 21 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturer of the machinery | must carry out | risk assessment and apply appropriate protective measures | | The manufacturer of the machinery must carry out a risk assessment and apply appropriate protective measures.\nProduct | must not be | tampered with or changed | except for the procedures described in this document | The product must not be tampered with or changed, except for the procedures described in this document.\nProduct | must only be repaired by | the manufacturer of the product or someone authorized by the manufacturer | | The product must only be repaired by the manufacturer of the product or by someone authorized by the manufacturer.\nImproper repair | can result in | the product not providing the expected protection | | Improper repair can result in the product not providing the expected protection.\nChanges to electrical integration or mechanical mounting | necessitate | a new risk assessment | | Changes to the electrical integration of the product in the machine controller and changes to the mechanical mounting of the product necessitate a new risk assessment.\nResults of the new risk assessment | may require | the entity operating the machine to meet the obligations of a manufacturer | | The results of this risk assessment may require the entity operating the machine to meet the obligations of a manufacturer.\nEach change to the configuration | requires | a check whether the protective measure provides the necessary protection | | After each change to the configuration, it is necessary to check whether the protective measure provides the necessary protection.\nPerson making the change | is responsible for | ensuring that the protection measure provides the necessary protection | | The person making the change is responsible for ensuring that the protection measure provides the necessary protection.\nProtective field of the safety laser scanner | must not contain | mirrors or other highly reflective objects | | Make sure that there are no mirrors or other highly reflective objects in the protective field of the safety laser scanner.\nProtective field of the safety laser scanner | must not contain | smoke | | Make sure that there is no smoke in the protective field of the safety laser scanner.\nProduct | must not use | an additional front screen | | Do not use an additional front screen.\nProduct integration not in accordance with ISO 13855:2010 | requires | an individual impact analysis | the product is not integrated in accordance with ISO 13855:2010 | If you are not integrating the product in accordance with ISO 13855:2010, you must carry out an individual impact analysis.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1581,
+   "prompt_tokens": 949,
+   "total_tokens": 2530,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 827,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008854,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008854,
+   "gateway_cost": 0.0008854
+  }
+ }
+}

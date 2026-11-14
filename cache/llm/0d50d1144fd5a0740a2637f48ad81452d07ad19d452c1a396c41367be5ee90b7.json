@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 12\n\n3 Transport, Handling and Storage 3.1 Safety Instructions WARNING • Wear personal protective equipment. • Standing under a suspended load is prohibited. • The transport and storage of packages is only permitted using original transport racks. Observe the max. stacking height. • Before removing the packaging straps, secure the packages against falling and maintain a safe distance. Rebounding packaging straps can cause inju- ries! • Only lift and set up the lift columns using the marked connection points. Pay attention to the centre of gravity (marked COG). • Only use lifting equipment and slings that are suitable in terms of type and permitted load capacity. • Always ensure that the parts to be transported are suspended or loaded properly and in a fall-proof manner, taking into account their size, weight and centre of gravity. Observe transport regulations. 3.2 Scope of Delivery Lifts with 3.5 t load capacity are shipped ex works in one package as standard, lifts with higher load capacity in two packages. Content: • 2 columns, screwed in racks • 2 covers • 1 instruction manual • 2 sets (2 pieces each) support arms • 4 lock elements • 4 support discs • 1 set impact protectors for support arms • 1 set connector cable • 1 cable bridge with mounting parts • Spindle oil 500 ml • Optional accessories The number of delivered packages and contents must be checked for damage and completeness according to the order confirmation. Any transport damage must be documented immediately and reported to the delivery carrier. 12 BA364501-en"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Standing under a suspended load | is | prohibited | | Standing under a suspended load is prohibited.\nPersonal protective equipment | must be worn | during transport handling | | Wear personal protective equipment.\nPackages transport and storage | is permitted only with | original transport racks | | The transport and storage of packages is only permitted using original transport racks.\nMaximum stacking height | must be observed | max. stacking height | | Observe the max. stacking height.\nPackages | must be secured against falling | before removing packaging straps | Before removing the packaging straps | Before removing the packaging straps, secure the packages against falling and maintain a safe distance.\nRebounding packaging straps | can cause | injuries | | Rebounding packaging straps can cause injuries!\nLift columns | may be lifted and set up only at | marked connection points | | Only lift and set up the lift columns using the marked connection points.\nLift columns centre of gravity | must be considered | marked COG | | Pay attention to the centre of gravity (marked COG).\nLifting equipment and slings | must be | suitable in type and permitted load capacity | | Only use lifting equipment and slings that are suitable in terms of type and permitted load capacity.\nParts to be transported | must be suspended or loaded | properly and in a fall-proof manner | | Always ensure that the parts to be transported are suspended or loaded properly and in a fall-proof manner, taking into account their size, weight and centre of gravity.\nLifts with 3.5 t load capacity | are shipped ex works | in one package as standard | | Lifts with 3.5 t load capacity are shipped ex works in one package as standard, lifts with higher load capacity in two packages.\nTransport damage | must be documented immediately and reported | to the delivery carrier | Transport damage found on delivery | Any transport damage must be documented immediately and reported to the delivery carrier.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1323,
+   "prompt_tokens": 718,
+   "total_tokens": 2041,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 703,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007333,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007333,
+   "gateway_cost": 0.0007333
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: igea-equipment, p. 6\n\nALLEGATO A – ELENCO DEGLI APPARECCHI DI SOLLEVAMENTO PER TIPOLOGIA TABELLA A1 numero di portata matr. anno di pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola HIAB - GRU IDRAULICA HIDROCOM DAF AE 62 1 3870 CA 57 / 92 1991 32203 CA 707668 PER AUTOCARRO SAS MOD. NT-520 071 AWCH GRU IDRAULICA FASSI FORD 2 995 CA 200084/06 2005 3090 CX 921 ZK PER AUTOCARRO F 28 B22 TRANSIT GRU IDRAULICA FASSI 3 1500 CA 200043/ 10 2009 Mitsubishi 0206-5071 DV 431 BA PER AUTOCARRO F 28 B22 GRU IDRAULICA IVECO 4 AMCO VEBA 520 CA 200241/06 2005 18825 DF 019 FJ PER AUTOCARRO FIAT GRU IDRAULICA FASSI IVECO 5 995 CA 200085 / 03 2003 6249 AT 336397 PER AUTOCARRO F28A. 22 FIAT GRU IDRAULICA FASSI IVECO 6 995 CA 200081/04 2004 6344 AP 337 RY PER AUTOCARRO F 28A. 22 FIAT GRU IDRAULICA IVECO 7 Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT TABELLA A2 numero di portata matr. anno di pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 SCORREVOLE GRU A PONTE 9 DEMAG 5000 CA 128 / 86 1985 503292 SCORREVOLE GRU A PONTE 10 GUTTER 3000 CA 197 / 88 1988 24984 SCORREVOLE GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 SCORREVOLE TITANO GRU A PONTE 12 PRIM 5000 NU 41/85 1980 160 SCORREVOLE GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA 6"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Allegato A, tabella A1 | lists | hydraulic truck-mounted cranes (gru idraulica per autocarro), positions 1 to 7 | | ALLEGATO A – ELENCO DEGLI APPARECCHI DI SOLLEVAMENTO PER TIPOLOGIA TABELLA A1\nPosition 2 crane | hasRatedCapacity | 995 kg | | FASSI FORD ... 2 995 CA 200084/06\nPosition 3 crane | hasRatedCapacity | 1500 kg | | FASSI F 28 B22 ... 3 1500 CA 200043/ 10\nPosition 5 crane | hasRatedCapacity | 995 kg | | FASSI ... 5 995 CA 200085 / 03\nPosition 6 crane | hasRatedCapacity | 995 kg | | FASSI ... 6 995 CA 200081/04\nPosition 7 crane | isMountedOn | FIAT vehicle | | Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT\nPosition 7 crane | hasYearOfManufacture | 2017 | | Effer 790 2018/200045/CA 2017 100026789\nAllegato A, tabella A2 | lists | overhead bridge cranes (gru a ponte scorrevole), positions 8 to 13 | | TABELLA A2 ... GRU A PONTE SCORREVOLE\nPosition 8 crane | hasRatedCapacity | 5000 kg | | GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 SCORREVOLE\nPosition 11 crane | hasRatedCapacity | 3000 kg | | GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 SCORREVOLE\nPosition 13 crane | hasRatedCapacity | 5000 kg | | GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA\nPosition 10 crane | hasYearOfManufacture | 1988 | | GUTTER 3000 CA 197 / 88 1988 24984 SCORREVOLE",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1877,
+   "prompt_tokens": 1112,
+   "total_tokens": 2989,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1108,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010497,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010497,
+   "gateway_cost": 0.0010497
+  }
+ }
+}

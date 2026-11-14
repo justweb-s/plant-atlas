@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 229\n\n21. Safety Functions Table 21. Safety Functions Table Description Universal Robots safety functions and safety I/O are PLd Category 3 (ISO 13849-1), where each safety function has a PFH value less than 1.8E-07. The PFH values are updated to include greater design flexibility for supply chain resilience. For safety I/O the resulting safety function including the external device, or equipment, is determined by the overall architecture and the sum of all PFHs, including the UR robot safety function PFH. If any safety function limit is exceeded or a fault is detected in a safety function or safety-related part of the control system, UR defines the safe state as a stop with removal of drive power (either a stop category 1 or 04 immediate removal of power). NOTICE The Safety Functions tables presented in this chapter are simplified. You can find the comprehensive versions of them here: https://www.universal-robots.com/support Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. SF1 What 1, 2, 3, 4 Description Tolerance Affects happens? Emergency Pressing the Estop PB on the pendant1 or the External Estop (if using Stop (ISO the Estop Safety Input) results in a Stop Cat 14 with power removed 13850) Robot, from the robot actuators and the tool I/O. Controller I/O go “low”. Stop robot tool Command1 all joints to stop and upon all joints coming to a monitored Category 1 -- I/O, and standstill state, power is removed. (IEC 60204- controller See Stop Time & Stop Distance Safety Functions5. 1) I/O ONLY USE FOR EMERGENCY PURPOSES, not to be used for safeguarding because it requires a manual action. SF2 What 3, 5 Description Tolerance Affects happens? Safeguard Stop Stop This safety function is initiated by an external protective device using Category 2 (Protective Stop safety inputs which will initiate a Stop Cat 24. The purpose is to protect (IEC 60204- according to ISO people from injury, as compared to protecting the robot, equipment, or 1) 10218-1*) products. SS2 stop -- Robot *Prior to 2006, this The tool I/O are unaffected by the safeguard stop. (as was called “safety If an enabling device is connected, it is possible to configure the described in stop” or “safeguard safeguard stop to function in automatic mode ONLY. IEC 61800- stop” See the Stop Time and Stop Distance Safety Functions.5. 5-2) Safeguard What Description Tolerance Affects Stop Reset happens? When configured for Safeguard Reset and the external reset connections Reset Input transition from low to high, safeguard stop resets. Safety input to initiate a -- Robot to SF2 reset of SF2. User Manual 232 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Universal Robots safety functions and safety I/O | areRated | PLd Category 3 (ISO 13849-1) | | Universal Robots safety functions and safety I/O are PLd Category 3 (ISO 13849-1)\neach safety function | hasPFHValue | less than 1.8E-07 | | each safety function has a PFH value less than 1.8E-07\nresulting safety function for safety I/O | isDeterminedBy | overall architecture and the sum of all PFHs, including the UR robot safety function PFH | external device or equipment included | the resulting safety function including the external device, or equipment, is determined by the overall architecture and the sum of all PFHs, including the UR robot safety function PFH\nsafe state on safety function limit exceeded or fault | isDefinedAs | stop with removal of drive power | safety function limit exceeded or fault detected | UR defines the safe state as a stop with removal of drive power\nSF1 emergency stop | resultsIn | Stop Cat 1 with power removed from the robot actuators and tool I/O | pressing Estop PB on pendant or External Estop input | Pressing the Estop PB on the pendant1 or the External Estop (if using the Estop Safety Input) results in a Stop Cat 14 with power removed from the robot actuators and the tool I/O\nSF1 emergency stop | shouldNotBeUsedFor | safeguarding | because it requires a manual action | ONLY USE FOR EMERGENCY PURPOSES, not to be used for safeguarding because it requires a manual action\nSF2 safeguard stop | isInitiatedBy | external protective device using safety inputs | | This safety function is initiated by an external protective device using safety inputs which will initiate a Stop Cat 24\nSF2 safeguard stop | hasPurpose | protecting people from injury | | The purpose is to protect people from injury, as compared to protecting the robot, equipment, or products.\nSF2 tool I/O | isUnaffectedBy | safeguard stop | | The tool I/O are unaffected by the safeguard stop.\nsafeguard stop | canBeConfiguredTo | function in automatic mode ONLY | an enabling device is connected | If an enabling device is connected, it is possible to configure the safeguard stop to function in automatic mode ONLY.\nsafeguard stop | resetBy | external reset input | configured for Safeguard Reset and the reset input transitions from low to high | When configured for Safeguard Reset and the external reset connections transition from low to high, safeguard stop resets.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1784,
+   "prompt_tokens": 1156,
+   "total_tokens": 2940,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 943,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010076,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010076,
+   "gateway_cost": 0.0010076
+  }
+ }
+}

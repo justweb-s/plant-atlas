@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: igea-equipment, p. 8\n\nALLEGATO B – UBICAZIONE APPARECCHI DI SOLLEVAMENTO IGEA TABELLA B1 porta anno di numero di matr. ubicazione pos apparecchio marca/tipo ta costruzio veicolo fabbrica- targa Comune INAIL settore/servizio Kg ne matricola GRU HIAB - IDRAULICA HIDROCOM DAF AE 62 CA Meccanizzazione 1 3870 CA 57 / 92 1991 32203 Iglesias PER SAS MOD. NT-520 707668 Campo Pisano AUTOCARRO 071 AWCH GRU IDRAULICA FASSI CA FORD CX 921 Meccanizzazione 2 995 2005 3090 Iglesias PER F 28 B22 200084/06 TRANSIT ZK Campo Pisano AUTOCARRO GRU Off. IDRAULICA FASSI CA 200043/ DV 431 3 1500 2009 Mitsubishi 0206-5071 Iglesias Elettromeccanica PER F 28 B22 10 BA Campo Pisano AUTOCARRO GRU IDRAULICA CA IVECO DF 019 Area mineraria 4 AMCO VEBA 520 2005 18825 Iglesias PER 200024/06 FIAT FJ Campo Pisano AUTOCARRO GRU IDRAULICA 2018/20004 IVECO Area mineraria 7 Effer 790 2017 100026789 Iglesias PER 5/CA FIAT Campo Pisano AUTOCARRO Off. GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 Iglesias Elettromeccanica SCORREVOLE Campo Pisano GRU A PONTE Meccanizzazione 9 DEMAG 5000 CA 128 / 86 1985 503292 Iglesias SCORREVOLE Campo Pisano GRU A PONTE Meccanizzazione 10 GUTTER 3000 CA 197 / 88 1988 24984 Iglesias SCORREVOLE Masua GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 Iglesias Acquaresi SCORREVOLE TITANO GRU A PONTE IGEA – 2017- Pozzo Vittorio 13 5000 2017 gen-17 Iglesias SCORREVOLE PRIM 5t 200086/CA Monteponi J.D.NEUHA PARANCO US CA Livello Vesme 14 10000 2002 801453 Iglesias PNEUMATICO SIS PROFI 200100/06 Monteponi 10 TI INGERSOLL 25000 RAND PARANCO declas 2011- Pozzo 2 15 PALAIR 1997 9712150/97 Iglesias PNEUMATICO s. 200109 CA Campo Pisano 25000 K 10000 2C 8M - 2E PARANCO KITO CA 200121/ Meccanizzazione 16 5000 2000 55781 Iglesias ELETTRICO KR50L 09 Campo Pisano P&H RM - I - Meccanizzazione 17 AUTOGRU' 18760 1977 70761 Iglesias R200 22027 Campo Pisano JCB - 2011- Escavatore JCBJS19CJ0 Meccanizzazione 18 AUTOGRU' 7500 2010 Iglesias JS190NLC 200121-CA cingolato 1314198 Campo Pisano JCB - 3CX- 2011- Pala terna JCB3CXPCJ Area mineraria 19 AUTOGRU' 5000 2010 Iglesias 4TPC 200122-CA gommata 01707884 Masua JCB - 3CX- 2011- Pala terna JCB3CXPCJ Meccanizzazione 20 AUTOGRU' 5000 2010 Iglesias 4TPC 200123-CA gommata 01707453 Campo Pisano JCB - 2011- Escavatore JCBJS19CJ0 Meccanizzazione 21 AUTOGRU' 7500 2010 Iglesias JS190NLC 200120-CA cingolato 1314197 Campo Pisano 8"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "IGEA lifting apparatus | isListedIn | Tabella B1, Allegato B | | ALLEGATO B – UBICAZIONE APPARECCHI DI SOLLEVAMENTO IGEA TABELLA B1\nApparatus 8 (DEMAG 5000, overhead crane) | hasCapacity | 5000 kg | | DEMAG 5000 CA 127 / 86 1985 503291\nApparatus 8 (DEMAG 5000, overhead crane) | manufacturedIn | 1985 | | DEMAG 5000 CA 127 / 86 1985 503291\nApparatus 9 (DEMAG 5000, overhead crane) | locatedAt | Campo Pisano, Iglesias | | GRU A PONTE SCORREVOLE Campo Pisano\nApparatus 18 (JCB JS190NLC crawler excavator) | hasCapacity | 7500 kg | | JCB - 2011- Escavatore JCBJS19CJ0 Meccanizzazione 18 AUTOGRU' 7500 2010\nApparatus 18 (JCB JS190NLC crawler excavator) | locatedAt | Campo Pisano, Iglesias | | Escavatore cingolato Campo Pisano\nApparatus 19 (JCB 3CX wheeled loader) | hasCapacity | 5000 kg | | Pala terna JCB3CXPCJ Area mineraria 19 AUTOGRU' 5000 2010\nApparatus 19 (JCB 3CX wheeled loader) | belongsToSector | Area mineraria | | Area mineraria 19 AUTOGRU' 5000 2010 Iglesias 4TPC 200122-CA gommata\nApparatus 10 (GUTTER 3000, overhead crane) | locatedAt | Masua, Iglesias | | GUTTER 3000 CA 197 / 88 1988 24984 Iglesias SCORREVOLE Masua\nApparatus 13 (overhead crane, 5000 kg) | manufacturedIn | 2017 | | IGEA – 2017- Pozzo Vittorio 13 5000 2017 gen-17",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1909,
+   "prompt_tokens": 1695,
+   "total_tokens": 3604,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1161,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001124,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001124,
+   "gateway_cost": 0.001124
+  }
+ }
+}

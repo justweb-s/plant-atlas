@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 4\n\n1. Preface Introduction Congratulations on the purchase of your new Universal Robots robot, that consists of the robot arm (manipulator), Control Box and the Teach Pendant. Originally designed to mimic the range of motion of a human arm, the robot arm is composed of aluminium tubes, articulated by six joints, allowing for a high range of flexibility in your automation installation. The Universal Robots patented programming interface, PolyScope, allows you to create, load and run your automation applications. About this This manual contains safety information, guidelines for safe use, and instructions to mount manual the robot arm, Control Box and Teach Pendant. You can also find instructions for how to begin to install and how to start programming the robot. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Read and adhere to the intended uses. Perform a risk assessment. Install and use in accordance with the electrical and mechanical specifications provided in this user manual. Risk assessment requires an understanding of the hazards, risks and risk reduction measures for the robot application. Robot integration can require a basic level of mechanical and electrical training. Content Universal Robots A/S continues to improve the reliability and performance of its products, disclaimer and as such reserves the right to upgrade products, and product documentation, without prior warning. Universal Robots A/S takes every care to ensure the content of the User Manual/s is precise and correct, but takes no responsibility for any errors or missing information. This manual does not contain warranty information. Online Manuals, guides and handbooks can be read online. We have gathered a large number of manuals documents at https://www.universal-robots.com/manuals • PolyScope Software Handbook with descriptions and instructions for the software • The Service Handbook with instructions for troubleshooting, maintenance and repair • The Script Directory with scripting for in depth programming UR10e User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Robot arm | hasJoints | six joints | | articulated by six joints\nRobot arm | isComposedOf | aluminium tubes | | composed of aluminium tubes\nPolyScope | allows | creating, loading and running automation applications | | allows you to create, load and run your automation applications\nRead and adhere to intended uses | shouldBeFollowed | intended uses of the robot | | Read and adhere to the intended uses.\nRisk assessment | shouldBePerformed | before use of the robot application | | Perform a risk assessment.\nRobot | shouldBeInstalledAndUsedIn | accordance with electrical and mechanical specifications in the user manual | | Install and use in accordance with the electrical and mechanical specifications provided in this user manual.\nRisk assessment | requires | understanding of hazards, risks and risk reduction measures | | Risk assessment requires an understanding of the hazards, risks and risk reduction measures for the robot application.\nRobot integration | canRequire | basic level of mechanical and electrical training | | Robot integration can require a basic level of mechanical and electrical training.\nUniversal Robots A/S | reservesRightTo | upgrade products and product documentation without prior warning | | reserves the right to upgrade products, and product documentation, without prior warning\nUniversal Robots A/S | takesNoResponsibilityFor | errors or missing information in the user manual | | takes no responsibility for any errors or missing information\nThis manual | doesNotContain | warranty information | | This manual does not contain warranty information.\nUniversal Robots manuals | areAvailableAt | https://www.universal-robots.com/manuals | | https://www.universal-robots.com/manuals",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1148,
+   "prompt_tokens": 821,
+   "total_tokens": 1969,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 591,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006561,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006561,
+   "gateway_cost": 0.0006561
+  }
+ }
+}

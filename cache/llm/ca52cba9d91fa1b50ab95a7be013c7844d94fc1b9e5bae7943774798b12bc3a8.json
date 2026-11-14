@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 94\n\n9. End Effector Integration 9. End Effector Integration Description The end effector can also be referred to as the tool and the workpiece in this manual. NOTICE UR provides documentation for the end effector to be integrated with the robot arm. • Refer to the documentation specific to the end effector/tool/workpiece for mounting and connection. 9.1. Maximum Payload Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Description The rated robot arm payload depends on the center of gravity (CoG) offset of the payload, as shown below. The CoG offset is defined as the distance from the center of the tool flange to the center of gravity of the attached payload. The robot arm can accommodate a long center of gravity offset, if the payload is placed below the tool flange. For example when computing the payload mass in a pick and place application, consider both the gripper and the workpiece. The robot's capacity to accelerate can be reduced if the payload CoG exceeds the robot's reach and payload. You can verify the reach and payload of your robot in the Technical Specifications. UR10e10 kg You can verify the payload capacity of your robot by checking the label on the robot arm. / 12.5 kg Payloads above 10kg are extended horizontally away from the elbow joint. Increasing the maximum payload capacity can cause the robot to move at reduced speeds and lower acceleration. Movement with high payload is with tool oriented vertically downward, as is often the case in palletizing applications. UR10e 97 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "End effector | has documentation provided by | UR | | UR provides documentation for the end effector to be integrated with the robot arm.\nRated robot arm payload | depends on | center of gravity offset of the payload | | The rated robot arm payload depends on the center of gravity (CoG) offset of the payload\nCoG offset | is defined as | distance from the center of the tool flange to the center of gravity of the attached payload | | The CoG offset is defined as the distance from the center of the tool flange to the center of gravity of the attached payload.\nRobot arm | can accommodate | long center of gravity offset | payload placed below the tool flange | The robot arm can accommodate a long center of gravity offset, if the payload is placed below the tool flange.\nPayload mass computation in pick and place | should consider | gripper and workpiece | | For example when computing the payload mass in a pick and place application, consider both the gripper and the workpiece.\nRobot acceleration capacity | can be reduced | when payload CoG exceeds robot's reach and payload | payload CoG exceeds robot's reach and payload | The robot's capacity to accelerate can be reduced if the payload CoG exceeds the robot's reach and payload.\nReach and payload | can be verified in | Technical Specifications | | You can verify the reach and payload of your robot in the Technical Specifications.\nUR10e rated payload | is | 10 kg | | UR10e10 kg\nPayload capacity | can be verified by | checking the label on the robot arm | | You can verify the payload capacity of your robot by checking the label on the robot arm.\nPayloads above 10 kg | are extended | horizontally away from the elbow joint | payloads above 10 kg | Payloads above 10kg are extended horizontally away from the elbow joint.\nIncreasing maximum payload capacity | can cause | robot to move at reduced speeds and lower acceleration | increasing the maximum payload capacity | Increasing the maximum payload capacity can cause the robot to move at reduced speeds and lower acceleration.\nMovement with high payload | is performed with | tool oriented vertically downward | high payload | Movement with high payload is with tool oriented vertically downward, as is often the case in palletizing applications.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1544,
+   "prompt_tokens": 702,
+   "total_tokens": 2246,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 813,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008422,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008422,
+   "gateway_cost": 0.0008422
+  }
+ }
+}

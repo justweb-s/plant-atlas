@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 21\n\n4.6 Form-Fit Adapters NOTICE For the safe lifting of vehicles, it is recommeded to use form-fit adapters. Observe the applicable specifications of the vehicle manufacturers. 4.7 Support Disc Raisers WARNING • Only one raiser may be used per support disc. If support disc raisers are combined, there is a risk of instability and thus a vehicle crash. • The anti-rotation lock, which consists of a groove pin and a dowel pin in- serted into a sleeve, must always be engaged. The support disc raisers (partially optional) sre available in lengths of 50, 100, 150, 200 and 300 mm. By inserting the support disc raisers, the support discs can be adjusted in incre- ments of 50 mm. Fine adjustments are possible by turning the support disc. 4.8 Wheel Engaging Supports (MA STAR 5.5 and 6.5 only) The MA STAR 5.5 and 6.5 can be equipped with wheel engaging supports as an alternative to the disc supports. The lift is designed according to EN 1493, which specifies a total load capacity and takes into account an asymmetrical load distribution. When using the wheel engaging supports, it should be noted that the vehicle weight with asymmetrical load distribution is no longer decisive, but the individual load-bearing capacity of 1,000 kg per wheel engaging support: • Maximum wheel load 1,000 kg For the conversion, remove the threaded sleeves and install the wheel engaging supports as shown below. BA364501-en 21"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Form-fit adapters | should be used | for safe lifting of vehicles | | For the safe lifting of vehicles, it is recommeded to use form-fit adapters.\nApplicable vehicle manufacturer specifications | must be observed | when using form-fit adapters | | Observe the applicable specifications of the vehicle manufacturers.\nSupport disc raisers | may be used | only one per support disc | | Only one raiser may be used per support disc.\nCombined support disc raisers | create | risk of instability and thus a vehicle crash | if support disc raisers are combined | If support disc raisers are combined, there is a risk of instability and thus a vehicle crash.\nAnti-rotation lock | must always be | engaged | | The anti-rotation lock, which consists of a groove pin and a dowel pin inserted into a sleeve, must always be engaged.\nSupport disc raisers | are available in | lengths of 50, 100, 150, 200 and 300 mm | | The support disc raisers (partially optional) sre available in lengths of 50, 100, 150, 200 and 300 mm.\nSupport discs | can be adjusted in | increments of 50 mm | by inserting the support disc raisers | By inserting the support disc raisers, the support discs can be adjusted in increments of 50 mm.\nFine adjustments | are possible by | turning the support disc | | Fine adjustments are possible by turning the support disc.\nMA STAR 5.5 and 6.5 | can be equipped with | wheel engaging supports | as an alternative to the disc supports | The MA STAR 5.5 and 6.5 can be equipped with wheel engaging supports as an alternative to the disc supports.\nLift | is designed according to | EN 1493 | | The lift is designed according to EN 1493, which specifies a total load capacity and takes into account an asymmetrical load distribution.\nWheel engaging support | has individual load-bearing capacity | maximum wheel load of 1,000 kg | when using wheel engaging supports | the individual load-bearing capacity of 1,000 kg per wheel engaging support: • Maximum wheel load 1,000 kg",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1346,
+   "prompt_tokens": 723,
+   "total_tokens": 2069,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 639,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007453,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007453,
+   "gateway_cost": 0.0007453
+  }
+ }
+}

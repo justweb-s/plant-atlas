@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 24\n\n5 PROJECT PLANNING Remedial measures: O Mounting of deflector plates to protect the undetected areas O Mounting the safety laser scanner in the machine or vehicle paneling Near range In close proximity (50 mm-wide area in front of the optics cover), the detection capabil- ity of the safety laser scanner may be restricted. If required, this area must be secured using an undercut or frame, for example. 5.3.3 Reference contour monitoring Vertical operation National and international standards require or recommend that a reference contour is monitored if the angle between access direction and scan plane exceeds 30°. With the reference contour field, the safety laser scanner monitors the distance to a contour of the environment (e.g. a wall) in order to detect inadvertent adjustment or manipulation. Configuring the reference contour field during vertical operation O In many cases, it makes sense to use the floor and lateral vertical passage boun- daries (e.g. door frames) as a reference contour. O The resolution of the reference contour field specifies how large a gap in the con- tour or an object in the reference contour field must be for the reference contour field to detect the gap or object in any case. Smaller gaps or objects can also trigger detection in some cases. O The length of the monitored contour must be greater than the set resolution of the reference contour field. O The reference contour field has an adjustable tolerance band. If the safety laser scanner does not detect the reference contour within the tolerance band, all safety outputs switch to the OFF state. In Safety Designer, you can define the tolerance band around the reference contour in both directions (near and far). o For high availability, setting both the positive tolerance band (far) and the negative tolerance band (near) to the TZ value is recommended. (TZ = toler- ance zone of the safety laser scanner, see \"Data sheet\", page 129.) o The tolerance band must not be too wide. The reference contour field must detect a deviation from the reference contour before access to the hazard- ous point occurs next to the protective field. Deviations may occur due to changes in position or orientation. o If the reference contour represents the edge of the protected opening, the sum of the negative and positive tolerance bands must not be greater than the resolution of the protective field. o If the reference contour does not represent the edge of the protected open- ing, the sum of the negative and positive tolerance bands must not be greater than the projection. O You can define a number of contours in the reference contour field and therefore monitor various areas in the environment. Protective field and reference contour field for hazardous point protection The protective field must be larger than the protected opening. The required overrun (o) is calculated using the following formula: o ≥ (2 × TZ) – d Where: O o = overrun of the protective field over the opening O TZ = tolerance zone of the safety laser scanner, see \"Data sheet\", page 129 O d = set resolution 24 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Near range in close proximity (50 mm-wide area in front of the optics cover) | detection capability may be restricted | safety laser scanner detection | in close proximity | In close proximity (50 mm-wide area in front of the optics cover), the detection capability of the safety laser scanner may be restricted.\nNear range restricted area | must be secured | using an undercut or frame | if required | If required, this area must be secured using an undercut or frame, for example.\nReference contour monitoring | is required or recommended by standards | when angle between access direction and scan plane exceeds 30° | angle exceeds 30° | National and international standards require or recommend that a reference contour is monitored if the angle between access direction and scan plane exceeds 30°.\nReference contour field | monitors distance to contour of environment | to detect inadvertent adjustment or manipulation | | the safety laser scanner monitors the distance to a contour of the environment (e.g. a wall) in order to detect inadvertent adjustment or manipulation.\nFloor and lateral vertical passage boundaries | can be used as reference contour | during vertical operation | in many cases, makes sense | In many cases, it makes sense to use the floor and lateral vertical passage boundaries (e.g. door frames) as a reference contour.\nMonitored contour length | must be greater than | set resolution of reference contour field | | The length of the monitored contour must be greater than the set resolution of the reference contour field.\nReference contour not detected within tolerance band | causes all safety outputs to switch to OFF state | | | If the safety laser scanner does not detect the reference contour within the tolerance band, all safety outputs switch to the OFF state.\nPositive and negative tolerance bands | should both be set to TZ value | for high availability | for high availability | For high availability, setting both the positive tolerance band (far) and the negative tolerance band (near) to the TZ value is recommended.\nSum of tolerance bands | must not be greater than resolution of protective field | reference contour represents edge of protected opening | reference contour is edge of protected opening | If the reference contour represents the edge of the protected opening, the sum of the negative and positive tolerance bands must not be greater than the resolution of the protective field.\nSum of tolerance bands | must not be greater than projection | reference contour does not represent edge of protected opening | reference contour is not edge of protected opening | If the reference contour does not represent the edge of the protected opening, the sum of the negative and positive tolerance bands must not be greater than the projection.\nProtective field overrun over opening | must be at least (2 × TZ) − d | hazardous point protection | | o ≥ (2 × TZ) – d, where o = overrun of the protective field over the opening, TZ = tolerance zone, d = set resolution.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1458,
+   "prompt_tokens": 1187,
+   "total_tokens": 2645,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 551,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008477,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008477,
+   "gateway_cost": 0.0008477
+  }
+ }
+}

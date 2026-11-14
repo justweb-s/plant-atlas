@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 99\n\nCONFIGURATION 8 8.20 Service 8.20.1 Restart device If you have problems with the device, you can restart the device or subsections of the device (safety function, connections, additional functions). Restarting safety function O The fastest type of restart O Serious errors remain, even if the cause has been rectified (for example a locking state because of a supply voltage which is too low). O Communication with the device remains intact (connections for configuration, safety function and data not relating to safety). O Communication beyond the device is not impaired. Restarting safety function and connections O The device’s function is also re-established after serious errors if the cause has been rectified. O Communication with the device is interrupted (connections for configuration, safety function and data not relating to safety). The device sets up communication again automatically after restarting. O Communication beyond the device is not impaired. Restarting device completely O The device behaves exactly as it does when the voltage supply is switched off and back on again. O The device’s function is also re-established after serious errors if the cause has been rectified. O Communication with the device is interrupted (connections for configuration, safety function and data not relating to safety). O Communication beyond the device is interrupted. This may also affect devices which communicate beyond the device. 8.20.2 Resetting to factory settings Overview Before reconfiguring the device, you can reset all settings to factory settings. Resetting safety function to factory settings O The configuration for the safety function is reset to factory settings. O Communication beyond the device is not impaired. Resetting safety function and communication settings to factory settings O The configuration for the safety function is reset to factory settings. O The configuration of device communication is reset to factory settings (connec- tions for configuration, safety function and data not relating to safety). Resetting complete settings to factory settings O The configuration for the safety function is reset to factory settings. O The configuration of device communication is reset to factory settings (connec- tions for configuration, safety function and data not relating to safety). 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 99 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Restarting safety function | is_the_fastest_type_of_restart | restart of the safety function | | The fastest type of restart\nRestarting safety function | does_not_clear_serious_errors | serious errors | even if the cause has been rectified | Serious errors remain, even if the cause has been rectified (for example a locking state because of a supply voltage which is too low)\nRestarting safety function | keeps_configuration_communication_intact | communication with the device (configuration, safety function, data not relating to safety) | | Communication with the device remains intact\nRestarting safety function and connections | re_establishes_function_after_serious_errors | device's function | the cause has been rectified | The device's function is also re-established after serious errors if the cause has been rectified\nRestarting safety function and connections | interrupts_device_communication | communication with the device (configuration, safety function, data not relating to safety) | | Communication with the device is interrupted\nRestarting safety function and connections | restores_communication_automatically | device communication | after restarting | The device sets up communication again automatically after restarting\nRestarting device completely | behaves_like_power_cycle | device | | The device behaves exactly as it does when the voltage supply is switched off and back on again\nRestarting device completely | interrupts_communication_beyond_device | communication beyond the device | | Communication beyond the device is interrupted. This may also affect devices which communicate beyond the device\nResetting safety function to factory settings | resets_safety_configuration | configuration for the safety function | | The configuration for the safety function is reset to factory settings\nResetting safety function and communication settings to factory settings | resets_communication_configuration | configuration of device communication (connections for configuration, safety function and data not relating to safety) | | The configuration of device communication is reset to factory settings\nResetting complete settings to factory settings | resets_all_settings | safety function and device communication configuration | | Resetting complete settings to factory settings\nResetting to factory settings | is_done_before | reconfiguring the device | | Before reconfiguring the device, you can reset all settings to factory settings",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1278,
+   "prompt_tokens": 889,
+   "total_tokens": 2167,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 601,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007279,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007279,
+   "gateway_cost": 0.0007279
+  }
+ }
+}

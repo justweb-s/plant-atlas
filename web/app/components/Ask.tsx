@@ -184,12 +184,12 @@ function AnswerPanel({
   const score = result !== "loading" ? result.score : undefined;
   const unknown = answer && answer.value === null;
   const steps = answer?.steps ?? [];
-  const shown = all ? steps : steps.slice(0, 3);
+  const shown = all ? steps : steps.slice(0, 4);
   const short = answer && !unknown ? show(answer.value) : "";
   const isShort = short.length > 0 && short.length <= 40;
 
   return (
-    <article className="card rise mx-auto mt-10 max-w-3xl overflow-hidden">
+    <article className="card rise mx-auto mt-10 max-w-6xl overflow-hidden">
       <div className="border-b border-border bg-surface-2 px-5 py-4 sm:px-7">
         <p className="text-xs font-semibold uppercase tracking-wider text-muted">
           La tua domanda · {asked.as_of ? `al ${itDate(asked.as_of)}` : today ? `oggi, ${itDate(today)}` : "oggi"}
@@ -267,7 +267,7 @@ function AnswerPanel({
           <p className="text-xs font-semibold uppercase tracking-wider text-muted">
             Da dove viene · {steps.length} {steps.length === 1 ? "passo" : "passi"}, ognuno con la sua fonte
           </p>
-          <ol className="mt-4 space-y-4">
+          <ol className="mt-4 grid gap-4 lg:grid-cols-2">
             {shown.map((s, i) => (
               <li key={i} className="flex gap-3">
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-soft text-xs font-semibold text-accent">
@@ -289,7 +289,7 @@ function AnswerPanel({
               </li>
             ))}
           </ol>
-          {steps.length > 3 && (
+          {steps.length > 4 && (
             <button onClick={() => setAll(!all)} className="mt-4 text-sm font-semibold text-accent">
               {all ? "Mostra meno" : `Mostra tutti i ${steps.length} passi`}
             </button>

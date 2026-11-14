@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 48\n\n6. Assembly and Mounting 6.4.1. Singularity Description A singularity is a pose that restricts the motion and the ability to position the robot. The robot arm can stop moving or have very sudden and fast movements when approaching and leaving singularity. During placement of robot in the workspace and definition of the operating space, it is important to take into consideration the singularity position detailed below. WARNING Make sure that robot motion near a singularity does not create hazards to anyone within the range of the robot arm, end effector, and workpiece. • Set safety limits for the speed and acceleration of the elbow joint. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. The following causes singularity in the robot arm: • Outer workspace limit • Inner workspace limit • Wrist alignment Outer The singularity occurs because the robot cannot reach far enough or it reaches outside of workspace the maximum working area. limit To avoid: Arrange the equipment around the robot to avoid it reaching outside of the recommended workspace. UR10e 51 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "A singularity | restricts | the motion and the ability to position the robot | | A singularity is a pose that restricts the motion and the ability to position the robot.\nRobot arm | can stop moving or make very sudden and fast movements | when approaching and leaving singularity | | The robot arm can stop moving or have very sudden and fast movements when approaching and leaving singularity.\nPlacement of robot and definition of operating space | should take into account | singularity positions | | During placement of robot in the workspace and definition of the operating space, it is important to take into consideration the singularity position detailed below.\nRobot motion near a singularity | must not create | hazards to anyone within the range of the robot arm, end effector, and workpiece | | Make sure that robot motion near a singularity does not create hazards to anyone within the range of the robot arm, end effector, and workpiece.\nOperator | should set | safety limits for the speed and acceleration of the elbow joint | | Set safety limits for the speed and acceleration of the elbow joint.\nOuter workspace limit | causes | singularity in the robot arm | | The following causes singularity in the robot arm: Outer workspace limit\nInner workspace limit | causes | singularity in the robot arm | | The following causes singularity in the robot arm: Inner workspace limit\nWrist alignment | causes | singularity in the robot arm | | The following causes singularity in the robot arm: Wrist alignment\nOuter workspace limit singularity | occurs when | the robot cannot reach far enough or reaches outside the maximum working area | | The singularity occurs because the robot cannot reach far enough or it reaches outside of the maximum working area.\nEquipment around the robot | should be arranged to avoid | the robot reaching outside the recommended workspace | to avoid outer workspace limit singularity | To avoid: Arrange the equipment around the robot to avoid it reaching outside of the recommended workspace.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1139,
+   "prompt_tokens": 557,
+   "total_tokens": 1696,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 512,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006252,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006252,
+   "gateway_cost": 0.0006252
+  }
+ }
+}

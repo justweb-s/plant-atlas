@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 11\n\nSAFETY INFORMATION 2 Repairs and modifications DANGER Improper work on the product A modified product may not offer the expected protection if it is integrated incorrectly. → Apart from the procedures described in this document, do not repair, open, manip- ulate or otherwise modify the product. 2.2 Intended use The safety laser scanner is an electro-sensitive protective device (ESPE) and is suitable for the following applications: O Hazardous area protection O Hazardous point protection O Access protection O Mobile hazardous area protection (protection of automated guided vehicles) The product may be used in safety functions. The safety laser scanner must only be used within the limits of the prescribed and specified technical data and operating conditions at all times. Incorrect use, improper modification or manipulation of the safety laser scanner will invalidate any warranty from SICK; in addition, any responsibility and liability of SICK for damage and secondary damage caused by this is excluded. 2.3 Improper use Impermissible use O As a physical guard. The product works as an indirect protective measure and cannot provide protection from parts thrown from the application nor from emitted radiation. O Access control or authorization O Detection of transparent items Impermissible ambient conditions O Outdoors O Underwater O In explosion-hazardous areas 2.4 Qualification of personnel Any work on the product may only be carried out by personnel qualified and authorized to do so. Qualified personnel are able to perform tasks assigned to them and can independently recognize and avoid any potential hazards. This requires, for example: O technical training O experience O knowledge of the applicable regulations and standards 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 11 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Product | must not be repaired, opened, manipulated or otherwise modified | | apart from the procedures described in this document | \"Apart from the procedures described in this document, do not repair, open, manipulate or otherwise modify the product.\"\nModified product | may not offer the expected protection | | if it is integrated incorrectly | \"A modified product may not offer the expected protection if it is integrated incorrectly.\"\nSafety laser scanner | is | electro-sensitive protective device (ESPE) | | \"The safety laser scanner is an electro-sensitive protective device (ESPE)\"\nSafety laser scanner | may be used in | safety functions | | \"The product may be used in safety functions.\"\nSafety laser scanner | must only be used within | the prescribed and specified technical data and operating conditions | at all times | \"The safety laser scanner must only be used within the limits of the prescribed and specified technical data and operating conditions at all times.\"\nIncorrect use, improper modification or manipulation | invalidates | any SICK warranty | | \"Incorrect use, improper modification or manipulation of the safety laser scanner will invalidate any warranty from SICK\"\nSICK | excludes responsibility and liability for | damage and secondary damage caused by incorrect use, improper modification or manipulation | | \"any responsibility and liability of SICK for damage and secondary damage caused by this is excluded\"\nProduct | must not be used as | a physical guard | | \"As a physical guard.\"\nProduct | cannot provide protection from | parts thrown from the application nor from emitted radiation | | \"cannot provide protection from parts thrown from the application nor from emitted radiation\"\nProduct | must not be used for | access control or authorization | | \"Impermissible use O As a physical guard... O Access control or authorization O Detection of transparent items\"\nProduct | must not be used for | detection of transparent items | | \"O Detection of transparent items\"\nProduct | must not be used in | outdoors, underwater, or explosion-hazardous areas | | \"Impermissible ambient conditions O Outdoors O Underwater O In explosion-hazardous areas\"\nWork on the product | may only be carried out by | personnel qualified and authorized to do so | | \"Any work on the product may only be carried out by personnel qualified and authorized to do so.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1450,
+   "prompt_tokens": 796,
+   "total_tokens": 2246,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 713,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008046,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008046,
+   "gateway_cost": 0.0008046
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 32\n\n7.2.3 Greasing the Slide Tracks Lubricate the raceways of the sliding blocks at least every 6 months. To do so, move the lifting carriage to the lowest position. Then loosen and remove the spindle cover on the head plate. Lightly grease all slider tracks over the entire length with a brush. 7.2.4 Greasing the Arm Extensions Check the support arms for free movement at least every 6 months and lightly oil the pull-out points and the roller support if necessary. 32 BA364501-en"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Sliding block raceways | require lubrication | at least every 6 months | | Lubricate the raceways of the sliding blocks at least every 6 months.\nLifting carriage | must be moved to | lowest position | before greasing slide tracks | move the lifting carriage to the lowest position\nSpindle cover on head plate | must be loosened and removed | before greasing slide tracks | | loosen and remove the spindle cover on the head plate\nSlider tracks | must be lightly greased | over entire length with a brush | | Lightly grease all slider tracks over the entire length with a brush.\nSupport arms | must be checked for free movement | at least every 6 months | | Check the support arms for free movement at least every 6 months\nPull-out points and roller support | must be lightly oiled | if necessary | if necessary | lightly oil the pull-out points and the roller support if necessary",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 668,
+   "prompt_tokens": 375,
+   "total_tokens": 1043,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 384,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003715,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003715,
+   "gateway_cost": 0.0003715
+  }
+ }
+}

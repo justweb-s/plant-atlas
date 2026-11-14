@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 79\n\nCONFIGURATION 8 8.12.2 Enable propose field Overview You can have a protective field or warning field suggested by Safety Designer. For this purpose, the safety laser scanner scans the visible surrounding contour several times. Based on the data obtained, the Safety Designer suggests the contour and size of the field. Table 16: Propose field Suggest field If you propose a protective field, the proposal does not replace calculation of the minimum distance. You must calculate the minimum distance and check whether the size of the proposed protective field is sufficient. You must also take into account the measurement tolerances of the safety laser scanner. Existing field geometries O Delete existing shapes: The field is redrawn according to the surrounding con- tour. O Refine existing shapes: The existing field is adapted to the surrounding contour. Measurement method O Use every single distance value: Each scan of the surrounding contour is used individually to draw the field. O Use median of distance values: The median of the last 25 scans is used to draw the field. Type of teach-in O Only allow reduction: The shortest measured distance is used at each angle. If you walk along the borders of the imaginary field and, for example, hold a board or cardboard into the laser beam, this restricts the surrounding contour. O Allow expansion: The surrounding contour is used as it is measured. Automatic reduction You can specify that the proposed field is drawn smaller than the measured surround- ing contour so that the field will be at a distance from walls. The default value corre- sponds to the TZ value (tolerance zone of the safety laser scanner). Smoothing by point reduction The proposed contour may initially be uneven and consist of very many points. With the Smoothing by point reduction option, you can reduce the number of points and simplify the lines. Further topics O \"Distance from walls\", page 31 8.12.3 Object transformation Overview Table 17: Object transformation Object transformation 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 79 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety Designer | suggests | contour and size of the field | based on data obtained from scanning the visible surrounding contour several times | \"Based on the data obtained, the Safety Designer suggests the contour and size of the field.\"\nproposal | doesNotReplace | calculation of the minimum distance | if a protective field is proposed | \"If you propose a protective field, the proposal does not replace calculation of the minimum distance.\"\nuser | mustCheck | whether the size of the proposed protective field is sufficient | if a protective field is proposed | \"You must calculate the minimum distance and check whether the size of the proposed protective field is sufficient.\"\nuser | mustConsider | measurement tolerances of the safety laser scanner | \"\" | \"You must also take into account the measurement tolerances of the safety laser scanner.\"\nDelete existing shapes | redrawsField | field according to the surrounding contour | \"\" | \"Delete existing shapes: The field is redrawn according to the surrounding contour.\"\nRefine existing shapes | adaptsField | existing field to the surrounding contour | \"\" | \"Refine existing shapes: The existing field is adapted to the surrounding contour.\"\nUse every single distance value | drawsFieldFrom | each scan of the surrounding contour individually | \"\" | \"Use every single distance value: Each scan of the surrounding contour is used individually to draw the field.\"\nUse median of distance values | drawsFieldFrom | median of the last 25 scans | \"\" | \"Use median of distance values: The median of the last 25 scans is used to draw the field.\"\nOnly allow reduction | usesMeasuredDistance | shortest measured distance at each angle | \"\" | \"Only allow reduction: The shortest measured distance is used at each angle.\"\nAllow expansion | usesMeasuredDistance | surrounding contour as it is measured | \"\" | \"Allow expansion: The surrounding contour is used as it is measured.\"\nautomatic reduction default | correspondsTo | TZ value (tolerance zone of the safety laser scanner) | when the proposed field is specified to be drawn smaller than the measured contour | \"The default value corresponds to the TZ value (tolerance zone of the safety laser scanner).\"\nSmoothing by point reduction | reducesPointsAndSimplifies | number of points and lines of the proposed contour | when the option is enabled | \"With the Smoothing by point reduction option, you can reduce the number of points and simplify the lines.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1393,
+   "prompt_tokens": 882,
+   "total_tokens": 2275,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 604,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007847,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007847,
+   "gateway_cost": 0.0007847
+  }
+ }
+}

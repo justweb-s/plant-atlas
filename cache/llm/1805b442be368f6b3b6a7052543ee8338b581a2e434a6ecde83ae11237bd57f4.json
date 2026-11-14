@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 221\n\n20. Declarations and Certifications 20.2. Certifications UR5e Description Third party certification is voluntary. However, to provide the best service to robot integrators, Universal Robots chooses to certify its robots at the recognized test institutes listed below. You can find copies of all certificates in the chapter: Certificates. Certification Certificates by TÜV Rheinland to EN ISO 10218-1 and EN ISO 13849-1. TÜV Rheinland stands for safety and quality in TÜV Rheinland virtually all areas of business and life. Founded 150 years ago, the company is one of the world’s leading testing service providers. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. In Canada, the Canadian Electrical Code, CSA 22.1, Article 2-024 requires TÜV Rheinland equipment to be certified by a testing of North America organization approved by the Standards Council of Canada. Universal Robots e-Series robots conform to CHINA RoHS management CHINA RoHS methods for controlling pollution by electronic information products. Universal Robots e-Series robots have KCC Safety been assessed and conform to KCC mark safety standards. The Universal Robots e-Series robots have been evaluated for conformity assessment for use in a work KC Registration environment. Therefore, there is a risk of radio interference when used in a domestic environment. Universal Robots e-Series robots are Delta performance tested by DELTA. Supplier Third As provided by our suppliers, Universal Robots e- Party Series robots shipping pallets comply with the Certification Environment ISMPM-15 Danish requirements for producing wood packaging material and are marked in accordance with this scheme. User Manual 224 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "20.2 Certifications | isVoluntary | third party certification | | Third party certification is voluntary.\nUniversal Robots | certifiesRobotsAt | recognized test institutes listed in the passage | | Universal Robots chooses to certify its robots at the recognized test institutes listed below.\nUR5e robots | certifiedBy | TÜV Rheinland to EN ISO 10218-1 and EN ISO 13849-1 | | Certification Certificates by TÜV Rheinland to EN ISO 10218-1 and EN ISO 13849-1.\nTÜV Rheinland equipment in Canada | requiresCertificationBy | testing organization approved by the Standards Council of Canada | under the Canadian Electrical Code, CSA 22.1, Article 2-024 | In Canada, the Canadian Electrical Code, CSA 22.1, Article 2-024 requires TÜV Rheinland equipment to be certified by a testing of North America organization approved by the Standards Council of Canada.\nUniversal Robots e-Series robots | conformTo | CHINA RoHS | | Universal Robots e-Series robots conform to CHINA RoHS management methods for controlling pollution by electronic information products.\nUniversal Robots e-Series robots | conformTo | KCC mark safety standards | | Universal Robots e-Series robots have been assessed and conform to KCC mark safety standards.\nUniversal Robots e-Series robots | evaluatedFor | conformity assessment for use in a work environment | | The Universal Robots e-Series robots have been evaluated for conformity assessment for use in a work environment.\nUniversal Robots e-Series robots | mayCauseRadioInterference | radio interference | when used in a domestic environment | Therefore, there is a risk of radio interference when used in a domestic environment.\nUniversal Robots e-Series robots | performanceTestedBy | DELTA | | Universal Robots e-Series robots are Delta performance tested by DELTA.\nUniversal Robots e-Series shipping pallets | complyWith | Danish requirements for producing wood packaging material (ISMPM-15) | as provided by suppliers | As provided by our suppliers, Universal Robots e-Series robots shipping pallets comply with the Danish requirements for producing wood packaging material and are marked in accordance with this scheme.\nCertificates | locatedIn | chapter Certificates | | You can find copies of all certificates in the chapter: Certificates.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1515,
+   "prompt_tokens": 784,
+   "total_tokens": 2299,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 697,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008359,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008359,
+   "gateway_cost": 0.0008359
+  }
+ }
+}

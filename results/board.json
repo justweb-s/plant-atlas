@@ -1,11 +1,10 @@
 {
  "modes": [
   "rag",
+  "A",
   "B"
  ],
- "not_run": [
-  "A"
- ],
+ "not_run": [],
  "b_read": [
   "CORR",
   "DIR",
@@ -53,6 +52,31 @@
    "answered": 34,
    "of": 34
   },
+  "A": {
+   "design": {
+    "n": 22,
+    "correct": 7,
+    "unknown": 8,
+    "wrong": 7,
+    "mean": 0.409
+   },
+   "heldout": {
+    "n": 12,
+    "correct": 4,
+    "unknown": 5,
+    "wrong": 3,
+    "mean": 0.333
+   },
+   "covered_by_b": {
+    "n": 31,
+    "correct": 11,
+    "unknown": 10,
+    "wrong": 10,
+    "mean": 0.419
+   },
+   "answered": 34,
+   "of": 34
+  },
   "B": {
    "design": {
     "n": 22,
@@ -87,7 +111,7 @@
    "question": "Which categories of machinery always require a conformity assessment procedure involving a notified body?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.6,
    "B": 0.727
   },
   {
@@ -97,7 +121,7 @@
    "question": "Which conformity assessment procedures can the manufacturer choose for machinery listed in Annex I, Part A?",
    "covered_by_b": true,
    "rag": 0.667,
-   "A": null,
+   "A": 0.667,
    "B": 0.571
   },
   {
@@ -107,7 +131,7 @@
    "question": "Which category does a safety component with self-evolving behaviour based on machine learning fall under?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -117,7 +141,7 @@
    "question": "When must guards for moving transmission parts be interlocking movable guards instead of fixed guards?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -127,7 +151,7 @@
    "question": "Which risks does essential health and safety requirement 1.3.7 of Annex III address?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.222,
    "B": 0.0
   },
   {
@@ -137,7 +161,7 @@
    "question": "Who is considered the manufacturer after a substantial modification of machinery?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -147,7 +171,7 @@
    "question": "What must accompany machinery when it is placed on the market?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.333
   },
   {
@@ -157,7 +181,7 @@
    "question": "For how long must the manufacturer keep the technical documentation and the EU declaration of conformity?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -167,7 +191,7 @@
    "question": "From which date does Regulation (EU) 2023/1230 apply?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -177,7 +201,7 @@
    "question": "On 16 January 2027, can machinery conforming to Directive 2006/42/EC still be placed on the market?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -187,7 +211,7 @@
    "question": "For the work equipment listed in Annex VII of Legislative Decree 81/2008, who carries out the first periodic verification, and within what time?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -197,7 +221,7 @@
    "question": "For how long must the employer keep the results of the checks on work equipment?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -207,7 +231,7 @@
    "question": "Which models in the catalogue, self-certified today with internal checks, will need a notified body from 20 January 2027?",
    "covered_by_b": false,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.0
   },
   {
@@ -217,7 +241,7 @@
    "question": "Which conformity assessment procedure will model RC-5 need from 20 January 2027, and why?",
    "covered_by_b": false,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.0
   },
   {
@@ -227,7 +251,7 @@
    "question": "Can model CS-400 stay with internal production control after 20 January 2027?",
    "covered_by_b": false,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.0
   },
   {
@@ -237,7 +261,7 @@
    "question": "Which categories of Annex I, Part A of the Regulation were not in Annex IV of Directive 2006/42/EC?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.333
   },
   {
@@ -247,7 +271,7 @@
    "question": "After 20 January 2027, can a vehicle servicing lift built to harmonised standards covering all requirements be certified with internal production control alone?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -257,7 +281,7 @@
    "question": "Which essential requirement on protection against corruption does the Regulation introduce that the Directive did not have?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 1.0,
    "B": 0.0
   },
   {
@@ -267,7 +291,7 @@
    "question": "Which article of the Regulation corresponds to Article 12 of Directive 2006/42/EC?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.0
   },
   {
@@ -277,7 +301,7 @@
    "question": "Which annex of the Regulation does Annex IV of Directive 2006/42/EC correspond to?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.0
   },
   {
@@ -287,7 +311,7 @@
    "question": "How often must the DEMAG overhead travelling crane at position 8 of the IGEA lifting equipment list be verified?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -297,7 +321,7 @@
    "question": "How often must the Effer truck-mounted hydraulic crane at position 7 of the IGEA list, built in 2017, be verified?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -307,7 +331,7 @@
    "question": "Who carries out the periodic verifications after the first one on the equipment listed in Annex VII?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.5,
    "B": 0.5
   },
   {
@@ -317,7 +341,7 @@
    "question": "The Ministerial Decree of 11 April 2011 says sixty days and Article 71 of Legislative Decree 81/2008 says forty-five: within how many days of the request must the first periodic verification be carried out today?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -327,7 +351,7 @@
    "question": "Can the UR5e robot arm be put into service on its own, as delivered by the manufacturer?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -337,7 +361,7 @@
    "question": "How often must the nanoScan3 safety laser scanner be tested?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -347,7 +371,7 @@
    "question": "How much notice must the verifier give IGEA when planning the checks?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -357,7 +381,7 @@
    "question": "How often must the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, be verified today?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 1.0
   },
   {
@@ -367,7 +391,7 @@
    "question": "In November 2028, how often will the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, have to be verified?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.0
   },
   {
@@ -377,7 +401,7 @@
    "question": "How often must the HINOWA elevating platform at position 24 of the IGEA list be verified?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.0
   },
   {
@@ -387,7 +411,7 @@
    "question": "Is the periodic verification of the DEMAG overhead crane at position 8 of the IGEA list overdue today?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -397,7 +421,7 @@
    "question": "If the UR5e arm in the cell is replaced with a UR10e, by how many millimetres does the reach increase?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 0.0,
    "B": 0.0
   },
   {
@@ -407,7 +431,7 @@
    "question": "How often must the wear indicator of the load nut of the MA STAR 3.5 A vehicle lift be checked?",
    "covered_by_b": true,
    "rag": 1.0,
-   "A": null,
+   "A": 1.0,
    "B": 1.0
   },
   {
@@ -417,7 +441,7 @@
    "question": "For the verification of the DEMAG overhead crane at position 8 of the IGEA list, is the structural verification certificate of the residual life cycles needed?",
    "covered_by_b": true,
    "rag": 0.0,
-   "A": null,
+   "A": 1.0,
    "B": 0.0
   }
  ]

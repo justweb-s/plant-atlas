@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 63\n\nCONFIGURATION 8 For certain actions (e.g., transferring a configuration to the device), you are requested to log onto the device with the respective user group. Important information NOTICE When you log into a device, the configuration software stores the password so that you do not need to re-enter it for other configuration steps. If you do not change any other settings in the login dialog, the password is deleted as soon as you exit the configuration software, or log out in the main window or Device window. If you enable the Temporarily store password for login on additional devices. func- tion, the password will be retained even if you log out in the device window only. If you leave the computer unattended, you must log off to prevent unwanted access to the device. User groups Table 9: User groups User group Password Authorization Machine opera- No password required. Anyone can O May read configuration from the tor log on as a machine operator. device. Maintenance Deactivated ex-works, i.e. it is not O May read configuration from the initially possible to log on as a device. maintenance technician. The user O May transmit verified configura- group can be activated by the user tion to the device. group administrator and provided O Change own password allowed. with a password. Authorized client Deactivated ex-works, i.e. it is not O May read configuration from the initially possible to log on as device. an authorized customer. The user O May transmit verified and group can be activated by the user unverified configuration to the group administrator and provided device. with a password. O May verify configuration. O Resetting the safety function and communication settings to factory defaults is allowed. O Change own password allowed. O Changing the password of the Maintenance user group is allowed. Administrator The password SICKSAFE is created O May read configuration from the at the factory. device. O May transmit verified and → Change this password to protect unverified configuration to the the device against unauthorized device. access. O May verify configuration. O Resetting whole device to fac- tory settings allowed. O Activating and deactivating device functions is allowed. O Activating and deactivating the Maintenance, Authorized cli- ent and SICK-service user groups is allowed. O Change own password allowed. O Changing the passwords of the Maintenance and Authorized client user groups is allowed. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 63 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "configuration software | stores password | after logging into a device | so the user need not re-enter it for other configuration steps | When you log into a device, the configuration software stores the password so that you do not need to re-enter it for other configuration steps.\nstored password | is deleted | when exiting the configuration software or logging out in the main window or Device window | no other login dialog settings were changed | If you do not change any other settings in the login dialog, the password is deleted as soon as you exit the configuration software, or log out in the main window or Device window.\nTemporarily store password for login on additional devices function | retains password | after logging out in the device window only | function is enabled | If you enable the Temporarily store password for login on additional devices. func- tion, the password will be retained even if you log out in the device window only.\nuser | must log off | when leaving the computer unattended | to prevent unwanted access to the device | If you leave the computer unattended, you must log off to prevent unwanted access to the device.\nMachine operator user group | requires no password | | anyone can log on as a machine operator | No password required. Anyone can log on as a machine operator.\nMachine operator user group | may read configuration | from the device | | May read configuration from the device.\nMaintenance user group | is deactivated | ex-works | the user group administrator must activate it and provide a password | Deactivated ex-works, i.e. it is not initially possible to log on as a maintenance technician. The user group can be activated by the user group administrator and provided with a password.\nMaintenance user group | may transmit verified configuration | to the device | | May transmit verified configuration to the device.\nAuthorized client user group | may transmit verified and unverified configuration | to the device | | May transmit verified and unverified configuration to the device.\nAuthorized client user group | may reset safety function and communication settings | to factory defaults | | Resetting the safety function and communication settings to factory defaults is allowed.\nAdministrator user group | has password SICKSAFE | at the factory | should be changed to protect the device against unauthorized access | The password SICKSAFE is created at the factory. → Change this password to protect the device against unauthorized access.\nAdministrator user group | may reset whole device | to factory settings | | Resetting whole device to factory settings allowed.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1570,
+   "prompt_tokens": 959,
+   "total_tokens": 2529,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 857,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008809,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008809,
+   "gateway_cost": 0.0008809
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 172\n\n13. Communication Networks Advanced This menu can be used to change the update frequency of the Options signal. This means the frequency with which requests are sent to the remote MODBUS unit for either reading or writing the signal Update value. When the frequency is set to 0, then modbus requests are Frequency initiated on demand using a modbus_get_signal_status, modbus_ set_output_register, and modbus_set_output_signal script functions. This text field can be used to set a specific slave address for the requests corresponding to a specific signal. The value must be in Slave the range 0-255 both included, and the default is 255. If you Address change this value, it is recommended to consult the manual of the remote MODBUS device to verify its functionality when changing slave address. Reconnect Number of times TCP connection was closed, and connected count again. Connection TCP connection status. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. status Response Time between modbus request sent, and response received - this time [ms] is updated only when communication is active. Modbus Number of received packets that contained errors (i.e. invalid packet errors length, missing data, TCP socket error). Number of modbus requests that didn’t get response. Timeouts Number of packets that could not be sent due to invalid socket Requests status. failed The average frequency of client (master) signal status updates. Actual freq. This value is recalculated each time the signal receives a response from the server (or slave). All counters count up to 65535, and then wrap back to 0. UR5e 175 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Options signal update frequency | canBeChangedVia | Communication Networks Advanced menu | | This menu can be used to change the update frequency of the Options signal.\nUpdate frequency 0 | causesOnDemandRequests | modbus_get_signal_status, modbus_set_output_register, and modbus_set_output_signal script functions initiate requests | when the frequency is set to 0 | When the frequency is set to 0, then modbus requests are initiated on demand using a modbus_get_signal_status, modbus_set_output_register, and modbus_set_output_signal script functions.\nSlave address | mustBeInRange | 0-255 inclusive | | The value must be in the range 0-255 both included\nSlave address | defaultValue | 255 | | the default is 255\nSlave address | shouldConsultManual | remote MODBUS device manual | when the slave address is changed | If you change this value, it is recommended to consult the manual of the remote MODBUS device to verify its functionality when changing slave address.\nReconnect counter | countsTcpReconnections | number of times the TCP connection was closed and connected again | | Number of times TCP connection was closed, and connected count again.\nResponse time | measuresDelay | time in ms between a modbus request sent and response received | only updated when communication is active | Time between modbus request sent, and response received - this time [ms] is updated only when communication is active.\nModbus errors counter | countsErrorPackets | received packets that contained errors (invalid length, missing data, TCP socket error) | | Number of received packets that contained errors (i.e. invalid packet length, missing data, TCP socket error).\nTimeouts counter | countsUnansweredRequests | modbus requests that didn't get a response | | Number of modbus requests that didn't get response.\nFailed requests counter | countsUnsentPackets | packets that could not be sent due to invalid socket status | | Number of packets that could not be sent due to invalid socket status.\nActual frequency | isAverageOf | client (master) signal status update frequency | recalculated each time the signal receives a response from the server | The average frequency of client (master) signal status updates. This value is recalculated each time the signal receives a response from the server (or slave).\nAll counters | wrapAroundAt | 65535 (then back to 0) | | All counters count up to 65535, and then wrap back to 0.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1451,
+   "prompt_tokens": 699,
+   "total_tokens": 2150,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 684,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007954,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007954,
+   "gateway_cost": 0.0007954
+  }
+ }
+}

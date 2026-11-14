@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 75\n\nCONFIGURATION 8 8.12 Fields Overview Figure 42: Field editor 1 Toolbar 2 Visible spatial contour 3 Protective field (red) and warning field (yellow) created 4 Create, copy, delete field set and fields 5 Define field type, name field, configure field Using the field editor, you can configure the field sets of the safety laser scanner. The number of configurable fields depends on the safety laser scanner variant. In the Fields area, you draw the fields in a field set using the tools in the toolbar. In the Field set area, you create the field sets and fields. In the area below, you configure details for the selected field set or field. The edge length or the diameter of each field must be at least as large as the selected object resolution. You can change the sequence of the fields in the Field set area using drag and drop. The fields of a field set are displayed in the monitoring case table in the same sequence in which you create them here. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 75 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "field editor | enables configuring | field sets of the safety laser scanner | | Using the field editor, you can configure the field sets of the safety laser scanner.\nnumber of configurable fields | depends on | safety laser scanner variant | | The number of configurable fields depends on the safety laser scanner variant.\nedge length or diameter of each field | must be at least | selected object resolution | | The edge length or the diameter of each field must be at least as large as the selected object resolution.\nsequence of fields in Field set area | can be changed by | drag and drop | | You can change the sequence of the fields in the Field set area using drag and drop.\nfields of a field set | are displayed in monitoring case table in | sequence in which they were created | | The fields of a field set are displayed in the monitoring case table in the same sequence in which you create them here.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 584,
+   "prompt_tokens": 557,
+   "total_tokens": 1141,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 322,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003477,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003477,
+   "gateway_cost": 0.0003477
+  }
+ }
+}

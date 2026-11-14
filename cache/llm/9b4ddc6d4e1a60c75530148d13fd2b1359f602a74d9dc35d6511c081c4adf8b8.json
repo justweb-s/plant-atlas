@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 149\n\nANNEX 19 19 Annex 19.1 Conformities and certificates You can obtain declarations of conformity, certificates, and the current operating instructions for the product at www.sick.com. To do so, enter the product part number in the search field (part number: see the entry in the “P/N” or “Ident. no.” field on the type label). On the page found, the conformity declarations and certificates are available for downloading under \"Downloads\" > \"Certificates\". 19.2 Note on standards Standards are specified in the information provided by SICK. The table shows regional standards with similar or identical contents. Not every standard applies to all products. Table 48: Note on standards Standard Standard (regional) China IEC 60068-2-6 GB/T 2423.10 IEC 60068-2-27 GB/T 2423.5 IEC 60204-1 GB/T 5226.1 IEC 60529 GB/T 4208 IEC 60825-1 GB 7247.1 IEC 61131-2 GB/T 15969.2 IEC 61140 GB/T 17045 IEC 61496-1 GB/T 19436.1 IEC 61496-2 GB/T 19436.2 IEC 61496-3 GB 19436.3 IEC 61508 GB/T 20438 IEC 62061 GB 28526 ISO 13849-1 GB/T 16855.1 ISO 13855 GB/T 19876 19.3 Open source software This product may contain open source software components. The use of such compo- nents is subject to the terms of the respective open source licenses. For additional information visit www.sick.com/licensetexts. 19.4 Checklist for initial commissioning and commissioning Checklist for manufacturers or installers for installing electro-sensitive protective device (ESPE) The details relating to the items listed below must be available no later than when the system is commissioned for the first time. However, these depend on the specific appli- cation (the requirements of which must be reviewed by the manufacturer or installer). This checklist should be retained and kept with the machine documentation to serve as reference during recurring tests. This checklist does not replace the initial commissioning, nor the regular inspection by qualified safety personnel. Have the safety rules and regulations been observed in compliance with the Yes ⃞ No ⃞ directives and standards applicable to the machine? Are the applied directives and standards listed in the declaration of conformity? Yes ⃞ No ⃞ 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 149 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Declarations of conformity, certificates and current operating instructions | obtainableFrom | www.sick.com | by entering the product part number in the search field | You can obtain declarations of conformity, certificates, and the current operating instructions for the product at www.sick.com.\nProduct part number | locatedOn | type label, \"P/N\" or \"Ident. no.\" field | | part number: see the entry in the \"P/N\" or \"Ident. no.\" field on the type label\nConformity declarations and certificates | downloadableFrom | \"Downloads\" > \"Certificates\" | on the product page found by part number | On the page found, the conformity declarations and certificates are available for downloading under \"Downloads\" > \"Certificates\".\nStandards | specifiedIn | information provided by SICK | | Standards are specified in the information provided by SICK.\nRegional standards in the table | haveSimilarOrIdenticalContent | corresponding international standards | | The table shows regional standards with similar or identical contents.\nStandards | applyTo | products | not every standard applies to all products | Not every standard applies to all products.\nProduct | mayContain | open source software components | use is subject to the terms of the respective open source licenses | This product may contain open source software components.\nAdditional open source information | availableAt | www.sick.com/licensetexts | | For additional information visit www.sick.com/licensetexts.\nChecklist details for ESPE | mustBeAvailableBy | first commissioning of the system | details depend on the specific application | The details relating to the items listed below must be available no later than when the system is commissioned for the first time.\nChecklist | shouldBeRetainedWith | machine documentation | to serve as reference during recurring tests | This checklist should be retained and kept with the machine documentation to serve as reference during recurring tests.\nChecklist | doesNotReplace | initial commissioning and regular inspection by qualified safety personnel | | This checklist does not replace the initial commissioning, nor the regular inspection by qualified safety personnel.\nSafety rules and regulations | mustBeObserved | directives and standards applicable to the machine | | Have the safety rules and regulations been observed in compliance with the directives and standards applicable to the machine?",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1259,
+   "prompt_tokens": 1056,
+   "total_tokens": 2315,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 551,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007351,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007351,
+   "gateway_cost": 0.0007351
+  }
+ }
+}

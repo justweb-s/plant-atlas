@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 31\n\nPROJECT PLANNING 5 O ZR = supplement for reflection-based measurement errors in millimeters (mm), see \"Supplement ZR for reflection-based measurement errors\", page 28 O CRO = supplement to protect against reaching over in millimeters (mm), see \"Sup- plement CRO to protect against reaching over\", page 29 The reach/approach speed is already included in the formula. 5.3.7.4 Height of the scan plane Overview If you mount the safety laser scanner at a height of at least 300 mm (height of the scan plane), the scan plane is at calf height and the leg is detected at a resolution of 70 mm (see figure 18, page 31). If the scan plane is lower than 300 mm, you must use a resolution finer than 70 mm. The scan plane must not be higher than 1,000 mm. HD Figure 18: Scan plane at calf height Calculating required resolution If the height of the protective field (scan plane) is predefined and is less than 300 mm, you can calculate the required resolution using the following formula: dr = HD / 15 +50 mm where: O dr = coarsest permissible resolution of the safety laser scanner in millimeters (mm) O HD = height of the protective field above the floor in millimeters (mm) The safety laser scanner’s resolution can be set to the predefined value d. If the result dr does not match any of these values, you must choose a finer resolution (d ≤ dr). 5.3.7.5 Distance from walls The availability may be impaired if the protective field stretches as far as a wall or a different object. So, a space between the protective field and the object is required. A distance of the TZ value is recommended to ensure availability. (TZ = tolerance zone of the safety laser scanner, see \"Data sheet\", page 129.) 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 31 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "safety laser scanner | mountingHeight | at least 300 mm (height of the scan plane) | \"\" | If you mount the safety laser scanner at a height of at least 300 mm (height of the scan plane), the scan plane is at calf height\nscan plane at 300 mm or higher | detectsLegAt | resolution of 70 mm | mounted at height of at least 300 mm | the leg is detected at a resolution of 70 mm\nscan plane | maximumHeight | 1,000 mm | \"\" | The scan plane must not be higher than 1,000 mm.\nscan plane | requiresResolution | finer than 70 mm | scan plane lower than 300 mm | If the scan plane is lower than 300 mm, you must use a resolution finer than 70 mm.\ncoarsest permissible resolution dr | calculatedAs | HD / 15 + 50 mm | height of protective field is predefined and less than 300 mm | dr = HD / 15 +50 mm\nresolution d | mustBeFinerThanOrEqualTo | dr | result dr does not match any predefined resolution value | If the result dr does not match any of these values, you must choose a finer resolution (d ≤ dr).\nHD | defines | height of the protective field above the floor in mm | \"\" | where: O dr = coarsest permissible resolution of the safety laser scanner in millimeters (mm) O HD = height of the protective field above the floor in millimeters (mm)\navailability | mayBeImpairedBy | protective field stretching as far as a wall or a different object | \"\" | The availability may be impaired if the protective field stretches as far as a wall or a different object.\nprotective field and object | requiresSpaceOf | distance of the TZ value | \"\" | A distance of the TZ value is recommended to ensure availability.\nTZ | isDefinedAs | tolerance zone of the safety laser scanner | \"\" | (TZ = tolerance zone of the safety laser scanner, see \"Data sheet\", page 129.)\nreach/approach speed | isIncludedIn | the formula for supplement values | \"\" | The reach/approach speed is already included in the formula.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1441,
+   "prompt_tokens": 844,
+   "total_tokens": 2285,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 746,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008049,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008049,
+   "gateway_cost": 0.0008049
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 243\n\n21. Safety Functions Table 1Communications between the Teach Pendant, controller & within the robot are SIL 2 for safety data (per IEC 61784-3). Table 1 2Estop validation: The pendant Estop pushbutton is evaluated within the pendant, then communicated1 to the safety footnotes controller by SIL2 communications. To validate the pendant Estop functionality, press the Pendant Estop pushbutton and verify that an Estop results. This validates that the Estop is connected within the pendant, the estop functions as intended, and the pendant is connected to the controller. 3If a robot safety function is “integrated” or “connected” with external equipment, devices or logic, the resulting integrated safety function has a PFH that is the sum of all PFH values, including the PFH value of the robot safety function. 4Stop Categories according to IEC 60204-1 (NFPA79). For the Estop, only stop category 0 and 1 are allowed. • Stop Category 0 & 1 result in the removal of drive power, with stop cat 0 being IMMEDIATE & stop cat 1 being a controlled stop (e.g. decelerate to a stop then removal of drive power). • Stop Category 2 is a stop where drive power is NOT removed. Stop category 2 is defined in IEC 60204-1. Descriptions of STO, SS1 & SS2 are in IEC 61800-5-2. With UR, a stop category 2 maintains the trajectory & retains power to the drives after stopping. 5 Stop Time & Stop Distance Safety Functions should be used. When used, there is no need for periodic verification of stopping performance. 6 If a robot safety function is “integrated” or “connected” with external equipment, devices or logic, the resulting integrated safety function has a PFH that is the sum of all PFH values, including the PFH value of the robot safety function. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. 7 The stopping capability of the robot in the given motion(s) is continuously monitored to prevent motions that would exceed the stopping limit. If the time needed to stop the robot is at risk of exceeding the time limit, the speed of motion is reduced to ensure the limit is not exceeded. A stop will be initiated to prevent exceeding the limit. 8 For the integrated functional safety rating with an external safety-related control system, add the PFH of this safety- related output to the PFH of the external safety-related control system. The safety function and its triggering of a stop are included in the PFH value for this SF. 9 The enabling device can be on the teach pendant or external connected to the Enabling Function input (SF18). 10 Use of an external mode switch is recommended when using a 3-position enabling device. If an external mode switch is not used and connected to the safety inputs, then the robot mode will be determined by the User Interface. If the User Interface is in • “run mode”, the enabling function will not be active. • “programming mode”, the enabling function will be active. Password protection for changing the mode can be configured. 11 If any 3PE enabling device is released or fully pressed, the 3-position enabling safety function is OFF (not in the Center ON position). 12 ISO 10218:2025 removed the term “collaborative operation”. 13 Tools attached to the robot's tool flange may still come into contact with the robot's lower arm link User Manual 246 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Communications between Teach Pendant, controller and robot | are | SIL 2 for safety data | per IEC 61784-3 | Communications between the Teach Pendant, controller & within the robot are SIL 2 for safety data (per IEC 61784-3)\nPendant Estop pushbutton | is evaluated | within the pendant, then communicated to the safety controller by SIL2 communications | | The pendant Estop pushbutton is evaluated within the pendant, then communicated to the safety controller by SIL2 communications\nPendant Estop validation | requires | pressing the Pendant Estop pushbutton and verifying that an Estop results | | press the Pendant Estop pushbutton and verify that an Estop results\nFor the Estop | allowed stop categories | only stop category 0 and 1 | | For the Estop, only stop category 0 and 1 are allowed.\nStop category 0 | removes | drive power immediately | | stop cat 0 being IMMEDIATE\nStop category 1 | removes | drive power after a controlled stop | | stop cat 1 being a controlled stop (e.g. decelerate to a stop then removal of drive power)\nStop category 2 | does not remove | drive power | | Stop Category 2 is a stop where drive power is NOT removed.\nWith UR, stop category 2 | maintains | the trajectory and retains power to the drives after stopping | | With UR, a stop category 2 maintains the trajectory & retains power to the drives after stopping.\nStop Time & Stop Distance Safety Functions | eliminate need for | periodic verification of stopping performance | when used | When used, there is no need for periodic verification of stopping performance.\nIntegrated safety function PFH | equals | the sum of all PFH values, including the PFH of the robot safety function | if a robot safety function is \"integrated\" or \"connected\" with external equipment, devices or logic | the resulting integrated safety function has a PFH that is the sum of all PFH values, including the PFH value of the robot safety function\nEnabling device | can be located on | the teach pendant or an external device connected to the Enabling Function input (SF18) | | The enabling device can be on the teach pendant or external connected to the Enabling Function input (SF18).\n3-position enabling safety function | is | OFF | if any 3PE enabling device is released or fully pressed (not in the Center ON position) | If any 3PE enabling device is released or fully pressed, the 3-position enabling safety function is OFF (not in the Center ON position).",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1741,
+   "prompt_tokens": 1316,
+   "total_tokens": 3057,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 917,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010021,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010021,
+   "gateway_cost": 0.0010021
+  }
+ }
+}

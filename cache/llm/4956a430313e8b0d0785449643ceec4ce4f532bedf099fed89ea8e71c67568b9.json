@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 33\n\n7.2.5 Lubricating the Thread of the Support Discs Check the threads of the support discs for free movement at least every 6 months and lightly oil if necessary. 7.2.6 Lubricating the Spindle Bearing (MA STAR 5.5 / 6.5 only) Lubricate the upper spindle bearing at least once a year. Lower the lifting carriage to bottom position; loosen the spindle cover at the head plate and remove it. Then lubricate the spindle bearing with multipurpose grease through the lubrication nipple. BA364501-en 33"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Check the threads of the support discs | must be checked for free movement | free movement | at least every 6 months | Check the threads of the support discs for free movement at least every 6 months\nSupport disc threads | should be lightly oiled | lightly oiled | if necessary | lightly oil if necessary\nUpper spindle bearing | must be lubricated | at least once a year | applies to MA STAR 5.5 / 6.5 only | Lubricate the upper spindle bearing at least once a year\nLifting carriage | must be lowered | to bottom position | before lubricating the spindle bearing | Lower the lifting carriage to bottom position\nSpindle cover | must be loosened and removed | at the head plate | before lubricating the spindle bearing | loosen the spindle cover at the head plate and remove it\nSpindle bearing | must be lubricated with | multipurpose grease through the lubrication nipple | | lubricate the spindle bearing with multipurpose grease through the lubrication nipple",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 675,
+   "prompt_tokens": 392,
+   "total_tokens": 1067,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 352,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003767,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003767,
+   "gateway_cost": 0.0003767
+  }
+ }
+}

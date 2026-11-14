@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 116\n\n11 MAINTENANCE Changes introduced in an earlier firmware version are also included in later firm- ware versions. You must therefore consider all release notes after the currently installed firmware version and up to the intended version. 2. Analyze the effects of the firmware update on the safety function. 3. Perform a risk assessment for the identified effects of the firmware update and determine any additional measures required, in particular tests that must be per- formed. 4. Implement the measures from step 3.. 5. Analyze the effects of the firmware update on other functions. 6. Create and save a backup copy of the entire configuration of the device. 7. Make sure that the dangerous state of the machine is and remains switched off. 8. Ensure that there are no other communication connections to the device during installation, e.g., a connection to Safety Designer. Installation 1. When installing, observe any additional instructions in the firmware release notes. 2. Follow the operating instructions of the Sentio Creator. 3. In the Deployment Manager extension of Sentio Creator, use the Identify the device function to check whether the correct device is selected. 4. In the Deployment Manager extension of Sentio Creator, check whether the expected firmware is installed on the device. 5. Log in to the device with the Administrator user group and the corresponding password. m The progress of the installation is displayed in Sentio Creator. m During the installation of the firmware, the display shows Ready for firmware update. The display may go dark for a certain period of time. m The device is restarted at least once. m Installing the firmware can take several minutes. m The display shows the initial status again. m The firmware installation is complete. In the event of problems during installation → If Sentio Creator displays an error message, take this message into account and rectify the cause. → If the device can no longer be reached via the network due to an error and the display shows a corresponding message, then connect the device via USB. → For all other problems, restart the installation but do not restart the device. After installation 1. In the Deployment Manager extension of Sentio Creator, check whether the expected firmware is installed on the device. 2. Implement the measures from \"Before installation\", page 115, step 3. and, if neces- sary, further necessary checks. 3. If additional checks are described in the firmware release notes, then carry out these additional checks. 4. Do not switch the dangerous state of the machine back on until the firmware has been successfully installed, all measures have been implemented, and all checks have been completed. 116 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Changes introduced in an earlier firmware version | are included in | later firmware versions | | Changes introduced in an earlier firmware version are also included in later firmware versions.\nYou | must consider | all release notes after the currently installed firmware version and up to the intended version | | You must therefore consider all release notes after the currently installed firmware version and up to the intended version.\nFirmware update | must be analyzed for effects on | the safety function | | Analyze the effects of the firmware update on the safety function.\nIdentified effects of firmware update | require | risk assessment and any additional measures, in particular tests | | Perform a risk assessment for the identified effects of the firmware update and determine any additional measures required, in particular tests that must be performed.\nBackup copy of entire device configuration | must be created and saved | before installation | | Create and save a backup copy of the entire configuration of the device.\nDangerous state of the machine | must be and remain | switched off | | Make sure that the dangerous state of the machine is and remains switched off.\nOther communication connections to the device | must be absent | during installation | | Ensure that there are no other communication connections to the device during installation, e.g., a connection to Safety Designer.\nFirmware release notes | must be observed | for additional instructions during installation | | When installing, observe any additional instructions in the firmware release notes.\nDevice login | requires | Administrator user group and corresponding password | | Log in to the device with the Administrator user group and the corresponding password.\nDevice | must be connected via | USB | device can no longer be reached via the network due to an error and the display shows a corresponding message | If the device can no longer be reached via the network due to an error and the display shows a corresponding message, then connect the device via USB.\nDangerous state of the machine | must not be switched back on | until firmware is successfully installed, all measures are implemented, and all checks are completed | | Do not switch the dangerous state of the machine back on until the firmware has been successfully installed, all measures have been implemented, and all checks have been completed.\nDevice | is restarted | at least once | during firmware installation | The device is restarted at least once.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1514,
+   "prompt_tokens": 1044,
+   "total_tokens": 2558,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 839,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008614,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008614,
+   "gateway_cost": 0.0008614
+  }
+ }
+}

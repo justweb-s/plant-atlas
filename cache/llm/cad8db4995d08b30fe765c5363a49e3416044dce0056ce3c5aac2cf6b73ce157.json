@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 105\n\n9. End Effector Integration Payload This is the time it takes the robot to adjust for a given payload. At the bottom of the screen, Transition you can set the transition time between different payloads. Time You can add a payload transition time in seconds. Setting a transition time larger than zero, prevents the robot from doing a small \"jump\", when the payload changes. The program continues while the adjustment is taking place. Using the Payload Transition Time is recommended when picking up or releasing heavy objects or using a vacuum gripper. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. User Manual 108 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Payload adjustment | takes | the time the robot needs to adjust for a given payload | | This is the time it takes the robot to adjust for a given payload.\nPayload transition time | can be set in | seconds | | You can add a payload transition time in seconds.\nTransition time above zero | prevents | a small \"jump\" when the payload changes | setting a transition time larger than zero | Setting a transition time larger than zero, prevents the robot from doing a small \"jump\", when the payload changes.\nProgram | continues | during the payload adjustment | while the adjustment is taking place | The program continues while the adjustment is taking place.\nPayload transition time | is recommended for | picking up or releasing heavy objects | | Using the Payload Transition Time is recommended when picking up or releasing heavy objects or using a vacuum gripper.\nPayload transition time | is recommended for | using a vacuum gripper | | Using the Payload Transition Time is recommended when picking up or releasing heavy objects or using a vacuum gripper.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 716,
+   "prompt_tokens": 409,
+   "total_tokens": 1125,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 387,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003989,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003989,
+   "gateway_cost": 0.0003989
+  }
+ }
+}

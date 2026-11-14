@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 107\n\nOPERATION 10 Number Function Color Meaning 3 Restart interlock/ Yellow Setup with reset: Flashes if the restart warning field interlock has been triggered. Configuration with automated restart after a time: Lights up while the con- figured time to restart expires. Warning field: Lights up yellow if at least one warning field is interrupted. 4 Display Red/yellow/green Information about the status of the safety laser scanner 5 Network LED Yellow/green O Lights up green: Ethernet connec- tion established. O Flashes yellow: Data are being transmitted. 6 Button Operation of the display The the ON state, OFF state and restart interlock/warning field LEDs are arranged in three sets on the base of the optics cover so that they are clearly visible from all directions. Complementary information The display elements are only used for diagnostic purposes and are not safety-relevant. The safety function of the device is not impaired even if the status indicators are incor- rectly displayed or fail. 10.4 Status indicator with the display Overview The display shows current information about the status of the safety laser scanner. The display switches off after approx. 60 s if all fields are clear and no other notification is displayed. Procedure → If the display is switched off, press any button briefly to activate the display. → Press the button briefly to obtain more details about the displayed status informa- tion. → If there are a number of pages with detailed information, this is shown in the top right of the display. Press the button briefly to change between a number of pages with detailed information. Status indicator Table 27: Overview of status information Display Device or configura- Meaning tion All devices and config- All fields clear, safety outputs in ON state. urations The number at bottom right indicates the active monitoring case. Devices and configu- Protective field interrupted, safety output in rations with a config- OFF state. ured safety output 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 107 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Restart interlock LED | flashes | restart interlock triggered | setup with reset | \"Setup with reset: Flashes if the restart warning field interlock has been triggered.\"\nRestart interlock LED | lightsUp | configured time to restart expires | configuration with automated restart after a time | \"Configuration with automated restart after a time: Lights up while the configured time to restart expires.\"\nWarning field LED | lightsUp | at least one warning field is interrupted | | \"Warning field: Lights up yellow if at least one warning field is interrupted.\"\nNetwork LED | lightsUp | Ethernet connection established | | \"Lights up green: Ethernet connection established.\"\nNetwork LED | flashes | data are being transmitted | | \"Flashes yellow: Data are being transmitted.\"\nDisplay elements | areNotUsedFor | safety functions | used only for diagnostic purposes | \"The display elements are only used for diagnostic purposes and are not safety-relevant.\"\nSafety function of the device | isNotImpaired | status indicators are incorrectly displayed or fail | | \"The safety function of the device is not impaired even if the status indicators are incorrectly displayed or fail.\"\nDisplay | switchesOff | all fields clear and no other notification displayed | after approx. 60 s | \"The display switches off after approx. 60 s if all fields are clear and no other notification is displayed.\"\nDisplay | isActivatedBy | pressing any button briefly | display is switched off | \"If the display is switched off, press any button briefly to activate the display.\"\nDisplay | indicates | all fields clear, safety outputs in ON state | all devices and configurations | \"All fields clear, safety outputs in ON state.\"\nDisplay | indicates | protective field interrupted, safety output in OFF state | devices and configurations with a configured safety output | \"Protective field interrupted, safety output in OFF state.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1271,
+   "prompt_tokens": 858,
+   "total_tokens": 2129,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 673,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007213,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007213,
+   "gateway_cost": 0.0007213
+  }
+ }
+}

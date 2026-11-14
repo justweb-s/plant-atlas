@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: igea-equipment, p. 4\n\n2.4 L’elenco degli Allegati A e B potrà subire variazioni (in numero e ubicazione) in caso di indisponibilità, dismissioni o nuove acquisizioni di apparecchi di sollevamento; 2.5 Le prestazioni dell’Appaltatore saranno riferite alle liste delle macchine/apparecchi aggiornate secondo quanto previsto al punto 2.4; 2.6 Per le prestazioni di cui al punto 2.5, come base d’asta di riferimento verrà utilizzato il tariffario, con gli indici ISTAT aggiornati, emanato dal Ministero del Lavoro e delle Politiche Sociali di concerto con i Ministeri dello Sviluppo Economico e della Salute, attraverso il Decreto Dirigenziale del 23/11/2012 con cui si fissano le tariffe per le attività di verifica periodica delle attrezzature di lavoro di cui all'allegato VII del Decreto Legislativo 9 aprile 2008 n. 81 e successive modifiche e integrazioni; 2.7 Per ciascun apparecchio di sollevamento in elenco, aggiornato in numero e ubicazione secondo il punto 2.5, sottoposto a verifica secondo le cadenze ed entro le scadenze previste, verrà corrisposto l’importo calcolato sulla base di quanto disposto al punto 2.6 e col ribasso proposto dall’ Aggiudicatario; 2.8 La durata del presente servizio è da intendersi per anni 3 (tre) ossia per le annualità 2019, 2020, 2021. 3. SPECIFICHE APPALTANTE I criteri di abilitazione dei soggetti pubblici o privati per poter effettuare le verifiche di cui all’art.71 comma 11 del D.Lgs. n° 81/2008 sono quelli indicati nell’Allegato I del D.M. 11 aprile 2011 L’appaltante dovrà essere iscritto nell’elenco dei soggetti abilitati come previsto all’art. 2 comma 4 del D.M. 11 aprile 2011 e aggiornato secondo i più recenti Decreti Direttoriali emanati dal Ministero del Lavoro e delle Politiche Sociali. 4. IMPEGNI APPALTATORE 4.1 Igea si impegna a notificare per tempo all’Appaltante eventuali variazioni rispetto agli elenchi degli allegati A e B (indisponibilità, dismissioni, nuovi acquisti o variazioni di ubicazione). 4.2 Per le operazioni di verifica IGEA S.p.A. metterà a disposizione del verificatore: 4.2.1 Il personale occorrente sotto la vigilanza di un preposto e i mezzi necessari per l’esecuzione delle operazioni stesse (pesi campione), esclusi gli apparecchi di misurazione; 4.2.2 tutta la documentazione necessaria: 1. libretto delle verifiche rilasciato da INAIL/ISPESL o Copia della Dichiarazione di Conformità con relativa denuncia all’ISPESL per apparecchi a marchio CE; 2. verbali delle verifiche periodiche precedenti; 3. registro di controllo; 4"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Lista Allegati A e B | può subire variazioni | in numero e ubicazione | in caso di indisponibilità, dismissioni o nuove acquisizioni di apparecchi di sollevamento | \"L’elenco degli Allegati A e B potrà subire variazioni (in numero e ubicazione) in caso di indisponibilità, dismissioni o nuove acquisizioni di apparecchi di sollevamento\"\nPrestazioni dell'Appaltatore | sono riferite a | liste delle macchine/apparecchi aggiornate | secondo il punto 2.4 | \"Le prestazioni dell’Appaltatore saranno riferite alle liste delle macchine/apparecchi aggiornate secondo quanto previsto al punto 2.4\"\nBase d'asta per le prestazioni | è | tariffario con indici ISTAT aggiornati emanato dal Ministero del Lavoro (Decreto Dirigenziale del 23/11/2012) | \"\" | \"come base d’asta di riferimento verrà utilizzato il tariffario, con gli indici ISTAT aggiornati, emanato dal Ministero del Lavoro e delle Politiche Sociali\"\nImporto per apparecchio di sollevamento | è calcolato su | base del punto 2.6 con ribasso proposto dall'Aggiudicatario | apparecchio sottoposto a verifica entro le scadenze previste | \"verrà corrisposto l’importo calcolato sulla base di quanto disposto al punto 2.6 e col ribasso proposto dall’ Aggiudicatario\"\nDurata del servizio | è | anni 3 (2019, 2020, 2021) | \"\" | \"La durata del presente servizio è da intendersi per anni 3 (tre) ossia per le annualità 2019, 2020, 2021\"\nAppaltante | deve essere iscritto | nell'elenco dei soggetti abilitati (art. 2 comma 4 D.M. 11 aprile 2011) | \"\" | \"L’appaltante dovrà essere iscritto nell’elenco dei soggetti abilitati come previsto all’art. 2 comma 4 del D.M. 11 aprile 2011\"\nCriteri di abilitazione dei soggetti per le verifiche | sono quelli | indicati nell'Allegato I del D.M. 11 aprile 2011 | verifiche di cui all'art. 71 comma 11 D.Lgs. 81/2008 | \"I criteri di abilitazione dei soggetti pubblici o privati per poter effettuare le verifiche di cui all’art.71 comma 11 del D.Lgs. n° 81/2008 sono quelli indicati nell’Allegato I del D.M. 11 aprile 2011\"\nIGEA S.p.A. | si impegna a notificare | eventuali variazioni rispetto agli elenchi degli allegati A e B all'Appaltante | \"\" | \"Igea si impegna a notificare per tempo all’Appaltante eventuali variazioni rispetto agli elenchi degli allegati A e B\"\nIGEA S.p.A. | mette a disposizione del verificatore | personale sotto la vigilanza di un preposto e mezzi necessari (pesi campione) | esclusi gli apparecchi di misurazione | \"Il personale occorrente sotto la vigilanza di un preposto e i mezzi necessari per l’esecuzione delle operazioni stesse (pesi campione), esclusi gli apparecchi di misurazione\"\nIGEA S.p.A. | mette a disposizione del verificatore | tutta la documentazione necessaria | \"\" | \"tutta la documentazione necessaria\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2077,
+   "prompt_tokens": 1338,
+   "total_tokens": 3415,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 840,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0011723,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0011723,
+   "gateway_cost": 0.0011723
+  }
+ }
+}

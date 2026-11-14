@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 72\n\n8 CONFIGURATION Multiple sampling Multiple sampling indicates how often an object has to be scanned before the safety laser scanner responds. A higher multiple sampling reduces the possibility that insects, weld sparks or other particles will cause the machine to be shut down. You will increase the machine’s availability. A multiple sampling of 2 is the minimum setting. A higher multiple sampling increases the response time and influences the minimum distance. Table 11: Recommended multiple sampling Application Recommended multiple sampling Stationary application: such as horizontal haz- 2× ardous area protection or vertical hazardous point protection under clean ambient condi- tions Stationary application: such as vertical access 2× protection Only 2-time or 3-time multiple sampling may be used for vertical access protection. Mobile application 4× Stationary application: such as horizontal haz- 8× ardous area protection under dusty ambient conditions Multiple sampling after monitoring case switching When switching between monitoring cases, it is possible that a person may already be in the newly activated protective field when switching takes place. In order to ensure that the person is detected quickly and the dangerous state is brought to an end swiftly, you can adjust the settings for multiple sampling immediately after switching between monitoring cases – regardless of any other multiple sampling in place. For persons and body parts to be reliably detected, each monitoring case must be active for at least as long as the safety laser scanner requires for detection (set multiple sampling after switching between monitoring cases multiplied by the scan cycle time). O Fast (1 scan) (preset) Multiple sampling after switching between monitoring cases nCS = 1. An object needs to be scanned once before the safety laser scanner responds. Fastest response and safest behavior of the safety laser scanner. O Robust (multiple sampling - 1) Multiple sampling after switching between monitoring cases nCS = n - 1. Multiple sampling after switching between monitoring cases is one scan fewer than any other multiple sampling in place. This reduces the possibility that insects, weld sparks, or other particles cause the machine to be switched off. This increases machine availability. The standard response time applies from the outset in the new field. O User-defined (please consult manual) You can adjust the settings for multiple sampling after switching between moni- toring cases in line with your requirements for the response time and reliability. Regardless of the exact settings here, multiple sampling after switching between monitoring cases is always at least one scan fewer than any other multiple sam- pling in place: nCS ≤ n – 1 72 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Multiple sampling | indicates | how often an object has to be scanned before the safety laser scanner responds | | Multiple sampling indicates how often an object has to be scanned before the safety laser scanner responds.\nHigher multiple sampling | reduces | possibility that insects, weld sparks or other particles cause the machine to be shut down | | A higher multiple sampling reduces the possibility that insects, weld sparks or other particles will cause the machine to be shut down.\nMultiple sampling | minimum setting | 2 | | A multiple sampling of 2 is the minimum setting.\nHigher multiple sampling | increases | response time and influences the minimum distance | | A higher multiple sampling increases the response time and influences the minimum distance.\nStationary horizontal hazardous area protection or vertical hazardous point protection | recommended multiple sampling | 2× | under clean ambient conditions | Stationary application: such as horizontal hazardous area protection or vertical hazardous point protection under clean ambient conditions | 2×\nStationary vertical access protection | recommended multiple sampling | 2× | | Stationary application: such as vertical access protection | 2×\nVertical access protection | permitted multiple sampling | 2-time or 3-time only | | Only 2-time or 3-time multiple sampling may be used for vertical access protection.\nMobile application | recommended multiple sampling | 4× | | Mobile application 4×\nStationary horizontal hazardous area protection | recommended multiple sampling | 8× | under dusty ambient conditions | Stationary application: such as horizontal hazardous area protection under dusty ambient conditions | 8×\nEach monitoring case | must be active for | at least the multiple sampling after switching multiplied by the scan cycle time | for persons and body parts to be reliably detected | each monitoring case must be active for at least as long as the safety laser scanner requires for detection (set multiple sampling after switching between monitoring cases multiplied by the scan cycle time)\nMultiple sampling after switching between monitoring cases | preset to | 1 scan (nCS = 1) | | O Fast (1 scan) (preset) Multiple sampling after switching between monitoring cases nCS = 1.\nMultiple sampling after switching between monitoring cases | is always at least one scan fewer than | any other multiple sampling in place | | nCS ≤ n – 1",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1702,
+   "prompt_tokens": 1104,
+   "total_tokens": 2806,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 912,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009614,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009614,
+   "gateway_cost": 0.0009614
+  }
+ }
+}

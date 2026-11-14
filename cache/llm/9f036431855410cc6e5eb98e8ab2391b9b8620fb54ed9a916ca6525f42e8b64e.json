@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: igea-equipment, p. 9\n\nporta anno di numero di matr. ubicazione pos apparecchio marca/tipo ta costruzio veicolo fabbrica- targa Comune INAIL settore/servizio Kg ne matricola PIATTAFORM 2017- Meccanizzazione 24 A HINOWA 230 2017 2G320 Iglesias 200076-ca Campo Pisano ELEVATRICE TABELLA B2 porta anno di numero di marca/ti matr. ubicazione pos apparecchio ta costruzio veicolo fabbrica- targa Comune po INAIL settore/servizio Kg ne matricola GRU IDRAULICA Gadoni - FASSI CA 200085 IVECO AT Area mineraria 5 PER 995 2003 6249 Funtana F28A. 22 / 03 FIAT 336397 F. Raminosa AUTOCARRO Raminosa Gadoni Gadoni - GRU A PONTE Meccanizzazione 12 PRIM 5000 NU 41/85 1980 160 Funtana SCORREVOLE Funtana Raminosa Raminosa TABELLA B3 anno di numero di marca/tip portata matr. ubicazione Pos apparecchio costruz veicolo fabbrica- targa Comune o Kg INAIL settore/servizio ione matricola GRU IDRAULICA CA FASSI IVECO AP 337 6 PER 995 200081/0 2004 6344 Lula Lula (Sos Enattos) F 28A. 22 FIAT RY AUTOCARRO 3 Euro costruzioni Pellegrini GRU A Lula (Sos Enattos) 23 GCB 35 X 35000 NU 16/95 1989 459 Lula CAVALLETTO - ex Rimisa 12/21 Classe: matr.459 TABELLA B4 anno di numero di marca/tip portata matr. ubicazione pos apparecchio costruz veicolo fabbrica- targa Comune o Kg INAIL settore/servizio ione matricola 2018- CATERPILL Pala terna 21 AUTOGRU' 2095 200029/C 1997 9AR00182 Furtei Miniera Furtei AR - IT28 gommata A 9"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Hinowa piattaforma elevatrice | manufactureYear | 2017 | | \"PIATTAFORM 2017- ... HINOWA 230 2017 2G320\"\nHinowa piattaforma elevatrice | location | Iglesias, Campo Pisano | | \"2G320 Iglesias 200076-ca Campo Pisano ELEVATRICE\"\nHinowa piattaforma elevatrice | inspectionSector | Meccanizzazione | | \"24 A HINOWA 230 2017 2G320 Iglesias 200076-ca Campo Pisano ELEVATRICE\"\nGru idraulica FASSI su IVECO | manufactureYear | 2003 | | \"IVECO AT 5 PER 995 2003 6249 Funtana\"\nGru idraulica FASSI su IVECO | location | Area mineraria Funtana, Raminosa | | \"Area mineraria 5 PER 995 2003 6249 Funtana F28A. 22 / 03 FIAT 336397 F. Raminosa\"\nGru idraulica FASSI su IVECO | manufactureYear | 2004 | | \"2004 6344 Lula Lula (Sos Enattos)\"\nGru a ponte scorrevole | manufactureYear | 1980 | | \"NU 41/85 1980 160 Funtana SCORREVOLE\"\nGru a ponte scorrevole | ratedLoad | 5000 kg | | \"PRIM 5000 NU 41/85\"\nGru a ponte | manufactureYear | 1989 | | \"GCB 35 X 35000 NU 16/95 1989 459 Lula\"\nGru a ponte | ratedLoad | 35000 kg | | \"GCB 35 X 35000 NU 16/95\"\nAutogrù Caterpillar gommata | manufactureYear | 1997 | | \"AUTOGRU' 2095 200029/C 1997 9AR00182 Furtei Miniera Furtei AR - IT28 gommata\"\nCavalletto ex Rimisa | registrationClass | matr.459 | | \"CAVALLETTO - ex Rimisa 12/21 Classe: matr.459\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2308,
+   "prompt_tokens": 972,
+   "total_tokens": 3280,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1571,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0012512,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0012512,
+   "gateway_cost": 0.0012512
+  }
+ }
+}

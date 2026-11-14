@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 28\n\n5 PROJECT PLANNING O Parameters specified based on the application O Supplements for general and, possibly, reflection-based measurement errors (only for hazardous area protection) O Supplement for protection against reaching over (only for hazardous area protec- tion) O Height of the scan plane (only for hazardous area protection) O Supplement to prevent reaching through (only for access protection) Complementary information More information is available in the ISO 13855:2010 standard and in the Guide for Safe Machinery from SICK. SICK offers a stopping/run-down time measurement service in many countries. Further topics O \"Response times\", page 133 5.3.6 Supplement ZR for reflection-based measurement errors If there is a retroreflector in the vicinity of the protective device (distance of the retrore- flector from protective field ≤ 6 m), you must take the supplement ZR = 350 mm into account. 5.3.7 Hazardous area protection Overview The safety laser scanner is mounted with a horizontal scan plane in a stationary appli- cation. This is, for example, on a machine where the hazardous area is not completely surrounded by a physical guard. During hazardous area protection, the safety laser scanner detects a person’s legs. The protective field is parallel to the direction of approach. S S Figure 15: Stationary application with horizontal scan plane for hazardous area protection 28 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety laser scanner | mountedWithScanPlane | horizontal | stationary application such as a machine where the hazardous area is not completely surrounded by a physical guard | The safety laser scanner is mounted with a horizontal scan plane in a stationary application.\nSafety laser scanner in hazardous area protection | detects | a person's legs | \"\" | During hazardous area protection, the safety laser scanner detects a person's legs.\nProtective field in hazardous area protection | isOrientedParallelTo | direction of approach | \"\" | The protective field is parallel to the direction of approach.\nSupplement ZR | mustBeTakenIntoAccountFor | reflection-based measurement errors | a retroreflector is within 6 m of the protective field | If there is a retroreflector in the vicinity of the protective device (distance of the retroreflector from protective field ≤ 6 m), you must take the supplement ZR = 350 mm into account.\nSupplement ZR | hasValue | 350 mm | a retroreflector is within 6 m of the protective field | you must take the supplement ZR = 350 mm into account\nSupplement for protection against reaching over | appliesTo | hazardous area protection | \"\" | Supplement for protection against reaching over (only for hazardous area protection)\nHeight of the scan plane | appliesTo | hazardous area protection | \"\" | Height of the scan plane (only for hazardous area protection)\nSupplement to prevent reaching through | appliesTo | access protection | \"\" | Supplement to prevent reaching through (only for access protection)\nSupplements for general and reflection-based measurement errors | appliesTo | hazardous area protection | \"\" | Supplements for general and, possibly, reflection-based measurement errors (only for hazardous area protection)\nISO 13855:2010 standard | providesMoreInformationOn | parameters and supplements for project planning | \"\" | More information is available in the ISO 13855:2010 standard and in the Guide for Safe Machinery from SICK.\nSICK | offers | stopping/run-down time measurement service | in many countries | SICK offers a stopping/run-down time measurement service in many countries.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1244,
+   "prompt_tokens": 709,
+   "total_tokens": 1953,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 539,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006929,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006929,
+   "gateway_cost": 0.0006929
+  }
+ }
+}

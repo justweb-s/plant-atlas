@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 199\n\nWARNING • Any suspended safeguards must be returned to full functionality before selecting Automatic Mode. • Wherever possible, Manual Mode shall only be used with all persons located outside the safeguarded space. • If an external mode selector is used, it must be placed outside the safeguarded space. • No-one is to enter, or be within, the safeguarded space in Automatic Mode, unless safeguarding is used or the collaborative application is validated for power and force limiting (PFL). Three- When a Three-Position Enabling Device is used and the robot is in Manual Mode, Position movement requires pressing the Three-Position Enabling Device to the center-on position. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Enabling The Three-Position Enabling Device has no effect in Automatic Mode. Device NOTICE • Some UR robot sizes might not be equipped with a Three-Position Enabling Device. If the risk assessment requires the enabling device, a 3PE Teach Pendant must be used. A 3PE Teach Pendant (3PE TP) is recommended for programming. If another person can be within the safeguarded space when in Manual Mode, an additional device can be integrated and configured for the additional person's use. User Manual 202 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Suspended safeguards | mustBeRestoredBefore | full functionality before selecting Automatic Mode | | Any suspended safeguards must be returned to full functionality before selecting Automatic Mode.\nManual Mode | shouldOnlyBeUsedWith | all persons located outside the safeguarded space | wherever possible | Wherever possible, Manual Mode shall only be used with all persons located outside the safeguarded space.\nExternal mode selector | mustBePlacedAt | outside the safeguarded space | if an external mode selector is used | If an external mode selector is used, it must be placed outside the safeguarded space.\nPersons | mustNotEnterOrBeWithin | safeguarded space in Automatic Mode | unless safeguarding is used or the collaborative application is validated for power and force limiting (PFL) | No-one is to enter, or be within, the safeguarded space in Automatic Mode, unless safeguarding is used or the collaborative application is validated for power and force limiting (PFL).\nThree-Position Enabling Device movement | requiresPressingTo | center-on position | when a Three-Position Enabling Device is used and the robot is in Manual Mode | When a Three-Position Enabling Device is used and the robot is in Manual Mode, movement requires pressing the Three-Position Enabling Device to the center-on position.\nThree-Position Enabling Device | hasNoEffectIn | Automatic Mode | | The Three-Position Enabling Device has no effect in Automatic Mode.\nSome UR robot sizes | mightNotBeEquippedWith | Three-Position Enabling Device | | Some UR robot sizes might not be equipped with a Three-Position Enabling Device.\nRisk assessment | requires | 3PE Teach Pendant | if the risk assessment requires the enabling device | If the risk assessment requires the enabling device, a 3PE Teach Pendant must be used.\n3PE Teach Pendant | isRecommendedFor | programming | | A 3PE Teach Pendant (3PE TP) is recommended for programming.\nAdditional device | canBeIntegratedAndConfiguredFor | additional person's use | if another person can be within the safeguarded space when in Manual Mode | If another person can be within the safeguarded space when in Manual Mode, an additional device can be integrated and configured for the additional person's use.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1349,
+   "prompt_tokens": 626,
+   "total_tokens": 1975,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 566,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007371,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007371,
+   "gateway_cost": 0.0007371
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 51\n\nPROJECT PLANNING 5 Minimum requirements for the regular thorough check The following thorough checks must be carried out at least once a year: O \"Thorough check of the principal function of the protective device\", page 51 O Test of the detection capability (resolution), see \"Thorough check of the area to be protected\", page 52 Recommendations for further thorough checks In many cases, depending on the application conditions, the risk assessment of the machine determines that further thorough checks are required or that some thorough checks must take place more frequently. In many cases, it makes sense to carry out the following thorough checks together with the regular thorough check: O \"Visual check of the machine and the protective device\", page 53 O \"Test of the contour detection field\", page 52 O Test of the relevant points on the checklist, see \"Checklist for initial commissioning and commissioning\", page 149 In many cases, it makes sense to carry out the following thorough checks daily: O \"Visual check of the machine and the protective device\", page 53 O \"Thorough check of the principal function of the protective device\", page 51 Complementary information If the thorough check reveals an error, the machine should be shut down immediately. In this case, the mounting and electrical installation of the device must be checked by appropriately qualified safety personnel. 5.6.3 Notes on the tests Thorough check of the principal function of the protective device Recommended approach: → Observe display and status LEDs. An error has occurred if at least one LED does not light up permanently when the machine is switched on. → Test the function of the protective device. To do this, trigger the protective function once and observe the safety output’s reaction using the reaction of the machine, for example. o All applications: During the thorough check, observe whether the safety laser scanner displays the interruption of the protective field using the LEDs and/or the display. o Stationary application (hazardous area protection, access protection, hazard- ous point protection): O Interrupt the protective field with the intended test object and observe whether the machine stops. o Mobile application (mobile hazardous area protection): O Place the supplied test object in the path of the vehicle and observe whether the vehicle stops. OR O Activate a protective field, which is interrupted by at least one test object and check the expected reaction (for example by an automatic test in the safety controller). If the thorough check reveals an error, the machine should be shut down immediately. In this case, the mounting and electrical installation of the device must be checked by appropriately qualified safety personnel. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 51 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "thorough checks | mustBeCarriedOutWithFrequency | at least once a year | | The following thorough checks must be carried out at least once a year\ntest of detection capability (resolution) | isMinimumRequirementFor | regular thorough check | | Test of the detection capability (resolution)\nrisk assessment of the machine | mayRequireFurtherChecks | further thorough checks or more frequent thorough checks | depending on the application conditions | the risk assessment of the machine determines that further thorough checks are required or that some thorough checks must take place more frequently\nvisual check of the machine and the protective device | shouldBeCombinedWith | regular thorough check | in many cases | In many cases, it makes sense to carry out the following thorough checks together with the regular thorough check\nvisual check of the machine and the protective device | shouldBeCarriedOutWithFrequency | daily | in many cases | In many cases, it makes sense to carry out the following thorough checks daily\nthorough check of the principal function of the protective device | shouldBeCarriedOutWithFrequency | daily | in many cases | In many cases, it makes sense to carry out the following thorough checks daily\nmachine | mustBeShutDown | immediately | if the thorough check reveals an error | If the thorough check reveals an error, the machine should be shut down immediately\nmounting and electrical installation of the device | mustBeCheckedBy | appropriately qualified safety personnel | if the thorough check reveals an error | the mounting and electrical installation of the device must be checked by appropriately qualified safety personnel\nstatus LEDs | indicateError | at least one LED does not light up permanently | when the machine is switched on | An error has occurred if at least one LED does not light up permanently when the machine is switched on\nsafety laser scanner | mustDisplayInterruption | interruption of the protective field via LEDs and/or display | all applications | observe whether the safety laser scanner displays the interruption of the protective field using the LEDs and/or the display\nmachine | mustStop | when the protective field is interrupted with the intended test object | stationary application | Interrupt the protective field with the intended test object and observe whether the machine stops\nvehicle | mustStop | when the supplied test object is placed in its path | mobile application | Place the supplied test object in the path of the vehicle and observe whether the vehicle stops\nsafety controller automatic test | mayVerifyProtectiveFieldReaction | activated protective field interrupted by at least one test object | mobile application, as an alternative to placing the test object in the path | Activate a protective field, which is interrupted by at least one test object and check the expected reaction (for example by an automatic test in the safety controller)",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1809,
+   "prompt_tokens": 1045,
+   "total_tokens": 2854,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 940,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001009,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001009,
+   "gateway_cost": 0.001009
+  }
+ }
+}

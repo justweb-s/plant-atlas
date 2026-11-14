@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 135\n\nTECHNICAL DATA 14 tS Scan cycle time tS = 30 ms 14.5 Sensing range Protective field range The effective protective field range depends on the object resolution that has been set. Table 40: Protective field range Resolution Protective field range ≥ 70 mm 3.00 m 60 mm 2.60 m 50 mm 2.15 m 40 mm 1.60 m 30 mm 1.25 m 20 mm 1.25 m Scanning range of the reference contour field The effective scanning range of the reference contour field is the same as the protec- tive field range. Scanning range of the contour detection field The effective scanning range of the contour detection field is the same as the protective field range. Warning field range and distance measurement range For non-safety applications (warning fields, measurement data output), the safety laser scanner has a larger scanning range than the maximum protective field range. The requirements for size and remission factor of objects to be detected are illustrated in the following graphs as a function of the desired scanning range. Under good condi- tions, in many cases a smaller object size or a lower remission factor is sufficient to achieve the desired scanning range. The range is limited to 10 m for warning fields. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 135 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Scan cycle time | equals | 30 ms | | Scan cycle time tS = 30 ms\nProtective field range | depends on | object resolution that has been set | | The effective protective field range depends on the object resolution that has been set.\nProtective field range at ≥70 mm resolution | is | 3.00 m | | ≥ 70 mm 3.00 m\nProtective field range at 60 mm resolution | is | 2.60 m | | 60 mm 2.60 m\nProtective field range at 50 mm resolution | is | 2.15 m | | 50 mm 2.15 m\nProtective field range at 40 mm resolution | is | 1.60 m | | 40 mm 1.60 m\nProtective field range at 30 mm resolution | is | 1.25 m | | 30 mm 1.25 m\nProtective field range at 20 mm resolution | is | 1.25 m | | 20 mm 1.25 m\nEffective scanning range of reference contour field | is same as | protective field range | | The effective scanning range of the reference contour field is the same as the protective field range.\nEffective scanning range of contour detection field | is same as | protective field range | | The effective scanning range of the contour detection field is the same as the protective field range.\nSafety laser scanner scanning range for warning fields and measurement data output | is larger than | maximum protective field range | for non-safety applications | For non-safety applications (warning fields, measurement data output), the safety laser scanner has a larger scanning range than the maximum protective field range.\nWarning field range | is limited to | 10 m | | The range is limited to 10 m for warning fields.\nSmaller object size or lower remission factor | is sufficient to achieve | desired scanning range | under good conditions, in many cases | Under good conditions, in many cases a smaller object size or a lower remission factor is sufficient to achieve the desired scanning range.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1064,
+   "prompt_tokens": 651,
+   "total_tokens": 1715,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 452,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005971,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005971,
+   "gateway_cost": 0.0005971
+  }
+ }
+}

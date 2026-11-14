@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 244\n\n21. Safety Functions Table 21.1. Table 1a Reduced SF Description Affects parameter The reduced configuration can be initiated by a safety plane/ boundary (starts at 2cm of the plane and settings reduced settings are achieved within 2cm of the plane) or by use of an input to initiate (will achieve change reduced settings within 500ms). When the external connections are Low, Reduced is initiated. Reduced configuration means that ALL reduced limits are ACTIVE. Reduced is not a safety function, rather it is a state change affecting the settings of the following safety Robot function limits: joint position, joint speed, TCP pose limit, TCP speed, TCP force, momentum, power, stopping time, and stopping distance. A reduced configuration is a means of parametrization of safety functions in accordance with ISO 13849-1. All parameter values need to be verified and validated as to whether they are appropriate for the robot application. Safeguard Description Affects Reset Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. When configured for Safeguard Reset and the external connections transition from low to high, the Robot safeguard stop RESETS. Safety input to initiate a reset of safeguard stop safety function. 3-Position Description Affects Enabling When the external Enabling Device connections are Low, a Safeguard Stop (SF2) is initiated. Device Recommendation: Use with a mode switch as a safety input. If a mode switch is not used and connected to INPUT the safety inputs, then the robot mode will be determined by the User Interface. If the User Interface is in: Robot • “running mode”, the enabling device will not be active. • “programming mode”, the enabling device will be active. It is possible to use password protection for changing the mode by the User Interface. Mode Description Affects switch When the external connections are Low, Operation Mode (running/ automatic operation in automatic mode) INPUT is in effect. When High, mode is programming/ teach. Recommendation: Use with an enabling device, for example a UR e-Series Teach Pendant with an integrated 3-position enabling device. Robot When in teach/program, initially both TCP speed and elbow speed will be limited to 250mm/s. The speed can manually be increased by using the pendant user interface “speed-slider”, but upon activation of the enabling device, the speed limitation will reset to 250mm/s. Freedrive Description Affects INPUT Recommendation: Use with 3PE TP and/or 3 Position Enabling Device INPUT. When Freedrive INPUT is High, the robot will only enter Freedrive if the following conditions are satisfied: Robot • 3PE TP button is not pressed • 3 Position Enabling Device INPUT either not configured or not pressed (INPUT Low) 21.2. Table 2 UR10e 247 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Reduced configuration | canBeInitiatedBy | safety plane/boundary | starts at 2cm of the plane and reduced settings are achieved within 2cm of the plane | \"The reduced configuration can be initiated by a safety plane/ boundary (starts at 2cm of the plane and reduced settings are achieved within 2cm of the plane)\"\nReduced configuration | canBeInitiatedBy | input | reduced settings are achieved within 500ms | \"or by use of an input to initiate (will achieve reduced settings within 500ms)\"\nReduced | isInitiatedWhen | external connections are Low | \"When the external connections are Low, Reduced is initiated.\"\nReduced configuration | meansThat | all reduced limits are ACTIVE | | \"Reduced configuration means that ALL reduced limits are ACTIVE.\"\nReduced | isNot | a safety function | | \"Reduced is not a safety function, rather it is a state change affecting the settings of the following safety Robot function limits\"\nReduced configuration | affects | joint position, joint speed, TCP pose limit, TCP speed, TCP force, momentum, power, stopping time, and stopping distance limits | | \"affecting the settings of the following safety Robot function limits: joint position, joint speed, TCP pose limit, TCP speed, TCP force, momentum, power, stopping time, and stopping distance.\"\nAll parameter values | needToBeVerifiedAndValidated | for appropriateness to the robot application | | \"All parameter values need to be verified and validated as to whether they are appropriate for the robot application.\"\nSafeguard Reset | resets | Robot safeguard stop | when external connections transition from low to high | \"When configured for Safeguard Reset and the external connections transition from low to high, the Robot safeguard stop RESETS.\"\n3-Position Enabling Device | initiates | Safeguard Stop (SF2) | when external Enabling Device connections are Low | \"When the external Enabling Device connections are Low, a Safeguard Stop (SF2) is initiated.\"\nMode switch | setsOperationMode | automatic operation when Low, programming/teach when High | | \"When the external connections are Low, Operation Mode (running/ automatic operation in automatic mode) is in effect. When High, mode is programming/ teach.\"\nRobot in teach/program | limitsTCPAndElbowSpeedTo | 250mm/s | initially, and reset upon activation of the enabling device | \"When in teach/program, initially both TCP speed and elbow speed will be limited to 250mm/s.\"\nFreedrive INPUT High | allowsFreedriveOnlyIf | 3PE TP button is not pressed and 3 Position Enabling Device INPUT is either not configured or not pressed | when Freedrive INPUT is High | \"When Freedrive INPUT is High, the robot will only enter Freedrive if the following conditions are satisfied: 3PE TP button is not pressed; 3 Position Enabling Device INPUT either not configured or not pressed (INPUT Low)\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1861,
+   "prompt_tokens": 1148,
+   "total_tokens": 3009,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 852,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010453,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010453,
+   "gateway_cost": 0.0010453
+  }
+ }
+}

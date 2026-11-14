@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 138\n\n14 TECHNICAL DATA Light spot size Table 42: Light spot size 1) nanoScan3 At a distance of 3 m 15 mm × 2 mm At a distance of 5 m 6 mm × 25 mm At a distance of 10.0 m 20 mm × 50 mm At a distance of 20.0 m 40 mm × 100 mm 1) Effective light spot size (W × H) when the light beam exits the device at a 90° forward angle. 14.8 Measurement data details Table 43: Measurement data nanoScan3 Data output channels 2 Distance measurement range 1) For remission factor = 10% ≤ 8.7 m For remission factor = 100% ≤ 27.4 m Scan rate 33 Hz Angular resolution (physical) 2) < 0.01° Angular resolution 0.17° (1,651 safeHDDM® measured values) (safeHDDM®) 2) Measurement uncertainty 3) Systematic error ± 10 mm Total measurement error (statistical and systematic) At 1 σ ± 13 mm At 2 σ ± 16 mm At 3 σ ± 19 mm At 4 σ ± 22 mm At 5 σ ± 25 mm 1) Warm-up time ≥ 30 min. Light spot fully on the target object. 2) safeHDDM® filters the physical measured values and provides very precise and reproducible measured values. Only safeHDDM® measured values are available via data output. 3) Typical values at 20 °C and remission factor - 1.8%, distance = protective field range. The measured values are less accurate for reflectors or reflective surfaces because the distance measure- ment is designed for lower remission values. 14.9 Network services and protocols The network connection is available for certain system plugs. Table 44: Network services and protocols Service and Purpose Communica- Direction Interface TCP or UDP Port (prod- Port (part- Factory protocol tion partner uct) ner) setting DHCP Automatic DHCP server Bidirec- Network UDP 68 67 Activated assignment tional connection of network settings SNTP Time syn- NTP server Bidirec- Network UDP 123 123 Deactivated chronization tional connection CoLa 2 SICK devel- CoLa 2 client, Bidirec- Network TCP 2122 Selected by Activated oped proto- e.g., com- tional connection the client col: configu- puter with ration and Safety diagnostics Designer 138 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "nanoScan3 | hasScanRate | 33 Hz | | Scan rate 33 Hz\nnanoScan3 | hasDataOutputChannels | 2 | | Data output channels 2\nnanoScan3 | hasDistanceRangeAtRemission10 | ≤ 8.7 m | remission factor = 10% | For remission factor = 10% ≤ 8.7 m\nnanoScan3 | hasDistanceRangeAtRemission100 | ≤ 27.4 m | remission factor = 100% | For remission factor = 100% ≤ 27.4 m\nnanoScan3 | hasPhysicalAngularResolution | < 0.01° | | Angular resolution (physical) 2) < 0.01°\nnanoScan3 | hasSafeHDDMAngularResolution | 0.17° (1,651 safeHDDM® measured values) | | Angular resolution 0.17° (1,651 safeHDDM® measured values)\nnanoScan3 | hasSystematicError | ± 10 mm | | Systematic error ± 10 mm\nnanoScan3 | hasTotalMeasurementErrorAt1Sigma | ± 13 mm | | Total measurement error (statistical and systematic) At 1 σ ± 13 mm\nnanoScan3 | requiresWarmUpTime | ≥ 30 min | | Warm-up time ≥ 30 min\nnanoScan3 | outputsOnlyValuesFrom | safeHDDM® measured values | | Only safeHDDM® measured values are available via data output\nnanoScan3 | hasLightSpotSizeAt3m | 15 mm × 2 mm | light beam exits the device at a 90° forward angle | At a distance of 3 m 15 mm × 2 mm\nnanoScan3 | hasDhcpFactorySetting | Activated | | DHCP ... Factory setting Activated\nnanoScan3 | hasCoLa2TcpPort | 2122 | | CoLa 2 ... TCP 2122",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1336,
+   "prompt_tokens": 1088,
+   "total_tokens": 2424,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 655,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007768,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007768,
+   "gateway_cost": 0.0007768
+  }
+ }
+}

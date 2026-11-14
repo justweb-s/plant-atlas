@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 167\n\n12. Cybersecurity Threat Assessment 12. Cybersecurity Threat Assessment This section provides information to help you strengthen the robot against potential cybersecurity threats. It outlines requirements for addressing cybersecurity threats and Description provides security hardening guidelines. 12.1. General Cybersecurity Description Connecting a Universal Robots robot to a network can introduce cybersecurity risks. These risks can be mitigated by using qualified personnel and implementing specific measures for protecting the robot's cybersecurity. Implementing cybersecurity measures requires conducting a cybersecurity threat Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. assessment. The purpose is to: • Identify threats • Define trust zones and conduits • Specify the requirements of each component in the application WARNING Failure to conduct a cybersecurity risk assessment can place the robot at risk. • The integrator or competent, qualified personnel shall conduct a cybersecurity risk assessment. NOTICE Only competent, qualified personnel shall be responsible for determining the need for specific cybersecurity measures and for providing the required cybersecurity measures. 12.2. Cybersecurity Requirements Description Configuring your network and securing your robot requires you to implement the threat measures for cybersecurity. Follow all the requirements before you start configure your network, then verify the robot setup is secure. User Manual 170 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Connecting a Universal Robots robot to a network | can introduce | cybersecurity risks | | Connecting a Universal Robots robot to a network can introduce cybersecurity risks.\nCybersecurity risks | can be mitigated by | using qualified personnel and implementing specific measures for protecting the robot's cybersecurity | | These risks can be mitigated by using qualified personnel and implementing specific measures for protecting the robot's cybersecurity.\nImplementing cybersecurity measures | requires | conducting a cybersecurity threat assessment | | Implementing cybersecurity measures requires conducting a cybersecurity threat assessment.\nCybersecurity threat assessment | purpose includes | identifying threats, defining trust zones and conduits, and specifying the requirements of each component in the application | | The purpose is to: • Identify threats • Define trust zones and conduits • Specify the requirements of each component in the application\nFailure to conduct a cybersecurity risk assessment | can place | the robot at risk | | Failure to conduct a cybersecurity risk assessment can place the robot at risk.\nCybersecurity risk assessment | shall be conducted by | the integrator or competent, qualified personnel | | The integrator or competent, qualified personnel shall conduct a cybersecurity risk assessment.\nDetermining the need for specific cybersecurity measures and providing them | is the responsibility of | only competent, qualified personnel | | Only competent, qualified personnel shall be responsible for determining the need for specific cybersecurity measures and for providing the required cybersecurity measures.\nConfiguring the network and securing the robot | requires | implementing the threat measures for cybersecurity | | Configuring your network and securing your robot requires you to implement the threat measures for cybersecurity.\nCybersecurity requirements | must be followed | before starting to configure the network | | Follow all the requirements before you start configure your network, then verify the robot setup is secure.\nRobot setup | must be verified as | secure | after configuring the network | then verify the robot setup is secure.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1445,
+   "prompt_tokens": 686,
+   "total_tokens": 2131,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 762,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007911,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007911,
+   "gateway_cost": 0.0007911
+  }
+ }
+}

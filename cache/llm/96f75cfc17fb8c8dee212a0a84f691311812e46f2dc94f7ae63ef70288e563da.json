@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 232\n\n21. Safety Functions Table SF10 Description What Happens Tolerance Affects UR Robot When configured for a robot stop output and there is a robot stop, Stop the dual outputs are LOW. If there is no robot stop initiated, dual Outputs outputs are high. Pulses are not used but they are tolerated. For an integrated safety function, see footnote.6 These dual outputs change state for any external Estop that is connected to configurable safety inputs where this input is Dual outputs go configured as an Emergency Stop input. External low in event of a For the Stop Output, validation is performed at the external connection to stop if N/A equipment, as the UR output is an input to this external stop safety logic and/or configurable function for external equipment. equipment outputs are set NOTICE This stop output is not connected to the IMMI (Injection Moulding Machine Interface), to prevent having an unrecoverable stop. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. SF11 Description What Happens Tolerance Affects ”Moving” Dual outputs are Safety Whenever the robot is moving (motion underway), the dual digital External low during motion Function outputs are LOW. Outputs are HIGH when no movement. connection to and high when no N/A with Digital Functional safety is for what is within the UR robot. For an logic and/or movement. Outputs integrated safety function, see footnote6. equipment SF12 Description What happens? Tolerance Affects ”Not Whenever the robot is STOPPING (in process of stopping or in Dual outputs are stopping” External a stand-still condition) the dual digital outputs are HIGH. When high when robot is Safety connection to outputs are LOW, robot is NOT in the process or stopping and either in the process N/A Function logic and/or NOT in a stand-still condition. For an integrated safety function, of stopping or at a with Digital equipment see footnote6. stand-still state Outputs SF13 Description What happens? Tolerance Affects ”Reduced Active” When reduced settings are active (or initiated) for safety functions, Dual outputs are External Safety the dual digital outputs are LOW. The functional safety is for what low when connection to Function N/A is within the UR robot. For the integrated safety function, see reduced settings logic and/or with Digital footnote6. are active equipment Outputs SF14 Description What happens? Tolerance Affects? “Reduced Whenever the robot reduced settings for safety Not Active” functions are NOT active (or not initiated), the digital Safety External outputs are LOW. Dual outputs are low Function connection to The functional safety rating is for what is within the when reduced settings N/A with Digital logic and/or UR robot. are NOT active. Outputs For the integrated safety function, see below equipment. footnote.6 UR5e 235 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Robot stop output | dual outputs state | LOW | when configured for a robot stop output and there is a robot stop | When configured for a robot stop output and there is a robot stop, the dual outputs are LOW.\nRobot stop output | dual outputs state | high | no robot stop is initiated | If there is no robot stop initiated, dual outputs are high.\nPulses on robot stop output | are | tolerated but not used | | Pulses are not used but they are tolerated.\nDual outputs | change state for external Estop | yes | external Estop is connected to a configurable safety input configured as an Emergency Stop input | These dual outputs change state for any external Estop that is connected to configurable safety inputs where this input is configured as an Emergency Stop input.\nStop output | validation | performed at the external connection to external equipment | | For the Stop Output, validation is performed at the external connection to external equipment\nStop output | connected to IMMI | not connected | to prevent an unrecoverable stop | This stop output is not connected to the IMMI (Injection Moulding Machine Interface), to prevent having an unrecoverable stop.\nDual digital outputs (SF11 Moving) | state | LOW | whenever the robot is moving (motion underway) | Whenever the robot is moving (motion underway), the dual digital outputs are LOW.\nDual digital outputs (SF11 Moving) | state | HIGH | when there is no movement | Outputs are HIGH when no movement.\nDual digital outputs (SF12 Not stopping) | state | HIGH | robot is stopping (in process of stopping or in a stand-still condition) | Whenever the robot is STOPPING (in process of stopping or in a stand-still condition) the dual digital outputs are HIGH.\nDual digital outputs (SF13 Reduced Active) | state | LOW | reduced settings are active (or initiated) for safety functions | When reduced settings are active (or initiated) for safety functions, the dual digital outputs are LOW.\nDual digital outputs (SF14 Reduced Not Active) | state | LOW | reduced settings are NOT active (or not initiated) | Whenever the robot reduced settings for safety functions are NOT active (or not initiated), the digital outputs are LOW.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1463,
+   "prompt_tokens": 1148,
+   "total_tokens": 2611,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 715,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008463,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008463,
+   "gateway_cost": 0.0008463
+  }
+ }
+}

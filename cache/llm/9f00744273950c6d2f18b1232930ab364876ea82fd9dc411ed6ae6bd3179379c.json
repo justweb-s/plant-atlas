@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 125\n\nCustom Custom is where you can set Limits on how the robot functions and monitor the associated Tolerance. Limits maximum mechanical work produced by the robot in the Power environment. This limit considers the payload a part of the robot and not of the environment. Momentum Limits maximum robot momentum. Stopping Limits maximum time it takes the robot to stop e.g. when an Time emergency stop is activated. Limits maximum distance the robot tool or elbow can travel while stopping. Stopping NOTICE Distance Restricting stopping time and distance affect overall robot speed. For example, if stopping time is set to 300 ms, the maximum robot speed is Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. limited allowing the robot to stop within 300 ms. Tool Speed Limits maximum robot tool speed. Limits maximum force that the robot tool exerts on the environment Tool Force to prevent clamping situations. Elbow Speed Limits maximum robot elbow speed. Limits maximum force that the elbow exerts on the environment to Elbow Force prevent clamping situations. User Manual 128 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Custom settings | allowsSettingOf | limits on robot functions and monitoring of associated tolerance | | Custom is where you can set Limits on how the robot functions and monitor the associated Tolerance.\nPower limit | capsMechanicalWork | maximum mechanical work produced by the robot in the Power environment | | Limits maximum mechanical work produced by the robot in the Power environment.\nPower limit | treatsPayloadAs | part of the robot, not of the environment | | This limit considers the payload a part of the robot and not of the environment.\nMomentum limit | capsMomentum | maximum robot momentum | | Momentum Limits maximum robot momentum.\nStopping time limit | capsStoppingTime | maximum time the robot takes to stop | when an emergency stop is activated | Limits maximum time it takes the robot to stop e.g. when an emergency stop is activated.\nStopping distance limit | capsStoppingDistance | maximum distance the robot tool or elbow can travel while stopping | | Limits maximum distance the robot tool or elbow can travel while stopping.\nStopping time and distance | affects | overall robot speed | | Restricting stopping time and distance affect overall robot speed.\nStopping time setting | limitsMaxSpeedTo | a speed allowing the robot to stop within the set time | stopping time is set to 300 ms | if stopping time is set to 300 ms, the maximum robot speed is limited allowing the robot to stop within 300 ms.\nTool speed limit | capsToolSpeed | maximum robot tool speed | | Limits maximum robot tool speed.\nTool force limit | capsToolForceOnEnvironment | maximum force the robot tool exerts on the environment | to prevent clamping situations | Limits maximum force that the robot tool exerts on the environment to prevent clamping situations.\nElbow speed limit | capsElbowSpeed | maximum robot elbow speed | | Limits maximum robot elbow speed.\nElbow force limit | capsElbowForceOnEnvironment | maximum force the elbow exerts on the environment | to prevent clamping situations | Limits maximum force that the elbow exerts on the environment to prevent clamping situations.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1379,
+   "prompt_tokens": 589,
+   "total_tokens": 1968,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 636,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007484,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007484,
+   "gateway_cost": 0.0007484
+  }
+ }
+}

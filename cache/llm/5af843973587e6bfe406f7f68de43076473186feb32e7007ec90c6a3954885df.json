@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 188\n\n14. Risk Assessment Stopping distance in meters for maximum payload of 10kg Joint 0 (BASE) Stopping time in seconds for 33% of 10kg Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Stopping time in seconds for 66% of 10kg Stopping time in seconds for maximum payload of 10kg Joint 1 (SHOULDER) Stopping distance in meters for 33% of 10kg UR10e 191 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Joint 0 (BASE) | hasStoppingDistanceRecorded | stopping distance in meters | maximum payload of 10kg | Stopping distance in meters for maximum payload of 10kg Joint 0 (BASE)\nJoint 0 (BASE) | hasStoppingTimeRecorded | stopping time in seconds | 33% of 10kg payload | Stopping time in seconds for 33% of 10kg\nJoint 0 (BASE) | hasStoppingTimeRecorded | stopping time in seconds | 66% of 10kg payload | Stopping time in seconds for 66% of 10kg\nJoint 0 (BASE) | hasStoppingTimeRecorded | stopping time in seconds | maximum payload of 10kg | Stopping time in seconds for maximum payload of 10kg\nJoint 1 (SHOULDER) | hasStoppingDistanceRecorded | stopping distance in meters | 33% of 10kg payload | Stopping distance in meters for 33% of 10kg",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 859,
+   "prompt_tokens": 374,
+   "total_tokens": 1233,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 513,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004669,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004669,
+   "gateway_cost": 0.0004669
+  }
+ }
+}

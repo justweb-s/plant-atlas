@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 30\n\n5 PROJECT PLANNING HD = 875 mm CRO = 850 mm Figure 17: Protection against reaching over with high scan plane (dimensions in mm) The necessary supplement to the minimum distance depends on the height of the protective field’s scan plane. With a low scan plane, the supplement is greater than with a high scan plane. Calculating the supplement CRO → If there is sufficient space in front of the hazardous area, use CRO = 1,200 mm. → If the minimum distance should be as small as possible, calculate CRO using the following formula: CRO = 1,200 mm – (0.4 × HD) where: o HD = height of the protective field above the floor in millimeters (mm). m If the result is CRO ≥ 850 mm, then use the calculated value as supplement C. m If the result is CRO < 850 mm, then use CRO = 850 mm (this value corresponds to an arm’s length and is valid as a minimum supplement to protect against reaching over). 5.3.7.3 Calculation example for the minimum distance Example calculation of the minimum distance S according to ISO 13855:2010 The example shows the calculation of the minimum distance S for parallel approach to the protective field. A different calculation may be required, depending on the applica- tion and the ambient conditions (e.g. for a protective field orthogonal to or at any angle to the direction of approach or an indirect approach). S = 1,600 mm/s × T + TZ + ZR + CRO where: O S = minimum distance in millimeters (mm) O T = stopping/run-down time for the entire system in seconds (s) (Response time of the safety laser scanner + machine stopping time, incl. response time of the machine control system and signal propagation time) O TZ = tolerance zone of the safety laser scanner, see \"Data sheet\", page 129 30 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "nanoScan3 protective field | necessary supplement C depends on | height of scan plane | | The necessary supplement to the minimum distance depends on the height of the protective field's scan plane.\nlow scan plane | supplement compared to high scan plane | greater | | With a low scan plane, the supplement is greater than with a high scan plane.\nsupplement CRO | value when space in front of hazardous area is sufficient | 1,200 mm | sufficient space in front of the hazardous area | If there is sufficient space in front of the hazardous area, use CRO = 1,200 mm.\nsupplement CRO | formula | 1,200 mm – (0.4 × HD) | minimum distance should be as small as possible | If the minimum distance should be as small as possible, calculate CRO using the following formula: CRO = 1,200 mm – (0.4 × HD)\nHD | definition | height of the protective field above the floor in mm | | where: o HD = height of the protective field above the floor in millimeters (mm).\ncalculated CRO | use as supplement C | calculated value | CRO ≥ 850 mm | If the result is CRO ≥ 850 mm, then use the calculated value as supplement C.\nCRO | minimum value | 850 mm | calculated CRO < 850 mm | If the result is CRO < 850 mm, then use CRO = 850 mm\nCRO of 850 mm | corresponds to | an arm's length, valid minimum supplement against reaching over | | this value corresponds to an arm's length and is valid as a minimum supplement to protect against reaching over\nminimum distance S | formula for parallel approach | S = 1,600 mm/s × T + TZ + ZR + CRO | parallel approach to the protective field | The example shows the calculation of the minimum distance S for parallel approach to the protective field.\nT | definition | stopping/run-down time for the entire system in seconds | | T = stopping/run-down time for the entire system in seconds (s)\nTZ | definition | tolerance zone of the safety laser scanner | | TZ = tolerance zone of the safety laser scanner, see \"Data sheet\", page 129\ndifferent calculation | required for | other approach directions or application conditions | application or ambient conditions require it (e.g. orthogonal, angled or indirect approach) | A different calculation may be required, depending on the application and the ambient conditions (e.g. for a protective field orthogonal to or at any angle to the direction of approach or an indirect approach).",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1203,
+   "prompt_tokens": 861,
+   "total_tokens": 2064,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 397,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006876,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006876,
+   "gateway_cost": 0.0006876
+  }
+ }
+}

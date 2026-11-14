@@ -1,0 +1,380 @@
+{
+ "summary": {
+  "n": 34,
+  "correct": 11,
+  "unknown": 13,
+  "wrong": 10,
+  "mean": 0.382,
+  "by_type": {
+   "I": 0.357,
+   "T": 0.544,
+   "V": 0.222
+  },
+  "by_split": {
+   "design": 0.409,
+   "heldout": 0.333
+  },
+  "cost_usd": 0.0
+ },
+ "rows": [
+  {
+   "id": "CQ01",
+   "type": "T",
+   "split": "design",
+   "score": 0.6,
+   "value": [
+    "Portable cartridge-operated fixing and other impact machinery (Annex I, Part A, point 4)",
+    "Removable mechanical transmission devices including their guards (Annex I, Part A, point 1)",
+    "Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions (Annex I, Part A, point 5)",
+    "Machinery with embedded self-evolving ML safety-function systems, provided the safety-function systems have not been placed independently on the market (Annex I, Part A, point 6)"
+   ],
+   "text": "Categories in Annex I, Part A (Art. 25(2)) always require one of procedures (a), (b) or (c), each of which involves a notified body; Part B categories may use internal production control (module A) and so do not always require one.",
+   "tokens": 11948,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ02",
+   "type": "T",
+   "split": "design",
+   "score": 0.667,
+   "value": [
+    "Procedure (a): EU type-examination (module B) in Annex VII followed by conformity to type based on internal production control (module C) in Annex VIII",
+    "Procedure (b): conformity based on full quality assurance (module H) in Annex IX",
+    "Procedure (c): conformity based on unit verification (module G) in Annex X"
+   ],
+   "text": "Under Article 25(2) and Annex I, Part A, the manufacturer (or Article 18 person) chooses one of procedures (a), (b) or (c): (a) module B followed by module C, (b) module H, or (c) module G.",
+   "tokens": 10995,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ03",
+   "type": "T",
+   "split": "design",
+   "score": 1.0,
+   "value": "Annex I, Part A, point 5 of REG (high-risk category for safety components)",
+   "text": "A safety component with fully or partially self-evolving behaviour using machine learning approaches that ensure safety functions falls under Annex I, Part A, point 5 of the Regulation.",
+   "tokens": 8116,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ04",
+   "type": "T",
+   "split": "design",
+   "score": 1.0,
+   "value": "Interlocking movable guards are required where frequent access is envisaged.",
+   "text": "Under Annex III point 1.3.8.1 (and Annex I point 1.3.8.1), guards for moving transmission parts must be interlocking movable guards rather than fixed guards where frequent access is envisaged.",
+   "tokens": 6926,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ05",
+   "type": "T",
+   "split": "design",
+   "score": 0.222,
+   "value": [
+    "risks of contact of moving parts which could lead to accidents",
+    "risks of contact from moving parts where risks persist",
+    "risks of contact and psychological stress in human-machine interaction",
+    "risks of contact and psychological stress in human-machine coexistence in a shared space without direct collaboration",
+    "accidental blockage of moving parts",
+    "blockage of the equipment that may need safe unblocking despite precautions"
+   ],
+   "text": "Essential health and safety requirement 1.3.7 of Annex III addresses risks of contact from moving parts that could lead to accidents, including where risks persist, risks of contact and psychological stress in human-machine interaction and coexistence, and accidental blockage of moving parts (with safe unblocking where blockage is likely).",
+   "tokens": 9843,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ06",
+   "type": "T",
+   "split": "design",
+   "score": 1.0,
+   "value": "The natural or legal person who carries out the substantial modification is considered the manufacturer for purposes of the Regulation.",
+   "text": "Under Article 18 of the Regulation, the natural or legal person who carries out a substantial modification is considered the manufacturer for purposes of this Regulation.",
+   "tokens": 8433,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ07",
+   "type": "T",
+   "split": "design",
+   "score": 0.0,
+   "value": [
+    "EC declaration of conformity (accompanies the machinery, before placing it on the market and/or putting it into service)",
+    "instructions in the official Community language or languages of the Member State where it is placed on the market and/or put into service"
+   ],
+   "text": "Machinery placed on the market must be accompanied by the EC declaration of conformity (DIR, Art. 5(1)) and by instructions in the official Community language(s) of the Member State where it is placed on the market and/or put into service (DIR, Annex I, 1.7.4).",
+   "tokens": 11862,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ08",
+   "type": "T",
+   "split": "design",
+   "score": 1.0,
+   "value": "P10Y",
+   "text": "The manufacturer must keep the technical documentation and the EU declaration of conformity at the disposal of market surveillance authorities for at least 10 years after the machinery or related product is placed on the market or put into service (Regulation, Art. 10(3)).",
+   "tokens": 8430,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ09",
+   "type": "V",
+   "split": "design",
+   "score": 1.0,
+   "value": "2027-01-20",
+   "text": "Regulation (EU) 2023/1230 applies from 20 January 2027 under Article 54, second paragraph, as corrected by the corrigendum (originally printed as 14 January 2027).",
+   "tokens": 7865,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ10",
+   "type": "V",
+   "split": "design",
+   "score": 0.0,
+   "value": false,
+   "text": "No. Directive 2006/42/EC is repealed with effect from 14 January 2027 (Art. 51(2) of Regulation (EU) 2023/1230), so on 16 January 2027 machinery can no longer be placed on the market under that Directive. Only making available of products already placed on the market before 14 January 2027 remains protected (Art. 52(1)).",
+   "tokens": 8057,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ11",
+   "type": "T",
+   "split": "design",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts in force do not answer this question. (the used facts do not carry the names or numbers of the answer)",
+   "tokens": 8872,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ12",
+   "type": "T",
+   "split": "design",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts in force do not answer this question. (no used fact carries the duration P3Y)",
+   "tokens": 8374,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ13",
+   "type": "I",
+   "split": "design",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts do not establish which catalogue models are self-certified with internal checks, nor that any such model will need a notified body from 20 January 2027 (Corrigendum points 5, 6 and 10 correct the application date of the Regulation to that day).",
+   "tokens": 8714,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ14",
+   "type": "I",
+   "split": "design",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts do not mention model RC-5 or the category it belongs to, so they do not show which conformity assessment procedure it will need under Article 25 from 20 January 2027.",
+   "tokens": 9514,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ15",
+   "type": "I",
+   "split": "design",
+   "score": 0.0,
+   "value": null,
+   "text": "The provided facts do not say whether model CS-400 may stay with internal production control after 20 January 2027, so no answer can be given from them.",
+   "tokens": 8599,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ16",
+   "type": "V",
+   "split": "heldout",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts list Annex I, Part A categories of Regulation (EU) 2023/1230 but do not state which categories appeared in Annex IV of Directive 2006/42/EC, so the comparison cannot be made.",
+   "tokens": 9711,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ17",
+   "type": "V",
+   "split": "heldout",
+   "score": 0.0,
+   "value": true,
+   "text": "Yes. Under REG Art. 25(3) (fact 12), a machine designed and built to harmonised standards covering all relevant essential health and safety requirements can use internal production control (Module A), as stated in REG Annex V Part A point 9 (fact 27), where that procedure applies.",
+   "tokens": 10865,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ18",
+   "type": "V",
+   "split": "heldout",
+   "score": 1.0,
+   "value": "Protection against corruption and safety and reliability of control systems (Annex III, sections 1.1.9 and 1.2.1), presumed in conformity under Art. 20(9) insofar as covered by a cybersecurity certificate or statement of conformity.",
+   "text": "The Regulation's requirement on protection against corruption and safety and reliability of control systems appears in Annex III, sections 1.1.9 and 1.2.1, with a presumption of conformity under Article 20(9) where covered by a cybersecurity certificate or statement of conformity. The facts do not state what the Directive lacked on this point.",
+   "tokens": 8450,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ19",
+   "type": "V",
+   "split": "heldout",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts do not identify which article of the Regulation corresponds to Article 12 of Directive 2006/42/EC. Fact 22 only concerns the validity of certificates issued under that Article 12 (Regulation Art. 52(2)), and the Annex XII correlation table is referenced but not reproduced.",
+   "tokens": 11120,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ20",
+   "type": "V",
+   "split": "heldout",
+   "score": 0.0,
+   "value": null,
+   "text": "The provided facts do not state which annex of Regulation (EU) 2023/1230 corresponds to Annex IV of Directive 2006/42/EC; the correlation given (Annex XII) concerns the Directive's own provisions, not a Regulation annex.",
+   "tokens": 9685,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ21",
+   "type": "I",
+   "split": "design",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts in force do not answer this question. (no used fact carries the duration P2Y)",
+   "tokens": 7128,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ22",
+   "type": "I",
+   "split": "design",
+   "score": 0.0,
+   "value": "Every two years (biennial verification).",
+   "text": "Under Allegato VII of D.Lgs. 81/2008 (riga 13), the position 7 truck-mounted hydraulic crane, built in 2017 and not more than 10 years old, must undergo a biennial periodic verification, i.e. every two years.",
+   "tokens": 7454,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ23",
+   "type": "T",
+   "split": "design",
+   "score": 0.5,
+   "value": "The ASL (Azienda Sanitaria Locale) is responsible for the periodic verifications after the first one; the employer requests them from the ASL at least 30 days before the deadline.",
+   "text": "Under DM 11 aprile 2011, art. 2, c. 1, the ASL is responsible for the periodic verifications subsequent to the first one on Annex VII equipment, and under Allegato II the employer requests them from the ASL at least 30 days before the deadline.",
+   "tokens": 9113,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ24",
+   "type": "V",
+   "split": "design",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts in force do not answer this question. (no used fact carries the duration P45D)",
+   "tokens": 9448,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ25",
+   "type": "I",
+   "split": "design",
+   "score": 1.0,
+   "value": false,
+   "text": "No. The UR5e is a partly completed machine and may only be put into service after it is integrated into a final complete machine that conforms to the Machinery Directive (UR5e manual, p. 220; partly completed machinery rule, Annex V Part B point 8).",
+   "tokens": 7572,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ26",
+   "type": "I",
+   "split": "design",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts in force do not answer this question. (no used fact carries the duration P1Y)",
+   "tokens": 6341,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ27",
+   "type": "I",
+   "split": "design",
+   "score": 1.0,
+   "value": "P15D",
+   "text": "The verifier (aggiudicatario) must give IGEA at least 15 days' notice in advance when planning the checks (igea-equipment, p. 5).",
+   "tokens": 7948,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ28",
+   "type": "I",
+   "split": "heldout",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts in force do not answer this question. (no used fact carries the duration P2Y)",
+   "tokens": 6268,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ29",
+   "type": "V",
+   "split": "heldout",
+   "score": 0.0,
+   "value": "every two years (biennial verification)",
+   "text": "In November 2028 the 2017 overhead crane at position 13 is over 10 years old, so under Allegato VII (riga 17) of D.Lgs. 81/08 it must be verified every two years, provided it is a fixed crane in regular use; the facts do not state its type.",
+   "tokens": 8107,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ30",
+   "type": "I",
+   "split": "heldout",
+   "score": 0.0,
+   "value": "Biennial: every two years (verifica biennale).",
+   "text": "The HINOWA 230 elevating platform (rated load 230 kg, built 2017) must be verified every two years, under the Allegato VII, riga 13 rule for mobile lifting equipment above 200 kg built within the last 10 years.",
+   "tokens": 8813,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ31",
+   "type": "I",
+   "split": "heldout",
+   "score": 1.0,
+   "value": null,
+   "text": "The facts do not establish whether the DEMAG 5000 overhead crane at position 8 is overdue: its last periodic verification date is missing, and whether the annual rule (Allegato VII, riga 15 or riga 12) or the biennial rule (riga 13) applies depends on whether it is fixed or mobile and on its use sector, which the facts do not state.",
+   "tokens": 7965,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ32",
+   "type": "I",
+   "split": "heldout",
+   "score": 0.0,
+   "value": null,
+   "text": "The facts in force do not answer this question. (the used facts do not carry the names or numbers of the answer)",
+   "tokens": 6780,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ33",
+   "type": "I",
+   "split": "heldout",
+   "score": 1.0,
+   "value": "P6M",
+   "text": "The wear indicator of the load nut of the MA STAR 3.5 A must be checked every 6 months (MA STAR manual, p. 34).",
+   "tokens": 6867,
+   "cost_usd": 0.0
+  },
+  {
+   "id": "CQ34",
+   "type": "I",
+   "split": "heldout",
+   "score": 1.0,
+   "value": true,
+   "text": "Yes. The DEMAG 5000 overhead crane at position 8 was manufactured in 1985 and is therefore older than 20 years, so the structural verification certification of residual life cycles is required under the igea-equipment requirement for apparecchi.",
+   "tokens": 7683,
+   "cost_usd": 0.0
+  }
+ ]
+}

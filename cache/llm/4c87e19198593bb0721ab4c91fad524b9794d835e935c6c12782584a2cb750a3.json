@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 187\n\n14. Risk Assessment 14.2. Stopping Time and Stopping Distance Description NOTICE You can set user-defined safety rated maximum stopping time and distance. If user-defined settings are used, the program speed is dynamically adjusted to always comply with the selected limits. The graphical data provided for Joint 0 (base), Joint 1 (shoulder) and Joint 2 (elbow) is valid for stopping distance and stopping time: • Category 0 • Category 1 • Category 2 Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. The Joint 0 test was carried out using a horizontal movement, where the rotational axis was perpendicular to the ground. For the Joint 1 and Joint 2 tests, the robot followed a vertical trajectory, where the rotational axes were parallel to the ground, and the stop was done while the robot was moving downward. The Y-axis is the distance from where the stop is initiated to the final position. The payload CoG is at the tool flange. The values illustrated below represent two scenarios, robots with a maximum payload of 10kg, and robots with a maximum payload of 12.5kg. 14.2.1. Robot Scenario 1: 10 kg. Joint 0 (BASE) Stopping distance in meters for 33% of 10kg Stopping distance in meters for 66% of 10kg User Manual 190 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "UR10e stopping limits | canBeUserDefined | safety rated maximum stopping time and distance | | You can set user-defined safety rated maximum stopping time and distance.\nProgram speed | isDynamicallyAdjusted | to always comply with the selected limits | if user-defined settings are used | If user-defined settings are used, the program speed is dynamically adjusted to always comply with the selected limits.\nGraphical data for Joint 0 (base), Joint 1 (shoulder) and Joint 2 (elbow) | isValidFor | stopping distance and stopping time | for Category 0, Category 1 and Category 2 stops | The graphical data provided for Joint 0 (base), Joint 1 (shoulder) and Joint 2 (elbow) is valid for stopping distance and stopping time: • Category 0 • Category 1 • Category 2\nJoint 0 test | usedMovement | horizontal movement with rotational axis perpendicular to the ground | | The Joint 0 test was carried out using a horizontal movement, where the rotational axis was perpendicular to the ground.\nJoint 1 and Joint 2 tests | usedTrajectory | vertical trajectory with rotational axes parallel to the ground, stopped while moving downward | | For the Joint 1 and Joint 2 tests, the robot followed a vertical trajectory, where the rotational axes were parallel to the ground, and the stop was done while the robot was moving downward.\nY-axis of stopping graphs | represents | distance from where the stop is initiated to the final position | | The Y-axis is the distance from where the stop is initiated to the final position.\nPayload center of gravity in stopping tests | isLocatedAt | tool flange | | The payload CoG is at the tool flange.\nStopping data values | representScenarios | robots with a maximum payload of 10 kg and robots with a maximum payload of 12.5 kg | | The values illustrated below represent two scenarios, robots with a maximum payload of 10kg, and robots with a maximum payload of 12.5kg.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1179,
+   "prompt_tokens": 670,
+   "total_tokens": 1849,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 499,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006565,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006565,
+   "gateway_cost": 0.0006565
+  }
+ }
+}
