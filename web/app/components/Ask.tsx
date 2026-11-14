@@ -5,9 +5,9 @@ import { AnswerResponse, Question, itDate, post, show, why } from "../lib";
 import { IconArrow, IconDoc, IconSearch, IconShield } from "./icons";
 
 const GROUPS: { title: string; hint: string; ids: string[] }[] = [
-  { title: "Scadenze e verifiche", hint: "cosa fare, ed entro quando", ids: ["CQ11", "CQ12", "CQ08"] },
-  { title: "La legge che cambia", hint: "dal 20 gennaio 2027", ids: ["CQ09", "CQ10", "CQ13", "CQ14", "CQ15"] },
-  { title: "Obblighi e conformità", hint: "chi deve fare cosa", ids: ["CQ06", "CQ07", "CQ01", "CQ02", "CQ03", "CQ04", "CQ05"] },
+  { title: "Scadenze e verifiche", hint: "cosa fare, ed entro quando", ids: ["CQ21", "CQ22", "CQ26", "CQ11", "CQ12", "CQ08"] },
+  { title: "La legge che cambia", hint: "quale testo vale oggi", ids: ["CQ24", "CQ09", "CQ10", "CQ13", "CQ14", "CQ15"] },
+  { title: "Obblighi e conformità", hint: "chi deve fare cosa", ids: ["CQ25", "CQ23", "CQ27", "CQ06", "CQ07", "CQ01", "CQ02", "CQ03", "CQ04", "CQ05"] },
 ];
 
 const SOURCES: Record<string, string> = {
@@ -16,6 +16,12 @@ const SOURCES: Record<string, string> = {
   CORR: "Rettifica del Regolamento (UE) 2023/1230",
 
   DM2011: "DM 11 aprile 2011",
+  DLGSALLVII: "D.Lgs. 81/08",
+  "igea-equipment": "Elenco apparecchi IGEA",
+  "ur5e-manual": "Manuale UR5e",
+  "ur10e-manual": "Manuale UR10e",
+  "nanoscan3-manual": "Manuale nanoScan3",
+  "mastar-manual": "Manuale MA STAR 3.5 A",
 };
 
 function sourceName(locator: string) {

@@ -13,7 +13,7 @@ client = TestClient(app)
 def test_status_and_questions():
     assert client.get("/api/status").json()["fake"] is True
     qs = client.get("/api/questions").json()
-    assert len(qs) == 20 and {"id", "split", "question", "question_it", "expected"} <= set(qs[0])
+    assert len(qs) == 34 and {"id", "split", "question", "question_it", "expected"} <= set(qs[0])
 
 
 def test_answer_is_scored_against_the_gold():

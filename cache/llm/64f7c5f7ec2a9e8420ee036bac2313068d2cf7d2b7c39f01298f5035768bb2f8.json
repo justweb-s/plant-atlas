@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered passages given.\n\nRules:\n- Use only these passages. Do not use anything you know from elsewhere.\n- If the passages do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the passages.\n- If the question asks \"which\" or \"what\" and several passages answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [passage numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: If the UR5e arm in the cell is replaced with a UR10e, by how many millimetres does the reach increase?\n\nPassages:\n[0] ur5e-manual, p. 188: 14. Risk Assessment Copyright © 2009­2025 by Universal Robots A/S. All rights reserved. Stopping distance in meters maximum payload of 5kg Joint 2 (ELBOW) Stopping time in seconds for 33% of 5kg Stopping time in seconds for 66% of 5kg Stopping time in seconds for maximum payload of 5kg UR5e 191 User Manual\n\n[1] ur10e-manual, p. 37: User Manual 5. Lifting and Handling 40 UR10e Copyright © 2009­2025 by Universal Robots A/S. All rights reserved.\n\n[2] ur5e-manual, p. 37: User Manual 5. Lifting and Handling 40 UR5e Copyright © 2009­2025 by Universal Robots A/S. All rights reserved.\n\n[3] ur10e-manual, p. 190: 14. Risk Assessment Joint 2 (ELBOW) Stopping distance in meters for all payloads Stopping time in seconds for all payloads Copyright © 2009­2025 by Universal Robots A/S. All rights reserved. UR10e 193 User Manual\n\n[4] ur5e-manual, p. 186: 14. Risk Assessment Copyright © 2009­2025 by Universal Robots A/S. All rights reserved. Joint 1 (SHOULDER) Stopping 189 User Manual distance in meters for 33% of 5kg Stopping distance in meters for 66% of 5kg Stopping distance in meters for maximum payload of 5kg Joint 1 (SHOULDER) Stopping time in seconds for 33% of 5kg UR5e\n\n[5] ur5e-manual, p. 185: 14. Risk Assessment Copyright © 2009­2025 by Universal Robots A/S. All rights reserved. Stopping distance in meters for maximum payload of 5kg Joint 0 (BASE) Stopping time in seconds for 33% of 5kg Stopping time in seconds for 66% of 5kg Stopping time in seconds for maximum payload of 5kg User Manual 188 UR5e\n\n[6] ur10e-manual, p. 193: 14. Risk Assessment Copyright © 2009­2025 by Universal Robots A/S. All rights reserved. Stopping distance in meters for maximum payload of 12.5kg Joint 1 (SHOULDER) Stopping time in seconds for 33% of 12.5kg Stopping time in seconds for 66% of 12.5kg Stopping time in seconds for maximum payload of 12.5kg User Manual 196 UR10e\n\n[7] ur10e-manual, p. 15: 3. Your Robot 3. Your Robot 3.1. Technical Specifications UR10e General Maximum payload 10 kg / 22 lb or 12.5 kg / 27.5 lb specification Reach 1300 mm / 51.2 in Degrees of freedom 6 rotating joints Programming PolyScope 5 GUI on 12\" touchscreen Copyright © 2009­2025 by Universal Robots A/S. All rights reserved. Power consumption (average) or PolyScope X GUI on 12\" touchscreen 615 W Ambient temperature range Approx. 350 W using a typical program 0-50 °C. At ambient temperatures above 35°C, the Safety functions robot may operate at reduced speed and performance. 21 configurable safety functions. PLd Category 3 in accordance with: EN ISO 13849-1. Performance Force Torque sensor accuracy 5.5 N Movement Base and Shoulder joints: Max 120 °/s. All other joints: Max 180 °/s . Speed Maximum TCP speed: Approx. 4 m/s / Approx. 157.5 in/s. Pose repeatability Joint ranges ± 0.05 mm / ± 0.0019 in (1.9 mils)per ISO 9283 ± 360 ° for all joints except Elbow ± 160 ° Features IP classification IP54 Noise Robot Arm: Less than 60 dB(A) Tool I/O ports Control Box: Less than 50 dB(A) Tool I/O power supply & voltage 2 digital in, 2 digital out, 2 analog in 2 A (Dual pin) 1 A (Single pin) & 12 V/24 V Physical Footprint Ø190 mm / 7.5 in Materials Aluminium, PC/ASA plastic Robot arm weight 33.3 kg / 73.5 lb User Manual 18 UR10e\n\n[8] ur5e-manual, p. 197: User Manual 200 UR5e Copyright © 2009­2025 by Universal Robots A/S. All rights reserved.\n\n[9] ur10e-manual, p. 188: 14. Risk Assessment Copyright © 2009­2025 by Universal Robots A/S. All rights reserved. Stopping distance in meters for 191 User Manual maximum payload of 10kg Joint 0 (BASE) Stopping time in seconds for 33% of 10kg Stopping time in seconds for 66% of 10kg Stopping time in seconds for maximum payload of 10kg Joint 1 (SHOULDER) Stopping distance in meters for 33% of 10kg UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "The UR10e's reach is given in passage 7 (1300 mm). The UR5e's reach would be in its own technical specifications page, but none of the supplied UR5e passages (0, 2, 4, 5, 8) contains it. Without the UR5e reach, the difference cannot be calculated from these passages.\n\n```json\n{\"kind\": \"unknown\", \"value\": null, \"text\": \"The UR10e reach is 1300 mm (ur10e-manual, section 3.1 Technical Specifications), but none of the passages states the UR5e reach, so the increase cannot be calculated.\", \"used\": [7]}\n```",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 199,
+   "prompt_tokens": 2161,
+   "total_tokens": 2360,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.006312,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.006312,
+   "gateway_cost": 0.006312
+  }
+ }
+}

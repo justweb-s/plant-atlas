@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / "data/cq/cqs.json").read_text(encoding="utf-8"))
 CQS = {cq["id"]: cq for cq in DATA["cqs"]}
 MODELS = {m["id"]: m for m in DATA["catalogue"]["models"]}
+MACHINE_QUOTES = {f["quote"] for m in json.loads((ROOT / "data/machines/machines.json").read_text(encoding="utf-8"))["machines"]
+                  for f in m["facts"]}
 
 _DROP = dict.fromkeys(map(ord, "‘’‚‛“”„«»\"'`"), None)
 _DASH = {ord(c): "-" for c in "‐‑‒–—−"}
@@ -29,8 +31,14 @@ def norm(s: str) -> str:
 
 
 @lru_cache(maxsize=None)
-def source_text(key: str) -> str:
+def source_text(key: str) -> str | None:
+    """The normalised text of a source; None for a PDF that is not on this machine (it is not in git)."""
     path = ROOT / DATA["sources"][key]
+    if path.suffix == ".pdf":
+        if not path.exists():
+            return None
+        from pypdf import PdfReader
+        return norm(" ".join(page.extract_text() for page in PdfReader(path).pages))
     raw = path.read_text(encoding="utf-8")
     if path.suffix in {".xhtml", ".html"}:
         raw = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw)
@@ -39,8 +47,8 @@ def source_text(key: str) -> str:
 
 
 def test_structure():
-    assert len(DATA["cqs"]) == 20
-    assert len(CQS) == 20, "duplicate ids"
+    assert len(DATA["cqs"]) == 34
+    assert len(CQS) == 34, "duplicate ids"
     kinds = set(DATA["about"]["answer_kinds"])
     roles = set(DATA["about"]["evidence_roles"])
     splits = set(DATA["about"]["splits"])
@@ -58,7 +66,9 @@ def test_structure():
         if cq["answer"]["kind"] == "text":
             groups = cq["answer"]["keywords"]
             assert groups and all(isinstance(g, list) and g for g in groups), cq["id"]
-    assert sum(cq["split"] == "heldout" for cq in DATA["cqs"]) == 5
+        if cq["answer"]["kind"] == "unknown":
+            assert cq["answer"]["value"] is None, cq["id"]
+    assert sum(cq["split"] == "heldout" for cq in DATA["cqs"]) == 12
 
 
 def test_quotes_are_in_their_sources():
@@ -67,7 +77,14 @@ def test_quotes_are_in_their_sources():
         for ev in cq["evidence"]:
             if ev["source"] == "CATALOGUE":
                 continue
-            if norm(ev["quote"]) not in source_text(ev["source"]):
+            if ev["source"].endswith("-manual"):   # the manuals are not in git: the quote must be one fetch.py verifies
+                if ev["quote"] not in MACHINE_QUOTES:
+                    missing.append(f'{cq["id"]} {ev["locator"]}: not a quote of machines.json')
+                continue
+            text = source_text(ev["source"])
+            if text is None:
+                continue
+            if norm(ev["quote"]) not in text:
                 missing.append(f'{cq["id"]} {ev["locator"]}: {ev["quote"][:80]}')
     assert not missing, "quotes not found:\n" + "\n".join(missing)
 
@@ -95,3 +112,16 @@ def test_core_code_never_reads_heldout_questions():
     offenders = [p.relative_to(ROOT).as_posix() for p in (ROOT / "atlas").rglob("*.py")
                  if "heldout" in p.read_text(encoding="utf-8")]
     assert not offenders, f"atlas/ must use only split == 'design': {offenders}"
+
+
+def test_annex_vii_gold_follows_from_year_and_row():
+    """CQ28 and CQ29 are the same crane two years apart: only its age moves it from one row to the other."""
+    built, today = 2017, int(DATA["about"]["as_of_default"][:4])
+    assert today - built <= 10 and CQS["CQ28"]["answer"]["value"] == "P2Y"
+    assert 2028 - built > 10 and CQS["CQ29"]["answer"]["value"] == "P1Y"
+    rows = {cq: next(ev["quote"] for ev in CQS[cq]["evidence"] if ev["source"] == "DLGSALLVII" and ev["role"] != "superseded")
+            for cq in ("CQ21", "CQ22", "CQ28", "CQ29", "CQ30")}
+    assert "tipo fisso" in rows["CQ21"] and "estrattivo" in rows["CQ21"] and "non antecedente" not in rows["CQ21"]
+    assert "tipo mobile" in rows["CQ22"] and "estrattivo" in rows["CQ22"]
+    assert "non antecedente 10 anni" in rows["CQ28"] and "non antecedente" not in rows["CQ29"]
+    assert "Piattaforme di lavoro mobili elevabili" in rows["CQ30"]

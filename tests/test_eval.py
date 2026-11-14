@@ -10,7 +10,7 @@ def test_gold_scores_full_marks():
 
 
 def test_no_answer_scores_zero():
-    assert all(score(cq, None) == 0.0 for cq in CQS.values())
+    assert all(score(cq, None) == 0.0 for cq in CQS.values() if cq["answer"]["kind"] != "unknown")
 
 
 def test_traps_score_below_full():
@@ -27,3 +27,12 @@ def test_summary_keeps_splits_apart():
     assert (s["n"], s["correct"]) == (2, 1)
     assert s["by_type"] == {"T": 1.0, "V": 0.0}
     assert s["by_split"] == {"design": 1.0, "heldout": 0.0}
+
+
+def test_durations_and_expected_unknown():
+    from evaluation.score import duration, score
+    for said, iso in (("P1Y", "P1Y"), ("annuale", "P1Y"), ("12 months", "P1Y"), ("every 6 months", "P6M"), ("biennale", "P2Y"),
+                      ("quarantacinque giorni", "P45D"), ("15 days", "P15D"), ("at least once a year", "P1Y"), ("P24M", "P2Y")):
+        assert duration(said) == iso, said
+    unknown = {"id": "x", "answer": {"kind": "unknown", "value": None}}
+    assert score(unknown, None) == 1.0 and score(unknown, True) == 0.0
