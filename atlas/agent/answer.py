@@ -40,8 +40,17 @@ Rules:
   about that place whenever its relation fits the question: list all of them, not one.
 - Lines under "Computed by rule" are results worked out in code from the numbered facts they name: trust them,
   give their result as the answer for the device asked about, and put the fact numbers they name in "used".
-- Include only what the question asks for: no alternative, no second body or regime, no neighbouring item that
-  the question did not ask about. An option that combines several things in sequence is one item, not several.
+- Include only what the question asks for: no neighbouring item, no other regime that the question did not ask
+  about. An option that combines several things in sequence is one item, not several.
+- A fact about a neighbouring subject (another paragraph, another device, another kind of verification, another
+  product, another deadline) does not answer the question. When the exact subject asked about is absent from the
+  facts, "unknown" is the correct answer: do not answer from the nearest fact.
+- For a "who" question, when one fact, or several facts with the same subject and relation, name several bodies,
+  all of them are the answer together: name each one.
+- For "which categories / which items listed in a place", the answer is the members filed under that place, each
+  in the words of its fact, without adding the place to the item.
+- For "which risks / which hazards does a numbered point address", use every fact filed under that point whatever
+  its relation: a measure is required against a risk, and its subject and condition name that risk.
 - Never return a list for a "text" answer: a question that one sentence answers (who, why, how, under which
   condition, which one thing and why) gets one short sentence. "Which / what / list all" of several things is "set".
 - The kind follows the question: "from which date / when (a day)" is "date"; "for how long" alone is "duration";
@@ -310,6 +319,65 @@ def device_rule(question: str, facts: list[Statement], near: list[Statement], on
     return results
 
 
+def _canon(duration: str) -> str:
+    match = re.fullmatch(r"P(\d+)M", duration or "")
+    return f"P{int(match.group(1)) // 12}Y" if match and int(match.group(1)) % 12 == 0 else (duration or "")
+
+
+def _all_durations(text: str) -> set[str]:
+    found = {m.group(0).upper() for m in ISO_DURATION.finditer(text or "") if len(m.group(0)) > 1}
+    found |= {f"P{int(m.group(1))}{UNITS[m.group(2).lower()]}" for m in WRITTEN_DURATION.finditer(text or "")}
+    return {_canon(d) for d in found}
+
+
+def grounded(kind: str, value, used: list[Statement], question: str) -> tuple[object, list[Statement], str]:
+    """No supporting fact, no answer. Checks a typed value against the facts the model says it used and returns
+    (value, used, what was missing). The value comes back None when the facts do not carry it:
+    - date, duration: the value must be written, as given or in normal form, in a used fact;
+    - set: only the items found in a used fact (containment or half of their words) are kept;
+    - boolean: a used fact must be dated, conditioned, or share words with the question;
+    - text: a clause naming a number, a duration or an acronym found neither in the used facts nor in the
+      question is removed.
+    A used fact sharing no word with the question or with another used fact is dropped when one at least stays."""
+    if value is None or not used:
+        return None, used, ""
+    asked = _words(question)
+    bags = [_words(f"{s.subject} {s.predicate} {s.object_as_written} {s.object} {s.condition}") for s in used]
+    keep = [s for i, s in enumerate(used)
+            if bags[i] & asked or any(bags[i] & bag for j, bag in enumerate(bags) if j != i)]
+    used = keep or used
+    blob = " ".join(f"{s.subject} {s.object_as_written} {s.object} {s.object_normalised} {s.condition} {s.quote} "
+                    f"{s.source_doc} {s.anchor}" for s in used)
+    if kind == "date":
+        ok = any(d.isoformat() == value for d in _dates(blob))
+        return (value if ok else None), used, "" if ok else f"no used fact carries the date {value}"
+    if kind == "duration":
+        ok = _canon(str(value)) in _all_durations(blob)
+        return (value if ok else None), used, "" if ok else f"no used fact carries the duration {value}"
+    if kind == "set" and isinstance(value, list):
+        flat, words = _key(blob), _words(blob)
+        def found(item: str) -> bool:
+            own = _words(item)
+            return (len(_key(item)) >= 4 and _key(item) in flat) or (bool(own) and len(own & words) * 2 >= len(own))
+        items = [item for item in value if found(item)]
+        return (items or None), used, "" if items else "no used fact names any of the items"
+    if kind == "boolean" or isinstance(value, bool):
+        ok = any(_dates(f"{s.object} {s.object_as_written} {s.condition}") or s.condition or bag & asked
+                 for s, bag in zip(used, bags))
+        return (value if ok else None), used, "" if ok else "no used fact is dated or about what the question asks"
+    known = _key(blob + " " + question)
+    flat = f" {known} "
+    def supported(clause: str) -> bool:
+        tokens = re.findall(r"\b\d+(?:[.,]\d+)?\b|\b[A-Z]{2,}\b", clause)
+        tokens = [tok for tok in tokens if not re.fullmatch(r"P?\d*[YMWD]", tok)]
+        return (all(f" {_key(tok)} " in flat for tok in tokens)
+                and all(d in _all_durations(blob + " " + question) for d in _all_durations(clause)))
+    clauses = [c for c in re.split(r"(?<=[;.])\s+|;\s*", str(value)) if c.strip()]
+    kept = [c for c in clauses if supported(c)]
+    text = str(value) if len(kept) == len(clauses) else " ".join(kept).strip() or None
+    return text, used, "" if text else "the used facts do not carry the names or numbers of the answer"
+
+
 def _duration(text: str) -> str | None:
     match = ISO_DURATION.search(text)
     if match and len(match.group(0)) > 1:
@@ -389,6 +457,10 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
     value = typed(str(data.get("kind") or ""), data.get("value")) if used else None   # no fact, no answer
     usage = out.get("usage") or {}
     text = (data.get("text") if value is not None or used else None) or UNKNOWN.get(lang, UNKNOWN["en"])
+    if value is not None:   # no supporting fact, no answer
+        value, used, missing = grounded(str(data.get("kind") or ""), value, used, question)
+        if value is None:
+            text = f"{UNKNOWN.get(lang, UNKNOWN['en'])} ({missing})"
     if rule:   # the rule's facts are always cited and its assumptions always stated
         if len(rule) == 1 and str(data.get("kind") or "") in ("duration", "unknown", ""):
             only = rule[0]   # one device asked about: the rule decides, the model only words it

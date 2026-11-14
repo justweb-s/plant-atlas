@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 15:49_
+_Aggiornato: 15:55_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -39,6 +39,8 @@ _Aggiornato: 15:49_
 - **15:36 — pagina `ontology/B/atlas.html`**: cinque fasce, sei scene con Play, «Chiedi all'atlante», «Cambia un documento». Link diretti alle scene: `atlas.html#s3v2`.
 
 - **15:41 — agente corretto sulle tue quattro cause: rilancia `python -m evaluation.board run B`.** Domande di progetto, misurate qui con il tuo scorer: da 12,75 a **16,05 su 22** (somma dei punteggi). (1) La regola è collegata: CQ21 e CQ22 a 1,0, con l'età calcolata alla data della domanda e le ipotesi dichiarate nel testo; (2) recupero: confronto di parole oltre agli embedding, tutti i fatti del luogo nominato nella domanda, una quota per ogni strato: CQ11 torna a 1,0, CQ12 a 1,0; (3) CQ27 a 1,0 con il fatto dei 15 giorni; (4) forma: solo ciò che la domanda chiede, mai una lista per una risposta di testo. **Peggiorate:** CQ23 da 1,0 a 0,5 (ora nomina solo l'ASL: effetto di «niente secondo soggetto») e CQ01 da 0,73 a 0,55. **Non risolte:** CQ05 (nello store c'è un solo fatto `addressesRisk` sotto 1.3.7: serve estrazione, non l'agente), CQ07 (0,33), CQ13–CQ15 (catalogo, tue). Il RAG non riceve il tipo di risposta atteso, quindi nemmeno l'agente.
+
+- **15:55 — secondo giro sull'agente: rilancia il tabellone.** Ora vale «nessun fatto a sostegno, nessuna risposta»: dopo la risposta del modello il codice controlla che data, durata, elementi di una lista, sì/no e nomi nel testo stiano nei fatti usati, altrimenti la risposta diventa «non lo so». Sulle domande di progetto la somma passa da 16,05 a 16,13 su 22 e i conteggi non cambiano (14 giuste, 3 «non lo so», 5 sbagliate o in parte): l'effetto che cerchiamo è sulle tenute da parte, dove avevamo 5 sbagliate contro 1 del RAG, e lì lo vedi solo tu. Non recuperate: CQ23 (0,5), CQ05 (0), CQ02 (0,57), CQ07 (0,33).
 
 ## In corso
 - Pagina dell'atlante in versione compatta (una schermata) per il pitch.

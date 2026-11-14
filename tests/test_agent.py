@@ -57,19 +57,36 @@ def test_no_retrieved_fact_means_unknown(monkeypatch):
 
 
 def test_value_is_normalised_to_its_kind(monkeypatch):
-    cases = [({"kind": "date", "value": ["20 January 2027"]}, "2027-01-20"),
-             ({"kind": "date", "value": "2027-01-20"}, "2027-01-20"),
-             ({"kind": "duration", "value": ["at least 10 years"]}, "P10Y"),
-             ({"kind": "duration", "value": "P45D"}, "P45D"),
-             ({"kind": "duration", "value": "quarantacinque giorni (45 giorni)"}, "P45D"),
-             ({"kind": "boolean", "value": "Yes"}, True),
-             ({"kind": "boolean", "value": False}, False),
-             ({"kind": "set", "value": "saws"}, ["saws"]),
-             ({"kind": "set", "value": ["saws [fact 3]", "saws", " lifts "]}, ["saws", "lifts"]),
-             ({"kind": "text", "value": ["the body", "within 45 days"]}, "the body; within 45 days")]
-    for reply, expected in cases:
-        a, _ = _ask({**reply, "text": "t", "used": [0]}, monkeypatch)
+    # each case cites the fact that carries its value: 0 the repeal date, 2 the retention period, 3 the saws
+    cases = [({"kind": "date", "value": ["20 January 2027"]}, 0, "2027-01-20"),
+             ({"kind": "date", "value": "2027-01-20"}, 0, "2027-01-20"),
+             ({"kind": "duration", "value": ["at least 10 years"]}, 2, "P10Y"),
+             ({"kind": "duration", "value": "dieci anni (10 anni)"}, 2, "P10Y"),
+             ({"kind": "boolean", "value": "Yes"}, 0, True),
+             ({"kind": "boolean", "value": False}, 0, False),
+             ({"kind": "set", "value": "saws"}, 3, ["saws"]),
+             ({"kind": "set", "value": ["saws [fact 3]", "saws", " lifts "]}, 3, ["saws"]),   # lifts: in no fact
+             ({"kind": "text", "value": ["the body", "within 10 years"]}, 2, "the body; within 10 years")]
+    for reply, fact, expected in cases:
+        a, _ = _ask({**reply, "text": "t", "used": [fact]}, monkeypatch)
         assert a.value == expected and type(a.value) is type(expected), reply
+
+
+def test_no_supporting_fact_means_no_answer(monkeypatch):
+    unsupported = [{"kind": "date", "value": "2030-05-01", "used": [0]},        # a date no used fact carries
+                   {"kind": "duration", "value": "P45D", "used": [2]},          # the fact says ten years
+                   {"kind": "set", "value": ["lifts", "presses"], "used": [3]}, # no item is in the fact
+                   {"kind": "text", "value": "INAIL, within 45 days", "used": [2]}]   # body and number unsupported
+    for reply in unsupported:
+        a, _ = _ask({**reply, "text": "t"}, monkeypatch)
+        assert a.value is None and "(" in a.text, reply
+    current = [f for f in FACTS if f.status == "current"]
+    assert agent.grounded("boolean", True, [current[3]], "Is it raining?")[0] is None   # undated, off the subject
+    assert agent.grounded("boolean", True, [current[0]], "Is it raining?")[0] is True   # a dated fact supports it
+    value, used, _ = agent.grounded("text", "The body keeps it. INAIL checks within 45 days.", [current[2]], "Who?")
+    assert value == "The body keeps it."                                                # the unsupported clause goes
+    _, used, _ = agent.grounded("date", "2027-01-20", [current[0], current[3]], "When is the old act repealed?")
+    assert [s.id for s in used] == ["st-0002"]                                          # the unrelated fact is dropped
 
 
 def test_every_step_names_its_fact(monkeypatch):
