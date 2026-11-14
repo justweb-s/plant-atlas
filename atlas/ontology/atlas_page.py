@@ -375,6 +375,7 @@ def write(path: Path | None = None, store=None, today: date = TODAY, answers: bo
 
 
 PAGE = r"""<title>Plant Atlas</title>
+<meta charset="utf-8">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>

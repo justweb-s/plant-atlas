@@ -200,15 +200,18 @@ def manual(doc: dict, raw: Path) -> list[Chunk]:
     import shutil
     import subprocess
 
+    import os
+
     pdf = raw / doc["file"]
-    if not pdf.exists():
+    if not pdf.exists() or os.getenv("ATLAS_NO_LOCAL_DOCS") == "1":   # the switch simulates a fresh clone
         return []
     cache = pdf.with_suffix(".pages.json")
     if cache.exists():
         pages = json.loads(cache.read_text(encoding="utf-8"))
     else:
         if shutil.which("pdftotext"):   # keeps the spaces between words; pypdf often loses them
-            text = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True).stdout
+            text = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True,
+                                  encoding="utf-8", errors="replace").stdout or ""
             pages = text.split("\f")
         else:
             from pypdf import PdfReader

@@ -163,7 +163,7 @@ class Corpus:
 
     def __init__(self, folder: Path = ROOT / "atlas" / "corpus" / "incoming") -> None:
         self.folder = folder
-        with (folder / "registry.csv").open() as handle:
+        with (folder / "registry.csv").open(encoding="utf-8") as handle:
             self.rows = {row["id"]: row for row in csv.DictReader(handle)}
 
     def section(self, doc_id: str, anchor: str) -> str | None:
@@ -286,12 +286,12 @@ class Store:
             self.path.parent.mkdir(exist_ok=True)
             payload = {"statements": [s.model_dump(mode="json") for s in self.statements],
                        "rejections": self.rejections}
-            self.path.write_text(json.dumps(payload, indent=1, ensure_ascii=False))
+            self.path.write_text(json.dumps(payload, indent=1, ensure_ascii=False), encoding="utf-8")
 
     @classmethod
     def load(cls, corpus, path: Path) -> "Store":
         store = cls(corpus, path)
-        payload = json.loads(path.read_text())
+        payload = json.loads(path.read_text(encoding="utf-8"))
         store.statements = [Statement(**item) for item in payload["statements"]]
         store.rejections = payload["rejections"]
         return store

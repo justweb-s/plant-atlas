@@ -135,10 +135,10 @@ def main() -> int:
         stale.unlink()
     old = {}
     if REGISTRY.exists():
-        with REGISTRY.open() as handle:
+        with REGISTRY.open(encoding="utf-8") as handle:
             old = {row["id"]: row for row in csv.DictReader(handle)}
     rows, missing = [], []
-    with SOURCES.open() as handle:
+    with SOURCES.open(encoding="utf-8") as handle:
         sources = list(csv.DictReader(handle))
     for source in sources:
         doc_id = source["doc_id"]

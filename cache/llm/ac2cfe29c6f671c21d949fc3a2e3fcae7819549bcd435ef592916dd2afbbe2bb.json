@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: igea-equipment, p. 3\n\n[0] 1.\n[1] OGGETTO DELLA FORNITURA La presente Scheda Tecnica disciplina, in materia di aspetti tecnici, la verifica periodica (successiva alla prima) degli apparecchi di sollevamento di Igea S.p.A.\n[2] secondo quanto previsto dall’ art.71 c.\n[3] 11, modificato dalla Legge 98 del 9 agosto 2013, e dall’Allegato VII del D.Lgs.\n[4] 81/08 e ss.mm.ii.\n[5] e con le modalità del D.M.\n[6] 11 aprile 2011 da parte di soggetti abilitati pubblici o privati e il relativo rilascio del verbale di verifica periodica.\n[7] 2.\n[8] SPECIFICHE TECNICHE GENERALI DELLA FORNITURA La presente Scheda Tecnica comprende le seguenti attività:  verifica periodica (successiva alla prima) degli apparecchi di sollevamento di Igea S.p.A.\n[9] elencate nelle tabelle A1, A2, A3, A4, A5, A6 dell’Allegato A, secondo quanto previsto dal D.Lgs.\n[10] 81/08 e ss.mm.ii.\n[11] (art.71 comma 11 e Allegato VII), secondo le modalità del D.M.\n[12] 11 aprile 2011 da parte di soggetti abilitati pubblici o privati ed entro i termini previsti.  Rilascio del verbale di verifica periodica.\n[13] 2.1 Le caratteristiche tecniche degli apparecchi in oggetto e le relative date delle ultime verifiche, sono descritte nelle tabelle dell’Allegato A (A1, A2, A3, A4, A5, A6).\n[14] L’elenco, suddiviso per tipologia di macchina/attrezzo, è così riassunto:  N° 7 gru per autocarro – rif.\n[15] tabella A1 (posizioni 1-7)  N° 6 gru a ponte scorrevole – rif.\n[16] tabella A2 (posizioni (8-13)  N° 2 paranchi pneumatici – rif.\n[17] tabella A3 (posizioni 14-15)  N° 1 paranco elettrico – rif.\n[18] tabella A3 (posizione 16)  N° 6 autogru – rif.\n[19] tabella A4 (posizioni 17-22)  N° 1 gru a cavalletto – rif.\n[20] tabella A5 (posizione 23)  N° 1 piattaforma elevatrice – rif.\n[21] tabella A6 (posizione 24) 2.2 L’ubicazione, Comune - area mineraria o settore di appartenenza , dei singoli apparecchi di sollevamento è indicata nell’elenco dell’Allegato B e può essere sintetizzato come segue:\n[22] Qtà COMUNE Area mineraria Monteponi 19 Iglesias Campo Pisano Masua - Acquaresi 2 Gadoni Miniera Funtana Raminosa 2 Lula Miniera Sos Enattos 1 Furtei Miniera Furtei 2.3 Per tutte e 24 le posizioni in oggetto, la verifica è da considerarsi secondo le cadenze previste dall’Allegato VII del D.Lgs.\n[23] 81/08;\n[24] 3"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "verifiedBy | verifica periodica degli apparecchi di sollevamento | soggetti abilitati pubblici o privati | soggetti abilitati pubblici o privati | | 6 | 6\nOPEN | Periodic interval only referenced to Allegato VII, not stated | 22 | 23",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1098,
+   "prompt_tokens": 2872,
+   "total_tokens": 3970,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 996,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008362,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008362,
+   "gateway_cost": 0.0008362
+  }
+ }
+}

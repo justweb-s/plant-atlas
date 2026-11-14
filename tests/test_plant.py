@@ -10,7 +10,7 @@ PARTS = Path(__file__).resolve().parents[1] / "ontology" / "B" / "parts"
 
 
 def part(name):
-    return [Statement(**item) for item in json.loads((PARTS / f"{name}.json").read_text())["statements"]]
+    return [Statement(**item) for item in json.loads((PARTS / f"{name}.json").read_text(encoding="utf-8"))["statements"]]
 
 
 def annex():
@@ -67,12 +67,15 @@ def test_unmapped_kind_and_missing_values_are_unknown():
 def test_parts_load_and_every_statement_passes_the_quote_check():
     from atlas.corpus.chunker import load
 
-    corpus = ChunkCorpus(list(load()))
+    chunks = list(load())
+    corpus, on_machine = ChunkCorpus(chunks), {c.source for c in chunks}
     for name, minimum in (("law_verification", 29), ("plant_igea", 60)):
         statements = part(name)
         assert len(statements) >= minimum
         store = Store(corpus)
         for s in statements:
+            if s.source_doc not in on_machine:   # a document that is not on this machine cannot be checked here
+                continue
             assert store.write_statement(s.model_copy()) is not None, (name, s.id, store.rejections[-1]["reason"])
 
 
@@ -91,3 +94,21 @@ def test_all_24_devices_have_kind_capacity_and_year():
 def test_sixty_days_loses_to_forty_five():
     conflicts = [s for s in part("law_verification") if s.status == "conflict"]
     assert len(conflicts) == 1 and conflicts[0].object == "P60D" and conflicts[0].conflicts_with
+
+
+def test_service_terms_load_pass_the_quote_check_and_hold_the_fifteen_day_notice():
+    import pytest
+
+    from atlas.corpus.chunker import load
+
+    statements = part("plant_igea_terms")
+    assert statements and all(s.id.startswith("plant_igea_terms-") for s in statements)
+    notices = [s for s in statements if s.predicate == "hasTimeLimit" and s.object == "P15D" and s.status == "current"]
+    assert notices and all(s.anchor == "p. 5" and "15 giorni" in s.quote for s in notices)
+    assert any("aggiudicatario" in s.subject for s in notices)   # whose notice it is
+    chunks = [c for c in load() if c.source == "igea-equipment"]
+    if not chunks:
+        pytest.skip("the plant's document is not on this machine")
+    store = Store(ChunkCorpus(chunks))
+    for s in statements:
+        assert store.write_statement(s.model_copy()) is not None, (s.id, store.rejections[-1]["reason"])

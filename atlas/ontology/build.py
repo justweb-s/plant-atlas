@@ -44,7 +44,7 @@ def raw_store(strategy: str):
     # Further extractions (other layers, the plant's records) live in ontology/<strategy>/parts/<name>.json,
     # one file per extraction and one writer per file. Their ids are prefixed with the part's name.
     for part in sorted((folder(strategy) / "parts").glob("*.json")):
-        payload = json.loads(part.read_text())
+        payload = json.loads(part.read_text(encoding="utf-8"))
         if "statements" not in payload:
             continue
         for item in payload["statements"]:
@@ -59,7 +59,7 @@ def raw_store(strategy: str):
 def build_result(strategy: str) -> BuildResult:
     from rdflib import OWL, RDF, Graph
 
-    counts = json.loads((folder(strategy) / "build.json").read_text())
+    counts = json.loads((folder(strategy) / "build.json").read_text(encoding="utf-8"))
     ontology = folder(strategy) / "ontology.ttl"
     shapes = folder(strategy) / "shapes.ttl"
     graph = Graph().parse(ontology, format="turtle")
@@ -68,7 +68,7 @@ def build_result(strategy: str) -> BuildResult:
     proposed, anchored, rejected = (counts.get(k, 0) for k in ("proposed_total", "anchored", "rejected"))
     for part in sorted((folder(strategy) / "parts").glob("*.json")):   # what the further extractions add
         try:
-            payload = json.loads(part.read_text())
+            payload = json.loads(part.read_text(encoding="utf-8"))
         except ValueError:
             continue
         if not isinstance(payload, dict) or "statements" not in payload:
@@ -85,7 +85,7 @@ def build_result(strategy: str) -> BuildResult:
 
 def counts(strategy: str) -> dict:
     """proposed / anchored / rejected by reason / corrections: the numbers of the rule."""
-    return json.loads((folder(strategy) / "build.json").read_text())
+    return json.loads((folder(strategy) / "build.json").read_text(encoding="utf-8"))
 
 
 def validation(strategy: str) -> ValidationReport:

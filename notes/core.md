@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 15:21_
+_Aggiornato: 15:36_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -34,7 +34,12 @@ _Aggiornato: 15:21_
 
 - **15:21 — cosa succede se un documento cambia** (`atlas/ontology/impact.py`, nessuna chiamata a un modello; `python -m atlas.ontology.impact` scrive `ontology/B/impact.json`): (1) controllo di salute: i 2033 fatti correnti si ritrovano tutti parola per parola nel loro pezzo; (2) per ogni documento: fatti ancorati, fatti di altri documenti che lo citano (la Direttiva è citata da 9 fatti, il D.Lgs. 81/08 da 11, l'Allegato VII da 6), apparecchi il cui risultato ne dipende; (3) tre cambi lavorati: la riga del 2026 dell'Allegato VII (versione precedente ricostruita, dichiarato), la rettifica con e senza, un braccio sostituito (173 fatti escono, 170 entrano, sbraccio da 850 a 1300 mm). Sono collegamenti calcolati, non relazioni salvate. L'app può leggere il JSON così com'è.
 
+- **15:36 — per la tua macchina:** i test ora passano anche senza i PDF (`ATLAS_NO_LOCAL_DOCS=1` simula un clone pulito: 2 test fallivano, sistemati); `encoding="utf-8"` esplicito in `statements.py`, `build.py`, `verify.py`, `b.py`, `register.py`, `plant.py`; `manual()` del chunker non crasha più con `PYTHONUTF8=1` (encoding esplicito e controllo su None). Le due pagine generate dichiarano il charset (prima mostravano «Â·»).
+- **15:36 — termini del servizio IGEA** (`ontology/B/parts/plant_igea_terms.json`, pp. 3–5): 12 fatti correnti, tra cui il preavviso di almeno 15 giorni (p. 5, `hasTimeLimit` P15D) e il rilascio del verbale. Non estratti: l'elenco di ciò che IGEA mette a disposizione (4.2), la tariffa, la certificazione oltre i 20 anni (resta punto aperto).
+- **15:36 — pagina `ontology/B/atlas.html`**: cinque fasce, sei scene con Play, «Chiedi all'atlante», «Cambia un documento». Link diretti alle scene: `atlas.html#s3v2`.
+
 ## In corso
+- Agente: collegare `rules.verification_interval` (CQ21, CQ22), recupero dei fatti che si perdono (CQ12, CQ05, CQ01), forma della risposta (CQ23, CQ07, CQ02). In corso adesso.
 - Correzione del passo di risposta (CQ10 e le domande «quali») e una pagina che mostra il grafo e come cambia nel tempo (`ontology/B/view.html`).
 - **13:41 — run completo della strategia B** su Regolamento, Direttiva e D.Lgs. 81/08 (773 passaggi, senza i considerando). Stima scritta prima di lanciare: 773 chiamate a `anthropic/claude-haiku-5.5`, circa 0,65 M token in ingresso e 0,85 M in uscita, cioè meno di 1 dollaro ai prezzi del gateway (0,10 e 0,50 dollari per milione). La pilota su 12 passaggi: 39 fatti proposti, 37 ancorati, 2 rifiutati; la rettifica chiude 8 fatti e ne apre 8 corretti (es. abrogazione della Direttiva dal 14 al 20/1/2027).
 - Strategia B sul registro dei fatti, export Turtle, agente su CQ09–CQ10 (la rettifica).

@@ -305,7 +305,7 @@ def main() -> None:
     store.save()
     counts["seconds"] = round(time.time() - started, 1)
     counts["chunks_read"] = len([c for c in chunks if c.source != "CORR" and not c.locator.startswith("Recital")])
-    (out / "build.json").write_text(json.dumps(counts, indent=1))
+    (out / "build.json").write_text(json.dumps(counts, indent=1), encoding="utf-8")
     print(json.dumps(counts))
 
 

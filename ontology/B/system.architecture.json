@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Plant Atlas in one page",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1400,
+      660
+    ],
+    "views": [
+      {
+        "id": "document-to-facts",
+        "label": "A document becomes facts",
+        "focus": [
+          "documents",
+          "register",
+          "extraction",
+          "gate",
+          "store"
+        ],
+        "note": "Each piece is fingerprinted, the model only points at sentences, and code refuses any fact whose quote is not there."
+      },
+      {
+        "id": "question-answered",
+        "label": "A question is answered",
+        "focus": [
+          "store",
+          "rules",
+          "agent",
+          "app"
+        ],
+        "note": "The agent may use only facts in force on the date; states such as an interval are computed, and no fact means unknown."
+      },
+      {
+        "id": "document-changes",
+        "label": "A document changes",
+        "focus": [
+          "register",
+          "change",
+          "store",
+          "ontologyFile"
+        ],
+        "note": "Changed pieces are found by fingerprint; old facts are closed and kept, and the file is exported again."
+      },
+      {
+        "id": "fact-doubted",
+        "label": "A fact is doubted",
+        "focus": [
+          "gate",
+          "reader",
+          "store"
+        ],
+        "note": "A second model re-reads accepted facts blind and flags the ones the text does not support."
+      },
+      {
+        "id": "ontology-file",
+        "label": "The ontology as a file",
+        "focus": [
+          "store",
+          "ontologyFile"
+        ],
+        "note": "The store is the source of truth; the Turtle file with its SHACL shapes is what other tools read."
+      }
+    ],
+    "repository": {
+      "url": "https://github.com/justweb-s/plant-atlas",
+      "provider": "github",
+      "revision": "58c91fa2b8100ee80786532de2efdc62e412cac4"
+    }
+  },
+  "components": [
+    {
+      "id": "documents",
+      "type": "external",
+      "label": "Real documents",
+      "sublabel": "31 documents, 5 layers",
+      "pos": [
+        40,
+        300
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "data/law/SOURCES.md",
+          "label": "law"
+        },
+        {
+          "path": "atlas/corpus/incoming/documents.csv",
+          "label": "other layers"
+        }
+      ]
+    },
+    {
+      "id": "register",
+      "type": "backend",
+      "label": "Source register",
+      "sublabel": "5195 pieces, sha256",
+      "pos": [
+        240,
+        300
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "atlas/corpus/registry.py"
+        },
+        {
+          "path": "atlas/corpus/chunker.py"
+        }
+      ]
+    },
+    {
+      "id": "extraction",
+      "type": "backend",
+      "label": "Pointing extraction",
+      "sublabel": "model points, never writes",
+      "pos": [
+        440,
+        300
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "atlas/strategies/b.py"
+        },
+        {
+          "path": "atlas/strategies/schema_b.py",
+          "label": "schema"
+        }
+      ]
+    },
+    {
+      "id": "gate",
+      "type": "security",
+      "label": "Quote gate",
+      "sublabel": "no quote, no fact",
+      "pos": [
+        650,
+        300
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "132 refused",
+      "sources": [
+        {
+          "path": "atlas/ontology/statements.py",
+          "label": "write_statement"
+        }
+      ]
+    },
+    {
+      "id": "store",
+      "type": "database",
+      "label": "Fact store",
+      "sublabel": "2033 facts in force",
+      "pos": [
+        850,
+        300
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "ontology/B/statements.json"
+        },
+        {
+          "path": "ontology/B/parts/plant_igea.json",
+          "label": "other layers"
+        }
+      ]
+    },
+    {
+      "id": "agent",
+      "type": "backend",
+      "label": "Answering agent",
+      "sublabel": "facts only, or unknown",
+      "pos": [
+        1050,
+        300
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "atlas/agent/answer.py"
+        }
+      ]
+    },
+    {
+      "id": "app",
+      "type": "frontend",
+      "label": "Safety officer",
+      "sublabel": "ask, the cell, changes",
+      "pos": [
+        1250,
+        300
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "server/main.py",
+          "label": "app"
+        }
+      ]
+    },
+    {
+      "id": "change",
+      "type": "backend",
+      "label": "Change and impact",
+      "sublabel": "what a new version touches",
+      "pos": [
+        440,
+        110
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "atlas/ontology/change.py"
+        },
+        {
+          "path": "atlas/ontology/impact.py"
+        }
+      ]
+    },
+    {
+      "id": "rules",
+      "type": "backend",
+      "label": "Rules at query time",
+      "sublabel": "interval by type, sector, age",
+      "pos": [
+        1050,
+        110
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "atlas/ontology/rules.py"
+        }
+      ]
+    },
+    {
+      "id": "reader",
+      "type": "security",
+      "label": "Second reader",
+      "sublabel": "another model, blind",
+      "pos": [
+        650,
+        490
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "345 re-read",
+      "sources": [
+        {
+          "path": "atlas/ontology/verify.py"
+        },
+        {
+          "path": "ontology/B/verify_report.json",
+          "label": "report"
+        }
+      ]
+    },
+    {
+      "id": "ontologyFile",
+      "type": "database",
+      "label": "Ontology file",
+      "sublabel": "Turtle + SHACL, 25404 triples",
+      "pos": [
+        850,
+        490
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "ontology/B/ontology.ttl"
+        },
+        {
+          "path": "ontology/B/shapes.ttl",
+          "label": "shapes"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "documents-to-register",
+      "from": "documents",
+      "to": "register",
+      "label": "fingerprint"
+    },
+    {
+      "id": "register-to-extraction",
+      "from": "register",
+      "to": "extraction",
+      "label": "pieces"
+    },
+    {
+      "id": "extraction-to-gate",
+      "from": "extraction",
+      "to": "gate",
+      "label": "quote + value"
+    },
+    {
+      "id": "gate-to-store",
+      "from": "gate",
+      "to": "store",
+      "label": "accepted",
+      "variant": "emphasis"
+    },
+    {
+      "id": "store-to-agent",
+      "from": "store",
+      "to": "agent",
+      "label": "in force"
+    },
+    {
+      "id": "agent-to-app",
+      "from": "agent",
+      "to": "app",
+      "label": "answer"
+    },
+    {
+      "id": "register-to-change",
+      "from": "register",
+      "to": "change",
+      "label": "changed pieces",
+      "fromSide": "top",
+      "toSide": "left"
+    },
+    {
+      "id": "change-to-store",
+      "from": "change",
+      "to": "store",
+      "label": "close, never delete",
+      "variant": "dashed",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "rules-to-agent",
+      "from": "rules",
+      "to": "agent",
+      "label": "computed",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "gate-to-reader",
+      "from": "gate",
+      "to": "reader",
+      "label": "re-read",
+      "variant": "security",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "store-to-file",
+      "from": "store",
+      "to": "ontologyFile",
+      "label": "export at a date",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Five layers, facts in force",
+      "items": [
+        "Law 1224",
+        "Manufacturer 481, guidance 144",
+        "Company 111, plant 73"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "The rule, measured",
+      "items": [
+        "Every fact keeps its exact quote",
+        "2033 of 2033 still found word for word",
+        "117 of 345 flagged by the second reader"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Change",
+      "items": [
+        "A corrigendum closed 9 facts and opened 9",
+        "Old facts are kept, never deleted",
+        "Read the store as of any date"
+      ]
+    }
+  ]
+}

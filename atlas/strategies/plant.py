@@ -214,6 +214,37 @@ def device_records(statements) -> list[dict]:
     return [devices[k] for k in sorted(devices)]
 
 
+# ---- 4. the terms of the verification service (pages 2 to 5 of the plant's sheet) -----------------------
+TERMS_PAGES = ("p. 2", "p. 3", "p. 4", "p. 5")
+NOTICE = re.compile(r"Pianificare i controlli, .{0,120}? con un preavviso di almeno (15 giorni)")
+
+
+def build_terms(chunks, corpus=None) -> tuple[Store, dict]:
+    """Strategy B's pointing extraction (layer prompt, Italian pages) on the pages that state the conditions
+    of the verifications: time limits and notices, who does what, the report issued, what the company provides."""
+    from atlas.strategies import b
+
+    pages = [c for c in chunks if c.source == PLANT_SOURCE and c.locator in TERMS_PAGES]
+    store, counts = b.build_layer(pages, "plant", store=Store(corpus or ChunkCorpus(chunks),
+                                                             PARTS / "plant_igea_terms.json"))
+    for index, statement in enumerate(store.statements, start=1):
+        statement.id = f"plant_igea_terms-{index:02d}"
+    # The model's fifteen-day fact names the notice but not who owes it (its span starts mid-sentence).
+    # Code adds the same limit with the party named by the heading of that list on the page.
+    for page in pages:
+        match = NOTICE.search(page.text)
+        if match and "L’aggiudicatario si impegna a" in page.text:
+            notice = store.write_statement(Statement(
+                subject="aggiudicatario (verificatore): preavviso a IGEA della pianificazione dei controlli",
+                predicate="hasTimeLimit", object="P15D", object_as_written=match.group(1), object_normalised="P15D",
+                quote=match.group(), source_doc=PLANT_SOURCE, anchor=page.locator, asserted_by="code:plant_terms",
+                id="plant_igea_terms-notice-15d"))
+            if notice is not None:
+                notice.status = "current"
+    return store, store.counts() | {k: counts[k] for k in ("calls", "prompt_tokens", "completion_tokens")}
+
+
+
 # ---- build ----------------------------------------------------------------------------------------------
 def _write(store: Store, candidates: list[Statement]) -> None:
     for candidate in candidates:
@@ -227,7 +258,7 @@ def build() -> dict:
 
     chunks = list(load())
     corpus = ChunkCorpus(chunks)
-    main = json.loads((ROOT / "ontology" / "B" / "statements.json").read_text())["statements"]
+    main = json.loads((ROOT / "ontology" / "B" / "statements.json").read_text(encoding="utf-8"))["statements"]
 
     law = Store(corpus, PARTS / "law_verification.json")
     _write(law, annex_candidates(chunks))

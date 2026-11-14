@@ -200,7 +200,7 @@ def apply_verdicts(store: Store, verdicts: dict) -> dict:
 
 def load_verdicts(path: Path = REPORT) -> dict:
     """The verdicts of the last run, or {} if the second reader has not run."""
-    return json.loads(path.read_text())["verdicts"] if path.exists() else {}
+    return json.loads(path.read_text(encoding="utf-8"))["verdicts"] if path.exists() else {}
 
 
 # ---- the run ----------------------------------------------------------------
@@ -267,7 +267,7 @@ def main(max_calls: int = 20, budget_usd: float = 0.05) -> None:
         budget_usd = float(sys.argv[2])
     store = Store.load(ChunkCorpus(list(load())), ROOT / "ontology" / "B" / "statements.json")
     report = run(store, max_calls, budget_usd)
-    REPORT.write_text(json.dumps(report, indent=1, ensure_ascii=False))
+    REPORT.write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "verdicts"}))
 
 
