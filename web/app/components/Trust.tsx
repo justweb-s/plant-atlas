@@ -22,6 +22,7 @@ function Pill({ c }: { c?: Cell }) {
   if (!c) return <span className={`${base} bg-surface-2 text-muted`}>·</span>;
   if (c.state === "not_built") return <span className={`${base} text-muted`}>non costruito</span>;
   if (c.state === "not_cached") return <span className={`${base} bg-surface-2 text-muted`}>da preparare</span>;
+  if (c.state === "unknown" && c.score === 1) return <span className={`${base} bg-ok-soft text-ok`}>giusta: non lo so</span>;
   if (c.state === "unknown") return <span className={`${base} bg-surface-2`}>non lo so</span>;
   const s = c.score ?? 0;
   if (s === 1) return <span className={`${base} bg-ok-soft text-ok`}>giusta</span>;

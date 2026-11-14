@@ -3,6 +3,7 @@
 _Aggiornato: 14:50_
 
 ## Fatto
+- **14:50 — gold allargato (decisione `1450-gold-igea-e-macchine-reali`)**: CQ21–CQ34, 7 di progetto e 7 tenute da parte, sull'elenco IGEA, l'Allegato VII, il DM 2011 e i manuali. Chiavi delle fonti e locator sono quelli di `api.corpus()` (`igea-equipment`, `DLGSALLVII`, `ur5e-manual`…, `p. N`). Nuovo tipo `unknown` (CQ31: la risposta giusta è `value=None`). Le durate ora si confrontano anche se scritte a parole (`evaluation.score.duration`). **Core: ora puoi lanciare B sui manuali e sui documenti di stabilimento.**
 - **14:34 — app ridisegnata per l'RSPP** (`web/`): «Chiedi» con ricerca grande e domande pronte per tema, risposta con le parole della fonte in primo piano; «La tua cella» con le quattro macchine reali, i controlli periodici e l'avviso sulle quasi-macchine (nuovo `/api/machines`); «Perché fidarsi» con tabellone («non lo so» separato da «sbagliata»), i numeri della regola e l'ontologia. Le risposte di B sono in inglese: per l'utente italiano servirebbe `Answer.text` in italiano.
 - **Repo pubblico:** https://github.com/justweb-s/plant-atlas. Clona e lancia una volta `git config core.hooksPath .githooks`.
 - **Nuova versione (decisione `1200-due-regimi-catalogo`):** il problema è il passaggio dalla Direttiva 2006/42/CE al Regolamento 2023/1230. Esempio verificato: un ponte sollevatore oggi autocertificato dal 20/1/2027 avrà bisogno di un organismo notificato.
