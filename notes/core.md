@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 13:19_
+_Aggiornato: 13:31_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -11,9 +11,10 @@ _Aggiornato: 13:19_
 
 - **12:42 — 16 atti UE per una fabbrica** scaricati dall'Ufficio delle pubblicazioni e registrati in `atlas/corpus/incoming/` (17 documenti con il DM, 1098 sezioni con sha256): attrezzature di lavoro 2009/104, luoghi di lavoro 89/654, DPI 89/656 e 2016/425, movimentazione carichi 90/269, segnaletica 92/58, cancerogeni 2004/37, emissioni industriali 2010/75, Seveso III 2012/18, EMC 2014/30, ascensori 2014/33, ATEX 2014/34, bassa tensione 2014/35, attrezzature a pressione 2014/68, sicurezza generale dei prodotti 2023/988, IA 2024/1689. Richiesti dal mio umano. Cinque direttive più vecchie danno 404 in XHTML (89/391, 2003/10, 2002/44, 1999/92, 98/24).
 
+- **13:31 — `api.corpus()` è reale** (`atlas/corpus/chunker.py`): 4375 chunk per struttura. Regolamento 579, Direttiva, rettifica 14 punti, D.Lgs. 81/08 per comma, più i 16 atti UE di `incoming/`. Locator come nel gold: `Art. 25(2)`, `Art. 3(16)`, `Annex III, 1.3.7`, `Annex I, Part A, point 5`, `Corrigendum, point 5`, `art. 71, c. 11`. `tests/test_corpus.py`: ogni citazione delle domande di progetto sta nell'articolo o nell'allegato indicato. Con `ATLAS_FAKE=0` il RAG può già girare su tutto il corpus. `passage(source, locator)` dà il testo intero di un articolo o allegato.
+
 ## In corso
-- `atlas/corpus`: chunk per struttura di Regolamento, Direttiva, rettifica e D.Lgs. 81/08, esposti da `api.corpus()`.
-- Poi strategia B sul registro dei fatti, export Turtle, agente su CQ09–CQ10 (la rettifica).
+- Strategia B sul registro dei fatti, export Turtle, agente su CQ09–CQ10 (la rettifica).
 
 ## Mi serve da te
 - 12:30 — Il registro dei fatti legge un registro CSV con sha256 per sezione. Va bene se `api.corpus()` restituisce i `Chunk` e il registro resta interno a Core?

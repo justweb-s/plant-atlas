@@ -28,7 +28,8 @@ def corpus() -> list[Chunk]:
     if fake_mode():
         from atlas import fake
         return fake.corpus()
-    raise NotImplementedError("core: corpus")
+    from atlas.corpus.chunker import load
+    return list(load())
 
 
 def build_ontology(strategy: Strategy) -> BuildResult:
