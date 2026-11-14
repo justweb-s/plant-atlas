@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 36\n\n8 Extended Warranty MAHA grants the operator of the lift a warranty on the functionality of the spindle drive beyond the statutory warranty period. This warranty covers wear of the support nut, if it exceeds 2 mm, and wear on the lifting screw, if it restricts / hinders / prevents the operation of the lift. This warranty is limited to the replacement of the worn component(s). It is valid for a maximum of five years after initial start-up and only if the regular inspection and maintenance intervals according to these operating instructions have been demonstrably observed. Compliance is only deemed to have been demonstrated if the required work has been carried out by our factory customer service, one of our dealers or one of our service partners. The extended warranty does not apply if the equipment has not been operated - even temporarily - in accordance with its intended use. 9 Decommissioning, Dismantling and Disposal The device may only be taken out of operation and disassembled by specially authorised and trained personnel. Such specialist staff include authorised, trained specialists employed by the manufacturer, the authorised dealers and the relevant service partners. Observe the product and safety data sheets of the lubricants used. Avoid environmental damage. If the device is to be disposed of, it must be disposed of in an environmentally responsible manner in accordance with local legislation. Sort all dismantled materials according to type and take them to a suitable recycling point. Collect operating materials such as grease, oil, coolant, cleaning fluids containing solvents etc. in suitable containers and dispose of them in an environmentally responsible manner. Alternatively, you can take your device to a waste management company. They will ensure that all parts and fluids are disposed of properly and ecologically. 10 Declaration of Conformity See following page(s). 36 BA364501-en"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "MAHA | grants | operator of the lift a warranty on the functionality of the spindle drive beyond the statutory warranty period | | MAHA grants the operator of the lift a warranty on the functionality of the spindle drive beyond the statutory warranty period.\nextended warranty | covers | wear of the support nut | if it exceeds 2 mm | wear of the support nut, if it exceeds 2 mm\nextended warranty | covers | wear on the lifting screw | if it restricts / hinders / prevents the operation of the lift | wear on the lifting screw, if it restricts / hinders / prevents the operation of the lift\nextended warranty | is limited to | replacement of the worn component(s) | | This warranty is limited to the replacement of the worn component(s).\nextended warranty | is valid for | a maximum of five years after initial start-up | | It is valid for a maximum of five years after initial start-up\nextended warranty | requires | demonstrable observance of the regular inspection and maintenance intervals | | only if the regular inspection and maintenance intervals according to these operating instructions have been demonstrably observed\ncompliance with maintenance | is demonstrated by | required work carried out by factory customer service, a dealer, or a service partner | | Compliance is only deemed to have been demonstrated if the required work has been carried out by our factory customer service, one of our dealers or one of our service partners.\nextended warranty | does not apply | | if the equipment has not been operated, even temporarily, in accordance with its intended use | The extended warranty does not apply if the equipment has not been operated - even temporarily - in accordance with its intended use.\ndecommissioning and disassembly of the device | may only be performed by | specially authorised and trained personnel | | The device may only be taken out of operation and disassembled by specially authorised and trained personnel.\nspecialist staff | include | authorised, trained specialists employed by the manufacturer, authorised dealers and relevant service partners | | Such specialist staff include authorised, trained specialists employed by the manufacturer, the authorised dealers and the relevant service partners.\ndevice | must be disposed of | in an environmentally responsible manner in accordance with local legislation | if the device is to be disposed of | If the device is to be disposed of, it must be disposed of in an environmentally responsible manner in accordance with local legislation.\noperating materials (grease, oil, coolant, solvent-containing cleaning fluids) | must be | collected in suitable containers and disposed of in an environmentally responsible manner | | Collect operating materials such as grease, oil, coolant, cleaning fluids containing solvents etc. in suitable containers and dispose of them in an environmentally responsible manner.\ndismantled materials | must be | sorted by type and taken to a suitable recycling point | | Sort all dismantled materials according to type and take them to a suitable recycling point.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1602,
+   "prompt_tokens": 786,
+   "total_tokens": 2388,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 667,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008796,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008796,
+   "gateway_cost": 0.0008796
+  }
+ }
+}

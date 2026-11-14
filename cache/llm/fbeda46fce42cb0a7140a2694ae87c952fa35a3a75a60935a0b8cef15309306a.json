@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 147\n\nGLOSSARY 18 Resolution The resolution of an active opto-electronic protective device (also known as the sensor detection capability) is the minimum size of an object for it to be reliably detected. Response time The protective device’s response time is the maximum time between the occurrence of the event leading to the sensor’s response and supply of the switch-off signal to the protective devi- ce’s interface (for example OFF state of the OSSD pair). Restart interlock The restart interlock prevents the machine from automatically starting up, for example after a protective device has responded while the machine is operating or after changing the machine’s operating mode. The restart interlock can be implemented in the protective device or in the safety controller. A command to reset the protective device must be given, for exam- ple using a reset pushbutton, before the machine can be restarted. Retroreflector A retroreflector reflects light back toward the light source largely independently of the alignment of the retroreflector. RSSI Received Signal Strength Indicator (RSSI): Indicator of the strength of the received signal. A higher value corresponds to a better reception. There is no universal relationship between a physical quantity and a specified RSSI. Safety function Function of a machine whose failure can result in an immediate increase of the risk(s). (ISO 12100) Safety output A safety output provides safety-related information. Safety outputs are OSSDs, for example, or safety-related informa- tion on a safety-related network. Scan cycle time The scan cycle time is the time the sensor needs for a complete scan of its detection area. Example: Time required by the mirror of a safety laser scanner for one rotation. Scan plane The scan plane is the geometric plane in which the 2D laser scan- ner captures its environment. A scan layer is created by deflecting a laser beam using a rotating mirror. In practice, the area scanned is not precisely flat. Deviations from the ideal plane are specified as a conical error. Deviations from the ideal alignment are specified as a tilt error. SIL Safety integrity level Static control input A static control input is a dual-channel control input, which evalu- ates the status of every channel as the value 0 or 1. The signal states of one or more static control inputs give a unique signal pattern. This signal pattern activates a monitoring case. Tilt error The tilt error indicates how strongly tilted the scan plane is to the ideal alignment within the specific device. The tilt error can be compensated for in many cases by mounting the sensor at a com- pensating inclination. Universal I/O Universal I/O can be configured as universal input or as universal output. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 147 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Resolution of an active opto-electronic protective device | is | minimum size of an object for it to be reliably detected | | The resolution of an active opto-electronic protective device (also known as the sensor detection capability) is the minimum size of an object for it to be reliably detected.\nResponse time of protective device | is | maximum time between the event leading to the sensor's response and supply of the switch-off signal to the interface | | The protective device's response time is the maximum time between the occurrence of the event leading to the sensor's response and supply of the switch-off signal to the protective device's interface\nRestart interlock | prevents | machine from automatically starting up | after a protective device has responded while the machine is operating, or after changing the machine's operating mode | The restart interlock prevents the machine from automatically starting up, for example after a protective device has responded while the machine is operating or after changing the machine's operating mode.\nRestart interlock | can be implemented in | protective device or safety controller | | The restart interlock can be implemented in the protective device or in the safety controller.\nMachine restart | requires | reset command to the protective device | | A command to reset the protective device must be given, for example using a reset pushbutton, before the machine can be restarted.\nRetroreflector | reflects light back toward | light source | largely independently of retroreflector alignment | A retroreflector reflects light back toward the light source largely independently of the alignment of the retroreflector.\nRSSI | indicates | strength of the received signal, where a higher value means better reception | | Indicator of the strength of the received signal. A higher value corresponds to a better reception.\nRSSI | has no universal relationship with | a physical quantity | | There is no universal relationship between a physical quantity and a specified RSSI.\nSafety output | provides | safety-related information | | A safety output provides safety-related information. Safety outputs are OSSDs, for example\nScan cycle time | is | time the sensor needs for a complete scan of its detection area | | The scan cycle time is the time the sensor needs for a complete scan of its detection area.\nTilt error | can be compensated by | mounting the sensor at a compensating inclination | in many cases | The tilt error can be compensated for in many cases by mounting the sensor at a compensating inclination.\nStatic control input | evaluates | status of every channel as the value 0 or 1 | static control input is dual-channel | A static control input is a dual-channel control input, which evaluates the status of every channel as the value 0 or 1.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1382,
+   "prompt_tokens": 1094,
+   "total_tokens": 2476,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 585,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008004,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008004,
+   "gateway_cost": 0.0008004
+  }
+ }
+}

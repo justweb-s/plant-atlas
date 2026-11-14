@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 184\n\n14. Risk Assessment Safety Identifying the correct safety configuration settings is a particularly important part of configuration developing robot applications. Unauthorized access to the safety configuration must be settings prevented by enabling and setting password protection. WARNING Failure to set password protection can result in injury or death due to purposeful or inadvertent changes to configuration settings. • Always set password protection. • Set up a program for managing passwords, so that access is only by persons who understand the effect of changes. Some safety functions are purposely designed for collaborative robot applications. These are configurable through the safety configuration settings. They are used to address risks identified in the application risk assessment. The following limit the robot and as such can affect the energy transfer to a person by the Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. robot arm, end effector and workpiece. • Force and power limiting: Used to reduce clamping forces and pressures exerted by the robot in the direction of movement in case of collisions between the robot and the operator. • Momentum limiting: Used to reduce high transient energy and impact forces in case of collisions between robot and operator by reducing the speed of the robot. • Speed limitation: Used to ensure the speed is less that the configured limit. The following orientation settings are used to avoid movements and reduce exposure of sharp edges and protrusions to a person. • Joint, elbow and tool/end effector position limiting: Used to reduce risks associated with certain body parts: Avoid movement towards head and neck. • Tool/end effector orientation limiting: Used to reduce risks associated with certain areas and features of the tool/end effector and work-piece: Avoid sharp edges being pointed towards the operator, by turning the sharp edges inward towards the robot. Stopping Some safety functions are purposely designed for any robot application. These features performance are configurable through the safety configuration settings. They are used to address risks risks associated with the stopping performance of the robot application. The following limit the robot stopping time and stopping distance to ensure stopping will occur before reaching the configured limits. Both settings automatically affect the speed of the robot to ensure the limit is not exceeded. • Stopping Time Limit: Used to limit the stopping time of the robot. • Stopping Distance Limit: Used to limit the stopping distance of the robot. If either of the above is used, there is no need for manually performed periodic stopping performance testing. The robot safety control does continuous monitoring. UR10e 187 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Unauthorized access to the safety configuration | mustBePrevented | by enabling and setting password protection | | Unauthorized access to the safety configuration must be prevented by enabling and setting password protection\nFailure to set password protection | canResultIn | injury or death due to purposeful or inadvertent changes to configuration settings | | Failure to set password protection can result in injury or death due to purposeful or inadvertent changes to configuration settings.\nPassword protection | shouldBeSet | always | | Always set password protection.\nAccess to safety configuration | shouldBeLimitedTo | persons who understand the effect of changes | through a program for managing passwords | Set up a program for managing passwords, so that access is only by persons who understand the effect of changes.\nForce and power limiting | reducesIn | clamping forces and pressures exerted by the robot in the direction of movement | in case of collisions between the robot and the operator | Force and power limiting: Used to reduce clamping forces and pressures exerted by the robot in the direction of movement in case of collisions between the robot and the operator.\nMomentum limiting | reduces | high transient energy and impact forces by reducing the speed of the robot | in case of collisions between robot and operator | Momentum limiting: Used to reduce high transient energy and impact forces in case of collisions between robot and operator by reducing the speed of the robot.\nSpeed limitation | ensures | speed is less than the configured limit | | Speed limitation: Used to ensure the speed is less that the configured limit.\nJoint, elbow and tool/end effector position limiting | avoids | movement towards head and neck | | Joint, elbow and tool/end effector position limiting: Used to reduce risks associated with certain body parts: Avoid movement towards head and neck.\nTool/end effector orientation limiting | avoids | sharp edges being pointed towards the operator | by turning the sharp edges inward towards the robot | Avoid sharp edges being pointed towards the operator, by turning the sharp edges inward towards the robot.\nStopping Time Limit | limits | stopping time of the robot | | Stopping Time Limit: Used to limit the stopping time of the robot.\nStopping Distance Limit | limits | stopping distance of the robot | | Stopping Distance Limit: Used to limit the stopping distance of the robot.\nStopping Time Limit or Stopping Distance Limit | eliminatesNeedFor | manually performed periodic stopping performance testing | if either of the two limits is used | If either of the above is used, there is no need for manually performed periodic stopping performance testing.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1513,
+   "prompt_tokens": 1019,
+   "total_tokens": 2532,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 662,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008584,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008584,
+   "gateway_cost": 0.0008584
+  }
+ }
+}

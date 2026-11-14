@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 74\n\n8 CONFIGURATION If you have activated the Reference contour monitoring option for a monitoring plane, the Reference contour field dialog box is displayed. The contour as reference field monitors a contour of the environment. The safety laser scanner switches all safety outputs to the OFF state if a contour does not match the set parameters, because, for example, the mounting of the safety laser scanner has been changed. Drawing a reference contour field 1. Select the tool for drawing reference contour fields. 2. First, use the mouse to click the desired contour. 3. Click to add the corners of the contour. 4. Finally, double-click the contour. m The reference contour field is displayed. Multiple sampling and Object resolution At first, the object resolution and multiple sampling configured for the monitoring plane apply for all fields. If necessary, you can make changes to each individually at a later date. Tolerance band A contour has a positive and a negative tolerance band. If the safety laser scanner does not detect the contour within the tolerance band, the field switches to the OFF state. O Positive tolerance (far): The tolerance away from the safety laser scanner O Negative tolerance (near): The tolerance toward the safety laser scanner 74 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "The safety laser scanner | switchesSafetyOutputsTo | OFF state | contour does not match the set parameters, e.g. because the mounting has been changed | \"The safety laser scanner switches all safety outputs to the OFF state if a contour does not match the set parameters, because, for example, the mounting of the safety laser scanner has been changed.\"\nReference contour field dialog box | isDisplayed | when Reference contour monitoring is activated for a monitoring plane | Reference contour monitoring option activated for a monitoring plane | \"If you have activated the Reference contour monitoring option for a monitoring plane, the Reference contour field dialog box is displayed.\"\nObject resolution and multiple sampling of the monitoring plane | initiallyApplyTo | all fields | \"\" | \"At first, the object resolution and multiple sampling configured for the monitoring plane apply for all fields.\"\nObject resolution and multiple sampling | canBeChangedFor | each field individually | \"\" | \"If necessary, you can make changes to each individually at a later date.\"\nContour | hasToleranceBands | a positive and a negative tolerance band | \"\" | \"A contour has a positive and a negative tolerance band.\"\nField | switchesTo | OFF state | safety laser scanner does not detect the contour within the tolerance band | \"If the safety laser scanner does not detect the contour within the tolerance band, the field switches to the OFF state.\"\nPositive tolerance | isDefinedAs | the tolerance away from the safety laser scanner | \"\" | \"Positive tolerance (far): The tolerance away from the safety laser scanner\"\nNegative tolerance | isDefinedAs | the tolerance toward the safety laser scanner | \"\" | \"Negative tolerance (near): The tolerance toward the safety laser scanner\"\nReference contour field | isCompletedBy | double-clicking the contour | \"\" | \"Finally, double-click the contour.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1311,
+   "prompt_tokens": 653,
+   "total_tokens": 1964,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 683,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007208,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007208,
+   "gateway_cost": 0.0007208
+  }
+ }
+}

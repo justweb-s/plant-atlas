@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 240\n\n21. Safety Functions Table “Reduced Description Affects Active” Input Reduced is not a mode. It is a change of settings initiated: SF parameter • internally by a safety plane/ boundary (starts when at 2cm of the plane and reduced settings are settings achieved within 2cm of the plane) or change • externally by use of an external input, which will achieve reduced settings within 500ms of the triggering input. Robot When the external connections are Low, Reduced Mode is initiated. “Reduced Active” means that all reduced limits are ACTIVE. Reduced is not a safety function. Reduced is a means of parameterization of safety functions. Reduced is a state change affecting the settings of the following safety functions: joint position, joint speed, TCP pose, TCP speed, TCP force, momentum, power, stopping time, & stopping distance. Verify and validate all parameter settings for the robot application. SF15 Description What happens? Tolerances Affects Stopping Will not allow the Time Limit Real time monitoring of conditions such that the stopping time Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. actual stopping to limit will not be exceeded. Robot speed is limited to ensure that 50 ms Robot exceed the limit the stop time limit is not exceeded. 7 setting. SF16 Description What happens? Tolerances Affects Stopping Causes decrease in Distance Real time monitoring of conditions such that the stopping speed or a robot stop so Limit distance limit will not be exceeded. Robot speed is limited to 40 mm Robot as NOT to exceed the ensure that the stop distance limit will not be exceeded. 7 limit. SF17 Description What happens? Tolerances Affects Safe Home Safety function which monitors a safety-rated output, Position such that it ensures that the output can only be The “safe home output” is External \"monitored activated when the robot is in the configured and only activated when the connection to position\" 1.7 ° monitored “safe home position”. robot is in the configured logic and/or A stop cat 0 is initiated if the output is activated when “safe home position” equipment the robot is not in the configured position. Mode What Description Affects switch happens? INPUT When the external connections are Low, Automatic Mode (running) is active. When High, mode is programming/ teach. Recommendation: Use with an enabling device, i.e. UR Teach Pendant with an integrated 3- position enabling device. Input to SF2 Robot When in teach/program, initially the TCP speed is limited to 250mm/s. Speed can manually be increased using the TP “speed-slider”, but upon activation of the enabling device, the speed limitation will reset to 250mm/s. UR10e 243 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Reduced | initiatedBy | safety plane/boundary | starts when at 2cm of the plane and reduced settings are achieved within 2cm of the plane | \"internally by a safety plane/ boundary (starts when at 2cm of the plane and reduced settings are achieved within 2cm of the plane)\"\nReduced settings via external input | achievedWithin | 500ms of the triggering input | \"\" | \"externally by use of an external input, which will achieve reduced settings within 500ms of the triggering input\"\nReduced | isNot | a mode | \"\" | \"Reduced is not a mode.\"\nReduced | isNot | a safety function | \"\" | \"Reduced is not a safety function.\"\nReduced | isA | means of parameterization of safety functions | \"\" | \"Reduced is a means of parameterization of safety functions.\"\nReduced Mode | initiatedWhen | external connections are Low | \"When the external connections are Low, Reduced Mode is initiated.\" | \"When the external connections are Low, Reduced Mode is initiated.\"\nVerify and validate all parameter settings | requiredFor | the robot application | \"\" | \"Verify and validate all parameter settings for the robot application.\"\nSF15 stopping time limit | limitsRobotSpeedTo | ensure stop time limit is not exceeded | \"\" | \"Robot speed is limited to ensure that the stop time limit is not exceeded.\"\nSF16 stop distance limit | limitsRobotSpeedTo | ensure stop distance limit is not exceeded | \"\" | \"Robot speed is limited to ensure that the stop distance limit will not be exceeded.\"\nSF17 safe home output | canOnlyBeActivatedWhen | robot is in the configured safe home position | \"\" | \"it ensures that the output can only be activated when the robot is in the configured 'safe home position'.\"\nSF17 | initiates | stop cat 0 | output is activated when the robot is not in the configured position | \"A stop cat 0 is initiated if the output is activated when the robot is not in the configured position.\"\nIn teach/program mode | TCP speed limitedTo | 250mm/s | upon activation of the enabling device, the speed limitation resets to 250mm/s | \"When in teach/program, initially the TCP speed is limited to 250mm/s.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1298,
+   "prompt_tokens": 1115,
+   "total_tokens": 2413,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 555,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007605,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007605,
+   "gateway_cost": 0.0007605
+  }
+ }
+}

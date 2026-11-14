@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 102\n\n9. End Effector Integration 9.3.5. Tool Analogue Inputs Description Tool Analogue Input are non-differential and can be set to either voltage (0-10V) or current (4-20mA) on the I/O tab. The electrical specifications are shown below. Parameter Min Type Max Unit Input voltage in voltage mode -0.5 - 26 V Input resistance @ range 0V to 10V - 10.7 - kΩ Resolution - 12 - bit Input voltage in current mode -0.5 - 5.0 V Input current in current mode -2.5 - 25 mA Input resistance @ range 4mA to 20mA - 182 188 Ω Resolution - 12 - bit Two examples of using Analog Input are shown in the following subsections. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Caution CAUTION Analog Inputs are not protected against over voltage in current mode. Exceeding the limit in the electrical specification can cause permanent damage to the input. Using Tool This example shows an analog sensor connection with a non-differential output. The Analog Inputs, sensor output can be either current or voltage, as long as the input mode of that Analog Non- Input is set to the same on the I/O tab. differential Note: You can check that a sensor with voltage output can drive the internal resistance of the tool, or the measurement might be invalid. POWER AI2 AI8 GND Using Tool This example shows an analog sensor connection with a differential output. Connecting the Analog Inputs, negative output part to GND (0V), works in the same way as a non-differential sensor. differential POWER AI2AI8 GND UR5e 105 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Tool Analogue Input | areNonDifferential | true | | Tool Analogue Input are non-differential\nTool Analogue Input | canBeSetTo | voltage (0-10V) or current (4-20mA) | set on the I/O tab | can be set to either voltage (0-10V) or current (4-20mA) on the I/O tab\nInput voltage in voltage mode | allowedRange | -0.5 V to 26 V | voltage mode | Input voltage in voltage mode -0.5 - 26 V\nInput resistance in 0V to 10V range | typicalValue | 10.7 kΩ | range 0V to 10V | Input resistance @ range 0V to 10V - 10.7 - kΩ\nTool Analogue Input | resolution | 12 bit | | Resolution - 12 - bit\nInput voltage in current mode | allowedRange | -0.5 V to 5.0 V | current mode | Input voltage in current mode -0.5 - 5.0 V\nInput current in current mode | allowedRange | -2.5 mA to 25 mA | current mode | Input current in current mode -2.5 - 25 mA\nInput resistance in 4mA to 20mA range | typicalValue and maxValue | 182 Ω typical, 188 Ω maximum | range 4mA to 20mA | Input resistance @ range 4mA to 20mA - 182 188 Ω\nAnalog Inputs | hasOvervoltageProtection | false | current mode | Analog Inputs are not protected against over voltage in current mode\nExceeding electrical specification limit | causes | permanent damage to the input | | Exceeding the limit in the electrical specification can cause permanent damage to the input\nVoltage-output sensor | mustBeCheckedAgainst | tool internal resistance | sensor has voltage output | You can check that a sensor with voltage output can drive the internal resistance of the tool, or the measurement might be invalid\nNegative output of differential sensor | connectTo | GND (0V) | differential sensor connection | Connecting the Analog Inputs, negative output part to GND (0V), works in the same way as a non-differential sensor",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1748,
+   "prompt_tokens": 766,
+   "total_tokens": 2514,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1036,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009506,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009506,
+   "gateway_cost": 0.0009506
+  }
+ }
+}

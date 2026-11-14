@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 36\n\n5 PROJECT PLANNING 5.3.9.2 Calculation example for the minimum distance Example calculation of the minimum distance S according to ISO 13855:2010 The example shows the calculation of the minimum distance for an orthogonal approach to the protective field. A different calculation may be required, depending on the application and the ambient conditions (e.g. for a protective field parallel to or at any angle to the direction of approach or an indirect approach). S = 1,600 mm/s × T +850 mm where: O S = minimum distance in millimeters (mm) O T = stopping/run-down time for the entire system in seconds (s) (Response time of the safety laser scanner + machine stopping time, incl. response time of the machine control system and signal propagation time) The approach speed is already included in the formula. 5.3.10 Mobile hazardous area protection The safety laser scanner is mounted with a horizontal scan plane in a mobile applica- tion, like on an automated guided vehicle. In mobile hazardous area protection, the safety laser scanner protects the hazardous area created by the vehicle’s movement. The safety laser scanner detects a person’s legs. The protective field is parallel to the direction of approach. S Figure 22: Mobile application in horizontal operation for hazardous area protection NOTE O In a mobile application, a resolution of 70 mm (leg detection) is sufficient for detecting people. By contrast with stationary hazardous point protection, this is also true for a low mounting height, as the safety laser scanner moves together with the vehicle. O In the following calculation examples, only the vehicle speed is taken into account, not the speed of a walking person. This is based on the assumption that the person recognizes the danger and stands still. 36 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Minimum distance S | is calculated by | S = 1,600 mm/s × T + 850 mm | orthogonal approach to the protective field | S = 1,600 mm/s × T +850 mm\nCalculation example | applies to | orthogonal approach to the protective field | different calculation may be required for other applications or ambient conditions (e.g. parallel, angled, or indirect approach) | A different calculation may be required, depending on the application and the ambient conditions (e.g. for a protective field parallel to or at any angle to the direction of approach or an indirect approach).\nT | is | stopping/run-down time for the entire system in seconds | | T = stopping/run-down time for the entire system in seconds (s)\nT | includes | response time of the safety laser scanner plus machine stopping time, including control system response and signal propagation time | | (Response time of the safety laser scanner + machine stopping time, incl. response time of the machine control system and signal propagation time)\nApproach speed | is | already included in the formula | | The approach speed is already included in the formula.\nSafety laser scanner | is mounted with | horizontal scan plane in a mobile application | mobile application such as an automated guided vehicle | The safety laser scanner is mounted with a horizontal scan plane in a mobile application, like on an automated guided vehicle.\nMobile hazardous area protection | detects | a person's legs | | The safety laser scanner detects a person's legs.\nProtective field | is parallel to | direction of approach | mobile hazardous area protection | The protective field is parallel to the direction of approach.\nResolution of 70 mm | is sufficient for | detecting people in a mobile application | leg detection | a resolution of 70 mm (leg detection) is sufficient for detecting people\nLow mounting height | is acceptable for | mobile application with 70 mm resolution | safety laser scanner moves together with the vehicle | this is also true for a low mounting height, as the safety laser scanner moves together with the vehicle\nCalculation examples | consider | only vehicle speed, not walking person speed | assumption that the person recognizes the danger and stands still | In the following calculation examples, only the vehicle speed is taken into account, not the speed of a walking person. This is based on the assumption that the person recognizes the danger and stands still.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1467,
+   "prompt_tokens": 827,
+   "total_tokens": 2294,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 718,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008162,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008162,
+   "gateway_cost": 0.0008162
+  }
+ }
+}

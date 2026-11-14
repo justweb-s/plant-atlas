@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 71\n\nCONFIGURATION 8 8.10 Monitoring plane Overview Here you configure general parameters for the monitoring level. At first, the object resolution and multiple sampling configured for the monitoring plane apply for all fields. If necessary, you can make changes to each individually at a later date. Resulting values are displayed in the area on the right. A graphic shows how the config- uration affects the available ranges. Name You can use the name to identify the monitoring levels in the reports. Safety task People approach the monitoring plane parallel or orthogonally, depending on the orien- tation of the protective field in your application. O Hazardous area protection (Horizontal) Typically, for a horizontal approach, the requirement is to detect the leg. The typi- cal object resolution is leg (70 mm). O Access protection (Vertical) Typically, for access protection, the requirement is to detect a person. The typical object resolution is body (200 mm). O Hazardous point protection (Vertical) Typically, for hazardous point protection, the requirement is to detect a hand. The typical object resolution is hand (40 mm). Reference contour monitoring If the monitoring plane has a vertical alignment, a contour (such as the floor, a part of the machine bed, or an access threshold) must typically be defined and monitored as a reference contour. The reference contour field is used for this purpose. If reference contour monitoring is activated, the Reference contour field point is dis- played in the navigation. Here you can configure the reference contour field required for your application. Object resolution The object resolution defines the size that an object must be to allow it to be reliably detected. The following object resolutions are available: O 20 mm = hand detection O 30 mm = hand detection O 40 mm = hand detection O 50 mm = leg detection/arm detection O 60 mm = leg detection/arm detection O 70 mm = leg detection/arm detection O 150 mm = body detection O 200 mm = body detection 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 71 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Monitoring plane configuration | apply | object resolution and multiple sampling for all fields | initially, until changed individually for each field | At first, the object resolution and multiple sampling configured for the monitoring plane apply for all fields.\nHorizontal approach hazardous area protection | typical object resolution | leg (70 mm) | horizontal approach | Typically, for a horizontal approach, the requirement is to detect the leg. The typical object resolution is leg (70 mm).\nAccess protection vertical | typical object resolution | body (200 mm) | access protection with vertical monitoring plane | Typically, for access protection, the requirement is to detect a person. The typical object resolution is body (200 mm).\nHazardous point protection vertical | typical object resolution | hand (40 mm) | hazardous point protection with vertical monitoring plane | Typically, for hazardous point protection, the requirement is to detect a hand. The typical object resolution is hand (40 mm).\nVertical monitoring plane | requires | reference contour defined and monitored | monitoring plane has a vertical alignment | If the monitoring plane has a vertical alignment, a contour (such as the floor, a part of the machine bed, or an access threshold) must typically be defined and monitored as a reference contour.\nReference contour monitoring | displays | Reference contour field point in navigation | reference contour monitoring is activated | If reference contour monitoring is activated, the Reference contour field point is displayed in the navigation.\nObject resolution | defines | size an object must be to be reliably detected | none | The object resolution defines the size that an object must be to allow it to be reliably detected.\n20 mm object resolution | supports | hand detection | none | O 20 mm = hand detection\n30 mm object resolution | supports | hand detection | none | O 30 mm = hand detection\n40 mm object resolution | supports | hand detection | none | O 40 mm = hand detection\n50 mm object resolution | supports | leg detection/arm detection | none | O 50 mm = leg detection/arm detection\n70 mm object resolution | supports | leg detection/arm detection | none | O 70 mm = leg detection/arm detection\n150 mm object resolution | supports | body detection | none | O 150 mm = body detection",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1208,
+   "prompt_tokens": 893,
+   "total_tokens": 2101,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 466,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006933,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006933,
+   "gateway_cost": 0.0006933
+  }
+ }
+}

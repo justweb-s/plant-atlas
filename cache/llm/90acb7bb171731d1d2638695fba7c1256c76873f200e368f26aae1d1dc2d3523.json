@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 75\n\n8. Installation 8.5.3. Using the I/O Tab Description Use the I/O Tab screen to monitor and set the live I/O signals from/to the Control Box. The screen displays the current state of the I/O, including during program execution. The program stops if anything is changed during execution. At program stop, all output signals retain their states. The screen updates at 10Hz, so a very fast signal might not display properly. Configurable I/Os can be reserved for special safety settings defined in the safety I/O configuration section of the installation (see I/O); those which are reserved will have the name of the safety function in place of the default or user defined name. Configurable outputs that are reserved for safety settings are not togglable and will be displayed as LED’s only. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Voltage When the Tool Output is controlled by the user, you can configure Voltage. Selecting a URCap removes access to Voltage. Analog The analog I/O’s can be set to either current [4-20mA] or voltage [0-10V] output. These Domain settings are persistent over restarts of the robot controller and saved in the installation. Settings Control over the tool I/Os could be assigned to a URCap in Tool I/O of the Installation tab. Selecting a URCap removes user’s control over tool’s analog I/O. Tool When the Tool Communication Interface TCI is enabled, the tool analog input Communication becomes unavailable. On the I/O screen, the Tool Input field appears as shown. Interface User Manual 78 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "I/O Tab screen | displays | current state of the I/O | including during program execution | The screen displays the current state of the I/O, including during program execution.\nprogram | stops | when anything is changed on the I/O screen during execution | during program execution | The program stops if anything is changed during execution.\noutput signals | retainStates | at program stop | | At program stop, all output signals retain their states.\nI/O screen | updatesAt | 10Hz | | The screen updates at 10Hz, so a very fast signal might not display properly.\nconfigurable I/Os | reservedFor | special safety settings | defined in the safety I/O configuration section | Configurable I/Os can be reserved for special safety settings defined in the safety I/O configuration section of the installation\nconfigurable outputs reserved for safety | displayAs | LEDs only, not togglable | reserved for safety settings | Configurable outputs that are reserved for safety settings are not togglable and will be displayed as LED's only.\nselecting a URCap | removesAccessTo | Voltage setting of Tool Output | | Selecting a URCap removes access to Voltage.\nanalog I/Os | outputMode | current [4-20mA] or voltage [0-10V] | | The analog I/O's can be set to either current [4-20mA] or voltage [0-10V] output.\nanalog I/O mode settings | persistOver | robot controller restarts, saved in the installation | | These Domain settings are persistent over restarts of the robot controller and saved in the installation.\ntool I/Os | assignableTo | a URCap in Tool I/O of the Installation tab | | Control over the tool I/Os could be assigned to a URCap in Tool I/O of the Installation tab.\nselecting a URCap | removesControlOf | tool analog I/O from the user | | Selecting a URCap removes user's control over tool's analog I/O.\nTool Communication Interface (TCI) | makesUnavailable | tool analog input | when TCI is enabled | When the Tool Communication Interface TCI is enabled, the tool analog input Communication becomes unavailable.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1510,
+   "prompt_tokens": 713,
+   "total_tokens": 2223,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 833,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008263,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008263,
+   "gateway_cost": 0.0008263
+  }
+ }
+}

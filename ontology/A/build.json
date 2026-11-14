@@ -1,0 +1,15 @@
+{
+ "proposed_total": 5280,
+ "kept": 5280,
+ "would_pass_b_checks": 2009,
+ "would_be_rejected": 3271,
+ "would_be_rejected_value_not_in_quote": 1449,
+ "would_be_rejected_no_anchor": 1805,
+ "would_be_rejected_missing_condition": 17,
+ "predicates": 3384,
+ "chunks_read": 1080,
+ "calls": 1080,
+ "prompt_tokens": 525545,
+ "completion_tokens": 862225,
+ "seconds": 260.1
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 49\n\nPROJECT PLANNING 5 Figure 33: How the restart interlock works (4): the reset pushbutton must be pressed before restarting the machine. 5.4.8 External device monitoring (EDM) Overview The external switching elements (external device monitoring, EDM) must be inspected in line with the regulations which apply at the place of installation or the required reliability of the safety function. The external device monitoring (EDM) monitors the status of downstream contactors. Prerequisites O Positively guided contactors are used for shutting down the machine. If the auxiliary contacts of the positively guided contactors are connected to the external device monitoring, the external device monitoring checks whether the contactors switch correctly when the OSSDs are switched off. 5.5 Integration into the network 5.6 Testing plan The manufacturer of the machine and the operating entity must define all required thorough checks. The definition must be based on the application conditions and the risk assessment and must be documented in a traceable manner. The following tests must be planned: O Before commissioning the machine and after making changes, you must check whether the safety functions are fulfilling their planned purpose and whether per- sons are being adequately protected. O The thorough checks of the safety laser scanner must fulfill certain minimum requirements. A test object is required for some thorough checks. An optically opaque cylinder with a black surface can be used as a suitable test object. The diameter must match the configured resolution. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 49 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Restart interlock | requires | reset pushbutton pressed before restarting machine | | the reset pushbutton must be pressed before restarting the machine\nExternal device monitoring | monitors | status of downstream contactors | | The external device monitoring (EDM) monitors the status of downstream contactors.\nExternal switching elements | must be inspected | in line with applicable regulations or required reliability of safety function | | The external switching elements (external device monitoring, EDM) must be inspected in line with the regulations which apply at the place of installation or the required reliability of the safety function.\nExternal device monitoring | checks | whether contactors switch correctly when OSSDs are switched off | auxiliary contacts of positively guided contactors are connected to EDM | If the auxiliary contacts of the positively guided contactors are connected to the external device monitoring, the external device monitoring checks whether the contactors switch correctly when the OSSDs are switched off.\nManufacturer and operating entity | must define | all required thorough checks | | The manufacturer of the machine and the operating entity must define all required thorough checks.\nThorough checks definition | must be based on | application conditions and risk assessment | | The definition must be based on the application conditions and the risk assessment\nThorough checks definition | must be documented | in a traceable manner | | must be documented in a traceable manner\nSafety functions | must be checked | before commissioning and after changes | | Before commissioning the machine and after making changes, you must check whether the safety functions are fulfilling their planned purpose and whether persons are being adequately protected.\nThorough checks of safety laser scanner | must fulfill | certain minimum requirements | | The thorough checks of the safety laser scanner must fulfill certain minimum requirements.\nTest object | is required | for some thorough checks | | A test object is required for some thorough checks.\nOptically opaque cylinder with black surface | can be used as | suitable test object | | An optically opaque cylinder with a black surface can be used as a suitable test object.\nTest object diameter | must match | configured resolution | | The diameter must match the configured resolution.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1249,
+   "prompt_tokens": 724,
+   "total_tokens": 1973,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 568,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006969,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006969,
+   "gateway_cost": 0.0006969
+  }
+ }
+}

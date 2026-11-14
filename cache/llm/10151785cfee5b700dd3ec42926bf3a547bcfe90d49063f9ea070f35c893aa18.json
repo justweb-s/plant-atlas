@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 120\n\n10.3. Software Safety Configuration Description This section covers how to access the robot safety settings. It is made up of items that help you set up the robot Safety Configuration. WARNING Before you configure your robot safety settings, your integrator must conduct a risk assessment to guarantee the safety of personnel and equipment around the robot. A risk assessment is an evaluation of all work procedures throughout the robot lifetime, conducted in order to apply correct safety configuration settings. You must set the following in accordance with the risk assessment. 1. The integrator must prevent unauthorized persons from changing the safety configuration e.g. installing password protection. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. 2. Use and configuration of the safety-related functions and interfaces for a specific robot application. 3. Safety configuration settings for set-up and teaching before the robot arm is powered on for the first time. 4. All safety configuration settings accessible on this screen and sub-tabs. 5. The integrator must ensure that all changes to the safety configuration settings comply with the risk assessment. UR10e 123 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Integrator | must conduct | risk assessment to guarantee safety of personnel and equipment around the robot | before configuring robot safety settings | \"Before you configure your robot safety settings, your integrator must conduct a risk assessment to guarantee the safety of personnel and equipment around the robot.\"\nRisk assessment | is | an evaluation of all work procedures throughout the robot lifetime, conducted to apply correct safety configuration settings | | \"A risk assessment is an evaluation of all work procedures throughout the robot lifetime, conducted in order to apply correct safety configuration settings.\"\nSafety configuration settings | must be set | in accordance with the risk assessment | | \"You must set the following in accordance with the risk assessment.\"\nIntegrator | must prevent | unauthorized persons from changing the safety configuration | | \"The integrator must prevent unauthorized persons from changing the safety configuration e.g. installing password protection.\"\nSafety-related functions and interfaces | must be used and configured | for a specific robot application | | \"Use and configuration of the safety-related functions and interfaces for a specific robot application.\"\nSafety configuration settings for set-up and teaching | must be set | before the robot arm is powered on for the first time | before the robot arm is powered on for the first time | \"Safety configuration settings for set-up and teaching before the robot arm is powered on for the first time.\"\nAll safety configuration settings on this screen and sub-tabs | must be set | in accordance with the risk assessment | | \"All safety configuration settings accessible on this screen and sub-tabs.\"\nIntegrator | must ensure | all changes to the safety configuration settings comply with the risk assessment | | \"The integrator must ensure that all changes to the safety configuration settings comply with the risk assessment.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1201,
+   "prompt_tokens": 575,
+   "total_tokens": 1776,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 628,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000658,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000658,
+   "gateway_cost": 0.000658
+  }
+ }
+}

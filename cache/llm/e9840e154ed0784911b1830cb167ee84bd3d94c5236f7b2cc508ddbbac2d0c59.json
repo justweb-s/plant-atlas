@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 106\n\n10 OPERATION 10 Operation 10.1 Safety NOTE This document does not provide instructions for operating the machine in which the safety laser scanner is integrated. 10.2 Regular thorough check The thorough check is intended to ensure that the safety functions are fulfilling their planned purpose and whether persons are being adequately protected. → Carry out the checks specified in the test plan of the manufacturer of the machine and the operating entity. 10.3 Status indicators 1 23 6 54 Figure 50: Display elements 1 LED ON status 2 LED OFF status 3 LED restart interlock/warning field 4 Display 5 Network LED 6 Button Table 26: Status LEDs Number Function Color Meaning 1 ON state Green Lights up green when at least one safety output is in the ON state. 2 OFF state Red Lights up red when at least one safety output is in OFF state due to an inter- rupted field. Flashes red when a safety output is in the OFF state due to an error. 106 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety laser scanner manual: this document does not describe operating the machine | doesNotProvide | instructions for operating the machine in which the scanner is integrated | | This document does not provide instructions for operating the machine in which the safety laser scanner is integrated.\nThorough check | isIntendedTo | ensure safety functions fulfil their planned purpose and persons are adequately protected | | The thorough check is intended to ensure that the safety functions are fulfilling their planned purpose and whether persons are being adequately protected.\nRegular thorough check | requires | carrying out the checks specified in the machine manufacturer's and operating entity's test plan | | Carry out the checks specified in the test plan of the manufacturer of the machine and the operating entity.\nON state LED (green) | lightsUp | when at least one safety output is in the ON state | at least one safety output is in ON state | Lights up green when at least one safety output is in the ON state.\nOFF state LED (red) | lightsUp | when at least one safety output is in OFF state due to an interrupted field | safety output is OFF due to an interrupted field | Lights up red when at least one safety output is in OFF state due to an interrupted field.\nOFF state LED (red) | flashes | when a safety output is in OFF state due to an error | safety output is OFF due to an error | Flashes red when a safety output is in the OFF state due to an error.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 919,
+   "prompt_tokens": 592,
+   "total_tokens": 1511,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 467,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005187,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005187,
+   "gateway_cost": 0.0005187
+  }
+ }
+}

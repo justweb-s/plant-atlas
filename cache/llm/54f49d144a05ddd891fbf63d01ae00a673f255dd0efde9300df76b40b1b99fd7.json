@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 45\n\nPROJECT PLANNING 5 Complementary information O When the input signal is changed, the previous monitoring case remains active for the duration of the set switch-on delay. If no valid input signal is present after the switch-on delay has elapsed, the behavior depends on the sequence monitoring: o If monitoring of the switching sequence (sequence monitoring) is not acti- vated, the OSSDs switch to the OFF state after the switch-on delay has elapsed. If a valid input signal is present within another second, the safety laser scanner activates the new monitoring case. If no valid input signal is present within this time, the OSSDs remain in the OFF state and the safety laser scanner displays an error and must be restarted. o If monitoring of the switching sequence (sequence monitoring) is activated, the OSSDs switch to the OFF state after the switch-on delay has elapsed and the safety laser scanner displays an error and must be restarted. O A short-circuit or cross-circuit on one or more channels of the static control inputs can cause the wrong monitoring case to be activated. o Some safety controllers detect the short-circuit or cross-circuit and switch off the outputs concerned or all their outputs. o Due to the short-circuit or cross-circuit, one or more input channels of the safety laser scanner can still deliver the HIGH signal level. This may result in a valid input signal so that a monitoring case is activated. o For this reason, laying the cables for the input signals in a protected manner is recommended. Otherwise, setting the switch-on delay to 0 s and activating sequence monitoring is recommended. Carrying out regular thorough check at short intervals is also recommended. Further topics O \"Settings for monitoring case tables\", page 88 O \"Configure switching sequence\", page 89 5.4.5.2 Dynamic control inputs Overview A dynamic control input receives speed information from an incremental encoder. Important information WARNING Failure of both encoders due to a common cause If both encoders fail at the same time, the device will receive no speed information. Therefore, the device switches to the monitoring case defined for standstill, although the vehicle may be moving. → Exclude errors with a common cause in the encoders. Prerequisites O Defects of an incremental encoder are detected. Therefore, 2 incremental encod- ers are used which function independently of one another and transmit their sig- nals on separate pathways. O Only a single safety laser scanner is connected to each incremental encoder. O Each incremental encoder (with one wire each for 0° and 90°) is connected to only one control input. O Each incremental encoder is supplied with voltage via its own supply line. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 45 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Previous monitoring case | remains active | the set switch-on delay | after the input signal changes | \"the previous monitoring case remains active for the duration of the set switch-on delay\"\nOSSDs | switch to OFF state | after the switch-on delay has elapsed | sequence monitoring is not activated and no valid input signal is present | \"If monitoring of the switching sequence (sequence monitoring) is not activated, the OSSDs switch to the OFF state after the switch-on delay has elapsed.\"\nSafety laser scanner | activates new monitoring case | a valid input signal is present within another second | sequence monitoring is not activated and no valid signal after the switch-on delay | \"If a valid input signal is present within another second, the safety laser scanner activates the new monitoring case.\"\nSafety laser scanner | displays error and must be restarted | no valid input signal is present within the additional second | sequence monitoring is not activated | \"If no valid input signal is present within this time, the OSSDs remain in the OFF state and the safety laser scanner displays an error and must be restarted.\"\nOSSDs | switch to OFF state and safety laser scanner must be restarted | no valid input signal after the switch-on delay | sequence monitoring is activated | \"If monitoring of the switching sequence (sequence monitoring) is activated, the OSSDs switch to the OFF state after the switch-on delay has elapsed and the safety laser scanner displays an error and must be restarted.\"\nShort-circuit or cross-circuit on static control inputs | can cause | wrong monitoring case to be activated | \"\" | \"A short-circuit or cross-circuit on one or more channels of the static control inputs can cause the wrong monitoring case to be activated.\"\nInput channel of safety laser scanner | can still deliver HIGH signal level | due to short-circuit or cross-circuit | \"\" | \"Due to the short-circuit or cross-circuit, one or more input channels of the safety laser scanner can still deliver the HIGH signal level.\"\nCables for input signals | should be laid in a protected manner | \"\" | \"\" | \"laying the cables for the input signals in a protected manner is recommended\"\nSwitch-on delay set to 0 s and sequence monitoring activated | is recommended | cables for input signals are not laid in a protected manner | \"Otherwise, setting the switch-on delay to 0 s and activating sequence monitoring is recommended.\"\nDynamic control input | receives speed information from | incremental encoder | \"\" | \"A dynamic control input receives speed information from an incremental encoder.\"\nDevice | switches to monitoring case defined for standstill | both encoders fail at the same time | \"\" | \"If both encoders fail at the same time, the device will receive no speed information. Therefore, the device switches to the monitoring case defined for standstill\"\nTwo incremental encoders | are used which function independently | to detect defects of an incremental encoder | \"\" | \"Therefore, 2 incremental encoders are used which function independently of one another and transmit their signals on separate pathways.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1659,
+   "prompt_tokens": 1121,
+   "total_tokens": 2780,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 679,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009416,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009416,
+   "gateway_cost": 0.0009416
+  }
+ }
+}

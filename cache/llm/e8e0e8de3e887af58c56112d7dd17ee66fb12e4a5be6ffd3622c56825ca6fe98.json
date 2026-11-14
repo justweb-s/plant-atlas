@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 9\n\n2.3 Technical Data MA STAR model 3.5 A 3.5 S 3.5 A 3.5 A + VZ 971652 + VZ 971653 Rated load capacity [kg] 3500 3000 2500 Overall height HG [mm] 4499 Overall width BG [mm] 3591 4100 3841 4391 Clear height HL [mm] 4452 Full travel HW [mm] 1885 Lifting height max. HO [mm] 1995 Lower swivel height HU [mm] 100 Adjustment range support plate HAT [mm] 80…110 Extension range support arm short LT [mm] 630…1240 Swivel range support arm short [°] 180 102.5 180 Extension range support arm long [mm] 920…1490 --- 920…1490 Swivel range support arm long [°] 102.5 --- 102.5 Support range [mm] --- Inside columns BL [mm] 2660 2697 max. 3060 max. 3460 Outside columns BA [mm] 3241 3097 max. 3641 max. 4041 Outside base plates [mm] 3351 3307 max. 3751 max. 4151 Inside base plates BGi [mm] 2643 2707 max. 3043 max. 3443 Drive-through width BH [mm] 2400 2400 max. 2800 max. 3200 Operating temperature [°C] +5...+40 Net weight of both columns 650 / 740 635 / 725 650 / 740 without / with packaging [kg] Adhesive mortar for anchor rod HILTI HIT HY 200-A Anchor rod HAS U 5.8 M16 Required minimum concrete quality C20/25 (DIN EN 1992) Drive power [kW] 2x 3.0 Duty cycle S3-20% Lifting/lowering time [s] 40 Packaging dimensions (L x W x H) [mm] 2925 x 1100 x 710 BA364501-en 9"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "MA STAR | rated load capacity | 3500 kg | model 3.5 A column | Rated load capacity [kg] 3500 3000 2500\nMA STAR | rated load capacity | 3000 kg | model 3.5 S column | Rated load capacity [kg] 3500 3000 2500\nMA STAR | full travel HW | 1885 mm | | Full travel HW [mm] 1885\nMA STAR | lifting height max HO | 1995 mm | | Lifting height max. HO [mm] 1995\nMA STAR | lower swivel height HU | 100 mm | | Lower swivel height HU [mm] 100\nMA STAR | support plate adjustment range | 80…110 mm | | Adjustment range support plate HAT [mm] 80…110\nMA STAR | operating temperature | +5 to +40 °C | | Operating temperature [°C] +5...+40\nMA STAR | required minimum concrete quality | C20/25 (DIN EN 1992) | | Required minimum concrete quality C20/25 (DIN EN 1992)\nMA STAR | anchor rod and adhesive mortar | HAS U 5.8 M16 anchor rod with HILTI HIT HY 200-A adhesive mortar | | Adhesive mortar for anchor rod HILTI HIT HY 200-A Anchor rod HAS U 5.8 M16\nMA STAR | drive power | 2 x 3.0 kW | | Drive power [kW] 2x 3.0\nMA STAR | duty cycle | S3-20% | | Duty cycle S3-20%\nMA STAR | lifting/lowering time | 40 s | | Lifting/lowering time [s] 40",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1275,
+   "prompt_tokens": 856,
+   "total_tokens": 2131,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 709,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007231,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007231,
+   "gateway_cost": 0.0007231
+  }
+ }
+}

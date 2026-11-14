@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 186\n\n14. Risk Assessment 14.1. Pinch Hazard Description You can avoid pinching hazards by removing obstacles in these areas, by placing the robot differently, or by using a combination of safety planes and joint limits to eliminate the hazards by preventing the robot moving into this area of its workspace. CAUTION Placing the robot in certain areas can create pinching hazards that can lead to injury. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Due to the physical properties of the robot arm, certain workspace areas require attention regarding pinching hazards. One area (left) is defined for radial motions when the wrist 1 joint is at least 1300 mm from the base of the robot. The other area (right) is within 300 mm of the base of the robot, when moving tangentially. UR10e 189 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Pinching hazards | can be avoided by | removing obstacles in these areas, placing the robot differently, or combining safety planes and joint limits | \"\" | You can avoid pinching hazards by removing obstacles in these areas, by placing the robot differently, or by using a combination of safety planes and joint limits\nPlacing the robot in certain areas | canCreate | pinching hazards that can lead to injury | \"\" | Placing the robot in certain areas can create pinching hazards that can lead to injury\nSafety planes and joint limits | eliminateHazard | pinching hazards by preventing the robot moving into this area of its workspace | used in combination | by using a combination of safety planes and joint limits to eliminate the hazards by preventing the robot moving into this area of its workspace\nRadial motion area (left) | isPinchingArea | workspace area defined for radial motions | wrist 1 joint at least 1300 mm from the base of the robot | One area (left) is defined for radial motions when the wrist 1 joint is at least 1300 mm from the base of the robot\nArea within 300 mm of base (right) | requiresAttentionFor | pinching hazards | when moving tangentially | The other area (right) is within 300 mm of the base of the robot, when moving tangentially",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 872,
+   "prompt_tokens": 481,
+   "total_tokens": 1353,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 459,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004841,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004841,
+   "gateway_cost": 0.0004841
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 131\n\nTECHNICAL DATA 14 nanoScan3 Core I/O nanoScan3 Pro I/O Power-up delay ≤ 12 s Safety outputs (OSSD) Type of output 2 PNP semiconductors for 2 PNP semiconductors for each OSSD pair, short-circuit each OSSD pair, short-circuit protected, cross-circuit moni- protected, cross-circuit moni- tored tored Output voltage for ON state (UV – 2 V) … UV (UV – 2 V) … UV (HIGH) Output voltage for OFF state 0V…2V (LOW) Output current for ON state 0.5 mA … 250 mA per OSSD 3) (HIGH) Leakage current ≤ 250 µA Load inductance ≤ 2.2 H Load capacity ≤ 1 µF in series with 50 Ω Permissible resistivity ≤4Ω between load and device Test pulse width ≤ 300 µs (typ. 230 µs) Test pulse interval Typ. 8 × scan cycle time Duration of OFF state ≥ 80 ms Discrepancy time (time offset ≤ 10 ms between switching OSSDs of an OSSD pair) Universal output, universal I/O (configured as output) Output voltage HIGH (UV – 2 V) … UV Output voltage LOW 0V…2V Output current HIGH 0.5 mA … 200 mA 3) Leakage current ≤ 250 µA Switch-on delay time 30 ms Switch off delay 30 ms Static control input, universal input, universal I/O (configured as input) Input voltage HIGH 24 V (11 V … 30 V) Input voltage LOW 0 V (-30 V … 5 V) Input current HIGH 2 mA … 3 mA Input current LOW 0 mA … 2 mA Input capacitance Typ. 10 nF Input frequency (max. switch- ≤ 20 Hz ing sequence when used as control input) Sampling time 4 ms Response time at EDM after 300 ms switching on OSSDs (when used as EDM input) Actuating duration of control 60 ms to 30 s switch for reset (when used as reset input) Actuating duration of switch ≥ 120 ms for sleep mode (when used as sleep mode input) Dynamic control input Input voltage HIGH - 24 V (11 V … 30 V) Input voltage LOW - 0 V (-30 V … 5 V) Input current HIGH - 2 mA … 3 mA Input current LOW - 0 mA … 2 mA 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 131 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "OSSD outputs | haveOutputCurrentForOnState | 0.5 mA … 250 mA per OSSD | | Output current for ON state (HIGH) 0.5 mA … 250 mA per OSSD\nOSSD outputs | haveLeakageCurrentLimit | ≤ 250 µA | | Leakage current ≤ 250 µA\nOSSD outputs | haveLoadInductanceLimit | ≤ 2.2 H | | Load inductance ≤ 2.2 H\nOSSD outputs | haveLoadCapacityLimit | ≤ 1 µF in series with 50 Ω | | Load capacity ≤ 1 µF in series with 50 Ω\nOSSD outputs | havePermissibleResistivity | ≤ 4 Ω between load and device | | Permissible resistivity ≤4Ω between load and device\nOSSD outputs | haveTestPulseWidth | ≤ 300 µs (typ. 230 µs) | | Test pulse width ≤ 300 µs (typ. 230 µs)\nOSSD outputs | haveOffStateDuration | ≥ 80 ms | | Duration of OFF state ≥ 80 ms\nOSSD outputs | haveDiscrepancyTime | ≤ 10 ms between switching OSSDs of an OSSD pair | | Discrepancy time (time offset ≤ 10 ms between switching OSSDs of an OSSD pair)\nnanoScan3 device | havePowerUpDelay | ≤ 12 s | | Power-up delay ≤ 12 s\nUniversal output (configured as output) | haveSwitchOnDelayTime | 30 ms | | Switch-on delay time 30 ms\nStatic control input (configured as input) | haveSamplingTime | 4 ms | | Sampling time 4 ms\nStatic control input (configured as input) | haveInputFrequencyLimit | ≤ 20 Hz | when used as control input | Input frequency (max. switching sequence when used as control input) ≤ 20 Hz",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1230,
+   "prompt_tokens": 1133,
+   "total_tokens": 2363,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 541,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007283,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007283,
+   "gateway_cost": 0.0007283
+  }
+ }
+}

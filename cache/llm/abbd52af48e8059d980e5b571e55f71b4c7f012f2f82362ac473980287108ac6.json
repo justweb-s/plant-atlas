@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 37\n\nPROJECT PLANNING 5 5.3.10.1 Protective field The protective field must be designed in such a way that it recognizes a person at the latest when he or she is at the minimum distance from the hazardous point. The minimum distance allows the vehicle to stop in time before it reaches a person or an object. In mobile hazardous area protection, the minimum distance typically defines the pro- tective field length required. When calculating the protective field length, the impact of turning must be considered separately. The protective field must be wide enough to cover the width of the loaded vehicle with supplements for measurement error and the lack of ground clearance. When calculat- ing the protective field width, the impact of turning must be considered separately. If you define a number of monitoring cases with different protective fields, you must calculate the protective field size separately for each protective field used. 5.3.10.2 Supplement ZF for lack of ground clearance This supplement is necessary, because, generally, a person is detected above the foot and the braking process cannot take account of the length of the foot in front of the point of detection. A person’s foot could be injured if a vehicle has no ground clearance. SL ZF BF Figure 23: Flat-rate supplement for lack of ground clearance BF Ground clearance SL Protective field length without a supplement for lack of ground clearance ZF Supplement for lack of ground clearance The lump supplement for ground clearance under 120 mm is 150 mm. This supplement may be reduced further in individual cases, see figure 24, page 38. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 37 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "protective field | mustRecognize | person at the latest when at minimum distance from hazardous point | | The protective field must be designed in such a way that it recognizes a person at the latest when he or she is at the minimum distance from the hazardous point.\nminimum distance | allowsVehicleToStop | before it reaches a person or an object | | The minimum distance allows the vehicle to stop in time before it reaches a person or an object.\nminimum distance | definesProtectiveFieldLength | required protective field length in mobile hazardous area protection | typically | In mobile hazardous area protection, the minimum distance typically defines the protective field length required.\nimpact of turning | mustBeConsideredSeparately | protective field length calculation | | When calculating the protective field length, the impact of turning must be considered separately.\nprotective field | mustCoverWidth | width of loaded vehicle plus supplements for measurement error and lack of ground clearance | | The protective field must be wide enough to cover the width of the loaded vehicle with supplements for measurement error and the lack of ground clearance.\nimpact of turning | mustBeConsideredSeparately | protective field width calculation | | When calculating the protective field width, the impact of turning must be considered separately.\nprotective field size | mustBeCalculatedSeparately | each protective field used | number of monitoring cases with different protective fields are defined | If you define a number of monitoring cases with different protective fields, you must calculate the protective field size separately for each protective field used.\nsupplement ZF | isNecessaryBecause | braking process cannot account for length of foot in front of detection point | | This supplement is necessary, because, generally, a person is detected above the foot and the braking process cannot take account of the length of the foot in front of the point of detection.\nvehicle without ground clearance | canInjure | person's foot | | A person's foot could be injured if a vehicle has no ground clearance.\nlump supplement for ground clearance | equals | 150 mm | ground clearance under 120 mm | The lump supplement for ground clearance under 120 mm is 150 mm.\nlump supplement for ground clearance | mayBeReducedFurther | in individual cases | | This supplement may be reduced further in individual cases, see figure 24, page 38.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1519,
+   "prompt_tokens": 750,
+   "total_tokens": 2269,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 791,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008345,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008345,
+   "gateway_cost": 0.0008345
+  }
+ }
+}

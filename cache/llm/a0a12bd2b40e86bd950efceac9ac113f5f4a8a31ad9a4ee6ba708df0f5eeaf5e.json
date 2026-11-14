@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 33\n\nPROJECT PLANNING 5 s Figure 20: Stationary application in vertical operation for hazardous point protection Important information DANGER Hazard due to lack of effectiveness of the protective device If there is a retroreflector in the protective field level (distance of the retroreflector from protective field ≤ 6 m), it may not be possible detect people and parts of the body that are to be protected, or it may not be possible to detect them on time. → Avoid retroreflectors in the protective field level if possible. → With retroreflectors at the protective field level: Increase overrun of the protective field over the opening to be protected by supplement ZR = 350 mm. 5.3.8.1 Protective field In hazardous point protection, the minimum distance typically defines the position at which the safety laser scanner is mounted. Access to the hazardous point shall only be possible through the protective field. In many cases, a resolution of 20 mm, 30 mm or 40 mm is suitable for hazardous point protection. A resolution of 40 mm or finer is required to ensure detection of the hand during hazardous point protection. The safety laser scanner is not suitable for finger detection, because the finest resolution is 20 mm. Complementary information The required minimum distance depends on the safety laser scanner’s set resolution. Notes on selecting the resolution: O If you choose a fine resolution, the protective field range is smaller and the protec- tive field is only suitable for smaller hazardous points. But the required minimum distance is smaller, you can mount the safety laser scanner closer to the hazard- ous point. O If you choose a coarser resolution, the protective field range is larger and the pro- tective field is also suitable for larger hazardous points. But the required minimum distance is larger, you must mount the safety laser scanner further away from the hazardous point. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 33 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Retroreflector in protective field level | can prevent detection of people and body parts | the protective field must not be obstructed by it | distance of retroreflector from protective field ≤ 6 m | If there is a retroreflector in the protective field level (distance of the retroreflector from protective field ≤ 6 m), it may not be possible detect people and parts of the body that are to be protected\nRetroreflectors at protective field level | require increased overrun | protective field overrun over the opening increased by ZR = 350 mm | retroreflectors are present at the protective field level | With retroreflectors at the protective field level: Increase overrun of the protective field over the opening to be protected by supplement ZR = 350 mm\nAccess to hazardous point | is only possible through | the protective field | | Access to the hazardous point shall only be possible through the protective field\nMinimum distance in hazardous point protection | defines | the mounting position of the safety laser scanner | | In hazardous point protection, the minimum distance typically defines the position at which the safety laser scanner is mounted\nResolution of 20 mm, 30 mm or 40 mm | is suitable for | hazardous point protection | in many cases | In many cases, a resolution of 20 mm, 30 mm or 40 mm is suitable for hazardous point protection\nHand detection in hazardous point protection | requires | a resolution of 40 mm or finer | | A resolution of 40 mm or finer is required to ensure detection of the hand during hazardous point protection\nSafety laser scanner | is not suitable for | finger detection | | The safety laser scanner is not suitable for finger detection, because the finest resolution is 20 mm\nRequired minimum distance | depends on | the set resolution of the safety laser scanner | | The required minimum distance depends on the safety laser scanner's set resolution\nFine resolution | yields | smaller protective field range and smaller required minimum distance | a fine resolution is chosen | If you choose a fine resolution, the protective field range is smaller and the protective field is only suitable for smaller hazardous points. But the required minimum distance is smaller\nCoarser resolution | yields | larger protective field range and larger required minimum distance | a coarser resolution is chosen | If you choose a coarser resolution, the protective field range is larger and the protective field is also suitable for larger hazardous points. But the required minimum distance is larger, you must mount the safety laser scanner further away from the hazardous point",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1196,
+   "prompt_tokens": 849,
+   "total_tokens": 2045,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 399,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006829,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006829,
+   "gateway_cost": 0.0006829
+  }
+ }
+}

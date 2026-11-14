@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 47\n\n6. Assembly and Mounting 6.4. Workspace and Operating Space Description The workspace is the range of the fully extended robot arm, horizontally and vertically. The operating space is the location where the robot is expected to function. NOTICE Disregard for the robot workspace and operating space can result in the damage to property. It is important to consider the cylindrical volume directly above and directly below the robot base when choosing location to mount the robot. Moving the tool close to the cylindrical volume should be avoided because it causes the joints to move fast even when the tool is moving slowly. This can cause the robot to work inefficiently and can make it difficult to conduct a risk assessment. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. NOTICE Moving the tool close to the cylindrical volume can cause the joints to move too fast, leading to loss of functionality and damage to property. • Do not move the tool close to the cylindrical volume, even when the tool is moving slowly. The cylindrical volume is both directly above and directly below the robot base. The robot extends 1300 mm from the base joint. Front Tilted User Manual 50 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Disregard for the robot workspace and operating space | can result in | damage to property | | Disregard for the robot workspace and operating space can result in the damage to property.\nMounting location selection | should consider | cylindrical volume directly above and directly below the robot base | when choosing location to mount the robot | It is important to consider the cylindrical volume directly above and directly below the robot base when choosing location to mount the robot.\nMoving the tool close to the cylindrical volume | causes | joints to move fast even when the tool is moving slowly | | Moving the tool close to the cylindrical volume should be avoided because it causes the joints to move fast even when the tool is moving slowly.\nMoving the tool close to the cylindrical volume | can cause | joints to move too fast, leading to loss of functionality and damage to property | | Moving the tool close to the cylindrical volume can cause the joints to move too fast, leading to loss of functionality and damage to property.\nMoving the tool close to the cylindrical volume | can make | conducting a risk assessment difficult | | This can cause the robot to work inefficiently and can make it difficult to conduct a risk assessment.\nTool | should not be moved close to | cylindrical volume | even when the tool is moving slowly | Do not move the tool close to the cylindrical volume, even when the tool is moving slowly.\nCylindrical volume | is located | both directly above and directly below the robot base | | The cylindrical volume is both directly above and directly below the robot base.\nRobot arm | extends | 1300 mm from the base joint | | The robot extends 1300 mm from the base joint.\nWorkspace | is | the range of the fully extended robot arm, horizontally and vertically | | The workspace is the range of the fully extended robot arm, horizontally and vertically.\nOperating space | is | the location where the robot is expected to function | | The operating space is the location where the robot is expected to function.\nRobot operation near cylindrical volume | can cause | inefficient work | | This can cause the robot to work inefficiently",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1383,
+   "prompt_tokens": 584,
+   "total_tokens": 1967,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 722,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007499,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007499,
+   "gateway_cost": 0.0007499
+  }
+ }
+}

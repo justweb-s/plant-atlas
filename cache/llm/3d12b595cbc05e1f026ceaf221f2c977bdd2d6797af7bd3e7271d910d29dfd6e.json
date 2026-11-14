@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 9\n\n10.2. Safety-related Functions and Interfaces 113 10.2.1. Passwords 113 10.2.2. Setting a Software Safety Password 117 10.2.3. Configurable Safety Functions 118 10.2.4. Safety Functions 120 10.2.5. Safety Parameter Set 121 10.3. Software Safety Configuration 123 10.3.1. Changing the Software Safety Configuration 125 10.3.2. Applying a New Software Safety Configuration 125 10.3.3. Safety Configuration without Teach Pendant 126 10.3.4. Software Safety Modes 127 10.3.5. Software Safety Limits 127 10.3.6. Safe Home Position 133 10.4. Software Safety Restrictions 135 Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. 10.4.1. Tool Direction Restriction 142 10.4.2. Tool Position Restriction 144 11. The First Program 148 11.1. Run Tab 150 11.2. Move Robot into Position 152 11.3. Using the Program Tab 154 11.4. Program Tree Toolbar 156 11.5. Using Selected Program Nodes 157 11.6. Using Basic Program Nodes 158 11.7. Basic Program Nodes: Move 158 11.8. Basic Program Nodes: Waypoints 164 11.9. Using the Move Tab 165 11.10. Pose Editor 168 12. Cybersecurity Threat Assessment 170 12.1. General Cybersecurity 170 12.2. Cybersecurity Requirements 170 12.3. Cybersecurity Hardening Guidelines 172 13. Communication Networks 173 13.1. MODBUS 174 13.2. EtherNet/IP 178 13.3. PROFINET 178 13.4. PROFIsafe 179 13.5. UR Connect 185 14. Risk Assessment 186 14.1. Pinch Hazard 189 User Manual UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "NONE",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 141,
+   "prompt_tokens": 890,
+   "total_tokens": 1031,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 136,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0001595,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0001595,
+   "gateway_cost": 0.0001595
+  }
+ }
+}

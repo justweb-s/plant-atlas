@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 96\n\n8 CONFIGURATION 8.17.1 Verify configuration Overview By verifying the configuration, you can confirm that the configuration complies with the planned safety function and fulfills the requirements in the risk assessment. During verification, Safety Designer reads back the configuration transferred to the device. It compares the configuration with the configuration saved in Safety Designer. If both configurations are identical, Safety Designer displays the verification report. If the user confirms that this is correct, the system is considered to be verified. Important information DANGER Hazard due to lack of effectiveness of the protective device Errors can occur when transferring the configuration to the device, e.g., due to environ- mental influences or faulty cables. The verification report always contains exactly the settings that are stored in the device. → Before confirming, check the verification report carefully. Prerequisites O The configuration corresponds to the planned safety function and meets the requirements of the risk assessment. O The configuration has been transferred to the device. Procedure 1. Click on Verify. m Safety Designer displays the verification report. 2. Thoroughly review the verification report. → If the verification report does not match the planned safety function, click on Cancel, correct the configuration and start again from step 1. → If the verification report matches the planned safety function, click on OK. m Device configuration is shown as verified. Complementary information If the configuration is verified, the device automatically starts the safety function after switching on the voltage supply. If the configuration is not verified, the device may not be operated as a protective device. You can start the safety function manually to test the device and the configura- tion. The test operation has a time limit. Further topics O \"Starting and stopping safety function\", page 97 8.17.2 Transferring a verified configuration Overview No additional verification in Safety Designer is required after transferring a verified configuration. The thorough check during commissioning, however, still needs to be performed as in all other cases. Procedure 1. Click on Identify the device to ensure that the desired device is connected. 96 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety Designer | readsBack | configuration transferred to the device | | During verification, Safety Designer reads back the configuration transferred to the device.\nSafety Designer | compares | configuration with the configuration saved in Safety Designer | | It compares the configuration with the configuration saved in Safety Designer.\nsystem | isConsideredVerified | system | if the user confirms that the verification report is correct | If the user confirms that this is correct, the system is considered to be verified.\nverification report | containsExactly | settings stored in the device | | The verification report always contains exactly the settings that are stored in the device.\nuser | checksBeforeConfirming | verification report | | Before confirming, check the verification report carefully.\nErrors | canOccurDuringTransfer | configuration transfer to the device | e.g., environmental influences or faulty cables | Errors can occur when transferring the configuration to the device, e.g., due to environmental influences or faulty cables.\ndevice | automaticallyStartsSafetyFunction | safety function | configuration is verified and voltage supply is switched on | If the configuration is verified, the device automatically starts the safety function after switching on the voltage supply.\ndevice | mayNotBeOperatedAs | protective device | configuration is not verified | If the configuration is not verified, the device may not be operated as a protective device.\nsafety function | canBeStartedManually | testing the device and configuration | | You can start the safety function manually to test the device and the configuration.\ntest operation | hasTimeLimit | time limit | | The test operation has a time limit.\ntransferred verified configuration | requiresNoAdditionalVerification | additional verification in Safety Designer | after transferring a verified configuration | No additional verification in Safety Designer is required after transferring a verified configuration.\nthorough check during commissioning | stillNeedsToBePerformed | thorough check during commissioning | in all cases | The thorough check during commissioning, however, still needs to be performed as in all other cases.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1387,
+   "prompt_tokens": 900,
+   "total_tokens": 2287,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 749,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007835,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007835,
+   "gateway_cost": 0.0007835
+  }
+ }
+}

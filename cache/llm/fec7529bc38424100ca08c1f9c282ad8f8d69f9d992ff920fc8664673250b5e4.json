@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: igea-equipment, p. 7\n\nTABELLA A3 numero di portata matr. anno di Pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola PARANCO J.D.NEUHAUS 14 10000 CA 200100/06 2002 801453 PNEUMATICO SIS PROFI 10 TI INGERSOLL RAND 25000 PARANCO 2011-200109 15 PALAIR 25000 K declass. 1997 9712150/97 PNEUMATICO CA 2C 8M - 2E 10000 PARANCO KITO CA 200121/ 16 5000 2000 55781 ELETTRICO KR50L 09 TABELLA A4 numero di portata matr. anno di pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola 17 AUTOGRU' P&H R200 18760 RM - I - 22027 1977 70761 2011-200121- Escavatore JCBJS19CJ01 18 AUTOGRU' JCB - JS190NLC 7500 2010 CA cingolato 314198 2011-200122- Pala terna JCB3CXPCJ01 19 AUTOGRU' JCB - 3CX-4TPC 5000 2010 CA gommata 707884 2011-200123- Pala terna JCB3CXPCJ01 20 AUTOGRU' JCB - 3CX-4TPC 5000 2010 CA gommata 707453 2011-200120- Escavatore JCBJS19CJ01 21 AUTOGRU' JCB - JS190NLC 7500 2010 CA cingolato 314197 CATERPILLAR - 2018- Pala terna 22 AUTOGRU' 2095 1997 9AR00182 IT28 200029/CA gommata TABELLA A5 numero di portata matr. anno di pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola Euro costruzioni Pellegrini 23 GRU A CAVALLETTO 35000 NU 16/95 1989 459 GCB 35 X 12/21 Classe: matr.459 TABELLA A6 numero di portata matr. anno di Pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola PIATTAFORMA 2017- 24 HINOWA 230 2017 2G320 ELEVATRICE 200076-ca 7"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Paranco J.D.NEUHAUS | hasRatedLoad | 10000 kg | | PARANCO J.D.NEUHAUS 14 10000\nParanco INGERSOLL RAND SIS PROFI 10 TI | hasRatedLoad | 25000 kg | | INGERSOLL RAND 25000\nParanco PALAIR 25000 K | isDeclassified | declassified in 1997 | | PALAIR 25000 K declass. 1997\nParanco KITO CA 2C 8M - 2E | hasRatedLoad | 5000 kg | | KITO CA 200121/ 16 5000\nAutogru P&H R200 | builtIn | 1977 | | AUTOGRU' P&H R200 18760 RM - I - 22027 1977\nEscavatore JCB JS190NLC (matricola 314198) | hasRatedLoad | 7500 kg | | AUTOGRU' JCB - JS190NLC 7500 2010\nPala terna JCB 3CX-4TPC (matricola 707884) | hasRatedLoad | 5000 kg | | AUTOGRU' JCB - 3CX-4TPC 5000 2010\nPala terna CATERPILLAR (gommata) | builtIn | 1997 | | CATERPILLAR - 2018- Pala terna 22 AUTOGRU' 2095 1997\nGru a cavalletto Euro costruzioni Pellegrini | hasRatedLoad | 35000 kg | | GRU A CAVALLETTO 35000 NU 16/95 1989\nGru a cavalletto Euro costruzioni Pellegrini | hasMatricola | 459 | | Classe: matr.459\nPiattaforma elevatrice HINOWA 230 | hasRatedLoad | 230 kg | | PIATTAFORMA ELEVATRICE 24 HINOWA 230 2017\nPiattaforma elevatrice HINOWA 230 | builtIn | 2017 | | PIATTAFORMA ELEVATRICE 24 HINOWA 230 2017",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1689,
+   "prompt_tokens": 1054,
+   "total_tokens": 2743,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 979,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009499,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009499,
+   "gateway_cost": 0.0009499
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 109\n\nOPERATION 10 Display Device or configura- Meaning tion All devices and config- Contamination error. All safety outputs in the urations OFF state. → Check the optics cover for damage. → Clean the optics cover. Display flashes All devices and config- Dazzle warning. Check whether the safety laser urations scanner is being dazzled by an external light source in the scan plane, e.g., sun, halogen light, infrared light source. Remove or cover the light source. Display flashes All devices and config- Dazzle error. The associated safety outputs are urations in the OFF state. Check whether the safety laser scanner is being dazzled by an external light source in the scan plane, e.g., sun, halogen light, infrared light source. Remove or cover the light source. Display flashes Configuration with Error in the external device monitoring (EDM). external device moni- OSSD pair in OFF state. toring (EDM) Display flashes Configuration with ref- Manipulation protection. The safety laser scan- erence contour field ner does not detect any contour within the con- figured tolerance band of the reference contour field. All safety outputs in the OFF state. Display flashes All devices and config- Manipulation protection. The safety laser scan- urations ner measures no values within the distance measurement range in an area of at least 90°. All safety outputs in the OFF state. Display flashes All devices and config- Safety function stopped. All safety outputs in urations the OFF state. Restart the device using the key- pad or Safety Designer. All devices and config- A valid input signal is not yet applied at the con- urations trol inputs. All safety outputs in the OFF state. After switching on, the safety laser scanner waits for a valid input signal. During this time, an invalid input signal does not result in an error. All devices The device is not configured. The device is in the as-delivered state or has been reset to fac- tory settings. All safety outputs in the OFF state. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 109 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Contamination error | causesSafetyOutputsOff | all safety outputs are in the OFF state | \"\" | Contamination error. All safety outputs in the OFF state.\nContamination error | requiresAction | check the optics cover for damage and clean the optics cover | \"\" | → Check the optics cover for damage. → Clean the optics cover.\nDazzle warning | indicates | the safety laser scanner is being dazzled by an external light source in the scan plane | \"\" | Dazzle warning. Check whether the safety laser scanner is being dazzled by an external light source in the scan plane\nDazzle error | causesSafetyOutputsOff | the associated safety outputs are in the OFF state | \"\" | Dazzle error. The associated safety outputs are in the OFF state.\nDazzle condition | requiresAction | remove or cover the external light source | \"\" | Remove or cover the light source.\nExternal device monitoring error | causesSafetyOutputsOff | the OSSD pair is in the OFF state | configuration with external device monitoring (EDM) | Error in the external device monitoring (EDM). OSSD pair in OFF state.\nManipulation protection (reference contour) | causesSafetyOutputsOff | all safety outputs are in the OFF state | configuration with reference contour field | The safety laser scanner does not detect any contour within the configured tolerance band of the reference contour field. All safety outputs in the OFF state.\nManipulation protection (distance) | causesSafetyOutputsOff | all safety outputs are in the OFF state | no values are measured within the distance measurement range in an area of at least 90° | The safety laser scanner measures no values within the distance measurement range in an area of at least 90°. All safety outputs in the OFF state.\nSafety function stopped | causesSafetyOutputsOff | all safety outputs are in the OFF state | \"\" | Safety function stopped. All safety outputs in the OFF state.\nSafety function stopped | requiresAction | restart the device using the keypad or Safety Designer | \"\" | Restart the device using the keypad or Safety Designer.\nMissing valid input signal | causesSafetyOutputsOff | all safety outputs are in the OFF state | a valid input signal is not yet applied at the control inputs | A valid input signal is not yet applied at the control inputs. All safety outputs in the OFF state.\nDevice not configured | causesSafetyOutputsOff | all safety outputs are in the OFF state | the device is in the as-delivered state or has been reset to factory settings | The device is not configured. The device is in the as-delivered state or has been reset to factory settings. All safety outputs in the OFF state.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1429,
+   "prompt_tokens": 883,
+   "total_tokens": 2312,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 554,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008028,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008028,
+   "gateway_cost": 0.0008028
+  }
+ }
+}

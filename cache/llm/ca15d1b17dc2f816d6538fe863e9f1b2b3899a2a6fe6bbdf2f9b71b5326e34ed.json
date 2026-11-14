@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 92\n\n8. Installation 8.8. General Purpose Analog I/O Description The analog I/O interface is the green terminal. It is used to set or measure voltage (0-10V) or current (4-20mA) to and from other equipment. The following directions is recommended to achieve the highest accuracy. • Use the AG terminal closest to the I/O. The pair share a common mode filter. • Use the same GND (0V) for equipment and Control Box. The analog I/O is not galvanically isolated from the Control Box. • Use a shielded cable. Connect the shield to the GND terminal at the terminal called Power. • Use equipment that works in current mode. Current signals are less sensitive to interferences. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Electrical In the GUI you can select input modes. The electrical specifications are shown below. Specifications Terminals Parameter Min Typ Max Unit Analog Input in current mode [AIx - AG] Current 4 - 20 mA [AIx - AG] Resistance - 20 - ohm [AIx - AG] Resolution - 12 - bit Analog Input in voltage mode [AIx - AG] Voltage 0 - 10 V [AIx - AG] Resistance - 10 - Kohm [AIx - AG] Resolution - 12 - bit Analog Output in current mode [AOx - AG] Current 4 - 20 mA [AOx - AG] Voltage 0 - 24 V [AOx - AG] Resolution - 12 - bit Analog Output in voltage mode [AOx - AG] Voltage 0 - 10 V [AOx - AG] Current -20 - 20 mA [AOx - AG] Resistance - 1 - ohm [AOx - AG] Resolution - 12 - bit UR10e 95 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "analog I/O interface | is | green terminal | | The analog I/O interface is the green terminal.\nanalog I/O | canSetOrMeasure | voltage (0-10V) or current (4-20mA) | | It is used to set or measure voltage (0-10V) or current (4-20mA) to and from other equipment.\nAG terminal | recommendedToUse | the AG terminal closest to the I/O | to achieve the highest accuracy | Use the AG terminal closest to the I/O.\nanalog I/O | isGalvanicallyIsolatedFrom | Control Box | not isolated | The analog I/O is not galvanically isolated from the Control Box.\nequipment and Control Box | shouldShareGround | same GND (0V) | | Use the same GND (0V) for equipment and Control Box.\ncable shield | shouldConnectTo | GND terminal at the terminal called Power | shielded cable used | Use a shielded cable. Connect the shield to the GND terminal at the terminal called Power.\nequipment | shouldWorkIn | current mode | | Use equipment that works in current mode.\ncurrent signals | areLessSensitiveTo | interferences | | Current signals are less sensitive to interferences.\nanalog input in current mode | hasCurrentRange | 4-20 mA | | [AIx - AG] Current 4 - 20 mA\nanalog input in voltage mode | hasVoltageRange | 0-10 V | | [AIx - AG] Voltage 0 - 10 V\nanalog output in voltage mode | hasVoltageRange | 0-10 V | | [AOx - AG] Voltage 0 - 10 V\nanalog input and output | hasResolution | 12 bit | | [AIx - AG] Resolution - 12 - bit",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1231,
+   "prompt_tokens": 813,
+   "total_tokens": 2044,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 652,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006968,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006968,
+   "gateway_cost": 0.0006968
+  }
+ }
+}

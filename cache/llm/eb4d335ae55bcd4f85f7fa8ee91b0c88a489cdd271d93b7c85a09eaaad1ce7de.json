@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 31\n\n7.2.2 Lubricating the Spindle and the Load Nut A B D C A Oil pan B Lubrication felt C Torx screw D Spindle NOTICE If there is dirt in the oil pan, this can impair the running characteristics of the lift! The oil pan in the lifting carriage must always be filled so that there is a perma- nent lubricating film on the spindle and thermal load is avoided. Refill the oil pan or more often if necessary. Also check the lubrication felt for wear and/or contamination and replace at least every 12 months. The lubrication felt must be positioned at the spindle with its edge facing downward (see illustration). BA364501-en 31"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Oil pan in lifting carriage | mustBeFilled | to maintain a permanent lubricating film on the spindle | \"\" | \"The oil pan in the lifting carriage must always be filled so that there is a permanent lubricating film on the spindle\"\nOil pan | mustBeRefilled | more often than the normal interval | if necessary | \"Refill the oil pan or more often if necessary.\"\nDirt in oil pan | canImpair | running characteristics of the lift | \"\" | \"If there is dirt in the oil pan, this can impair the running characteristics of the lift!\"\nLubrication felt | mustBeCheckedFor | wear and/or contamination | \"\" | \"Also check the lubrication felt for wear and/or contamination\"\nLubrication felt | mustBeReplaced | at least every 12 months | \"\" | \"replace at least every 12 months\"\nLubrication felt | mustBePositioned | at the spindle with its edge facing downward | \"\" | \"The lubrication felt must be positioned at the spindle with its edge facing downward\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 758,
+   "prompt_tokens": 422,
+   "total_tokens": 1180,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 415,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004212,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004212,
+   "gateway_cost": 0.0004212
+  }
+ }
+}

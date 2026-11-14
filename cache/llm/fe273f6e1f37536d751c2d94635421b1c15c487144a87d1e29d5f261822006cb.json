@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 211\n\n18. Maintenance and Repair Safety for Maintenance WARNING Failure to leave space to accommodate the Control Box with the door fully open can lead to injury. • Provide at least 915 mm of space to enable the Control Box door to open fully, providing access for servicing. WARNING: ELECTRICITY Disassembling the Control Box power supply too quickly after switching off, can result in injury due to electrical hazards. • Avoid disassembling the power supply inside the Control Box, as high voltages (up to 600 V) can be present inside these power supplies for several hours after the Control Box has been switched off. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. After troubleshooting, maintenance, and repair work, ensure that safety requirements are fulfilled. Adhere to national or regional work safety regulations. The correct functioning of all safety function settings shall also be tested and validated. 18.1. Testing Stopping Performance Description Test periodically to determine if stopping performance is degraded. Increased stopping times can require safeguarding to be modified, possibly with changes to the installation. If stop time and/or stop distance safety functions are used and are the basis of the risk reduction strategy, no monitoring or testing of stopping performance is required. The robot does continuous monitoring. 18.2. Robot Arm Cleaning and Inspection Description As part of regular maintenance the robot arm can be cleaned, in accordance with the recommendations in this manual and local requirements. User Manual 214 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Control Box door | requiresClearance | at least 915 mm of space | to enable the door to open fully for servicing | \"Provide at least 915 mm of space to enable the Control Box door to open fully, providing access for servicing.\"\nControl Box power supply | retainsHighVoltage | up to 600 V | for several hours after the Control Box has been switched off | \"high voltages (up to 600 V) can be present inside these power supplies for several hours after the Control Box has been switched off\"\nSafety requirements | mustBeFulfilled | after troubleshooting, maintenance, and repair work | | \"After troubleshooting, maintenance, and repair work, ensure that safety requirements are fulfilled.\"\nWork | mustAdhereTo | national or regional work safety regulations | | \"Adhere to national or regional work safety regulations.\"\nSafety function settings | mustBeTestedAndValidated | after maintenance work | | \"The correct functioning of all safety function settings shall also be tested and validated.\"\nStopping performance | shouldBeTestedPeriodically | to determine whether it is degraded | | \"Test periodically to determine if stopping performance is degraded.\"\nIncreased stopping times | canRequire | safeguarding modification, possibly with installation changes | | \"Increased stopping times can require safeguarding to be modified, possibly with changes to the installation.\"\nStopping performance | needNotBeMonitoredOrTested | when stop time and/or stop distance safety functions are the basis of the risk reduction strategy | | \"If stop time and/or stop distance safety functions are used and are the basis of the risk reduction strategy, no monitoring or testing of stopping performance is required.\"\nRobot | performsContinuousMonitoring | of stopping performance | | \"The robot does continuous monitoring.\"\nRobot arm | canBeCleaned | as part of regular maintenance | in accordance with the manual's recommendations and local requirements | \"As part of regular maintenance the robot arm can be cleaned, in accordance with the recommendations in this manual and local requirements.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1472,
+   "prompt_tokens": 709,
+   "total_tokens": 2181,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 804,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008069,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008069,
+   "gateway_cost": 0.0008069
+  }
+ }
+}

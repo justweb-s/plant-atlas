@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 208\n\n18. Maintenance and Repair Inspection 1. Unmount any tool/s or attachment/s or set the TCP/Payload/CoG according to tool specifications. 2. To move the robot arm in Freedrive: • On a 3PE Teach Pendant, rapidly light-press, release, light-press again and keep holding the 3PE button in this position. Power button 3PE button 3. Pull/Push the robot to a horizontally elongated position and release. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. 4. Verify the robot arm can maintain the position without support and without activating Freedrive. 18.3. Cleaning TP and CB Cleaning the Use a mild, industrial cleaning agent without thinning agents or any aggressive additives. Teach Do not use an abrasive material to wipe down the screen. Universal Robots does not Pendant promote a specific cleaning agent. Touch Screen Cleaning the Wipe down the Control box with a damp cloth, if necessary. Control Box Use the cleaning recommendation listed in the user manual. UR5e 211 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Tool or attachment | mustBeUnmounted or TCP/Payload/CoG set | according to tool specifications | before moving the arm in Freedrive | Unmount any tool/s or attachment/s or set the TCP/Payload/CoG according to tool specifications.\nFreedrive mode | isActivatedBy | rapidly light-pressing, releasing, light-pressing again and holding the 3PE button | on a 3PE Teach Pendant | On a 3PE Teach Pendant, rapidly light-press, release, light-press again and keep holding the 3PE button in this position.\nRobot arm | ispositionedBy | pulling or pushing it to a horizontally elongated position and releasing | while in Freedrive | Pull/Push the robot to a horizontally elongated position and release.\nRobot arm | shouldMaintain | its position without support | after release, with Freedrive not activated | Verify the robot arm can maintain the position without support and without activating Freedrive.\nCleaning agent for the Teach Pendant | mustBe | a mild, industrial cleaning agent without thinning agents or aggressive additives | \"\" | Use a mild, industrial cleaning agent without thinning agents or any aggressive additives.\nTeach Pendant screen | mustNotBeWipedWith | an abrasive material | \"\" | Do not use an abrasive material to wipe down the screen.\nUniversal Robots | doesNotPromote | a specific cleaning agent | \"\" | Universal Robots does not promote a specific cleaning agent.\nControl box | canBeWipedWith | a damp cloth | if necessary | Wipe down the Control box with a damp cloth, if necessary.\nControl box cleaning | shouldFollow | the cleaning recommendation listed in the user manual | \"\" | Use the cleaning recommendation listed in the user manual.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1176,
+   "prompt_tokens": 578,
+   "total_tokens": 1754,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 567,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006458,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006458,
+   "gateway_cost": 0.0006458
+  }
+ }
+}

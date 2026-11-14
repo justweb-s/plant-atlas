@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 19\n\nPRODUCT DESCRIPTION 4 The advantage of this type of protective device is that it is possible to have a short minimum distance and the operator can work more ergonomically. Figure 7: Hazardous point protection: Hand detection Access protection In access protection, people are detected if their whole body passes through the pro- tective field. This type of protective device is used for the protection of access to hazardous areas. A stop signal is initiated if the hazardous area is entered. A person standing behind the protective device will not be detected by the ESPE. Figure 8: Access protection: detection of a person when accessing a hazardous area 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 19 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "access protection | detects | people whose whole body passes through the protective field | | In access protection, people are detected if their whole body passes through the protective field.\naccess protection | is used for | protection of access to hazardous areas | | This type of protective device is used for the protection of access to hazardous areas.\nESPE | initiates | stop signal | hazardous area is entered | A stop signal is initiated if the hazardous area is entered.\nESPE | does not detect | person standing behind the protective device | | A person standing behind the protective device will not be detected by the ESPE.\nhand detection protection | offers advantage | short minimum distance and more ergonomic operator work | | The advantage of this type of protective device is that it is possible to have a short minimum distance and the operator can work more ergonomically.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 556,
+   "prompt_tokens": 459,
+   "total_tokens": 1015,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 307,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003239,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003239,
+   "gateway_cost": 0.0003239
+  }
+ }
+}

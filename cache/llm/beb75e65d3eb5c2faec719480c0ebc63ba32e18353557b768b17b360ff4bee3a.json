@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 118\n\nRecovery When a safety limit is exceeded, the safety system must be restarted. For example, if a joint position limit is outside a safety limit, at start-up, Recovery is activated. You cannot run programs for the robot when recovery is activated, but the robot arm can be manually moved back within limits using Freedrive, or by using the Move tab in PolyScope. The safety limits for Recovery are: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears. WARNING Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Failure to use caution when moving the robot arm in recovery mode can lead to hazardous situations. • Use caution when moving the robot arm back within the limits, as limits for the joint positions, the safety planes, and the tool/end effector orientation are all disabled in recovery mode. UR5e 121 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "safety system | mustBeRestarted | safety system restart | when a safety limit is exceeded | When a safety limit is exceeded, the safety system must be restarted.\nRecovery | activatesAt | start-up | if a joint position limit is outside a safety limit | if a joint position limit is outside a safety limit, at start-up, Recovery is activated.\nrobot | cannotRunPrograms | programs | when recovery is activated | You cannot run programs for the robot when recovery is activated\nrobot arm | canBeMovedBackWithinLimits | Freedrive or Move tab in PolyScope | in recovery mode | the robot arm can be manually moved back within limits using Freedrive, or by using the Move tab in PolyScope.\nJoint Speed Limit | equals | 30 °/s | Recovery | Joint Speed Limit 30 °/s\nSpeed Limit | equals | 250 mm/s | Recovery | Speed Limit 250 mm/s\nForce Limit | equals | 100 N | Recovery | Force Limit 100 N\nMomentum Limit | equals | 10 kg m/s | Recovery | Momentum Limit 10 kg m/s\nPower Limit | equals | 80 W | Recovery | Power Limit 80 W\nsafety system | issuesStop | Stop Category 0 | if a violation of these limits appears | The safety system issues a Stop Category 0 if a violation of these limits appears.\nlimits for joint positions, safety planes, and tool/end effector orientation | areDisabled | recovery mode | \"\" | limits for the joint positions, the safety planes, and the tool/end effector orientation are all disabled in recovery mode.\noperator | mustUseCaution | moving robot arm in recovery mode | \"\" | Failure to use caution when moving the robot arm in recovery mode can lead to hazardous situations.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1291,
+   "prompt_tokens": 562,
+   "total_tokens": 1853,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 678,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007017,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007017,
+   "gateway_cost": 0.0007017
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 8\n\n1 ABOUT THIS DOCUMENT 1 About this document 1.1 Scope Product This document applies to the following products: O Product code: nanoScan3 I/O O “Operating instructions” type label entry: 8024594 Document identification Document part number: O This document: 8024596 O Available language versions of this document: 8024594 You can find the current version of all documents at www.sick.com. 1.2 Target groups of these operating instructions Some sections of these operating instructions are intended for certain target groups. However, the entire operating instructions are relevant for intended use of the product. Table 1: Target groups and selected sections of these operating instructions Target group Sections of these operating instructions Project developers (planners, developers, \"Project planning\", page 21 designers) \"Configuration\", page 61 \"Technical data\", page 128 \"Accessories\", page 143 Installers \"Mounting\", page 54 Electricians \"Electrical installation\", page 56 Safety experts (such as CE authorized repre- \"Project planning\", page 21 sentatives, compliance officers, people who \"Configuration\", page 61 test and approve the application) \"Commissioning\", page 104 \"Technical data\", page 128 \"Checklist for initial commissioning and com- missioning\", page 149 Operators \"Operation\", page 106 \"Troubleshooting\", page 118 Maintenance personnel \"Maintenance\", page 111 \"Troubleshooting\", page 118 1.3 Further information www.sick.com The following information is available via the Internet: O Data sheets and application examples O CAD files and dimensional drawings O Certificates (such as the EU declaration of conformity) O Guide for Safe Machinery. Six steps to a safe machine O Safety Designer (software for configuring safety solutions made by SICK AG) 8 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "nanoScan3 I/O | hasProductCode | nanoScan3 I/O | | \"Product code: nanoScan3 I/O\"\nProject developers (planners, developers, designers) | shouldReadSections | \"Project planning\", page 21; \"Configuration\", page 61; \"Technical data\", page 128; \"Accessories\", page 143 | | \"Some sections of these operating instructions are intended for certain target groups.\"\nInstallers | shouldReadSection | \"Mounting\", page 54 | | \"Installers \"Mounting\", page 54\"\nElectricians | shouldReadSection | \"Electrical installation\", page 56 | | \"Electricians \"Electrical installation\", page 56\"\nSafety experts (such as CE authorized representatives, compliance officers, people who test and approve the application) | shouldReadSections | \"Project planning\", page 21; \"Configuration\", page 61; \"Commissioning\", page 104; \"Technical data\", page 128; \"Checklist for initial commissioning and commissioning\", page 149 | | \"Safety experts (such as CE authorized representatives, compliance officers, people who test and approve the application)\"\nOperators | shouldReadSections | \"Operation\", page 106; \"Troubleshooting\", page 118 | | \"Operators \"Operation\", page 106 \"Troubleshooting\", page 118\"\nMaintenance personnel | shouldReadSections | \"Maintenance\", page 111; \"Troubleshooting\", page 118 | | \"Maintenance personnel \"Maintenance\", page 111 \"Troubleshooting\", page 118\"\nentire operating instructions | areRelevantFor | intended use of the product | | \"However, the entire operating instructions are relevant for intended use of the product.\"\ncurrent version of all documents | isAvailableAt | www.sick.com | | \"You can find the current version of all documents at www.sick.com.\"\nData sheets, application examples, CAD files, dimensional drawings, certificates (such as the EU declaration of conformity) | isAvailableVia | the Internet (www.sick.com) | | \"The following information is available via the Internet\"\nSafety Designer | isSoftwareFor | configuring safety solutions made by SICK AG | | \"Safety Designer (software for configuring safety solutions made by SICK AG)\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1312,
+   "prompt_tokens": 839,
+   "total_tokens": 2151,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 583,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007399,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007399,
+   "gateway_cost": 0.0007399
+  }
+ }
+}

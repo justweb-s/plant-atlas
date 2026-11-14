@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 50\n\n5 PROJECT PLANNING 5.6.1 Planning the thorough check during commissioning and in certain situations Minimum requirements The protective device and its application must be thoroughly checked in the follow- ing situations: O Before commissioning O After changes to the configuration or the safety function O After changes to the mounting, the alignment, or the electrical connection O After exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components The thorough check ensures the following: O All relevant regulations are complied with and the protective device is active for all of the machine’s operating modes. This includes the following points: o compliance with standards o correct use of the protective device o suitable configuration and safety function o correct alignment O The documentation accurately reflects the state/condition of the machine, includ- ing the protective device. O The verified configuration report matches the desired project planning (see \"Verify configuration\", page 96). The thorough checks must be carried out by qualified safety personnel or specially qualified and authorized personnel, and must be documented in a traceable manner. Recommended thorough checks In many cases, it makes sense to carry out the following thorough checks during commissioning and in certain situations: O Test of the relevant points on the checklist, see \"Checklist for initial commissioning and commissioning\", page 149 O \"Visual check of the machine and the protective device\", page 53 O \"Thorough check of the principal function of the protective device\", page 51 O \"Thorough check of the area to be protected\", page 52 O \"Test of the contour detection field\", page 52 O Instruction of the operators in the function of the protective device 5.6.2 Planning the regular thorough check Overview The purpose of regular tests is to detect defects due to changes or external influences (e.g. damage or manipulation) and to ensure that the protective measure provides the necessary protection. Important information WARNING Hazard due to lack of effectiveness of the protective device Persons and parts of the body to be protected may not be recognized in case of non-observance. → Carry out tests at least once a year. → Assign competent persons to carry out the tests or persons specifically authorized for this purpose. → Document tests in a traceable manner. 50 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "protective device and its application | mustBeThoroughlyChecked | before commissioning | | \"Before commissioning\"\nprotective device and its application | mustBeThoroughlyChecked | after changes to the configuration or the safety function | | \"After changes to the configuration or the safety function\"\nprotective device and its application | mustBeThoroughlyChecked | after changes to the mounting, the alignment, or the electrical connection | | \"After changes to the mounting, the alignment, or the electrical connection\"\nprotective device and its application | mustBeThoroughlyChecked | after exceptional events | | \"After exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components\"\nprotective device | isActiveFor | all of the machine's operating modes | | \"the protective device is active for all of the machine's operating modes\"\nthorough checks | mustBeCarriedOutBy | qualified safety personnel or specially qualified and authorized personnel | | \"must be carried out by qualified safety personnel or specially qualified and authorized personnel\"\nthorough checks | mustBeDocumented | in a traceable manner | | \"must be documented in a traceable manner\"\ndocumentation | accuratelyReflects | state/condition of the machine, including the protective device | | \"The documentation accurately reflects the state/condition of the machine, including the protective device.\"\nverified configuration report | matches | desired project planning | | \"The verified configuration report matches the desired project planning\"\nregular tests | mustBeCarriedOut | at least once a year | | \"Carry out tests at least once a year.\"\nregular tests | mustBeCarriedOutBy | competent persons or persons specifically authorized for this purpose | | \"Assign competent persons to carry out the tests or persons specifically authorized for this purpose.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1476,
+   "prompt_tokens": 962,
+   "total_tokens": 2438,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 902,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008342,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008342,
+   "gateway_cost": 0.0008342
+  }
+ }
+}

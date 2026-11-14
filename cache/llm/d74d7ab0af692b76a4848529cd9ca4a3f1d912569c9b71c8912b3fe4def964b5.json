@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: igea-equipment, p. 5\n\n4. manuale di installazione, uso e manutenzione (solo apparecchi a marchio CE); 5. se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui; 4. IMPEGNI AGGIUDICATARIO / VERIFICATORE L’aggiudicatario si impegna a:  rispettare quanto contenuto nella presente Scheda Tecnica;  rispettare le disposizioni in materia di salute e sicurezza contenute nel Decreto Legislativo 81/08;  rispettare le disposizioni del D.lgs. 81/08 e nel D.M. 11 aprile 2011 riguardo la disciplina delle modalità di effettuazione delle verifiche periodiche di cui all’All. VII del decreto legislativo 9 aprile 2008 n° 81;  Effettuare le verifiche periodiche richieste entro le scadenze;  Pianificare i controlli, congiuntamente agli incaricati IGEA, dei diversi apparecchi dando comunicazione a IGEA con un preavviso di almeno 15 giorni – tempo necessario per la programmazione relativa ai punti 4.1 – 4.2 (impegni Appaltatore);  Rilasciare il verbale di verifica;  Comunicare il nominativo del verificatore incaricato; . 5"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "aggiudicatario | must respect | contents of this Scheda Tecnica | | rispettare quanto contenuto nella presente Scheda Tecnica\naggiudicatario | must respect | health and safety provisions of Decreto Legislativo 81/08 | | rispettare le disposizioni in materia di salute e sicurezza contenute nel Decreto Legislativo 81/08\nverifiche periodiche | must follow | D.lgs. 81/08 and D.M. 11 aprile 2011 procedures in All. VII | | rispettare le disposizioni del D.lgs. 81/08 e nel D.M. 11 aprile 2011 riguardo la disciplina delle modalità di effettuazione delle verifiche periodiche di cui all’All. VII\naggiudicatario | must perform | periodic verifications by required deadlines | | Effettuare le verifiche periodiche richieste entro le scadenze\naggiudicatario | must plan | controls jointly with IGEA appointees | | Pianificare i controlli, congiuntamente agli incaricati IGEA\naggiudicatario | must give notice to IGEA | at least 15 days in advance | | dando comunicazione a IGEA con un preavviso di almeno 15 giorni\naggiudicatario | must issue | verification report | | Rilasciare il verbale di verifica\naggiudicatario | must communicate | name of appointed verifier | | Comunicare il nominativo del verificatore incaricato\napparecchi | must have | installation, use and maintenance manual | only for CE-marked appliances | manuale di installazione, uso e manutenzione (solo apparecchi a marchio CE)\napparecchi | must have | structural verification certification of residual life cycles | if older than 20 years | se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1370,
+   "prompt_tokens": 665,
+   "total_tokens": 2035,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 743,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007515,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007515,
+   "gateway_cost": 0.0007515
+  }
+ }
+}

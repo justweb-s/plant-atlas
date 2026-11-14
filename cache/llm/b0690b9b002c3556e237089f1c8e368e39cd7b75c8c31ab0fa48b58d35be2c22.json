@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 8\n\n7.4. Starting the Robot Arm 59 7.5. Verifiying the Robot Arm Mount 61 7.6. Adjusting the Robot Arm Mount 61 7.7. Freedrive 63 7.7.1. Freedrive Panel 65 7.8. Power Down The Robot 66 8. Installation 67 8.1. Electrical Warnings and Cautions 67 8.2. Control Box Connection Ports 69 8.3. Ethernet 70 8.4. 3PE Teach Pendant Installation 71 8.4.1. Hardware Installation 71 8.5. Controller I/O 73 Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. 8.5.1. Digital Input and Output 75 8.5.2. I/O Interface Control 77 8.5.3. Using the I/O Tab 78 8.5.4. Drive Power Indicator 80 8.6. Safety I/O 81 8.6.1. Safety I/O Signals 84 8.6.2. I/O Setup 88 8.6.3. Using I/O for Mode Selection 91 8.6.4. Three Position Enabling Device 92 8.7. General Purpose Digital I/O 93 8.7.1. Remote ON/OFF control 94 8.8. General Purpose Analog I/O 95 8.8.1. Analog Input: Communication Interface 96 9. End Effector Integration 97 9.1. Maximum Payload 97 9.2. Securing Tool 99 9.3. Tool I/O 100 9.3.1. Tool I/O Installation Specifications 102 9.3.2. Tool Power Supply 103 9.3.3. Tool Digital Inputs 103 9.3.4. Tool Digital Outputs 105 9.3.5. Tool Analogue Inputs 106 9.4. Set Payload 107 9.4.1. Payload 109 10. Configuration 112 10.1. Quick System Start-up 112 UR10e User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "UR10e User Manual | documentsSection | 9.1 Maximum Payload, page 97 | | 9.1. Maximum Payload 97\nUR10e User Manual | documentsSection | 8.6.4 Three Position Enabling Device, page 92 | | 8.6.4. Three Position Enabling Device 92\nUR10e User Manual | documentsSection | 8.6 Safety I/O, page 81 | | 8.6. Safety I/O 81\nUR10e User Manual | documentsSection | 7.7 Freedrive, page 63 | | 7.7. Freedrive 63\nUR10e User Manual | documentsSection | 9.4 Set Payload, page 107 | | 9.4. Set Payload 107\nUR10e User Manual | documentsSection | 8.1 Electrical Warnings and Cautions, page 67 | | 8.1. Electrical Warnings and Cautions 67\nUR10e User Manual | documentsSection | 9.3.2 Tool Power Supply, page 103 | | 9.3.2. Tool Power Supply 103\nUR10e User Manual | copyrightHolder | Universal Robots A/S | | Copyright © 2009–2025 by Universal Robots A/S. All rights reserved.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1053,
+   "prompt_tokens": 885,
+   "total_tokens": 1938,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 632,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000615,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000615,
+   "gateway_cost": 0.000615
+  }
+ }
+}

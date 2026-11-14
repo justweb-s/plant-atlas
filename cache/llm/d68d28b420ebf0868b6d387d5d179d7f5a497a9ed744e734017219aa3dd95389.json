@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 10\n\nMA STAR model 5.5 6.5 Rated load capacity [kg] 5500 6500 Overall height HG [mm] 5193 5193 Overall width BG [mm] 4000 4100 4250 4192 5193 Clear height HL [mm] 5146 5146 Full travel HW [mm] 2000 1950 Lifting height max. HO [mm] 2115 2065 Lower swivel height HU [mm] 120 144 Adjustment range support plate HAT [mm] 85…115 85…115 Extension range support arm short LT [mm] --- --- Swivel range support arm short [°] --- --- Extension range support arm long [mm] --- --- Swivel range support arm long [°] 100 100 Support range [mm] 965…1845 1037…1987 Inside columns BL [mm] 2849 2949 3099 2973 3127 Outside columns BA [mm] 3479 3579 3729 3603 3753 Outside base plates [mm] 3689 3789 3939 4043 4193 Inside base plates BGi [mm] 2729 2829 2979 2813 2963 Drive-through width BH [mm] 2530 2630 2780 2630 2780 Operating temperature [°C] +5...+40 Net weight of both columns 1320 / 1525 1520 / 1780 without / with packaging [kg] Adhesive mortar for anchor rod HILTI HIT HY 200-A Anchor rod HAS U 5.8 M16 HAS U 5.8 M20 Required minimum concrete quality C20/25 (DIN EN 1992) Drive power [kW] 2x 4.0 Duty cycle S3-20% Lifting/lowering time [s] 40 44 Packaging dimensions (L x W x H) [mm] 2 packages each 3185 x 760 x 960 2 packages each 3185 x 800 x 1100 MA STAR model Power supply On-site back-up fuse RCD 3x 400 V/50 Hz + N + PE C16A 3x 230 V/50 Hz + N + PE C25A 3.5 A/S 3x 400 V/60 Hz + N + PE C16A 30 mA 3x 230 V/60 Hz + N + PE C25A 5.5 / 6.5 3x 400 V/50 Hz + N + PE C32A 10 BA364501-en"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "MA STAR 5.5 | hasRatedLoadCapacity | 5500 kg | | \"MA STAR model 5.5 6.5 Rated load capacity [kg] 5500 6500\"\nMA STAR 6.5 | hasRatedLoadCapacity | 6500 kg | | \"MA STAR model 5.5 6.5 Rated load capacity [kg] 5500 6500\"\nMA STAR | hasOverallHeight | 5193 mm | | \"Overall height HG [mm] 5193 5193\"\nMA STAR | hasClearHeight | 5146 mm | | \"Clear height HL [mm] 5146 5146\"\nMA STAR | operatesAtTemperature | +5 to +40 °C | | \"Operating temperature [°C] +5...+40\"\nfloor concrete | mustBeAtLeastQuality | C20/25 (DIN EN 1992) | | \"Required minimum concrete quality C20/25 (DIN EN 1992)\"\nanchor rods | areSetWith | HILTI HIT HY 200-A adhesive mortar | | \"Adhesive mortar for anchor rod HILTI HIT HY 200-A\"\nMA STAR | hasDrivePower | 2 x 4.0 kW | | \"Drive power [kW] 2x 4.0\"\nMA STAR | hasDutyCycle | S3-20% | | \"Duty cycle S3-20%\"\nMA STAR | hasLiftingLoweringTime | 40 s (5.5) / 44 s (6.5) | | \"Lifting/lowering time [s] 40 44\"\nMA STAR 5.5 / 6.5 | requiresPowerSupply | 3x 400 V/50 Hz + N + PE with on-site back-up fuse C32A | | \"5.5 / 6.5 3x 400 V/50 Hz + N + PE C32A\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2117,
+   "prompt_tokens": 991,
+   "total_tokens": 3108,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1493,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0011576,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0011576,
+   "gateway_cost": 0.0011576
+  }
+ }
+}

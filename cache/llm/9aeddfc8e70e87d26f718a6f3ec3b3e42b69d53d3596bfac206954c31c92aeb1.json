@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 35\n\nPROJECT PLANNING 5 S Figure 21: Stationary application in vertical operation for access protection Important information DANGER Hazard due to lack of effectiveness of the protective device If there is a retroreflector in the protective field level (distance of the retroreflector from protective field ≤ 6 m), it may not be possible detect people and parts of the body that are to be protected, or it may not be possible to detect them on time. → Avoid retroreflectors in the protective field level if possible. → With retroreflectors at the protective field level: Increase overrun of the protective field over the opening to be protected by supplement ZR = 350 mm. 5.3.9.1 Protective field In access protection, the minimum distance typically defines the position at which the safety laser scanner is mounted. The protective field must cover a minimum area so that the safety laser scanner reliably detects a moving person: O The lower edge of the protective field must not be more than 300 mm above the floor/ground according to ISO 13855:2010. O Resolution < 150 mm: The top edge of the protective field must be at least 900 mm above the floor/ground according to ISO 13855:2010. O Resolution 150 mm: The top edge of the protective field must be at least 1,100 mm above the floor/ground. O Resolution 200 mm: The top edge of the protective field must be at least 1,400 mm above the floor/ground. The multiple sampling must be 2 or 3. Otherwise, a person could possibly walk unde- tected through the protective field. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 35 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Hazard due to retroreflectors in the protective field | may prevent detection of people and body parts | retroreflector distance from protective field ≤ 6 m | it may not be possible detect people and parts of the body that are to be protected\nRetroreflectors in the protective field level | should be avoided | if possible | Avoid retroreflectors in the protective field level if possible.\nProtective field overrun over opening (with retroreflectors at protective field level) | must be increased by supplement ZR = 350 mm | with retroreflectors at the protective field level | Increase overrun of the protective field over the opening to be protected by supplement ZR = 350 mm.\nLower edge of protective field | must not be more than 300 mm above floor/ground | according to ISO 13855:2010 | The lower edge of the protective field must not be more than 300 mm above the floor/ground according to ISO 13855:2010.\nTop edge of protective field (resolution < 150 mm) | must be at least 900 mm above floor/ground | according to ISO 13855:2010 | Resolution < 150 mm: The top edge of the protective field must be at least 900 mm above the floor/ground according to ISO 13855:2010.\nTop edge of protective field (resolution 150 mm) | must be at least 1,100 mm above floor/ground | resolution 150 mm | Resolution 150 mm: The top edge of the protective field must be at least 1,100 mm above the floor/ground.\nTop edge of protective field (resolution 200 mm) | must be at least 1,400 mm above floor/ground | resolution 200 mm | Resolution 200 mm: The top edge of the protective field must be at least 1,400 mm above the floor/ground.\nMultiple sampling | must be 2 or 3 | \"\" | The multiple sampling must be 2 or 3.\nProtective field | must cover a minimum area so the scanner reliably detects a moving person | \"\" | The protective field must cover a minimum area so that the safety laser scanner reliably detects a moving person\nMinimum distance in access protection | typically defines the mounting position of the safety laser scanner | in access protection | In access protection, the minimum distance typically defines the position at which the safety laser scanner is mounted.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1360,
+   "prompt_tokens": 753,
+   "total_tokens": 2113,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 633,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007553,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007553,
+   "gateway_cost": 0.0007553
+  }
+ }
+}

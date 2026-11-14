@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 150\n\n19 ANNEX Does the protective device correspond to the required PL/SIL and PFH in accord- Yes ⃞ No ⃞ ance with ISO 13849-1/IEC 62061 and the required type in accordance with IEC 61496-1? Is access to the hazardous area or hazardous point only possible through the Yes ⃞ No ⃞ protective field of the ESPE? Have appropriate measures been taken to protect (mechanical protection) or Yes ⃞ No ⃞ monitor (protective devices) any persons or objects in the hazardous area when protecting a hazardous area or hazardous point, and have these devices been secured or locked to prevent their removal? Are additional mechanical protective measures fitted and secured against Yes ⃞ No ⃞ manipulation which prevent reaching below, above or around the ESPE? Has the maximum shutdown and/or stopping time of the machine been meas- Yes ⃞ No ⃞ ured, specified and documented (at the machine and/or in the machine docu- mentation)? Has the ESPE been mounted such that the required separation distance from the Yes ⃞ No ⃞ nearest hazardous point has been achieved? Are the ESPE devices properly mounted and secured against manipulation after Yes ⃞ No ⃞ alignment? Are the required protective measures against electric shock in effect (protection Yes ⃞ No ⃞ class)? Is the control switch for resetting the protective devices (ESPE) or restarting the Yes ⃞ No ⃞ machine present and correctly installed? Are the outputs of the ESPE (OSSDs or safety outputs via the network) integrated Yes ⃞ No ⃞ according to the required PL/SIL in accordance with ISO 13849-1 / IEC 62061 and does the integration correspond to the circuit diagrams? Has the protective function been checked in compliance with the test notes of Yes ⃞ No ⃞ this documentation? Are the specified protective functions effective at every operating mode that can Yes ⃞ No ⃞ be set? Are the switching elements activated by the ESPE, e.g. contactors, valves, moni- Yes ⃞ No ⃞ tored? Is the ESPE effective over the entire period of the dangerous state? Yes ⃞ No ⃞ Once initiated, will a dangerous state be stopped when switching the ESPE on Yes ⃞ No ⃞ or off and when changing the operating mode, or when switching to another protective device? 150 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "protective device | corresponds to | required PL/SIL and PFH | in accordance with ISO 13849-1/IEC 62061 and required type in accordance with IEC 61496-1 | Does the protective device correspond to the required PL/SIL and PFH in accordance with ISO 13849-1/IEC 62061 and the required type in accordance with IEC 61496-1?\naccess to hazardous area or hazardous point | only possible through | protective field of the ESPE | | Is access to the hazardous area or hazardous point only possible through the protective field of the ESPE?\npersons or objects in hazardous area | protected by | mechanical protection or monitoring by protective devices | when protecting a hazardous area or hazardous point | Have appropriate measures been taken to protect (mechanical protection) or monitor (protective devices) any persons or objects in the hazardous area\nprotective devices for persons or objects | secured or locked | to prevent their removal | | have these devices been secured or locked to prevent their removal?\nadditional mechanical protective measures | secured against | manipulation preventing reaching below, above or around the ESPE | | Are additional mechanical protective measures fitted and secured against manipulation which prevent reaching below, above or around the ESPE?\nmaximum shutdown and/or stopping time of machine | measured, specified and documented | at the machine and/or in the machine documentation | | Has the maximum shutdown and/or stopping time of the machine been measured, specified and documented (at the machine and/or in the machine documentation)?\nESPE | mounted with | required separation distance from nearest hazardous point | | Has the ESPE been mounted such that the required separation distance from the nearest hazardous point has been achieved?\nESPE devices | properly mounted and secured against manipulation | after alignment | | Are the ESPE devices properly mounted and secured against manipulation after alignment?\nprotective measures against electric shock | in effect | protection class | | Are the required protective measures against electric shock in effect (protection class)?\ncontrol switch for resetting protective devices or restarting machine | present and correctly installed | | | Is the control switch for resetting the protective devices (ESPE) or restarting the machine present and correctly installed?\nESPE outputs (OSSDs or safety outputs via network) | integrated according to | required PL/SIL in accordance with ISO 13849-1 / IEC 62061 and circuit diagrams | | Are the outputs of the ESPE (OSSDs or safety outputs via the network) integrated according to the required PL/SIL in accordance with ISO 13849-1 / IEC 62061 and does the integration correspond to the circuit diagrams?\nspecified protective functions | effective | at every operating mode that can be set | | Are the specified protective functions effective at every operating mode that can be set?",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1623,
+   "prompt_tokens": 1100,
+   "total_tokens": 2723,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 707,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009215,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009215,
+   "gateway_cost": 0.0009215
+  }
+ }
+}

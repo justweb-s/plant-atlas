@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 7\n\ncepted rules of technology to be able to assess the safe working condition of the lift to be tested. • Qualified persons shall not only consider the current condition of the lift during the inspection. They must also be able to estimate how the lift and its structural parts will behave under operational conditions in the sequence and how wear, aging and the like will affect the safety of the lift. 1.7 Intended Use • This lift is exclusively intended for the safe lifting and lowering of passenger cars and commercial vehicles within the scope of service and repair work. • In compliance with the load distribution regulations of DIN EN 1493, the permitted load capacity on the identification plate must not be exceeded. • Only vehicles which are suitable for the lifting equipment due to their shape and the positioning of their lifting points may be lifted. • The lift is designed for a maximum of 6 lifting cycles with nominal load per hour. • The lift must only be operated in the temperature range 5 to 40 °C at a max- imum humidity of 50% (at 40 °C). • The lift must be protected from direct weather conditions at all times. • The lift must only be operated on level and sufficiently load-bearing ground (see the foundation specifications!). • The lift must not be modified without express written permission from the manufacturer. Non-compliance invalidates the declaration of conformity. 1.8 Inappropriate Use • The lifting of other vehicles and loads is not permitted. • Carrying of passengers is not permitted. • Lifting the load with an additional hoist is prohibited. • The lift must not be operated in potentially explosive and flammable opera- tion rooms or in damp rooms (e.g. washing facilities). BA364501-en 7"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "This lift | exclusivelyIntendedFor | lifting and lowering of passenger cars and commercial vehicles within service and repair work | | This lift is exclusively intended for the safe lifting and lowering of passenger cars and commercial vehicles within the scope of service and repair work.\nlift | loadCapacityMustNotBeExceeded | permitted load capacity on identification plate | in compliance with load distribution regulations of DIN EN 1493 | In compliance with the load distribution regulations of DIN EN 1493, the permitted load capacity on the identification plate must not be exceeded.\nvehicle | mayBeLifted | only vehicles suitable for the lifting equipment due to shape and positioning of lifting points | | Only vehicles which are suitable for the lifting equipment due to their shape and the positioning of their lifting points may be lifted.\nlift | designedForMaxCycles | 6 lifting cycles per hour with nominal load | | The lift is designed for a maximum of 6 lifting cycles with nominal load per hour.\nlift | operatingTemperatureRange | 5 to 40 °C | maximum humidity of 50% at 40 °C | The lift must only be operated in the temperature range 5 to 40 °C at a maximum humidity of 50% (at 40 °C).\nlift | mustBeProtectedFrom | direct weather conditions at all times | | The lift must be protected from direct weather conditions at all times.\nlift | operatedOnlyOn | level and sufficiently load-bearing ground | | The lift must only be operated on level and sufficiently load-bearing ground (see the foundation specifications!).\nlift | modifiedOnlyWith | express written permission from the manufacturer | | The lift must not be modified without express written permission from the manufacturer.\nmodification without express written permission | invalidates | declaration of conformity | | Non-compliance invalidates the declaration of conformity.\ncarrying of passengers | notPermitted | passengers on the lift | | Carrying of passengers is not permitted.\nlifting of other vehicles and loads | notPermitted | other vehicles and loads | | The lifting of other vehicles and loads is not permitted.\nlift | mustNotBeOperatedIn | potentially explosive and flammable operation rooms or damp rooms | | The lift must not be operated in potentially explosive and flammable operation rooms or in damp rooms (e.g. washing facilities).",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2178,
+   "prompt_tokens": 753,
+   "total_tokens": 2931,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1377,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0011643,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0011643,
+   "gateway_cost": 0.0011643
+  }
+ }
+}

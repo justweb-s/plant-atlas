@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 15\n\n3. Your Robot 3. Your Robot 3.1. Technical Specifications UR10e General Maximum payload 10 kg / 22 lb or 12.5 kg / 27.5 lb specification Reach 1300 mm / 51.2 in Degrees of freedom 6 rotating joints PolyScope 5 GUI on 12\" touchscreen Programming or PolyScope X GUI on 12\" touchscreen 615 W Power consumption (average) Approx. 350 W using a typical program 0-50 °C. At ambient temperatures above 35°C, the Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Ambient temperature range robot may operate at reduced speed and performance. 21 configurable safety functions. PLd Category 3 in Safety functions accordance with: EN ISO 13849-1. Performance Force Torque sensor accuracy 5.5 N Movement Base and Shoulder joints: Max 120 °/s. All other joints: Max 180 °/s . Speed Maximum TCP speed: Approx. 4 m/s / Approx. 157.5 in/s. Pose repeatability ± 0.05 mm / ± 0.0019 in (1.9 mils)per ISO 9283 Joint ranges ± 360 ° for all joints except Elbow ± 160 ° Features IP classification IP54 Robot Arm: Less than 60 dB(A) Noise Control Box: Less than 50 dB(A) Tool I/O ports 2 digital in, 2 digital out, 2 analog in Tool I/O power supply & voltage 2 A (Dual pin) 1 A (Single pin) & 12 V/24 V Physical Footprint Ø190 mm / 7.5 in Materials Aluminium, PC/ASA plastic Robot arm weight 33.3 kg / 73.5 lb User Manual 18 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "UR10e | maximum payload | 10 kg / 22 lb or 12.5 kg / 27.5 lb | | Maximum payload 10 kg / 22 lb or 12.5 kg / 27.5 lb\nUR10e | reach | 1300 mm / 51.2 in | | Reach 1300 mm / 51.2 in\nUR10e | ambient operating temperature range | 0-50 °C | | Ambient temperature range 0-50 °C\nUR10e | operating speed and performance | reduced | ambient temperature above 35°C | At ambient temperatures above 35°C, the robot may operate at reduced speed and performance.\nUR10e | configurable safety functions | 21 | | 21 configurable safety functions.\nUR10e | safety function performance level | PLd Category 3 per EN ISO 13849-1 | | PLd Category 3 in accordance with: EN ISO 13849-1.\nBase and Shoulder joints | maximum joint speed | 120 °/s | | Base and Shoulder joints: Max 120 °/s.\nAll other joints | maximum joint speed | 180 °/s | | All other joints: Max 180 °/s.\nUR10e | maximum TCP speed | approx. 4 m/s | | Maximum TCP speed: Approx. 4 m/s / Approx. 157.5 in/s.\nUR10e | pose repeatability | ±0.05 mm per ISO 9283 | | Pose repeatability ± 0.05 mm / ± 0.0019 in (1.9 mils)per ISO 9283\nUR10e | joint ranges | ±360° for all joints except Elbow ±160° | | Joint ranges ± 360 ° for all joints except Elbow ± 160 °\nUR10e | IP classification | IP54 | | IP classification IP54",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1472,
+   "prompt_tokens": 844,
+   "total_tokens": 2316,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 868,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008204,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008204,
+   "gateway_cost": 0.0008204
+  }
+ }
+}

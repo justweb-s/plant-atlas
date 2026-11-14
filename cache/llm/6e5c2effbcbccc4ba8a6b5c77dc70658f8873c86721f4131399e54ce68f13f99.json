@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 134\n\n14 TECHNICAL DATA Response time The safety laser scanner’s response time depends on the set multiple sampling. You can calculate the response time using the following formula: tR = n × 30 ms +10 ms The following rules apply: O tR = response time O n = set multiple sampling (default: n = 2) 14.4 Course of the OSSD test over time The safety laser scanner tests the OSSDs at regular intervals. To do this, the safety laser scanner switches each OSSD briefly to the OFF state and checks whether this channel is voltage-free during this time. Make sure that the machine’s control does not react to these test pulses and the machine does not switch off. tS tS tS tS tS tS tS tS tS V OSSD 1.A t V OSSD 1.B t V OSSD 2.A t V OSSD 2.B t Figure 55: Switch-off tests tS Scan cycle time tS = 30 ms 4 × tS ≤ 300 µs ≤ 300 µs V OSSD 1.A t V OSSD 1.B t Figure 56: Duration and time offset for the switch-off tests in an OSSD pair 134 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "safety laser scanner | responseTimeDependsOn | set multiple sampling | | The safety laser scanner's response time depends on the set multiple sampling.\nresponse time tR | calculatedBy | n × 30 ms + 10 ms | | tR = n × 30 ms +10 ms\nmultiple sampling n | defaultValue | 2 | | n = set multiple sampling (default: n = 2)\nsafety laser scanner | testsOSSDs | at regular intervals | | The safety laser scanner tests the OSSDs at regular intervals.\nsafety laser scanner | switchesOSSDBriefly | to the OFF state | during each OSSD test | switches each OSSD briefly to the OFF state and checks whether this channel is voltage-free during this time\nsafety laser scanner | checksChannelVoltage | voltage-free during the OFF state | during each OSSD test | checks whether this channel is voltage-free during this time\nmachine control | mustNotReactTo | switch-off test pulses | | Make sure that the machine's control does not react to these test pulses\nmachine | mustNotSwitchOff | during switch-off test pulses | | the machine does not switch off\nscan cycle time tS | value | 30 ms | | Scan cycle time tS = 30 ms\nswitch-off test pulse duration | maximumValue | 300 µs | | ≤ 300 µs ≤ 300 µs V OSSD 1.B t\ntime offset of switch-off tests in an OSSD pair | maximumValue | 300 µs | | 4 × tS ≤ 300 µs ≤ 300 µs",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1112,
+   "prompt_tokens": 639,
+   "total_tokens": 1751,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 586,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006199,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006199,
+   "gateway_cost": 0.0006199
+  }
+ }
+}

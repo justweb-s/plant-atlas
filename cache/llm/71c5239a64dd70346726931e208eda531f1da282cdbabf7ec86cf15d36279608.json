@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 245\n\n21. Safety Functions Table Description UR e-Series robots comply with ISO 10218-1:2011 and the applicable portions of ISO/TS 15066. It is important to note that most of ISO/TS 15066 is directed towards the integrator and not the robot manufacturer. ISO 10218-1:2011, clause 5.10 collaborative operation details 4 collaborative operation techniques as explained below. It is very important to understand that collaborative operation is of the APPLICATION when in AUTOMATIC mode. Collaborative Technique Explanation UR e-Series Operation Stop condition where position is held at a standstill and is UR robots’ safeguard stop is a 2011 edition, monitored as a safety function. Category 2 stop is permitted safety-rated monitored stop, See clause 5.10.2 Safety-rated to auto reset. In the case of resetting and restarting SF2 on page 1. It is likely, in the monitored operation after a safety -rated monitored stop, see ISO future, that “safety-rated monitored stop 10218-2 and ISO/TS 15066 as resumption shall not cause stop” will not be called a form of hazardous conditions. collaborative operation. Collaborative Technique Explanation UR e-Series Operation This is essentially individual and direct Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. 2011 edition, personal control while the robot is in clause 5.10.3 automatic mode. Hand guiding equipment shall be located close to the end-effector UR robots do not provide hand-guiding for and shall have: collaborative operation. Hand-guided teach (free Hand-guiding • an Emergency Stop pushbutton drive) is provided with UR robots but this is for • a 3-position enabling device programming in manual mode and not for collaborative operation in automatic mode. • a safety-rated monitored stop function • a settable safety-rated monitored speed function User Manual 248 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "UR e-Series robots | comply with | ISO 10218-1:2011 and the applicable portions of ISO/TS 15066 | | \"UR e-Series robots comply with ISO 10218-1:2011 and the applicable portions of ISO/TS 15066.\"\nMost of ISO/TS 15066 | is directed towards | the integrator and not the robot manufacturer | | \"It is important to note that most of ISO/TS 15066 is directed towards the integrator and not the robot manufacturer.\"\nISO 10218-1:2011 clause 5.10 | details | 4 collaborative operation techniques | | \"ISO 10218-1:2011, clause 5.10 collaborative operation details 4 collaborative operation techniques as explained below.\"\nCollaborative operation | is of | the APPLICATION | when in AUTOMATIC mode | \"It is very important to understand that collaborative operation is of the APPLICATION when in AUTOMATIC mode.\"\nUR robots' safeguard stop | is | a Category 2 stop | | \"UR robots' safeguard stop is a 2011 edition, Category 2 stop is permitted to auto reset.\"\nSafety-rated monitored stop resumption | shall not cause | hazardous conditions | in the case of resetting and restarting in monitored operation after a safety-rated monitored stop | \"In the case of resetting and restarting in the monitored operation after a safety-rated monitored stop, see ISO 10218-2 and ISO/TS 15066 as resumption shall not cause hazardous conditions.\"\nUR robots | do not provide | hand-guiding for collaborative operation | | \"UR robots do not provide hand-guiding for collaborative operation.\"\nHand-guided teach (free drive) | is provided for | programming in manual mode | not for collaborative operation in automatic mode | \"Hand-guided teach (free drive) is provided with UR robots but this is for programming in manual mode and not for collaborative operation in automatic mode.\"\nHand guiding equipment | shall be located | close to the end-effector | | \"Hand guiding equipment shall be located close to the end-effector\"\nHand guiding equipment | shall have | an Emergency Stop pushbutton | | \"shall have: • an Emergency Stop pushbutton • a 3-position enabling device\"\nHand guiding equipment | shall have | a 3-position enabling device | | \"shall have: • an Emergency Stop pushbutton • a 3-position enabling device\"\nHand guiding equipment | shall have | a safety-rated monitored stop function and a settable safety-rated monitored speed function | | \"• a safety-rated monitored stop function • a settable safety-rated monitored speed function\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2115,
+   "prompt_tokens": 857,
+   "total_tokens": 2972,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1228,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0011432,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0011432,
+   "gateway_cost": 0.0011432
+  }
+ }
+}

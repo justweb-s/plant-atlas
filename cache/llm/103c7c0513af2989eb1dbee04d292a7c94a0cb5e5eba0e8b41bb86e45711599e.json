@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 16\n\n4 PRODUCT DESCRIPTION 227,5° -47,5° 0° 90°  Figure 5: Light pulses scan an area 1 Angular resolution: the angular distance (in degrees) between 2 distance measurements Scan cycle time and resolution The time that the mirror requires for one rotation is called the scan cycle time. The number of light pulses per unit of time is constant. The scan cycle time and the number of light pulses per unit of time determine the angular resolution. The scanning range for a given object resolution depends on the angular resolution. The object resolution indicates the minimum size that an object must be to allow it to be detected safely. The scan cycle time also influences the response time. The resolution in protective fields can be set to various values according to the intended purpose. Geometry of the scan plane The laser beams emitted cover a sector of a circle, so an object can be detected in an area of up to 275°. The sector of a circle covered ranges from –47.5° to 227.5°, where 90° denotes the axis of the safety laser scanner from the back to the front. When viewing the safety laser scanner from above, the direction of rotation of the mirror and the deflected light pulses is counterclockwise, see figure 5, page 16. 4.4 Product characteristics 4.4.1 Variants The device is available in various variants. You will find an overview of important distin- guishing features of the variants in the following. Performance package The Core and Pro performance packages feature a number of configurable fields and a number of safety switching functions. O nanoScan3 core I/O: 8 fields, 1 OSSD pair O nanoScan3 Pro I/O: 128 fields, 2 OSSD pairs 16 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Scan cycle time | is | time the mirror requires for one rotation | | The time that the mirror requires for one rotation is called the scan cycle time.\nNumber of light pulses per unit of time | isConstant | constant | | The number of light pulses per unit of time is constant.\nScan cycle time and light pulse rate | determine | angular resolution | | The scan cycle time and the number of light pulses per unit of time determine the angular resolution.\nScanning range for a given object resolution | dependsOn | angular resolution | | The scanning range for a given object resolution depends on the angular resolution.\nObject resolution | indicates | minimum size an object must be to be detected safely | | The object resolution indicates the minimum size that an object must be to allow it to be detected safely.\nScan cycle time | influences | response time | | The scan cycle time also influences the response time.\nResolution in protective fields | canBeSetTo | various values | according to the intended purpose | The resolution in protective fields can be set to various values according to the intended purpose.\nLaser beams | cover | sector of a circle allowing detection in an area of up to 275° | | the laser beams emitted cover a sector of a circle, so an object can be detected in an area of up to 275°\nSector of a circle covered | ranges | from –47.5° to 227.5° | | The sector of a circle covered ranges from –47.5° to 227.5°\nDirection of rotation of mirror and deflected light pulses | is | counterclockwise when viewed from above | | When viewing the safety laser scanner from above, the direction of rotation of the mirror and the deflected light pulses is counterclockwise\nnanoScan3 core | has | 8 fields and 1 OSSD pair | | nanoScan3 core I/O: 8 fields, 1 OSSD pair\nnanoScan3 Pro | has | 128 fields and 2 OSSD pairs | | nanoScan3 Pro I/O: 128 fields, 2 OSSD pairs",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1150,
+   "prompt_tokens": 809,
+   "total_tokens": 1959,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 499,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006559,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006559,
+   "gateway_cost": 0.0006559
+  }
+ }
+}

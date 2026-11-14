@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 38\n\n5 PROJECT PLANNING BF [mm] 120 60 50 0 50 100 150 Z F [mm] Figure 24: Minimum supplement for lack of ground clearance BF Ground clearance in mm ZF Supplement for lack of ground clearance in mm 5.3.10.3 Stopping distance SA The stopping distance is the sum of the following distances: O Braking distance of the vehicle O Distance covered during the response time of the safety laser scanner O Distance covered during the response time of the vehicle control (incl. signal propagation time) A vehicle’s braking distance does not increase linearly with increasing speed, but rather in a squared relationship. SA SA SA + Z SL v Figure 25: Stopping distance as a function of the vehicle’s speed 38 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Stopping distance | is the sum of | braking distance of the vehicle, distance covered during the safety laser scanner's response time, and distance covered during the vehicle control's response time (including signal propagation time) | | The stopping distance is the sum of the following distances: O Braking distance of the vehicle O Distance covered during the response time of the safety laser scanner O Distance covered during the response time of the vehicle control (incl. signal propagation time)\nVehicle braking distance | does not increase | linearly with increasing speed, but in a squared relationship | | A vehicle's braking distance does not increase linearly with increasing speed, but rather in a squared relationship.\nSupplement for lack of ground clearance ZF | is specified as a function of | ground clearance BF | | Minimum supplement for lack of ground clearance BF Ground clearance in mm ZF Supplement for lack of ground clearance in mm",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 621,
+   "prompt_tokens": 521,
+   "total_tokens": 1142,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 325,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003626,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003626,
+   "gateway_cost": 0.0003626
+  }
+ }
+}

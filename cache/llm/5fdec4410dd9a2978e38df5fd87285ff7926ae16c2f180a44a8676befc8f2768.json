@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 34\n\n7.3 Checking the Load Nut’s Wear Indicator The load nut’s wear indicator must be checked every 6 months, and the pair of nuts must be replaced when the wear limit is reached. If this condition is ignored, the load nut may break through as wear progresses. In this case, the downstream safety nut takes over the load completely and the vehicle can be lowered, but it cannot be raised again from the home position. The following dimensions must be observed: Upper edge of threaded pin (A) is flush with upper edge of New condition support plate (B). Threaded pin protrudes ≥ 3 mm above support plate. Wear limit Alternatively: Upper edge of threaded pin is flush with upper edge of oil pan holder (C) or higher. MA STAR 3.5 A B A Threaded pin M8x40-45H Geomet 321 A B Support plate 34 BA364501-en"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Load nut wear indicator | mustBeChecked | every 6 months | | The load nut's wear indicator must be checked every 6 months\nPair of nuts | mustBeReplaced | when the wear limit is reached | | the pair of nuts must be replaced when the wear limit is reached\nLoad nut | mayBreakThrough | as wear progresses | if the replacement condition is ignored | If this condition is ignored, the load nut may break through as wear progresses\nDownstream safety nut | takesOverLoad | completely | after the load nut breaks through | In this case, the downstream safety nut takes over the load completely\nVehicle | canBeLowered | | after the safety nut takes over the load | the vehicle can be lowered\nVehicle | cannotBeRaisedAgain | from the home position | after the safety nut takes over the load | but it cannot be raised again from the home position\nUpper edge of threaded pin (A) | isFlushWith | upper edge of support plate (B) | in new condition | Upper edge of threaded pin (A) is flush with upper edge of New condition support plate (B)\nThreaded pin | protrudesAboveSupportPlate | at least 3 mm | | Threaded pin protrudes ≥ 3 mm above support plate\nUpper edge of threaded pin | isFlushWithOrHigherThan | upper edge of oil pan holder (C) | at the wear limit, as an alternative check | Alternatively: Upper edge of threaded pin is flush with upper edge of oil pan holder (C) or higher",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1088,
+   "prompt_tokens": 497,
+   "total_tokens": 1585,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 579,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005937,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005937,
+   "gateway_cost": 0.0005937
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 107\n\n9. End Effector Integration Payload This feature allows the robot to help set the correct Payload and Center of Gravity (CoG). Estimation Using the 1. In the Installation Tab, under General, select Payload. Payload 2. On the Payload screen, tap Measure. Estimation 3. In the Payload Estimation Wizard tap Next. Wizard 4. Follow the steps in the Payload Estimation Wizard to set the four positions. Setting the four positions requires moving the robot arm into four different positions. The load of the payload is measured at each position. 5. Once all measurements are complete, you can verify the result and tap Finish. NOTICE Follow the these guidelines for best Payload Estimation results: • Ensure the TCP positions are as different as possible from each other Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. • Perform the measurements within a short timespan • Avoid pulling on the tool and/or attached payload before and during estimation • Robot mounting and angle must be correctly defined in the installation User Manual 110 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Payload Estimation feature | helps set | correct Payload and Center of Gravity (CoG) | | This feature allows the robot to help set the correct Payload and Center of Gravity (CoG).\nPayload Estimation Wizard | requires setting | four positions | | Setting the four positions requires moving the robot arm into four different positions.\nPayload measurement | is taken at | each of the four positions | | The load of the payload is measured at each position.\nPayload result | can be verified | after all measurements are complete | once all measurements are complete | Once all measurements are complete, you can verify the result and tap Finish.\nTCP positions | should be | as different as possible from each other | for best Payload Estimation results | Ensure the TCP positions are as different as possible from each other\nPayload measurements | should be performed | within a short timespan | for best Payload Estimation results | Perform the measurements within a short timespan\nTool and attached payload | should not be pulled on | before and during estimation | | Avoid pulling on the tool and/or attached payload before and during estimation\nRobot mounting and angle | must be correctly defined | in the installation | | Robot mounting and angle must be correctly defined in the installation",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 869,
+   "prompt_tokens": 559,
+   "total_tokens": 1428,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 484,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004904,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004904,
+   "gateway_cost": 0.0004904
+  }
+ }
+}

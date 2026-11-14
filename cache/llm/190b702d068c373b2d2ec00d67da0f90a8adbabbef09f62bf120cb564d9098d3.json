@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 34\n\n5 PROJECT PLANNING 5.3.8.2 Calculation example for the minimum distance Example calculation of the minimum distance S according to ISO 13855:2010 The example shows the calculation of the minimum distance for an orthogonal approach to the protective field. A different calculation may be required depending on the application and the ambient conditions, e.g. for a protective field parallel to or at any angle to the direction of approach or an indirect approach. → First, calculate S using the following formula: S = 2,000 mm/s × T +8 ×(d – 14 mm) where: o S = minimum distance in millimeters (mm) o T = stopping/run-down time for the entire system in seconds (s) (Response time of the safety laser scanner + machine stopping time, incl. response time of the machine control system and signal propagation time) o d = resolution of the safety laser scanner in millimeters (mm) m If the result is S ≤ 100 mm, use S = 100 mm. m If the result is 100 mm < S ≤ 500 mm, use the calculated value as the minimum distance. → If the result is S > 500 mm, then recalculate S with the following formula: S = 1,600 mm/s × T +8 ×(d – 14 mm) m If the new value is S > 500 mm, then use the newly calculated value as the minimum distance. m If the new value is S ≤ 500 mm, then use S = 500 mm as the minimum distance. The reach/approach speed is already included in the formula. 5.3.9 Access protection Overview In a stationary application, for example on a machine where the point of access to the hazardous area can be physically defined, the safety laser scanner is mounted with a vertical scan plane. For access protection, the safety laser scanner detects an intrusion by a whole body. The protective field is orthogonal to the direction of approach. You must monitor a reference contour to protect the safety laser scanner from acciden- tal misalignment or manipulation. 34 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "minimum distance S | is calculated by | 2,000 mm/s × T + 8 × (d – 14 mm) | orthogonal approach to the protective field | S = 2,000 mm/s × T +8 ×(d – 14 mm)\nminimum distance S | is set to | 100 mm | calculated S ≤ 100 mm | If the result is S ≤ 100 mm, use S = 100 mm.\nminimum distance S | is set to | the calculated value | 100 mm < calculated S ≤ 500 mm | If the result is 100 mm < S ≤ 500 mm, use the calculated value as the minimum distance.\nminimum distance S | is recalculated by | 1,600 mm/s × T + 8 × (d – 14 mm) | first calculated S > 500 mm | If the result is S > 500 mm, then recalculate S with the following formula\nminimum distance S | is set to | 500 mm | recalculated S ≤ 500 mm | If the new value is S ≤ 500 mm, then use S = 500 mm as the minimum distance.\nminimum distance S | is set to | recalculated value | recalculated S > 500 mm | If the new value is S > 500 mm, then use the newly calculated value as the minimum distance.\nT | is defined as | stopping/run-down time for the entire system in seconds | none | T = stopping/run-down time for the entire system in seconds (s)\nreach/approach speed | is included in | minimum distance formula | none | The reach/approach speed is already included in the formula.\na different calculation | may be required | for parallel, angled, or indirect approach | depends on application and ambient conditions | A different calculation may be required depending on the application and the ambient conditions\nsafety laser scanner | is mounted with | vertical scan plane | stationary application with defined access point | the safety laser scanner is mounted with a vertical scan plane\nsafety laser scanner | detects | intrusion by a whole body | access protection | the safety laser scanner detects an intrusion by a whole body\nprotective field | is oriented | orthogonal to the direction of approach | access protection | The protective field is orthogonal to the direction of approach.\nreference contour | must be monitored | to protect the scanner from accidental misalignment or manipulation | access protection | You must monitor a reference contour to protect the safety laser scanner from accidental misalignment or manipulation.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1280,
+   "prompt_tokens": 897,
+   "total_tokens": 2177,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 503,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007297,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007297,
+   "gateway_cost": 0.0007297
+  }
+ }
+}

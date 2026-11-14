@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 140\n\nUser For the user defined tools, the user can change: defined • Radius to change the radius of the tool sphere. The radius is considered when using tools safety planes. When a point in the sphere passes a reduced trigger plane, the robot switches to a Reduced configuration . The safety system prevents any point on the sphere from passing a safety plane. • Position to change the position of the tool with respect to the tool flange of the robot. The position is considered for the safety functions for tool speed, tool force, stopping distance and safety planes. You can use an existing Tool Center Point as a base for defining new tool positions. A copy of the existing TCP, predefined in General menu, in TCP screen, can be accessed in Tool Position menu, in Copy TCP drop-down list. When you edit or adjust the values in the Edit Position input fields, the name of the TCP visible in the drop down menu changes to custom, indicating that there is a difference between the copied TCP and the actual limit input. The original TCP is still available in the drop down list and can be selected again to change the values back to the original position. The selection in the copy TCP drop down menu does not affect the tool name. Once you apply your Tool Position screen changes, if you try to modify the copied TCP in the Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. TCP configuration screen, a warning icon appears to the right of the Copy TCP text. This indicates that the TCP is out of sync i.e. the information in the properties field is not updated to reflect modifications that may have been made to the TCP. The TCP can be synced by pressing the sync icon. The TCP does not have to be synced in order to define and use a tool successfully. You can rename the tool by pressing the pencil tab next to the displayed tool name. You can also determine the Radius with an allowed range of 0-300 mm. The limit appears in the graphics pane as either a point or a sphere depending on radius size. UR5e 143 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Tool sphere radius | is considered when using | tool safety planes | | The radius is considered when using tools safety planes.\nRobot | switches to | Reduced configuration | when a point in the sphere passes a reduced trigger plane | When a point in the sphere passes a reduced trigger plane, the robot switches to a Reduced configuration.\nSafety system | prevents | any point on the sphere from passing a safety plane | | The safety system prevents any point on the sphere from passing a safety plane.\nTool position | is considered for | safety functions for tool speed, tool force, stopping distance and safety planes | | The position is considered for the safety functions for tool speed, tool force, stopping distance and safety planes.\nTool sphere radius | has allowed range | 0-300 mm | | You can also determine the Radius with an allowed range of 0-300 mm.\nCopied TCP name | changes to | custom | when values are edited or adjusted in the Edit Position input fields | When you edit or adjust the values in the Edit Position input fields, the name of the TCP visible in the drop down menu changes to custom\nCopied TCP | shows warning icon | out of sync | after Tool Position changes are applied and the copied TCP is modified | This indicates that the TCP is out of sync i.e. the information in the properties field is not updated to reflect modifications that may have been made to the TCP.\nTCP | must be synced for | defining and using a tool | | The TCP does not have to be synced in order to define and use a tool successfully.\nTool name | is not affected by | selection in the Copy TCP drop-down menu | | The selection in the copy TCP drop down menu does not affect the tool name.\nTool | can be renamed by | pressing the pencil tab next to the displayed tool name | | You can rename the tool by pressing the pencil tab next to the displayed tool name.\nTool limit | appears in graphics pane as | point or sphere | depending on radius size | The limit appears in the graphics pane as either a point or a sphere depending on radius size.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1260,
+   "prompt_tokens": 835,
+   "total_tokens": 2095,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 597,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007135,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007135,
+   "gateway_cost": 0.0007135
+  }
+ }
+}

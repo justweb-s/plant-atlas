@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 239\n\n21. Safety Functions Table Collaborative Technique Explanation UR e-Series Operation SSM is the robot maintaining a 2011 edition, separation distance from any clause 5.10.4 operator (human). This is done by monitoring of the distance between the robot system and intrusions to ensure that the MINIMUM PROTECTIVE DISTANCE is assured. Usually, this is accomplished using Sensitive Protective Equipment (SPE), where typically a safety laser scanner detects intrusion(s) towards the To facilitate SSM, UR robots have the capability of robot system. switching between two sets of parameters for safety This SPE causes: functions with configurable limits (normal and reduced). Speed and 1. dynamic changing of the Normal operation can be when no intrusion is detected. It separation parameters for the limiting can also be caused by safety planes/ safety boundaries. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. monitoring safety functions; or Multiple safety zones can be readily used with UR robots. (SSM) safety 2. a safety-rated monitored For example, one safety zone can be used for “reduced functions stop condition. settings” and another zone boundary is used as a safeguard stop input to the UR robot. Reduced limits can Upon detection of the intrusion also include a reduced setting for the stop time and stop exiting the protective device’s distance limits – to reduce the work area and floorspace. detection zone, the robot is permitted to: 1. resume the “higher” normal safety function limits in the case of 1) above 2. resume operation in the case of 2) above In the case of 2) 2), restarting operation after a safety -rated monitored stop, see ISO 10218-2 and ISO/TS 15066 for requirements. Collaborative Technique Explanation UR e-Series Operation 2011 How to accomplish PFL is left to the robot UR robots are power and force limiting edition, clause manufacturer. The robot design and/or safety robots specifically designed to enable 5.10.5 functions will limit the energy transfer from the collaborative applications where the robot Power and robot to a person. If any parameter limit is could contact a person and cause no injury. force limiting exceeded, a robot stop happens. PFL applications UR robots have safety functions that can be (PFL) by require considering the ROBOT APPLICATION used to limit motion, speed, momentum, inherent (including the end-effector and workpiece(s), so force, power and more of the robot. These design or that any contact will not cause injury. The study safety functions are used in the robot control performed evaluated pressures to the ONSET of application to thereby lessen pressures and pain, not injury. See Annex A. See ISO/TR 20218-1 forces caused by the end-effector and End-effectors. workpiece(s). User Manual 242 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "SSM | is accomplished by | monitoring the distance between the robot system and intrusions to ensure the minimum protective distance is assured | | This is done by monitoring of the distance between the robot system and intrusions to ensure that the MINIMUM PROTECTIVE DISTANCE is assured.\nSSM | typically uses | Sensitive Protective Equipment with a safety laser scanner detecting intrusions | | Usually, this is accomplished using Sensitive Protective Equipment (SPE), where typically a safety laser scanner detects intrusion(s) towards the robot system.\nUR robots | can switch between | two sets of safety function parameters, normal and reduced | | UR robots have the capability of switching between two sets of parameters for safety functions with configurable limits (normal and reduced).\nnormal operation | applies when | no intrusion is detected | no intrusion is detected | Normal operation can be when no intrusion is detected.\nSPE | causes | dynamic changing of the separation parameters for the limiting monitoring safety functions | | dynamic changing of the separation parameters for the limiting monitoring safety functions\nSPE | causes | a safety-rated monitored stop condition | | a safety-rated monitored stop condition\nreduced limits | can include | a reduced setting for stop time and stop distance | | Reduced limits can also include a reduced setting for the stop time and stop distance limits\nrobot | may resume | the higher normal safety function limits | after exiting the protective device's detection zone in the case of the speed and separation monitoring parameter change | resume the \"higher\" normal safety function limits in the case of 1) above\nrobot | may resume operation | after a safety-rated monitored stop | after exiting the protective device's detection zone | resume operation in the case of 2) above\nrestarting after a safety-rated monitored stop | must meet requirements of | ISO 10218-2 and ISO/TS 15066 | | restarting operation after a safety-rated monitored stop, see ISO 10218-2 and ISO/TS 15066 for requirements\nPFL | is accomplished by | robot design and/or safety functions limiting energy transfer from the robot to a person | | The robot design and/or safety functions will limit the energy transfer from the robot to a person.\nPFL | triggers | a robot stop | any parameter limit is exceeded | If any parameter limit is exceeded, a robot stop happens.\nPFL applications | require considering | the robot application, including the end-effector and workpiece(s), so that any contact will not cause injury | | PFL applications require considering the ROBOT APPLICATION (including the end-effector and workpiece(s), so that any contact will not cause injury",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1978,
+   "prompt_tokens": 1150,
+   "total_tokens": 3128,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1103,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001104,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001104,
+   "gateway_cost": 0.001104
+  }
+ }
+}

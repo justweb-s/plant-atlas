@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 77\n\nCONFIGURATION 8 Open the device settings Editing grid settings Field display Safety Designer displays the field types in different colors. Table 13: Colors of the field types Protective field Warning field Reference contour field and contour detection field Red Yellow Turquoise Create fields and field sets Table 14: Buttons for field sets Add field set Add field to field set Duplicate field set Delete field or field set Hide or show field sets and fields Manage field set templates Importing field sets and fields Exporting field sets and fields Synchronize selection and visibility If a field or a field set is selected or hidden or shown for the current device and a field set of the same name exists in another device of the virtual group, the status is transferred to the other device. Name You can assign a unique name for each field set. Name and Field type You can assign a unique name and select a field type for each field. Multiple sampling and Object resolution At first, the object resolution and multiple sampling configured for the monitoring plane apply for all fields. If necessary, you can make changes to each individually at a later date. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 77 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety Designer | displaysFieldTypesIn | different colors | | Safety Designer displays the field types in different colors.\nProtective field | hasDisplayColor | Red | | Protective field ... Red\nWarning field | hasDisplayColor | Yellow | | Warning field ... Yellow\nReference contour field and contour detection field | hasDisplayColor | Turquoise | | Reference contour field and contour detection field ... Turquoise\nField set status (selected, hidden, shown) | transfersTo | field set of the same name in another device of the virtual group | a field set of the same name exists in the other device of the virtual group | If a field or a field set is selected or hidden or shown for the current device and a field set of the same name exists in another device of the virtual group, the status is transferred to the other device.\nField set | hasUniqueName | assigned name | | You can assign a unique name for each field set.\nField | hasUniqueName | assigned name | | You can assign a unique name and select a field type for each field.\nField | hasFieldType | selected field type | | You can assign a unique name and select a field type for each field.\nObject resolution and multiple sampling of monitoring plane | applyTo | all fields initially | | At first, the object resolution and multiple sampling configured for the monitoring plane apply for all fields.\nObject resolution and multiple sampling of a field | canBeChangedTo | individually adjusted values | changes may be made later, if necessary | If necessary, you can make changes to each individually at a later date.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 893,
+   "prompt_tokens": 597,
+   "total_tokens": 1490,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 402,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005062,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005062,
+   "gateway_cost": 0.0005062
+  }
+ }
+}

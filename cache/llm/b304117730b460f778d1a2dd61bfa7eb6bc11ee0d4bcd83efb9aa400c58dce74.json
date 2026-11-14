@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 137\n\nTECHNICAL DATA 14 R Required minimum remission in % D Scanning range in m 1 Black shoe leather 2 Matt black paint 3 Gray cardboard 4 Writing paper 5 White plaster 6 Reflectors > 2,000%, reflective tapes > 300% 8) 14.6 Scan plane Overview In practice, the scan plane is slightly conical and tilted. Scan plane Table 41: Scan plane nanoScan3 Conical error 1) 2) O ≤ ± 75 mm at a distance of 3 m O ≤ ± 500 mm at a distance of 20 m Tilt error 1) 3) O ≤ 2° O ≤ ± 105 mm at a distance of 3 m O ≤ ± 700 mm at a distance of 20 m Deviation from the ideal scan O ≤ ± 180 mm at a distance of 3 m plane taking into account the O ≤ ± 1200 mm at a distance of 20 m conical error and the tilt error 1) 1) The specified values are valid at an ambient temperature of 20 °C. Deviations can occur at other tempera- tures. 2) The conical error was described in earlier operating instructions as the deviation from the ideal scan field flatness, or a similar description. 3) The values for tilt error apply for the M5 threaded holes on the sides. Additional deviations can be caused by brackets, for example. Complementary information The scan plane details are relative to the midpoint of the light spot. Depending on the specific application, it may also be necessary to consider the light spot size. Further topics O \"Dimensional drawings\", page 139 O \"Light spot size\", page 137 14.7 Light spot size Overview The light spot has an elongated shape. The orientation of the light spot varies with the angle at which the light beam emerges from the device. The light spot has at its edges a transition area in which significantly less light hits the object than in the central area. In the following, the light spot size is specified as the area of the light spot that triggers a detection under normal conditions. 8) The measured values are less accurate for reflectors or reflective surfaces because the distance measurement is designed for lower remission values. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 137 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Scan plane | has conical error of at most ±75 mm | at a distance of 3 m | ambient temperature of 20 °C | O ≤ ± 75 mm at a distance of 3 m\nScan plane | has conical error of at most ±500 mm | at a distance of 20 m | ambient temperature of 20 °C | O ≤ ± 500 mm at a distance of 20 m\nScan plane | has tilt error of at most 2° | measured at M5 threaded holes on the sides | \"\" | O ≤ 2°\nScan plane | has deviation from ideal scan plane of at most ±180 mm | at a distance of 3 m, including conical and tilt error | ambient temperature of 20 °C | O ≤ ± 180 mm at a distance of 3 m\nScan plane | has deviation from ideal scan plane of at most ±1200 mm | at a distance of 20 m, including conical and tilt error | ambient temperature of 20 °C | O ≤ ± 1200 mm at a distance of 20 m\nScan plane deviations | can occur | at ambient temperatures other than 20 °C | ambient temperature differs from 20 °C | Deviations can occur at other tempera- tures\nScan plane | has additional deviations | caused by brackets | brackets are used | Additional deviations can be caused by brackets, for example\nScan plane details | are relative to | the midpoint of the light spot | \"\" | The scan plane details are relative to the midpoint of the light spot\nLight spot size | may need to be considered | depending on the specific application | application requires it | Depending on the specific application, it may also be necessary to consider the light spot size\nMeasured values | are less accurate | for reflectors or reflective surfaces | \"\" | The measured values are less accurate for reflectors or reflective surfaces\nLight spot | has transition area | at its edges, where significantly less light hits the object | \"\" | The light spot has at its edges a transition area in which significantly less light hits the object than in the central area\nReflectors | require minimum remission of more than 2,000% | \"\" | \"\" | Reflectors > 2,000%, reflective tapes > 300%",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1304,
+   "prompt_tokens": 975,
+   "total_tokens": 2279,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 599,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007495,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007495,
+   "gateway_cost": 0.0007495
+  }
+ }
+}

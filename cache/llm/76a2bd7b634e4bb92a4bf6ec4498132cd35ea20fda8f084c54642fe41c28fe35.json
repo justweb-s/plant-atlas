@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 17\n\n3. Your Robot 3.2.1. Robot Arm About the The Joints, Base and Tool Flange are the main components of the robot arm. The controller robot arm coordinates joint motion to move the robot arm. Attaching an end effector (tool) to the Tool Flange at the end of the robot arm, allows the robot to manipulate a workpiece. Some tools have a specific purpose beyond manipulating a part, for example, QC inspection, applying adhesives and welding. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. The main components of the robot arm. • Base: where the robot arm is mounted. • Shoulder and Elbow: make larger movements. • Wrist 1 and Wrist 2: make finer movements. • Wrist 3: where the tool is attached to the Tool Flange. The robot is partly completed machinery, as such a Declaration of Incorporation is provided. A risk assessment is required for each robot application. 3.2.2. Control Box About the The Control Box houses the connection ports and Controller Inputs and Outputs (I/O) used Control Box in robot arm programs and installations. The connection ports are used for external connections. The I/O are groups of electrical interfaces used for communication and configuration. User Manual 20 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Robot arm | hasMainComponents | Joints, Base and Tool Flange | | The Joints, Base and Tool Flange are the main components of the robot arm\nController | coordinatesJointMotion | robot arm movement | | The controller robot arm coordinates joint motion to move the robot arm\nEnd effector (tool) | isAttachedTo | Tool Flange | | Attaching an end effector (tool) to the Tool Flange at the end of the robot arm, allows the robot to manipulate a workpiece\nRobot | isPartlyCompletedMachinery | true | | The robot is partly completed machinery, as such a Declaration of Incorporation is provided\nRobot | requiresRiskAssessment | each robot application | | A risk assessment is required for each robot application\nControl Box | houses | connection ports and Controller Inputs and Outputs (I/O) | | The Control Box houses the connection ports and Controller Inputs and Outputs (I/O)\nWrist 3 | isWhereToolIsAttached | Tool Flange | | Wrist 3: where the tool is attached to the Tool Flange\nBase | isWhereRobotArmIsMounted | true | | Base: where the robot arm is mounted",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 635,
+   "prompt_tokens": 629,
+   "total_tokens": 1264,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 230,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003804,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003804,
+   "gateway_cost": 0.0003804
+  }
+ }
+}

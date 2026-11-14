@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 114\n\n11 MAINTENANCE 11.5 Replacing the system plug Important information NOTICE Enclosure rating IP65 only applies if the optics cover and the system plug are mounted and the USB connection is closed with the protective cover. NOTICE If the system plug is mounted with excessive force, the contacts can break or bend. → Plug in the system plug carefully. → Do not force it. Prerequisites Tool required: O TX10 key Procedure 1. Make sure that the environment is clean and clear of fog, moisture, and dust. 2. Disconnect the connecting cables to the system plug. 3. Unscrew the screws in the defective system plug and remove the system plug from the safety laser scanner. 4. Make sure that the seal is seated correctly. 5. Carefully push the new system plug into the safety laser scanner. 6. Screw in the system plug using the captive screws. Tightening torque: 1.3 Nm. 7. Reconnect the connecting cables to the system plug. 8. Configure the safety laser scanner. 9. Perform commissioning again, taking particular care to conduct all of the thorough checks described. Further topics O \"Mounting the device\", page 55 11.6 Regular thorough check The thorough check is intended to ensure that the safety functions are fulfilling their planned purpose and whether persons are being adequately protected. → Carry out the checks specified in the test plan of the manufacturer of the machine and the operating entity. 11.7 Updating firmware Overview SICK provides new firmware versions at irregular intervals. New firmware improves, for example, the device behavior or introduces new functions. When SICK provides a new firmware for the product, you can download and install the new firmware using Sentio Creator. The firmware may only be downloaded and installed via Sentio Creator. You can download Sentio Creator by clicking on www.sick.com and 114 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "system plug replacement | requires | environment clean and clear of fog, moisture, and dust | none | \"Make sure that the environment is clean and clear of fog, moisture, and dust.\"\nEnclosure rating IP65 | applies | optics cover and system plug mounted, and USB connection closed with protective cover | only when those parts are mounted and closed | \"Enclosure rating IP65 only applies if the optics cover and the system plug are mounted and the USB connection is closed with the protective cover.\"\nsystem plug | can break or bend | contacts | system plug mounted with excessive force | \"If the system plug is mounted with excessive force, the contacts can break or bend.\"\nsystem plug screws | tightened to | 1.3 Nm | none | \"Tightening torque: 1.3 Nm.\"\nsystem plug replacement | requires tool | TX10 key | none | \"Tool required: O TX10 key\"\nconnecting cables | must be reconnected | to system plug | after system plug replacement | \"Reconnect the connecting cables to the system plug.\"\nsafety laser scanner | must be configured | after replacing system plug | none | \"Configure the safety laser scanner.\"\ncommissioning | must be performed again | with particular care to conduct all thorough checks | after replacing system plug | \"Perform commissioning again, taking particular care to conduct all of the thorough checks described.\"\nregular thorough check | ensures | safety functions fulfil their planned purpose and persons are adequately protected | none | \"The thorough check is intended to ensure that the safety functions are fulfilling their planned purpose and whether persons are being adequately protected.\"\nthorough checks | carried out per | test plan of the machine manufacturer and the operating entity | none | \"Carry out the checks specified in the test plan of the manufacturer of the machine and the operating entity.\"\nfirmware | may only be downloaded and installed | via Sentio Creator | none | \"The firmware may only be downloaded and installed via Sentio Creator.\"\nnew firmware | improves | device behavior or introduces new functions | none | \"New firmware improves, for example, the device behavior or introduces new functions.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1209,
+   "prompt_tokens": 875,
+   "total_tokens": 2084,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 530,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000692,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000692,
+   "gateway_cost": 0.000692
+  }
+ }
+}

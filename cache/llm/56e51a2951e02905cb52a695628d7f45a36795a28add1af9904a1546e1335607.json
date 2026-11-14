@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 237\n\n21. Safety Functions Table SF3 Description What happens? Tolerance Affects Joint Position Will not allow motion Limit to exceed any limit (software- Sets upper and lower limits for the allowed joint positions. settings. based axis Stopping time and distance is not a considered as the limit(s) will Speed could be limiting) not be violated. Each joint can have its own limits. reduced so motion Joint 5° Directly limits the set of allowed joint positions that the joints can will not exceed any (each) move within. It is safety-rated soft axis limiting & space limiting, limit. according to ISO 10218-1:2011, 5.12.3. A robot stop will be initiated to prevent exceeding any limit. SF4 Description What happens? Tolerance Affects Joint Will not allow motion Speed to exceed any limit Limit Sets an upper limit for the joint speed. Each joint can have its own settings. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. limit. This safety function has the most influence on energy transfer Speed could be upon contact (clamping or transient). Joint reduced so motion will 1.15 °/s Directly limits the set of allowed joint speeds which the joints are (each) not exceed any limit. allowed to perform. It is used to limit fast joint movements, e.g. risks A robot stop will be related to singularities. initiated to prevent exceeding any limit. Joint Torque Exceeding the internal joint torque limit (each joint) results in a Cat 0 Stop4. This safety function is not accessible to the user; Limit it is a factory setting. It is NOT shown as here because there are no user settings. SF5 Description What happens? Tolerance Affects Called various Monitors the TCP Pose (position and orientation) names: and will prevent exceeding a safety plane or TCP Pose Limit Pose Limit. Tool Limit, Multiple pose limits are possible (tool flange, elbow, Orientation and up to 2 configurable tool offset points with a Limit, Safety Will not allow motion to exceed radius) TCP Planes, any limit settings. Speed or Orientation restricted by the deviation from the Tool Safety torques could be reduced so 3° 40 mm feature Z direction of the tool flange OR the TCP. flange Boundaries motion will not exceed any limit Two parts. (1) is the safety planes for limiting the Elbow set for SF 5, SF 6, SF 7 or SF 8. possible TCP positions. (2) is the TCP orientation limit, which is entered as an allowed direction and a tolerance. This provides TCP and wrist inclusion/ exclusion zones due to the safety planes. User Manual 240 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "SF3 Joint Position Limit | setsLimits | upper and lower limits for the allowed joint positions | each joint can have its own limits | Sets upper and lower limits for the allowed joint positions. Each joint can have its own limits.\nSF3 Joint Position Limit | isSafetyRatedPer | ISO 10218-1:2011, 5.12.3 | | It is safety-rated soft axis limiting & space limiting, according to ISO 10218-1:2011, 5.12.3.\nSF3 Joint Position Limit | initiatesStop | robot stop to prevent exceeding any limit | | A robot stop will be initiated to prevent exceeding any limit.\nSF4 Joint Speed Limit | setsUpperLimit | upper limit for the joint speed | each joint can have its own limit | Sets an upper limit for the joint speed. Each joint can have its own limit.\nSF4 Joint Speed Limit | hasMostInfluenceOn | energy transfer upon contact (clamping or transient) | | This safety function has the most influence on energy transfer upon contact (clamping or transient).\nSF4 Joint Speed Limit | isUsedTo | limit fast joint movements, e.g. risks related to singularities | | It is used to limit fast joint movements, e.g. risks related to singularities.\nSF4 Joint Torque Limit | resultsIn | Cat 0 Stop | exceeding the internal joint torque limit (each joint) | Exceeding the internal joint torque limit (each joint) results in a Cat 0 Stop.\nSF4 Joint Torque Limit | isNotAccessibleTo | user | it is a factory setting | This safety function is not accessible to the user; it is a factory setting.\nSF5 TCP Pose Limit | monitors | TCP pose (position and orientation) and prevents exceeding a safety plane or pose limit | | Monitors the TCP Pose (position and orientation) and will prevent exceeding a safety plane or pose limit.\nSF5 TCP Pose Limit | allowsMultiplePoseLimitsAt | tool flange, elbow, and up to 2 configurable tool offset points with a radius | | Multiple pose limits are possible (tool flange, elbow, and up to 2 configurable tool offset points with a radius).\nSF5 TCP Orientation Limit | hasTolerance | 3° | deviation from the Z direction of the tool flange or the TCP | Orientation Limit ... 3° ... deviation from the Z direction of the tool flange OR the TCP.\nSF5 TCP Pose Limit | restrictsSpeedOrTorques | speed or torques are reduced so motion will not exceed any limit | limit set for SF 5, SF 6, SF 7 or SF 8 | Speed or torques could be reduced so motion will not exceed any limit set for SF 5, SF 6, SF 7 or SF 8.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1941,
+   "prompt_tokens": 1113,
+   "total_tokens": 3054,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 968,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010818,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010818,
+   "gateway_cost": 0.0010818
+  }
+ }
+}

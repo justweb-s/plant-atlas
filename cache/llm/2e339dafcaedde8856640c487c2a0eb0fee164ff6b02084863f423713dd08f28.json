@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 162\n\n11. The First Program Add additional 1. In your Robot Program, select a Move node or Waypoint node. waypoints to a 2. Under Basic, tap Waypoint. Move or The additional waypoint is added in the Move node. This waypoint is part of the Waypoint Move command. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. The additional waypoint is added under the waypoint that you selected in the robot program. Detail Using a waypoint means applying the taught relationship between the feature and the TCP from the Move command. The relationship between the feature and the TCP, applied to the current selected feature, achieves the desired TCP location. The robot calculates how to position the arm to allow the current active TCP to reach the desired TCP position. 11.9. Using the Move Tab UR10e 165 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Additional waypoint | isAddedUnder | the waypoint selected in the robot program | selecting a Move or Waypoint node in the Robot Program | The additional waypoint is added under the waypoint that you selected in the robot program.\nAdditional waypoint | isPartOf | Waypoint Move command | \"\" | This waypoint is part of the Waypoint Move command.\nAdditional waypoint | isAddedVia | Basic > Waypoint tap | \"\" | Under Basic, tap Waypoint.\nUsing a waypoint | means | applying the taught relationship between the feature and the TCP from the Move command | \"\" | Using a waypoint means applying the taught relationship between the feature and the TCP from the Move command.\nRelationship between feature and TCP, applied to current selected feature | achieves | desired TCP location | \"\" | The relationship between the feature and the TCP, applied to the current selected feature, achieves the desired TCP location.\nRobot | calculatesArmPositionFor | current active TCP reaching desired TCP position | \"\" | The robot calculates how to position the arm to allow the current active TCP to reach the desired TCP position.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 649,
+   "prompt_tokens": 478,
+   "total_tokens": 1127,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 276,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003723,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003723,
+   "gateway_cost": 0.0003723
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 26\n\n5 PROJECT PLANNING 1 2 Figure 14: Tolerance band of the contour as reference field (protective field within the protected opening, edge of the protected opening = reference contour) 1 Tolerance band of the reference contour field 2 Distance of the protective field from the reference contour, to ensure availability 5.3.4 Monitoring case switching time Overview If you switch between monitoring cases, you must specify the time at which the switch- over takes place. When determining the time, you must consider the following points, among others: O At the time of switchover, one person can already be in the newly activated protec- tive field. The new protective field must therefore be active in good time so that the device detects a person in the newly activated protective field before a hazard arises there. O In some cases, the process of switching between monitoring cases takes so long that the new monitoring case is not available inside the response time provided. This means that it may not be possible to detect a person in the protective field in time. In cases like this, you must start switching between monitoring cases earlier. The following parameters influence the duration of the process: o Set input delay o Processing time for the chosen input O In addition to the parameters considered below, the switching signal’s time-of- flight up to the device must also be taken into account. Depending on the commu- nication protocol, these include the network cycle time and the processing time of a controller, for example. Procedure 1. Calculate how long it takes to switch between monitoring cases: tCSR = tID + tI where: o tCSR = time required for switching between monitoring cases in milliseconds (ms) o tID = input delay for the control inputs in milliseconds (ms) 26 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Switching between monitoring cases | requires specifying | the time at which the switchover takes place | when switching between monitoring cases | \"you must specify the time at which the switch-over takes place\"\nNew protective field | must be active | in good time so the device detects a person before a hazard arises there | \"\" | \"The new protective field must therefore be active in good time so that the device detects a person in the newly activated protective field before a hazard arises there.\"\nMonitoring case switch | may leave new monitoring case unavailable | within the response time | when the switching process takes too long | \"the process of switching between monitoring cases takes so long that the new monitoring case is not available inside the response time provided\"\nSwitching between monitoring cases | must start | earlier | when the new monitoring case would not be available within the response time | \"In cases like this, you must start switching between monitoring cases earlier.\"\nDuration of switching process | is influenced by | set input delay | \"\" | \"The following parameters influence the duration of the process: o Set input delay\"\nDuration of switching process | is influenced by | processing time for the chosen input | \"\" | \"The following parameters influence the duration of the process: o Processing time for the chosen input\"\nSwitching signal time-of-flight | must be taken into account | in addition to the considered parameters | \"\" | \"the switching signal's time-of-flight up to the device must also be taken into account\"\nTime required for switching between monitoring cases (tCSR) | equals | tID + tI | \"\" | \"tCSR = tID + tI\"\nProtective field distance from reference contour | ensures | availability | when contour is used as reference field | \"Distance of the protective field from the reference contour, to ensure availability\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1060,
+   "prompt_tokens": 777,
+   "total_tokens": 1837,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 536,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006077,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006077,
+   "gateway_cost": 0.0006077
+  }
+ }
+}

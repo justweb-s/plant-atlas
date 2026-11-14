@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 146\n\n11. The First Program To create a This is a simple example program, to show how easy it is to use a UR robot. It assumes a simple harmless environment and a very careful user. Do not increase the speed or acceleration program above the default values. Always conduct a risk assessment before placing the robot into operation. 1. On PolyScope, in the Header File Path, tap New... and select Program. 2. Under Basic, tap Waypoint to add a waypoint to the program tree. A default MoveJ is also added to the program tree. 3. Select the new waypoint and in the Command tab, tap Waypoint. 4. On the Move Tool screen, move the robot arm by pressing the move arrows. You can also move the robot arm by holding down the Freedrive button and pulling the Robot Arm into desired positions. 5. Once the robot arm is in position, press OK and the new waypoint displays as Waypoint_1. 6. Follow steps 2 to 5 to create Waypoint_2. 7. Select Waypoint_2 and press the Move Up arrow until it is above Waypoint_1 to change the order of the movements. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. 8. Stand clear, hold on to the emergency stop button and in the PolyScope Footer, press Play button for the Robot Arm to move between Waypoint_1 and Waypoint_2. Congratulations! You have now produced your first robot program that moves the Robot Arm between the two given waypoints. NOTICE A singularity position can prevent the robot arm from moving into many poses/orientations and can block robot arm movement altogether. • Avoid placing the robot arm into a singularity position You can find more detailed information in the section on Singularity. NOTICE Do not drive the robot into itself or anything else as this may cause damage to the robot. WARNING Keep your head and torso outside the reach (workspace) of the robot. Do not place fingers where they can be caught. UR10e 149 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Program speed and acceleration | mustNotExceed | default values | \"\" | Do not increase the speed or acceleration program above the default values.\nRisk assessment | mustBeConducted | before placing the robot into operation | \"\" | Always conduct a risk assessment before placing the robot into operation.\nDefault MoveJ | isAddedTo | program tree | when a waypoint is added | A default MoveJ is also added to the program tree.\nRobot arm | canBeMovedBy | pressing the move arrows or holding Freedrive and pulling the arm | \"\" | You can also move the robot arm by holding down the Freedrive button and pulling the Robot Arm into desired positions.\nSingularity position | canPreventAndBlock | robot arm from moving into many poses/orientations and movement altogether | \"\" | A singularity position can prevent the robot arm from moving into many poses/orientations and can block robot arm movement altogether.\nRobot arm | mustNotBePlacedInto | singularity position | \"\" | Avoid placing the robot arm into a singularity position\nRobot arm movement test | mustBeStartedWith | standing clear and holding the emergency stop button, then pressing Play | \"\" | Stand clear, hold on to the emergency stop button and in the PolyScope Footer, press Play button for the Robot Arm to move between Waypoint_1 and Waypoint_2.\nRobot | mustNotBeDrivenInto | itself or anything else | \"\" | Do not drive the robot into itself or anything else as this may cause damage to the robot.\nHead and torso | mustBeKept | outside the reach (workspace) of the robot | \"\" | Keep your head and torso outside the reach (workspace) of the robot.\nFingers | mustNotBePlaced | where they can be caught | \"\" | Do not place fingers where they can be caught.\nFirst program | movesRobotArmBetween | Waypoint_1 and Waypoint_2 | \"\" | You have now produced your first robot program that moves the Robot Arm between the two given waypoints.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1264,
+   "prompt_tokens": 856,
+   "total_tokens": 2120,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 599,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007176,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007176,
+   "gateway_cost": 0.0007176
+  }
+ }
+}

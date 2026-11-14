@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 127\n\nWrist When enabled, the robot limits torque in the wrist joints to prevent clamping between the Clamping wrist, payload, and the lower arm of the robot. Torque Limit details NOTICE When the setting is enabled, it also defines a non-safety-rated upper limit for the applied torque windows of the base, shoulder, and elbow joints. In force control applications, the achievable contact forces may be significantly lower than the specified forces in the Tool Force Limit and Elbow Force Limit safety functions. When disabled, the robot can use higher pushing force with the wrist joints, for example in force-controlled applications. When the function is disabled, risks of clamping between the wrist, payload, and lower arm of the robot must be mitigated by other means. NOTICE This safety function is enabled by default on all robots. In PolyScope 5.25 Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. or later, it is possible to disable this safety function. User Manual 130 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Wrist torque limit | limitsTorque | torque in the wrist joints | when enabled | When enabled, the robot limits torque in the wrist joints to prevent clamping between the wrist, payload, and the lower arm of the robot.\nWrist torque limit | preventsClamping | clamping between the wrist, payload, and lower arm | when enabled | When enabled, the robot limits torque in the wrist joints to prevent clamping between the wrist, payload, and the lower arm of the robot.\nWrist torque limit | definesUpperLimit | non-safety-rated upper limit for applied torque windows of base, shoulder, and elbow joints | when enabled | When the setting is enabled, it also defines a non-safety-rated upper limit for the applied torque windows of the base, shoulder, and elbow joints.\nAchievable contact forces | mayBeLowerThan | specified forces in Tool Force Limit and Elbow Force Limit safety functions | in force control applications | In force control applications, the achievable contact forces may be significantly lower than the specified forces in the Tool Force Limit and Elbow Force Limit safety functions.\nWrist torque limit | allowsHigherPushingForce | robot pushing force with the wrist joints | when disabled | When disabled, the robot can use higher pushing force with the wrist joints, for example in force-controlled applications.\nClamping risk | mustBeMitigatedByOtherMeans | clamping between wrist, payload, and lower arm | when the function is disabled | When the function is disabled, risks of clamping between the wrist, payload, and lower arm of the robot must be mitigated by other means.\nWrist torque limit | enabledByDefault | all robots | \"\" | This safety function is enabled by default on all robots.\nWrist torque limit | canBeDisabledIn | PolyScope 5.25 or later | PolyScope 5.25 or later | In PolyScope 5.25 or later, it is possible to disable this safety function.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1220,
+   "prompt_tokens": 536,
+   "total_tokens": 1756,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 563,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006636,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006636,
+   "gateway_cost": 0.0006636
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 140\n\n14 TECHNICAL DATA Required viewing slit If the device is installed in paneling, for example, you must ensure that the laser beam can exit unhindered. The reflected laser beam must also reach the device unhindered. That means the viewing slit must be large enough. The required minimum height and width of the viewing slit depends on the following parameters, among others: O Conical error O Alignment of the safety laser scanner (with compensation of the tilt error) O Light spot size at the end of the viewing slit. The reflected light beam has a significantly larger light spot. This size must be taken into account. O Vibrations that affect the scan plane or the geometry of the viewing slit The following information applies at an ambient temperature of 20 °C. Deviations may occur at other temperatures. Dimensioning of a viewing slit with length a ≤ 200 mm O b, c ≥ 14 mm O d ≥ 16 mm Dimensioning of a viewing slit with length a > 200 mm The individual tilt error of the safety laser scanner must be compensated for by suitable alignment during installation. The cone error cannot be compensated and is taken into account in the formula. O b, c ≥ 0.024536 × a + 9.8 mm, additional condition: b, c ≥ 14 mm O d ≥ 16 mm Where: O a = length of the viewing slit from the mirror rotation axis O b = minimum height above the scan plane O c = minimum height below the scan plane O d = minimum lateral distance between the protective field and the boundary of the viewing slit 140 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "viewing slit | mustAllow | laser beam can exit unhindered | device installed in paneling | \"If the device is installed in paneling, for example, you must ensure that the laser beam can exit unhindered.\"\nviewing slit | mustAllow | reflected laser beam reaches the device unhindered | \"\" | \"The reflected laser beam must also reach the device unhindered. That means the viewing slit must be large enough.\"\nrequired viewing slit minimum height and width | dependsOn | conical error, alignment, light spot size, vibrations | \"\" | \"The required minimum height and width of the viewing slit depends on the following parameters, among others\"\nreflected light spot | isLargerThan | emitted light spot at viewing slit end | \"\" | \"The reflected light beam has a significantly larger light spot. This size must be taken into account.\"\nviewing slit dimensions | validAt | ambient temperature of 20 °C | \"\" | \"The following information applies at an ambient temperature of 20 °C. Deviations may occur at other temperatures.\"\nviewing slit height b and c | minimum | 14 mm | viewing slit length a ≤ 200 mm | \"Dimensioning of a viewing slit with length a ≤ 200 mm O b, c ≥ 14 mm\"\nviewing slit lateral distance d | minimum | 16 mm | viewing slit length a ≤ 200 mm | \"Dimensioning of a viewing slit with length a ≤ 200 mm O b, c ≥ 14 mm O d ≥ 16 mm\"\nviewing slit height b and c | minimum | 0.024536 × a + 9.8 mm, and at least 14 mm | viewing slit length a > 200 mm | \"O b, c ≥ 0.024536 × a + 9.8 mm, additional condition: b, c ≥ 14 mm\"\nviewing slit lateral distance d | minimum | 16 mm | viewing slit length a > 200 mm | \"O d ≥ 16 mm\"\nindividual tilt error of safety laser scanner | mustBeCompensatedBy | suitable alignment during installation | viewing slit length a > 200 mm | \"The individual tilt error of the safety laser scanner must be compensated for by suitable alignment during installation.\"\ncone error | isNotCompensatedAndIs | taken into account in the formula | \"\" | \"The cone error cannot be compensated and is taken into account in the formula.\"\nlength a of viewing slit | isMeasuredFrom | mirror rotation axis | \"\" | \"a = length of the viewing slit from the mirror rotation axis\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1471,
+   "prompt_tokens": 768,
+   "total_tokens": 2239,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 630,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008123,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008123,
+   "gateway_cost": 0.0008123
+  }
+ }
+}

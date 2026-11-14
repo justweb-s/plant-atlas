@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 87\n\nCONFIGURATION 8 Error O Device error setting: Device errors are serious errors where all safety outputs switch to the OFF state and the device switches to the locking state. Once the cause of the error has been rectified, the device must be completely restarted. O Application error setting: In the event of an application error, all safety outputs switch to the OFF state. Once the cause of the error has been rectified, the safety function must be restarted. Contamination O Switch when Contamination Warning is present. Device is in ON state, but partial contamination on the optics cover is detected. setting: The optics cover should be cleaned soon. O Switch when Contamination Error is present. Device is in OFF state due to contamination of the optics cover. setting: All safety outputs in the OFF state. The optics cover is severely contaminated and must be cleaned immediately. Speed For dynamic inputs, you must specify for each incremental encoder how many pulses it outputs per distance traveled. For dynamic inputs, you must also specify the tolerance by which the measured speeds of the two incremental encoders are allowed to deviate from one another, e.g., when cornering. The value is given as a percentage of the higher of the two speeds (whether forwards or backwards). In case of differences, the speed with the higher value is always used. The tolerance is allowed to be exceeded for a certain period of time. The safety laser scanner then switches the safety outputs to the OFF state. The period of time depends on the vehicle speed: O Vehicle speed -10 cm/s … +10 cm/s: No shut-off, no matter how large the deviation between the measured speeds is. O Vehicle speed -30 cm/s … -10 cm/s or +10 cm/s … +30 cm/s: The tolerance is allowed to be exceeded for a maximum of 60 seconds. O Vehicle speed ≤ -30 cm/s or ≥ +30 cm/s: The tolerance is allowed to be exceeded for a maximum of 20 seconds. O Vehicle speed in the range ≤ -10 cm/s or ≥ +10 cm/s: Different directions of rotation of the incremental encoders are tolerated for a maximum of 0.4 s. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 87 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Device error | causes | all safety outputs switch to OFF and device switches to locking state | | Device errors are serious errors where all safety outputs switch to the OFF state and the device switches to the locking state.\nDevice error | requires | complete restart of the device | after cause of error rectified | Once the cause of the error has been rectified, the device must be completely restarted.\nApplication error | causes | all safety outputs switch to OFF state | | In the event of an application error, all safety outputs switch to the OFF state.\nApplication error | requires | restart of safety function | after cause of error rectified | Once the cause of the error has been rectified, the safety function must be restarted.\nContamination warning | keeps | device in ON state | partial contamination on optics cover detected | Device is in ON state, but partial contamination on the optics cover is detected.\nContamination error | causes | all safety outputs in OFF state | optics cover severely contaminated | All safety outputs in the OFF state. The optics cover is severely contaminated and must be cleaned immediately.\nDynamic inputs | require | specification of pulses per distance traveled for each incremental encoder | | For dynamic inputs, you must specify for each incremental encoder how many pulses it outputs per distance traveled.\nDynamic inputs | require | specification of speed tolerance between the two incremental encoders | | For dynamic inputs, you must also specify the tolerance by which the measured speeds of the two incremental encoders are allowed to deviate from one another\nSpeed tolerance | is expressed as | percentage of the higher of the two speeds | | The value is given as a percentage of the higher of the two speeds (whether forwards or backwards).\nSpeed tolerance exceeded | tolerated for | maximum of 60 seconds | vehicle speed -30 to -10 cm/s or +10 to +30 cm/s | The tolerance is allowed to be exceeded for a maximum of 60 seconds.\nSpeed tolerance exceeded | tolerated for | maximum of 20 seconds | vehicle speed ≤ -30 cm/s or ≥ +30 cm/s | The tolerance is allowed to be exceeded for a maximum of 20 seconds.\nDifferent directions of rotation of incremental encoders | tolerated for | maximum of 0.4 s | vehicle speed ≤ -10 cm/s or ≥ +10 cm/s | Different directions of rotation of the incremental encoders are tolerated for a maximum of 0.4 s.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1821,
+   "prompt_tokens": 982,
+   "total_tokens": 2803,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1004,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010087,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010087,
+   "gateway_cost": 0.0010087
+  }
+ }
+}

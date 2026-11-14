@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 146\n\n18 GLOSSARY OSSD Output signal switching device: signal output for the protective device, which is used for stopping the dangerous movement. An OSSD is a safety switching output. The functionality of each OSSD is tested periodically. OSSDs are always connected in pairs and must undergo dual-channel analysis for safety reasons. An OSSD pair is formed from 2 OSSDs that are connected and ana- lyzed together. PFH Average frequency of a dangerous failure per hour. More information: IEC 61508, IEC 62061, ISO 13849. PL Performance level (ISO 13849) Position determination Position determination or localization is the determination of the position of an object. For vehicles, localization is a prerequisite for navigation. Protective field The protective field is the area in which the test object specified by the manufacturer is detected by the electro-sensitive protec- tive equipment (ESPE). As soon as the electro-sensitive protective device detects an object in the protective field, it switches the associated safety outputs to the OFF state. This signal can be passed to controllers resulting in the dangerous state coming to an end, e.g. to stop the machine or the vehicle. Reference contour field The contour as reference field monitors a contour of the environ- ment. The safety laser scanner switches all safety outputs to the OFF state if a contour does not match the set parameters, because, for example, the mounting of the safety laser scanner has been changed. National and international standards require or recommend that a reference contour is monitored, if the safety laser scanner is used in vertical operation for hazardous point protection or for access protection. Reset When a protective device has sent a stop command, the stopped state must be maintained until a reset device is activated and the machine can be restarted in a second step. The reset brings the protective device back to the monitoring state after it has sent a stop command. The reset also quits the start-up or restart interlock of a protective device, so that the machine can be restarted in a second step. The reset must only be possible, when all safety functions and protective devices are functional. The reset of the protective device must not introduce any move- ment or dangerous situations itself. The machine is only permitted to start after the reset once a separate start command has been sent. O Manual resets are performed using a separate, manually oper- ated device, such as a reset pushbutton. O Automatic resets by the protective device are only permitted in special cases, if one of the following conditions is met: o It must not be possible for people to be in the hazardous area without triggering the protective device. o It must be ensured that no people are in the hazardous area during or after the reset. 146 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "OSSD | is used for | stopping the dangerous movement | | \"used for stopping the dangerous movement\"\nOSSD | is tested | periodically | | \"The functionality of each OSSD is tested periodically.\"\nOSSDs | are connected | always in pairs | | \"OSSDs are always connected in pairs\"\nOSSDs | must undergo | dual-channel analysis | for safety reasons | \"must undergo dual-channel analysis for safety reasons\"\nelectro-sensitive protective device | switches | associated safety outputs to OFF state | when it detects an object in the protective field | \"As soon as the electro-sensitive protective device detects an object in the protective field, it switches the associated safety outputs to the OFF state.\"\nsafety laser scanner | switches | all safety outputs to OFF state | if a contour does not match the set parameters | \"The safety laser scanner switches all safety outputs to the OFF state if a contour does not match the set parameters\"\nreference contour | must be monitored | as required or recommended by national and international standards | if the safety laser scanner is used in vertical operation for hazardous point or access protection | \"National and international standards require or recommend that a reference contour is monitored, if the safety laser scanner is used in vertical operation for hazardous point protection or for access protection.\"\nstopped state | must be maintained | until a reset device is activated | after a protective device has sent a stop command | \"the stopped state must be maintained until a reset device is activated\"\nreset | must only be possible | when all safety functions and protective devices are functional | | \"The reset must only be possible, when all safety functions and protective devices are functional.\"\nreset | must not introduce | any movement or dangerous situations | | \"The reset of the protective device must not introduce any movement or dangerous situations itself.\"\nmachine | is only permitted to start | after a separate start command has been sent | after the reset | \"The machine is only permitted to start after the reset once a separate start command has been sent.\"\nautomatic reset by protective device | is permitted | only in special cases | if people cannot be in the hazardous area without triggering the device, and no people are in the hazardous area during or after the reset | \"Automatic resets by the protective device are only permitted in special cases, if one of the following conditions is met\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1353,
+   "prompt_tokens": 1088,
+   "total_tokens": 2441,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 638,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007853,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007853,
+   "gateway_cost": 0.0007853
+  }
+ }
+}

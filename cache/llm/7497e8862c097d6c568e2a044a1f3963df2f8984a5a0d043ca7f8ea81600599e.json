@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 110\n\n10. Configuration 10.2. Safety-related Functions and Interfaces Description Universal Robots robots are equipped with a range of built-in safety functions as well as safety I/O, digital and analog control signals to or from the electrical interface, to connect to other machines and additional protective devices. Each safety function and I/O is constructed according to EN ISO13849-1 with Performance Level d (PLd) using a category 3 architecture. WARNING The use of safety configuration parameters different from those determined as necessary for risk reduction, can result in hazards that are not reasonably eliminated, or risks that are not sufficiently reduced. • Ensure tools and grippers are connected correctly to avoid hazards due to interruption of power. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. WARNING: ELECTRICITY Programmer and/or wiring errors can cause the voltage to change from 12V to 24V leading to fire damage to equipment. • Verify the use of 12V and proceed with caution. NOTICE • The use and configuration of safety functions and interfaces must follow the risk assessment procedures for each robot application. • The stopping time should be taken into account as part of the application risk assessment • If the robot detects a fault or violation in the safety system (e.g. if one of the wires in the Emergency Stop circuit is cut or a safety limit is exceeded), then a Stop Category 0 is initiated. NOTICE The end effector is not protected by the UR safety system. The functioning of the end effector and/or connection cable is not monitored 10.2.1. Passwords UR10e 113 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Universal Robots robots | have built-in safety functions and I/O constructed to PLd with a category 3 architecture | | \"Each safety function and I/O is constructed according to EN ISO13849-1 with Performance Level d (PLd) using a category 3 architecture.\"\nSafety configuration parameters | can result in hazards that are not reasonably eliminated or risks not sufficiently reduced | different from those determined as necessary for risk reduction | \"The use of safety configuration parameters different from those determined as necessary for risk reduction, can result in hazards that are not reasonably eliminated, or risks that are not sufficiently reduced.\"\nTools and grippers | must be connected correctly | to avoid hazards due to interruption of power | \"Ensure tools and grippers are connected correctly to avoid hazards due to interruption of power.\"\nProgrammer and/or wiring errors | can cause voltage to change from 12V to 24V, leading to fire damage | | \"Programmer and/or wiring errors can cause the voltage to change from 12V to 24V leading to fire damage to equipment.\"\nOperator | verifies the use of 12V and proceeds with caution | | \"Verify the use of 12V and proceed with caution.\"\nUse and configuration of safety functions and interfaces | must follow the risk assessment procedures for each robot application | | \"The use and configuration of safety functions and interfaces must follow the risk assessment procedures for each robot application.\"\nStopping time | should be taken into account as part of the application risk assessment | | \"The stopping time should be taken into account as part of the application risk assessment\"\nRobot | initiates Stop Category 0 | if it detects a fault or violation in the safety system | \"If the robot detects a fault or violation in the safety system (e.g. if one of the wires in the Emergency Stop circuit is cut or a safety limit is exceeded), then a Stop Category 0 is initiated.\"\nEnd effector | is not protected by the UR safety system | | \"The end effector is not protected by the UR safety system.\"\nFunctioning of end effector and/or connection cable | is not monitored | | \"The functioning of the end effector and/or connection cable is not monitored\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1235,
+   "prompt_tokens": 739,
+   "total_tokens": 1974,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 534,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006914,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006914,
+   "gateway_cost": 0.0006914
+  }
+ }
+}

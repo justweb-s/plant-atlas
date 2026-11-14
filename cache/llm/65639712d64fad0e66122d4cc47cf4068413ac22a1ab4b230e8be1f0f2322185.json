@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 116\n\nSafety Function Accuracy Performance Level Category Emergency Stop – d 3 Safeguard Stop – d 3 Joint Position Limit 5° d 3 Joint Speed Limit 1.15 °/s d 3 Safety Planes 40 mm d 3 Tool Orientation 3° d 3 Speed Limit 50 mm/s d 3 Force Limit 25 N d 3 Momentum Limit 3 kg m/s d 3 Power Limit 10 W d 3 Stopping Time Limit 50 ms d 3 Stopping Distance Limit 40 mm d 3 Safe Home 1.7 ° d 3 Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Warnings CAUTION Failure to configure the maximum speed limit can result in hazardous situations. • If the robot is used in manual hand-guiding applications with linear movements, the speed limit must be set to maximum 250 mm/s for the tool/end effector and elbow unless a risk assessment shows that higher speeds are acceptable. This will prevent fast movements of the robot elbow near singularities. NOTICE There are two exceptions to the force limiting function that are important when designing an application. As the robot stretches out, the knee-joint effect can give high forces in the radial direction (away from the base) at low speeds. Similarly, the short leverage arm, when the tool/end effector is close to the base and moving around the base, can cause high forces at low speeds. UR10e 119 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Joint Position Limit | hasAccuracy | 5° | | Joint Position Limit 5° d 3\nJoint Speed Limit | hasAccuracy | 1.15 °/s | | Joint Speed Limit 1.15 °/s d 3\nSpeed Limit | hasAccuracy | 50 mm/s | | Speed Limit 50 mm/s d 3\nForce Limit | hasAccuracy | 25 N | | Force Limit 25 N d 3\nPower Limit | hasAccuracy | 10 W | | Power Limit 10 W d 3\nStopping Time Limit | hasAccuracy | 50 ms | | Stopping Time Limit 50 ms d 3\nStopping Distance Limit | hasAccuracy | 40 mm | | Stopping Distance Limit 40 mm d 3\nSafety Planes | hasAccuracy | 40 mm | | Safety Planes 40 mm d 3\nTool Orientation | hasAccuracy | 3° | | Tool Orientation 3° d 3\nMaximum speed limit for hand-guiding with linear movements | mustBeSetTo | 250 mm/s for the tool/end effector and elbow | unless a risk assessment shows that higher speeds are acceptable | the speed limit must be set to maximum 250 mm/s for the tool/end effector and elbow unless a risk assessment shows that higher speeds are acceptable\nForce limiting function | hasException | knee-joint effect gives high radial forces at low speeds as the robot stretches out | | As the robot stretches out, the knee-joint effect can give high forces in the radial direction (away from the base) at low speeds.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1606,
+   "prompt_tokens": 712,
+   "total_tokens": 2318,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1046,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008742,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008742,
+   "gateway_cost": 0.0008742
+  }
+ }
+}

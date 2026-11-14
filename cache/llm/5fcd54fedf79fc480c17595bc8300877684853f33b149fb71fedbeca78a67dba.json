@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 60\n\n7.7. Freedrive Description Freedrive allows the robot arm to be manually pulled into desired positions For most robot sizes, the most typical way to enable Freedrive is to press the Freedrive button on the Teach Pendant. More ways to enable and use Freedrive are described in the following sections. In Freedrive, the robot arm joints move with little resistance because the brakes are released. Resistance increases as the robot arm in Freedrive approaches a predefined limit or plane. This makes pulling the robot into position feel heavy. WARNING Injury to personnel can occur due to unexpected motion. • Verify the configured payload is the payload being used. • Verify the correct payload is securely attached to the tool flange. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Enabling You can enable Freedrive in the following ways: Freedrive • Use the 3PE Teach Pendant. • Use the Freedrive on robot. • Use I/O Actions. NOTICE Enabling Freedrive while you are moving the robot arm, can cause it to drift leading to faults. • Do not enable Freedrive while you are pushing or touching the robot. 3PE Teach To use the 3PE TP button to freedrive the robot arm: Pendant 1. Rapidly light-press, release, light-press again and keep holding the 3PE button in this position. Now you can pull the robot arm into a desired position, while the light-press is maintained. UR10e 63 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Freedrive | allows | robot arm to be manually pulled into desired positions | | Freedrive allows the robot arm to be manually pulled into desired positions\nFreedrive on most robot sizes | is typically enabled by | pressing the Freedrive button on the Teach Pendant | For most robot sizes | For most robot sizes, the most typical way to enable Freedrive is to press the Freedrive button on the Teach Pendant\nrobot arm joints in Freedrive | move with | little resistance | brakes are released | the robot arm joints move with little resistance because the brakes are released\nresistance in Freedrive | increases | as the robot arm approaches a predefined limit or plane | | Resistance increases as the robot arm in Freedrive approaches a predefined limit or plane\ninjury to personnel | can occur due to | unexpected motion | | Injury to personnel can occur due to unexpected motion\noperator | must verify | configured payload is the payload being used | | Verify the configured payload is the payload being used\noperator | must verify | correct payload is securely attached to the tool flange | | Verify the correct payload is securely attached to the tool flange\nFreedrive | can be enabled by | 3PE Teach Pendant, Freedrive on robot, or I/O Actions | | You can enable Freedrive in the following ways: Use the 3PE Teach Pendant. Use the Freedrive on robot. Use I/O Actions.\nenabling Freedrive while moving the robot arm | can cause | the arm to drift, leading to faults | | Enabling Freedrive while you are moving the robot arm, can cause it to drift leading to faults.\noperator | must not enable | Freedrive while pushing or touching the robot | | Do not enable Freedrive while you are pushing or touching the robot.\n3PE TP button | is used to freedrive by | rapidly light-pressing, releasing, light-pressing again, and holding the button | | Rapidly light-press, release, light-press again and keep holding the 3PE button in this position.\nrobot arm | can be pulled into position | while the light-press is maintained | 3PE button freedrive is active | Now you can pull the robot arm into a desired position, while the light-press is maintained.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1440,
+   "prompt_tokens": 696,
+   "total_tokens": 2136,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 716,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007896,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007896,
+   "gateway_cost": 0.0007896
+  }
+ }
+}

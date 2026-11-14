@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 207\n\n18. Maintenance and Repair Robot Arm The table below is a checklist of the type of inspections recommended by Universal Robots. Inspection Perform inspections regularly as advised in the table. Any referenced parts found to be in an Plan unacceptable state must be rectified or replaced. Inspection action type Timeframe Monthly Biannually Annually 1 Check flat rings V ✘ 2 Check robot cable V ✘ 3 Check robot cable connection V ✘ 4 Check Robot Arm mounting bolts F ✘ * 5 Check Tool mounting bolts * F ✘ 6 Round Sling F ✘ Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Robot Arm Inspection NOTICE Plan Using compressed air to clean the robot arm can damage the robot arm components. • Never use compressed air to clean the robot arm. Robot Arm 1. Move the Robot Arm to ZERO position, if possible. Inspection 2. Turn off and disconnect the power cable from Control Box. Plan 3. Inspect the cable between Control Box and Robot Arm for any damage. 4. Check the base mounting bolts are properly tightened. 5. Check the tool flange bolts are properly tightened. 6. Inspect the flat rings for wear and damage. • Replace the flat rings if they are worn out or damaged. NOTICE If any damage is observed on a robot within the warranty period, contact the distributor where the robot was purchased. User Manual 210 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Universal Robots | recommends | inspections of the robot arm listed in the checklist | | The table below is a checklist of the type of inspections recommended by Universal Robots.\nInspections | scheduledAs | performed regularly as advised in the table | | Perform inspections regularly as advised in the table.\nReferenced parts in unacceptable state | mustBe | rectified or replaced | found to be in an unacceptable state | Any referenced parts found to be in an unacceptable state must be rectified or replaced.\nCompressed air | mustNotBe | used to clean the robot arm | | Never use compressed air to clean the robot arm.\nCompressed air cleaning | canCause | damage to robot arm components | | Using compressed air to clean the robot arm can damage the robot arm components.\nRobot Arm | moveTo | ZERO position | if possible | Move the Robot Arm to ZERO position, if possible.\nPower cable to Control Box | mustBe | turned off and disconnected | before inspection | Turn off and disconnect the power cable from Control Box.\nCable between Control Box and Robot Arm | inspectFor | any damage | | Inspect the cable between Control Box and Robot Arm for any damage.\nBase mounting bolts | mustBe | properly tightened | | Check the base mounting bolts are properly tightened.\nTool flange bolts | mustBe | properly tightened | | Check the tool flange bolts are properly tightened.\nFlat rings | mustBe | replaced | if they are worn out or damaged | Replace the flat rings if they are worn out or damaged.\nRobot with damage | contact | distributor where the robot was purchased | within the warranty period | If any damage is observed on a robot within the warranty period, contact the distributor where the robot was purchased.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1315,
+   "prompt_tokens": 723,
+   "total_tokens": 2038,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 727,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007298,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007298,
+   "gateway_cost": 0.0007298
+  }
+ }
+}

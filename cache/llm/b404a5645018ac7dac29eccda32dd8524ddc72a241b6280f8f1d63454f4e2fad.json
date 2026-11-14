@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 39\n\nPROJECT PLANNING 5 v Speed SA Stopping distance Z Supplements SL Protective field length for the relevant range of speeds SA = SBr + SAnF + SAnS where: O SA = stopping distance in millimeters (mm) O SBr = braking distance, from the vehicle documentation, in millimeters (mm) O SAnF = distance covered during the vehicle control’s response time (including signal propagation time), from the vehicle documentation, in millimeters (mm) O SAnS = distance covered during the response time of the safety laser scanner in millimeters (mm) The distance SAnS depends on the safety laser scanner’s response time and the vehicle’s speed. The distance SAnS is calculated using the following formula: SAnS = tR × Vmax where: o tR = response time of the safety laser scanner in seconds (s) o Vmax = maximum speed of the vehicle, from the vehicle documentation, in millimeters per second (mm/s) (If you define a number of monitoring cases with different protective fields: Vmax = maximum speed of the vehicle in the current monitoring case) Further topics O \"Response times\", page 133 5.3.10.4 Calculation example for the protective field length Calculation example for the protective field length SL SL = SA + TZ + ZR + ZF + ZB where: O SL = protective field length in millimeters (mm) O SA = stopping distance in millimeters (mm) O TZ = tolerance zone of the safety laser scanner, see \"Data sheet\", page 129 O ZR = supplement for reflection-based measurement errors in millimeters (mm) O ZF = supplement for lack of ground clearance of the vehicle in millimeters (mm) O ZB = supplement for the decreasing braking force of the vehicle, from the vehicle documentation, in millimeters (mm) 5.3.10.5 Calculation example for the protective field width Calculation example for the protective field width SB SB = FB +2 × (TZ + ZR + ZF) where: O SB = protective field width in millimeters (mm) O FB = vehicle width in millimeters (mm) O TZ = tolerance zone of the safety laser scanner, see \"Data sheet\", page 129 O ZR = supplement for reflection-based measurement errors in millimeters (mm) O ZF = supplement for lack of ground clearance of the vehicle in millimeters (mm) 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 39 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "SA | equalsSumOf | SBr + SAnF + SAnS | | SA = SBr + SAnF + SAnS\nSBr | isTakenFrom | vehicle documentation, in millimeters | | SBr = braking distance, from the vehicle documentation, in millimeters (mm)\nSAnS | calculatedAs | tR × Vmax | | SAnS = tR × Vmax\nVmax | isMaximumSpeedOf | the vehicle, taken from vehicle documentation | if several monitoring cases with different protective fields are defined, the speed of the current monitoring case | Vmax = maximum speed of the vehicle, from the vehicle documentation, in millimeters per second (mm/s) (If you define a number of monitoring cases with different protective fields: Vmax = maximum speed of the vehicle in the current monitoring case)\nSL | equalsSumOf | SA + TZ + ZR + ZF + ZB | | SL = SA + TZ + ZR + ZF + ZB\nZB | isSupplementFor | decreasing braking force of the vehicle, taken from vehicle documentation | | ZB = supplement for the decreasing braking force of the vehicle, from the vehicle documentation, in millimeters (mm)\nZF | isSupplementFor | lack of ground clearance of the vehicle | | ZF = supplement for lack of ground clearance of the vehicle in millimeters (mm)\nSB | equalsFormula | FB + 2 × (TZ + ZR + ZF) | | SB = FB +2 × (TZ + ZR + ZF)\nSAnF | isDistanceCoveredDuring | vehicle control's response time, including signal propagation time | | SAnF = distance covered during the vehicle control's response time (including signal propagation time), from the vehicle documentation, in millimeters (mm)\ntR | isResponseTimeOf | safety laser scanner, in seconds | | tR = response time of the safety laser scanner in seconds (s)",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1211,
+   "prompt_tokens": 1055,
+   "total_tokens": 2266,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 545,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000711,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000711,
+   "gateway_cost": 0.000711
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 84\n\n8. Installation Control Box All safety outputs go low in the event of a safety system violation or fault. This means the Outputs System Stop output initiates a stop even when an E-stop is not triggered. You can use the following Safety functions output signals. All signals return to low when the state which triggered the high signal has ended: Signal is Low when the safety system has been triggered into a 1System stopped state including by the Robot Emergency Stop input or the Emergency Stop Button. To avoid deadlocks, if the Emergency Stop Stopped state is triggered by the System Stop input, low signal will not be given. Robot Signal is Low if the robot is moving, otherwise high. Moving Signal is High when the robot is stopped or in the process of stopping Robot Not due to an emergency stop or safeguard stop. Otherwise it will be logic Stopping low. Signal is Low when reduced parameters are active or if the safety Reduced input is configured with a reduced input and the signal is currently low. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Otherwise the signal is high. Not This is the inverse of Reduced, defined above. Reduced Signal is High if the Robot Arm is stopped and is located in the Safe configured Safe Home Position. Otherwise, the signal is Low. This is Home often used when UR robots are integrated with mobile robots. 3-Position Enabling Signal is low when a three position stop is active, high otherwise. Stopped Not 3- Position Signal is low when a three position stop is inactive, high otherwise. Enabling Stopped NOTICE Any external machinery receiving its Emergency Stop state from the robot through the System Stop output must comply with ISO 13850. This is particularly necessary in setups where the Robot Emergency Stop input is connected to an external Emergency Stop device. In such cases, the System Stop output becomes high when the external Emergency Stop device is released. This implies that the emergency stop state at the external machinery will be reset with no manual action needed from the robot’s operator. Hence, to comply with safety standards, the external machinery must require manual action in order to resume. 1System Stop was previously known as \"System Emergency Stop\" for Universal Robots robots. PolyScope can display \"System Emergency Stop\". UR10e 87 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "All safety outputs | goLow | on a safety system violation or fault | | All safety outputs go low in the event of a safety system violation or fault.\nSystem Stop output | initiatesStop | robot stop even when an E-stop is not triggered | | the Outputs System Stop output initiates a stop even when an E-stop is not triggered\nSafety function output signals | returnToLow | when the state which triggered the high signal has ended | | All signals return to low when the state which triggered the high signal has ended\nSystem Stopped signal | isLow | safety system is triggered into System stopped state | including by Robot Emergency Stop input or Emergency Stop Button | Signal is Low when the safety system has been triggered into a System stopped state including by the Robot Emergency Stop input or the Emergency Stop Button.\nSystem Stopped signal | notGiven | Emergency Stop Stopped state triggered by System Stop input | to avoid deadlocks | if the Emergency Stop Stopped state is triggered by the System Stop input, low signal will not be given\nRobot Moving signal | isLow | robot is moving | otherwise high | Signal is Low if the robot is moving, otherwise high.\nRobot Not Moving signal | isHigh | robot is stopped or in the process of stopping | not due to an emergency stop or safeguard stop | Signal is High when the robot is stopped or in the process of stopping Robot Not due to an emergency stop or safeguard stop.\nReduced signal | isLow | reduced parameters are active or the safety Reduced input is configured and currently low | | Signal is Low when reduced parameters are active or if the safety Reduced input is configured with a reduced input and the signal is currently low.\nRobot Safe Home Position signal | isHigh | Robot Arm is stopped and located in the configured Safe Home Position | | Signal is High if the Robot Arm is stopped and is located in the Safe configured Safe Home Position.\n3-Position Enabling Stopped signal | isLow | a three position stop is active | | Signal is low when a three position stop is active, high otherwise.\nExternal machinery receiving Emergency Stop state via System Stop output | mustComply | ISO 13850 | | Any external machinery receiving its Emergency Stop state from the robot through the System Stop output must comply with ISO 13850.\nExternal machinery | mustRequireManualAction | to resume after an emergency stop | to comply with safety standards | the external machinery must require manual action in order to resume.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1640,
+   "prompt_tokens": 965,
+   "total_tokens": 2605,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 828,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009165,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009165,
+   "gateway_cost": 0.0009165
+  }
+ }
+}

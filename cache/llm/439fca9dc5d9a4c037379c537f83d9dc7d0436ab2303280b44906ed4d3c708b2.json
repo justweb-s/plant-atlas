@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 222\n\n20. Declarations and Certifications Manufacturer Universal Robots e-Series robots undergo Test continuous internal testing and end of line test Universal Certification procedures. Robots UR testing processes undergo continuous review and improvement. Declarations Although EU directives are relevant for Europe, some countries outside Europe recognize according to and/or require EU declarations. European directives are available on the official EU directives homepage: http://eur-lex.europa.eu. According to the Machinery Directive, Universal Robots’ robots are partly completed machines, as such a CE mark is not to be affixed. You can find the Declaration of Incorporation (DOI) according to the Machinery Directive in the chapter: Declarations and Certificates. EU REACH Our product includes components, specifically the blue plastic lids (cups) and grey plastic Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. parts, that contain substances listed on the EU REACH Candidate List (>0.1% w/w). For reference, please see the Global Compliance Document available for download on our website. This information is provided to comply with EU REACH obligations for articles placed on the EU market. Please use our product as intended and follow all operational and safety instructions provided in this manual. For further details, refer to the official REACH Regulation (Consolidated Text: 32006R1907). If you have questions related to product safety, please contact us at: ProductCompliance@teradyne-robotics.com. 20.3. Certificates UR5e UR5e 225 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Universal Robots e-Series robots | undergo | continuous internal testing and end of line test Universal Certification procedures | | \"e-Series robots undergo continuous internal testing and end of line test Universal Certification procedures\"\nUniversal Robots' robots | are classified as | partly completed machines | under the Machinery Directive | \"According to the Machinery Directive, Universal Robots’ robots are partly completed machines\"\nUniversal Robots' robots | must not have | a CE mark affixed | as partly completed machines | \"as such a CE mark is not to be affixed\"\nDeclaration of Incorporation (DOI) | is found in | the chapter Declarations and Certificates | for the Machinery Directive | \"You can find the Declaration of Incorporation (DOI) according to the Machinery Directive in the chapter: Declarations and Certificates\"\nblue plastic lids (cups) and grey plastic parts | contain | substances listed on the EU REACH Candidate List | at more than 0.1% w/w | \"contain substances listed on the EU REACH Candidate List (>0.1% w/w)\"\nGlobal Compliance Document | is available | for download on the company website | | \"Global Compliance Document available for download on our website\"\nProduct | should be used | as intended, following all operational and safety instructions in the manual | | \"Please use our product as intended and follow all operational and safety instructions provided in this manual\"\nProduct safety questions | should be directed to | ProductCompliance@teradyne-robotics.com | | \"If you have questions related to product safety, please contact us at: ProductCompliance@teradyne-robotics.com\"\nSome countries outside Europe | recognize or require | EU declarations | | \"some countries outside Europe recognize according to and/or require EU declarations\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1163,
+   "prompt_tokens": 707,
+   "total_tokens": 1870,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 592,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006522,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006522,
+   "gateway_cost": 0.0006522
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 104\n\n9 COMMISSIONING 9 Commissioning 9.1 Safety Important information WARNING Dangerous state of the machine The machine or the protective measure may not yet behave as you have planned When changes are made to the machine, the effectiveness of the protective measure may be affected unintentionally. → Before commissioning the machine, make sure that the machine is first checked and released by qualified safety personnel. → Only operate the machine with a perfectly functioning protective device. → Check the effectiveness of the protective measure after each change to the machine, the integration or the operating and boundary conditions of the safety laser scanner. Perform commissioning again. 9.2 Overview Prerequisites O Project planning has been completed. O Mounting is complete. O Electrical installation is completed. O Configuration is completed. O No-one is in the hazardous area during commissioning. Further topics O \"Project planning\", page 21 O \"Mounting\", page 54 O \"Electrical installation\", page 56 O \"Configuration\", page 61 9.3 Alignment Overview Various options are available for precisely aligning the safety laser scanner depending on the mounting kit that is used. Procedure 1. Align the safety laser scanner. 2. Tighten the screws to the specified tightening torque. 3. Check alignment. 9.4 Switching on After switching on, the safety laser scanner performs various internal tests. The OFF LED illuminates continually. The ON LED is off. When the start procedure is complete, the status LEDs and the display show the current operational status of the safety laser scanner. 104 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "machine | mustBeCheckedAndReleasedBy | qualified safety personnel | before commissioning the machine | Before commissioning the machine, make sure that the machine is first checked and released by qualified safety personnel.\nmachine | operatesOnlyWith | perfectly functioning protective device | | Only operate the machine with a perfectly functioning protective device.\neffectiveness of protective measure | mustBeCheckedAfter | each change to the machine, integration, or operating and boundary conditions | | Check the effectiveness of the protective measure after each change to the machine, the integration or the operating and boundary conditions of the safety laser scanner.\ncommissioning | mustBeRepeated | after any change to the machine, integration, or operating and boundary conditions | after a change | Perform commissioning again.\ncommissioning | requiresPrerequisite | no-one in the hazardous area | during commissioning | No-one is in the hazardous area during commissioning.\nsafety laser scanner | performsInternalTests | after switching on | after switching on | After switching on, the safety laser scanner performs various internal tests.\nOFF LED | illuminatesContinually | during start-up tests | during the internal tests after switching on | The OFF LED illuminates continually.\nON LED | isOff | during start-up tests | during the internal tests after switching on | The ON LED is off.\nstatus LEDs and display | showOperationalStatus | after start procedure | when the start procedure is complete | When the start procedure is complete, the status LEDs and the display show the current operational status of the safety laser scanner.\nsafety laser scanner | alignedUsing | alignment option depending on mounting kit | depending on the mounting kit used | Various options are available for precisely aligning the safety laser scanner depending on the mounting kit that is used.\nscrews | tightenTo | specified tightening torque | | Tighten the screws to the specified tightening torque.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1314,
+   "prompt_tokens": 768,
+   "total_tokens": 2082,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 694,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007338,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007338,
+   "gateway_cost": 0.0007338
+  }
+ }
+}

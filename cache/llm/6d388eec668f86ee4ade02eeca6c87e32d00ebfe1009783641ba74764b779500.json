@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 14\n\n3.5 Storage The packages must be stored in a covered location and protected from direct sunlight. They must be stored at low humidity and at a temperature between 0 °C and +40 °C. The lifts may only be stacked in the original transport racks, the max. stacking height is two transport racks (see also section “Transport and handling”). Packaging waste must be disposed of in accordance with applicable environmental regulations. 4 Operation 4.1 Safety Instructions WARNING • Observe the detailed operating instructions. • Comply with legal accident prevention regulations. • Wear personal protective equipment. • Perform a visual and functional check before starting work each day. • Defects must be corrected immediately in a competent manner. • The permissible load capacity according to the type plate must not be ex- ceeded. • Only vehicles suitable for the lifting equipment due to their shape and the positioning of their pick-up points may be lifted. • Operation of the lift is only permissible with mounted and intact protective covers and safety devices. • Never touch moving parts. • Never use additional lifting gear for an already raised load. • Before driving a vehicle onto the lift, the support arms must be in their low- ered starting position and moved backwards completely. Otherwise dama- ge to the equipment may occur. • Driving onto the lift should be at walking pace only and as close to the cen- tre of the columns as possible. • Vehicles may only be lifted with support arm locks intact and undamaged support discs. Risk of vehicle falling and causing personal injury. • Support disc raisers may only be used in their single form. A combination of support plate elevations per support plate/arm is not permitted. • Maintain a safe distance from the vehicle and lift in all directions. • Keep the movement range of the load and lift free from obstacles. Use a guide if visibility is restricted. • The vehicle doors must be closed during lifting and lowering. 14 BA364501-en"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Packages | must be stored | in a covered location | | The packages must be stored in a covered location and protected from direct sunlight.\nPackages | must be protected from | direct sunlight | | The packages must be stored in a covered location and protected from direct sunlight.\nPackages | must be stored at | low humidity | | They must be stored at low humidity and at a temperature between 0 °C and +40 °C.\nPackages | must be stored at | a temperature between 0 °C and +40 °C | | They must be stored at low humidity and at a temperature between 0 °C and +40 °C.\nLifts | may only be stacked | in the original transport racks | | The lifts may only be stacked in the original transport racks\nMaximum stacking height | is | two transport racks | | the max. stacking height is two transport racks\nPermissible load capacity | must not be | exceeded | | The permissible load capacity according to the type plate must not be exceeded.\nOperation of the lift | is permissible only | with mounted and intact protective covers and safety devices | | Operation of the lift is only permissible with mounted and intact protective covers and safety devices.\nVehicles | may only be lifted | if suitable for the lifting equipment due to their shape and the positioning of their pick-up points | | Only vehicles suitable for the lifting equipment due to their shape and the positioning of their pick-up points may be lifted.\nSupport arms | must be in | lowered starting position and moved backwards completely | before driving a vehicle onto the lift | Before driving a vehicle onto the lift, the support arms must be in their lowered starting position and moved backwards completely.\nDriving onto the lift | should be | at walking pace only and as close to the centre of the columns as possible | | Driving onto the lift should be at walking pace only and as close to the centre of the columns as possible.\nVehicle doors | must be | closed | during lifting and lowering | The vehicle doors must be closed during lifting and lowering.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1458,
+   "prompt_tokens": 830,
+   "total_tokens": 2288,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 824,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000812,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000812,
+   "gateway_cost": 0.000812
+  }
+ }
+}

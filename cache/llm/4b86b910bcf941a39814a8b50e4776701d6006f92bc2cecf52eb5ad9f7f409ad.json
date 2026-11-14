@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 133\n\nTECHNICAL DATA 14 nanoScan3 Core I/O nanoScan3 Pro I/O Standards O IEC 60068-2-27 O IEC 60721-3-5 O IEC TR 60721-4-5 O IEC 61496-3 Class O 5M1 (IEC 60721-3-5) Single shock 150 m/s², 11 ms Continuous shock O 50 m/s², 11 ms O 100 m/s², 16 ms EMC In accordance with IEC 61496-1, IEC 61000-6-2, and IEC 61000-6-3 1) The specified enclosure rating only applies if the optics cover and the system plug are mounted and the USB connection is closed with the protective cover. 2) For ambient light sources directly in the scan plane in accordance with IEC 61496-3: ≤ 3 klx 3) IEC 61496-1, no. 4.3.1 and no. 5.4.2, IEC 61496-3, no. 4.3.1 and no. 5.4.2. Condensation has an influence on normal operation. 4) IEC 61496-1, no. 4.3.1 and no. 5.4.2, IEC 61496-3, no. 4.3.1 and no. 5.4.2. Condensation has an influence on normal operation. 5) In direct mounting. Table 39: Miscellaneous data nanoScan3 Core I/O nanoScan3 Pro I/O Type of light Pulsed laser diode Wavelength 905 nm Detectable remission 1.8% to several 1,000% Maximum uniform contami- 30% nation of the optics cover without reducing the detec- tion capability 1) Area where detection capa- ≤ 50 mm 2) bility is restricted Pulse duration Typ. 4 ns Average output power 12.8 mW Laser class 1 3) 1) In the event of heavy contamination, the safety laser scanner displays a contamination error and switches all safety outputs to the OFF state. This status is displayed in Safety Designer as 100% contamination. 2) In close proximity (50 mm-wide area in front of the optics cover), the detection capability of the safety laser scanner may be restricted. If required, this area must be secured using an undercut or frame, for example. 3) This laser product has laser class 1 according to IEC 60825-1:2014. In some cases, evaluation is required according to the older IEC 60825-1:2007 standard, e.g. by employers in the EU according to Directive 2006/25/EC. According to the older IEC 60825-1:2007 standard, laser class 1M must be used as the basis. 14.3 Response times Overview The protective device’s response time is the maximum time between the occurrence of the event leading to the sensor’s response and supply of the switch-off signal to the protective device’s interface (for example OFF state of the OSSD pair). In addition to the protective device’s response time, further signal transmission and processing also influence the time up until the end of the dangerous state. This includes a control’s processing time and the response times of downstream contactors, for example. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 133 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "nanoScan3 enclosure rating | appliesWhen | optics cover and system plug are mounted and USB connection is closed with the protective cover | \"\" | The specified enclosure rating only applies if the optics cover and the system plug are mounted and the USB connection is closed with the protective cover.\nnanoScan3 ambient light immunity | hasLimit | ≤ 3 klx | ambient light sources directly in the scan plane in accordance with IEC 61496-3 | For ambient light sources directly in the scan plane in accordance with IEC 61496-3: ≤ 3 klx\nnanoScan3 light source | hasType | pulsed laser diode with wavelength 905 nm | \"\" | Type of light Pulsed laser diode Wavelength 905 nm\nnanoScan3 detectable remission | hasRange | 1.8% to several 1,000% | \"\" | Detectable remission 1.8% to several 1,000%\nnanoScan3 optics cover | toleratesUniformContamination | 30% | without reducing the detection capability | Maximum uniform contamination of the optics cover without reducing the detection capability 30%\nnanoScan3 heavy contamination | triggers | contamination error and switches all safety outputs to OFF state | in the event of heavy contamination | In the event of heavy contamination, the safety laser scanner displays a contamination error and switches all safety outputs to the OFF state.\nnanoScan3 close-range detection | isRestrictedIn | area ≤ 50 mm wide in front of the optics cover | in close proximity | In close proximity (50 mm-wide area in front of the optics cover), the detection capability of the safety laser scanner may be restricted.\nnanoScan3 restricted area | shouldBeSecuredBy | undercut or frame | if required | If required, this area must be secured using an undercut or frame, for example.\nnanoScan3 laser class | hasClassification | laser class 1 according to IEC 60825-1:2014 | \"\" | This laser product has laser class 1 according to IEC 60825-1:2014.\nnanoScan3 laser evaluation under older standard | requiresBasis | laser class 1M under IEC 60825-1:2007 | in some cases evaluation is required according to IEC 60825-1:2007, e.g. by employers in the EU according to Directive 2006/25/EC | According to the older IEC 60825-1:2007 standard, laser class 1M must be used as the basis.\nnanoScan3 laser pulse | hasCharacteristics | pulse duration typ. 4 ns and average output power 12.8 mW | \"\" | Pulse duration Typ. 4 ns Average output power 12.8 mW\nnanoScan3 response time | isDefinedAs | maximum time between the occurrence of the event leading to the sensor's response and supply of the switch-off signal to the protective device's interface | \"\" | The protective device's response time is the maximum time between the occurrence of the event leading to the sensor's response and supply of the switch-off signal to the protective device's interface\nnanoScan3 total stop time | includes | control processing time and response times of downstream contactors, in addition to protective device response time | \"\" | In addition to the protective device's response time, further signal transmission and processing also influence the time up until the end of the dangerous state. This includes a control's processing time and the response times of downstream contactors, for example.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1785,
+   "prompt_tokens": 1272,
+   "total_tokens": 3057,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 679,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010197,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010197,
+   "gateway_cost": 0.0010197
+  }
+ }
+}
