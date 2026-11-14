@@ -36,6 +36,14 @@ Rules:
   facts, one item per fact. Facts filed under the same article, annex part or numbered point belong together.
   When the answer is a group named by an article or an annex part and the facts list the members of that group,
   give the members, not the name of the group.
+- A fact noted as "filed under a place the question names" belongs to the answer of a "which / what" question
+  about that place whenever its relation fits the question: list all of them, not one.
+- Lines under "Computed by rule" are results worked out in code from the numbered facts they name: trust them,
+  give their result as the answer for the device asked about, and put the fact numbers they name in "used".
+- Include only what the question asks for: no alternative, no second body or regime, no neighbouring item that
+  the question did not ask about. An option that combines several things in sequence is one item, not several.
+- Never return a list for a "text" answer: a question that one sentence answers (who, why, how, under which
+  condition, which one thing and why) gets one short sentence. "Which / what / list all" of several things is "set".
 - The kind follows the question: "from which date / when (a day)" is "date"; "for how long" alone is "duration";
   "can / may / is / does" is "boolean"; "which / what (several things)" is "set"; who, why, under which condition,
   or who does something and within what time is "text", and the text names every element asked for.
@@ -205,6 +213,103 @@ def related(question: str, facts: list[Statement], chosen: list[Statement], extr
     return added
 
 
+STOP = set("""the a an of to in on for and or is are be by with at from as it its that this which what who whom how
+when must may can does do shall will than not all any each per into under about there their they them have has had
+il lo la i gli le un una di del della dei delle degli da dal dalla in con su per tra fra e o che chi come quando
+deve devono essere sono non ogni quale quali cosa nel nella nei nelle al alla ai alle si ha hanno""".split())
+LEXICAL = 15         # facts added because they share the question's words
+SHARE = 4            # facts every layer gets, nearest first, whatever the crowd in the other layers
+VERIFY = re.compile(r"verif|inspect|check|controll|ispezion", re.I)
+POSITION = re.compile(r"\b(?:position|posizione|pos\.?|device|dispositivo|apparecchio|item|n\.|no\.|nr\.?)\s*(\d{1,3})\b", re.I)
+ASSUMPTIONS = {
+    "en": "Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes "
+          "and hoists as fixed, and the site's sector applies to every device.",
+    "it": "Ipotesi della regola: le gru su autocarro e le autogru sono trattate come mobili, le gru a ponte e a "
+          "cavalletto e i paranchi come fissi, e il settore del sito vale per ogni apparecchio."}
+
+
+def _words(text: str) -> set[str]:
+    """Content words of a text, lower case, camelCase split, crude singular (English and Italian)."""
+    spaced = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", text or "")
+    out = set()
+    for w in _key(spaced).split():
+        if w in STOP or (len(w) < 3 and not w.isdigit()):
+            continue
+        out.add(w[:-1] if len(w) > 4 and w[-1] in "sei" else w)
+    return out
+
+
+def lexical(question: str, facts: list[Statement], top: int = LEXICAL) -> list[Statement]:
+    """Facts sharing the question's words (in both languages) in subject, relation, value or condition.
+    Rare words weigh more, so an exact match is not pushed out by a crowded store."""
+    wanted = _words(question) | _words(_other_language(question))
+    if not wanted:
+        return []
+    bags = [_words(f"{s.subject} {s.predicate} {s.object_as_written} {s.object} {s.condition}") for s in facts]
+    seen: dict[str, int] = {}
+    for bag in bags:
+        for w in bag & wanted:
+            seen[w] = seen.get(w, 0) + 1
+    total = len(facts) or 1
+    scored = sorted(((sum(math.log(1 + total / seen[w]) for w in bag & wanted), -i) for i, bag in enumerate(bags)),
+                    reverse=True)
+    return [facts[-i] for value, i in scored[:top] if value > 0]
+
+
+def shares(ranked: list[Statement], share: int = SHARE) -> list[Statement]:
+    """The nearest facts of every layer, so that a large layer does not crowd out a small one."""
+    out, count = [], {}
+    for s in ranked:
+        layer = getattr(s, "layer", "") or ""
+        if layer and count.get(layer, 0) < share:
+            count[layer] = count.get(layer, 0) + 1
+            out.append(s)
+    return out
+
+
+def _named_places(question: str, facts: list[Statement]) -> set[str]:
+    """Ids of the facts filed under a place the question names."""
+    out: set[str] = set()
+    for place in dict.fromkeys(_place(m.group(0)) for m in PLACE.finditer(question)):
+        number = re.fullmatch(r"\d+(?: \d+)+", place)
+        for s in facts:
+            a = _place(s.anchor)
+            if (f" {place} " in f" {a} ") if number else _under(a, place):
+                out.add(s.id)
+    return out if len(out) <= FAMILY else set()
+
+
+def device_rule(question: str, facts: list[Statement], near: list[Statement], on: date) -> list[dict]:
+    """The verification rule applied to the plant's lifting devices the question is about, on the day asked.
+    A question is about them when it concerns verification and either names a position of the device list or
+    has device facts among its nearest facts. Each result names the facts it rests on."""
+    if not VERIFY.search(question):
+        return []
+    from atlas.ontology.rules import verification_interval
+    from atlas.strategies.plant import device_records
+
+    records = device_records(facts)
+    if not records:
+        return []
+    by_id = {s.id: s for s in facts}
+    named = {int(n) for n in POSITION.findall(question)}
+    targets = [d for d in records if d["position"] in named]
+    if not targets:
+        owners = {fact_id: d["position"] for d in records for fact_id in d["facts"].values() if fact_id}
+        close = list(dict.fromkeys(owners[s.id] for s in near if s.id in owners and s.predicate != "siteSector"))
+        targets = [d for d in records if d["position"] in close[:3]]
+    annex = [s for s in facts if s.predicate == "verificationInterval"]
+    results = []
+    for d in targets:
+        result = verification_interval(d, annex, on)
+        ids = [i for i, _ in result.get("because", [])] or list(d["facts"].values())
+        ids = list(dict.fromkeys(ids + list(d["facts"].values())))
+        results.append({"device": d, "interval": result.get("interval"), "why": result.get("why", ""),
+                        "because": "; ".join(reason for _, reason in result.get("because", [])),
+                        "facts": [by_id[i] for i in ids if i in by_id]})
+    return results
+
+
 def _duration(text: str) -> str | None:
     match = ISO_DURATION.search(text)
     if match and len(match.group(0)) > 1:
@@ -247,7 +352,27 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
     chosen = ranked[:TOP]
     chosen = chosen + related(question, ranked, chosen)
     asked, corrected = _dates(question), corrections(store, facts)
-    numbered = "\n".join(f"[{i}] {_line(s)}{_notes(s, asked, corrected)}" for i, s in enumerate(chosen))
+    if len(facts) > TOP:   # a crowded store: exact word matches, named places and every layer keep their seat
+        named = _named_places(question, facts)
+        for s in [s for s in ranked if s.id in named] + lexical(question, ranked) + shares(ranked):
+            if all(s.id != c.id for c in chosen):
+                chosen.append(s)
+    else:
+        named = set()
+    rule = device_rule(question, facts, ranked[:TOP], asked[0] if asked else day)
+    for result in rule:
+        chosen += [s for s in result["facts"] if all(s.id != c.id for c in chosen)]
+    index = {s.id: i for i, s in enumerate(chosen)}
+    on = (asked[0] if asked else day).isoformat()
+    computed = "".join(
+        f"\n- IGEA device {r['device']['position']} ({r['device'].get('kind', '?')}): verification interval on {on} = "
+        + (f"{r['interval']}, because {r['because']}" if r["interval"] else f"unknown, because {r['why']}")
+        + f" [rests on facts {', '.join(str(index[s.id]) for s in r['facts'])}]" for r in rule)
+    numbered = "\n".join(f"[{i}] {_line(s)}{_notes(s, asked, corrected)}"
+                         + (" [note: filed under a place the question names]" if s.id in named else "")
+                         for i, s in enumerate(chosen))
+    if computed:
+        numbered += "\n\nComputed by rule (" + ASSUMPTIONS["en"] + "):" + computed
     out = llm.chat([{"role": "system", "content": SYSTEM + (ITALIAN if lang == "it" else "")},
                     {"role": "user", "content": f"Today is {day.isoformat()}.\nQuestion: {question}\n\nFacts:\n{numbered}"}],
                    temperature=0, max_tokens=3000)
@@ -263,10 +388,23 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
             if 0 <= i < len(chosen)]
     value = typed(str(data.get("kind") or ""), data.get("value")) if used else None   # no fact, no answer
     usage = out.get("usage") or {}
+    text = (data.get("text") if value is not None or used else None) or UNKNOWN.get(lang, UNKNOWN["en"])
+    if rule:   # the rule's facts are always cited and its assumptions always stated
+        if len(rule) == 1 and str(data.get("kind") or "") in ("duration", "unknown", ""):
+            only = rule[0]   # one device asked about: the rule decides, the model only words it
+            value = typed("duration", only["interval"]) if only["interval"] else None
+            if value is None:
+                text = f"IGEA device {only['device']['position']}: {UNKNOWN.get(lang, UNKNOWN['en'])} ({only['why']})."
+            elif not used or data.get("value") is None or typed("duration", data.get("value")) != value:
+                text = (f"IGEA device {only['device']['position']} must be verified every {value} on {on}: "
+                        f"{only['because']}.")
+        for result in rule:
+            used += [s for s in result["facts"] if all(s.id != u.id for u in used)]
+        text = f"{text} {ASSUMPTIONS.get(lang, ASSUMPTIONS['en'])}"
     steps = [Step(text=f"{s.subject}: {s.predicate} = {s.object_as_written}"
                        + (f" (condition: {s.condition})" if s.condition else ""),
                   triples=[(s.subject, s.predicate, s.object)], quote=s.quote,
                   locator=f"{s.source_doc}, {s.anchor}", statement_id=s.id) for s in used]
     return Answer(question=question, mode=mode, value=value,
-                  text=(data.get("text") if value is not None or used else None) or UNKNOWN.get(lang, UNKNOWN["en"]),
+                  text=text,
                   steps=steps, tokens=(usage.get("prompt_tokens") or 0) + (usage.get("completion_tokens") or 0))

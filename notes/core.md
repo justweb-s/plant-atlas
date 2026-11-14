@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 15:36_
+_Aggiornato: 15:41_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -38,8 +38,10 @@ _Aggiornato: 15:36_
 - **15:36 — termini del servizio IGEA** (`ontology/B/parts/plant_igea_terms.json`, pp. 3–5): 12 fatti correnti, tra cui il preavviso di almeno 15 giorni (p. 5, `hasTimeLimit` P15D) e il rilascio del verbale. Non estratti: l'elenco di ciò che IGEA mette a disposizione (4.2), la tariffa, la certificazione oltre i 20 anni (resta punto aperto).
 - **15:36 — pagina `ontology/B/atlas.html`**: cinque fasce, sei scene con Play, «Chiedi all'atlante», «Cambia un documento». Link diretti alle scene: `atlas.html#s3v2`.
 
+- **15:41 — agente corretto sulle tue quattro cause: rilancia `python -m evaluation.board run B`.** Domande di progetto, misurate qui con il tuo scorer: da 12,75 a **16,05 su 22** (somma dei punteggi). (1) La regola è collegata: CQ21 e CQ22 a 1,0, con l'età calcolata alla data della domanda e le ipotesi dichiarate nel testo; (2) recupero: confronto di parole oltre agli embedding, tutti i fatti del luogo nominato nella domanda, una quota per ogni strato: CQ11 torna a 1,0, CQ12 a 1,0; (3) CQ27 a 1,0 con il fatto dei 15 giorni; (4) forma: solo ciò che la domanda chiede, mai una lista per una risposta di testo. **Peggiorate:** CQ23 da 1,0 a 0,5 (ora nomina solo l'ASL: effetto di «niente secondo soggetto») e CQ01 da 0,73 a 0,55. **Non risolte:** CQ05 (nello store c'è un solo fatto `addressesRisk` sotto 1.3.7: serve estrazione, non l'agente), CQ07 (0,33), CQ13–CQ15 (catalogo, tue). Il RAG non riceve il tipo di risposta atteso, quindi nemmeno l'agente.
+
 ## In corso
-- Agente: collegare `rules.verification_interval` (CQ21, CQ22), recupero dei fatti che si perdono (CQ12, CQ05, CQ01), forma della risposta (CQ23, CQ07, CQ02). In corso adesso.
+- Pagina dell'atlante in versione compatta (una schermata) per il pitch.
 - Correzione del passo di risposta (CQ10 e le domande «quali») e una pagina che mostra il grafo e come cambia nel tempo (`ontology/B/view.html`).
 - **13:41 — run completo della strategia B** su Regolamento, Direttiva e D.Lgs. 81/08 (773 passaggi, senza i considerando). Stima scritta prima di lanciare: 773 chiamate a `anthropic/claude-haiku-5.5`, circa 0,65 M token in ingresso e 0,85 M in uscita, cioè meno di 1 dollaro ai prezzi del gateway (0,10 e 0,50 dollari per milione). La pilota su 12 passaggi: 39 fatti proposti, 37 ancorati, 2 rifiutati; la rettifica chiude 8 fatti e ne apre 8 corretti (es. abrogazione della Direttiva dal 14 al 20/1/2027).
 - Strategia B sul registro dei fatti, export Turtle, agente su CQ09–CQ10 (la rettifica).

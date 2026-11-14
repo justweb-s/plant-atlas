@@ -103,3 +103,28 @@ def test_text_in_italian_leaves_the_value_alone(monkeypatch):
     assert a.value is None and a.text == agent.UNKNOWN["it"]
     _, seen = _ask("not json", monkeypatch)
     assert "Italian" not in seen["system"]
+
+
+def test_the_verification_rule_decides_for_a_named_device(monkeypatch):
+    def plant(i, subject, predicate, value):
+        return Statement(id=f"pl-{i}", subject=subject, predicate=predicate, object=value, object_as_written=value,
+                         quote=f"quote {value}", source_doc="PLANT", anchor="p. 1", status="current",
+                         asserted_by="test")
+
+    row = Statement(id="row-1", subject="Apparecchi di sollevamento materiali con portata superiore a 200 Kg",
+                    predicate="verificationInterval", object="P1Y", object_as_written="Verifica annuale",
+                    condition="di tipo mobile o trasferibile | con utilizzo regolare", quote="quote row",
+                    source_doc="LAW", anchor="Allegato VII, riga 1", status="current", asserted_by="test")
+    facts = [row, plant(1, "IGEA device 7", "deviceKind", "GRU PER AUTOCARRO"),
+             plant(2, "IGEA device 7", "capacityKg", "5000"), plant(3, "IGEA device 7", "yearBuilt", "2017"),
+             plant(4, "IGEA site", "siteSector", "estrattivo"), plant(5, "IGEA device 9", "deviceKind", "CARRELLO")]
+    question = "How often must the crane at position 7 be verified?"
+    a, seen = _ask({"kind": "unknown", "value": None, "text": "t", "used": []}, monkeypatch, question, facts)
+    assert a.value == "P1Y" and "Computed by rule" in seen["user"] and "treated as mobile" in a.text
+    assert {step.statement_id for step in a.steps} == {"row-1", "pl-1", "pl-2", "pl-3", "pl-4"}
+    assert all(step.quote and step.locator for step in a.steps)
+    a, _ = _ask({"kind": "duration", "value": "P2Y", "text": "t", "used": [0]}, monkeypatch,
+                question.replace("7", "9"), facts)
+    assert a.value is None and "not mapped" in a.text   # no interval from the rule: unknown, with its reason
+    a, seen = _ask({"kind": "unknown", "value": None, "used": []}, monkeypatch, "What is at position 7?", facts)
+    assert a.value is None and "Computed by rule" not in seen["user"]   # not a verification question: no rule
