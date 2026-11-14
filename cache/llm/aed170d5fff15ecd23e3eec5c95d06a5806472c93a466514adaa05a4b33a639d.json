@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 3(1)\n\n[0] (1) ‘machinery’ means:\n[1] (a) an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application;\n[2] (b) an assembly referred to in point (a), missing only the components to connect it on site or to sources of energy and motion;\n[3] (c) an assembly referred to points (a) and (b), ready to be installed and able to function as it stands only if mounted on a means of transport, or installed in a building or a structure;\n[4] (d) assemblies of machinery referred to in points (a), (b) and (c), or of partly completed machinery, which, in order to achieve the same end, are arranged and controlled so that they function as an integral whole;\n[5] (e) an assembly of linked parts or components, at least one of which moves, and which are joined together, intended for lifting loads and whose only power source is directly applied human effort;\n[6] (f) an assembly as referred to in points (a) to (e) missing only the uploading of the software intended for the specific application foreseen by the manufacturer;"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "definedAs | machinery | means: | means: | | 0 | 2",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 389,
+   "prompt_tokens": 1372,
+   "total_tokens": 1761,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 365,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003317,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003317,
+   "gateway_cost": 0.0003317
+  }
+ }
+}

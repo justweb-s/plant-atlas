@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 13:31_
+_Aggiornato: 13:41_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -14,6 +14,7 @@ _Aggiornato: 13:31_
 - **13:31 — `api.corpus()` è reale** (`atlas/corpus/chunker.py`): 4375 chunk per struttura. Regolamento 579, Direttiva, rettifica 14 punti, D.Lgs. 81/08 per comma, più i 16 atti UE di `incoming/`. Locator come nel gold: `Art. 25(2)`, `Art. 3(16)`, `Annex III, 1.3.7`, `Annex I, Part A, point 5`, `Corrigendum, point 5`, `art. 71, c. 11`. `tests/test_corpus.py`: ogni citazione delle domande di progetto sta nell'articolo o nell'allegato indicato. Con `ATLAS_FAKE=0` il RAG può già girare su tutto il corpus. `passage(source, locator)` dà il testo intero di un articolo o allegato.
 
 ## In corso
+- **13:41 — run completo della strategia B** su Regolamento, Direttiva e D.Lgs. 81/08 (773 passaggi, senza i considerando). Stima scritta prima di lanciare: 773 chiamate a `anthropic/claude-haiku-5.5`, circa 0,65 M token in ingresso e 0,85 M in uscita, cioè meno di 1 dollaro ai prezzi del gateway (0,10 e 0,50 dollari per milione). La pilota su 12 passaggi: 39 fatti proposti, 37 ancorati, 2 rifiutati; la rettifica chiude 8 fatti e ne apre 8 corretti (es. abrogazione della Direttiva dal 14 al 20/1/2027).
 - Strategia B sul registro dei fatti, export Turtle, agente su CQ09–CQ10 (la rettifica).
 
 ## Mi serve da te

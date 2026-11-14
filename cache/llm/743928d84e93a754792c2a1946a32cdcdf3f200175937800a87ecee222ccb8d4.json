@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 3.3.4\n\n[0] 3.3.4.\n[1] Movement of pedestrian-controlled machinery Movement of pedestrian-controlled self-propelled machinery shall be possible only through sustained action on the relevant control device by the driver.\n[2] In particular, it shall not be possible for movement to occur while the engine is being started.\n[3] The control systems for pedestrian-controlled machinery shall be designed in such a way as to minimise the risks arising from inadvertent movement of the machinery towards the driver, in particular:\n[4] (a) crushing;\n[5] (b) injury from rotating tools.\n[6] The speed of travel of the machinery shall be compatible with the pace of a driver on foot.\n[7] In the case of machinery on which a rotary tool may be fitted, it shall not be possible to actuate the tool when the reverse control is engaged, except where the movement of the machinery results from movement of the tool.\n[8] In the latter case, the reversing speed shall be such that it does not endanger the driver."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresMeasure | pedestrian-controlled self-propelled machinery movement | sustained action on the relevant control device | sustained action on the relevant control device | only through sustained action by the driver | 1 | 1\nrequiresMeasure | movement while engine is being started | it shall not be possible for movement to occur | it shall not be possible for movement to occur | while the engine is being started | 2 | 2\naddressesRisk | control systems for pedestrian-controlled machinery | inadvertent movement of the machinery towards the driver | inadvertent movement of the machinery towards the driver | | 3 | 3\naddressesRisk | control systems for pedestrian-controlled machinery | crushing | crushing | | 4 | 4\naddressesRisk | control systems for pedestrian-controlled machinery | injury from rotating tools | injury from rotating tools | | 5 | 5\nrequiresMeasure | machinery on which a rotary tool may be fitted | it shall not be possible to actuate the tool when the reverse control is engaged | it shall not be possible to actuate the tool when the reverse control is engaged | except where the movement of the machinery results from movement of the tool | 7 | 7\nrequiresMeasure | reversing speed of machinery with rotary tool | the reversing speed shall be such that it does not endanger the driver | the reversing speed shall be such that it does not endanger the driver | In the latter case | 8 | 8\nOPEN | speed of travel limited to pace of a driver on foot, no relation fits | 6 | 6",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1705,
+   "prompt_tokens": 1331,
+   "total_tokens": 3036,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1200,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009856,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009856,
+   "gateway_cost": 0.0009856
+  }
+ }
+}

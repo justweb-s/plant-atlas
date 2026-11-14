@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.4.2.2\n\n[0] 1.4.2.2.\n[1] Interlocking movable guards Interlocking movable guards shall:\n[2] (a) as far as possible remain attached to the machinery or related product when open;\n[3] (b) be designed and constructed in such a way that they can be adjusted only by means of an intentional action.\n[4] Interlocking movable guards shall be associated with an interlocking device that:\n[5] (a) prevents the start of hazardous machinery or related product functions until those guards are closed;\n[6] and (b) gives a stop command whenever those guards are no longer closed.\n[7] Where it is possible for an operator to reach the danger zone before the risk due to the hazardous machinery or related product functions has ceased, movable guards shall be associated with a guard locking device in addition to an interlocking device that:\n[8] (a) prevents the start of hazardous machinery or related product functions until the guard is closed and locked;\n[9] and (b) keeps the guard closed and locked until the risk of injury from the hazardous machinery or related product functions has ceased.\n[10] Interlocking movable guards shall be designed in such a way that the absence or failure of one of their components prevents starting or stops the hazardous machinery or related product functions."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresMeasure | interlocking movable guards | an interlocking device | an interlocking device | | 4 | 4\nrequiresMeasure | movable guards | a guard locking device | a guard locking device | Where it is possible for an operator to reach the danger zone before the risk due to the hazardous machinery or related product functions has ceased | 7 | 7\nrequiresMeasure | interlocking movable guards | stop command | stop command | whenever those guards are no longer closed | 6 | 6\naddressesRisk | interlocking movable guards | risk of injury | risk of injury | | 9 | 9\nOPEN | component absence or failure must prevent start or stop | 10 | 10",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1417,
+   "prompt_tokens": 1405,
+   "total_tokens": 2822,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1193,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000849,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000849,
+   "gateway_cost": 0.000849
+  }
+ }
+}

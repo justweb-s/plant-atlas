@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.1.2\n\n[0] 1.1.2.\n[1] Principles of safety integration (a) Machinery or related products shall be designed and constructed so that they are fit for their function, and can be operated, adjusted and maintained without putting persons at risk when these operations are carried out under the conditions foreseen but also taking into account any reasonably foreseeable misuse thereof.\n[2] The aim of protective measures shall be to eliminate any risk throughout the foreseeable lifetime of the machinery or related product including the phases of transport, assembly, dismantling, disabling and scrapping.\n[3] (b) In selecting the most appropriate methods, the manufacturer shall apply the following principles, in the order given:\n[4] (i) eliminate hazards or, if that is not possible, minimise risks (inherently safe machinery or related product design and construction);\n[5] (ii) take the necessary protective measures in relation to risks that cannot be eliminated;\n[6] (iii) inform users of the residual risks due to any shortcomings of the protective measures adopted, indicate whether any particular training is required and specify any need to provide personal protective equipment.\n[7] (c) When designing and constructing machinery or a related product and when drafting the instructions for use, the manufacturer shall envisage not only the intended use of the machinery or related product but also any reasonably foreseeable misuse thereof.\n[8] The machinery or related product shall be designed and constructed in such a way as to prevent abnormal use if such use would engender a risk.\n[9] Where appropriate, the instructions for use shall draw the user’s attention to ways – which experience has shown might occur – in which the machinery or related product should not be used.\n[10] (d) Machinery or related products shall be designed and constructed to take account of the constraints to which the operator is subject as a result of the necessary or foreseeable use of personal protective equipment.\n[11] (e) Machinery or related products shall be designed and constructed in such a way that it is possible for the user, where applicable, to test the safety functions.\n[12] The machinery or related product shall be supplied with all the special equipment and accessories, and where appropriate, with the description of specific functional test procedures, essential to enable it to be tested, adjusted, maintained and used safely."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasObligation | manufacturer | shall apply the following principles, in the order given | shall apply the following principles, in the order given | | 3 | 3\nhasObligation | manufacturer | eliminate hazards | eliminate hazards | if that is not possible, minimise risks | 4 | 4\nhasObligation | manufacturer | take the necessary protective measures | take the necessary protective measures | in relation to risks that cannot be eliminated | 5 | 5\nhasObligation | manufacturer | inform users of the residual risks | inform users of the residual risks | due to any shortcomings of the protective measures adopted | 6 | 6\nhasObligation | manufacturer | envisage not only the intended use of the machinery or related product but also any reasonably foreseeable misuse thereof | envisage not only the intended use of the machinery or related product but also any reasonably foreseeable misuse thereof | when designing and constructing machinery or a related product and when drafting the instructions for use | 7 | 7\nOPEN | machinery must be supplied with special equipment and accessories, not a document | 12 | 12",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1760,
+   "prompt_tokens": 1729,
+   "total_tokens": 3489,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1400,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010529,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010529,
+   "gateway_cost": 0.0010529
+  }
+ }
+}

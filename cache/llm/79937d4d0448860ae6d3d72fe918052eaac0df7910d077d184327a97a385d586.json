@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.2.4.3\n\n[0] 1.2.4.3.\n[1] Emergency stop The machinery or related product shall be fitted with one or more emergency stop devices to enable actual or impending danger to be averted.\n[2] The following exceptions apply:\n[3] (a) the machinery or related product in which an emergency stop device would not lessen the risk, either because it would not reduce the stopping time or because it would not enable the special measures required to deal with the risk to be taken;\n[4] (b) portable hand-held or hand-guided machinery or related products.\n[5] The device shall:\n[6] (a) have clearly identifiable, clearly visible and quickly accessible control devices;\n[7] (b) stop the hazardous process as quickly as possible, without creating additional risks;\n[8] (c) where necessary, trigger or permit the triggering of certain safeguard movements.\n[9] Once active operation of the emergency stop device has ceased following a stop command, that command shall be sustained by engagement of the emergency stop device until that engagement is specifically overridden;\n[10] it shall not be possible to engage the device without triggering a stop command;\n[11] it shall be possible to disengage the device only by an appropriate operation, and disengaging the device shall not restart the machinery or related product but only permit restarting.\n[12] The emergency stop function shall be available and operational at all times, regardless of the operating mode.\n[13] Emergency stop devices shall be a backup to other safeguarding measures and not a substitute for them."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresMeasure | machinery or related product emergency stop | one or more emergency stop devices | one or more emergency stop devices | The following exceptions apply | 1 | 2\nrequiresMeasure | emergency stop device | stop the hazardous process as quickly as possible | stop the hazardous process as quickly as possible | without creating additional risks | 7 | 7\nrequiresMeasure | emergency stop device disengagement | only by an appropriate operation | only by an appropriate operation | disengaging shall not restart the machinery but only permit restarting | 11 | 11\nOPEN | stop function available at all times; backup not substitute | 12 | 13",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1155,
+   "prompt_tokens": 1486,
+   "total_tokens": 2641,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 940,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007261,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007261,
+   "gateway_cost": 0.0007261
+  }
+ }
+}

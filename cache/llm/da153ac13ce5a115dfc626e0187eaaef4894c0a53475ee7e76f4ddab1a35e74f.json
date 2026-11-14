@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Which models in the catalogue, self-certified today with internal checks, will need a notified body from 20 January 2027?\n\nFacts:\n[0] manufacturer — hasObligation — shall inform the notified body (shall inform the notified body) [DIR, Annex X]\n[1] CE marking — hasObligation — must be followed by the identification number of the notified body (must be followed by the identification number of the notified body) [condition: Where the full quality assurance procedure referred to in Article 12(3)(c) and 12(4)(b) has been applied] [DIR, Annex III]\n[2] notified bodies monitoring — verifiedBy — Member States (Member States) [DIR, Art. 14(2)]\n[3] original EC declaration of conformity — retentionPeriod — at least 10 years (P10Y) [DIR, Annex II, 2]\n[4] applicant — hasObligation — shall inform the notified body which retains the technical file (inform the notified body which retains the technical file of all modifications to the approved type) [DIR, Annex IX]\n[5] notified body — hasObligation — any conformity assessment activities (any conformity assessment activities) [condition: on request] [REG, Art. 40(1)]\n[6] periodic audits — verifiedBy — The notified body (the notified body) [DIR, Annex X]\n[7] products placed on the market in conformity with Directive 2006/42/EC — placingAllowedUntil — 20 January 2027 (2027-01-20) [condition: placed on the market in conformity with Directive 2006/42/EC before 14 January 2027] [CORR, Corrigendum, point 6]\n[8] EC declaration of conformity — hasObligation — must contain the following particulars (must contain the following particulars) [DIR, Annex II, 1]\n[9] technical documentation and EU declaration of conformity — retentionPeriod — at least 10 years (P10Y) [condition: after the product has been placed on the market] [REG, Art. 12(2)]\n[10] digital EU declarations of conformity — retentionPeriod — for at least 10 years (P10Y) [condition: in any event] [REG, Art. 10(8)]\n[11] digital EU declarations of conformity — retentionPeriod — for the expected lifetime of the machinery or related product (for the expected lifetime of the machinery or related product) [REG, Art. 10(8)]\n[12] manufacturers — hasObligation — affix the CE marking in accordance with Article 24 (affix the ce marking in accordance with article 24) [condition: Where compliance of machinery or a related product with the essential health and safety requirements laid down in Annex III has been demonstrated by that conformity assessment procedure] [REG, Art. 10(2)]\n[13] notified body — definedAs — conformity assessment body notified in accordance with this Regulation (conformity assessment body notified in accordance with this regulation) [REG, Art. 3(30)]\n[14] manufacturers — hasObligation — draw up the EU declaration of conformity in accordance with Article 21 (draw up the eu declaration of conformity in accordance with article 21) [condition: Where compliance of machinery or a related product with the essential health and safety requirements laid down in Annex III has been demonstrated by that conformity assessment procedure] [REG, Art. 10(2)]\n[15] manufacturers — hasObligation — bears at least a designation (bears at least a designation of model, series or type) [condition: \"\"] [REG, Art. 10(5)]\n[16] notified body identification number affixing — hasObligation — shall be affixed by the body itself or, under its instructions, by the manufacturer (shall be affixed by the body itself or, under its instructions, by the manufacturer) [condition: Where the conformity of machinery or a related product is assessed] [REG, Art. 24(3)]\n[17] technical documentation and EU declaration of conformity — retentionPeriod — at least 10 years (P10Y) [condition: after the machinery or the related product has been placed on the market or put into service] [REG, Art. 10(3)]\n[18] manufacturer — hasObligation — shall lodge an application (lodge an application for eu type-examination with a single notified body) [REG, Annex VII, 3]\n[19] copy of the EU declaration of conformity — retentionPeriod — for at least 10 years (P10Y) [condition: after the machinery or related product has been placed on the market] [REG, Art. 13(8)]\n[20] copy of EU type-examination certificate, annexes, additions and technical file kept by notified body — retentionPeriod — for a period of five years (P5Y) [REG, Annex VII, 7]\n[21] EC type-examination — definedAs — the procedure whereby a notified body ascertains and certifies (the procedure whereby a notified body ascertains and certifies) [DIR, Annex IX]\n[22] Directive 2006/42/EC — repealedFrom — 20 January 2027 (2027-01-20) [CORR, Corrigendum, point 5]\n[23] manufacturers of partly completed machinery — hasObligation — shall immediately inform the competent national authorities (shall immediately inform the competent national authorities) [condition: where the partly completed machinery presents a risk as regards the relevant essential health and safety requirements] [REG, Art. 11(9)]\n[24] EC declaration of conformity — hasObligation — must be those of the texts published in the Official Journal of the European Union (must be those of the texts published in the Official Journal of the European Union) [DIR, Annex II, 1]\n[25] indicative list of safety components — listedIn — Annex II (annex II) [condition: in the light of technical progress and knowledge or new scientific evidence] [REG, Art. 7(2)]\n[26] manufacturer — hasObligation — take appropriate corrective actions (take appropriate corrective actions) [condition: Where a notified body finds that the essential health and safety requirements set out in Annex III, or corresponding harmonised standards or common specifications referred to in Article 20 have not been met by a manufacturer] [REG, Art. 38(3)]\n[27] manufacturer, declaration of conformity — hasObligation — issued under the sole responsibility of the manufacturer (issued under the sole responsibility of the manufacturer) [REG, Annex V, Part A, point 4]\n[28] EC declaration of conformity — hasObligation — the place and date of the declaration (the place and date of the declaration) [DIR, Annex II, 1]\n[29] CE marking — definedAs — a marking by which the manufacturer indicates (a marking by which the manufacturer indicates) [REG, Art. 3(25)]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"unknown\", \"value\": null, \"text\": \"The facts do not list any models in the catalogue, so no model can be named. They also do not state that self-certified models using internal checks must involve a notified body from 20 January 2027. The only date-related facts are that Directive 2006/42/EC is repealed from 20 January 2027 (Corrigendum, point 5) and that products placed on the market under that Directive before 14 January 2027 may be placed until 20 January 2027 (Corrigendum, point 6). Notified body requirements in the facts (e.g., Directive Annex X, Annex IX, and Regulation Art. 24(3)) are tied to conformity assessment procedures such as full quality assurance or EU type-examination, not to internal checks.\", \"used\": [7, 22]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 567,
+   "prompt_tokens": 2533,
+   "total_tokens": 3100,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 309,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005368,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005368,
+   "gateway_cost": 0.0005368
+  }
+ }
+}

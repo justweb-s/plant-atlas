@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- At most 8 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.3.7\n\n[0] 1.3.7.\n[1] Risks related to moving parts The moving parts of the machinery or related product shall be designed and constructed in such a way as to prevent risks of contact which could lead to accidents or shall, where risks persist, be fitted with guards or protective devices.\n[2] All necessary steps shall be taken to prevent accidental blockage of moving parts.\n[3] In cases where, despite the precautions taken, a blockage is likely to occur, the necessary specific protective devices and tools shall, when appropriate, be provided to enable the equipment to be safely unblocked.\n[4] The instructions for use and, where possible, a sign on the machinery or related product shall identify these specific protective devices and how they are to be used.\n[5] The prevention of risks of contact leading to hazardous situations and the psychological stress that may be caused by the interaction with the machinery shall be adapted to:\n[6] (a) human-machine coexistence in a shared space without direct collaboration;\n[7] (b) human-machine interaction."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 1200
+ },
+ "response": {
+  "text": "addressesRisk | essential requirement 1.3.7 | Risks related to moving parts | risks related to moving parts | | 1 | 1\nrequiresMeasure | moving parts | guards or protective devices | guards or protective devices | where risks persist | 1 | 1\nrequiresMeasure | blockage of moving parts | specific protective devices and tools | specific protective devices and tools | In cases where, despite the precautions taken, a blockage is likely to occur; when appropriate | 3 | 3\nOPEN | instructions and sign must identify protective devices | 4 | 4",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1071,
+   "prompt_tokens": 1323,
+   "total_tokens": 2394,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 880,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006678,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006678,
+   "gateway_cost": 0.0006678
+  }
+ }
+}

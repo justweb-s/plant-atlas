@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.2.5\n\n[0] 1.2.5.\n[1] Selection of control or operating modes The control or operating mode selected shall override all other control or operating modes, with the exception of the emergency stop.\n[2] If the machinery or related product has been designed and constructed to allow its use in several control or operating modes requiring different protective measures and/or work procedures, it shall be fitted with a mode selector, which can be locked in each position.\n[3] Each position of the selector shall be clearly identifiable and shall correspond to a single operating or control mode.\n[4] The selector may be replaced by another selection method, which restricts the use of certain functions of the machinery or related product to certain categories of operator.\n[5] If, for certain operations, the machinery or related product shall be able to operate with a guard displaced or removed and/or a protective device disabled, the control or operating mode selector shall simultaneously:\n[6] (a) disable all other control or operating modes;\n[7] (b) permit operation of hazardous functions only by control devices requiring sustained action;\n[8] (c) permit the operation of hazardous functions only in reduced risk conditions while preventing hazards from linked sequences;\n[9] (d) prevent any operation of hazardous functions by voluntary or involuntary action on the machinery’s or related product’s sensors.\n[10] If these four conditions cannot be fulfilled simultaneously, the control or operating mode selector shall activate other protective measures designed and constructed to ensure a safe intervention zone.\n[11] In addition, the operator shall be able to control the operation of the parts he or she is working on from the adjustment point."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresMeasure | control or operating mode selector | mode selector, which can be locked in each position | mode selector, which can be locked in each position | If the machinery or related product has been designed and constructed to allow its use in several control or operating modes requiring different protective measures and/or work procedures | 2 | 2\nrequiresMeasure | control or operating mode selector | another selection method, which restricts the use of certain functions | another selection method, which restricts the use of certain functions | The selector may be replaced | 4 | 4\nrequiresMeasure | control or operating mode selector | permit operation of hazardous functions only by control devices requiring sustained action | permit operation of hazardous functions only by control devices requiring sustained action | If, for certain operations, the machinery or related product shall be able to operate with a guard displaced or removed and/or a protective device disabled | 5 | 7\nrequiresMeasure | control or operating mode selector | other protective measures designed and constructed to ensure a safe intervention zone | other protective measures designed and constructed to ensure a safe intervention zone | If these four conditions cannot be fulfilled simultaneously | 10 | 10\nOPEN | selected mode overrides all others except emergency stop | 1 | 1",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1728,
+   "prompt_tokens": 1520,
+   "total_tokens": 3248,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1327,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001016,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001016,
+   "gateway_cost": 0.001016
+  }
+ }
+}

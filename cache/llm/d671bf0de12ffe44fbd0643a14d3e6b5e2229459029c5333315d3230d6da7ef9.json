@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS69, art. 69, c. 1\n\n[0] 1.\n[1] Agli effetti delle disposizioni di cui al presente titolo si intende per:\n[2] a) attrezzatura di lavoro:\n[3] qualsiasi macchina, apparecchio, utensile o impianto, inteso come il complesso di macchine, attrezzature e componenti necessari all'attuazione di un processo produttivo, destinato ad essere usato durante il lavoro;\n[4] b) uso di una attrezzatura di lavoro:\n[5] qualsiasi operazione lavorativa connessa ad una attrezzatura di lavoro, quale la messa in servizio o fuori servizio, l'impiego, il trasporto, la riparazione, la trasformazione, la manutenzione, la pulizia, il montaggio, lo smontaggio;\n[6] c) zona pericolosa:\n[7] qualsiasi zona all'interno ovvero in prossimità di una attrezzatura di lavoro nella quale la presenza di un lavoratore costituisce un rischio per la salute o la sicurezza dello stesso;\n[8] d) lavoratore esposto:\n[9] qualsiasi lavoratore che si trovi interamente o in parte in una zona pericolosa;\n[10] e) operatore:\n[11] il lavoratore incaricato dell'uso di una attrezzatura di lavoro ((o il datore di lavoro che ne fa uso)) ."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "definedAs | attrezzatura di lavoro | qualsiasi macchina, apparecchio, utensile o impianto | qualsiasi macchina, apparecchio, utensile o impianto | Agli effetti delle disposizioni di cui al presente titolo | 2 | 3\ndefinedAs | uso di una attrezzatura di lavoro | qualsiasi operazione lavorativa connessa ad una attrezzatura di lavoro | qualsiasi operazione lavorativa connessa ad una attrezzatura di lavoro | Agli effetti delle disposizioni di cui al presente titolo | 4 | 5\ndefinedAs | zona pericolosa | qualsiasi zona all'interno ovvero in prossimità di una attrezzatura di lavoro | qualsiasi zona all'interno ovvero in prossimità di una attrezzatura di lavoro | Agli effetti delle disposizioni di cui al presente titolo | 6 | 7\ndefinedAs | lavoratore esposto | qualsiasi lavoratore che si trovi interamente o in parte in una zona pericolosa | qualsiasi lavoratore che si trovi interamente o in parte in una zona pericolosa | Agli effetti delle disposizioni di cui al presente titolo | 8 | 9\ndefinedAs | operatore | il lavoratore incaricato dell'uso di una attrezzatura di lavoro | il lavoratore incaricato dell'uso di una attrezzatura di lavoro | Agli effetti delle disposizioni di cui al presente titolo | 10 | 11\nOPEN | operatore definition extended to employer using equipment | 11 | 11",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1700,
+   "prompt_tokens": 1480,
+   "total_tokens": 3180,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1142,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000998,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000998,
+   "gateway_cost": 0.000998
+  }
+ }
+}

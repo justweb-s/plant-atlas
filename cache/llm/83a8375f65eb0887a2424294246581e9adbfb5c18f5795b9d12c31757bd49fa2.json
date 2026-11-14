@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Which conformity assessment procedure will model RC-5 need from 20 January 2027, and why?\n\nFacts:\n[0] machinery and related products in categories listed in Annex I, Part A — requiresProcedure — specific conformity assessment procedures referred to in Article 25(2) (specific conformity assessment procedures referred to in article 25(2)) [REG, Art. 6(1)]\n[1] conformity assessment — definedAs — means the process for demonstrating (means the process for demonstrating) [REG, Art. 3(28)]\n[2] machinery and related products in categories listed in Annex I, Part B — requiresProcedure — specific conformity assessment procedures referred to in Article 25(3) (specific conformity assessment procedures referred to in article 25(3)) [REG, Art. 6(1)]\n[3] original EC declaration of conformity — retentionPeriod — at least 10 years (P10Y) [DIR, Annex II, 2]\n[4] conformity to type based on internal production control — definedAs — the part of a conformity assessment procedure (the part of a conformity assessment procedure) [REG, Annex VIII]\n[5] machinery or related product substantially modified — requiresProcedure — conformity assessment procedure as provided in Article 25 (2), (3) and (4) (conformity assessment procedure as provided in article 25 (2), (3) and (4)) [REG, Art. 18]\n[6] manufacturer or the natural or legal person referred to in Article 18 — hasObligation — shall apply one of the conformity assessment procedures (shall apply one of the conformity assessment procedures) [REG, Art. 25(1)]\n[7] conformity assessment body — definedAs — a body that performs conformity assessment activities (a body that performs conformity assessment activities) [REG, Art. 3(29)]\n[8] internal production control — definedAs — the conformity assessment procedure whereby the manufacturer fulfils the obligations (the conformity assessment procedure whereby the manufacturer fulfils the obligations) [REG, Annex VI]\n[9] conformity assessment body — hasObligation — shall participate in, or ensure that its personnel (shall participate in, or ensure that its personnel responsible for carrying out the conformity assessment tasks are informed of the relevant standardisation activities) [REG, Art. 30(11)]\n[10] essential requirement 5.1 — addressesRisk — lack of stability (lack of stability) [REG, Annex III, 5.1]\n[11] essential requirement 1.5.5 — requiresMeasure — Steps shall be taken to eliminate any risk (steps shall be taken to eliminate any risk) [REG, Annex III, 1.5.5]\n[12] conformity assessment body — hasObligation — shall apply as general guidance (shall apply as general guidance the administrative decisions and documents produced by the coordination group) [REG, Art. 30(11)]\n[13] notified body — hasObligation — any conformity assessment activities (any conformity assessment activities) [condition: on request] [REG, Art. 40(1)]\n[14] full reassessment — hasTimeLimit — every three years (P3Y) [DIR, Annex X]\n[15] EC type-examination — definedAs — the procedure whereby a notified body ascertains and certifies (the procedure whereby a notified body ascertains and certifies) [DIR, Annex IX]\n[16] category of machinery or related product — requiresProcedure — conformity to type based on internal production control (module C) (conformity to type based on internal production control (module c)) [condition: followed by EU type-examination (module B), under option (a)] [REG, Art. 25(2)]\n[17] conformity assessment body, its top-level management and personnel — hasObligation — shall not engage in any activity that may conflict with their independence of judgement (shall not engage in any activity that may conflict with their independence of judgement or integrity) [condition: in relation to conformity assessment activities for which they are notified] [REG, Art. 30(4)]\n[18] essential requirement 1.5.5 — requiresMeasure — avoid or protect against the risk (avoid or protect against the risk) [REG, Annex III, 1.5.5]\n[19] importers — hasObligation — shall ensure that the appropriate conformity assessment procedures (shall ensure that the appropriate conformity assessment procedures) [condition: Before placing machinery or a related product on the market] [REG, Art. 13(2)]\n[20] essential requirement 1.5.10 — requiresMeasure — the necessary protective measures must be taken (the necessary protective measures) [condition: Where a risk exists] [DIR, Annex I, 1.5.10]\n[21] EC declaration of conformity — hasObligation — must contain the following particulars (must contain the following particulars) [DIR, Annex II, 1]\n[22] manufacturers — hasObligation — carry out the relevant conformity assessment procedure referred to in Article 25 or have it carried out (carry out the relevant conformity assessment procedure referred to in article 25 or have it carried out) [condition: Before placing machinery or a related product on the market or putting it into service] [REG, Art. 10(2)]\n[23] category of machinery or related product — requiresProcedure — conformity based on full quality assurance (module H) (conformity based on full quality assurance (module h)) [condition: Where the category of machinery or related product is listed in Annex I, Part A] [REG, Art. 25(2)]\n[24] conformity assessment body — hasObligation — shall not be directly involved in the design (shall not be directly involved in the design, import, distribution, manufacture, marketing, installation, use or maintenance) [REG, Art. 30(4)]\n[25] Regulation — appliesFrom — 20 January 2027 (2027-01-20) [condition: However, the following Articles shall apply from the following dates] [CORR, Corrigendum, point 10]\n[26] machinery category listed in Annex I, Part B — requiresProcedure — conformity to type based on internal production control (module C) (conformity to type based on internal production control (module c)) [condition: Where the category of machinery or related product is listed in Annex I, Part B] [REG, Art. 25(3)]\n[27] machinery category listed in Annex I, Part B — requiresProcedure — conformity based on full quality assurance (module H) (conformity based on full quality assurance (module h)) [condition: Where the category of machinery or related product is listed in Annex I, Part B] [REG, Art. 25(3)]\n[28] essential requirement 1.5.5 — requiresMeasure — Steps must be taken to eliminate (steps must be taken to eliminate) [DIR, Annex I, 1.5.5]\n[29] machinery category listed in Annex I, Part B — requiresProcedure — conformity based on unit verification (module G) (conformity based on unit verification (module g)) [condition: Where the category of machinery or related product is listed in Annex I, Part B] [REG, Art. 25(3)]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"unknown\", \"value\": null, \"text\": \"The facts do not say what category RC-5 belongs to, so they cannot identify its conformity assessment procedure. They do show that the Regulation applies from 20 January 2027 (Corrigendum, point 10), and that the procedure depends on whether the category is listed in Annex I, Part A (Art. 25(2)) or Part B (Art. 25(3)). Please state RC-5's category to get an answer.\", \"used\": [25, 0, 2]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 381,
+   "prompt_tokens": 2661,
+   "total_tokens": 3042,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 214,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004566,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004566,
+   "gateway_cost": 0.0004566
+  }
+ }
+}

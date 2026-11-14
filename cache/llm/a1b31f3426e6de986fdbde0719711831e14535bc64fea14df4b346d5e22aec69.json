@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 3.3.3\n\n[0] 3.3.3.\n[1] Travelling function Without prejudice to road traffic regulations, self-propelled machinery and its trailers must meet the requirements for slowing down, stopping, braking and immobilisation so as to ensure safety under all the operating, load, speed, ground and gradient conditions allowed for.\n[2] The driver must be able to slow down and stop self-propelled machinery by means of a main device.\n[3] Where safety so requires, in the event of a failure of the main device, or in the absence of the energy supply needed to actuate the main device, an emergency device with a fully independent and easily accessible control device must be provided for slowing down and stopping.\n[4] Where safety so requires, a parking device must be provided to render stationary machinery immobile.\n[5] This device may be combined with one of the devices referred to in the second paragraph, provided that it is purely mechanical.\n[6] Remote-controlled machinery must be equipped with devices for stopping operation automatically and immediately and for preventing potentially dangerous operation in the following situations: — if the driver loses control, — if it receives a stop signal, — if a fault is detected in a safety-related part of the system, — if no validation signal is detected within a specified time.\n[7] Section 1.2.4 does not apply to the travelling function."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresMeasure | self-propelled machinery travelling function | a main device | a main device | | 2 | 2\nrequiresMeasure | self-propelled machinery travelling function | an emergency device with a fully independent and easily accessible control device | an emergency device with a fully independent and easily accessible control device | Where safety so requires, in the event of a failure of the main device, or in the absence of the energy supply needed to actuate the main device | 3 | 3\nrequiresMeasure | stationary machinery | a parking device | a parking device | Where safety so requires | 4 | 4\nrequiresMeasure | remote-controlled machinery | devices for stopping operation automatically and immediately | devices for stopping operation automatically and immediately | if the driver loses control, if it receives a stop signal, if a fault is detected in a safety-related part of the system, if no validation signal is detected within a specified time | 6 | 6\nOPEN | Section 1.2.4 does not apply to the travelling function | 7 | 7",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1461,
+   "prompt_tokens": 1426,
+   "total_tokens": 2887,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1134,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008731,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008731,
+   "gateway_cost": 0.0008731
+  }
+ }
+}

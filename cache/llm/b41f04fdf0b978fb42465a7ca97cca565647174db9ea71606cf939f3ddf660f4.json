@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.7.4.2\n\n[0] 1.7.4.2.\n[1] Contents of the instructions Each instruction manual must contain, where applicable, at least the following information:\n[2] (a) the business name and full address of the manufacturer and of his authorised representative;\n[3] (b) the designation of the machinery as marked on the machinery itself, except for the serial number (see section 1.7.3);\n[4] (c) the EC declaration of conformity, or a document setting out the contents of the EC declaration of conformity, showing the particulars of the machinery, not necessarily including the serial number and the signature;\n[5] (d) a general description of the machinery;\n[6] (e) the drawings, diagrams, descriptions and explanations necessary for the use, maintenance and repair of the machinery and for checking its correct functioning;\n[7] (f) a description of the workstation(s) likely to be occupied by operators;\n[8] (g) a description of the intended use of the machinery;\n[9] (h) warnings concerning ways in which the machinery must not be used that experience has shown might occur;\n[10] (i) assembly, installation and connection instructions, including drawings, diagrams and the means of attachment and the designation of the chassis or installation on which the machinery is to be mounted;\n[11] (j) instructions relating to installation and assembly for reducing noise or vibration;\n[12] (k) instructions for the putting into service and use of the machinery and, if necessary, instructions for the training of operators;\n[13] (l) information about the residual risks that remain despite the inherent safe design measures, safeguarding and complementary protective measures adopted;\n[14] (m) instructions on the protective measures to be taken by the user, including, where appropriate, the personal protective equipment to be provided;\n[15] (n) the essential characteristics of tools which may be fitted to the machinery;\n[16] (o) the conditions in which the machinery meets the requirement of stability during use, transportation, assembly, dismantling when out of service, testing or foreseeable breakdowns;\n[17] (p) instructions with a view to ensuring that transport, handling and storage operations can be made safely, giving the mass of the machinery and of its various parts where these are regularly to be transported separately;\n[18] (q) the operating method to be followed in the event of accident or breakdown;\n[19] if a blockage is likely to occur, the operating method to be followed so as to enable the equipment to be safely unblocked;\n[20] (r) the description of the adjustment and maintenance operations that should be carried out by the user and the preventive maintenance measures that should be observed;\n[21] (s) instructions designed to enable adjustment and maintenance to be carried out safely, including the protective measures that should be taken during these operations;\n[22] (t) the specifications of the spare parts to be used, when these affect the health and safety of operators;\n[23] (u) the following information on airborne noise emissions: — the A-weighted emission sound pressure level at workstations, where this exceeds 70 dB(A);\n[24] where this level does not exceed 70 dB(A), this fact must be indicated, — the peak C-weighted instantaneous sound pressure value at workstations, where this exceeds 63 Pa (130 dB in relation to 20 μPa), — the A-weighted sound power level emitted by the machinery, where the A-weighted emission sound pressure level at workstations exceeds 80 dB(A).\n[25] These values must be either those actually measured for the machinery in question or those established on the basis of measurements taken for technically comparable machinery which is representative of the machinery to be produced.\n[26] In the case of very large machinery, instead of the A-weighted sound power level, the A-weighted emission sound pressure levels at specified positions around the machinery may be indicated.\n[27] Where the harmonised standards are not applied, sound levels must be measured using the most appropriate method for the machinery.\n[28] Whenever sound emission values are indicated the uncertainties surrounding these values must be specified.\n[29] The operating conditions of the machinery during measurement and the measuring methods used must be described.\n[30] Where the workstation(s) are undefined or cannot be defined, A-weighted sound pressure levels must be measured at a distance of 1 metre from the surface of the machinery and at a height of 1,6 metres from the floor or access platform.\n[31] The position and value of the maximum sound pressure must be indicated.\n[32] Where specific Community Directives lay down other requirements for the measurement of sound pressure levels or sound power levels, those Directives must be applied and the corresponding provisions of this section shall not apply;\n[33] (v) where machinery is likely to emit non-ionising radiation which may cause harm to persons, in particular persons with active or non-active implantable medical devices, information concerning the radiation emitted for the operator and exposed persons."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "mustAccompany | machinery | instruction manual | instruction manual | \"\" | 1 | 1\nhasObligation | manufacturer | the business name and full address of the manufacturer | the business name and full address of the manufacturer | where applicable | 1 | 2\nOPEN | noise emission thresholds (70, 80 dB(A)) and measurement rules have no relation | 23 | 24",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1323,
+   "prompt_tokens": 2574,
+   "total_tokens": 3897,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1194,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009189,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009189,
+   "gateway_cost": 0.0009189
+  }
+ }
+}

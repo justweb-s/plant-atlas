@@ -1,0 +1,18 @@
+{
+ "proposed_total": 1668,
+ "anchored": 1602,
+ "rejected": 66,
+ "rejected_no_anchor": 39,
+ "rejected_missing_condition": 19,
+ "rejected_value_not_in_quote": 7,
+ "rejected_not_in_schema": 1,
+ "status_open_point": 420,
+ "status_current": 1173,
+ "status_closed": 9,
+ "corrections_applied": 9,
+ "calls": 773,
+ "prompt_tokens": 922681,
+ "completion_tokens": 527885,
+ "seconds": 765.8,
+ "chunks_read": 773
+}

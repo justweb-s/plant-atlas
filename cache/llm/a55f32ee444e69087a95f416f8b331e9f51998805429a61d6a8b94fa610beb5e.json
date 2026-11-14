@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: From which date does Regulation (EU) 2023/1230 apply?\n\nFacts:\n[0] Regulation — appliesFrom — 20 January 2027 (2027-01-20) [condition: However, the following Articles shall apply from the following dates] [CORR, Corrigendum, point 10]\n[1] Article 6(2) to (6), (8) and (11) and Articles 47 and 53(3) — appliesFrom — 20 July 2024 (2024-07-20) [CORR, Corrigendum, point 14]\n[2] Chapter VI of this Regulation (mutatis mutandis to such products) — appliesFrom — 19 July 2023 (2023-07-19) [condition: mutatis mutandis to such products instead of Article 11 of that Directive, including products for which a procedure has already been initiated under Article 11 of Directive 2006/42/EC] [CORR, Corrigendum, point 7]\n[3] Directive 2006/42/EC — repealedFrom — 20 January 2027 (2027-01-20) [CORR, Corrigendum, point 5]\n[4] Article 6(7) and Articles 48 and 52 — appliesFrom — 19 July 2023 (2023-07-19) [CORR, Corrigendum, point 13]\n[5] This Directive — appliesFrom — 20th day following its publication (20th day following its publication) [DIR, Art. 28]\n[6] Article 50(1) — appliesFrom — 20 October 2026 (2026-10-20) [CORR, Corrigendum, point 12]\n[7] products placed on the market in conformity with Directive 2006/42/EC — placingAllowedUntil — 20 January 2027 (2027-01-20) [condition: placed on the market in conformity with Directive 2006/42/EC before 14 January 2027] [CORR, Corrigendum, point 6]\n[8] provisions necessary to comply with this Directive — appliesFrom — 29 December 2009 (2009-12-29) [DIR, Art. 26(1)]\n[9] power to adopt delegated acts — appliesFrom — 19 July 2023 (2023-07-19) [condition: for a period of five years] [CORR, Corrigendum, point 3]\n[10] Articles 26 to 42 — appliesFrom — 20 January 2024 (2024-01-20) [CORR, Corrigendum, point 11]\n[11] digital EU declarations of conformity — retentionPeriod — for at least 10 years (P10Y) [condition: in any event] [REG, Art. 10(8)]\n[12] digital EU declarations of incorporation — retentionPeriod — for at least 10 years (P10Y) [condition: after the placing on the market of the partly completed machinery] [REG, Art. 11(8)]\n[13] digital EU declarations of conformity — retentionPeriod — for the expected lifetime of the machinery or related product (for the expected lifetime of the machinery or related product) [REG, Art. 10(8)]\n[14] portable cartridge-operated fixing and other impact machinery — placingAllowedUntil — Until 29 June 2011 (2011-06-29) [condition: which are in conformity with the national provisions in force upon adoption of this Directive] [DIR, Art. 27]\n[15] original EC declaration of conformity — retentionPeriod — at least 10 years (P10Y) [DIR, Annex II, 2]\n[16] technical documentation and EU declaration of incorporation — retentionPeriod — at least 10 years (P10Y) [condition: after the partly completed machinery has been placed on the market] [REG, Art. 11(3)]\n[17] EU declaration of incorporation — hasObligation — shall contain the identification of the Union legal acts concerned (shall contain the identification of the Union legal acts concerned, including their publication references) [condition: Where partly completed machinery is subject to more than one Union legal act requiring an EU declaration of conformity] [REG, Art. 22(3)]\n[18] machinery CE marking date — hasObligation — It is prohibited to pre-date or post-date the machinery (it is prohibited to pre-date or post-date the machinery) [condition: when affixing the CE marking] [DIR, Annex I, 1.7.3]\n[19] technical documentation and EU declaration of conformity — retentionPeriod — at least 10 years (P10Y) [condition: after the product has been placed on the market] [REG, Art. 12(2)]\n[20] EU declaration of incorporation — hasObligation — shall include a sentence declaring the conformity with such acts (shall include a sentence declaring the conformity with such acts) [condition: Where partly completed machinery is subject to more than one Union legal act requiring an EU declaration of conformity] [REG, Art. 22(3)]\n[21] copy of the EU declaration of conformity — retentionPeriod — for at least 10 years (P10Y) [condition: after the machinery or related product has been placed on the market] [REG, Art. 13(8)]\n[22] economic operators: information referred to in paragraph 1 — retentionPeriod — at least 10 years (P10Y) [REG, Art. 19(2)]\n[23] technical documentation and EU declaration of conformity — retentionPeriod — at least 10 years (P10Y) [condition: after the machinery or the related product has been placed on the market or put into service] [REG, Art. 10(3)]\n[24] copy of EU declaration of incorporation, kept by importers — retentionPeriod — at least 10 years (P10Y) [condition: after the partly completed machinery has been placed on the market] [REG, Art. 14(7)]\n[25] EC declaration of conformity — hasObligation — the place and date of the declaration (the place and date of the declaration) [DIR, Annex II, 1]\n[26] digital assembly instructions made accessible online — retentionPeriod — for at least 10 years (P10Y) [condition: after the placing on the market of the partly completed machinery] [REG, Art. 11(7)]\n[27] CE marking — definedAs — a marking by which the manufacturer indicates (a marking by which the manufacturer indicates) [REG, Art. 3(25)]\n[28] manufacturer — hasObligation — shall apply the following principles, in the order given (shall apply the following principles, in the order given) [REG, Annex III, 1.1.2]\n[29] EC declaration of conformity — hasObligation — must be those of the texts published in the Official Journal of the European Union (must be those of the texts published in the Official Journal of the European Union) [DIR, Annex II, 1]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"date\", \"value\": \"2027-01-20\", \"text\": \"Regulation (EU) 2023/1230 applies from 20 January 2027, as stated in the regulation's general application provision. Some articles apply earlier: Article 50(1) from 20 October 2026, Articles 26 to 42 from 20 January 2024, and Article 6(2) to (6), (8) and (11) and Articles 47 and 53(3) from 20 July 2024.\", \"used\": [0, 1, 6, 10]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 452,
+   "prompt_tokens": 2521,
+   "total_tokens": 2973,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 284,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004781,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004781,
+   "gateway_cost": 0.0004781
+  }
+ }
+}

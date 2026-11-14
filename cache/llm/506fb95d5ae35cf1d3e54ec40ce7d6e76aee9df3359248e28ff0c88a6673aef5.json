@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex II, 1\n\n[0] 1.\n[1] CONTENT A.\n[2] EC DECLARATION OF CONFORMITY OF THE MACHINERY This declaration and translations thereof must be drawn up under the same conditions as the instructions (see Annex I, section 1.7.4.1(a) and (b)), and must be typewritten or else handwritten in capital letters.\n[3] This declaration relates exclusively to the machinery in the state in which it was placed on the market, and excludes components which are added and/or operations carried out subsequently by the final user.\n[4] The EC declaration of conformity must contain the following particulars:\n[5] 1.\n[6] business name and full address of the manufacturer and, where appropriate, his authorised representative;\n[7] 2.\n[8] name and address of the person authorised to compile the technical file, who must be established in the Community;\n[9] 3.\n[10] description and identification of the machinery, including generic denomination, function, model, type, serial number and commercial name;\n[11] 4.\n[12] a sentence expressly declaring that the machinery fulfils all the relevant provisions of this Directive and where appropriate, a similar sentence declaring the conformity with other Directives and/or relevant provisions with which the machinery complies.\n[13] These references must be those of the texts published in the Official Journal of the European Union;\n[14] 5.\n[15] where appropriate, the name, address and identification number of the notified body which carried out the EC type-examination referred to in Annex IX and the number of the EC type-examination certificate;\n[16] 6.\n[17] where appropriate, the name, address and identification number of the notified body which approved the full quality assurance system referred to in Annex X;\n[18] 7.\n[19] where appropriate, a reference to the harmonised standards used, as referred to in Article 7(2);\n[20] 8.\n[21] where appropriate, the reference to other technical standards and specifications used;\n[22] 9.\n[23] the place and date of the declaration;\n[24] 10.\n[25] the identity and signature of the person empowered to draw up the declaration on behalf of the manufacturer or his authorised representative.\n[26] B.\n[27] DECLARATION OF INCORPORATION OF PARTLY COMPLETED MACHINERY This declaration and translations thereof must be drawn up under the same conditions as the instructions (see Annex 1, section 1.7.4.1(a) and (b)), and must be typewritten or else handwritten in capital letters.\n[28] The declaration of incorporation must contain the following particulars:\n[29] 1.\n[30] business name and full address of the manufacturer of the partly completed machinery and, where appropriate, his authorised representative;\n[31] 2.\n[32] name and address of the person authorised to compile the relevant technical documentation, who must be established in the Community;\n[33] 3.\n[34] description and identification of the partly completed machinery including generic denomination, function, model, type, serial number and commercial name;\n[35] 4.\n[36] a sentence declaring which essential requirements of this Directive are applied and fulfilled and that the relevant technical documentation is compiled in accordance with part B of Annex VII, and, where appropriate, a sentence declaring the conformity of the partly completed machinery with other relevant Directives.\n[37] These references must be those of the texts published in the Official Journal of the European Union;\n[38] 5.\n[39] an undertaking to transmit, in response to a reasoned request by the national authorities, relevant information on the partly completed machinery.\n[40] This shall include the method of transmission and shall be without prejudice to the intellectual property rights of the manufacturer of the partly completed machinery;\n[41] 6.\n[42] a statement that the partly completed machinery must not be put into service until the final machinery into which it is to be incorporated has been declared in conformity with the provisions of this Directive, where appropriate;\n[43] 7.\n[44] the place and date of the declaration;\n[45] 8.\n[46] the identity and signature of the person empowered to draw up the declaration on behalf of the manufacturer or his authorised representative."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasObligation | EC declaration of conformity | must be typewritten or else handwritten in capital letters | must be typewritten or else handwritten in capital letters | drawn up under the same conditions as the instructions (see Annex I, section 1.7.4.1(a) and (b)) | 2 | 2\nhasObligation | EC declaration of conformity | must contain the following particulars | must contain the following particulars | | 4 | 4\nhasObligation | person authorised to compile the technical file | who must be established in the Community | who must be established in the Community | | 8 | 8\nhasObligation | EC declaration of conformity | must be those of the texts published in the Official Journal of the European Union | must be those of the texts published in the Official Journal of the European Union | | 13 | 13\nhasObligation | EC declaration of conformity | the place and date of the declaration | the place and date of the declaration | | 23 | 23\nhasObligation | EC declaration of conformity | the identity and signature | the identity and signature | the person empowered to draw up the declaration on behalf of the manufacturer or his authorised representative | 25 | 25\nhasObligation | declaration of incorporation of partly completed machinery | must contain the following particulars | must contain the following particulars | | 28 | 28\nhasObligation | manufacturer of partly completed machinery | an undertaking to transmit | an undertaking to transmit | in response to a reasoned request by the national authorities | 39 | 40\nhasObligation | partly completed machinery | must not be put into service | must not be put into service | until the final machinery into which it is to be incorporated has been declared in conformity with the provisions of this Directive, where appropriate | 42 | 42\nOPEN | declaration covers machinery only in the state placed on the market | 3 | 3",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2067,
+   "prompt_tokens": 2335,
+   "total_tokens": 4402,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1484,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001267,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001267,
+   "gateway_cost": 0.001267
+  }
+ }
+}

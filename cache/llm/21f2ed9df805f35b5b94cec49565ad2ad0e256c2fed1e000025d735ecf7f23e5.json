@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: For how long must the manufacturer keep the technical documentation and the EU declaration of conformity?\n\nFacts:\n[0] technical documentation and EU declaration of conformity — retentionPeriod — at least 10 years (P10Y) [condition: after the product has been placed on the market] [REG, Art. 12(2)]\n[1] technical documentation and EU declaration of conformity — retentionPeriod — at least 10 years (P10Y) [condition: after the machinery or the related product has been placed on the market or put into service] [REG, Art. 10(3)]\n[2] technical documentation and EU declaration of incorporation — retentionPeriod — at least 10 years (P10Y) [condition: after the partly completed machinery has been placed on the market] [REG, Art. 11(3)]\n[3] copy of the EU declaration of conformity — retentionPeriod — for at least 10 years (P10Y) [condition: after the machinery or related product has been placed on the market] [REG, Art. 13(8)]\n[4] copy of EU type-examination certificate, annexes, additions and technical documentation kept by manufacturer — retentionPeriod — for at least 10 years (P10Y) [condition: after the machinery or related product has been placed on the market or put into service] [REG, Annex VII, 7]\n[5] digital EU declarations of conformity — retentionPeriod — for the expected lifetime of the machinery or related product (for the expected lifetime of the machinery or related product) [REG, Art. 10(8)]\n[6] digital EU declarations of conformity — retentionPeriod — for at least 10 years (P10Y) [condition: in any event] [REG, Art. 10(8)]\n[7] copy of EU declaration of incorporation, kept by importers — retentionPeriod — at least 10 years (P10Y) [condition: after the partly completed machinery has been placed on the market] [REG, Art. 14(7)]\n[8] original EC declaration of conformity — retentionPeriod — at least 10 years (P10Y) [DIR, Annex II, 2]\n[9] manufacturers of partly completed machinery — hasObligation — shall keep the technical documentation (shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities) [REG, Art. 11(3)]\n[10] digital instructions, manufacturer — retentionPeriod — make them accessible online during the expected lifetime (for at least 10 years) [condition: after the placing on the market of the machinery or related product] [REG, Art. 10(7)]\n[11] digital EU declarations of incorporation — retentionPeriod — for at least 10 years (P10Y) [condition: after the placing on the market of the partly completed machinery] [REG, Art. 11(8)]\n[12] importers — hasObligation — keep a copy of the EU declaration of conformity at the disposal of the market surveillance authorities (keep a copy of the eu declaration of conformity at the disposal of the market surveillance authorities) [REG, Art. 13(8)]\n[13] relevant technical documentation for partly completed machinery — retentionPeriod — at least 10 years (P10Y) [DIR, Annex VII]\n[14] copy of EU type-examination certificate, annexes, additions and technical file kept by notified body — retentionPeriod — for a period of five years (P5Y) [REG, Annex VII, 7]\n[15] manufacturers — hasObligation — draw up the EU declaration of conformity in accordance with Article 21 (draw up the eu declaration of conformity in accordance with article 21) [condition: Where compliance of machinery or a related product with the essential health and safety requirements laid down in Annex III has been demonstrated by that conformity assessment procedure] [REG, Art. 10(2)]\n[16] manufacturers — hasObligation — Manufacturers shall ensure (manufacturers shall ensure that the machinery or related product is accompanied by the EU declaration of conformity) [REG, Art. 10(8)]\n[17] copy of certificate, technical file and relevant documents — retentionPeriod — a period of 15 years (P15Y) [DIR, Annex IX]\n[18] copy of certificate, technical file and relevant documents — retentionPeriod — a period of 15 years (P15Y) [DIR, Annex IX]\n[19] manufacturers — hasObligation — draw up the technical documentation set out in Annex IV, Part A (draw up the technical documentation set out in annex iv, part a) [condition: Before placing machinery or a related product on the market or putting it into service] [REG, Art. 10(2)]\n[20] digital assembly instructions made accessible online — retentionPeriod — for at least 10 years (P10Y) [condition: after the placing on the market of the partly completed machinery] [REG, Art. 11(7)]\n[21] machinery or related product — mustAccompany — EU declaration of conformity set out in Annex V, Part A (EU declaration of conformity set out in Annex V, Part A) [condition: or alternatively, internet address or machine-readable code where that EU declaration of conformity can be accessed in the instructions for use] [REG, Art. 10(8)]\n[22] EC declaration of conformity — hasObligation — must contain the following particulars (must contain the following particulars) [DIR, Annex II, 1]\n[23] tracing log of data generated in relation to an intervention and of safety software versions — retentionPeriod — five years (P5Y) [condition: exclusively to demonstrate the conformity of the machinery or related product with this Annex further to a reasoned request from a competent national authority] [REG, Annex III, 1.2.1]\n[24] recorded data on the safety related decision-making process for software based safety systems — retentionPeriod — one year (P1Y) [condition: exclusively to demonstrate the conformity of the machinery or related product with this Annex further to a reasoned request from a competent national authority] [REG, Annex III, 1.2.1]\n[25] manufacturer, declaration of conformity — hasObligation — issued under the sole responsibility of the manufacturer (issued under the sole responsibility of the manufacturer) [REG, Annex V, Part A, point 4]\n[26] EC declaration of conformity — hasObligation — the place and date of the declaration (the place and date of the declaration) [DIR, Annex II, 1]\n[27] manufacturer — hasObligation — the EU declaration of conformity (the EU declaration of conformity) [condition: or the internet address or machine readable code, where the EU declaration of conformity can be accessed, in accordance with Article 10(8)] [REG, Annex III, 1.7.4.2]\n[28] manufacturers of partly completed machinery — hasObligation — shall draw up the EU declaration of incorporation in accordance with Article 22 (shall draw up the eu declaration of incorporation in accordance with article 22) [condition: Where compliance of partly completed machinery with the relevant essential health and safety requirements set out in Annex III has been demonstrated in the technical documentation set out in Annex IV, Part B] [REG, Art. 11(2)]\n[29] EC declaration of conformity — hasObligation — must be typewritten or else handwritten in capital letters (must be typewritten or else handwritten in capital letters) [condition: drawn up under the same conditions as the instructions (see Annex I, section 1.7.4.1(a) and (b))] [DIR, Annex II, 1]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P10Y\", \"text\": \"The manufacturer must keep the technical documentation and the EU declaration of conformity for at least 10 years after the machinery or related product has been placed on the market or put into service (Art. 10(3)). Article 12(2) sets the same 10-year period after placing on the market.\", \"used\": [0, 1]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 440,
+   "prompt_tokens": 2811,
+   "total_tokens": 3251,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 320,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005011,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005011,
+   "gateway_cost": 0.0005011
+  }
+ }
+}

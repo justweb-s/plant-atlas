@@ -67,6 +67,23 @@ class Corpus:
         return self.rows.get(doc_id, {})
 
 
+class ChunkCorpus:
+    """The same two questions the store asks, answered from the chunks of atlas.corpus.chunker."""
+
+    KINDS = {"REG": "law", "DIR": "law", "CORR": "law"}
+
+    def __init__(self, chunks) -> None:
+        self.chunks = {(c.source, c.locator): c for c in chunks}
+        self.versions = {c.source: c.version for c in chunks}
+
+    def section(self, doc_id: str, anchor: str) -> str | None:
+        chunk = self.chunks.get((doc_id, anchor))
+        return chunk.text if chunk else None
+
+    def meta(self, doc_id: str) -> dict:
+        return {"kind": self.KINDS.get(doc_id, "law"), "version": self.versions.get(doc_id, "")}
+
+
 class Store:
     def __init__(self, corpus: Corpus, path: Path | None = None) -> None:
         self.corpus = corpus
@@ -151,6 +168,14 @@ class Store:
             payload = {"statements": [s.model_dump(mode="json") for s in self.statements],
                        "rejections": self.rejections}
             self.path.write_text(json.dumps(payload, indent=1, ensure_ascii=False))
+
+    @classmethod
+    def load(cls, corpus, path: Path) -> "Store":
+        store = cls(corpus, path)
+        payload = json.loads(path.read_text())
+        store.statements = [Statement(**item) for item in payload["statements"]]
+        store.rejections = payload["rejections"]
+        return store
 
     def _rank(self, s: Statement) -> int:
         if s.asserted_by.startswith("person:"):

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: For how long must the employer keep the results of the checks on work equipment?\n\nFacts:\n[0] copy of EU type-examination certificate, annexes, additions and technical documentation kept by manufacturer — retentionPeriod — for at least 10 years (P10Y) [condition: after the machinery or related product has been placed on the market or put into service] [REG, Annex VII, 7]\n[1] digital instructions, manufacturer — retentionPeriod — make them accessible online during the expected lifetime (for at least 10 years) [condition: after the placing on the market of the machinery or related product] [REG, Art. 10(7)]\n[2] technical documentation and EU declaration of conformity — retentionPeriod — at least 10 years (P10Y) [condition: after the machinery or the related product has been placed on the market or put into service] [REG, Art. 10(3)]\n[3] relevant technical documentation for partly completed machinery — retentionPeriod — at least 10 years (P10Y) [DIR, Annex VII]\n[4] recorded data on the safety related decision-making process for software based safety systems — retentionPeriod — one year (P1Y) [condition: exclusively to demonstrate the conformity of the machinery or related product with this Annex further to a reasoned request from a competent national authority] [REG, Annex III, 1.2.1]\n[5] tracing log of data generated in relation to an intervention and of safety software versions — retentionPeriod — five years (P5Y) [condition: exclusively to demonstrate the conformity of the machinery or related product with this Annex further to a reasoned request from a competent national authority] [REG, Annex III, 1.2.1]\n[6] copy of the EU declaration of conformity — retentionPeriod — for at least 10 years (P10Y) [condition: after the machinery or related product has been placed on the market] [REG, Art. 13(8)]\n[7] original EC declaration of conformity — retentionPeriod — at least 10 years (P10Y) [DIR, Annex II, 2]\n[8] datore di lavoro, verbali delle verifiche — hasObligation — devono essere conservati e tenuti a disposizione dell'organo di vigilanza (devono essere conservati e tenuti a disposizione dell'organo di vigilanza) [DLGS71, art. 71, c. 11]\n[9] technical documentation and EU declaration of incorporation — retentionPeriod — at least 10 years (P10Y) [condition: after the partly completed machinery has been placed on the market] [REG, Art. 11(3)]\n[10] digital assembly instructions made accessible online — retentionPeriod — for at least 10 years (P10Y) [condition: after the placing on the market of the partly completed machinery] [REG, Art. 11(7)]\n[11] digital EU declarations of conformity — retentionPeriod — for the expected lifetime of the machinery or related product (for the expected lifetime of the machinery or related product) [REG, Art. 10(8)]\n[12] registro di controllo delle attrezzature di lavoro — hasObligation — siano curati la tenuta e l'aggiornamento (siano curati la tenuta e l'aggiornamento) [condition: per cui lo stesso è previsto] [DLGS71, art. 71, c. 4]\n[13] technical documentation and EU declaration of conformity — retentionPeriod — at least 10 years (P10Y) [condition: after the product has been placed on the market] [REG, Art. 12(2)]\n[14] copy of EU type-examination certificate, annexes, additions and technical file kept by notified body — retentionPeriod — for a period of five years (P5Y) [REG, Annex VII, 7]\n[15] copy of EU declaration of incorporation, kept by importers — retentionPeriod — at least 10 years (P10Y) [condition: after the partly completed machinery has been placed on the market] [REG, Art. 14(7)]\n[16] copy of certificate, technical file and relevant documents — retentionPeriod — a period of 15 years (P15Y) [DIR, Annex IX]\n[17] copy of certificate, technical file and relevant documents — retentionPeriod — a period of 15 years (P15Y) [DIR, Annex IX]\n[18] economic operators: information referred to in paragraph 1 — retentionPeriod — at least 10 years (P10Y) [REG, Art. 19(2)]\n[19] digital EU declarations of conformity — retentionPeriod — for at least 10 years (P10Y) [condition: in any event] [REG, Art. 10(8)]\n[20] datore di lavoro, controllo iniziale delle attrezzature di lavoro — hasObligation — dopo l'installazione e prima della messa in esercizio (dopo l'installazione e prima della messa in esercizio) [condition: attrezzature di lavoro la cui sicurezza dipende dalle condizioni di installazione] [DLGS71, art. 71, c. 8]\n[21] datore di lavoro, controllo dopo ogni montaggio — hasObligation — dopo ogni montaggio in un nuovo cantiere o in una nuova località di impianto (dopo ogni montaggio in un nuovo cantiere o in una nuova località di impianto) [condition: attrezzature di lavoro la cui sicurezza dipende dalle condizioni di installazione] [DLGS71, art. 71, c. 8]\n[22] risultati dei controlli di cui al comma 8 — retentionPeriod — ultimi tre anni (P3Y) [condition: almeno quelli relativi agli ultimi tre anni] [DLGS71, art. 71, c. 9]\n[23] digital EU declarations of incorporation — retentionPeriod — for at least 10 years (P10Y) [condition: after the placing on the market of the partly completed machinery] [REG, Art. 11(8)]\n[24] modalità di effettuazione delle verifiche periodiche — hasTimeLimit — entro dodici mesi (P12M) [DLGS71, art. 71, c. 13]\n[25] attrezzature di lavoro — mustAccompany — un documento attestante (un documento attestante l'esecuzione dell'ultimo controllo con esito positivo) [condition: Qualora le attrezzature di lavoro di cui al comma 8 siano usate al di fuori della sede dell'unità produttiva] [DLGS71, art. 71, c. 10]\n[26] prima verifica INAIL — hasTimeLimit — quarantacinque giorni (P45D) [DLGS71, art. 71, c. 11]\n[27] portable cartridge-operated fixing and other impact machinery — placingAllowedUntil — Until 29 June 2011 (2011-06-29) [condition: which are in conformity with the national provisions in force upon adoption of this Directive] [DIR, Art. 27]\n[28] manufacturers — hasObligation — keep a register of complaints (keep a register of complaints, of non-conforming machinery or related products and machinery or related product recalls) [condition: If necessary] [REG, Art. 10(4)]\n[29] datore di lavoro, costi delle verifiche — hasObligation — le spese per la loro effettuazione sono poste a carico del datore di lavoro (le spese per la loro effettuazione sono poste a carico del datore di lavoro) [condition: Le verifiche di cui al presente comma sono effettuate a titolo oneroso] [DLGS71, art. 71, c. 11]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P3Y\", \"text\": \"The employer must keep at least the results of the checks referred to in Article 71(8) for the last three years, per Article 71(9) of the Italian Legislative Decree 71 (DLGS71). The fact's condition is that at least the results from the most recent three years are retained.\", \"used\": [22]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 296,
+   "prompt_tokens": 2831,
+   "total_tokens": 3127,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 180,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004311,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004311,
+   "gateway_cost": 0.0004311
+  }
+ }
+}

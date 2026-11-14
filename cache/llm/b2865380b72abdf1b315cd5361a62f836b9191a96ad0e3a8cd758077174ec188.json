@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 2(2)\n\n[0] Article 2 Scope.\n[1] 2.\n[2] This Regulation does not apply to:\n[3] (a) safety components that are intended to be used as spare parts to replace identical components and are supplied by the manufacturer of the original machinery, related product or partly completed machinery;\n[4] (b) specific equipment for use in fairgrounds or amusement parks;\n[5] (c) machinery and related products specially designed for use within or used in a nuclear installation and whose conformity with this Regulation may undermine the nuclear safety of that installation;\n[6] (d) weapons, including firearms;\n[7] (e) means of transport by air, on water and on rail networks except for machinery mounted on those means of transport;\n[8] (f) aeronautical products, parts and equipment that fall within the scope of Regulation (EU) 2018/1139 of the European Parliament and of the Council ( 21 ) and the definition of machinery under this Regulation, insofar as Regulation (EU) 2018/1139 covers the relevant essential health and safety requirements set out in this Regulation;\n[9] (g) motor vehicles and their trailers, as well as systems, components, separate technical units, parts and equipment designed and constructed for such vehicles, which fall within the scope of Regulation (EU) 2018/858, except for machinery mounted on those vehicles;\n[10] (h) two- or three-wheel vehicles and quadricycles, as well as systems, components, separate technical units, parts and equipment designed and constructed for such vehicles, that fall within the scope of Regulation (EU) No 168/2013, except for machinery mounted on those vehicles;\n[11] (i) agricultural and forestry tractors, as well as systems, components, separate technical units, parts and equipment designed and constructed for such tractors, that fall within the scope of Regulation (EU) No 167/2013, except for machinery mounted on those tractors;\n[12] (j) motor vehicles exclusively intended for competition;\n[13] (k) seagoing vessels and mobile offshore units and machinery installed on board such vessels or units;\n[14] (l) machinery or related products specially designed and constructed for military or police purposes;\n[15] (m) machinery or related products specially designed and constructed for research purposes for temporary use in laboratories;\n[16] (n) mine winding gear;\n[17] (o) machinery or related products intended to move performers during artistic performances;\n[18] (p) the following electrical and electronic products, insofar as they fall within the scope of Directive 2014/35/EU or of Directive 2014/53/EU:\n[19] (i) household appliances intended for domestic use which are not electrically operated furniture;\n[20] (ii) audio and video equipment;\n[21] (iii) information technology equipment;\n[22] (iv) ordinary office machinery, except additive printing machinery for producing three-dimensional products;\n[23] (v) low-voltage switchgear and control gear;\n[24] (vi) electric motors;\n[25] (q) the following high-voltage electrical products:\n[26] (i) switchgear and control gear;\n[27] (ii) transformers."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "OPEN | Regulation excludes listed products, categories and uses from scope | 2 | 3",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 393,
+   "prompt_tokens": 2026,
+   "total_tokens": 2419,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 360,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003991,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003991,
+   "gateway_cost": 0.0003991
+  }
+ }
+}

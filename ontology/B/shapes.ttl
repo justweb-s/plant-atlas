@@ -1,0 +1,30 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix pa: <https://github.com/justweb-s/plant-atlas/ontology#> .
+
+# No quote, no fact: every statement names exactly one passage and carries its words.
+pa:StatementShape a sh:NodeShape ;
+    sh:targetClass pa:Statement ;
+    sh:property [ sh:path pa:quote ; sh:minCount 1 ; sh:maxCount 1 ; sh:minLength 1 ;
+                  sh:message "A statement without its quote." ] ;
+    sh:property [ sh:path pa:sourceDocument ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:message "A statement must come from exactly one document." ] ;
+    sh:property [ sh:path pa:locator ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:message "A statement must name the article or annex point it comes from." ] ;
+    sh:property [ sh:path pa:relation ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+# An act is repealed from one date only: an uncorrected and a corrected date cannot both be in force.
+pa:RepealShape a sh:NodeShape ;
+    sh:targetSubjectsOf pa:repealedFrom ;
+    sh:property [ sh:path pa:repealedFrom ; sh:maxCount 1 ; sh:datatype xsd:date ;
+                  sh:message "An act has two repeal dates in force at the same time." ] .
+
+pa:DateShape a sh:NodeShape ;
+    sh:targetSubjectsOf pa:appliesFrom ;
+    sh:property [ sh:path pa:appliesFrom ; sh:datatype xsd:date ;
+                  sh:message "An application date that is not a date." ] .
+
+pa:RetentionShape a sh:NodeShape ;
+    sh:targetSubjectsOf pa:retentionPeriod ;
+    sh:property [ sh:path pa:retentionPeriod ; sh:datatype xsd:duration ;
+                  sh:message "A retention period that is not a duration." ] .

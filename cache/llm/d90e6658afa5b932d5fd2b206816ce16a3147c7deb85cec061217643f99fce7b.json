@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: What must accompany machinery when it is placed on the market?\n\nFacts:\n[0] machinery or related product — mustAccompany — accompanied by the EU declaration of conformity (EU declaration of conformity) [condition: Before making machinery or a related product available on the market] [REG, Art. 15(2)]\n[1] manufacturer of partly completed machinery or authorised representative — hasObligation — shall, before placing it on the market, ensure that (shall, before placing it on the market, ensure that) [condition: before placing it on the market] [DIR, Art. 13(1)]\n[2] partly completed machinery — mustAccompany — accompanied by the required documents (accompanied by the required documents) [condition: Before placing partly completed machinery on the market] [REG, Art. 14(2)]\n[3] machinery — mustAccompany — accompanied by instructions (instructions) [condition: in the official Community language or languages of the Member State in which it is placed on the market and/or put into service] [DIR, Annex I, 1.7.4]\n[4] manufacturer or authorised representative — hasObligation — ensure that the technical file referred to in Annex VII, part A is available (ensure that the technical file referred to in annex vii, part a is available) [condition: Before placing machinery on the market and/or putting it into service] [DIR, Art. 5(1)]\n[5] machinery or related product — mustAccompany — accompanied by the instructions for use (instructions for use and the information referred to in Article 10(7)) [condition: in a language which can be easily understood by users, as determined by the Member State in which the machinery or related product is to be made available on the market] [REG, Art. 15(2)]\n[6] machinery or related product — mustAccompany — a document accompanying the machinery (a document accompanying the machinery) [condition: where the size or nature of the machinery or related product does not allow this] [REG, Art. 10(5)]\n[7] manufacturer or his authorised representative — hasObligation — shall ensure that the procedure referred to in Article 13 has been completed (shall ensure that the procedure referred to in article 13 has been completed) [condition: before placing partly completed machinery on the market] [DIR, Art. 5(2)]\n[8] manufacturer or authorised representative — hasObligation — ensure that it satisfies the relevant essential health and safety requirements (ensure that it satisfies the relevant essential health and safety requirements) [condition: Before placing machinery on the market and/or putting it into service] [DIR, Art. 5(1)]\n[9] machinery — mustAccompany — EC declaration of conformity (ec declaration of conformity) [DIR, Art. 5(1)]\n[10] manufacturer of the machinery — hasObligation — ensuring that the said machinery meets the corresponding state of the art (ensuring that the said machinery meets the corresponding state of the art) [DIR, Annex IX]\n[11] manufacturers of partly completed machinery — hasObligation — shall ensure that it has been designed and constructed (shall ensure that it has been designed and constructed) [condition: When placing partly completed machinery on the market] [REG, Art. 11(1)]\n[12] machinery or related product — mustAccompany — EU declaration of conformity set out in Annex V, Part A (EU declaration of conformity set out in Annex V, Part A) [condition: or alternatively, internet address or machine-readable code where that EU declaration of conformity can be accessed in the instructions for use] [REG, Art. 10(8)]\n[13] machinery or related product — mustAccompany — is accompanied by the required documents (is accompanied by the required documents) [REG, Art. 13(2)]\n[14] manufacturer, digital instructions — hasObligation — mark on the machinery or related product (mark on the machinery or related product) [condition: where that is not possible, on its packaging or in an accompanying document] [REG, Art. 10(7)]\n[15] importer of partly completed machinery — hasObligation — shall ensure that the manufacturer has drawn up (shall ensure that the manufacturer has drawn up) [condition: Before placing partly completed machinery on the market] [REG, Art. 14(2)]\n[16] manufacturers of partly completed machinery — hasObligation — shall draw up the technical documentation set out in Annex IV, Part B (shall draw up the technical documentation set out in annex iv, part b) [condition: Before placing partly completed machinery on the market] [REG, Art. 11(2)]\n[17] importers of machinery and related products — hasObligation — shall place only compliant machinery (shall place only compliant machinery) [REG, Art. 13(1)]\n[18] machinery bearing the CE marking — mustAccompany — accompanied by the EC declaration of conformity (accompanied by the ec declaration of conformity) [condition: machinery bearing the CE marking and accompanied by the EC declaration of conformity] [DIR, Art. 7(1)]\n[19] manufacturers — hasObligation — shall ensure that it has been designed and constructed (shall ensure that it has been designed and constructed) [condition: When placing machinery or a related product on the market or putting it into service] [REG, Art. 10(1)]\n[20] importer of partly completed machinery — hasObligation — shall inform the manufacturer and the market surveillance authorities (shall inform the manufacturer and the market surveillance authorities) [condition: where the partly completed machinery presents a risk as regards the relevant essential health and safety requirements] [REG, Art. 14(2)]\n[21] manufacturers — hasObligation — draw up the technical documentation set out in Annex IV, Part A (draw up the technical documentation set out in annex iv, part a) [condition: Before placing machinery or a related product on the market or putting it into service] [REG, Art. 10(2)]\n[22] manufacturer or authorised representative — hasObligation — must ensure (must ensure) [condition: When lifting machinery or lifting accessories are placed on the market or are first put into service] [DIR, Annex I, 4.1.3]\n[23] distributors — hasObligation — distributors shall verify that (verify that machinery bears the CE marking) [condition: Before making machinery or a related product available on the market] [REG, Art. 15(2)]\n[24] machinery or related product — mustAccompany — accompanied by the instructions for use (accompanied by the instructions for use) [REG, Art. 13(4)]\n[25] importers — hasObligation — shall ensure that the appropriate conformity assessment procedures (shall ensure that the appropriate conformity assessment procedures) [condition: Before placing machinery or a related product on the market] [REG, Art. 13(2)]\n[26] distributors — hasObligation — bears the CE marking (bears the CE marking) [condition: Before making machinery or a related product available on the market] [REG, Art. 15(2)]\n[27] machinery or related product — mustAccompany — instructions for use (instructions for use) [condition: If the shape of the machinery or related product itself or its intended installation does not offer sufficient stability] [REG, Annex III, 1.3.1]\n[28] declaration of incorporation of partly completed machinery — hasObligation — must contain the following particulars (must contain the following particulars) [DIR, Annex II, 1]\n[29] distributor of partly completed machinery — hasObligation — shall inform the manufacturer or the importer as well as the market surveillance authorities (shall inform the manufacturer or the importer as well as the market surveillance authorities) [condition: where the partly completed machinery presents a risk as regards relevant essential health and safety requirements] [REG, Art. 16(3)]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"EC declaration of conformity\", \"EU declaration of conformity\", \"instructions\", \"instructions for use\", \"required documents\"], \"text\": \"Machinery placed on the market must be accompanied by the EC or EU declaration of conformity (DIR Art. 5(1); REG Art. 15(2)) and by instructions, including instructions for use (DIR Annex I, 1.7.4; REG Art. 13(4)). Instructions must be in a language easily understood by users, as the Member State determines, and the declaration may be replaced by an internet address or machine-readable code where permitted (REG Art. 10(8)). Other documents may also be required, depending on the case.\", \"used\": [9, 0, 3, 5, 24, 13, 12]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 642,
+   "prompt_tokens": 2874,
+   "total_tokens": 3516,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 390,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006084,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006084,
+   "gateway_cost": 0.0006084
+  }
+ }
+}

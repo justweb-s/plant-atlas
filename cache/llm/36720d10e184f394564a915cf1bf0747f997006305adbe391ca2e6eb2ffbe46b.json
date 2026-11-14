@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Which risks does essential health and safety requirement 1.3.7 of Annex III address?\n\nFacts:\n[0] essential requirement 1.1.3 materials and products — addressesRisk — endanger the health and safety of persons (endanger the health and safety of persons) [REG, Annex III, 1.1.3]\n[1] essential requirement 1.1.3 on materials — addressesRisk — endanger persons' safety or health (endanger persons' safety or health) [DIR, Annex I, 1.1.3]\n[2] essential requirement 1.3.3 — addressesRisk — Risks due to falling or ejected objects (risks due to falling or ejected objects) [REG, Annex III, 1.3.3]\n[3] essential requirement 1.3.3 — addressesRisk — Risks due to falling or ejected objects (risks due to falling or ejected objects) [DIR, Annex I, 1.3.3]\n[4] essential requirement 1.5.13 — addressesRisk — risks of inhalation, ingestion, contact with the skin (risks of inhalation, ingestion, contact with the skin) [REG, Annex III, 1.5.13]\n[5] essential requirement 1.3.7 — addressesRisk — Risks related to moving parts (risks related to moving parts) [REG, Annex III, 1.3.7]\n[6] essential requirement 1.5.5 — addressesRisk — risk of injury arising from contact (risk of injury arising from contact) [REG, Annex III, 1.5.5]\n[7] essential requirement 1.3.7 — addressesRisk — Risks related to moving parts (risks related to moving parts) [DIR, Annex I, 1.3.7]\n[8] requirement 1.5.13, emissions of hazardous materials and substances — addressesRisk — risks of inhalation, ingestion, contact with the skin (risks of inhalation, ingestion, contact with the skin) [DIR, Annex I, 1.5.13]\n[9] 1.3.4 essential requirement — addressesRisk — Risks due to surfaces, edges or angles (risks due to surfaces, edges or angles) [condition: Insofar as their purpose allows] [REG, Annex III, 1.3.4]\n[10] EssentialRequirement 6.3.2 — addressesRisk — Risk of persons falling from the carrier (risk of persons falling from the carrier) [REG, Annex III, 6.3.2]\n[11] essential health and safety requirements — definedAs — the mandatory provisions, set out in Annex III (the mandatory provisions, set out in annex iii) [REG, Art. 3(14)]\n[12] essential requirement 1.3.9 — addressesRisk — Risks of uncontrolled movements (risks of uncontrolled movements) [REG, Annex III, 1.3.9]\n[13] essential requirement 1.3.8 — addressesRisk — risks arising from moving parts (risks arising from moving parts) [DIR, Annex I, 1.3.8]\n[14] 1.3.4 essential requirement — addressesRisk — Risks due to surfaces, edges or angles (risks due to surfaces, edges or angles) [condition: Insofar as their purpose allows] [DIR, Annex I, 1.3.4]\n[15] 6.4.1 essential requirement, risks to persons in or on the carrier — addressesRisk — risks due to contact between persons and/or objects (risks due to contact between persons and/or objects) [REG, Annex III, 6.4.1]\n[16] essential requirement 1.5.15 — addressesRisk — Risk of slipping, tripping or falling (risk of slipping, tripping or falling) [REG, Annex III, 1.5.15]\n[17] essential requirement 1.5.7 — addressesRisk — any risk of explosion (any risk of explosion) [DIR, Annex I, 1.5.7]\n[18] essential requirement 1.3.6 — addressesRisk — Risks related to variations in operating conditions (risks related to variations in operating conditions) [REG, Annex III, 1.3.6]\n[19] essential requirement 1.5.15 — addressesRisk — Risk of slipping, tripping or falling (risk of slipping, tripping or falling) [DIR, Annex I, 1.5.15]\n[20] essential requirement 1.5.5 — addressesRisk — risk of hot or very cold material being ejected (risk of hot or very cold material being ejected) [REG, Annex III, 1.5.5]\n[21] essential requirement 6.3.3 — addressesRisk — Risk due to objects falling on the carrier (risk due to objects falling on the carrier) [REG, Annex III, 6.3.3]\n[22] essential requirement 1.1.2(a) — addressesRisk — putting persons at risk (putting persons at risk) [condition: when these operations are carried out under the conditions foreseen] [DIR, Annex I, 1.1.2]\n[23] essential requirement 3.4.4 — addressesRisk — risk due to falling objects or material (risk due to falling objects or material) [condition: in the case of self-propelled machinery with a ride-on driver, operator(s) or other person(s), there is a risk due to falling objects or material] [DIR, Annex I, 3.4.4]\n[24] essential requirement 1.3.9 — addressesRisk — Risks of uncontrolled movements (risks of uncontrolled movements) [condition: for whatever reason other than action on the control devices] [DIR, Annex I, 1.3.9]\n[25] essential requirement 6.3.3 — addressesRisk — Risk due to objects falling on the carrier (risk due to objects falling on the carrier) [condition: Where there is a risk of objects falling on the carrier and endangering persons] [DIR, Annex I, 6.3.3]\n[26] essential requirement 3.5.4 — addressesRisk — Risk of contact with live overhead power lines (risk of contact with live overhead power lines) [condition: where relevant] [REG, Annex III, 3.5.4]\n[27] essential requirement 1.5.6 — addressesRisk — risk of fire or overheating (risk of fire or overheating) [condition: presented by the machinery or related product itself or by gases, liquids, dust, vapours or other substances produced or used by the machinery or related product] [REG, Annex III, 1.5.6]\n[28] essential requirement 1.5.6 — addressesRisk — any risk of fire or overheating (risk of fire or overheating) [DIR, Annex I, 1.5.6]\n[29] essential requirement 1.3.1 — addressesRisk — Risk of loss of stability (risk of loss of stability) [REG, Annex III, 1.3.1]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"Risks related to moving parts\"], \"text\": \"Essential health and safety requirement 1.3.7 of Annex III addresses risks related to moving parts. The facts give no other risks for this point.\", \"used\": [5]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 224,
+   "prompt_tokens": 2587,
+   "total_tokens": 2811,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 140,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003707,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003707,
+   "gateway_cost": 0.0003707
+  }
+ }
+}
