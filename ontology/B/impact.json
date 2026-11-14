@@ -1,8 +1,8 @@
 {
- "generated": "2026-11-14T15:21:32",
+ "generated": "2026-11-14T17:09:01",
  "health": {
-  "checked": 2033,
-  "quote_found": 2033,
+  "checked": 2073,
+  "quote_found": 2073,
   "quote_missing": 0,
   "piece_missing": 0
  },
@@ -13,10 +13,10 @@
    "title": "Regulation (EU) 2023/1230 on machinery",
    "layer": "law",
    "pieces": 579,
-   "facts_anchored": 694,
+   "facts_anchored": 722,
    "referred_by": [],
    "devices_affected": 0,
-   "if_changed": "If this document changed, 694 facts anchored in it would be checked again."
+   "if_changed": "If this document changed, 722 facts anchored in it would be checked again."
   },
   {
    "source": "DIR",
@@ -118,6 +118,16 @@
    "if_changed": "If this document changed, 112 facts anchored in it would be checked again."
   },
   {
+   "source": "igea-equipment",
+   "title": "IGEA S.p.A., Scheda tecnica: verifica periodica degli apparecchi di sollevamento 2019-2021 (elenco di 24 apparecchi)",
+   "layer": "plant",
+   "pieces": 9,
+   "facts_anchored": 85,
+   "referred_by": [],
+   "devices_affected": 24,
+   "if_changed": "If this document changed, 85 facts anchored in it would be checked again, and the result for 24 lifting devices depends on it."
+  },
+  {
    "source": "unict-guideline",
    "title": "Universita' di Catania, Gestione delle attrezzature di lavoro, linea guida",
    "layer": "company",
@@ -126,16 +136,6 @@
    "referred_by": [],
    "devices_affected": 0,
    "if_changed": "If this document changed, 80 facts anchored in it would be checked again."
-  },
-  {
-   "source": "igea-equipment",
-   "title": "IGEA S.p.A., Scheda tecnica: verifica periodica degli apparecchi di sollevamento 2019-2021 (elenco di 24 apparecchi)",
-   "layer": "plant",
-   "pieces": 9,
-   "facts_anchored": 73,
-   "referred_by": [],
-   "devices_affected": 24,
-   "if_changed": "If this document changed, 73 facts anchored in it would be checked again, and the result for 24 lifting devices depends on it."
   },
   {
    "source": "DLGS",
@@ -209,10 +209,34 @@
        "quote": "81/2008, l'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta, mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta."
       }
      ]
+    },
+    {
+     "layer": "plant",
+     "count": 2,
+     "examples": [
+      {
+       "id": "plant_igea_terms-04",
+       "subject": "verifiche di cui all’art.71 comma 11 D.Lgs. 81/2008",
+       "predicate": "verifiedBy",
+       "value": "soggetti abilitati",
+       "source_doc": "igea-equipment",
+       "anchor": "p. 4",
+       "quote": "SPECIFICHE APPALTANTE I criteri di abilitazione dei soggetti pubblici o privati per poter effettuare le verifiche di cui all’art.71 comma 11 del D.Lgs. n° 81/2008 sono quelli indicati nell’Allegato I del D.M. 11 aprile 2011 L’appaltante dovrà essere iscritto nell’elenco dei sogge"
+      },
+      {
+       "id": "plant_igea_terms-07",
+       "subject": "aggiudicatario",
+       "predicate": "hasObligation",
+       "value": "rispettare le disposizioni in materia di salute e sicurezza contenute nel Decreto Legislativo 81/08",
+       "source_doc": "igea-equipment",
+       "anchor": "p. 5",
+       "quote": "IMPEGNI AGGIUDICATARIO / VERIFICATORE L’aggiudicatario si impegna a:  rispettare quanto contenuto nella presente Scheda Tecnica;  rispettare le disposizioni in materia di salute e sicurezza contenute nel Decreto Legislativo 81/08;  rispettare le disposizioni del D.lgs."
+      }
+     ]
     }
    ],
    "devices_affected": 0,
-   "if_changed": "If this document changed, 48 facts anchored in it would be checked again, 11 facts in other documents cite it and would be flagged for review."
+   "if_changed": "If this document changed, 48 facts anchored in it would be checked again, 13 facts in other documents cite it and would be flagged for review."
   },
   {
    "source": "DLGSALLVII",
@@ -366,10 +390,34 @@
        "quote": "Per le Plac già messe in servizio alla data del 23 maggio 2012, data di entrata in vigore del decreto ministeriale 11 aprile 2011, la richiesta di prima verifica periodica (punto 2) costituisce adempimento anche per la comunicazione di messa in servizio (punto 1), come evidente d"
       }
      ]
+    },
+    {
+     "layer": "plant",
+     "count": 2,
+     "examples": [
+      {
+       "id": "plant_igea_terms-01",
+       "subject": "verifica periodica degli apparecchi di sollevamento",
+       "predicate": "verifiedBy",
+       "value": "soggetti abilitati pubblici o privati",
+       "source_doc": "igea-equipment",
+       "anchor": "p. 3",
+       "quote": "11 aprile 2011 da parte di soggetti abilitati pubblici o privati e il relativo rilascio del verbale di verifica periodica."
+      },
+      {
+       "id": "plant_igea_terms-04",
+       "subject": "verifiche di cui all’art.71 comma 11 D.Lgs. 81/2008",
+       "predicate": "verifiedBy",
+       "value": "soggetti abilitati",
+       "source_doc": "igea-equipment",
+       "anchor": "p. 4",
+       "quote": "SPECIFICHE APPALTANTE I criteri di abilitazione dei soggetti pubblici o privati per poter effettuare le verifiche di cui all’art.71 comma 11 del D.Lgs. n° 81/2008 sono quelli indicati nell’Allegato I del D.M. 11 aprile 2011 L’appaltante dovrà essere iscritto nell’elenco dei sogge"
+      }
+     ]
     }
    ],
    "devices_affected": 0,
-   "if_changed": "If this document changed, 12 facts anchored in it would be checked again, 4 facts in other documents cite it and would be flagged for review."
+   "if_changed": "If this document changed, 12 facts anchored in it would be checked again, 6 facts in other documents cite it and would be flagged for review."
   },
   {
    "source": "CORR",

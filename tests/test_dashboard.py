@@ -92,3 +92,9 @@ def test_document_map(page):
     assert {d["key"]: d["n"] for d in dmap["docs"]} == dict(count)
     assert dmap["edges"] and all(e["n"] > 0 for e in dmap["edges"])
     assert {e["kind"] for e in dmap["edges"]} <= {"cites", "corrects", "prevails", "applied"}
+
+
+def test_left_toggle_and_deep_links(page):
+    assert 'id="lefttoggle"' in page and 'data-left="facts"' in page and 'data-left="docs"' in page
+    assert 'tokens.has("docs")' in page and 'tokens.has("embed")' in page
+    assert 'id="why"' in page and "ontology.ttl" in page

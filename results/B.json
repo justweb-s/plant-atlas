@@ -4,15 +4,15 @@
   "correct": 18,
   "unknown": 8,
   "wrong": 8,
-  "mean": 0.609,
+  "mean": 0.605,
   "by_type": {
    "I": 0.571,
-   "T": 0.762,
-   "V": 0.481
+   "T": 0.703,
+   "V": 0.537
   },
   "by_split": {
-   "design": 0.745,
-   "heldout": 0.361
+   "design": 0.715,
+   "heldout": 0.403
   },
   "cost_usd": 0.0
  },
@@ -21,30 +21,26 @@
    "id": "CQ01",
    "type": "T",
    "split": "design",
-   "score": 0.545,
+   "score": 0.0,
    "value": [
-    "Removable mechanical transmission devices including their guards (Annex I, Part A, point 1)",
-    "Vehicle servicing lifts (Annex I, Part A, point 3)",
-    "Portable cartridge-operated fixing and other impact machinery (Annex I, Part A, point 4)",
-    "Safety components with fully or partially self-evolving behaviour (Annex I, Part A, point 5)",
-    "Machinery with embedded self-evolving ML systems ensuring safety functions, in respect only of those systems (Annex I, Part A, point 6)"
+    "machinery and related products in categories listed in Annex I, Part A",
+    "categories of machinery or related products listed in Annex I, Part A"
    ],
-   "text": "Under Article 25(2) of the Machinery Regulation (EU) 2023/1230, the categories listed in Annex I, Part A always need a notified-body procedure (module B with C, module G or module H). The Part A members are the removable transmission devices and guards, vehicle servicing lifts, portable cartridge-operated fixing machinery, self-evolving safety components, and machinery with self-evolving ML safety systems.",
-   "tokens": 10708,
+   "text": "Under the Regulation (EU) 2023/1230, Article 25(2) and Annex I, Part A, the categories of machinery listed in Annex I, Part A always require one of the Article 25(2) procedures involving a notified body, such as EU type-examination with module C, unit verification (module G), or full quality assurance (module H).",
+   "tokens": 10217,
    "cost_usd": 0.0
   },
   {
    "id": "CQ02",
    "type": "T",
    "split": "design",
-   "score": 0.667,
+   "score": 0.4,
    "value": [
-    "Option (a): conformity to type based on internal production control (module C), followed by EU type-examination (module B)",
-    "Conformity based on full quality assurance (module H)",
-    "Conformity based on unit verification (module G)"
+    "EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII",
+    "conformity based on full quality assurance (module H) set out in Annex IX"
    ],
-   "text": "For machinery in Annex I, Part A, the manufacturer must apply one of the Article 25(2) procedures: option (a), EU type-examination (module B) followed by internal production control (module C); full quality assurance (module H); or unit verification (module G).",
-   "tokens": 10018,
+   "text": "For machinery listed in Annex I, Part A, the manufacturer must apply one of the procedures in Article 25(2): module B followed by module C (Annexes VII and VIII), full quality assurance under module H (Annex IX), or unit verification under module G (Annex X).",
+   "tokens": 9793,
    "cost_usd": 0.0
   },
   {
@@ -52,9 +48,9 @@
    "type": "T",
    "split": "design",
    "score": 1.0,
-   "value": "Annex I, Part A, point 5: safety components with fully or partially self-evolving behaviour.",
-   "text": "A safety component with self-evolving behaviour falls under the category of safety components with fully or partially self-evolving behaviour, listed in Annex I, Part A, point 5.",
-   "tokens": 8399,
+   "value": "Annex I, Part A, point 5 (safety components with fully or partially self-evolving behaviour).",
+   "text": "A safety component with fully or partially self-evolving behaviour falls under Annex I, Part A, point 5 of the Regulation. Point 6 covers machinery with embedded self-evolving ML systems, which is a different subject.",
+   "tokens": 8117,
    "cost_usd": 0.0
   },
   {
@@ -62,21 +58,25 @@
    "type": "T",
    "split": "design",
    "score": 1.0,
-   "value": "Interlocking movable guards must be used instead of fixed guards where frequent access is envisaged, as set out in Annex III, point 1.3.8.1 of the Regulation.",
+   "value": "Where frequent access is envisaged.",
    "text": "Under Annex III, point 1.3.8.1 of the Regulation, guards for moving transmission parts must be interlocking movable guards rather than fixed guards where frequent access is envisaged.",
-   "tokens": 8810,
+   "tokens": 8676,
    "cost_usd": 0.0
   },
   {
    "id": "CQ05",
    "type": "T",
    "split": "design",
-   "score": 0.0,
+   "score": 0.5,
    "value": [
-    "Risks related to moving parts"
+    "risks of contact leading to hazardous situations",
+    "risks of contact which could lead to accidents",
+    "Risks related to moving parts",
+    "accidental blockage of moving parts",
+    "psychological stress that may be caused by the interaction with the machinery"
    ],
-   "text": "Under Annex III, point 1.3.7 of the Regulation addresses risks related to moving parts.",
-   "tokens": 9610,
+   "text": "Under essential health and safety requirement 1.3.7 of Annex III to the Regulation, the risks addressed are contact leading to hazardous situations, contact that could lead to accidents (where risks persist), moving parts, accidental blockage of moving parts, and psychological stress from interaction with the machinery.",
+   "tokens": 9265,
    "cost_usd": 0.0
   },
   {
@@ -84,28 +84,24 @@
    "type": "T",
    "split": "design",
    "score": 1.0,
-   "value": "The natural or legal person who carries out the substantial modification, under Article 18 of the Machinery Regulation, is subject to the manufacturer's obligations in Article 10, where the modification affects only the safety of machinery or a related product that is part of an assembly of machinery.",
-   "text": "Under Article 18 of the Machinery Regulation (EU) 2023/1230, the natural or legal person carrying out a substantial modification is subject to the manufacturer's obligations in Article 10, provided the modification affects only the safety of machinery or a related product forming part of an assembly of machinery. That person must also ensure and declare conformity on its sole responsibility.",
-   "tokens": 10287,
+   "value": "The natural or legal person who carries out the substantial modification is treated as the manufacturer under Article 18 of the Machinery Regulation, subject to the Article 10 manufacturer obligations (where the modification affects only the safety of machinery or a related product forming part of an assembly).",
+   "text": "Under Article 18 of the Machinery Regulation, the natural or legal person carrying out a substantial modification is subject to the manufacturer's obligations in Article 10, provided the modification affects only the safety of that machinery or a related product within an assembly; a non-professional user modifying machinery for own use is excluded.",
+   "tokens": 10033,
    "cost_usd": 0.0
   },
   {
    "id": "CQ07",
    "type": "T",
    "split": "design",
-   "score": 0.667,
+   "score": 0.333,
    "value": [
-    "a document accompanying the machinery (where the size or nature of the machinery or related product does not allow this)",
-    "EU declaration of conformity (before making machinery or a related product available on the market)",
-    "instructions for use (in a language which can be easily understood by users, as determined by the Member State)",
-    "EU declaration of conformity set out in Annex V, Part A (or alternatively an internet address or machine-readable code where it can be accessed in the instructions for use)",
-    "the required documents",
-    "instructions for use",
-    "the information referred to in Article 10(7)",
-    "the instructions for use and the information set out in Annex III"
+    "instructions in the official Community language(s) of the Member State where it is placed on the market and/or put into service",
+    "EC declaration of conformity",
+    "instruction manual",
+    "‘Original instructions’"
    ],
-   "text": "Under the Regulation (EU) on machinery, machinery or related products must be accompanied by the instructions for use and the information in Article 10(7) and Annex III (Art. 10(7), Art. 13(4)), by the EU declaration of conformity (Art. 10(8), Art. 15(2)), and by the required documents (Art. 13(2)); where size or nature prevents it, a document accompanying the machinery is required (Art. 10(5)). These obligations apply from 2027-01-20, the Regulation's general application date.",
-   "tokens": 12211,
+   "text": "Under Directive 2006/42/EC (Annex I, 1.7.4 and Art. 5(1)), which still applies on 2026-11-14, machinery must be accompanied by instructions in the required language, the instruction manual and the original instructions, and by the EC declaration of conformity. The Regulation's corresponding requirements apply only from 2027-01-20.",
+   "tokens": 12367,
    "cost_usd": 0.0
   },
   {
@@ -124,8 +120,8 @@
    "split": "design",
    "score": 1.0,
    "value": "2027-01-20",
-   "text": "Regulation (EU) 2023/1230 generally applies from 20 January 2027 (fact 0). Several specific Articles apply earlier, from dates such as 19 July 2023, 20 July 2024, 20 January 2024 and 20 October 2026.",
-   "tokens": 8452,
+   "text": "Regulation (EU) 2023/1230 applies generally from 20 January 2027, as corrected by the corrigendum, although certain Articles apply from earlier dates.",
+   "tokens": 8025,
    "cost_usd": 0.0
   },
   {
@@ -134,8 +130,8 @@
    "split": "design",
    "score": 1.0,
    "value": true,
-   "text": "Yes. Directive 2006/42/EC is repealed only from 20 January 2027 (Corrigendum, points 5 and 6), so conforming machinery can still be placed on the market on 16 January 2027.",
-   "tokens": 9540,
+   "text": "Yes. Directive 2006/42/EC is repealed only from 20 January 2027, and conforming machinery may be placed on the market until then, so 16 January 2027 is still allowed.",
+   "tokens": 9349,
    "cost_usd": 0.0
   },
   {
@@ -143,9 +139,9 @@
    "type": "T",
    "split": "design",
    "score": 1.0,
-   "value": "INAIL carries out the first periodic verification, within 45 days of receiving the complete request.",
-   "text": "For the equipment in Annex VII, the first periodic verification is carried out by INAIL (DM 2011, art. 2, c. 1), within 45 days of receiving the complete request (INAIL guide). INAIL may delegate it to a qualified body designated by the employer.",
-   "tokens": 9315,
+   "value": "INAIL carries out the first periodic verification, within 45 days from receipt of the complete request.",
+   "text": "For Annex VII equipment, the first periodic verification is carried out by INAIL (DM 2011, art. 2, c. 1), within 45 days of receiving the complete request.",
+   "tokens": 9156,
    "cost_usd": 0.0
   },
   {
@@ -154,8 +150,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P3Y",
-   "text": "The employer must keep at least the results of the checks under art. 71, comma 8 for the last three years (art. 71, comma 9, D.Lgs. 81/2008).",
-   "tokens": 9398,
+   "text": "The employer must keep the results of the checks under paragraph 8 of art. 71 of D.Lgs. 81/2008 for at least the last three years.",
+   "tokens": 9386,
    "cost_usd": 0.0
   },
   {
@@ -164,8 +160,8 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "The facts do not identify any catalogue model as self-certified with internal checks or as needing a notified body from 20 January 2027, so no model can be named.",
-   "tokens": 10342,
+   "text": "The facts do not identify any catalogue model that is self-certified with internal checks, so they do not show which models will need a notified body from 20 January 2027.",
+   "tokens": 10270,
    "cost_usd": 0.0
   },
   {
@@ -174,8 +170,8 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "The facts do not say which category RC-5 belongs to, so they do not establish which conformity assessment procedure under Article 25 it will need from 20 January 2027 (the date the Regulation applies and Directive 2006/42/EC is repealed).",
-   "tokens": 10235,
+   "text": "The facts do not identify model RC-5 or its machinery category, so they cannot say which conformity assessment procedure it will need from 20 January 2027. The applicable procedure depends on whether it falls under Annex I Part A (Art. 25(2)), Part B (Art. 25(3)), or is not listed in Annex I (Art. 25(4), module A).",
+   "tokens": 10376,
    "cost_usd": 0.0
   },
   {
@@ -184,8 +180,8 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "The facts in force do not answer this question.",
-   "tokens": 9733,
+   "text": "The facts do not mention model CS-400, so they cannot say whether it may stay under internal production control after 20 January 2027; the general rules are in the corrigendum points on the Directive's repeal (fact 56) and the placing-on-the-market date (fact 50).",
+   "tokens": 9913,
    "cost_usd": 0.0
   },
   {
@@ -194,13 +190,13 @@
    "split": "heldout",
    "score": 0.333,
    "value": [
+    "Portable cartridge-operated fixing and other impact machinery",
     "removable mechanical transmission devices including their guards",
-    "portable cartridge-operated fixing and other impact machinery",
     "safety components with fully or partially self-evolving behaviour",
-    "machinery with embedded self-evolving ML systems ensuring safety functions (in respect only of those systems)"
+    "machinery with embedded self-evolving ML systems ensuring safety functions"
    ],
-   "text": "Four Annex I, Part A categories (points 1, 4, 5 and 6) have no counterpart in the Annex IV facts of Directive 2006/42/EC; vehicle servicing lifts (point 3) does appear there as Annex IV point 16.",
-   "tokens": 12522,
+   "text": "Four Annex I, Part A categories (points 1, 4, 5 and 6) were not in Annex IV of Directive 2006/42/EC; vehicle servicing lifts (point 3) were already listed there.",
+   "tokens": 12460,
    "cost_usd": 0.0
   },
   {
@@ -209,21 +205,20 @@
    "split": "heldout",
    "score": 1.0,
    "value": false,
-   "text": "No: from 20 January 2027 the Regulation applies, and vehicle servicing lifts are listed in Annex I (Part A, point 3), so internal production control alone (Art. 25(4)) is not available; the only internal-control route stated is module C, which must be followed by EU type-examination under module B, option (a) (Art. 25(2)).",
-   "tokens": 9737,
+   "text": "No: after 20 January 2027 vehicle servicing lifts are listed in Annex I, Part A of the Regulation (point 3), so internal production control alone does not suffice even with full harmonised standards; internal production control applies only to Part B categories or categories not listed in Annex I (Art. 25).",
+   "tokens": 9754,
    "cost_usd": 0.0
   },
   {
    "id": "CQ18",
    "type": "V",
    "split": "heldout",
-   "score": 0.0,
+   "score": 0.5,
    "value": [
-    "software and data critical for compliance (1.1.9) — adequately protected against accidental or intentional corruption (condition: critical for compliance with the relevant essential health and safety requirements)",
-    "hardware component transmitting signal or data (1.1.9) — adequately protected against accidental or intentional corruption (condition: relevant for connection or access to software that is critical for compliance)"
+    "adequately protected against accidental or intentional corruption"
    ],
-   "text": "The Regulation's new corruption-protection requirement is in Annex III, point 1.1.9, which requires that software and data critical for compliance, and hardware components transmitting signals or data relevant to access to such software, be adequately protected against accidental or intentional corruption.",
-   "tokens": 9863,
+   "text": "The Regulation adds essential requirement 1.1.9 of Annex III, which requires software and data critical for compliance, and hardware components that connect to or access such software, to be adequately protected against accidental or intentional corruption; no Directive fact covers this point.",
+   "tokens": 9816,
    "cost_usd": 0.0
   },
   {
@@ -233,7 +228,7 @@
    "score": 0.0,
    "value": null,
    "text": "The facts in force do not answer this question.",
-   "tokens": 9252,
+   "tokens": 9228,
    "cost_usd": 0.0
   },
   {
@@ -243,7 +238,7 @@
    "score": 0.0,
    "value": null,
    "text": "The facts in force do not answer this question.",
-   "tokens": 11154,
+   "tokens": 11039,
    "cost_usd": 0.0
   },
   {
@@ -252,8 +247,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P1Y",
-   "text": "The DEMAG overhead travelling crane (IGEA device 8) must be verified once a year, under DLGS Allegato VII, riga 15. Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
-   "tokens": 7886,
+   "text": "The DEMAG overhead travelling crane (IGEA device 8) must be verified once a year (P1Y), under Allegato VII, riga 15, because it is fixed lifting equipment above 200 kg, used in the mining sector, and built in 1985. Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
+   "tokens": 7975,
    "cost_usd": 0.0
   },
   {
@@ -262,8 +257,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P1Y",
-   "text": "The Effer truck-mounted crane (IGEA device 7, 790 kg, built 2017, mining site) must be verified every year, per the Annex VII row 12 sector rule for mobile lifting equipment above 200 kg. Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
-   "tokens": 9083,
+   "text": "The Effer truck crane at position 7 must be verified every year (P1Y), under the Annex VII rule for mobile lifting equipment above 200 kg used in the extractive sector. Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
+   "tokens": 8892,
    "cost_usd": 0.0
   },
   {
@@ -271,9 +266,9 @@
    "type": "T",
    "split": "design",
    "score": 0.5,
-   "value": "ASL (Azienda Sanitaria Locale), for the periodic verifications subsequent to the first.",
-   "text": "Under DM2011 art. 2 c. 1, the subsequent periodic verifications of the Annex VII equipment are carried out by the ASL, while the first is carried out by INAIL.",
-   "tokens": 9669,
+   "value": "ASL (Azienda Sanitaria Locale)",
+   "text": "The periodic verifications after the first one on Annex VII equipment are carried out by the ASL, per DM2011 art. 2 c. 1.",
+   "tokens": 9767,
    "cost_usd": 0.0
   },
   {
@@ -282,8 +277,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P45D",
-   "text": "The first periodic verification must be carried out within 45 days of receipt of the complete request, as set by Article 71(11) of Legislative Decree 81/2008 and the INAIL guide. The sixty-day figure attributed to the Ministerial Decree of 11 April 2011 is not supported by the available facts.",
-   "tokens": 11949,
+   "text": "The first periodic verification must be carried out within 45 days of receiving the complete request, under art. 71, c. 11 of Legislative Decree 81/2008. The facts do not support the 60-day figure attributed to the 2011 Ministerial Decree.",
+   "tokens": 11869,
    "cost_usd": 0.0
   },
   {
@@ -302,8 +297,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P1Y",
-   "text": "The nanoScan3 must be tested at least once a year, per the regular tests, detection-capability test and principal-function thorough check in the nanoScan3 manual (pp. 50–51).",
-   "tokens": 7013,
+   "text": "The nanoScan3 protective device must be regularly tested at least once a year (nanoScan3 manual, p. 50), and its detection capability test and thorough check of the main function are also required at least once a year (p. 51).",
+   "tokens": 6956,
    "cost_usd": 0.0
   },
   {
@@ -312,8 +307,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P15D",
-   "text": "The verifier (aggiudicatario) must give IGEA at least 15 days' notice of the planning of the checks (igea-equipment, p. 5).",
-   "tokens": 8713,
+   "text": "The verifier (aggiudicatario) must give IGEA 15 days' notice when planning the checks, per the igea-equipment document, p. 5.",
+   "tokens": 8599,
    "cost_usd": 0.0
   },
   {
@@ -343,7 +338,7 @@
    "score": 0.0,
    "value": null,
    "text": "IGEA device 24: The facts in force do not answer this question. (kind 'PIATTAFORMA ELEVATRICE' is not mapped to fixed or mobile lifting equipment). Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
-   "tokens": 8297,
+   "tokens": 8378,
    "cost_usd": 0.0
   },
   {
@@ -352,8 +347,8 @@
    "split": "heldout",
    "score": 1.0,
    "value": null,
-   "text": "The facts give an annual verification interval (P1Y, Allegato VII riga 15) for device 8, but no last or next verification date, so whether it is overdue on 2026-11-14 cannot be determined.",
-   "tokens": 9074,
+   "text": "The facts give an annual verification interval for this crane under Allegato VII (riga 15 row), but they contain no last or next verification date, so whether it is overdue on 2026-11-14 cannot be determined.",
+   "tokens": 9184,
    "cost_usd": 0.0
   },
   {
@@ -363,7 +358,7 @@
    "score": 0.0,
    "value": null,
    "text": "The facts in force do not answer this question. (the used facts do not carry the names or numbers of the answer)",
-   "tokens": 6646,
+   "tokens": 6526,
    "cost_usd": 0.0
   },
   {
@@ -372,8 +367,8 @@
    "split": "heldout",
    "score": 1.0,
    "value": "P6M",
-   "text": "The load nut's wear indicator must be checked every 6 months (MA STAR manual, p. 34), and also whenever the wear limit is reached.",
-   "tokens": 9228,
+   "text": "The wear indicator of the load nut must be checked every 6 months, and also whenever the wear limit is reached (MA STAR manual, p. 34).",
+   "tokens": 9170,
    "cost_usd": 0.0
   },
   {
@@ -382,8 +377,8 @@
    "split": "heldout",
    "score": 0.0,
    "value": null,
-   "text": "The facts do not say whether a structural verification certificate of residual life cycles is needed for IGEA device 8; they only give its annual verification interval under Annex VII, row 15.",
-   "tokens": 9546,
+   "text": "The facts do not say whether a structural verification certificate of residual life cycles is needed for IGEA device 8; they give only its annual verification interval.",
+   "tokens": 9665,
    "cost_usd": 0.0
   }
  ]

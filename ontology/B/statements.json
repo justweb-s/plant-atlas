@@ -4971,8 +4971,8 @@
    "source_version": "OJ L 165, 29.6.2023",
    "kind": "persistent",
    "in_force_from": null,
-   "in_force_to": null,
-   "status": "current",
+   "in_force_to": "2026-11-14",
+   "status": "closed",
    "asserted_by": "strategy_b",
    "conflicts_with": "",
    "confirmations": 0
@@ -4992,8 +4992,8 @@
    "source_version": "OJ L 165, 29.6.2023",
    "kind": "persistent",
    "in_force_from": null,
-   "in_force_to": null,
-   "status": "current",
+   "in_force_to": "2026-11-14",
+   "status": "closed",
    "asserted_by": "strategy_b",
    "conflicts_with": "",
    "confirmations": 0
@@ -5013,8 +5013,8 @@
    "source_version": "OJ L 165, 29.6.2023",
    "kind": "persistent",
    "in_force_from": null,
-   "in_force_to": null,
-   "status": "current",
+   "in_force_to": "2026-11-14",
+   "status": "closed",
    "asserted_by": "strategy_b",
    "conflicts_with": "",
    "confirmations": 0
@@ -5034,8 +5034,8 @@
    "source_version": "OJ L 165, 29.6.2023",
    "kind": "persistent",
    "in_force_from": null,
-   "in_force_to": null,
-   "status": "current",
+   "in_force_to": "2026-11-14",
+   "status": "closed",
    "asserted_by": "strategy_b",
    "conflicts_with": "",
    "confirmations": 0

@@ -174,7 +174,8 @@ def _docmap(store, impact_data: dict, questions: list, facts: dict, vb: dict) ->
              "pieces": known.get(k, {}).get("pieces"), "devices": known.get(k, {}).get("devices_affected", 0),
              "answers": used.get(k, [])}
             for k, n in sorted(count.items(), key=lambda kv: (order.get(kv[0], 99), -kv[1]))]
-    return {"docs": docs, "edges": list(edges.values())}
+    group = {src: key for key, (_, sources, _) in impact.DOCUMENTS.items() for src in sources}
+    return {"docs": docs, "edges": list(edges.values()), "group": group}
 
 
 def _load(path: Path):
@@ -497,7 +498,43 @@ select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; ba
 .drawer dt { color: var(--muted); } .drawer dd { margin: 0; overflow-wrap: anywhere; }
 .drawer .list { display: grid; gap: 6px; margin-top: 10px; }
 .drawer .list .card { max-width: none; flex: none; }
+[hidden] { display: none !important; }
+body { font-variant-numeric: tabular-nums; }
+button, a, input, select { transition: background-color .2s, border-color .2s, color .2s, box-shadow .2s, opacity .2s; }
+.band { background: color-mix(in srgb, var(--lc) 7%, var(--surface)); border-left: 3px solid var(--lc); border-radius: 10px; }
+.bname { border-left: 0; padding-left: 12px; }
+.card, .node, .more, .doc { box-shadow: none; }
+.btn { border-radius: 10px; border: 1px solid var(--accent); }
+.btn.ghost { background: transparent; border: 1px solid var(--line); }
+.btn.ghost:hover { border-color: var(--accent); }
+.left { position: relative; padding: 12px 14px 10px; }
+.lhead { align-items: center; }
+.lhead .seg { margin-left: auto; flex: none; border-radius: 999px; }
+.lhead .seg button { padding: 4px 12px; font-size: 12.5px; }
+.tabs { margin: 10px 12px 0; padding: 3px; gap: 2px; border-bottom: 0; background: var(--surface-2); border-radius: 999px; align-self: flex-start; max-width: calc(100% - 24px); }
+.tabs button { border-bottom: 0; border-radius: 999px; padding: 5px 13px; font-size: 13.5px; }
+.tabs button[aria-selected="true"] { background: var(--surface); color: var(--ink); }
+.nodes { flex-wrap: nowrap; justify-content: space-evenly; gap: 12px 18px; }
+.band[data-l="law"] .nodes, .band[data-l="manufacturer"] .nodes { flex-wrap: wrap; justify-content: flex-start; gap: 12px 30px; }
+.node { background: var(--surface); white-space: nowrap; }
+.band[data-l="law"] .nodes { gap: 10px 10px; padding-left: 0; }
+.band[data-l="law"] .node { padding: 4px 9px; font-size: 12.5px; }
+.node.gone { opacity: 1; background: var(--surface-2); }
+.node.hl { box-shadow: 0 0 0 3px color-mix(in srgb, var(--lc) 30%, transparent); }
+.node .num { top: -9px; right: -7px; }
+svg.links .dim { opacity: .12; }
+svg.links .pend { opacity: 0; }
+#dover { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 5; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; gap: 10px; align-items: center; box-shadow: 0 6px 24px rgba(0, 0, 0, .16); }
+#dover div { flex: 1; min-width: 0; display: grid; gap: 2px; font-size: 12px; color: var(--muted); }
+#dover strong { font-size: 14px; color: var(--ink); }
+#dover .w { color: var(--flag); font-weight: 600; }
+.why { flex: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 12px; line-height: 1.35; color: var(--muted); padding: 0 2px 9px; }
+.why b { color: var(--ink); font-weight: 600; }
+.why a { color: inherit; }
+.app.embed { padding: 0; }
+.app.embed .top, .app.embed .why { display: none; }
 @media (max-width: 900px) {
+  .why { display: none; }
   html, body { height: auto; }
   .app { height: auto; }
   .grid { grid-template-columns: 1fr; }
@@ -526,11 +563,13 @@ select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; ba
     <p>The documents around a plant's machines, read into checked facts that keep their quote, source and layer. Answers come only from those facts.</p>
     <span class="badge" id="badge">recorded answers</span>
   </header>
+  <div class="why" id="why"></div>
   <div class="grid">
     <section class="left" aria-label="The ontology">
-      <div class="lhead"><h2>The ontology</h2><div class="showing" id="showing"></div></div>
+      <div class="lhead"><h2>The ontology</h2><div class="showing" id="showing"></div><span class="seg" id="lefttoggle" aria-label="What the left panel shows"><button data-left="facts" aria-pressed="true">Facts</button><button data-left="docs" aria-pressed="false">Documents</button></span></div>
       <div class="bands" id="bands"><svg class="links" id="links" aria-hidden="true"></svg></div>
       <div class="legend"><span><i></i>link stored in the ontology</span><span><i class="d"></i>link derived by a rule or by the selection</span><span><span class="k"></span>kept, not in force</span></div>
+      <div id="dover" hidden></div>
     </section>
     <section class="right">
       <div class="tabs" role="tablist" id="tabs">
@@ -562,7 +601,7 @@ function human(v, p) {
   if (m) { const u = {Y: "year", M: "month", D: "day"}[m[2]]; const every = p === "verificationInterval" || p === "requiresPeriodicCheck"; return every ? (m[1] === "1" ? "every " + u : "every " + m[1] + " " + u + "s") : m[1] + " " + u + (m[1] === "1" ? "" : "s"); }
   return plainDate(v);
 }
-const S = {tab: "ask", odoc: "", timers: [], live: false, lang: "en", q: null, answer: null, scene: 0, variant: {}, change: "after", doc: "", playing: null, view: null};
+const S = {tab: "ask", left: "facts", odoc: "", timers: [], live: false, lang: "en", q: null, answer: null, scene: 0, variant: {}, change: "after", doc: "", playing: null, view: null};
 
 /* ---------- left column ---------- */
 function factCard(id, extra) {
@@ -602,7 +641,7 @@ function answerView(ans) {
     seen[id] = 1; cards.push(c);
   });
   const links = []; for (let i = 1; i < cards.length; i++) links.push({a: cards[i - 1].id, b: cards[i].id, kind: "derived"});
-  return {title: "<b>How Plant Atlas reached this answer</b>: " + cards.length + " facts across " + new Set(cards.map(c => c.band)).size + " layers", cards: cards, links: links, cap: 3, reveal: true, pulse: true};
+  return {title: "<b>How Plant Atlas reached this answer</b>: " + cards.length + " facts across " + new Set(cards.map(c => c.band)).size + " layers", cards: cards, links: links, cap: 3, reveal: true, pulse: true, answer: true};
 }
 function docView(doc) {
   const cards = [{id: "doc", band: doc.layer, s: doc.source, rel: "", val: doc.title, src: num(doc.pieces) + " passages", status: num(doc.facts_anchored) + " facts anchored", fact: null, plain: doc.if_changed}];
@@ -633,7 +672,12 @@ function wholeView() {
   if (!doc) return {title: "<b>The whole ontology</b>: each layer's documents, most used relations and status", whole: true, cards: [], links: []};
   return {title: "Document <b>" + esc(S.odoc) + "</b>: " + esc(doc.title) + " \u00b7 example facts in force", whole: true, cards: doc.ex.map(i => factCard(i)).filter(Boolean), links: []};
 }
+function leftMode() { return S.tab === "documents" ? "docs" : S.left; }
+function setToggle() { document.querySelectorAll("#lefttoggle button").forEach(b => b.setAttribute("aria-pressed", b.dataset.left === leftMode())); }
 function showLeft(view) {
+  S.factView = view; setToggle();
+  if (leftMode() === "docs") { showDocMap(); return; }
+  $("#dover").hidden = true;
   S.view = view; $("#showing").innerHTML = view.title;
   const bands = $("#bands"); bands.querySelectorAll(".band").forEach(b => b.remove());
   D.layers.forEach(l => {
@@ -704,7 +748,9 @@ function openMore(layer) {
   $("#drawer").hidden = false;
 }
 document.addEventListener("click", e => {
-  const nd = e.target.closest("[data-node]"); if (nd) { S.dm.sel = nd.dataset.node; renderDocuments(); return; }
+  const dmo = e.target.closest("[data-dmo]"); if (dmo) { const k = S.dm.pick; if (dmo.dataset.dmo === "close") S.dm.pick = null; else if (S.dm.off.has(k)) S.dm.off.delete(k); else S.dm.off.add(k); showDocMap(); return; }
+  const lt = e.target.closest("[data-left]"); if (lt) { S.left = lt.dataset.left; setToggle(); if (S.tab !== "documents") { if (S.left === "docs") showDocMap(); else showLeft(S.factView || sceneView(0, 0)); } return; }
+  const nd = e.target.closest("[data-node]"); if (nd) { S.dm.sel = nd.dataset.node; if (S.tab === "documents") renderDocuments(); else { S.dm.pick = S.dm.sel; showDocMap(); } return; }
   const t = e.target.closest("[data-card],[data-more],[data-close],[data-doc],[data-moredocs]");
   if (!t) { if (!$("#drawer").hidden && !e.target.closest("#drawer") && !e.target.closest("[data-step]")) $("#drawer").hidden = true; return; }
   if (t.dataset.close != null) { $("#drawer").hidden = true; return; }
@@ -805,23 +851,42 @@ const EDGE_WORD = {cites: "cites", corrects: "corrects", prevails: "prevails ove
 function reduced() { return !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); }
 function showDocMap() {
   S.timers.forEach(clearTimeout); S.timers = [];
-  const prev = S.dm.prev, off = S.dm.off, sel = S.dm.sel;
+  setToggle(); const inTab = S.tab === "documents";
+  const prev = S.dm.prev, off = S.dm.off, sel = inTab ? S.dm.sel : (S.dm.pick || null); const hl = inTab ? [] : pathDocs();
   const bands = $("#bands"); bands.querySelectorAll(".band").forEach(b => b.remove()); bands.classList.remove("fadein"); $("#links").classList.remove("fadein");
   D.layers.forEach(l => {
     const el = document.createElement("div"); el.className = "band"; el.dataset.l = l.name;
     el.innerHTML = "<div class='bname'><strong>" + esc(l.label) + "</strong><span>" + esc(l.words) + "</span><em>" + num(DM.docs.filter(d => d.layer === l.name && !off.has(d.key)).reduce((n, d) => n + d.n, 0)) + " facts in force</em></div><div class='nodes'>" +
-      DM.docs.filter(d => d.layer === l.name).map(d => "<button class='node" + (prev.has(d.key) ? " gone" : "") + (d.key === sel ? " sel" : "") + "' data-node=\"" + esc(d.key) + "\" data-card=\"" + esc(d.key) + "\" title=\"" + esc(d.title) + "\">" + esc(d.name) + "<b>" + num(d.n) + "</b></button>").join("") + "</div>";
+      DM.docs.filter(d => d.layer === l.name).map(d => "<button class='node" + (prev.has(d.key) ? " gone" : "") + (d.key === sel ? " sel" : "") + (hl.indexOf(d.key) >= 0 ? " hl" : "") + "' data-node=\"" + esc(d.key) + "\" data-card=\"" + esc(d.key) + "\" title=\"" + esc(d.title) + "\">" + esc(d.name) + "<b>" + num(d.n) + "</b>" + (hl.indexOf(d.key) >= 0 ? "<span class='num'>" + (hl.indexOf(d.key) + 1) + "</span>" : "") + "</button>").join("") + "</div>";
     bands.appendChild(el);
   });
-  S.view = {cards: [], links: DM.edges.map(e => ({a: e.a, b: e.b, kind: e.kind === "cites" || e.kind === "applied" ? "derived" : "stored", w: (1.2 + Math.min(3.6, Math.sqrt(e.n) * .7)).toFixed(1), text: EDGE_WORD[e.kind] + " \u00b7 " + e.n, hidden: prev.has(e.a) || prev.has(e.b), dim: e.a !== sel && e.b !== sel}))};
+  S.view = {cards: [], links: DM.edges.map(e => ({a: e.a, b: e.b, kind: e.kind === "cites" || e.kind === "applied" ? "derived" : "stored", w: (1.2 + Math.min(3.6, Math.sqrt(e.n) * .7)).toFixed(1), text: e.a === sel || e.b === sel ? EDGE_WORD[e.kind] + " \u00b7 " + e.n : "", hidden: prev.has(e.a) || prev.has(e.b), dim: (sel || hl.length) ? (e.a !== sel && e.b !== sel) : false}))};
+  for (let i = 1; i < hl.length; i++) S.view.links.push({a: hl[i - 1], b: hl[i], kind: "derived", w: 2.4, hidden: prev.has(hl[i - 1]) || prev.has(hl[i])});
   const on = DM.docs.filter(d => !off.has(d.key));
-  $("#showing").innerHTML = "<b>The document map</b>: " + on.length + " documents, " + num(on.reduce((n, d) => n + d.n, 0)) + " facts in force" + (off.size ? " \u00b7 " + off.size + " withdrawn and kept" : "");
+  renderOver();
+  $("#showing").innerHTML = hl.length ? "<b>The agent's path through the documents</b>: " + hl.length + " documents, numbered in the order the agent used them" : "<b>The document map</b>: " + on.length + " documents, " + num(on.reduce((n, d) => n + d.n, 0)) + " facts in force" + (off.size ? " \u00b7 " + off.size + " withdrawn and kept" : "");
   requestAnimationFrame(() => { drawLinks(false); requestAnimationFrame(() => {
     document.querySelectorAll("#bands .node").forEach(n => n.classList.toggle("gone", off.has(n.dataset.node)));
     document.querySelectorAll("#links [data-a]").forEach(p => { const was = p.classList.contains("pend"); const now = off.has(p.dataset.a) || off.has(p.dataset.b); if (now) p.classList.add("pend"); else if (was) { if (reduced()) p.classList.remove("pend"); else S.timers.push(setTimeout(() => drawIn(p), 350)); } });
     S.view.links.forEach(k => { k.hidden = off.has(k.a) || off.has(k.b); });
     S.dm.prev = new Set(off);
   }); });
+}
+function pathDocs() {
+  const v = S.factView; if (!v || !v.answer) return []; const out = [];
+  v.cards.slice().sort((a, b) => a.num - b.num).forEach(c => { const src = c.fact && c.fact.d; const k = DM.group[src] || src; if (DOC[k] && out.indexOf(k) < 0) out.push(k); });
+  return out;
+}
+function renderOver() {
+  const o = $("#dover"); const d = S.tab !== "documents" && S.dm.pick ? DOC[S.dm.pick] : null;
+  if (!d) { o.hidden = true; return; }
+  const off = S.dm.off.has(d.key); const inc = DM.edges.filter(e => e.b === d.key), out = DM.edges.filter(e => e.a === d.key);
+  const M = inc.filter(e => e.kind === "cites" && !S.dm.off.has(e.a)).reduce((n, e) => n + e.n, 0);
+  const links = out.map(e => EDGE_WORD[e.kind] + " " + DOC[e.b].name + " (" + e.n + ")").concat(inc.map(e => DOC[e.a].name + " " + EDGE_WORD[e.kind] + " it (" + e.n + ")"));
+  o.innerHTML = "<div><strong>" + esc(d.title) + "</strong><span>" + esc(LAYER[d.layer].label) + " \u00b7 " + num(d.n) + " facts in force" + (off ? " when present" : "") + (links.length ? " \u00b7 " + esc(links.join(", ")) : "") + "</span>" +
+    (off ? "<span class='w'>Without it: " + num(d.n) + " facts leave the ontology (kept as withdrawn, not deleted), " + num(M) + " facts that cite it are flagged for review, " + num(d.devices) + " lifting devices lose their result.</span>" : "") +
+    "</div><button class='btn' data-dmo='toggle'>" + (off ? "Put it back" : "Remove") + "</button><button class='btn ghost' data-dmo='close'>Close</button>";
+  o.hidden = false;
 }
 function countUp() {
   const go = S.dm.anim && !reduced(); S.dm.anim = false;
@@ -917,12 +982,12 @@ function play() {
 /* ---------- tabs and events ---------- */
 function setTab(tab, keepLeft) {
   S.tab = tab; document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
-  if (history.replaceState) history.replaceState(null, "", "#" + tab);
+  if (history.replaceState) history.replaceState(null, "", "#" + tab + (S.left === "docs" && tab !== "documents" ? "&docs" : "") + (S.embed ? "&embed" : ""));
   const P = $("#panel"); P.scrollTop = 0; P.classList.remove("fadein"); P.getBoundingClientRect(); P.classList.add("fadein");
   if (tab === "ontology") renderOntology();
   else if (tab === "documents") renderDocuments();
   else if (tab === "ask") { renderAsk(); if (!keepLeft) { if (S.answer && S.answer.B && S.answer.B.steps && S.answer.B.steps.length && S.asked) showLeft(answerView(S.answer.B)); else showLeft(sceneView(0, 0)); } }
-  else if (tab === "score") { renderScore(); if (!S.view) showLeft(sceneView(0, 0)); }
+  else if (tab === "score") { renderScore(); showLeft(S.factView || sceneView(0, 0)); }
   else if (tab === "changes") renderChanges();
   else renderScenes();
 }
@@ -949,8 +1014,15 @@ $("#panel").addEventListener("change", e => { if (e.target.id === "docpick") { S
 (function start() {
   const first = D.questions.find(q => q.steps && q.steps.length >= 3 && q.B && q.B.score >= 0.999) || D.questions.find(q => q.steps) || D.questions[0];
   S.q = first; S.text = first.en; S.answer = recorded(first); S.asked = true;
-  const tab = (location.hash || "").slice(1);
-  setTab(["documents", "ontology", "ask", "score", "changes", "scenes"].indexOf(tab) >= 0 ? tab : DEFAULT_TAB);
+  const tokens = new Set(((location.hash || "") + "&" + (location.search || "")).split(/[#&?=,]/).filter(Boolean));
+  if (tokens.has("docs")) S.left = "docs";
+  if (tokens.has("embed")) { S.embed = true; document.querySelector(".app").classList.add("embed"); }
+  const W = D.whole.totals, H = D.health;
+  $("#why").innerHTML = "<span><b>Predictable:</b> the agent follows typed relations between checked facts (<b>" + W.relations + "</b> relations in the schema, <b>" + num(W.in_force) + "</b> facts in force)</span>" +
+    "<span><b>Auditable:</b> every step of an answer shows the sentence it rests on (<b>" + num(H.quote_found) + " of " + num(H.checked) + "</b> facts still found word for word in their documents)</span>" +
+    "<span><b>Portable:</b> the ontology is a standard file any agent can read (Turtle with SHACL shapes: <a href='ontology.ttl'>ontology.ttl</a>)</span>";
+  const tab = ["documents", "ontology", "ask", "score", "changes", "scenes"].find(t => tokens.has(t));
+  setTab(tab || DEFAULT_TAB);
   if (/^https?:$/.test(location.protocol)) {
     const ctl = new AbortController(); setTimeout(() => ctl.abort(), 2500);
     fetch("/api/status", {signal: ctl.signal}).then(r => r.ok ? r.json() : Promise.reject()).then(j => {
