@@ -55,22 +55,17 @@ export default function Ask({ today }: { today?: string }) {
     const a: Asked = { label: q ? q.question_it : question, question, cq: q?.id ?? null, expected: q?.expected, as_of };
     setAsked(a);
     setResult("loading");
-    setOthers(null);
+    setOthers({ rag: "loading", A: "loading" });
+    for (const mode of ["rag", "A"]) {
+      post<AnswerResponse>("/api/answer", { question, mode, as_of, cq: a.cq })
+        .catch((): AnswerResponse => ({ mode, error: { state: "not_cached", detail: "errore" } }))
+        .then((r) => setOthers((prev) => ({ ...(prev ?? {}), [mode]: r })));
+    }
     setTimeout(() => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
     try {
       setResult(await post<AnswerResponse>("/api/answer", { question, mode: "B", as_of, cq: a.cq, lang: "it" }));
     } catch {
       setResult({ mode: "B", error: { state: "not_cached", detail: "errore" } });
-    }
-  }
-
-  async function compare() {
-    if (!asked) return;
-    setOthers({ rag: "loading", A: "loading" });
-    for (const mode of ["rag", "A"]) {
-      post<AnswerResponse>("/api/answer", { question: asked.question, mode, as_of: asked.as_of, cq: asked.cq })
-        .catch((): AnswerResponse => ({ mode, error: { state: "not_cached", detail: "errore" } }))
-        .then((r) => setOthers((prev) => ({ ...(prev ?? {}), [mode]: r })));
     }
   }
 
@@ -124,7 +119,7 @@ export default function Ask({ today }: { today?: string }) {
 
       <div ref={resultRef} className="scroll-mt-24">
         {asked && result && (
-          <AnswerPanel asked={asked} result={result} others={others} onCompare={compare} today={today} />
+          <AnswerPanel asked={asked} result={result} others={others} today={today} />
         )}
       </div>
 
@@ -169,13 +164,11 @@ function AnswerPanel({
   asked,
   result,
   others,
-  onCompare,
   today,
 }: {
   asked: Asked;
   result: Result;
   others: Record<string, Result> | null;
-  onCompare: () => void;
   today?: string;
 }) {
   const [all, setAll] = useState(false);
@@ -297,41 +290,52 @@ function AnswerPanel({
         </div>
       )}
 
-      {result !== "loading" && (
-        <div className="border-t border-border bg-surface-2 px-5 py-4 sm:px-7">
-          {!others ? (
-            <button onClick={onCompare} className="text-sm font-semibold text-accent">
-              Confronta con gli altri metodi →
-            </button>
-          ) : (
-            <div className="grid gap-3 sm:grid-cols-2">
-              {[
-                ["rag", "Ricerca semplice nei documenti"],
-                ["A", "Estrazione libera, senza schema"],
-              ].map(([key, label]) => {
-                const r = others[key];
-                return (
-                  <div key={key} className="rounded-xl border border-border bg-surface p-3 text-sm">
+      <div className="border-t border-border bg-surface-2 px-5 py-5 sm:px-7">
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+          La stessa domanda, con gli altri metodi
+        </p>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          {[
+            ["rag", "Ricerca semplice nei documenti", "legge i passaggi più vicini alla domanda"],
+            ["A", "Estrazione libera, senza schema", "fatti estratti senza il controllo della citazione"],
+          ].map(([key, label, hint]) => {
+            const r = others?.[key];
+            const a = r && r !== "loading" ? r.answer : undefined;
+            const isUnknown = a ? a.value === null : false;
+            return (
+              <div key={key} className="rounded-xl border border-border bg-surface p-4 text-sm">
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <div>
                     <p className="font-semibold">{label}</p>
-                    {(!r || r === "loading") && <p className="mt-1 text-muted">…</p>}
-                    {r && r !== "loading" && r.error && <p className="mt-1 text-muted">{why(r.error)}</p>}
-                    {r && r !== "loading" && r.answer && (
-                      <p className="mt-1">
-                        {r.answer.value === null ? "Non lo so." : r.answer.text}
-                        {r.score !== undefined && (
-                          <span className={`ml-2 font-semibold ${r.score === 1 ? "text-ok" : "text-warn"}`}>
-                            {r.score === 1 ? "giusta" : r.score > 0 ? "in parte" : "sbagliata"}
-                          </span>
-                        )}
-                      </p>
-                    )}
+                    <p className="text-xs text-muted">{hint}</p>
                   </div>
-                );
-              })}
-            </div>
-          )}
+                  {a && r && r !== "loading" && r.score !== undefined && (
+                    <span
+                      className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                        r.score === 1
+                          ? "bg-ok-soft text-ok"
+                          : isUnknown
+                            ? "bg-surface-2 text-muted"
+                            : "bg-warn-soft text-warn"
+                      }`}
+                    >
+                      {r.score === 1 ? "giusta" : isUnknown ? "non lo sa" : r.score > 0 ? "giusta in parte" : "sbagliata"}
+                    </span>
+                  )}
+                </div>
+                {(!r || r === "loading") && <p className="mt-2 text-muted">Sto chiedendo…</p>}
+                {r && r !== "loading" && r.error && <p className="mt-2 text-muted">{why(r.error)}</p>}
+                {a && (
+                  <>
+                    <p className="mt-2 text-lg font-semibold">{isUnknown ? "Non lo so." : show(a.value)}</p>
+                    {a.text && <p className="mt-1 leading-relaxed text-muted">{a.text}</p>}
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
-      )}
+      </div>
     </article>
   );
 }
