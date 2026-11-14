@@ -24,3 +24,8 @@ def test_answer_is_scored_against_the_gold():
 
 def test_unknown_mode_is_refused():
     assert client.post("/api/answer", json={"question": "x", "mode": "Z"}).status_code == 400
+
+
+def test_machines_carry_their_source():
+    ms = client.get("/api/machines").json()["machines"]
+    assert len(ms) == 4 and all(f["quote"] and f["source"]["url"] for m in ms for f in m["facts"])

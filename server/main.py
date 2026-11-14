@@ -51,6 +51,16 @@ def questions():
              "question_it": c["question_it"], "expected": c["answer_text"]} for c in CQS]
 
 
+@app.get("/api/machines")
+def machines():
+    """The real machines of the cell: every fact with the words of its manual and a link to it."""
+    data = json.loads((api.ROOT / "data" / "machines" / "machines.json").read_text(encoding="utf-8"))
+    docs = {d["id"]: {k: d[k] for k in ("title", "manufacturer", "url", "pages")} for d in data["documents"]}
+    return {"machines": [{**m, "facts": [{**f, "source": docs.get(f["doc"])} for f in m["facts"]]}
+                         for m in data["machines"]],
+            "not_yet": data["not_yet"]}
+
+
 class Ask(BaseModel):
     question: str
     mode: str = "B"               # "B", "A" or "rag"
