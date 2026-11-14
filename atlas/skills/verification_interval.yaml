@@ -1,0 +1,36 @@
+# A procedural graph. Written as JSON, which is valid YAML: any YAML or JSON reader loads it.
+{
+ "name": "verification_interval",
+ "description": "How often one lifting device of the plant list must be verified on a day (the Annex VII rule).",
+ "enabled": true,
+ "priority": 1,
+ "when": {"relations": ["verificationInterval", "deviceKind", "capacityKg", "yearBuilt", "requiresPeriodicCheck", "hasTimeLimit"], "cues": "how often|every how many|how frequent|periodicit|interval|frequen", "needs": "position"},
+ "inputs": ["question", "day", "position of the device in the plant list"],
+ "nodes": [
+  {"id": "device", "kind": "lookup", "does": "device facts of the position asked: kind, capacity, year, sector", "fn": "lookup_device"},
+  {"id": "annex_rows", "kind": "lookup", "does": "Annex VII rows for lifting equipment, read from their facts", "fn": "lookup_annex_rows"},
+  {"id": "fixed_or_mobile", "kind": "script", "does": "map the device kind to fixed or mobile (rules.KIND_TYPE)", "fn": "rule_kind"},
+  {"id": "capacity", "kind": "script", "does": "capacity above the limit written in the rows (200 kg)", "fn": "rule_capacity"},
+  {"id": "sector", "kind": "script", "does": "sector of the site: named in a row, or regular use", "fn": "rule_sector"},
+  {"id": "age", "kind": "script", "does": "age of the device on the date, against 10 years", "fn": "rule_age"},
+  {"id": "row", "kind": "script", "does": "the single Annex VII row that matches (rules.verification_interval)", "fn": "rule_row"},
+  {"id": "answer", "kind": "answer", "does": "the interval of the row, with the reasons", "fn": "answer_interval"},
+  {"id": "unknown", "kind": "unknown", "does": "a fact is missing or the kind is not mapped: no answer from this graph"}
+ ],
+ "edges": [
+  {"from": "device", "to": "annex_rows", "when": "found"},
+  {"from": "device", "to": "unknown", "when": "none"},
+  {"from": "annex_rows", "to": "fixed_or_mobile", "when": "found"},
+  {"from": "annex_rows", "to": "unknown", "when": "none"},
+  {"from": "fixed_or_mobile", "to": "capacity", "when": "mapped"},
+  {"from": "fixed_or_mobile", "to": "unknown", "when": "not mapped"},
+  {"from": "capacity", "to": "sector", "when": "above the limit"},
+  {"from": "capacity", "to": "unknown", "when": "missing or below"},
+  {"from": "sector", "to": "age", "when": "known"},
+  {"from": "sector", "to": "unknown", "when": "missing"},
+  {"from": "age", "to": "row", "when": "decided"},
+  {"from": "age", "to": "unknown", "when": "missing or on the edge"},
+  {"from": "row", "to": "answer", "when": "one row"},
+  {"from": "row", "to": "unknown", "when": "no single row"}
+ ]
+}

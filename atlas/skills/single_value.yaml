@@ -1,0 +1,25 @@
+# A procedural graph. Written as JSON, which is valid YAML: any YAML or JSON reader loads it.
+{
+ "name": "single_value",
+ "description": "One duration or quantity that one relation gives for a subject; two sources that disagree are settled by authority.",
+ "enabled": true,
+ "priority": 3,
+ "when": {"relations": ["retentionPeriod", "hasTimeLimit", "hasReach", "requiresPeriodicCheck", "hasMaxPayload", "hasStoppingLimit", "protectiveFieldRange"], "cues": "how long|how often|how much|how many|within what|what is the|prevails|every how"},
+ "inputs": ["question", "day"],
+ "nodes": [
+  {"id": "relation_facts", "kind": "lookup", "does": "facts of the relation asked, matched to the subject", "fn": "lookup_relation"},
+  {"id": "choose", "kind": "script", "does": "choose by subject match, place and layer rank; stop if two different values fit equally", "fn": "choose_subject"},
+  {"id": "settle", "kind": "script", "does": "if a source in conflict lost to this fact, settle by authority and keep the loser in the trace", "fn": "settle_conflict"},
+  {"id": "answer", "kind": "answer", "does": "the value, with its source", "fn": "answer_value"},
+  {"id": "unknown", "kind": "unknown", "does": "nothing matches the exact subject, or the facts do not single out one value"}
+ ],
+ "edges": [
+  {"from": "relation_facts", "to": "choose", "when": "found"},
+  {"from": "relation_facts", "to": "unknown", "when": "none"},
+  {"from": "choose", "to": "settle", "when": "one subject"},
+  {"from": "choose", "to": "unknown", "when": "no exact subject"},
+  {"from": "choose", "to": "unknown", "when": "ambiguous"},
+  {"from": "settle", "to": "answer", "when": "settled by authority"},
+  {"from": "settle", "to": "answer", "when": "no conflict"}
+ ]
+}

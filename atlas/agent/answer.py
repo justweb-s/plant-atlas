@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 from datetime import date
 
@@ -399,6 +400,7 @@ Return JSON only:
 Relations:
 """
 MATCH_ALL, MATCH_ONE = 12, 5
+_QUERY_OUT: dict[str, dict] = {}   # the last relation query asked, by question and relation list
 OLD_ACT, NEW_ACT = ("DIR",), ("REG", "CORR")
 
 
@@ -410,8 +412,12 @@ def graph_query(question: str, facts: list[Statement]) -> tuple[list[Statement],
 
     present = {s.predicate for s in facts}
     described = "\n".join(f"- {name}: {RELATIONS[name][2] if name in RELATIONS else ''}" for name in sorted(present))
-    out = llm.chat([{"role": "system", "content": QUERY + described}, {"role": "user", "content": question}],
-                   temperature=0, max_tokens=400)
+    memo = question + "\n" + described   # the skill router and the model path share this one call
+    out = _QUERY_OUT.get(memo) or llm.chat([{"role": "system", "content": QUERY + described},
+                                             {"role": "user", "content": question}], temperature=0, max_tokens=400)
+    if os.getenv("ATLAS_SKILLS", "1") != "0":
+        _QUERY_OUT.clear()
+        _QUERY_OUT[memo] = out
     found = re.search(r"\{.*\}", out.get("text") or "", re.DOTALL)
     try:
         query = json.loads(found.group(0)) if found else {}
@@ -627,6 +633,12 @@ def typed(kind: str, value):
 def answer(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
     day = day or date.today()
     facts = [s for s in store.as_of(day) if s.status == "current"]
+    if os.getenv("ATLAS_SKILLS", "1") != "0" and len(facts) > TOP and lang == "en":
+        from atlas.agent import skills   # procedural graphs first; unknown or no fit falls through, unchanged
+
+        hit = skills.try_answer(question, store, day, mode)
+        if hit is not None:
+            return hit
     ranked = nearest(question, facts, top=max(TOP, len(facts) - 1)) if len(facts) > TOP else list(facts)
     chosen = ranked[:TOP]
     chosen = chosen + related(question, ranked, chosen)

@@ -88,16 +88,16 @@
    "heldout": {
     "n": 12,
     "correct": 4,
-    "unknown": 5,
-    "wrong": 3,
-    "mean": 0.403
+    "unknown": 4,
+    "wrong": 4,
+    "mean": 0.399
    },
    "covered_by_b": {
     "n": 31,
     "correct": 19,
-    "unknown": 5,
-    "wrong": 7,
-    "mean": 0.712
+    "unknown": 4,
+    "wrong": 8,
+    "mean": 0.71
    },
    "answered": 34,
    "of": 34
@@ -262,7 +262,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": 0.0,
-   "B": 0.333
+   "B": 0.286
   },
   {
    "id": "CQ17",

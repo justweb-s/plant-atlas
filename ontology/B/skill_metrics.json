@@ -1,0 +1,37 @@
+{
+ "questions": 22,
+ "answered_by_skill": 6,
+ "model_calls_with": 70,
+ "model_calls_without": 88,
+ "tokens_with": 192996,
+ "tokens_without": 246687,
+ "by_skill": {
+  "single_value": {
+   "answered": 2,
+   "model_calls_with": 2,
+   "model_calls_without": 8,
+   "tokens_with": 3030,
+   "tokens_without": 20964
+  },
+  "value_on_date": {
+   "answered": 2,
+   "model_calls_with": 2,
+   "model_calls_without": 8,
+   "tokens_with": 2960,
+   "tokens_without": 20994
+  },
+  "verification_interval": {
+   "answered": 2,
+   "model_calls_with": 2,
+   "model_calls_without": 8,
+   "tokens_with": 3226,
+   "tokens_without": 20949
+  }
+ },
+ "score_with": 17.227,
+ "score_without": 17.227,
+ "disabled_skills": [
+  "who_does"
+ ],
+ "notes": "Design questions only. Calls are chat calls through atlas.llm.chat, cached calls counted; embedding calls are not counted. Tokens are the usage recorded with each call. Wall time is left out: both paths ran from the cache."
+}

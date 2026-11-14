@@ -1,0 +1,25 @@
+# A procedural graph. Written as JSON, which is valid YAML: any YAML or JSON reader loads it.
+{
+ "name": "value_on_date",
+ "description": "The date a dated relation gives for a subject, or whether something holds on the day the question names.",
+ "enabled": true,
+ "priority": 2,
+ "when": {"relations": ["appliesFrom", "repealedFrom", "placingAllowedUntil"], "cues": "from which date|from what date|what date|which date|\\bwhen\\b|until when|\\bon\\b.*\\b(can|may|is|does|will)\\b"},
+ "inputs": ["question", "day", "dates written in the question"],
+ "nodes": [
+  {"id": "dated_facts", "kind": "lookup", "does": "dated facts of the relation asked, for the subject asked", "fn": "lookup_dated"},
+  {"id": "in_force", "kind": "script", "does": "the fact in force; a closed fact it corrected is kept in the trace", "fn": "pick_in_force"},
+  {"id": "compare", "kind": "script", "does": "give the date, or compare it with the day in the question", "fn": "compare_date"},
+  {"id": "answer", "kind": "answer", "does": "the date, or yes / no with the two days compared", "fn": "answer_dated"},
+  {"id": "unknown", "kind": "unknown", "does": "no dated fact for the exact subject, or the comparison is not decidable in code"}
+ ],
+ "edges": [
+  {"from": "dated_facts", "to": "in_force", "when": "found"},
+  {"from": "dated_facts", "to": "unknown", "when": "none"},
+  {"from": "in_force", "to": "compare", "when": "one in force"},
+  {"from": "in_force", "to": "unknown", "when": "ambiguous"},
+  {"from": "compare", "to": "answer", "when": "date asked"},
+  {"from": "compare", "to": "answer", "when": "day compared"},
+  {"from": "compare", "to": "unknown", "when": "undecided"}
+ ]
+}

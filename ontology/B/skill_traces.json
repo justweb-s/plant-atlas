@@ -1,0 +1,650 @@
+{
+ "CQ08": {
+  "question": "For how long must the manufacturer keep the technical documentation and the EU declaration of conformity?",
+  "skill": "single_value",
+  "value": "P10Y",
+  "trace": {
+   "skill": "single_value",
+   "nodes": [
+    {
+     "id": "relation_facts",
+     "kind": "lookup",
+     "does": "facts of the relation asked, matched to the subject",
+     "status": "run",
+     "output": "10 facts of retentionPeriod",
+     "fact_ids": [
+      "st-0071",
+      "st-0129",
+      "st-0104",
+      "st-1583",
+      "st-0939",
+      "st-0095",
+      "st-0096",
+      "st-0150",
+      "st-0465",
+      "st-0466"
+     ],
+     "ms": 0.37
+    },
+    {
+     "id": "choose",
+     "kind": "script",
+     "does": "choose by subject match, place and layer rank; stop if two different values fit equally",
+     "status": "run",
+     "output": "technical documentation and EU declaration of conformity = P10Y (REG, Art. 10(3), layer ?, rank 50)",
+     "fact_ids": [
+      "st-0071"
+     ],
+     "ms": 1.9
+    },
+    {
+     "id": "settle",
+     "kind": "script",
+     "does": "if a source in conflict lost to this fact, settle by authority and keep the loser in the trace",
+     "status": "run",
+     "output": "no source in force disagrees",
+     "fact_ids": [],
+     "ms": 0.37
+    },
+    {
+     "id": "answer",
+     "kind": "answer",
+     "does": "the value, with its source",
+     "status": "run",
+     "output": "P10Y",
+     "fact_ids": [
+      "st-0071"
+     ],
+     "ms": 0.04
+    },
+    {
+     "id": "unknown",
+     "kind": "unknown",
+     "does": "nothing matches the exact subject, or the facts do not single out one value",
+     "status": "skipped",
+     "output": "",
+     "fact_ids": [],
+     "ms": 0.0
+    }
+   ],
+   "edges_taken": [
+    [
+     "relation_facts",
+     "choose",
+     "found"
+    ],
+    [
+     "choose",
+     "settle",
+     "one subject"
+    ],
+    [
+     "settle",
+     "answer",
+     "no conflict"
+    ]
+   ],
+   "model_calls": 0,
+   "ms": 3.22
+  }
+ },
+ "CQ09": {
+  "question": "From which date does Regulation (EU) 2023/1230 apply?",
+  "skill": "value_on_date",
+  "value": "2027-01-20",
+  "trace": {
+   "skill": "value_on_date",
+   "nodes": [
+    {
+     "id": "dated_facts",
+     "kind": "lookup",
+     "does": "dated facts of the relation asked, for the subject asked",
+     "status": "run",
+     "output": "4 dated facts of appliesFrom",
+     "fact_ids": [
+      "st-1598",
+      "st-1597",
+      "st-1594",
+      "st-1601"
+     ],
+     "ms": 0.06
+    },
+    {
+     "id": "in_force",
+     "kind": "script",
+     "does": "the fact in force; a closed fact it corrected is kept in the trace",
+     "status": "run",
+     "output": "Regulation appliesFrom 2027-01-20 (CORR, Corrigendum, point 10); it replaced 2027-01-14 (REG, Art. 54), now closed",
+     "fact_ids": [
+      "st-1598",
+      "st-0371"
+     ],
+     "ms": 1.02
+    },
+    {
+     "id": "compare",
+     "kind": "script",
+     "does": "give the date, or compare it with the day in the question",
+     "status": "run",
+     "output": "the date itself: 2027-01-20",
+     "fact_ids": [
+      "st-1598"
+     ],
+     "ms": 0.04
+    },
+    {
+     "id": "answer",
+     "kind": "answer",
+     "does": "the date, or yes / no with the two days compared",
+     "status": "run",
+     "output": "2027-01-20",
+     "fact_ids": [
+      "st-1598"
+     ],
+     "ms": 0.48
+    },
+    {
+     "id": "unknown",
+     "kind": "unknown",
+     "does": "no dated fact for the exact subject, or the comparison is not decidable in code",
+     "status": "skipped",
+     "output": "",
+     "fact_ids": [],
+     "ms": 0.0
+    }
+   ],
+   "edges_taken": [
+    [
+     "dated_facts",
+     "in_force",
+     "found"
+    ],
+    [
+     "in_force",
+     "compare",
+     "one in force"
+    ],
+    [
+     "compare",
+     "answer",
+     "date asked"
+    ]
+   ],
+   "model_calls": 0,
+   "ms": 1.66
+  }
+ },
+ "CQ10": {
+  "question": "On 16 January 2027, can machinery conforming to Directive 2006/42/EC still be placed on the market?",
+  "skill": "value_on_date",
+  "value": true,
+  "trace": {
+   "skill": "value_on_date",
+   "nodes": [
+    {
+     "id": "dated_facts",
+     "kind": "lookup",
+     "does": "dated facts of the relation asked, for the subject asked",
+     "status": "run",
+     "output": "2 dated facts of placingAllowedUntil, repealedFrom",
+     "fact_ids": [
+      "st-1595",
+      "st-1044"
+     ],
+     "ms": 0.04
+    },
+    {
+     "id": "in_force",
+     "kind": "script",
+     "does": "the fact in force; a closed fact it corrected is kept in the trace",
+     "status": "run",
+     "output": "Directive 2006/42/EC repealedFrom 2027-01-20 (CORR, Corrigendum, point 5); it replaced 2027-01-14 (REG, Art. 51(2)), now closed",
+     "fact_ids": [
+      "st-1595",
+      "st-0361"
+     ],
+     "ms": 0.78
+    },
+    {
+     "id": "compare",
+     "kind": "script",
+     "does": "give the date, or compare it with the day in the question",
+     "status": "run",
+     "output": "2027-01-16 is 4 days before 2027-01-20: True",
+     "fact_ids": [
+      "st-1595"
+     ],
+     "ms": 0.07
+    },
+    {
+     "id": "answer",
+     "kind": "answer",
+     "does": "the date, or yes / no with the two days compared",
+     "status": "run",
+     "output": "True",
+     "fact_ids": [
+      "st-1595"
+     ],
+     "ms": 0.03
+    },
+    {
+     "id": "unknown",
+     "kind": "unknown",
+     "does": "no dated fact for the exact subject, or the comparison is not decidable in code",
+     "status": "skipped",
+     "output": "",
+     "fact_ids": [],
+     "ms": 0.0
+    }
+   ],
+   "edges_taken": [
+    [
+     "dated_facts",
+     "in_force",
+     "found"
+    ],
+    [
+     "in_force",
+     "compare",
+     "one in force"
+    ],
+    [
+     "compare",
+     "answer",
+     "day compared"
+    ]
+   ],
+   "model_calls": 0,
+   "ms": 0.98
+  }
+ },
+ "CQ21": {
+  "question": "How often must the DEMAG overhead travelling crane at position 8 of the IGEA lifting equipment list be verified?",
+  "skill": "verification_interval",
+  "value": "P1Y",
+  "trace": {
+   "skill": "verification_interval",
+   "nodes": [
+    {
+     "id": "device",
+     "kind": "lookup",
+     "does": "device facts of the position asked: kind, capacity, year, sector",
+     "status": "run",
+     "output": "device 8: kind GRU A PONTE SCORREVOLE, capacity_kg 5000, year_built 1985, sector estrattivo",
+     "fact_ids": [
+      "plant_igea-d08-kind",
+      "plant_igea-d08-capacity",
+      "plant_igea-d08-year",
+      "plant_igea-site-sector"
+     ],
+     "ms": 4.69
+    },
+    {
+     "id": "annex_rows",
+     "kind": "lookup",
+     "does": "Annex VII rows for lifting equipment, read from their facts",
+     "status": "run",
+     "output": "7 rows for lifting equipment",
+     "fact_ids": [
+      "law_verification-annex7-r12",
+      "law_verification-annex7-r13",
+      "law_verification-annex7-r14",
+      "law_verification-annex7-r15",
+      "law_verification-annex7-r16",
+      "law_verification-annex7-r17",
+      "law_verification-annex7-r18"
+     ],
+     "ms": 2.49
+    },
+    {
+     "id": "fixed_or_mobile",
+     "kind": "script",
+     "does": "map the device kind to fixed or mobile (rules.KIND_TYPE)",
+     "status": "run",
+     "output": "GRU A PONTE SCORREVOLE is lifting equipment of type fisso (mapping of the rule)",
+     "fact_ids": [
+      "plant_igea-d08-kind"
+     ],
+     "ms": 0.07
+    },
+    {
+     "id": "capacity",
+     "kind": "script",
+     "does": "capacity above the limit written in the rows (200 kg)",
+     "status": "run",
+     "output": "capacity 5000 kg is above 200 kg",
+     "fact_ids": [
+      "plant_igea-d08-capacity"
+     ],
+     "ms": 0.01
+    },
+    {
+     "id": "sector",
+     "kind": "script",
+     "does": "sector of the site: named in a row, or regular use",
+     "status": "run",
+     "output": "sector estrattivo: named in the row",
+     "fact_ids": [
+      "plant_igea-site-sector"
+     ],
+     "ms": 0.1
+    },
+    {
+     "id": "age",
+     "kind": "script",
+     "does": "age of the device on the date, against 10 years",
+     "status": "run",
+     "output": "built in 1985: more than 10 years before 2026-11-14",
+     "fact_ids": [
+      "plant_igea-d08-year"
+     ],
+     "ms": 0.01
+    },
+    {
+     "id": "row",
+     "kind": "script",
+     "does": "the single Annex VII row that matches (rules.verification_interval)",
+     "status": "run",
+     "output": "Annex VII row for type fisso, sector use, age old",
+     "fact_ids": [
+      "law_verification-annex7-r15"
+     ],
+     "ms": 0.01
+    },
+    {
+     "id": "answer",
+     "kind": "answer",
+     "does": "the interval of the row, with the reasons",
+     "status": "run",
+     "output": "P1Y",
+     "fact_ids": [
+      "law_verification-annex7-r15"
+     ],
+     "ms": 0.78
+    },
+    {
+     "id": "unknown",
+     "kind": "unknown",
+     "does": "a fact is missing or the kind is not mapped: no answer from this graph",
+     "status": "skipped",
+     "output": "",
+     "fact_ids": [],
+     "ms": 0.0
+    }
+   ],
+   "edges_taken": [
+    [
+     "device",
+     "annex_rows",
+     "found"
+    ],
+    [
+     "annex_rows",
+     "fixed_or_mobile",
+     "found"
+    ],
+    [
+     "fixed_or_mobile",
+     "capacity",
+     "mapped"
+    ],
+    [
+     "capacity",
+     "sector",
+     "above the limit"
+    ],
+    [
+     "sector",
+     "age",
+     "known"
+    ],
+    [
+     "age",
+     "row",
+     "decided"
+    ],
+    [
+     "row",
+     "answer",
+     "one row"
+    ]
+   ],
+   "model_calls": 0,
+   "ms": 8.35
+  }
+ },
+ "CQ22": {
+  "question": "How often must the Effer truck-mounted hydraulic crane at position 7 of the IGEA list, built in 2017, be verified?",
+  "skill": "verification_interval",
+  "value": "P1Y",
+  "trace": {
+   "skill": "verification_interval",
+   "nodes": [
+    {
+     "id": "device",
+     "kind": "lookup",
+     "does": "device facts of the position asked: kind, capacity, year, sector",
+     "status": "run",
+     "output": "device 7: kind GRU IDRAULICA PER AUTOCARRO, capacity_kg 790, year_built 2017, sector estrattivo",
+     "fact_ids": [
+      "plant_igea-d07-kind",
+      "plant_igea-d07-capacity",
+      "plant_igea-d07-year",
+      "plant_igea-site-sector"
+     ],
+     "ms": 5.23
+    },
+    {
+     "id": "annex_rows",
+     "kind": "lookup",
+     "does": "Annex VII rows for lifting equipment, read from their facts",
+     "status": "run",
+     "output": "7 rows for lifting equipment",
+     "fact_ids": [
+      "law_verification-annex7-r12",
+      "law_verification-annex7-r13",
+      "law_verification-annex7-r14",
+      "law_verification-annex7-r15",
+      "law_verification-annex7-r16",
+      "law_verification-annex7-r17",
+      "law_verification-annex7-r18"
+     ],
+     "ms": 0.7
+    },
+    {
+     "id": "fixed_or_mobile",
+     "kind": "script",
+     "does": "map the device kind to fixed or mobile (rules.KIND_TYPE)",
+     "status": "run",
+     "output": "GRU IDRAULICA PER AUTOCARRO is lifting equipment of type mobile o trasferibile (mapping of the rule)",
+     "fact_ids": [
+      "plant_igea-d07-kind"
+     ],
+     "ms": 0.01
+    },
+    {
+     "id": "capacity",
+     "kind": "script",
+     "does": "capacity above the limit written in the rows (200 kg)",
+     "status": "run",
+     "output": "capacity 790 kg is above 200 kg",
+     "fact_ids": [
+      "plant_igea-d07-capacity"
+     ],
+     "ms": 0.01
+    },
+    {
+     "id": "sector",
+     "kind": "script",
+     "does": "sector of the site: named in a row, or regular use",
+     "status": "run",
+     "output": "sector estrattivo: named in the row",
+     "fact_ids": [
+      "plant_igea-site-sector"
+     ],
+     "ms": 0.01
+    },
+    {
+     "id": "age",
+     "kind": "script",
+     "does": "age of the device on the date, against 10 years",
+     "status": "run",
+     "output": "not needed by the rows that match",
+     "fact_ids": [],
+     "ms": 0.01
+    },
+    {
+     "id": "row",
+     "kind": "script",
+     "does": "the single Annex VII row that matches (rules.verification_interval)",
+     "status": "run",
+     "output": "Annex VII row for type mobile, sector use",
+     "fact_ids": [
+      "law_verification-annex7-r12"
+     ],
+     "ms": 0.01
+    },
+    {
+     "id": "answer",
+     "kind": "answer",
+     "does": "the interval of the row, with the reasons",
+     "status": "run",
+     "output": "P1Y",
+     "fact_ids": [
+      "law_verification-annex7-r12"
+     ],
+     "ms": 0.77
+    },
+    {
+     "id": "unknown",
+     "kind": "unknown",
+     "does": "a fact is missing or the kind is not mapped: no answer from this graph",
+     "status": "skipped",
+     "output": "",
+     "fact_ids": [],
+     "ms": 0.0
+    }
+   ],
+   "edges_taken": [
+    [
+     "device",
+     "annex_rows",
+     "found"
+    ],
+    [
+     "annex_rows",
+     "fixed_or_mobile",
+     "found"
+    ],
+    [
+     "fixed_or_mobile",
+     "capacity",
+     "mapped"
+    ],
+    [
+     "capacity",
+     "sector",
+     "above the limit"
+    ],
+    [
+     "sector",
+     "age",
+     "known"
+    ],
+    [
+     "age",
+     "row",
+     "decided"
+    ],
+    [
+     "row",
+     "answer",
+     "one row"
+    ]
+   ],
+   "model_calls": 0,
+   "ms": 6.81
+  }
+ },
+ "CQ27": {
+  "question": "How much notice must the verifier give IGEA when planning the checks?",
+  "skill": "single_value",
+  "value": "P15D",
+  "trace": {
+   "skill": "single_value",
+   "nodes": [
+    {
+     "id": "relation_facts",
+     "kind": "lookup",
+     "does": "facts of the relation asked, matched to the subject",
+     "status": "run",
+     "output": "2 facts of hasTimeLimit",
+     "fact_ids": [
+      "plant_igea_terms-notice-15d",
+      "plant_igea_terms-09"
+     ],
+     "ms": 0.64
+    },
+    {
+     "id": "choose",
+     "kind": "script",
+     "does": "choose by subject match, place and layer rank; stop if two different values fit equally",
+     "status": "run",
+     "output": "aggiudicatario (verificatore): preavviso a IGEA della pianificazione dei controlli = P15D (igea-equipment, p. 5, layer plant, rank 10)",
+     "fact_ids": [
+      "plant_igea_terms-notice-15d"
+     ],
+     "ms": 1.55
+    },
+    {
+     "id": "settle",
+     "kind": "script",
+     "does": "if a source in conflict lost to this fact, settle by authority and keep the loser in the trace",
+     "status": "run",
+     "output": "no source in force disagrees",
+     "fact_ids": [],
+     "ms": 0.36
+    },
+    {
+     "id": "answer",
+     "kind": "answer",
+     "does": "the value, with its source",
+     "status": "run",
+     "output": "P15D",
+     "fact_ids": [
+      "plant_igea_terms-notice-15d"
+     ],
+     "ms": 0.19
+    },
+    {
+     "id": "unknown",
+     "kind": "unknown",
+     "does": "nothing matches the exact subject, or the facts do not single out one value",
+     "status": "skipped",
+     "output": "",
+     "fact_ids": [],
+     "ms": 0.0
+    }
+   ],
+   "edges_taken": [
+    [
+     "relation_facts",
+     "choose",
+     "found"
+    ],
+    [
+     "choose",
+     "settle",
+     "one subject"
+    ],
+    [
+     "settle",
+     "answer",
+     "no conflict"
+    ]
+   ],
+   "model_calls": 0,
+   "ms": 2.86
+  }
+ }
+}

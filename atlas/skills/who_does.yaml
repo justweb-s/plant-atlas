@@ -1,0 +1,20 @@
+# A procedural graph. Written as JSON, which is valid YAML: any YAML or JSON reader loads it.
+{
+ "name": "who_does",
+ "description": "Who carries out a verification or holds an obligation, naming every body in the fact's sentence.",
+ "enabled": false,
+ "priority": 5,
+ "when": {"relations": ["verifiedBy", "hasObligation"], "cues": "^\\s*who\\b", "not_cues": "within|how long|deadline|what time|by when"},
+ "inputs": ["question", "day"],
+ "nodes": [
+  {"id": "who_facts", "kind": "lookup", "does": "facts saying who verifies or who is obliged, for the subject asked", "fn": "lookup_who"},
+  {"id": "bodies", "kind": "script", "does": "every body named in the sentence of the fact", "fn": "collect_bodies"},
+  {"id": "answer", "kind": "answer", "does": "the bodies, in one sentence", "fn": "answer_who"},
+  {"id": "unknown", "kind": "unknown", "does": "no fact names who, for the exact subject"}
+ ],
+ "edges": [
+  {"from": "who_facts", "to": "bodies", "when": "found"},
+  {"from": "who_facts", "to": "unknown", "when": "none"},
+  {"from": "bodies", "to": "answer"}
+ ]
+}

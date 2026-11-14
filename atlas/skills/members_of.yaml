@@ -1,0 +1,20 @@
+# A procedural graph. Written as JSON, which is valid YAML: any YAML or JSON reader loads it.
+{
+ "name": "members_of",
+ "description": "The members filed under the place (article, annex part, numbered point) the question names.",
+ "enabled": true,
+ "priority": 4,
+ "when": {"relations": ["listedIn"], "cues": "which|what|list", "needs": "place"},
+ "inputs": ["question", "day", "place named in the question"],
+ "nodes": [
+  {"id": "members", "kind": "lookup", "does": "facts of the relation filed under the place the question names", "fn": "lookup_members"},
+  {"id": "dedupe", "kind": "script", "does": "one item per member, no repeats", "fn": "dedupe_members"},
+  {"id": "answer", "kind": "answer", "does": "the members as a set", "fn": "answer_members"},
+  {"id": "unknown", "kind": "unknown", "does": "no member is filed under that place, or too many to be one list"}
+ ],
+ "edges": [
+  {"from": "members", "to": "dedupe", "when": "found"},
+  {"from": "members", "to": "unknown", "when": "none"},
+  {"from": "dedupe", "to": "answer"}
+ ]
+}

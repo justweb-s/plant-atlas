@@ -2,17 +2,17 @@
  "summary": {
   "n": 34,
   "correct": 19,
-  "unknown": 8,
-  "wrong": 7,
-  "mean": 0.649,
+  "unknown": 7,
+  "wrong": 8,
+  "mean": 0.647,
   "by_type": {
    "I": 0.571,
    "T": 0.839,
-   "V": 0.537
+   "V": 0.532
   },
   "by_split": {
    "design": 0.783,
-   "heldout": 0.403
+   "heldout": 0.399
   },
   "cost_usd": 0.0
  },
@@ -112,8 +112,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P10Y",
-   "text": "The manufacturer must keep the technical documentation and the EU declaration of conformity for at least 10 years, counted from when the machinery or product is placed on the market or put into service (Machinery Regulation, Art. 10(3) and Art. 12(2)).",
-   "tokens": 8861,
+   "text": "technical documentation and EU declaration of conformity must be kept for at least 10 years (P10Y), on the condition: after the machinery or the related product has been placed on the market or put into service (source: REG, Art. 10(3)).",
+   "tokens": 1496,
    "cost_usd": 0.0
   },
   {
@@ -122,8 +122,8 @@
    "split": "design",
    "score": 1.0,
    "value": "2027-01-20",
-   "text": "Regulation (EU) 2023/1230 applies generally from 20 January 2027, as corrected by the corrigendum, although certain Articles apply from earlier dates.",
-   "tokens": 8025,
+   "text": "Regulation applies from 2027-01-20, on the condition: However, the following Articles shall apply from the following dates (source: CORR, Corrigendum, point 10).",
+   "tokens": 1359,
    "cost_usd": 0.0
   },
   {
@@ -132,8 +132,8 @@
    "split": "design",
    "score": 1.0,
    "value": true,
-   "text": "Yes. Directive 2006/42/EC is repealed only from 20 January 2027, and conforming machinery may be placed on the market until then, so 16 January 2027 is still allowed.",
-   "tokens": 9349,
+   "text": "Yes: 2027-01-16 is 4 days before 2027-01-20. Directive 2006/42/EC is repealed from 2027-01-20 (source: CORR, Corrigendum, point 5).",
+   "tokens": 1601,
    "cost_usd": 0.0
   },
   {
@@ -190,15 +190,16 @@
    "id": "CQ16",
    "type": "V",
    "split": "heldout",
-   "score": 0.333,
+   "score": 0.286,
    "value": [
-    "Portable cartridge-operated fixing and other impact machinery",
     "removable mechanical transmission devices including their guards",
+    "vehicle servicing lifts",
+    "Portable cartridge-operated fixing and other impact machinery",
     "safety components with fully or partially self-evolving behaviour",
     "machinery with embedded self-evolving ML systems ensuring safety functions"
    ],
-   "text": "Four Annex I, Part A categories (points 1, 4, 5 and 6) were not in Annex IV of Directive 2006/42/EC; vehicle servicing lifts (point 3) were already listed there.",
-   "tokens": 12460,
+   "text": "5 items is listed in Annex I, Part A: removable mechanical transmission devices including their guards; vehicle servicing lifts; Portable cartridge-operated fixing and other impact machinery; safety components with fully or partially self-evolving behaviour; machinery with embedded self-evolving ML systems ensuring safety functions (source: REG, Annex I, Part A, point 1, REG, Annex I, Part A, point 3, REG, Annex I, Part A, point 4, REG, Annex I, Part A, point 5, REG, Annex I, Part A, point 6).",
+   "tokens": 1659,
    "cost_usd": 0.0
   },
   {
@@ -249,8 +250,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P1Y",
-   "text": "The DEMAG overhead travelling crane (IGEA device 8) must be verified once a year (P1Y), under Allegato VII, riga 15, because it is fixed lifting equipment above 200 kg, used in the mining sector, and built in 1985. Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
-   "tokens": 7975,
+   "text": "IGEA device 8 must be verified every P1Y on 2026-11-14: GRU A PONTE SCORREVOLE is lifting equipment of type fisso (mapping of the rule); capacity 5000 kg is above 200 kg; sector estrattivo: named in the row; built in 1985: more than 10 years before 2026-11-14; Annex VII row for type fisso, sector use, age old (source: DLGSALLVII, Allegato VII, riga 15). Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
+   "tokens": 1576,
    "cost_usd": 0.0
   },
   {
@@ -259,8 +260,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P1Y",
-   "text": "The Effer truck crane at position 7 must be verified every year (P1Y), under the Annex VII rule for mobile lifting equipment above 200 kg used in the extractive sector. Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
-   "tokens": 8892,
+   "text": "IGEA device 7 must be verified every P1Y on 2026-11-14: GRU IDRAULICA PER AUTOCARRO is lifting equipment of type mobile o trasferibile (mapping of the rule); capacity 790 kg is above 200 kg; sector estrattivo: named in the row; Annex VII row for type mobile, sector use (source: DLGSALLVII, Allegato VII, riga 12). Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
+   "tokens": 1650,
    "cost_usd": 0.0
   },
   {
@@ -309,8 +310,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P15D",
-   "text": "The verifier (aggiudicatario) must give IGEA 15 days' notice when planning the checks, per the igea-equipment document, p. 5.",
-   "tokens": 8599,
+   "text": "aggiudicatario (verificatore): preavviso a IGEA della pianificazione dei controlli has the time limit 15 giorni (P15D) (source: igea-equipment, p. 5).",
+   "tokens": 1534,
    "cost_usd": 0.0
   },
   {
@@ -329,8 +330,8 @@
    "split": "heldout",
    "score": 0.0,
    "value": "P2Y",
-   "text": "IGEA device 13 must be verified every P2Y on 2026-11-14: GRU A PONTE SCORREVOLE is lifting equipment of type fisso (mapping of the rule); capacity 5000 kg is above 200 kg; sector estrattivo: named in the row; built in 2017: not more than 10 years before 2026-11-14; Annex VII row for type fisso, sector use, age new. Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
-   "tokens": 8149,
+   "text": "IGEA device 13 must be verified every P2Y on 2026-11-14: GRU A PONTE SCORREVOLE is lifting equipment of type fisso (mapping of the rule); capacity 5000 kg is above 200 kg; sector estrattivo: named in the row; built in 2017: not more than 10 years before 2026-11-14; Annex VII row for type fisso, sector use, age new (source: DLGSALLVII, Allegato VII, riga 16). Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.",
+   "tokens": 1416,
    "cost_usd": 0.0
   },
   {
@@ -358,9 +359,9 @@
    "type": "I",
    "split": "heldout",
    "score": 0.0,
-   "value": null,
-   "text": "The facts in force do not answer this question. (the used facts do not carry the names or numbers of the answer)",
-   "tokens": 6526,
+   "value": "1300 mm",
+   "text": "UR10e robot has a reach of 1300 mm (source: ur10e-manual, p. 47).",
+   "tokens": 1461,
    "cost_usd": 0.0
   },
   {
