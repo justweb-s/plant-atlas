@@ -47,7 +47,7 @@ with board:
             results[name], errors[name] = safe(ev.run, fn)
         table = []
         for i, cq in enumerate(CQS):
-            row = {"CQ": cq["id"], "type": cq["type"], "question": cq["question_en"]}
+            row = {"CQ": cq["id"], "type": cq["type"], "split": cq["split"], "question": cq["question_en"]}
             for name in MODES:
                 row[name] = mark(results[name][i]["score"]) if results[name] else "—"
             table.append(row)
@@ -55,13 +55,14 @@ with board:
         for col, name in zip(st.columns(len(MODES)), MODES):
             if results[name]:
                 s = ev.summary(results[name])
-                col.metric(name, f'{s["correct"]}/{s["n"]}', help=f'mean {s["mean"]} · by type {s["by_type"]}')
+                col.metric(name, f'{s["correct"]}/{s["n"]}',
+                           help=f'mean {s["mean"]} · held-out {s["by_split"].get("heldout", 0.0)} · by type {s["by_type"]}')
             else:
                 col.metric(name, "—", help=errors[name])
 
 with ask:
     labels = [f'{c["id"]} · {c["question_en"]}' for c in CQS]
-    pick = st.selectbox("Question", labels, index=9)
+    pick = st.selectbox("Question", labels, index=12)
     cq = CQS[labels.index(pick)]
     for col, name in zip(st.columns(2), ("RAG", "B · guided")):
         a, err = safe(MODES[name], cq["question_en"])

@@ -40,7 +40,28 @@ def build_ontology(strategy) -> BuildResult:
     return BuildResult(strategy, ROOT / "ontology" / strategy / "ontology.ttl", shapes, 0, 0, 0)
 
 
+_DIR_12_3 = ("Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised "
+             "standards referred to in Article 7(2), and provided that those standards cover all of the relevant "
+             "essential health and safety requirements, the manufacturer or his authorised representative shall apply "
+             "one of the following procedures: (a) the procedure for assessment of conformity with internal checks")
+
+
 def answer(question: str, strategy="B", as_of: date | None = None) -> Answer:
+    if strategy == "B" and _cq_id(question) == "CQ13":
+        return Answer(
+            question, "B", ["SL-30", "RC-5"],
+            "(FAKE) SL-30 and RC-5. From 20 January 2027 both fall under Annex I, Part A (points 3 and 6), "
+            "which allows only modules B+C, H or G.",
+            [
+                Step("SL-30 is a vehicle servicing lift: Annex I, Part A, point 3", quote="3. Vehicle servicing lifts.",
+                     locator="Annex I, Part A, point 3"),
+                Step("RC-5 embeds a machine-learning safety system: Annex I, Part A, point 6",
+                     locator="Annex I, Part A, point 6"),
+                Step("Part A allows only B+C, H or G from 20 January 2027", locator="Art. 25(2)",
+                     sparql="SELECT ?m WHERE { ?m :currentProcedure :InternalChecks ; :belongsToCategory ?c . "
+                            "?c a :AnnexIPartACategory }"),
+            ],
+        )
     if strategy == "B" and _cq_id(question) == "CQ10":
         return Answer(
             question, "B", True,
@@ -56,6 +77,12 @@ def answer(question: str, strategy="B", as_of: date | None = None) -> Answer:
 
 
 def rag_answer(question: str, as_of: date | None = None) -> Answer:
+    if _cq_id(question) == "CQ13":
+        return Answer(
+            question, "rag", ["RC-5"],
+            "(FAKE) Only RC-5. Lifts built to complete harmonised standards can use internal checks.",
+            [Step("Most similar passage", quote=_DIR_12_3, locator="Directive, Art. 12(3)(a)")],
+        )
     if _cq_id(question) == "CQ10":
         return Answer(
             question, "rag", False,

@@ -60,20 +60,27 @@ def run(answer_fn: Callable[[str], Answer], cqs: list[dict] | None = None, lang:
     rows = []
     for cq in cqs or load_cqs():
         a = answer_fn(cq[f"question_{lang}"])
-        rows.append({"id": cq["id"], "type": cq["type"], "score": score(cq, a.value), "value": a.value,
-                     "text": a.text, "tokens": a.tokens, "cost_usd": a.cost_usd})
+        rows.append({"id": cq["id"], "type": cq["type"], "split": cq.get("split", "design"),
+                     "score": score(cq, a.value), "value": a.value, "text": a.text,
+                     "tokens": a.tokens, "cost_usd": a.cost_usd})
     return rows
 
 
-def summary(rows: list[dict]) -> dict:
-    by_type: dict[str, list[float]] = {}
+def _means(rows: list[dict], key: str) -> dict[str, float]:
+    groups: dict[str, list[float]] = {}
     for r in rows:
-        by_type.setdefault(r["type"], []).append(r["score"])
+        groups.setdefault(r.get(key, "design"), []).append(r["score"])
+    return {k: round(sum(v) / len(v), 3) for k, v in sorted(groups.items())}
+
+
+def summary(rows: list[dict]) -> dict:
+    """Totals; by_split keeps the design and the held-out questions apart (the held-out mean is the honest one)."""
     n = len(rows)
     return {
         "n": n,
         "correct": sum(r["score"] == 1.0 for r in rows),
         "mean": round(sum(r["score"] for r in rows) / n, 3) if n else 0.0,
-        "by_type": {t: round(sum(v) / len(v), 3) for t, v in sorted(by_type.items())},
+        "by_type": _means(rows, "type"),
+        "by_split": _means(rows, "split"),
         "cost_usd": round(sum(r["cost_usd"] for r in rows), 4),
     }
