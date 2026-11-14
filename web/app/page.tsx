@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Ask from "./components/Ask";
 import CellView from "./components/CellView";
@@ -14,12 +13,8 @@ const TABS = [
 ] as const;
 type Tab = (typeof TABS)[number][0];
 
-// Core's ontology view (public/atlas.html), shown under the header when «Ontologia» is on.
-const VIEWS = [
-  ["embed", "Fatti e confronto con il RAG"],
-  ["docs", "Mappa dei documenti"],
-] as const;
-type View = (typeof VIEWS)[number][0];
+// Core's ontology page (public/atlas.html) in its solo mode: only the ontology, no tabs of its own.
+// One switch, one panel: the app's menu stays the only navigation.
 
 const pill = (on: boolean) =>
   `rounded-lg px-3 py-1.5 text-sm font-medium transition sm:px-4 ${
@@ -29,7 +24,6 @@ const pill = (on: boolean) =>
 export default function Home() {
   const [tab, setTab] = useState<Tab>("ask");
   const [atlas, setAtlas] = useState(false);
-  const [view, setView] = useState<View>("embed");
   const [status, setStatus] = useState<{ fake: boolean; today: string } | null>(null);
   const [down, setDown] = useState(false);
 
@@ -82,30 +76,14 @@ export default function Home() {
             </button>
           </div>
         </div>
-        {atlas && (
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 pb-3 sm:px-6">
-            <div className="flex gap-1 rounded-xl bg-surface-2 p-1" role="tablist">
-              {VIEWS.map(([key, label]) => (
-                <button key={key} role="tab" aria-selected={view === key} onClick={() => setView(key)} className={pill(view === key)}>
-                  {label}
-                </button>
-              ))}
-            </div>
-            <Link href="/atlas" className="text-sm font-medium text-muted transition hover:text-foreground">
-              Apri a tutta pagina
-            </Link>
-          </div>
-        )}
       </header>
 
       {atlas && (
         <iframe
-          key={view}
-          // The view reads the hash only on load: the key and the query reload the frame on each switch.
-          src={`/atlas.html?view=${view}#${view}`}
+          src="/atlas.html?solo=1#docs&embed&solo"
           title="Ontologia di Plant Atlas"
           className="block w-full border-0 border-b border-border"
-          style={{ height: "max(800px, 80dvh)" }}
+          style={{ height: "max(760px, 78dvh)" }}
         />
       )}
 

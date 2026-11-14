@@ -3,14 +3,7 @@ import { IconShield } from "./icons";
 
 // The ontology view is Core's generated page (ontology/B/dashboard.html), copied to public/atlas.html.
 // Without /api/status on this origin it stays in "recorded answers" mode: that is the Vercel behaviour.
-// It is the home page: it opens on #ask, at full height, with the menu to the other pages.
-const LINKS = [
-  ["ask", "Chiedi"],
-  ["ontology", "Ontologia"],
-  ["score", "Punteggio"],
-  ["changes", "Cambi"],
-  ["scenes", "Scene"],
-] as const;
+// Full-page view: the page brings its own tabs, so this header has only the way back to the app.
 
 export default function AtlasView() {
   return (
@@ -23,27 +16,13 @@ export default function AtlasView() {
             </span>
             Plant Atlas
           </Link>
-          <nav className="flex flex-wrap gap-1 rounded-xl bg-surface-2 p-1">
-            {LINKS.map(([hash, label]) => (
-              <a
-                key={hash}
-                // The view reads the hash only on load: the query makes the frame reload on each link.
-                href={`/atlas.html?tab=${hash}#${hash}`}
-                target="atlas-frame"
-                className="rounded-lg px-3 py-1.5 text-sm font-medium text-muted transition hover:text-foreground"
-              >
-                {label}
-              </a>
-            ))}
-            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-muted transition hover:text-foreground">
-              App per l&apos;RSPP
-            </Link>
-          </nav>
+          <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-muted transition hover:text-foreground">
+            Torna all&apos;app
+          </Link>
         </div>
       </header>
       <iframe
-        name="atlas-frame"
-        src="/atlas.html?tab=ask#ask"
+        src="/atlas.html#ask"
         title="Ontologia di Plant Atlas"
         className="block w-full flex-1 border-0"
       />
