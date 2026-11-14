@@ -6,7 +6,7 @@
     "locale": "en",
     "quality_profile": "showcase",
     "viewBox": [
-      1400,
+      1380,
       660
     ],
     "views": [
@@ -28,8 +28,7 @@
         "focus": [
           "store",
           "rules",
-          "agent",
-          "app"
+          "agent"
         ],
         "note": "The agent may use only facts in force on the date; states such as an interval are computed, and no fact means unknown."
       },
@@ -81,8 +80,8 @@
         300
       ],
       "size": [
-        150,
-        64
+        170,
+        68
       ],
       "sources": [
         {
@@ -101,12 +100,12 @@
       "label": "Source register",
       "sublabel": "5195 pieces, sha256",
       "pos": [
-        240,
+        265,
         300
       ],
       "size": [
-        150,
-        64
+        170,
+        68
       ],
       "sources": [
         {
@@ -121,14 +120,14 @@
       "id": "extraction",
       "type": "backend",
       "label": "Pointing extraction",
-      "sublabel": "model points, never writes",
+      "sublabel": "model only points",
       "pos": [
-        440,
+        490,
         300
       ],
       "size": [
-        160,
-        64
+        170,
+        68
       ],
       "sources": [
         {
@@ -146,14 +145,13 @@
       "label": "Quote gate",
       "sublabel": "no quote, no fact",
       "pos": [
-        650,
+        715,
         300
       ],
       "size": [
-        150,
-        64
+        170,
+        68
       ],
-      "tag": "132 refused",
       "sources": [
         {
           "path": "atlas/ontology/statements.py",
@@ -167,12 +165,12 @@
       "label": "Fact store",
       "sublabel": "2033 facts in force",
       "pos": [
-        850,
+        940,
         300
       ],
       "size": [
-        150,
-        64
+        170,
+        68
       ],
       "sources": [
         {
@@ -190,12 +188,12 @@
       "label": "Answering agent",
       "sublabel": "facts only, or unknown",
       "pos": [
-        1050,
+        1165,
         300
       ],
       "size": [
-        150,
-        64
+        170,
+        68
       ],
       "sources": [
         {
@@ -204,37 +202,17 @@
       ]
     },
     {
-      "id": "app",
-      "type": "frontend",
-      "label": "Safety officer",
-      "sublabel": "ask, the cell, changes",
-      "pos": [
-        1250,
-        300
-      ],
-      "size": [
-        130,
-        64
-      ],
-      "sources": [
-        {
-          "path": "server/main.py",
-          "label": "app"
-        }
-      ]
-    },
-    {
       "id": "change",
       "type": "backend",
       "label": "Change and impact",
-      "sublabel": "what a new version touches",
+      "sublabel": "what a change touches",
       "pos": [
-        440,
+        490,
         110
       ],
       "size": [
-        160,
-        64
+        170,
+        68
       ],
       "sources": [
         {
@@ -249,14 +227,14 @@
       "id": "rules",
       "type": "backend",
       "label": "Rules at query time",
-      "sublabel": "interval by type, sector, age",
+      "sublabel": "interval by type and age",
       "pos": [
-        1050,
+        1165,
         110
       ],
       "size": [
-        150,
-        64
+        170,
+        68
       ],
       "sources": [
         {
@@ -270,14 +248,13 @@
       "label": "Second reader",
       "sublabel": "another model, blind",
       "pos": [
-        650,
+        715,
         490
       ],
       "size": [
-        150,
-        64
+        170,
+        68
       ],
-      "tag": "345 re-read",
       "sources": [
         {
           "path": "atlas/ontology/verify.py"
@@ -292,14 +269,14 @@
       "id": "ontologyFile",
       "type": "database",
       "label": "Ontology file",
-      "sublabel": "Turtle + SHACL, 25404 triples",
+      "sublabel": "25404 triples, SHACL",
       "pos": [
-        850,
+        940,
         490
       ],
       "size": [
-        150,
-        64
+        170,
+        68
       ],
       "sources": [
         {
@@ -317,7 +294,7 @@
       "id": "documents-to-register",
       "from": "documents",
       "to": "register",
-      "label": "fingerprint"
+      "label": "hash"
     },
     {
       "id": "register-to-extraction",
@@ -329,13 +306,13 @@
       "id": "extraction-to-gate",
       "from": "extraction",
       "to": "gate",
-      "label": "quote + value"
+      "label": "quote"
     },
     {
       "id": "gate-to-store",
       "from": "gate",
       "to": "store",
-      "label": "accepted",
+      "label": "kept",
       "variant": "emphasis"
     },
     {
@@ -345,16 +322,10 @@
       "label": "in force"
     },
     {
-      "id": "agent-to-app",
-      "from": "agent",
-      "to": "app",
-      "label": "answer"
-    },
-    {
       "id": "register-to-change",
       "from": "register",
       "to": "change",
-      "label": "changed pieces",
+      "label": "changed",
       "fromSide": "top",
       "toSide": "left"
     },
@@ -362,7 +333,7 @@
       "id": "change-to-store",
       "from": "change",
       "to": "store",
-      "label": "close, never delete",
+      "label": "close, keep",
       "variant": "dashed",
       "fromSide": "right",
       "toSide": "top"
@@ -373,7 +344,8 @@
       "to": "agent",
       "label": "computed",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toSide": "top",
+      "labelDy": 24
     },
     {
       "id": "gate-to-reader",
@@ -382,15 +354,17 @@
       "label": "re-read",
       "variant": "security",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toSide": "top",
+      "labelDy": 24
     },
     {
       "id": "store-to-file",
       "from": "store",
       "to": "ontologyFile",
-      "label": "export at a date",
+      "label": "export",
       "fromSide": "bottom",
-      "toSide": "top"
+      "toSide": "top",
+      "labelDy": 24
     }
   ],
   "cards": [
