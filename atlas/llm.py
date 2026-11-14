@@ -54,10 +54,11 @@ def chat(messages: list[dict], model: str | None = None, **params) -> dict:
     return out
 
 
-def embed(texts: list[str], model: str | None = None) -> list[list[float]]:
-    """One vector per text, cached like chat()."""
+def embed(texts: list[str], model: str | None = None, **params) -> list[list[float]]:
+    """One vector per text, cached like chat(). params go to embeddings.create (e.g. dimensions=256);
+    without params the cache key is the same as before."""
     payload = {"model": model or os.getenv("ATLAS_EMBED_MODEL", "openai/text-embedding-3-small"),
-               "input": texts}
+               "input": texts, **params}
     path = _cache_path("embed", payload)
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))["response"]["vectors"]

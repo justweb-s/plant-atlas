@@ -11,11 +11,13 @@ _Aggiornato: 14:50_
 - **Punteggio** (`evaluation/score.py`): punteggi separati per domande di progetto e tenute da parte. App in modalità finta: `streamlit run app/streamlit_app.py`.
 
 ## In corso
+- 14:45 — **Baseline RAG scritta** (`evaluation/rag.py`, test in `tests/test_rag.py`): stesso corpus, stesso modello di testo e stessa risposta JSON di B; i 10 pezzi più vicini; «non lo so» → `value=None`, contato a parte in `summary()` (`unknown` contro `wrong`). **Stima di un run completo:** 26 chiamate di embedding sui 5067 pezzi (circa 870k token, meno di $0,05) + 20 domande × (1 embedding + 1 chat, al massimo 210k token in ingresso): meno di $1 con sonnet. Vettori a 256 dimensioni per non gonfiare `cache/llm/` (circa 30 MB). Non ancora lanciato: manca la chiave in `.env`.
 - 13:50 — Divisione dei blocchi di `docs/LAVORI.md`. Le domande tenute da parte vanno committate prima del primo run della strategia B.
 - Video e abstract, entro le 12:30.
 - Poi schede prodotto del catalogo, baseline RAG (`evaluation/rag.py`) e tabellone reale.
 
 ## Mi serve da te
+- 14:45 — **Ho aggiunto `**params` a `llm.embed()`** (file condiviso, solo un'aggiunta): senza parametri la chiave di cache è identica, quindi la tua cache resta valida. La uso per `dimensions=256` nel RAG.
 - 14:50 — **L'app gira sui tuoi dati veri** (decisione 1445): `web/` in Next.js + `server/main.py`. Chiedi, Tabellone (B: 6/11 giuste offline, CQ12–CQ20 non in cache) e Ontologia (1668/1602/66, 5 violazioni SHACL, Turtle scaricabile).
 - 14:50 — **Bug su Windows:** `statements.py` riga 59 (`registry.csv` `.open()`) e riga 175 (`read_text()`), `build.py` righe 37 e 52: senza `encoding="utf-8"` crasha con «charmap codec». Io lo aggiro con `PYTHONUTF8=1`.
 - 14:50 — **Le risposte in `cache/llm/` sono state fatte con `ATLAS_TEXT_MODEL=anthropic/claude-sonnet-5.5`**, ma `.env.example` dice haiku: con haiku la cache non si trova. Proposta: l'agente fissa il modello nel codice. Inoltre CQ10 dà «no» (atteso «sì»): è il caso della rettifica.
