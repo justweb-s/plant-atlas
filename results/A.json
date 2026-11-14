@@ -282,8 +282,8 @@
    "split": "design",
    "score": 1.0,
    "value": false,
-   "text": "No. The UR5e may only be put into service after it is integrated into a final complete machine that conforms with the Machinery Directive and other applicable Directives (as a partly completed machine, per Machinery Directive classification and the rule that it shall not be put into service until the final machinery is declared in conformity).",
-   "tokens": 7598,
+   "text": "No. The UR5e is a partly completed machine and may only be put into service after it is integrated into a final complete machine that conforms to the Machinery Directive (UR5e manual, p. 220; partly completed machinery rule, Annex V Part B point 8).",
+   "tokens": 7572,
    "cost_usd": 0.0
   },
   {
