@@ -11,7 +11,7 @@ from pathlib import Path
 
 from rdflib import OWL, RDF, RDFS, XSD, Graph, Literal, Namespace, URIRef
 
-from atlas.ontology.statements import Statement, Store
+from atlas.ontology.statements import LAYER_ORDER, LAYERS, Statement, Store, layer_of_statement
 
 PA = Namespace("https://github.com/justweb-s/plant-atlas/ontology#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
@@ -31,7 +31,39 @@ pa:StatementShape a sh:NodeShape ;
                   sh:message "A statement must come from exactly one document." ] ;
     sh:property [ sh:path pa:locator ; sh:minCount 1 ; sh:maxCount 1 ;
                   sh:message "A statement must name the article or annex point it comes from." ] ;
-    sh:property [ sh:path pa:relation ; sh:minCount 1 ; sh:maxCount 1 ] .
+    sh:property [ sh:path pa:relation ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path pa:layer ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( "law" "guidance" "manufacturer" "company" "plant" ) ;
+                  sh:message "A statement must belong to exactly one layer: law, guidance, manufacturer, company or plant." ] .
+
+# The five layers, from the general (1, the law) to the specific (5, this plant).
+pa:LayerShape a sh:NodeShape ;
+    sh:targetClass pa:Layer ;
+    sh:property [ sh:path pa:order ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ;
+                  sh:minInclusive 1 ; sh:maxInclusive 5 ;
+                  sh:message "A layer must have one order number from 1 (law) to 5 (plant)." ] .
+
+# A rule that crosses layers: the fenced area around a robotic cell (a plant fact) must cover the maximum
+# extension of every machine in it (a manufacturer fact). Swapping the arm can make the same fence too small.
+pa:ProtectedZoneShape a sh:NodeShape ;
+    sh:targetSubjectsOf pa:protectedZoneRadiusMm ;
+    sh:sparql [
+        sh:message "The protected zone of {?cellName} has a radius of {?zone} mm, but {?machineName} located in it reaches {?reach} mm: the fence does not cover the machine's maximum extension." ;
+        sh:select '''
+            SELECT $this ?cellName ?machineName ?zone ?reach WHERE {
+                $this <https://github.com/justweb-s/plant-atlas/ontology#protectedZoneRadiusMm> ?zoneRaw .
+                ?machine <https://github.com/justweb-s/plant-atlas/ontology#locatedIn> $this ;
+                         <https://github.com/justweb-s/plant-atlas/ontology#reachMm> ?reachRaw .
+                BIND(REPLACE(STR(?zoneRaw), "[^0-9.]", "") AS ?zone)
+                BIND(REPLACE(STR(?reachRaw), "[^0-9.]", "") AS ?reach)
+                FILTER(<http://www.w3.org/2001/XMLSchema#decimal>(?zone) < <http://www.w3.org/2001/XMLSchema#decimal>(?reach))
+                OPTIONAL { $this <http://www.w3.org/2000/01/rdf-schema#label> ?cellLabel }
+                OPTIONAL { ?machine <http://www.w3.org/2000/01/rdf-schema#label> ?machineLabel }
+                BIND(COALESCE(STR(?cellLabel), REPLACE(STR($this), "^.*[#/]", "")) AS ?cellName)
+                BIND(COALESCE(STR(?machineLabel), REPLACE(STR(?machine), "^.*[#/]", "")) AS ?machineName)
+            }
+        ''' ;
+    ] .
 
 # An act is repealed from one date only: an uncorrected and a corrected date cannot both be in force.
 pa:RepealShape a sh:NodeShape ;
@@ -76,6 +108,19 @@ def to_graph(store: Store, day: date, classes: dict, relations: dict) -> Graph:
         g.add((PA[name], RDFS.comment, Literal(comment, lang="en")))
     g.add((PA.Statement, RDF.type, OWL.Class))
     g.add((PA.Statement, RDFS.comment, Literal("A fact with its quote, its condition, its source and its validity.", lang="en")))
+    g.add((PA.Layer, RDF.type, OWL.Class))
+    g.add((PA.Layer, RDFS.comment, Literal("A layer of the ontology, from the general (the law) to the specific (this plant). "
+                                           "A higher layer constrains a lower one.", lang="en")))
+    g.add((PA.layer, RDF.type, OWL.DatatypeProperty))
+    g.add((PA.layer, RDFS.domain, PA.Statement))
+    g.add((PA.layer, RDFS.comment, Literal("The layer a statement belongs to, by the label of a pa:Layer.", lang="en")))
+    g.add((PA.order, RDF.type, OWL.DatatypeProperty))
+    g.add((PA.order, RDFS.domain, PA.Layer))
+    g.add((PA.order, RDFS.comment, Literal("The place of a layer: 1 is the most general and prevails.", lang="en")))
+    for name in LAYERS:
+        g.add((PA[f"Layer_{name}"], RDF.type, PA.Layer))
+        g.add((PA[f"Layer_{name}"], RDFS.label, Literal(name)))
+        g.add((PA[f"Layer_{name}"], PA.order, Literal(LAYER_ORDER[name])))
     for name, (subject_class, value, what) in relations.items():
         is_data = value in DATATYPES
         g.add((PA[name], RDF.type, OWL.DatatypeProperty if is_data else OWL.ObjectProperty))
@@ -104,6 +149,9 @@ def to_graph(store: Store, day: date, classes: dict, relations: dict) -> Graph:
         g.add((node, PA.sourceDocument, Literal(s.source_doc)))
         g.add((node, PA.locator, Literal(s.anchor)))
         g.add((node, PROV.wasAttributedTo, Literal(s.asserted_by)))
+        layer = layer_of_statement(s, store.corpus)   # written on the fact, or taken from its source now
+        if layer:
+            g.add((node, PA.layer, Literal(layer)))
         if s.condition:
             g.add((node, PA.condition, Literal(s.condition)))
         if s.in_force_from:
@@ -126,8 +174,36 @@ def validate(ontology: Path, shapes: Path) -> tuple[bool, list[str]]:
     from pyshacl import validate as shacl_validate
 
     data = Graph().parse(ontology, format="turtle")
-    conforms, report, _ = shacl_validate(data, shacl_graph=Graph().parse(shapes, format="turtle"))
+    # advanced=True turns on SHACL-SPARQL, which the protected-zone rule needs.
+    conforms, report, _ = shacl_validate(data, shacl_graph=Graph().parse(shapes, format="turtle"), advanced=True)
     messages = [f"{focus}: {message}" for focus, message in
                 report.query("SELECT ?f ?m WHERE { ?r <http://www.w3.org/ns/shacl#focusNode> ?f ; "
                              "<http://www.w3.org/ns/shacl#resultMessage> ?m }")]
-    return bool(conforms), [str(m) for m in messages]
+    return bool(conforms), sorted(str(m) for m in messages)
+
+
+def _number(literal) -> float | None:
+    digits = re.sub(r"[^0-9.]", "", str(literal))
+    try:
+        return float(digits)
+    except ValueError:
+        return None
+
+
+def zone_violations(graph: Graph) -> list[str]:
+    """The protected-zone rule in plain Python, for callers that hold a graph and no shapes file:
+    one sentence per machine whose reach is larger than the radius of the protected zone of its cell.
+    The SHACL-SPARQL shape pa:ProtectedZoneShape checks the same thing inside validate()."""
+    def name(node) -> str:
+        return str(graph.value(node, RDFS.label) or re.sub(r"^.*[#/]", "", str(node)))
+
+    found = []
+    for cell, zone_raw in graph.subject_objects(PA.protectedZoneRadiusMm):
+        zone = _number(zone_raw)
+        for machine in graph.subjects(PA.locatedIn, cell):
+            for reach_raw in graph.objects(machine, PA.reachMm):
+                reach = _number(reach_raw)
+                if zone is not None and reach is not None and zone < reach:
+                    found.append(f"The protected zone of {name(cell)} has a radius of {zone:g} mm, but {name(machine)} "
+                                 f"located in it reaches {reach:g} mm: the fence does not cover the machine's maximum extension.")
+    return sorted(found)

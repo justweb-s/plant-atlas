@@ -15,8 +15,21 @@ from typing import Literal
 from pydantic import BaseModel
 
 ROOT = Path(__file__).resolve().parents[2]
-# Higher number wins when two sources disagree.
+# The ontology works in layers, from the general to the specific. A higher layer constrains a lower one.
+LAYERS = ("law", "guidance", "manufacturer", "company", "plant")
+LAYER_ORDER = {name: number for number, name in enumerate(LAYERS, start=1)}
+# Higher number wins when two sources disagree: ten points per layer, so there is room for a finer
+# order inside a layer (a ministerial decree sits below the other laws and above the guidance).
+LAYER_RANK = {name: 10 * (len(LAYERS) + 1 - number) for name, number in LAYER_ORDER.items()}
+MINISTERIAL_RANK = LAYER_RANK["law"] - 5
+PERSON_RANK = 5
+# The document kinds of the registry, and the layer each one belongs to.
+KIND_LAYER = {"law": "law", "guidance": "guidance", "manual": "manufacturer", "procedure": "company",
+              "log": "plant", "layout": "plant"}
+# Kept for older callers: the flat order by document kind. The store itself now ranks with rank_of().
 AUTHORITY = {"law": 4, "manual": 3, "procedure": 2, "log": 2, "person": 1}
+LAYER_NOUN = {"law": "the law", "guidance": "a public body's guidance", "manufacturer": "the manufacturer's manual",
+              "company": "a company procedure", "plant": "a plant record"}
 # Words that announce a condition or an exception in the quoted text (English and Italian).
 CONDITION_MARKERS = re.compile(
     r"\b(if|unless|except|provided that|older than|only for|for the sector|"
@@ -27,6 +40,99 @@ CONDITION_MARKERS = re.compile(
 
 def norm(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
+
+
+def law_tier(source_doc: str) -> str:
+    """What kind of law a source key names: 'DM2011' is a ministerial decree, 'DLGS71' a legislative decree."""
+    key = source_doc.lower()
+    if re.match(r"dm[\d_-]", key):
+        return "ministerial decree"
+    if key.startswith("dlgs"):
+        return "legislative decree"
+    if key.startswith("corr"):
+        return "corrigendum"
+    if key.startswith(("reg", "eu-reg")):
+        return "EU regulation"
+    if key.startswith(("dir", "eu-dir")):
+        return "EU directive"
+    return "law"
+
+
+def _article(noun: str) -> str:
+    return f"an {noun}" if noun[0] in "AEIOUaeiou" else f"a {noun}"
+
+
+def layer_of_statement(s: "Statement", corpus=None) -> str:
+    """The layer written on the fact, or the layer of its source in the corpus; '' when neither knows."""
+    if s.layer:
+        return s.layer
+    lookup = getattr(corpus, "layer", None)
+    return (lookup(s.source_doc) if lookup else "") or ""
+
+
+def rank_of(s: "Statement", corpus=None) -> int:
+    """How much a fact weighs when two disagree: its layer first, then the finer order inside the law."""
+    if s.asserted_by.startswith("person:"):
+        return PERSON_RANK
+    layer = layer_of_statement(s, corpus)
+    if layer == "law" and law_tier(s.source_doc) == "ministerial decree":
+        return MINISTERIAL_RANK
+    return LAYER_RANK.get(layer, 0)
+
+
+def _describe(s: "Statement", corpus=None) -> str:
+    if s.asserted_by.startswith("person:"):
+        return "a person's statement"
+    layer = layer_of_statement(s, corpus)
+    if layer == "law":
+        tier = law_tier(s.source_doc)
+        return "the law" if tier == "law" else _article(tier)
+    return LAYER_NOUN.get(layer, "a source of unknown layer")
+
+
+def settle(a: "Statement", b: "Statement", corpus=None) -> tuple["Statement", str]:
+    """Which of two disagreeing facts prevails, and why in one short sentence. On equal rank `a` prevails
+    (the store passes the newer fact first)."""
+    rank_a, rank_b = rank_of(a, corpus), rank_of(b, corpus)
+    if rank_a == rank_b:
+        return a, f"both come from {_describe(a, corpus)}: the more recent one prevails"
+    winner, loser = (a, b) if rank_a > rank_b else (b, a)
+    return winner, f"{_describe(winner, corpus)} outranks {_describe(loser, corpus)}"
+
+
+_DURATION = re.compile(r"P(?:(\d+(?:\.\d+)?)Y)?(?:(\d+(?:\.\d+)?)M)?(?:(\d+(?:\.\d+)?)W)?(?:(\d+(?:\.\d+)?)D)?"
+                       r"(?:T(?:(\d+(?:\.\d+)?)H)?(?:(\d+(?:\.\d+)?)M)?(?:(\d+(?:\.\d+)?)S)?)?")
+_LENGTH = re.compile(r"(\d+(?:[.,]\d+)?)\s*(mm|cm|m)?", re.IGNORECASE)
+SMALLER_IS_STRICTER, LARGER_IS_STRICTER = "smaller_is_stricter", "larger_is_stricter"
+
+
+def measure(value) -> tuple[str, float]:
+    """('duration', days) for an ISO duration such as 'P45D' or 'P2Y'; ('length', millimetres) for a number
+    or a text such as '850', '850 mm', '1.3 m'. A year counts 365 days and a month 30. Raises ValueError otherwise."""
+    text = str(value).strip()
+    match = _DURATION.fullmatch(text)
+    if match and text not in ("P", "PT") and not text.endswith("T"):
+        years, months, weeks, days, hours, minutes, seconds = (float(x or 0) for x in match.groups())
+        return "duration", years * 365 + months * 30 + weeks * 7 + days + hours / 24 + minutes / 1440 + seconds / 86400
+    match = _LENGTH.fullmatch(text)
+    if match:
+        factor = {"mm": 1.0, "cm": 10.0, "m": 1000.0}[(match.group(2) or "mm").lower()]
+        return "length", float(match.group(1).replace(",", ".")) * factor
+    raise ValueError(f"not an ISO duration nor a length in mm: {value!r}")
+
+
+def compare_strictness(upper_value, lower_value, sense: str) -> str:
+    """Is the rule of the lower layer 'stricter', the 'same' or 'looser' than the rule of the higher layer?
+    A stricter lower rule is allowed, a looser one is flagged. `sense` is SMALLER_IS_STRICTER for an interval
+    or a time limit (inspect every 90 days) and LARGER_IS_STRICTER for a protected distance (a fence radius)."""
+    if sense not in (SMALLER_IS_STRICTER, LARGER_IS_STRICTER):
+        raise ValueError(f"sense must be {SMALLER_IS_STRICTER!r} or {LARGER_IS_STRICTER!r}, not {sense!r}")
+    (upper_unit, upper), (lower_unit, lower) = measure(upper_value), measure(lower_value)
+    if upper_unit != lower_unit:
+        raise ValueError(f"cannot compare a {upper_unit} with a {lower_unit}")
+    if abs(upper - lower) < 1e-9:
+        return "same"
+    return "stricter" if (lower < upper) == (sense == SMALLER_IS_STRICTER) else "looser"
 
 
 class Statement(BaseModel):
@@ -49,6 +155,7 @@ class Statement(BaseModel):
     asserted_by: str
     conflicts_with: str = ""
     confirmations: int = 0
+    layer: str = ""            # one of LAYERS; filled from the source when the fact is written
 
 
 class Corpus:
@@ -66,6 +173,11 @@ class Corpus:
     def meta(self, doc_id: str) -> dict:
         return self.rows.get(doc_id, {})
 
+    def layer(self, doc_id: str) -> str:
+        """The layer of a registered document: its own 'layer' column, or the layer of its kind."""
+        row = self.meta(doc_id)
+        return row.get("layer") or KIND_LAYER.get(row.get("kind", ""), "")
+
 
 class ChunkCorpus:
     """The same two questions the store asks, answered from the chunks of atlas.corpus.chunker."""
@@ -75,6 +187,7 @@ class ChunkCorpus:
     def __init__(self, chunks) -> None:
         self.chunks = {(c.source, c.locator): c for c in chunks}
         self.versions = {c.source: c.version for c in chunks}
+        self.layers = {c.source: c.layer for c in chunks if getattr(c, "layer", "")}
 
     def section(self, doc_id: str, anchor: str) -> str | None:
         chunk = self.chunks.get((doc_id, anchor))
@@ -82,6 +195,10 @@ class ChunkCorpus:
 
     def meta(self, doc_id: str) -> dict:
         return {"kind": self.KINDS.get(doc_id, "law"), "version": self.versions.get(doc_id, "")}
+
+    def layer(self, doc_id: str) -> str:
+        """The layer of the chunks of a source; '' for a source the corpus does not hold."""
+        return self.layers.get(doc_id, "")
 
 
 class Store:
@@ -108,6 +225,7 @@ class Store:
         s.source_version = s.source_version or meta.get("version", "")
         if s.in_force_from is None and meta.get("in_force_from"):
             s.in_force_from = date.fromisoformat(meta["in_force_from"])
+        s.layer = s.layer or self.layer_of(s)
         s.id = s.id or f"st-{len(self.statements) + 1:04d}"
         if s.status != "open_point":
             s.status = "proposed"
@@ -130,7 +248,8 @@ class Store:
                 old.status = "closed"  # a newer version of the same document
                 old.in_force_to = new.in_force_from or date.today()
             else:
-                winner, loser = (new, old) if self._rank(new) >= self._rank(old) else (old, new)
+                winner, _ = self.settle(new, old)
+                loser = old if winner is new else new
                 winner.status, loser.status = "current", "conflict"
                 loser.conflicts_with = winner.id
         return new
@@ -177,10 +296,18 @@ class Store:
         store.rejections = payload["rejections"]
         return store
 
+    def layer_of(self, s: Statement) -> str:
+        return layer_of_statement(s, self.corpus)
+
+    def rank_of(self, s: Statement) -> int:
+        return rank_of(s, self.corpus)
+
+    def settle(self, a: Statement, b: Statement) -> tuple[Statement, str]:
+        """Which of two disagreeing facts prevails and why; pass the newer one first."""
+        return settle(a, b, self.corpus)
+
     def _rank(self, s: Statement) -> int:
-        if s.asserted_by.startswith("person:"):
-            return AUTHORITY["person"]
-        return AUTHORITY.get(self.corpus.meta(s.source_doc).get("kind", ""), 0)
+        return self.rank_of(s)
 
     def _reject(self, s: Statement, reason: str) -> None:
         self.rejections.append({"reason": reason, "statement": s.model_dump(mode="json")})

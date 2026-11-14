@@ -69,7 +69,8 @@ def propose_change(document: Path) -> ChangeSet:
     if fake_mode():
         from atlas import fake
         return fake.propose_change(document)
-    raise NotImplementedError("core: propose_change")
+    from atlas.ontology import change
+    return change.propose_change(document)
 
 
 def apply_change(changeset: ChangeSet, accepted: list[str]) -> BuildResult:
@@ -77,4 +78,5 @@ def apply_change(changeset: ChangeSet, accepted: list[str]) -> BuildResult:
     if fake_mode():
         from atlas import fake
         return fake.apply_change(changeset, accepted)
-    raise NotImplementedError("core: apply_change")
+    from atlas.ontology import change
+    return change.apply_change(changeset, accepted)
