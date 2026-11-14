@@ -1,0 +1,296 @@
+[
+ {
+  "id": "st-0204",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0006"
+ },
+ {
+  "id": "st-0073",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0007"
+ },
+ {
+  "id": "st-0088",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0008"
+ },
+ {
+  "id": "st-0156",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0009"
+ },
+ {
+  "id": "st-0185",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0010"
+ },
+ {
+  "id": "st-1507",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0011"
+ },
+ {
+  "id": "st-0100",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0014"
+ },
+ {
+  "id": "st-0113",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0015"
+ },
+ {
+  "id": "st-0132",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0016"
+ },
+ {
+  "id": "st-0149",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0017"
+ },
+ {
+  "id": "st-0200",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0018"
+ },
+ {
+  "id": "st-0209",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0019"
+ },
+ {
+  "id": "st-0232",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0020"
+ },
+ {
+  "id": "st-0139",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0022"
+ },
+ {
+  "id": "st-0138",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0023"
+ },
+ {
+  "id": "st-0164",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0024"
+ },
+ {
+  "id": "st-0126",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0026"
+ },
+ {
+  "id": "st-0002",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0027"
+ },
+ {
+  "id": "st-0194",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0028"
+ },
+ {
+  "id": "st-1583",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0029"
+ },
+ {
+  "id": "st-0017",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0030"
+ },
+ {
+  "id": "st-0028",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0031"
+ },
+ {
+  "id": "st-0152",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0032"
+ },
+ {
+  "id": "st-0183",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0034"
+ },
+ {
+  "id": "st-0029",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0035"
+ },
+ {
+  "id": "st-0016",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0036"
+ },
+ {
+  "id": "st-0026",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0038"
+ },
+ {
+  "id": "st-0144",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0039"
+ },
+ {
+  "id": "st-0025",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0040"
+ },
+ {
+  "id": "st-0272",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0041"
+ },
+ {
+  "id": "st-0105",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0042"
+ },
+ {
+  "id": "st-0031",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0043"
+ },
+ {
+  "id": "st-0014",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0044"
+ },
+ {
+  "id": "st-0018",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0045"
+ },
+ {
+  "id": "st-0019",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0046"
+ },
+ {
+  "id": "st-0015",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0047"
+ },
+ {
+  "id": "st-0196",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0048"
+ },
+ {
+  "id": "st-0021",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0049"
+ },
+ {
+  "id": "st-0007",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0050"
+ },
+ {
+  "id": "st-0006",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0051"
+ },
+ {
+  "id": "st-0184",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0052"
+ },
+ {
+  "id": "st-0005",
+  "file": "ontology/B/statements.json",
+  "status": "closed",
+  "in_force_to": "2026-11-14",
+  "replaced_by": "reextracted-r2-0053"
+ }
+]
