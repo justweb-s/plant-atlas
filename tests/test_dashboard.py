@@ -64,3 +64,19 @@ def test_script_parses(page, tmp_path):
     f = tmp_path / "dash.js"
     f.write_text(script, encoding="utf-8")
     assert subprocess.run([node, "--check", str(f)], capture_output=True).returncode == 0
+
+
+def test_ask_is_default_and_ontology_tab_exists(page):
+    assert 'const DEFAULT_TAB = "ask";' in page
+    assert page.index('data-tab="ask"') < page.index('data-tab="ontology"') < page.index('data-tab="score"')
+    assert all(sc["demo"] for sc in _data(page)["scenes"])
+    whole = _data(page)["whole"]
+    assert set(whole["layers"]) == {"law", "guidance", "manufacturer", "company", "plant"}
+    assert whole["totals"]["in_force"] == sum(l["counts"]["in_force"] for l in whole["layers"].values())
+
+
+def test_every_relation_has_plain_words(page):
+    from atlas.strategies import schema_b
+    rel = _data(page)["rel"]
+    assert set(schema_b.RELATIONS) <= set(dashboard.REL_WORDS)
+    assert all(rel.get(k, "").strip() for k in schema_b.RELATIONS)

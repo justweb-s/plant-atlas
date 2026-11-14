@@ -6,10 +6,12 @@ already produced by the build and the evaluation; nothing is computed by a model
 from __future__ import annotations
 
 import json
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
 from atlas.ontology import atlas_page
+from atlas.strategies import schema_b
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "ontology" / "B" / "dashboard.html"
@@ -25,6 +27,81 @@ BAND_WORDS = {
 }
 
 
+REL_WORDS = {
+    "requiresProcedure": "requires the procedure", "listedIn": "listed in", "appliesFrom": "applies from",
+    "repealedFrom": "repealed from", "placingAllowedUntil": "may be placed on the market until",
+    "retentionPeriod": "must be kept for", "definedAs": "means", "mustAccompany": "must come with",
+    "hasObligation": "must", "becomesManufacturer": "counts as manufacturer when", "addressesRisk": "addresses the risk",
+    "requiresMeasure": "requires the measure", "verifiedBy": "verified by", "hasTimeLimit": "within",
+    "hasReach": "reach", "hasMaxPayload": "maximum payload", "isPartlyCompletedMachinery": "is partly completed machinery",
+    "hasDeclaration": "has the declaration", "conformsToStandard": "conforms to", "putIntoServiceOnlyWhen": "in service only when",
+    "integratorResponsibleFor": "integrator is responsible for", "hasSafetyFunction": "safety function",
+    "hasStoppingLimit": "stopping limit", "minimumDistanceRule": "minimum distance rule",
+    "minimumDistanceParameter": "minimum distance parameter", "protectiveFieldRange": "protective field range",
+    "requiresCheckAfter": "must be checked after", "requiresPeriodicCheck": "must be checked",
+    "safeguardedSpaceRule": "safeguarded space rule", "mustKeepRegister": "register required",
+    "maintenanceRule": "maintenance rule", "verificationInterval": "must be verified", "deviceKind": "kind",
+    "capacityKg": "capacity (kg)", "yearBuilt": "built in", "siteSector": "sector",
+}
+_STOP = set("how often must the which who what does do is are can from a an of be to in for when by on its it that this and or as with at under after one first out carries carried always".split())
+
+
+def _short(question: str) -> str:
+    words = [w.strip("?,.;:()'\"") for w in question.split()]
+    keep = [w for w in words if w and w.lower() not in _STOP][:4]
+    return " ".join(w if any(c.isupper() or c.isdigit() for c in w) else w.capitalize() for w in keep)
+
+
+def _whole(vb: dict, verdicts: dict, impact: dict, facts: dict, store) -> tuple[dict, list]:
+    """The status of the whole store, layer by layer, counted from the facts themselves."""
+    known = {d["source"]: d for d in impact["documents"]}
+    flagged = sorted(i for i, v in verdicts.items() if not (v.get("states") == "yes" and v.get("dropped_condition") == "no"))
+    fl = set(flagged)
+    layers: dict = {}
+    docs: dict = {}
+    for f in vb["facts"]:
+        lay = layers.setdefault(f["l"], {"docs": Counter(), "rels": Counter(), "counts": Counter()})
+        lay["counts"][f.get("st")] += 1
+        if f["id"] in fl:
+            lay["counts"]["flagged"] += 1
+        if f.get("st") != "current":
+            continue
+        lay["docs"][f["d"]] += 1
+        doc = docs.setdefault(f["d"], {"layer": f["l"], "title": known.get(f["d"], {}).get("title") or vb["sources"][f["d"]]["noun"],
+                                       "if_changed": known.get(f["d"], {}).get("if_changed", ""), "ex": []})
+        if f["p"] != "openPoint":
+            lay["rels"][f["p"]] += 1
+            if len(doc["ex"]) < 3:
+                doc["ex"].append(f["id"])
+                facts.setdefault(f["id"], dict(f, n=vb["sources"][f["d"]]["noun"]))
+    out = {}
+    for name, lay in layers.items():
+        c = lay["counts"]
+        out[name] = {"docs": [{"source": d, "n": n} for d, n in lay["docs"].most_common()],
+                     "rels": [{"p": p, "n": n} for p, n in lay["rels"].most_common(4)],
+                     "counts": {"in_force": c["current"], "closed": c["closed"], "conflict": c["conflict"],
+                                "open": c["open_point"], "flagged": c["flagged"]}}
+    reasons = Counter(r["reason"] if isinstance(r, dict) else getattr(r, "reason", "") for r in getattr(store, "rejections", []))
+    whole = {"layers": out, "docs": docs,
+             "totals": {"in_force": sum(v["counts"]["in_force"] for v in out.values()), "kept": len(vb["facts"]),
+                        "documents": len({f["d"] for f in vb["facts"]}), "layers": len(out),
+                        "classes": len(schema_b.CLASSES), "relations": len(schema_b.RELATIONS)},
+             "reasons": [{"reason": k.replace("_", " "), "n": n} for k, n in reasons.most_common(3) if k],
+             "events": [{"date": e["date"], "title": e["title"], "text": e["text"]} for e in vb.get("events", [])
+                        if e.get("kind") == "correction" or e["date"] > vb["today"]]}
+    return whole, flagged
+
+
+DEMOS = {
+    "crane": "One answer needs facts from every layer. The rule picks the right row of the law from the device's type, sector and age; search finds passages, not this path.",
+    "correction": "History is kept. A correction closes the old fact and links it to the new one; nothing is deleted, so the store can be read as of any date.",
+    "repeal": "A change at the top reaches the bottom. On 20 January 2027 the regime flips, and the manuals that cite the old law are flagged for review.",
+    "conflict": "Sources have an order. Both statements are kept; the legislative decree prevails over the ministerial decree, and the reason is shown.",
+    "arm": "A change in the plant is checked against the layers above it: the new arm's reach, from its manual, no longer fits the protected zone a public safety sheet requires.",
+    "unknown": "Unknown is an answer. A missing fact is shown as missing, never guessed.",
+}
+
+
 def _load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -34,7 +111,7 @@ def _design_rows(path: Path) -> dict:
 
 
 def _design_questions() -> list[dict]:
-    return [{"id": q["id"], "en": q["question_en"], "it": q.get("question_it") or q["question_en"]}
+    return [{"id": q["id"], "en": q["question_en"], "it": q.get("question_it") or q["question_en"], "short": _short(q["question_en"])}
             for q in _load(ROOT / "data" / "cq" / "cqs.json")["cqs"] if q["split"] == DESIGN]
 
 
@@ -76,12 +153,15 @@ def build(store=None, today: date | None = None) -> dict:
     impact = _load(ROOT / "ontology" / "B" / "impact.json")
     verify = _load(ROOT / "ontology" / "B" / "verify_report.json")
     numbers = base["numbers"]
+    vb = atlas_page.viewer.build_data(store, today)
+    whole, flagged = _whole(vb, verify["verdicts"], impact, base["facts"], store)
     index = {}
-    for f in atlas_page.viewer.build_data(store, today)["facts"]:
+    for f in vb["facts"]:
         if f.get("st") == "current" and f["id"] not in base["facts"]:
             index[f["id"]] = [f.get("s", ""), f.get("p", ""), f.get("w") or f.get("o", ""), f.get("d", ""), f.get("a", ""), f.get("l", "")]
     return {
-        "facts": base["facts"], "scenes": base["scenes"], "index": index,
+        "facts": base["facts"], "scenes": [dict(sc, demo=DEMOS.get(sc["id"], "")) for sc in base["scenes"]], "index": index, "whole": whole, "flagged": flagged,
+        "rel": {k: REL_WORDS[k] for k in schema_b.RELATIONS},
         "layers": [dict(l, words=BAND_WORDS[l["name"]]) for l in base["layers"]],
         "scenario_label": base["scenario_label"], "today": base["today"], "today_plain": base["today_plain"],
         "questions": questions, "totals": totals,
@@ -189,9 +269,39 @@ button { cursor: pointer; }
 .empty { font-size: 12.5px; color: var(--muted); opacity: .8; }
 .card { position: relative; z-index: 2; flex: 1 1 0; min-width: 0; max-width: 250px; max-height: 100%; text-align: left; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--lc); border-radius: 8px; padding: 6px 9px; display: flex; flex-direction: column; gap: 1px; box-shadow: var(--shadow); overflow: hidden; }
 .card:hover { border-color: var(--lc); }
+.card { transition: opacity .35s ease-out, transform .35s ease-out; }
+.card.pend { opacity: 0; transform: translateY(10px); }
+svg.links .pend { opacity: 0; }
+svg.links.fadein path, svg.links.fadein text { animation: fade .3s ease-out; }
+.bands.fadein .card, .bands.fadein .whole { animation: rise .28s ease-out; }
+.panel.fadein { animation: fade .2s ease-out; }
+.val.pulse { animation: pulse .7s ease-out; transform-origin: left center; }
+@keyframes fade { from { opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+@keyframes pulse { 40% { transform: scale(1.14); color: var(--right); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
+.demo { font-size: 13px; margin: 0 0 6px !important; font-weight: 400 !important; }
+.demo b { font-weight: 700; }
 .card .s { font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card .r { font-size: 13px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card .r { font-size: 13px; font-weight: 400; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .card .src { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card .r b { font-weight: 600; } .card .rel { color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; min-width: 0; }
+.chips .chip { margin-top: 0; }
+.chip.srcc { background: var(--surface-2); color: var(--muted); font-weight: 500; }
+.chip.ok { background: var(--right-bg); color: var(--inforce); }
+.whole { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 6px; overflow: hidden; }
+.docs { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.doc { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--lc); border-radius: 6px; padding: 2px 8px; font-size: 12.5px; }
+.doc:hover, .doc[aria-pressed="true"] { border-color: var(--lc); }
+.doc b { font-weight: 700; margin-left: 3px; }
+.rels { display: flex; flex-wrap: wrap; gap: 2px 14px; font-size: 13px; }
+.rels b { font-weight: 700; }
+.cnts { font-size: 12px; color: var(--muted); line-height: 1.35; }
+.cnts b { color: var(--ink); }
+.tl { list-style: none; margin: 4px 0 10px; padding: 0; display: grid; gap: 5px; font-size: 12.5px; color: var(--muted); }
+.tl b { color: var(--ink); }
 .card.off { border-left-color: var(--notinforce); background: var(--notinforce-bg); }
 .card.off .r { text-decoration: line-through; text-decoration-color: var(--notinforce); color: var(--muted); }
 .card.flagged { border-left-color: var(--flag); }
@@ -226,8 +336,9 @@ svg.links text { font-size: 10.5px; fill: var(--muted); paint-order: stroke; str
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
 .opts { margin: 8px 0 6px; font-size: 12.5px; color: var(--muted); }
 .opts input[type=date] { padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); font-size: 12.5px; }
-.qs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
-.qs button { background: var(--surface-2); border: 1px solid transparent; border-radius: 6px; padding: 3px 7px; font-size: 12px; font-weight: 600; }
+.qs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; max-height: 106px; overflow: auto; }
+.qs small { font-weight: 500; opacity: .65; font-size: 10.5px; }
+.qs button { background: var(--surface-2); border: 1px solid transparent; border-radius: 6px; padding: 2px 7px; font-size: 11.5px; font-weight: 600; }
 .qs button.has { border-color: var(--accent); }
 .qs button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
 .ans { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; background: var(--bg); }
@@ -243,8 +354,8 @@ svg.links text { font-size: 10.5px; fill: var(--muted); paint-order: stroke; str
 .mark.right { background: var(--right-bg); color: var(--right); }
 .mark.unknown { background: var(--unknown-bg); color: var(--unknown); }
 .mark.wrong, .mark.partly { background: var(--wrong-bg); color: var(--wrong); }
-.steps { margin: 8px 0 0; padding: 0 4px 0 0; list-style: none; display: grid; gap: 5px; max-height: 196px; overflow: auto; }
-.txt.clip { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.steps { margin: 8px 0 0; padding: 0 4px 0 0; list-style: none; display: grid; gap: 5px; max-height: 300px; overflow: auto; }
+.txt.clip { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 .steps button { width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 7px; padding: 5px 8px 5px 32px; position: relative; font-size: 12.5px; }
 .steps .n { position: absolute; left: 7px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-size: 11px; font-weight: 700; display: grid; place-items: center; }
 .steps q { display: block; color: var(--muted); font-style: italic; quotes: "\201C" "\201D"; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
@@ -285,7 +396,8 @@ select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; ba
 .scenes button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); background: var(--surface-2); }
 .scenes .i { font-family: "Space Grotesk", sans-serif; font-weight: 700; color: var(--muted); grid-row: span 2; }
 .scenes strong { font-size: 13.5px; }
-.scenes span.c { font-size: 12.5px; color: var(--muted); }
+.scenes span.c { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.scenes button { min-width: 0; } .scenes button[aria-pressed="true"] span.c { white-space: normal; }
 .whatif { margin: 6px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--muted); }
 .whatif b { color: var(--ink); font-weight: 600; }
 
@@ -314,6 +426,10 @@ select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; ba
   .bname span { display: none; }
   .band { padding-top: 4px; padding-bottom: 4px; }
   .card { padding: 3px 9px; }
+  .docs, .rels { flex-wrap: nowrap; overflow: hidden; white-space: nowrap; }
+  .doc, .docs .more { flex: none; }
+  .cnts { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .whole { gap: 4px; }
 }
 </style>
 <div class="app">
@@ -330,7 +446,7 @@ select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; ba
     </section>
     <section class="right">
       <div class="tabs" role="tablist" id="tabs">
-        <button role="tab" data-tab="ask">Ask</button><button role="tab" data-tab="score">Score</button><button role="tab" data-tab="changes">Changes</button><button role="tab" data-tab="scenes">Scenes</button>
+        <button role="tab" data-tab="ask">Ask</button><button role="tab" data-tab="ontology">Ontology</button><button role="tab" data-tab="score">Score</button><button role="tab" data-tab="changes">Changes</button><button role="tab" data-tab="scenes">Scenes</button>
       </div>
       <div class="panel" id="panel" role="tabpanel"></div>
     </section>
@@ -344,23 +460,39 @@ const esc = v => String(v == null ? "" : v).replace(/[&<>"']/g, c => ({"&": "&am
 const num = n => Number(n).toLocaleString("en-GB");
 const LAYER = Object.fromEntries(D.layers.map(l => [l.name, l]));
 const DOCLAYER = Object.fromEntries(D.documents.map(d => [d.source, d.layer]));
-const S = {tab: "ask", live: false, lang: "en", q: null, answer: null, scene: 0, variant: {}, change: "after", doc: "", playing: null, view: null};
+const DEFAULT_TAB = "ask";
+const REL = D.rel; const FLAG = new Set(D.flagged);
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const ST_WORDS = {current: "in force", closed: "corrected", conflict: "lost to a stronger source", open_point: "open point"};
+function relWords(p) { return REL[p] || String(p || "").replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase(); }
+function isoLike(v) { return typeof v === "string" && /^(\d{4}-\d{2}-\d{2}|P\d+[YMD])$/.test(v); }
+function plainDate(v) { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v); return m ? (+m[3]) + " " + MONTHS[+m[2] - 1] + " " + m[1] : v; }
+function human(v, p) {
+  if (v == null) return "";
+  if (typeof v !== "string") return String(v);
+  const m = /^P(\d+)([YMD])$/.exec(v);
+  if (m) { const u = {Y: "year", M: "month", D: "day"}[m[2]]; const every = p === "verificationInterval" || p === "requiresPeriodicCheck"; return every ? (m[1] === "1" ? "every " + u : "every " + m[1] + " " + u + "s") : m[1] + " " + u + (m[1] === "1" ? "" : "s"); }
+  return plainDate(v);
+}
+const S = {tab: "ask", odoc: "", timers: [], live: false, lang: "en", q: null, answer: null, scene: 0, variant: {}, change: "after", doc: "", playing: null, view: null};
 
 /* ---------- left column ---------- */
 function factCard(id, extra) {
-  const f = D.facts[id]; const x = D.index[id];
-  if (!f && !x) return null;
-  const c = f ? {band: f.l, s: f.s, r: f.p + " \u2192 " + (f.w || f.o), src: f.d + ", " + f.a, fact: f}
-              : {band: x[5], s: x[0], r: x[1] + " \u2192 " + x[2], src: x[3] + ", " + x[4], fact: {id: id, s: x[0], p: x[1], o: x[2], d: x[3], a: x[4], l: x[5], st: "current"}};
-  if (f && f.st && f.st !== "current" && !(extra && extra.state)) c.state = f.st === "open_point" ? "open" : "out";
-  return Object.assign(c, {id: id}, extra || {});
+  const f0 = D.facts[id]; const x = D.index[id];
+  if (!f0 && !x) return null;
+  const f = f0 || {id: id, s: x[0], p: x[1], o: x[2], d: x[3], a: x[4], l: x[5], st: "current"};
+  const c = {id: id, band: f.l, s: f.s, rel: relWords(f.p), val: human(isoLike(f.o) ? f.o : (f.w || f.o), f.p), src: f.d + " \u00b7 " + f.a, fact: f, status: ST_WORDS[f.st] || "in force"};
+  if (f.st && f.st !== "current") c.state = f.st === "open_point" ? "open" : "out";
+  Object.assign(c, extra || {});
+  if (c.chip) c.status = c.chip;
+  return c;
 }
 const STATE_CHIP = {out: "not in force", flag: "flagged for review", undecided: "undecided", open: "open point"};
 function sceneView(si, vi) {
   const sc = D.scenes[si]; const v = sc.variants[vi];
   let cards = v.cards.map(c => {
-    if (!c.f) return {id: c.k, band: c.band, s: c.title, r: c.text, src: "", state: "scenario", chip: D.scenario_label, note: c.note, pair: c.pair};
-    return factCard(c.f, {id: c.k, state: c.state, chip: c.tag || (c.state !== "in" ? STATE_CHIP[c.state] : ""), note: c.note, pair: c.pair});
+    if (!c.f) return {id: c.k, band: c.band, s: c.title, rel: "", val: c.text, src: "", state: "scenario", status: D.scenario_label, step: c.step, note: c.note, pair: c.pair};
+    return factCard(c.f, {id: c.k, step: c.step, state: c.state, chip: c.tag || (c.state !== "in" ? STATE_CHIP[c.state] : ""), note: c.note, pair: c.pair});
   }).filter(Boolean);
   if (cards.some(c => c.pair != null)) {
     const inLink = new Set(); v.links.forEach(l => { inLink.add(l.a); inLink.add(l.b); });
@@ -376,29 +508,42 @@ function answerView(ans) {
     let c = factCard(id, {num: i + 1});
     if (!c) {
       const src = String(st.locator || "").split(",")[0].trim();
-      c = {id: id, band: DOCLAYER[src] || "law", s: st.text || "", r: st.quote || "", src: st.locator || "", num: i + 1, fact: {id: id, q: st.quote, d: src, a: st.locator}};
+      c = {id: id, band: DOCLAYER[src] || "law", s: st.text || "", rel: "", val: st.quote || "", src: st.locator || "", status: "used by the answer", num: i + 1, fact: {id: id, q: st.quote, d: src, a: st.locator}};
     }
     if (st.quote && !c.fact.q) c.fact = Object.assign({}, c.fact, {q: st.quote});
     seen[id] = 1; cards.push(c);
   });
-  const links = []; for (let i = 1; i < cards.length; i++) if (cards[i].band !== cards[i - 1].band) links.push({a: cards[i - 1].id, b: cards[i].id, kind: "derived"});
-  return {title: "<b>Facts used by the answer</b>, numbered in the order the agent used them", cards: cards, links: links, cap: 3};
+  const links = []; for (let i = 1; i < cards.length; i++) links.push({a: cards[i - 1].id, b: cards[i].id, kind: "derived"});
+  return {title: "<b>How Plant Atlas reached this answer</b>: " + cards.length + " facts across " + new Set(cards.map(c => c.band)).size + " layers", cards: cards, links: links, cap: 3, reveal: true, pulse: true};
 }
 function docView(doc) {
-  const cards = [{id: "doc", band: doc.layer, s: doc.source, r: doc.title, src: num(doc.facts_anchored) + " facts anchored in it \u00b7 " + num(doc.pieces) + " passages", chip: num(doc.facts_anchored) + " facts anchored", fact: null, plain: doc.if_changed}];
+  const cards = [{id: "doc", band: doc.layer, s: doc.source, rel: "", val: doc.title, src: num(doc.pieces) + " passages", status: num(doc.facts_anchored) + " facts anchored", fact: null, plain: doc.if_changed}];
   const links = []; const extra = {};
   doc.referred_by.forEach(g => {
-    g.examples.forEach(e => { cards.push({id: e.id, band: g.layer, s: e.subject, r: e.predicate + " \u2192 " + e.value, src: e.source_doc + ", " + e.anchor, chip: "cites this document", flag: true, fact: {id: e.id, s: e.subject, p: e.predicate, o: e.value, q: e.quote, d: e.source_doc, a: e.anchor, l: g.layer, st: "current"}}); links.push({a: e.id, b: "doc", kind: "derived", label: "cites"}); });
+    g.examples.forEach(e => { cards.push({id: e.id, band: g.layer, s: e.subject, rel: relWords(e.predicate), val: human(e.value, e.predicate), src: e.source_doc + " \u00b7 " + e.anchor, status: "cites this document", flag: true, fact: {id: e.id, s: e.subject, p: e.predicate, o: e.value, q: e.quote, d: e.source_doc, a: e.anchor, l: g.layer, st: "current"}}); links.push({a: e.id, b: "doc", kind: "derived", label: "cites"}); });
     extra[g.layer] = Math.max(0, g.count - g.examples.length);
   });
   return {title: "<b>What changes if this document changes</b>: " + esc(doc.title), cards: cards, links: links, cap: 3, extra: extra};
 }
 function cardHtml(c, tag) {
-  const cls = "card" + (c.state === "out" ? " off" : "") + (c.state === "flag" || c.state === "scenario" || c.flag ? " flagged" : "") + (c.num ? " numbered" : "");
-  const chipCls = "chip" + (c.state === "flag" || c.state === "scenario" || c.state === "undecided" || c.state === "open" || c.flag ? " flag" : "");
+  const off = c.state === "out"; const warn = c.state === "flag" || c.state === "scenario" || c.state === "undecided" || c.state === "open" || c.flag;
+  const cls = "card" + (off ? " off" : "") + (warn ? " flagged" : "") + (c.num ? " numbered" : "");
   return "<button class='" + cls + "' data-card='" + esc(c.id) + "'" + (tag || "") + ">" + (c.num ? "<span class='num'>" + c.num + "</span>" : "") +
-    "<span class='s'>" + esc(c.s) + "</span><span class='r'>" + esc(c.r) + "</span>" + (c.src ? "<span class='src'>" + esc(c.src) + "</span>" : "") +
-    (c.chip ? "<span class='" + chipCls + "'>" + esc(c.chip) + "</span>" : "") + "</button>";
+    "<span class='s'>" + esc(c.s) + "</span><span class='r'>" + (c.rel ? "<span class='rel'>" + esc(c.rel) + "</span> " : "") + "<b>" + esc(c.val) + "</b></span><span class='chips'>" +
+    (c.src ? "<span class='chip srcc'>" + esc(c.src) + "</span>" : "") + "<span class='chip" + (off ? "" : warn ? " flag" : " ok") + "'>" + esc(c.status || "in force") + "</span>" +
+    (c.fact && FLAG.has(c.fact.id) ? "<span class='chip flag'>flagged by second reader</span>" : "") + "</span></button>";
+}
+function wholeHtml(layer) {
+  const W = D.whole.layers[layer]; if (!W) return "<div class='cards'><span class='empty'>No fact in this layer.</span></div>";
+  const c = W.counts; const more = W.docs.length - 6;
+  return "<div class='whole'><div class='docs'>" + W.docs.slice(0, 6).map(d => "<button class='doc' data-doc=\"" + esc(d.source) + "\" title=\"" + esc(D.whole.docs[d.source].title) + "\">" + esc(d.source) + "<b>" + num(d.n) + "</b></button>").join("") + (more > 0 ? "<button class='more' data-moredocs='" + layer + "'>+" + more + " more</button>" : "") + "</div>" +
+    "<div class='rels'>" + W.rels.map(r => "<span>" + esc(relWords(r.p)) + " <b>" + num(r.n) + "</b></span>").join("") + "</div>" +
+    "<div class='cnts'><b>" + num(c.in_force) + "</b> in force \u00b7 <b>" + num(c.closed) + "</b> corrected and kept \u00b7 <b>" + num(c.conflict) + "</b> lost to a stronger source \u00b7 <b>" + num(c.open) + "</b> open points \u00b7 <b>" + num(c.flagged) + "</b> flagged by second reader</div></div>";
+}
+function wholeView() {
+  const doc = D.whole.docs[S.odoc];
+  if (!doc) return {title: "<b>The whole ontology</b>: each layer's documents, most used relations and status", whole: true, cards: [], links: []};
+  return {title: "Document <b>" + esc(S.odoc) + "</b>: " + esc(doc.title) + " \u00b7 example facts in force", whole: true, cards: doc.ex.map(i => factCard(i)).filter(Boolean), links: []};
 }
 function showLeft(view) {
   S.view = view; $("#showing").innerHTML = view.title;
@@ -407,14 +552,36 @@ function showLeft(view) {
     const mine = view.cards.filter(c => c.band === l.name); const shown = mine.slice(0, view.cap || 3);
     const hidden = mine.length - shown.length + ((view.extra || {})[l.name] || 0);
     const el = document.createElement("div"); el.className = "band"; el.dataset.l = l.name;
-    el.innerHTML = "<div class='bname'><strong>" + esc(l.label) + "</strong><span>" + esc(l.words) + "</span><em>" + num(l.count) + " facts in force</em></div><div class='cards'>" +
+    el.innerHTML = "<div class='bname'><strong>" + esc(l.label) + "</strong><span>" + esc(l.words) + "</span><em>" + num(l.count) + " facts in force</em></div>" + (view.whole && !mine.length ? wholeHtml(l.name) : "<div class='cards'>" +
       (shown.length ? shown.map(c => cardHtml(c)).join("") : "<span class='empty'>No fact of this layer in play here.</span>") +
-      (hidden > 0 ? "<button class='more' data-more='" + l.name + "'>+" + hidden + " more</button>" : "") + "</div>";
+      (hidden > 0 ? "<button class='more' data-more='" + l.name + "'>+" + hidden + " more</button>" : "") + "</div>");
     bands.appendChild(el);
   });
-  requestAnimationFrame(drawLinks);
+  S.timers.forEach(clearTimeout); S.timers = [];
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reveal = !!view.reveal && !reduce;
+  bands.classList.toggle("fadein", !reveal); $("#links").classList.toggle("fadein", !reveal);
+  if (reveal) bands.querySelectorAll(".card").forEach(c => c.classList.add("pend"));
+  requestAnimationFrame(() => { drawLinks(reveal); if (reveal) runReveal(view); });
 }
-function drawLinks() {
+function drawIn(p) {
+  p.classList.remove("pend"); if (p.tagName.toLowerCase() !== "path") return;
+  const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; p.getBoundingClientRect();
+  p.style.transition = "stroke-dashoffset .45s ease-out"; p.style.strokeDashoffset = 0;
+  S.timers.push(setTimeout(() => { p.style.transition = ""; p.style.strokeDasharray = ""; p.style.strokeDashoffset = ""; }, 480));
+}
+function runReveal(view) {
+  const els = Array.from(document.querySelectorAll("#bands .card"));
+  const key = el => { const c = view.cards.find(c => c.id === el.dataset.card); return c ? (c.num != null ? c.num : (c.step || 0)) : 0; };
+  els.sort((a, b) => key(a) - key(b));
+  const gap = view.gap || 600; const done = new Set();
+  els.forEach((el, i) => S.timers.push(setTimeout(() => {
+    el.classList.remove("pend"); done.add(el.dataset.card);
+    document.querySelectorAll("#links .pend").forEach(p => { if (done.has(p.dataset.a) && done.has(p.dataset.b)) drawIn(p); });
+  }, 120 + i * gap)));
+  if (view.pulse) S.timers.push(setTimeout(() => { const v = document.querySelector(".ans.atlas .val"); if (v) { v.classList.remove("pulse"); v.getBoundingClientRect(); v.classList.add("pulse"); } }, 120 + els.length * gap));
+}
+function drawLinks(hide) {
   const svg = $("#links"); const view = S.view; if (!view) return;
   const box = $("#bands").getBoundingClientRect(); let out = "";
   const pos = id => { const el = document.querySelector("#bands [data-card='" + CSS.escape(id) + "']"); if (!el) return null; const r = el.getBoundingClientRect(); return {l: r.left - box.left, r: r.right - box.left, t: r.top - box.top, b: r.bottom - box.top, x: (r.left + r.right) / 2 - box.left, y: (r.top + r.bottom) / 2 - box.top}; };
@@ -423,19 +590,20 @@ function drawLinks() {
     let d, lx, ly;
     if (Math.abs(a.y - b.y) < 20) { const p = a.x < b.x ? [a, b] : [b, a]; d = "M" + p[0].r + " " + p[0].y + " L" + p[1].l + " " + p[1].y; lx = (p[0].r + p[1].l) / 2; ly = p[0].y - 5; }
     else { const up = a.y > b.y ? [b, a] : [a, b]; const y1 = up[0].b, y2 = up[1].t, m = (y1 + y2) / 2; d = "M" + up[0].x + " " + y1 + " C" + up[0].x + " " + m + " " + up[1].x + " " + m + " " + up[1].x + " " + y2; lx = (up[0].x + up[1].x) / 2; ly = m - 3; }
-    out += "<path class='" + (k.kind === "stored" ? "stored" : "derived") + "' d='" + d + "'/>";
-    if (k.label && k.kind === "stored") out += "<text text-anchor='middle' x='" + lx + "' y='" + ly + "'>" + esc(k.label) + "</text>";
+    const tag = (hide === true ? " pend" : "") + "' data-a='" + esc(k.a) + "' data-b='" + esc(k.b) + "'";
+    out += "<path class='" + (k.kind === "stored" ? "stored" : "derived") + tag + " d='" + d + "'/>";
+    if (k.label && k.kind === "stored") out += "<text class='" + tag + " text-anchor='middle' x='" + lx + "' y='" + ly + "'>" + esc(k.label) + "</text>";
   });
   svg.innerHTML = out;
 }
-window.addEventListener("resize", drawLinks);
+window.addEventListener("resize", () => drawLinks(false));
 
 /* ---------- drawer ---------- */
 function openCard(c) {
   const f = c.fact || {}; const l = LAYER[c.band] || {};
-  const status = c.state === "scenario" ? D.scenario_label : (c.chip && c.state && c.state !== "in" ? c.chip : (f.st === "current" || !f.st ? "in force" : f.st.replace("_", " ")));
-  const rows = [["Layer", l.label], ["Status", status], ["Source", f.d ? f.d + (f.n ? " (" + f.n + ")" : "") : ""], ["Locator", f.a], ["Condition", f.c], ["Why here", c.note], ["Replaced by", f.x && D.facts[f.x] ? (D.facts[f.x].w || D.facts[f.x].o) + " (" + f.x + ")" : ""], ["Fact id", f.id]];
-  $("#drawer").innerHTML = "<button class='x' data-close>Close</button><h3>" + esc(c.s) + "</h3><div style='font-weight:600'>" + esc(c.r) + "</div>" +
+  const status = c.status || "in force";
+  const rows = [["Layer", l.label], ["Status", status], ["Second reader", f.id && FLAG.has(f.id) ? "sent back; not applied to the answers" : ""], ["Relation", f.p], ["As written", f.w], ["Value stored", f.o && f.o !== f.w ? f.o : ""], ["Source", f.d ? f.d + (f.n ? " (" + f.n + ")" : "") : ""], ["Locator", f.a], ["Condition", f.c], ["Why here", c.note], ["Replaced by", f.x && D.facts[f.x] ? (D.facts[f.x].w || D.facts[f.x].o) + " (" + f.x + ")" : ""], ["Fact id", f.id]];
+  $("#drawer").innerHTML = "<button class='x' data-close>Close</button><h3>" + esc(c.s) + "</h3><div>" + esc(c.rel ? c.rel + " " : "") + "<b>" + esc(c.val) + "</b></div>" +
     (f.q ? "<blockquote>" + esc(f.q) + "</blockquote>" : (c.plain ? "<blockquote>" + esc(c.plain) + "</blockquote>" : "<p class='note'>" + esc(c.state === "scenario" ? "This value is a " + D.scenario_label + "." : "The quote of this fact is not embedded in the page; the live view has it.") + "</p>")) +
     "<dl>" + rows.filter(r => r[1]).map(r => "<dt>" + r[0] + "</dt><dd>" + esc(r[1]) + "</dd>").join("") + "</dl>";
   $("#drawer").style.setProperty("--lc", "var(--" + (c.band || "law") + ")"); $("#drawer").hidden = false;
@@ -448,10 +616,12 @@ function openMore(layer) {
   $("#drawer").hidden = false;
 }
 document.addEventListener("click", e => {
-  const t = e.target.closest("[data-card],[data-more],[data-close]");
+  const t = e.target.closest("[data-card],[data-more],[data-close],[data-doc],[data-moredocs]");
   if (!t) { if (!$("#drawer").hidden && !e.target.closest("#drawer") && !e.target.closest("[data-step]")) $("#drawer").hidden = true; return; }
   if (t.dataset.close != null) { $("#drawer").hidden = true; return; }
   if (t.dataset.more) { openMore(t.dataset.more); return; }
+  if (t.dataset.doc) { $("#drawer").hidden = true; S.odoc = t.dataset.doc; setTab("ontology"); return; }
+  if (t.dataset.moredocs) { const L = t.dataset.moredocs; $("#drawer").innerHTML = "<button class='x' data-close>Close</button><h3>" + esc(LAYER[L].label) + ": documents with facts in force</h3><div class='docs' style='--lc:var(--" + L + ");margin-top:10px'>" + D.whole.layers[L].docs.map(d => "<button class='doc' data-doc=\"" + esc(d.source) + "\">" + esc(d.source) + "<b>" + num(d.n) + "</b> " + esc(D.whole.docs[d.source].title) + "</button>").join("") + "</div>"; $("#drawer").hidden = false; return; }
   const c = S.view.cards.find(c => c.id === t.dataset.card); if (c) openCard(c);
 });
 document.addEventListener("keydown", e => { if (e.key === "Escape") $("#drawer").hidden = true; });
@@ -480,23 +650,24 @@ function ansPanel(kind, title, a) {
   if (!a) return h + "</header><p class='note'>Waiting for the answer.</p></div>";
   if (a.error) return h + "</header><p class='err'>" + esc(a.error) + "</p></div>";
   const m = mark(a.score, a.value); if (m) h += "<span class='mark " + m.k + "'>" + m.t + "</span>";
-  if (kind === "atlas" && a.steps && a.steps.length) h += "<button class='btn ghost' id='showfacts'>Show its facts on the left</button>";
   h += "</header>" + valHtml(a.value) + "<p class='txt clip' title=\"" + esc(a.text) + "\">" + esc(a.text) + "</p>";
-  if (kind === "atlas") {
-    if (a.steps && a.steps.length) h += "<ol class='steps'>" + a.steps.map((s, i) => "<li><button data-step='" + i + "'><span class='n'>" + (i + 1) + "</span>" + esc(s.text || "") + (s.quote ? "<q>" + esc(s.quote) + "</q>" : "") + "<span class='loc'>" + esc(s.locator || "") + "</span></button></li>").join("") + "</ol>";
-    else if (!S.live) h += "<p class='note'>No recorded steps for this question: open live to see the facts used.</p>";
-  }
+  if (kind === "rag") h += "<p class='note'>plain search read passages; it has no path to show</p>";
+  else if (!(a.steps && a.steps.length) && !S.live) h += "<p class='note'>No recorded steps for this question: open live to see the facts used.</p>";
   return h + "</div>";
+}
+function stepsHtml(a) {
+  if (!a || !a.steps || !a.steps.length) return "";
+  return "<div class='row' style='justify-content:space-between'><h3 style='margin:0'>The path: " + a.steps.length + " steps through the ontology</h3><button class='btn ghost' id='showfacts'>Replay path</button></div><ol class='steps'>" +
+    a.steps.map((s, i) => "<li><button data-step='" + i + "'><span class='n'>" + (i + 1) + "</span>" + esc(s.text || "") + (s.quote ? "<q>" + esc(s.quote) + "</q>" : "") + "<span class='loc'>" + esc(s.locator || "") + "</span></button></li>").join("") + "</ol>";
 }
 function renderAsk() {
   const q = S.q; const text = S.text != null ? S.text : (q ? q[S.lang] : "");
   let h = "<form class='askbox' id='askform'><input type='text' id='qtext' aria-label='Question' placeholder='Ask a question about the plant, its machines or the rules' value=\"" + esc(text) + "\"><button class='btn'>Ask</button></form>" +
     "<div class='row opts'><span class='seg' aria-label='Question language'><button type='button' data-lang='en' aria-pressed='" + (S.lang === "en") + "'>EN</button><button type='button' data-lang='it' aria-pressed='" + (S.lang === "it") + "'>IT</button></span>" +
     "<label>as of <input type='date' id='asof' value='" + esc(S.asof || "") + "'></label><span>" + (S.live ? "answers computed now" : "the date is used by live answers only") + "</span></div>" +
-    "<div class='qs' aria-label='Design questions'>" + D.questions.map(x => "<button data-q='" + x.id + "' title=\"" + esc(x[S.lang]) + "\" class='" + (x.steps ? "has" : "") + "' aria-pressed='" + (q && q.id === x.id) + "'>" + x.id.replace("CQ", "Q") + "</button>").join("") + "</div>";
-  if (S.answer) h += ansPanel("atlas", "Plant Atlas, from checked facts", S.answer.B) + ansPanel("rag", "Plain search (RAG)", S.answer.rag);
+    "<div class='qs' aria-label='Design questions'>" + D.questions.map(x => "<button data-q='" + x.id + "' title=\"" + esc(x[S.lang]) + "\" class='" + (x.steps ? "has" : "") + "' aria-pressed='" + (q && q.id === x.id) + "'><small>" + x.id.replace("CQ", "Q") + "</small> " + esc(x.short) + "</button>").join("") + "</div>";
+  if (S.answer) h += "<div class='duo'>" + ansPanel("atlas", "Plant Atlas, from checked facts", S.answer.B) + ansPanel("rag", "Plain search (RAG)", S.answer.rag) + "</div>" + stepsHtml(S.answer.B);
   else if (S.miss) h += "<p class='note'>" + esc(S.miss) + "</p>";
-  h += "<p class='note'>Outlined questions have their recorded steps. Marks compare each answer with the expected one written before building.</p>";
   $("#panel").innerHTML = h;
 }
 function recorded(q) { return {B: q.B ? Object.assign({steps: q.steps}, q.B) : {error: "no recorded answer"}, rag: q.rag || {error: "no recorded answer"}}; }
@@ -524,6 +695,20 @@ async function ask(text, q, light) {
 }
 function findQ(text) { const t = text.trim().toLowerCase(); return D.questions.find(x => x.en.toLowerCase() === t || x.it.toLowerCase() === t) || null; }
 
+/* ---------- ontology ---------- */
+function renderOntology() {
+  const T = D.whole.totals, H = D.health, R = D.rule; const doc = D.whole.docs[S.odoc];
+  let h = "<p class='lead'>The whole store: every fact read from the documents, with its quote, source and layer.</p>" +
+    "<div class='facts'><div><b>" + num(T.in_force) + "</b>facts in force</div><div><b>" + num(T.kept) + "</b>facts kept in all</div><div><b>" + num(T.documents) + "</b>documents with facts</div><div><b>" + T.layers + "</b>layers</div><div><b>" + T.classes + "</b>classes in the schema</div><div><b>" + T.relations + "</b>relations in the schema</div></div>";
+  if (doc) h += "<div class='box warn'><div class='lab'>DOCUMENT " + esc(S.odoc) + "</div><p>" + esc(doc.title) + "</p>" + (doc.if_changed ? "<p class='sub'>" + esc(doc.if_changed) + "</p>" : "") + "<div class='row' style='margin-top:6px'><button class='btn ghost' id='odback'>Back to the whole store</button></div></div>";
+  h += "<p class='note'><b style='color:var(--ink)'>Health check:</b> " + num(H.checked) + " facts checked, " + num(H.quote_found) + " still found word for word in their documents.</p>" +
+    "<h3 style='margin-top:12px'>The rule in numbers: no quote, no fact</h3><p class='note' style='margin-top:0'><b style='color:var(--ink)'>" + num(R.proposed) + "</b> proposed, <b style='color:var(--ink)'>" + num(R.accepted) + "</b> accepted with their quote, <b style='color:var(--ink)'>" + num(R.rejected) + "</b> refused" + (D.whole.reasons.length ? " (" + D.whole.reasons.map(r => r.reason + " " + r.n).join(", ") + ")" : "") + ".</p>" +
+    "<h3 style='margin-top:12px'>What happened, and what will</h3><ul class='tl'>" + D.whole.events.map(e => "<li><b>" + esc(plainDate(e.date)) + "</b> \u00b7 " + esc(e.title) + ". " + esc(e.text) + "</li>").join("") + "</ul>" +
+    "<div class='row'><button class='btn' data-go='scenes'>See the six scenes</button><button class='btn ghost' data-go='changes'>What changes</button><button class='btn ghost' data-go='score'>The score</button></div>" +
+    "<p class='note'>Click a document on the left to see three of its facts.</p>";
+  $("#panel").innerHTML = h; showLeft(wholeView());
+}
+
 /* ---------- score ---------- */
 function stack(t) {
   return "<div class='stack' role='img' aria-label='" + t.correct + " right, " + t.unknown + " unknown, " + t.wrong + " wrong'>" + [["right", t.correct], ["unknown", t.unknown], ["wrong", t.wrong]].filter(p => p[1] > 0).map(p => "<div class='" + p[0] + "' style='flex:" + p[1] + "'>" + p[1] + "</div>").join("") + "</div>";
@@ -546,7 +731,7 @@ function renderChanges() {
   const sc = D.scenes[1]; const vi = S.change === "before" ? 0 : 1; const v = sc.variants[vi]; const H = D.health;
   const doc = D.documents.find(d => d.source === S.doc);
   let h = "<h3>A correction arrives: the corrigendum</h3><p class='lead'>" + esc(sc.look) + "</p><div class='row'><span class='seg'><button data-change='before' aria-pressed='" + (vi === 0 && !doc) + "'>" + esc(sc.variants[0].label) + "</button><button data-change='after' aria-pressed='" + (vi === 1 && !doc) + "'>" + esc(sc.variants[1].label) + "</button></span></div>" +
-    "<div class='box " + v.result.tone + "'><div class='lab'>RESULT</div><p>" + esc(v.result.text) + "</p>" + (v.result.note ? "<p class='sub'>" + esc(v.result.note) + "</p>" : "") + "</div>" +
+    "<div class='box " + v.result.tone + "'><div class='lab'>RESULT</div><p class='demo'><b>What this demonstrates:</b> " + esc(sc.demo) + "</p><p>" + esc(v.result.text) + "</p>" + (v.result.note ? "<p class='sub'>" + esc(v.result.note) + "</p>" : "") + "</div>" +
     "<h3 style='margin-top:14px'>What if a document changes?</h3><div class='row'><select id='docpick' aria-label='Document'><option value=''>Choose a document</option>" + D.documents.map(d => "<option value=\"" + esc(d.source) + "\"" + (d.source === S.doc ? " selected" : "") + ">" + esc(LAYER[d.layer].label + ": " + d.title) + "</option>").join("") + "</select></div>";
   if (doc) { const cites = doc.referred_by.reduce((n, g) => n + g.count, 0); h += "<div class='box warn'><div class='lab'>IF IT CHANGED</div><p>" + esc(doc.if_changed) + "</p><p class='sub'>" + num(doc.facts_anchored) + " facts anchored in it. " + (cites ? num(cites) + " facts in other documents cite it; examples are on the left." : "No fact in another document cites it.") + (doc.devices_affected ? " " + doc.devices_affected + " devices of the plant depend on it." : "") + "</p></div>"; }
   h += "<p class='note'><b style='color:var(--ink)'>Health check:</b> " + num(H.quote_found) + " of " + num(H.checked) + " checked facts still found word for word in their documents; " + num(H.quote_missing) + " quotes missing, " + num(H.piece_missing) + " passages missing.</p>" +
@@ -561,12 +746,12 @@ function renderScenes() {
   let h = "<div class='row' style='justify-content:space-between;margin-bottom:8px'><p class='lead' style='margin:0'>Six things the ontology can show, on real data.</p><button class='btn ghost' id='play'>" + (S.playing ? "Stop" : "Play") + "</button></div><ol class='scenes'>" +
     D.scenes.map((s, i) => "<li><button data-scene='" + i + "' aria-pressed='" + (i === si) + "'><span class='i'>" + (i + 1) + "</span><strong>" + esc(s.title) + "</strong><span class='c'>" + esc(s.look) + "</span></button></li>").join("") + "</ol>";
   if (sc.variants.length > 1) h += "<div class='row'><span style='font-size:13px;color:var(--muted)'>" + esc(sc.toggle || "Switch") + "</span><span class='seg'>" + sc.variants.map((x, i) => "<button data-variant='" + i + "' aria-pressed='" + (i === vi) + "'>" + esc(x.label) + "</button>").join("") + "</span></div>";
-  h += "<div class='box " + v.result.tone + "'><div class='lab'>RESULT</div><p>" + esc(v.result.text) + "</p>" + (v.result.note ? "<p class='sub'>" + esc(v.result.note) + "</p>" : "") + "</div>";
-  $("#panel").innerHTML = h; showLeft(sceneView(si, vi));
+  h += "<div class='box " + v.result.tone + "'><div class='lab'>RESULT</div><p class='demo'><b>What this demonstrates:</b> " + esc(sc.demo) + "</p><p>" + esc(v.result.text) + "</p>" + (v.result.note ? "<p class='sub'>" + esc(v.result.note) + "</p>" : "") + "</div>";
+  $("#panel").innerHTML = h; const sv = sceneView(si, vi); if (S.playing) { sv.reveal = true; sv.gap = 280; } showLeft(sv);
 }
 function play() {
   if (S.playing) { clearInterval(S.playing); S.playing = null; renderScenes(); return; }
-  S.scene = 0; S.playing = setInterval(() => { if (S.tab !== "scenes" || S.scene >= D.scenes.length - 1) { clearInterval(S.playing); S.playing = null; if (S.tab === "scenes") renderScenes(); return; } S.scene++; renderScenes(); }, 4000);
+  S.scene = 0; S.playing = setInterval(() => { if (S.tab !== "scenes" || S.scene >= D.scenes.length - 1) { clearInterval(S.playing); S.playing = null; if (S.tab === "scenes") renderScenes(); return; } S.scene++; renderScenes(); }, 5000);
   renderScenes();
 }
 
@@ -574,8 +759,9 @@ function play() {
 function setTab(tab, keepLeft) {
   S.tab = tab; document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
   if (history.replaceState) history.replaceState(null, "", "#" + tab);
-  $("#panel").scrollTop = 0;
-  if (tab === "ask") { renderAsk(); if (!keepLeft) { if (S.answer && S.answer.B && S.answer.B.steps && S.answer.B.steps.length && S.asked) showLeft(answerView(S.answer.B)); else showLeft(sceneView(0, 0)); } }
+  const P = $("#panel"); P.scrollTop = 0; P.classList.remove("fadein"); P.getBoundingClientRect(); P.classList.add("fadein");
+  if (tab === "ontology") renderOntology();
+  else if (tab === "ask") { renderAsk(); if (!keepLeft) { if (S.answer && S.answer.B && S.answer.B.steps && S.answer.B.steps.length && S.asked) showLeft(answerView(S.answer.B)); else showLeft(sceneView(0, 0)); } }
   else if (tab === "score") { renderScore(); if (!S.view) showLeft(sceneView(0, 0)); }
   else if (tab === "changes") renderChanges();
   else renderScenes();
@@ -583,7 +769,9 @@ function setTab(tab, keepLeft) {
 $("#tabs").addEventListener("click", e => { const b = e.target.closest("button"); if (b) setTab(b.dataset.tab); });
 $("#panel").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
-  if (b.dataset.q) { const q = D.questions.find(x => x.id === b.dataset.q); S.asked = true; ask(q[S.lang], q, true); }
+  if (b.dataset.go) setTab(b.dataset.go);
+  else if (b.id === "odback") { S.odoc = ""; renderOntology(); }
+  else if (b.dataset.q) { const q = D.questions.find(x => x.id === b.dataset.q); S.asked = true; ask(q[S.lang], q, true); }
   else if (b.dataset.lang) { S.lang = b.dataset.lang; if (S.q) S.text = S.q[S.lang]; renderAsk(); }
   else if (b.id === "showfacts") { S.asked = true; showLeft(answerView(S.answer.B)); }
   else if (b.dataset.step != null) { const st = S.answer.B.steps[+b.dataset.step]; const v = answerView(S.answer.B); const id = st.f || st.statement_id || ("step" + b.dataset.step); const c = v.cards.find(c => c.id === id); S.asked = true; showLeft(v); if (c) openCard(c); }
@@ -597,9 +785,9 @@ $("#panel").addEventListener("change", e => { if (e.target.id === "docpick") { S
 
 (function start() {
   const first = D.questions.find(q => q.steps && q.steps.length >= 3 && q.B && q.B.score >= 0.999) || D.questions.find(q => q.steps) || D.questions[0];
-  S.q = first; S.text = first.en; S.answer = recorded(first);
+  S.q = first; S.text = first.en; S.answer = recorded(first); S.asked = true;
   const tab = (location.hash || "").slice(1);
-  setTab(["ask", "score", "changes", "scenes"].indexOf(tab) >= 0 ? tab : "ask");
+  setTab(["ontology", "ask", "score", "changes", "scenes"].indexOf(tab) >= 0 ? tab : DEFAULT_TAB);
   if (/^https?:$/.test(location.protocol)) {
     const ctl = new AbortController(); setTimeout(() => ctl.abort(), 2500);
     fetch("/api/status", {signal: ctl.signal}).then(r => r.ok ? r.json() : Promise.reject()).then(j => {
