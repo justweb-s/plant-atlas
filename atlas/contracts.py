@@ -24,6 +24,8 @@ class Chunk:
     locator: str               # e.g. "Art. 25(2)", "Annex III, 1.3.7", "Corrigendum, point 10"
     text: str
     version: str = ""          # e.g. "OJ L 165, 29.6.2023"
+    sha256: str = ""           # fingerprint of the text: a changed piece has a different one
+    layer: str = ""            # "law" | "manufacturer" | "company" | "plant"
 
 
 @dataclass
@@ -34,6 +36,7 @@ class Step:
     triples: list[tuple[str, str, str]] = field(default_factory=list)
     quote: str | None = None
     locator: str | None = None
+    statement_id: str | None = None   # the fact of the store this step used
 
 
 @dataclass
@@ -59,6 +62,9 @@ class BuildResult:
     tokens: int = 0
     cost_usd: float = 0.0
     seconds: float = 0.0
+    proposed: int = 0          # facts the strategy proposed
+    anchored: int = 0          # facts that passed the checks (quote in the text, value in the quote, condition kept)
+    rejected: int = 0          # facts refused by the checks
 
 
 @dataclass
