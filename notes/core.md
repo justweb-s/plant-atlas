@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 14:17_
+_Aggiornato: 14:35_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -16,6 +16,8 @@ _Aggiornato: 14:17_
 - **14:05 — strategia B, esportazione e agente pushati** (blocchi 4, 5, 6 in prima versione). Run completo: 773 passaggi, 1668 fatti proposti, 1602 ancorati, 66 rifiutati, 9 corretti dalla rettifica; `ontology/B/ontology.ttl` 13.963 triple, SHACL trova 5 violazioni vere; costo circa 0,36 dollari. Punteggio sulle 12 domande di progetto sulla legge: 7,72. La CQ10 è sbagliata (risponde «no»): i fatti corretti ci sono, l'errore è nel passo di risposta. Il secondo lettore non c'è ancora. Le domande tenute da parte già committate alle 12:00 non sono state lette.
 
 - **14:17 — il corpus ha due strati**: 5067 pezzi, 4386 di legge e 681 del costruttore. I tuoi quattro manuali sono tagliati per pagina (`ur5e-manual`, `ur10e-manual`, `nanoscan3-manual`, `mastar-manual`, locator `p. N`, testo da pdftotext se c'è, altrimenti pypdf); le tue 17 citazioni si ritrovano tutte in una pagina. Il DM 11/4/2011 è nel corpus come `DM2011` (`art. 2, c. 1`: «sessanta giorni»). Ogni `Chunk` ha `layer` e `sha256` (commit `contract:` fatto, con default). I manuali compaiono solo se i PDF sono sulla macchina: `python data/machines/fetch.py`.
+
+- **14:35 — cinque strati, tutti con documenti reali**: 5195 pezzi. Legge 4415 (ora anche l'Allegato VII, una riga per pezzo, 29 righe con le condizioni di tipo, settore ed età, e il DM in `data/law/`). Indicazioni di enti pubblici 58 (`inail-guide`, `robot-cell-sheet`: la scheda «Isola robotizzata» dice che l'area va delimitata tenendo conto della massima estensione delle macchine: è la regola della zona). Costruttore 681. Azienda 32 (`unict-guideline`, `univpm-guideline`: linee guida reali sulla gestione delle attrezzature). Stabilimento 9 (`igea-equipment`: l'elenco reale dei 24 apparecchi di sollevamento di IGEA S.p.A., area mineraria di Monteponi, con tipo, portata, matricola INAIL e anno di costruzione; **senza** date di ultima verifica). Registro in `atlas/corpus/incoming/documents.csv` (link, impronta, strato); i PDF stanno in `runtime/docs/`, fuori da git.
 
 ## In corso
 - **13:41 — run completo della strategia B** su Regolamento, Direttiva e D.Lgs. 81/08 (773 passaggi, senza i considerando). Stima scritta prima di lanciare: 773 chiamate a `anthropic/claude-haiku-5.5`, circa 0,65 M token in ingresso e 0,85 M in uscita, cioè meno di 1 dollaro ai prezzi del gateway (0,10 e 0,50 dollari per milione). La pilota su 12 passaggi: 39 fatti proposti, 37 ancorati, 2 rifiutati; la rettifica chiude 8 fatti e ne apre 8 corretti (es. abrogazione della Direttiva dal 14 al 20/1/2027).
@@ -38,6 +40,9 @@ _Aggiornato: 14:17_
 - 14:05 — Non lancio B sui manuali finché le domande tenute da parte sulle macchine reali non sono committate.
 
 - 14:08 — **COMPITO PER TE, il più urgente: una demo che gira per davvero (POC) il prima possibile.** Con `ATLAS_FAKE=0` nel tuo `.env` ora sono reali: `api.corpus()`, `api.build_ontology("B")` (legge `ontology/B/`, non rilancia l'estrazione), `api.validate("B")` (5 violazioni SHACL vere) e `api.answer(domanda, "B", as_of)` (risponde dai fatti, ogni passo ha citazione e punto del testo, `value=None` se non ci sono fatti). Tutte le risposte dei modelli sono in `cache/llm/`: fai `git pull` e non paghi niente per ciò che è già stato chiesto. Quello che ci serve vedere: (1) la tab «Chiedi» che chiama `api.answer` e mostra i passi con le citazioni; (2) il tabellone con B reale; (3) il file Turtle e il risultato SHACL. `propose_change`, `apply_change` e la strategia A danno ancora `NotImplementedError`: lasciali in modalità finta o nascondili. Dimmi cosa si rompe e lo sistemo subito.
+
+- 14:35 — **Proposta per il gold: il caso IGEA come caso principale.** «Per ciascuno dei 24 apparecchi di IGEA: ogni quanto va verificato, da chi, ed entro quanti giorni dalla richiesta?» La risposta incrocia la riga giusta dell'Allegato VII (tipo fisso o mobile, settore estrattivo, più o meno di 10 anni) con tipo e anno dell'elenco IGEA. «È scaduto oggi?» resta «non lo so»: le date non ci sono. La cella robotizzata resta la seconda scena. La scheda IGEA cita l'art. 71 c. 11 «modificato dalla Legge 98 del 9 agosto 2013»: probabile risposta alla tua domanda su chi ha portato il termine da 60 a 45 giorni [non verificato sul testo della legge].
+- 14:35 — Per vedere questi pezzi sulla tua macchina servono i PDF in `runtime/docs/`: gli indirizzi sono in `documents.csv`. Se vuoi, aggiungo uno script che li scarica come il tuo `fetch.py`.
 
 ## Bloccato
 - Manca `.env` con la chiave del team: nessuna chiamata a un modello finora.

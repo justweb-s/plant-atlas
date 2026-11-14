@@ -30,3 +30,10 @@ Italian version: `Accept-Language: ita` (not tried yet).
 
 - D.Lgs. 81/08, Allegato VII (list of equipment subject to periodic verification).
 - Later amendments to Directive 2006/42/EC (the file is the text as published in 2006).
+
+## Added by Core on 14 November 2026 (decision 1410: data/law is Core's)
+
+| File | What | Source |
+|---|---|---|
+| `it-dm-2011-04-11.md` | DM 11 aprile 2011, periodic verifications (testo originario, GU n. 98 del 29.4.2011): 6 articles, 4 annexes | `https://www.gazzettaufficiale.it/eli/id/2011/04/29/11A05462/sg` |
+| `it-dlgs-81-2008-allegato-vii.txt` | D.Lgs. 81/2008, Allegato VII, the table of equipment and intervals (testo vigente, 29 rows), one row per line; the archive's footnote numbers removed | `https://olympus.uniurb.it/index.php?Itemid=137&catid=73&id=3895%3Aallegato-vii&option=com_content&view=article` (Normattiva publishes this annex as an image) |

@@ -250,16 +250,32 @@ def load(with_incoming: bool = True) -> tuple[Chunk, ...]:
                 chunks += eu_act(path.stem, path, "as published in the Official Journal")
             except ET.ParseError:
                 continue   # not well-formed XHTML: stays out of the chunks, still in the registry
+    annex = LAW / "it-dlgs-81-2008-allegato-vii.txt"
+    if annex.exists():   # one chunk per row of the table: each row is a rule with its own conditions
+        for line in annex.read_text(encoding="utf-8").split("\n\n", 1)[1].splitlines():
+            row = re.match(r"(\d+)\. (.+)", line)
+            if row:
+                chunks.append(Chunk(f"DLGSALLVII:riga{row.group(1)}", "DLGSALLVII", f"Allegato VII, riga {row.group(1)}",
+                                    row.group(2), "testo vigente, letto il 14.11.2026"))
     machines = ROOT / "data" / "machines" / "machines.json"
     if machines.exists():
         for doc in json.loads(machines.read_text(encoding="utf-8"))["documents"]:
             chunks += manual(doc, machines.parent / "raw")
+    layers: dict[str, str] = {}
+    register = INCOMING.parent / "documents.csv"
+    if register.exists():   # guidance, company and plant documents: registered by link and fingerprint, PDFs not in git
+        import csv
+        with register.open(encoding="utf-8") as handle:
+            for doc in csv.DictReader(handle):
+                local = ROOT / doc["local_file"]
+                layers[doc["doc_id"]] = doc["layer"]
+                chunks += manual({"id": doc["doc_id"], "file": local.name, "title": doc["title"]}, local.parent)
     seen: dict[str, int] = {}
     for chunk in chunks:   # ids are unique: a repeated one gets a counter
         seen[chunk.id] = seen.get(chunk.id, 0) + 1
         if seen[chunk.id] > 1:
             chunk.id = f"{chunk.id}#{seen[chunk.id]}"
-        chunk.layer = layer_of(chunk.source)
+        chunk.layer = layers.get(chunk.source) or layer_of(chunk.source)
         chunk.sha256 = hashlib.sha256(chunk.text.encode("utf-8")).hexdigest()
     return tuple(chunks)
 

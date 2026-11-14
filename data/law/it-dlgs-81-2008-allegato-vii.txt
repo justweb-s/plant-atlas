@@ -1,0 +1,33 @@
+D.Lgs. 9 aprile 2008, n. 81 - Allegato VII - Verifiche di attrezzature (testo vigente)
+Fonte: https://olympus.uniurb.it/index.php?Itemid=137&catid=73&id=3895%3Aallegato-vii&option=com_content&view=article
+Scaricato il 2026-11-14. Atto ufficiale dello Stato. Tolti i numeri di nota dell'archivio (es. «22» sulla riga aggiunta dalla L. 11 marzo 2026, n. 34).
+
+1. Scale aeree ad inclinazione variabile | Verifica annuale
+2. Ponti mobili sviluppabili su carro ad azionamento motorizzato | Verifica annuale
+3. Piattaforme di lavoro mobili elevabili e piattaforme di lavoro fuori strada per operazioni in frutteto | Verifica triennale
+4. Ponti mobili sviluppabili su carro a sviluppo verticale e azionati a mano | Verifica biennale
+5. Ponti sospesi e relativi argani | Verifica biennale
+6. Idroestrattori a forza centrifuga di tipo discontinuo con diametro del paniere x numero di giri > 450 (m x giri/min.) | Verifica biennale
+7. Idroestrattori a forza centrifuga di tipo continuo con diametro del paniere x numero di giri > 450 (m x giri/min.) | Verifica triennale
+8. Idroestrattori a forza centrifuga operanti con solventi infiammabili o tali da dar luogo a miscele esplosive od instabili, aventi diametro esterno del paniere maggiore di 500 mm. | Verifica annuale
+9. Carrelli semoventi a braccio telescopico | Verifica annuale
+10. Piattaforme di lavoro autosollevanti su colonne | Verifica biennale
+11. Ascensori e montacarichi da cantieri con cabina/piattaforma guidata verticalmente | Verifica annuale
+12. Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale
+13. Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni | Verifica biennale
+14. Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali
+15. Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali
+16. Apparecchi di sollevamento materiali con portata superiore a 200 Kg , non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali
+17. Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche biennali
+18. Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni | Verifiche triennali
+19. Attrezzature/insiemi contenenti fluidi del gruppo 1 (D.lgs. 93/2000 art. 3) Recipienti/insiemi classificati in III e IV categoria, recipienti contenenti gas instabili appartenenti alla categoria dalla I alla IV, forni per le industrie chimiche e affini, generatori e recipienti per liquidi surriscaldati diversi dall'acqua. | Verifica di funzionamento: biennale Verifica di integrità: decennale
+20. Attrezzature/insiemi contenenti fluidi del gruppo 1 (D.lgs. 93/2000 art. 3) Recipienti/insiemi classificati in I e II categoria. | Verifica di funzionamento: quadriennale Verifica di integrità: decennale
+21. Attrezzature/insiemi contenenti fluidi del gruppo 1 (D.lgs. 93/2000 art. 3) Tubazioni per gas, vapori e liquidi surriscaldati classificati nella I, II e III categoria | Verifica di funzionamento: quinquennale Verifica di integrità: decennale
+22. Attrezzature/insiemi contenenti fluidi del gruppo 1 (D.lgs. 93/2000 art. 3) Tubazioni per liquidi classificati nella I, II e III categoria | Verifica di funzionamento: quinquennale Verifica di integrità: decennale
+23. Attrezzature/insiemi contenenti fluidi del gruppo 1 (D.lgs. 93/2000 art. 3) Recipienti per liquidi appartenenti alla I, II e III categoria. | Verifica di funzionamento: quinquennale Verifica di integrità: decennale
+24. Attrezzature/insiemi contenenti fluidi del gruppo 2 (D.lgs. 93/2000 art. 3) Recipienti/insiemi contenenti gas compressi, liquefatti e disciolti o vapori diversi dal vapor d'acqua classificati in III e IV categoria e recipienti di vapore d'acqua e d'acqua surriscaldata appartenenti alle categorie dalla I alla IV | Verifica di funzionamento: triennale Verifica di integrità: decennale
+25. Attrezzature/insiemi contenenti fluidi del gruppo 2 (D.lgs. 93/2000 art. 3) Recipienti/insiemi contenenti gas compressi, liquefatti e disciolti o vapori diversi dal vapor d'acqua classificati in I e II categoria | Verifica di funzionamento: quadriennale Verifica di integrità: decennale
+26. Attrezzature/insiemi contenenti fluidi del gruppo 2 (D.lgs. 93/2000 art. 3) Generatori di vapor d'acqua. | Verifica di funzionamento: biennale Visita interna: biennale Verifica di integrità: decennale
+27. Attrezzature/insiemi contenenti fluidi del gruppo 2 (D.lgs. 93/2000 art. 3) Tubazioni gas, vapori e liquidi surriscaldati classificati nella III categoria, aventi TS < 350 °C | Verifica di integrità: decennale
+28. Attrezzature/insiemi contenenti fluidi del gruppo 2 (D.lgs. 93/2000 art. 3) Tubazioni gas, vapori e liquidi surriscaldati classificati nella III categoria, aventi TS > 350 °C | Verifica di funzionamento: quinquennale Verifica di integrità: decennale
+29. Generatori di calore alimentati da combustibile solido, liquido o gassoso per impianti centrali di riscaldamento utilizzanti acqua calda sotto pressione con temperatura dell'acqua non superiore alla temperatura di ebollizione alla pressione atmosferica, aventi potenzialità globale dei focolai superiore a 116 kW | Verifica quinquennale
