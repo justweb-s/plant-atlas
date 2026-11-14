@@ -1,6 +1,6 @@
 # 1200 — Due regimi, il catalogo di un costruttore, domande tenute da parte
 
-- **Stato:** in vigore
+- **Stato:** in vigore, in parte superata da `1315-caso-unico-cella-robotizzata` (cliente, domanda principale, catalogo di fantasia al posto delle macchine reali)
 - **Quando:** 2026-11-14 12:00
 - **Chi:** Prodotto, da confermare con Core
 - **Contesto:** la versione delle 11:35 era troppo da manuale. Le domande sulla legge erano da libro di testo, la fabbrica era un giocattolo scritto da noi, la rettifica cambia una data sola, e la strategia B veniva valutata sulle stesse domande da cui ricava lo schema.

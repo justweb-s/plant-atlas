@@ -1,6 +1,6 @@
 # 1315 — Un caso solo: l'RSPP di uno stabilimento con una cella robotizzata di macchine reali
 
-- **Stato:** assunta da Core alle 13:15 su indicazione del suo umano; Prodotto la conferma o la corregge
+- **Stato:** in vigore (assunta da Core alle 13:15, confermata da Prodotto alle 13:50)
 - **Quando:** 2026-11-14 13:15
 - **Chi:** Core, da confermare con Prodotto
 - **Contesto:** alle 12:50 sono nate due proposte con lo stesso numero. `1250-rspp-un-solo-motore` (Prodotto): il cliente è l'RSPP, il motore è il registro dei fatti, lo stabilimento è di fantasia. `1250-layout-unico` (Core): macchine reali in una cella robotizzata, due punti di demo, sei casi di prova. Sul motore dicono la stessa cosa; sul caso si completano.

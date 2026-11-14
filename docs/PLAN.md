@@ -3,11 +3,16 @@
 In vigore dal 14/11/2026, ore 11:35. È nato come visione di Prodotto (11:15) a partire dal piano di Core, che ora sta in `docs/archive/PLAN-plant-atlas-v2.md`. Le decisioni, con il loro perché, sono in `docs/decisions/`; le regole di lavoro in `AGENTS.md`.
 Marcatori: **[verificato: fonte]** · **[dichiarato]** · **[non verificato]**. Le decisioni da prendere insieme sono al §1.
 
-## Proposta delle 13:00 (decisione `1250-rspp-un-solo-motore`, da confermare)
+## Aggiornamento delle 13:50 (decisione `1315-caso-unico-cella-robotizzata`): vale questo, dove il resto dice altro
 
-Il video delle 12:30 racconta la storia dell'RSPP: «questa macchina si può usare oggi?». La proposta unisce i pezzi: cliente e motore (registro dei fatti) di Core, misura e gold di Prodotto, cambio di regime visto dall'RSPP. Visione unita, casi reali, struttura della demo e domande aperte sono in `docs/INSIEME.md`. Finché la 1250 non è confermata, vale l'aggiornamento delle 12:00 qui sotto.
+- **Il cliente e la domanda:** l'RSPP di uno stabilimento, o il consulente che ne segue molti: «questa macchina si può usare oggi, e cosa devo fare entro quando?». È la storia del video delle 12:30.
+- **Il motore:** il registro dei fatti di Core (`atlas/ontology/statements.py`) è la fonte di verità; il Turtle con le forme SHACL è l'esportazione per la giuria.
+- **Le macchine:** una cella robotizzata di macchine reali con manuali pubblici. Sono dati nostri, dichiarati, solo la disposizione della cella, le zone protette e le date.
+- **La demo:** cambia la fabbrica (il braccio più grande) e cambia la legge (16/1 contro 20/1/2027).
+- **La misura:** sei casi di prova (obiettivo 5 su 6, RAG sugli stessi sei) oltre alle domande del gold.
+- **I lavori:** blocchi in `docs/LAVORI.md`. Casi reali e domande aperte in `docs/INSIEME.md`.
 
-## Aggiornamento delle 12:00 (decisione `1200-due-regimi-catalogo`): vale questo, dove il resto dice altro
+## Aggiornamento delle 12:00 (decisione `1200-due-regimi-catalogo`), in parte superato da quello delle 13:50
 
 - **Il problema:** dal 20 gennaio 2027 alcune macchine che oggi si autocertificano avranno bisogno di un organismo notificato, e il costruttore deve scoprire quali, in documenti che mescolano le regole vecchie e quelle nuove. Esempio verificato: un ponte sollevatore per veicoli con norme armonizzate complete oggi usa il controllo interno (Direttiva, Art. 12(3)(a)); dal 20/1/2027 è nell'Allegato I, parte A, e serve B+C, H o G (Regolamento, Art. 25(2)).
 - **Il cliente:** il costruttore di macchine (ufficio tecnico, documentazione tecnica). Riceve una scheda d'impatto per ogni modello; l'ontologia è il motore e la traccia per un controllo. Il Regolamento serve a entrare; tenere la mappa aggiornata è il valore che si ripete.

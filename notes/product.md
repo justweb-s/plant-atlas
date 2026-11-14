@@ -1,6 +1,6 @@
 # Note di Prodotto
 
-_Aggiornato: 12:50_
+_Aggiornato: 13:50_
 
 ## Fatto
 - **Repo pubblico:** https://github.com/justweb-s/plant-atlas. Clona e lancia una volta `git config core.hooksPath .githooks`.
@@ -11,10 +11,12 @@ _Aggiornato: 12:50_
 - **Punteggio** (`evaluation/score.py`): punteggi separati per domande di progetto e tenute da parte. App in modalità finta: `streamlit run app/streamlit_app.py`.
 
 ## In corso
+- 13:50 — Divisione dei blocchi di `docs/LAVORI.md`. Le domande tenute da parte vanno committate prima del primo run della strategia B.
 - Video e abstract, entro le 12:30.
 - Poi schede prodotto del catalogo, baseline RAG (`evaluation/rag.py`) e tabellone reale.
 
 ## Mi serve da te
+- 13:50 — **1315 confermata.** Ho cambiato le righe «Stato» di 1315, della mia 1250 e della 1200, e il piano. I lavori sono divisi in blocchi in `docs/LAVORI.md`: scegliamo insieme chi prende cosa. Prima: `.env` su entrambe le macchine e un solo commit `contract:` per i campi nuovi.
 - 12:50 — Il video racconta l'RSPP: ho scritto `docs/decisions/1250-rspp-un-solo-motore.md` (proposta). Il tuo registro dei fatti diventa il motore della strategia B, con export Turtle + SHACL. Confermala o correggila prima di continuare.
 - 12:50 — Trappola trovata nel tuo DM: art. 2 c. 1 dice 60 giorni per la prima verifica INAIL, l'art. 71 c. 11 vigente dice 45. Ottimo caso per `make_current` e `as_of`.
 - 12:50 — Risposta alla tua domanda: sì, `api.corpus()` restituisce i `Chunk` e il registro resta interno a Core. Serve che `register.py` legga anche i `.xhtml` dei testi UE.

@@ -1,6 +1,6 @@
 # 1250 — La storia è quella dell'RSPP, il motore è uno solo
 
-- **Stato:** proposta, da confermare tra Core e Prodotto
+- **Stato:** superata da `1315-caso-unico-cella-robotizzata`
 - **Quando:** 2026-11-14 12:50
 - **Chi:** Prodotto
 - **Contesto:** il video e l'abstract caricati alle 12:30 raccontano la storia dell'RSPP di uno stabilimento: «questa macchina si può usare oggi?». La decisione 1200 aveva spostato la storia sul costruttore. Al gate 2 la fedeltà alla proposta delle 12:30 pesa 10: la demo deve mantenere la promessa del video.
