@@ -46,12 +46,16 @@ def ontology_file(strategy: Strategy) -> Path:
     return ROOT / "ontology" / strategy / "ontology.ttl"
 
 
-def answer(question: str, strategy: Strategy = "B", as_of: date | None = None) -> Answer:
-    """Answer through the ontology of a strategy (SPARQL), citing triples and passages."""
+def answer(question: str, strategy: Strategy = "B", as_of: date | None = None, lang: str = "en") -> Answer:
+    """Answer through the ontology of a strategy (SPARQL), citing triples and passages.
+    lang="it" writes Answer.text in Italian (the app); the value and the steps do not depend on it."""
     if fake_mode():
         from atlas import fake
         return fake.answer(question, strategy, as_of)
     from atlas.ontology import build
+    if lang != "en":
+        from atlas.agent.answer import answer as ask
+        return ask(question, build.store_for(strategy), as_of, mode=strategy, lang=lang)
     return build.answer(question, strategy, as_of)
 
 
