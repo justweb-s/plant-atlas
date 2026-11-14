@@ -37,7 +37,8 @@ def build_ontology(strategy: Strategy) -> BuildResult:
     if fake_mode():
         from atlas import fake
         return fake.build_ontology(strategy)
-    raise NotImplementedError("core: build_ontology")
+    from atlas.ontology import build
+    return build.build_result(strategy)
 
 
 def ontology_file(strategy: Strategy) -> Path:
@@ -50,7 +51,8 @@ def answer(question: str, strategy: Strategy = "B", as_of: date | None = None) -
     if fake_mode():
         from atlas import fake
         return fake.answer(question, strategy, as_of)
-    raise NotImplementedError("core: answer")
+    from atlas.ontology import build
+    return build.answer(question, strategy, as_of)
 
 
 def validate(strategy: Strategy) -> ValidationReport:
@@ -58,7 +60,8 @@ def validate(strategy: Strategy) -> ValidationReport:
     if fake_mode():
         from atlas import fake
         return fake.validate(strategy)
-    raise NotImplementedError("core: validate")
+    from atlas.ontology import build
+    return build.validation(strategy)
 
 
 def propose_change(document: Path) -> ChangeSet:

@@ -68,7 +68,7 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
     numbered = "\n".join(f"[{i}] {_line(s)}" for i, s in enumerate(chosen))
     out = llm.chat([{"role": "system", "content": SYSTEM},
                     {"role": "user", "content": f"Today is {day.isoformat()}.\nQuestion: {question}\n\nFacts:\n{numbered}"}],
-                   model=os.getenv("ATLAS_STRONG_MODEL", "anthropic/claude-sonnet-5.5"), temperature=0, max_tokens=3000)
+                   temperature=0, max_tokens=3000)
     match = re.search(r"\{.*\}", out["text"] or "", re.DOTALL)
     try:
         data = json.loads(match.group(0)) if match else {}

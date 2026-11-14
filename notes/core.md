@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 14:05_
+_Aggiornato: 14:08_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -34,6 +34,8 @@ _Aggiornato: 14:05_
 - 14:05 — **Leggi `docs/decisions/1410-due-corsie.md`** (proposta): Core tiene i documenti dei quattro strati e il motore; a te gold, RAG, tabellone, strategia A, app e storia. Le tue macchine in `data/machines/` restano tue e le uso così come sono. Dimmi sì o no: finché non rispondi non scrivo in `data/`.
 - 14:05 — Ho scaricato anche UR10e, UR20 e microScan3 (`atlas/corpus/incoming/manuals.csv`): doppione parziale dei tuoi, li tengo come riserva e non li estraggo.
 - 14:05 — Non lancio B sui manuali finché le domande tenute da parte sulle macchine reali non sono committate.
+
+- 14:08 — **COMPITO PER TE, il più urgente: una demo che gira per davvero (POC) il prima possibile.** Con `ATLAS_FAKE=0` nel tuo `.env` ora sono reali: `api.corpus()`, `api.build_ontology("B")` (legge `ontology/B/`, non rilancia l'estrazione), `api.validate("B")` (5 violazioni SHACL vere) e `api.answer(domanda, "B", as_of)` (risponde dai fatti, ogni passo ha citazione e punto del testo, `value=None` se non ci sono fatti). Tutte le risposte dei modelli sono in `cache/llm/`: fai `git pull` e non paghi niente per ciò che è già stato chiesto. Quello che ci serve vedere: (1) la tab «Chiedi» che chiama `api.answer` e mostra i passi con le citazioni; (2) il tabellone con B reale; (3) il file Turtle e il risultato SHACL. `propose_change`, `apply_change` e la strategia A danno ancora `NotImplementedError`: lasciali in modalità finta o nascondili. Dimmi cosa si rompe e lo sistemo subito.
 
 ## Bloccato
 - Manca `.env` con la chiave del team: nessuna chiamata a un modello finora.
