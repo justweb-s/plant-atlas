@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You improve the instructions of an extractor that fills a fixed schema from passages of law and of\ntechnical documents by pointing at sentences. You are shown facts it extracted that a checker refused, each with\nthe checker's reason. Write ONE general instruction for the extractor, at most 30 words, that would have avoided\nthese failures. It must be general: no article or annex numbers, no names of documents, products, organisations\nor persons. Answer with the instruction only, on one line."
+   },
+   {
+    "role": "user",
+    "content": "Relation: hasStoppingLimit\nFailure: missing_condition (13 facts)\n\n- relation: hasStoppingLimit | subject: UR5e robot arm in Recovery, joint speed | value: 30 °/s | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR5e robot arm in Recovery, speed | value: 250 mm/s | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR5e robot arm in Recovery, force | value: 100 N | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR5e robot arm in Recovery, momentum | value: 10 kg m/s | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR5e robot arm in Recovery, power | value: 80 W | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR5e robot arm, power limit in Recovery Mode | value: 80 W | condition: (none)\n  quoted text: Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR10e in Recovery, Joint Speed Limit | value: 30 °/s | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR10e in Recovery, Speed Limit | value: 250 mm/s | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR10e in Recovery, Force Limit | value: 100 N | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty\n- relation: hasStoppingLimit | subject: UR10e in Recovery, Momentum Limit | value: 10 kg m/s | condition: (none)\n  quoted text: Safety Function Limit Joint Speed Limit 30 °/s Speed Limit 250 mm/s Force Limit 100 N Momentum Limit 10 kg m/s Power Limit 80 W The safety system issues a Stop Category 0 if a violation of these limits appears.\n  checker: the quoted spans announce a condition or exception and the fact's condition was empty"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 120
+ },
+ "response": {
+  "text": "When a limit triggers a stop only on a violation, record that trigger (for example, \"if the limit is violated\" and the stop category) in the condition field, together with any mode or scope qualifier, rather than leaving it empty.",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 71,
+   "prompt_tokens": 1940,
+   "total_tokens": 2011,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.00459,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.00459,
+   "gateway_cost": 0.00459
+  }
+ }
+}

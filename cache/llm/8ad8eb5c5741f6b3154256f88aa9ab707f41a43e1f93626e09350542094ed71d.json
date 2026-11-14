@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n\nLessons from earlier checks:\n- Use only relation names exactly as listed in the schema, never invented labels or placeholders like \"predicate\"; if no listed relation fits the sentence, extract nothing rather than coining a"
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex VII, 7\n\n[0] 7.\n[1] Review of the EU type-examination certificate 7.1.\n[2] 7.2.\n[3] 7.3.\n[4] 7.4.\n[5] (a) in the case of a modification to the approved type referred to in point 7.2;\n[6] (b) in the case of a change in the state of the art referred to in point 7.3;\n[7] (c) at the latest, before the date of expiry of the certificate.\n[8] In the case referred to in point (c), the review may lead to a renewal of the EU type-examination certificate only when the application is submitted by the manufacturer at the earliest 12 months and at the latest 6 months prior to the expiry date of the EU type-examination certificate.\n[9] Where the manufacturer fails to comply with the deadlines mentioned above, the review may lead only to an approval in the form of an addition to the original EU type-examination certificate and the expiry date of the certificate shall be that of the original certificate.\n[10] 7.5.\n[11] 7.6.\n[12] (a) its name and address and data identifying the EU type-examination certificate concerned;\n[13] (b) confirmation that there has been no modification to the approved type as referred to in point 7.2, including materials, sub-components or sub-assemblies, nor to the relevant harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) or other technical specifications applied;\n[14] (c) confirmation that there has been no change in the state of the art as referred to in point 7.3;\n[15] and (d) where not already supplied, copies of current product drawings and photographs, product marking and information;\n[16] Where the notified body has confirmed that no modification to the approved type referred to in point 7.2 and no change in the state of the art referred to in point 7.3 has occurred, the simplified review procedure shall be applied and the examinations and tests referred to in point 7.5 shall not be carried out.\n[17] In that case, the notified body shall renew the EU type-examination certificate.\n[18] The costs associated with that renewal shall be proportionate to the administrative burden of the simplified procedure.\n[19] If the notified body finds that a change in the state of the art referred to in point 7.3 has occurred, the procedure set out in point 7.5 shall apply.\n[20] 7.7.\n[21] 8.\n[22] Each notified body shall inform its notifying authority concerning the EU type-examination certificates and/or any additions thereto which it has issued or withdrawn, and shall, periodically or upon request, make available to its notifying authority the list of such certificates and/or any additions thereto refused, suspended or otherwise restricted.\n[23] Each notified body shall inform the other notified bodies concerning the EU type-examination certificates and/or any additions thereto, which it has refused, withdrawn, suspended or otherwise restricted, and, upon request, concerning the EU type-examination certificates and/or additions thereto which it has issued.\n[24] The Commission, the Member States and the other notified bodies may, on request, obtain a copy of the EU type-examination certificates and/or additions thereto.\n[25] On request, the Commission and the Member States may obtain a copy of the technical documentation and the results of the examinations carried out by the notified body.\n[26] The notified body shall keep a copy of the EU type-examination certificate, its annexes and additions, as well as the technical file including the documentation submitted by the manufacturer, for a period of five years after the expiry of the validity of that certificate.\n[27] 9.\n[28] The manufacturer shall keep a copy of the EU type-examination certificate, its annexes and additions, together with the technical documentation at the disposal of the national authorities, for at least 10 years after the machinery or related product has been placed on the market or put into service.\n[29] 10.\n[30] The manufacturer’s authorised representative may lodge the application referred to in point 3 and fulfil the obligations set out in points 7.2, 7.4 and 9, provided that they are specified in the mandate."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasTimeLimit | renewal review application by manufacturer | at the earliest 12 months | P12M | only when the application is submitted by the manufacturer | 8 | 8\nhasTimeLimit | renewal review application by manufacturer | at the latest 6 months | P6M | only when the application is submitted by the manufacturer | 8 | 8\nretentionPeriod | copy of EU type-examination certificate and technical file, notified body | five years | P5Y | | 26 | 26\nretentionPeriod | copy of EU type-examination certificate and technical documentation, manufacturer | at least 10 years | P10Y | | 28 | 28\nhasObligation | manufacturer's authorised representative | fulfil the obligations set out in points 7.2, 7.4 and 9 | fulfil the obligations set out in points 7.2, 7.4 and 9 | provided that they are specified in the mandate | 30 | 30\nOPEN | late renewal: approval only as addition, original expiry kept | 9 | 9",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2094,
+   "prompt_tokens": 2378,
+   "total_tokens": 4472,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1757,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0012848,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0012848,
+   "gateway_cost": 0.0012848
+  }
+ }
+}

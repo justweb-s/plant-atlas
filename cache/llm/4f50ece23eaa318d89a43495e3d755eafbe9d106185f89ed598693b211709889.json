@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You improve the instructions of an extractor that fills a fixed schema from passages of law and of\ntechnical documents by pointing at sentences. You are shown facts it extracted that a checker refused, each with\nthe checker's reason. Write ONE general instruction for the extractor, at most 30 words, that would have avoided\nthese failures. It must be general: no article or annex numbers, no names of documents, products, organisations\nor persons. Answer with the instruction only, on one line."
+   },
+   {
+    "role": "user",
+    "content": "Relation: requiresProcedure\nFailure: dropped_condition (8 facts)\n\n- relation: requiresProcedure | subject: machinery or related product substantially modified | value: conformity assessment procedure as provided in Article 25 (2), (3) and (4) | condition: (none)\n  quoted text: The person who carries out the substantial modification shall in particular, but without prejudice to other obligations set out in Article 10, ensure and declare on its sole responsibility that the machinery or related product concerned is in conformity with the applicable requirements of this Regulation and shall apply the relevant conformity assessment procedure as provided in Article 25 (2), (3) and (4) of this Regulation.\n  checker: Passage says the modifier applies the conformity assessment procedure per Art. 25(2)-(4); the claim omits the exclusion for non-professional users modifying for own use.\n- relation: requiresProcedure | subject: machinery category listed in Annex I, Part B | value: internal production control (module A) | condition: Where the category of machinery or related product is listed in Annex I, Part B\n  quoted text: (a) internal production control (module A) set out in Annex VI;\n  checker: Passage lists module A as one of several alternatives ('one of the following procedures'); claim presents it as the required procedure, omitting alternatives like module B+C.\n- relation: requiresProcedure | subject: machinery category listed in Annex I, Part B | value: EU type-examination (module B) | condition: Where the category of machinery or related product is listed in Annex I, Part B\n  quoted text: (b) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII;\n  checker: Passage lists module B (followed by module C) as one of alternative procedures (a),(b),(c); claim omits that it is only one option and must be followed by module C.\n- relation: requiresProcedure | subject: machinery category listed in Annex I, Part B | value: conformity to type based on internal production control (module C) | condition: Where the category of machinery or related product is listed in Annex I, Part B\n  quoted text: (b) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII;\n  checker: Passage lists module B followed by module C as one option among alternatives (a, b, c); claim presents module C alone, omitting the module B combination and the alternative options.\n- relation: requiresProcedure | subject: machinery category not designed per harmonised standards | value: shall apply one of the procedures referred to in points (b), (c) or (d) | condition: the machinery or related product was not designed and constructed in accordance with the harmonised standards\n  quoted text: Where the category of machinery or related product is listed in Annex I, Part B, and the machinery or related product was not designed and constructed in accordance with the harmonised standards or common specifications specific to that category of machinery or related product covering all the relevant essential health and safety requirements for that category of machinery or related product, the manufacturer, including a natural or legal person referred to in Article 18, shall apply one of the procedures referred to in points (b), (c) or (d) of this paragraph.\n  checker: Passage requires procedures (b), (c) or (d) only where category is in Annex I, Part B and not built to standards; claim omits the Annex I, Part B condition.\n- relation: requiresProcedure | subject: machinery referred to in Annex IV | value: internal checks on the manufacture of machinery | condition: provided that those standards cover all of the relevant essential health and safety requirements\n  quoted text: Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII;\n  checker: Passage lists internal checks as one alternative, conditioned on manufacture per harmonised standards (Art 7(2)) and coverage; claim omits the manufacture-in-accordance condition and the 'one of' alte\n- relation: requiresProcedure | subject: machinery referred to in Annex IV | value: the EC type-examination procedure provided for in Annex IX | condition: Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2)\n  quoted text: (a) the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3;\n  checker: Passage's condition also covers partial compliance, standards not covering all requirements, or no standards; also requires plus Annex VIII checks and is alternative to (b). Claim omits these.\n- relation: requiresProcedure | subject: machinery referred to in Annex IV | value: the full quality assurance procedure provided for in Annex X | condition: Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2)\n  quoted text: (b) the full quality assurance procedure provided for in Annex X.\n  checker: Passage lists Annex X full quality assurance as an option (b) alongside (a) EC type-examination plus internal checks; the claim presents it as the sole requirement, omitting the alternative."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 120
+ },
+ "response": {
+  "text": "When a procedure is one of several alternatives, is combined with another step, or carries exclusions or applicability conditions, state all of these in the value or condition rather than naming the procedure alone.",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 60,
+   "prompt_tokens": 1987,
+   "total_tokens": 2047,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.004574,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.004574,
+   "gateway_cost": 0.004574
+  }
+ }
+}

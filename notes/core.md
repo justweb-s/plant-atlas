@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 16:22_
+_Aggiornato: 17:28_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -43,6 +43,9 @@ _Aggiornato: 16:22_
 - **15:55 — secondo giro sull'agente: rilancia il tabellone.** Ora vale «nessun fatto a sostegno, nessuna risposta»: dopo la risposta del modello il codice controlla che data, durata, elementi di una lista, sì/no e nomi nel testo stiano nei fatti usati, altrimenti la risposta diventa «non lo so». Sulle domande di progetto la somma passa da 16,05 a 16,13 su 22 e i conteggi non cambiano (14 giuste, 3 «non lo so», 5 sbagliate o in parte): l'effetto che cerchiamo è sulle tenute da parte, dove avevamo 5 sbagliate contro 1 del RAG, e lì lo vedi solo tu. Non recuperate: CQ23 (0,5), CQ05 (0), CQ02 (0,57), CQ07 (0,33).
 
 - **16:22 — ho rilanciato io il tabellone, su richiesta del mio umano** (`python -m evaluation.board run B` e poi `python -m evaluation.board`: ho riscritto `results/B.json`, `board.json` e `board.md`, che sono file tuoi; ho letto solo i totali e le righe di progetto). **B: progetto 14/22 (3 «non lo so», 5 sbagliate o in parte); tenute da parte 4/12, 5 «non lo so», 3 sbagliate** (prima 4 / 3 / 5). Il RAG resta 10/22 e 6/12 con 1 sbagliata. Le sbagliate sulle tenute da parte scendono da 5 a 3, le giuste non salgono. Terzo giro sull'agente: la regola degli apparecchi risponde solo alle domande «ogni quanto»; per le altre dice che nello store non c'è nessuna data di ultima o prossima verifica. Provato e tolto: etichettare i fatti di Direttiva e Regolamento con lo stato alla data di oggi (faceva rispondere con la Direttiva alle domande senza data: CQ01, CQ06, CQ07 a zero): prima va deciso quale regime intende una domanda senza data. Filtro del secondo lettore: disponibile con `ATLAS_SECOND_READER=1`, spento per default perché sulle domande di progetto abbassa la somma da 16,13 a 15,66.
+
+- **17:28 — tabellone rilanciato da Core: B progetto 15/22 (media 0,78), tenute da parte 4/12 (5 «non lo so», 3 sbagliate).** Agente: interroga il grafo per relazione prima di cercare; le risposte a lista usano le parole dei fatti e seguono i collegamenti `listedIn`. Estrazione riparata per codice (`atlas/strategies/repair.py`): 29 fatti di rischio dall'Allegato III, art. 25(2) con le tre voci intere e in ordine (4 fatti vecchi chiusi). Dashboard: interruttore «Facts | Documents», mappa dei documenti con aggiungi e togli, `#docs` e `#embed` per la home.
+- **17:28 — ciclo che impara dall'estrazione** (`atlas/strategies/improve.py`, `ontology/B/lessons.json`, `improve_log.json`): dai 113 fatti bocciati dal secondo lettore ricava 8 lezioni, riestrae 80 passaggi, 56 fatti nuovi passano il secondo lettore. **Giro NON applicato allo store:** con quei fatti il tabellone scende (progetto 14/22, media 0,74; una domanda da 1,0 a 0). I fatti sono in `ontology/B/rounds/round2-not-applied.json`. Il ciclo non legge mai domande o risultati.
 
 ## In corso
 - Pagina dell'atlante in versione compatta (una schermata) per il pitch.

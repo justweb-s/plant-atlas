@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You improve the instructions of an extractor that fills a fixed schema from passages of law and of\ntechnical documents by pointing at sentences. You are shown facts it extracted that a checker refused, each with\nthe checker's reason. Write ONE general instruction for the extractor, at most 30 words, that would have avoided\nthese failures. It must be general: no article or annex numbers, no names of documents, products, organisations\nor persons. Answer with the instruction only, on one line."
+   },
+   {
+    "role": "user",
+    "content": "Relation: listedIn\nFailure: dropped_condition (9 facts)\n\n- relation: listedIn | subject: category of machinery or related product not fulfilling points (a) to (d) | value: Annex I, Part B | condition: does not fulfil one or more of the conditions in points (a) to (d)\n  quoted text: Any other category of machinery or related product that, according to that assessment, presents a serious inherent potential risk but does not fulfil one or more of the conditions in points (a) to (d) shall be included in Annex I, Part B.\n  checker: Passage says such categories go in Annex I, Part B; the claim keeps the condition of not fulfilling points (a)-(d), but omits 'presents a serious inherent potential risk'.\n- relation: listedIn | subject: safety components with fully or partially self-evolving behaviour | value: Safety components with fully or partially self-evolving behaviour | condition: (none)\n  quoted text: Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions.\n  checker: The passage lists these safety components at Annex I, Part A, point 5, but only those using machine learning approaches ensuring safety functions; the claim omits that qualifier.\n- relation: listedIn | subject: circular saws for wood or meat and similar materials | value: Circular saws (single- or multi-blade) | condition: for working with wood and material with similar physical characteristics or for working with meat and material with similar physical characteristics\n  quoted text: Circular saws (single- or multi-blade) for working with wood and material with similar physical characteristics or for working with meat and material with similar physical characteristics, of the following types:\n  checker: Passage lists circular saws with the wood/meat condition, but ends 'of the following types', a restriction the claim omits.\n- relation: listedIn | subject: thicknessers for one-side dressing | value: 3. | condition: having a built-in mechanical feed device, with manual loading and/or unloading\n  quoted text: 3. Thicknessers for one-side dressing having a built-in mechanical feed device, with manual loading and/or unloading for woodworking.\n  checker: Passage lists thicknessers at point 3 with feed device and manual loading/unloading; claim omits the 'for woodworking' scope restriction.\n- relation: listedIn | subject: band-saws with manual loading and/or unloading | value: 4. | condition: with manual loading and/or unloading for working with wood or meat\n  quoted text: 4. Band-saws with manual loading and/or unloading for working with wood and material with similar physical characteristics or for working with meat and material with similar physical characteristics, of the following types:\n  checker: Passage lists band-saws under point 4 for wood/similar material or meat/similar material; claim omits 'similar physical characteristics' material and 'of the following types' restriction.\n- relation: listedIn | subject: sawing machinery with fixed blade(s) during cutting | value: 4.1. | condition: (none)\n  quoted text: 4.1. sawing machinery with fixed blade(s) during cutting, having a fixed or reciprocating-movement bed or support for the workpiece;\n  checker: Passage lists point 4.1 as sawing machinery with fixed blades, but only as a type of band-saws with manual loading/unloading for wood or meat; claim omits this scope.\n- relation: listedIn | subject: sawing machinery with blade(s) assembled on a carriage | value: 4.2. | condition: (none)\n  quoted text: 4.2. sawing machinery with blade(s) assembled on a carriage with reciprocating motion.\n  checker: Passage lists 'sawing machinery with blade(s) assembled on a carriage with reciprocating motion' at 4.2; claim drops 'with reciprocating motion' restriction.\n- relation: listedIn | subject: combined machinery for working with wood and similar material | value: 5. | condition: (none)\n  quoted text: 5. Combined machinery of the types referred to in points 1 to 4 and in point 7 for working with wood and material with similar physical characteristics.\n  checker: Passage point 5 lists combined machinery for working wood and similar material; claim matches, and the restriction to types in points 1-4 and 7 is omitted.\n- relation: listedIn | subject: manually loaded household refuse collection trucks with compression mechanism | value: Manually loaded trucks for the collection of household refuse | condition: (none)\n  quoted text: Manually loaded trucks for the collection of household refuse incorporating a compression mechanism.\n  checker: Passage lists trucks only if they incorporate a compression mechanism; the claim's value omits this, though the subject includes it. Value is a fragment lacking that qualifier."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 120
+ },
+ "response": {
+  "text": "When extracting list membership, put every qualifier from the quoted sentence into the condition: purpose or material scope, \"of the following types\", parent-item restrictions, and trailing modifiers. Never drop any qualifier.",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 71,
+   "prompt_tokens": 1728,
+   "total_tokens": 1799,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.004166,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.004166,
+   "gateway_cost": 0.004166
+  }
+ }
+}

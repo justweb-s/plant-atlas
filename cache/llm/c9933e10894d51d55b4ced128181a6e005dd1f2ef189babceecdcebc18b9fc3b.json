@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You improve the instructions of an extractor that fills a fixed schema from passages of law and of\ntechnical documents by pointing at sentences. You are shown facts it extracted that a checker refused, each with\nthe checker's reason. Write ONE general instruction for the extractor, at most 30 words, that would have avoided\nthese failures. It must be general: no article or annex numbers, no names of documents, products, organisations\nor persons. Answer with the instruction only, on one line."
+   },
+   {
+    "role": "user",
+    "content": "Relation: definedAs\nFailure: dropped_condition (17 facts)\n\n- relation: definedAs | subject: products within the scope of this Regulation | value: machinery, the related products listed in the first subparagraph | condition: (none)\n  quoted text: For the purposes of this Regulation, machinery, the related products listed in the first subparagraph and partly completed machinery shall together be referred to as ‘products within the scope of this Regulation’.\n  checker: Passage defines the term as machinery, listed related products, and partly completed machinery; the claim omits partly completed machinery, so the definition is incomplete.\n- relation: definedAs | subject: safety component | value: ‘safety component’ means a physical or digital component | condition: but which is not necessary in order for that product to function or for which normal components may be substituted in order for that product to function\n  quoted text: (3) ‘safety component’ means a physical or digital component, including software, of a product within the scope of this Regulation, which is designed or intended to fulfil a safety function and which is independently placed on the market, the failure or malfunction of which endanger the safety of persons, but which is not necessary in order for that product to function or for which normal components may be substituted in order for that product to function;\n  checker: Passage defines safety component as a physical or digital component, but adds conditions (product scope, safety function, independently placed on market, endangering safety) that the claim's condition\n- relation: definedAs | subject: lifting accessory | value: a component or equipment, not attached to the lifting machinery | condition: (none)\n  quoted text: (5) ‘lifting accessory’ means a component or equipment, not attached to the lifting machinery, which enables the load to be held, which is placed between the machinery and the load or on the load itself, or which is intended to constitute an integral part of the load and which is independently placed on the market, including slings and their components;\n  checker: Passage defines lifting accessory as component/equipment not attached to machinery, but adds further qualifiers (enables load holding, placement, independently placed on market) that the claim omits.\n- relation: definedAs | subject: 'ropes' | value: designed and constructed for lifting purposes | condition: (none)\n  quoted text: (7) ‘ropes’ means ropes designed and constructed for lifting purposes as part of lifting machinery or lifting accessories;\n  checker: Passage defines ropes as designed and constructed for lifting purposes, but adds 'as part of lifting machinery or lifting accessories', which the claim omits.\n- relation: definedAs | subject: 'webbing' | value: webbing designed and constructed for lifting purposes | condition: (none)\n  quoted text: (8) ‘webbing’ means webbing designed and constructed for lifting purposes as part of lifting machinery or lifting accessories;\n  checker: Passage defines webbing as designed and constructed for lifting purposes 'as part of lifting machinery or lifting accessories'; claim omits this scope restriction.\n- relation: definedAs | subject: removable mechanical transmission device | value: removable component for transmitting power | condition: (none)\n  quoted text: (9) ‘removable mechanical transmission device’ means a removable component for transmitting power between self-propelled machinery or a tractor and other machinery or related products by joining them at the first fixed bearing;\n  checker: Passage defines the term as a removable component for transmitting power, but adds scope: between self-propelled machinery/tractor and other machinery, joined at first fixed bearing; claim omits this.\n- relation: definedAs | subject: partly completed machinery | value: an assembly which is not yet machinery | condition: (none)\n  quoted text: (10) ‘partly completed machinery’ means an assembly which is not yet machinery as it cannot in itself perform a specific application and which is only intended to be incorporated into or assembled with machinery or other partly completed machinery or equipment, thereby forming machinery;\n  checker: Passage defines partly completed machinery as an assembly not yet machinery, but adds 'cannot in itself perform a specific application' and incorporation-only intent; claim omits these.\n- relation: definedAs | subject: making available on the market | value: means any supply of a product | condition: within the scope of this Regulation; in the course of a commercial activity, whether in return for payment or free of charge\n  quoted text: (11) ‘making available on the market’ means any supply of a product within the scope of this Regulation for distribution or use on the Union market in the course of a commercial activity, whether in return for payment or free of charge;\n  checker: Passage defines the term as supply of a product within scope, for distribution or use on Union market, in commercial activity; claim omits 'for distribution or use on the Union market'.\n- relation: definedAs | subject: placing on the market | value: the first making available of a product | condition: (none)\n  quoted text: (12) ‘placing on the market’ means the first making available of a product within the scope of this Regulation on the Union market;\n  checker: Passage defines placing on the market as first making available of a product, but restricts it to products within the Regulation's scope and on the Union market; claim omits these.\n- relation: definedAs | subject: putting into service | value: the first use, for its intended purpose, in the Union | condition: (none)\n  quoted text: (13) ‘putting into service’ means the first use, for its intended purpose, in the Union, of machinery or related products;\n  checker: Passage defines putting into service as first use, for intended purpose, in the Union, of machinery or related products; claim omits the 'of machinery or related products' scope."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 120
+ },
+ "response": {
+  "text": "When extracting a definition, copy the whole defining phrase and keep every qualifier, scope restriction, purpose clause and listed item up to the sentence end; never truncate, and put limiting clauses in the value or condition.",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 72,
+   "prompt_tokens": 1974,
+   "total_tokens": 2046,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.004668,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.004668,
+   "gateway_cost": 0.004668
+  }
+ }
+}

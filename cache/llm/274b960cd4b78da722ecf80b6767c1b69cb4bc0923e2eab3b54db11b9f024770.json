@@ -1,0 +1,85 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You check one claim against one passage of law. Use only the passage; do not use what you know of the law.\nAnswer with JSON: \"why\" (at most 20 words), then \"label\", then \"confidence\" (0 to 1)."
+   },
+   {
+    "role": "user",
+    "content": "Does the passage state the claim, and does the claim keep every condition the passage attaches to it?\n\nChoose one label:\n- stated: the passage says what the claim says, and every exception, condition or restriction of scope\n  that the passage attaches to it (except, unless, where, if, provided that, only for, an \"or\" list of\n  alternatives, salvo, qualora, a proviso in the sentence before or after) is present in the claim's condition.\n- stated_but_condition_dropped: the passage says it, but attaches an exception, condition, alternative or restriction\n  of scope that the claim leaves out, so the claim as written is broader than the passage.\n- not_stated: the passage does not say this: wrong subject, wrong value, wrong relation, or a value that\n  is only a fragment and does not carry the meaning (for example \"means:\" or \"the following\").\n- unclear: the passage is not enough to tell (for example the value depends on text that is not shown).\n\nThe value is a few words copied from the passage: a shortened but faithful excerpt is fine, do not ask for the\nwhole sentence. Words of manner or purpose (\"without risk to persons\", \"immediately\") are not conditions; only\nwhat changes when, where or to whom the claim applies counts. Judge only from the passage.\n\nLabels: stated, stated_but_condition_dropped, not_stated, unclear\n\nPASSAGE (DLGS71, art. 71, c. 11)\nsentence before: 11.\nquoted sentences: Oltre a quanto previsto dal comma 8, il datore di lavoro sottopone le attrezzature di lavoro riportate nell'allegato VII a verifiche periodiche volte a valutarne l'effettivo stato di conservazione e di efficienza ai fini di sicurezza, con la frequenza indicata nel medesimo allegato.\nsentence after: Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta.\n\nCLAIM\nrelation: hasObligation (an obligation of a manufacturer, importer, distributor or employer)\nsubject: datore di lavoro\nvalue: sottopone le attrezzature di lavoro riportate nell'allegato VII a verifiche periodiche\ncondition: Oltre a quanto previsto dal comma 8"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 150,
+  "response_format": {
+   "type": "json_schema",
+   "json_schema": {
+    "name": "verdict",
+    "strict": true,
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "why": {
+       "type": "string"
+      },
+      "label": {
+       "type": "string",
+       "enum": [
+        "stated",
+        "stated_but_condition_dropped",
+        "not_stated",
+        "unclear"
+       ]
+      },
+      "confidence": {
+       "type": "number"
+      }
+     },
+     "required": [
+      "why",
+      "label",
+      "confidence"
+     ]
+    }
+   }
+  }
+ },
+ "response": {
+  "text": "{\"why\":\"Passage states employer subjects Annex VII equipment to periodic checks, and the claim keeps the 'in addition to paragraph 8' condition; frequency is manner, not a restriction.\",\"label\":\"stated\",\"confidence\":0.9}",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 83,
+   "prompt_tokens": 1111,
+   "total_tokens": 1194,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.003052,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.003052,
+   "gateway_cost": 0.003052
+  }
+ }
+}

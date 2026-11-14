@@ -115,7 +115,8 @@ def _scene_crane(st, ids, used) -> dict:
 
 def _scene_correction(st, ids, used) -> dict:
     pairs = [(ids[s.conflicts_with], s) for s in st
-             if s.status == "current" and s.conflicts_with in ids and ids[s.conflicts_with].status == "closed"]
+             if s.status == "current" and s.conflicts_with in ids and ids[s.conflicts_with].status == "closed"
+             and s.asserted_by.endswith(":corrigendum")]
     day = pairs[0][1].in_force_from
     cites = next((s for s in st if store_layer(s) == "manufacturer" and s.status == "current"
                   and s.predicate == "hasDeclaration" and "2006/42" in (s.object + s.quote)), None)

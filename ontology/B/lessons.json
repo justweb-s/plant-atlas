@@ -1,0 +1,114 @@
+[
+ {
+  "id": "lesson-01",
+  "relation": "openPoint",
+  "pattern": "Emit an openPoint fact only when the passage explicitly leaves something undecided, and always quote the exact sentence span showing it, with a non-empty value; if no such sentence exists,",
+  "evidence": {
+   "count": 48,
+   "kind": "no_anchor",
+   "examples": []
+  },
+  "source": "gate",
+  "round": 2
+ },
+ {
+  "id": "lesson-02",
+  "relation": "hasObligation",
+  "pattern": "When extracting an obligation, put every scope limit, exception, alternative, duration, recipient and qualifier from the sentence into the value or condition field, and do not shorten the duty to",
+  "evidence": {
+   "count": 43,
+   "kind": "dropped_condition",
+   "examples": [
+    "st-0073",
+    "st-0074",
+    "st-0078"
+   ]
+  },
+  "source": "second_reader",
+  "round": 2
+ },
+ {
+  "id": "lesson-03",
+  "relation": "definedAs",
+  "pattern": "When extracting a definition, copy the whole defining phrase and keep every qualifier, scope restriction, purpose clause and listed item up to the sentence end; never truncate, and put limiting",
+  "evidence": {
+   "count": 17,
+   "kind": "dropped_condition",
+   "examples": [
+    "st-0002",
+    "st-0007",
+    "st-0008"
+   ]
+  },
+  "source": "second_reader",
+  "round": 2
+ },
+ {
+  "id": "lesson-04",
+  "relation": null,
+  "pattern": "Use only relation names exactly as listed in the schema, never invented labels or placeholders like \"predicate\"; if no listed relation fits the sentence, extract nothing rather than coining a",
+  "evidence": {
+   "count": 15,
+   "kind": "not_in_schema",
+   "examples": []
+  },
+  "source": "gate",
+  "round": 2
+ },
+ {
+  "id": "lesson-05",
+  "relation": "hasStoppingLimit",
+  "pattern": "When a limit triggers a stop only on a violation, record that trigger (for example, \"if the limit is violated\" and the stop category) in the condition field, together with",
+  "evidence": {
+   "count": 13,
+   "kind": "missing_condition",
+   "examples": []
+  },
+  "source": "gate",
+  "round": 2
+ },
+ {
+  "id": "lesson-06",
+  "relation": "listedIn",
+  "pattern": "When extracting list membership, put every qualifier from the quoted sentence into the condition: purpose or material scope, \"of the following types\", parent-item restrictions, and trailing modifiers. Never drop any",
+  "evidence": {
+   "count": 9,
+   "kind": "dropped_condition",
+   "examples": [
+    "st-0055",
+    "st-0384",
+    "st-0388"
+   ]
+  },
+  "source": "second_reader",
+  "round": 2
+ },
+ {
+  "id": "lesson-07",
+  "relation": "requiresCheckAfter",
+  "pattern": "When a sentence contains \"if\", \"unless\", \"provided that\" or \"when\", or states a trigger or exception, put that clause in the condition field. Keep the trigger out of the value,",
+  "evidence": {
+   "count": 9,
+   "kind": "missing_condition",
+   "examples": []
+  },
+  "source": "gate",
+  "round": 2
+ },
+ {
+  "id": "lesson-08",
+  "relation": "requiresProcedure",
+  "pattern": "When a procedure is one of several alternatives, is combined with another step, or carries exclusions or applicability conditions, state all of these in the value or condition rather than",
+  "evidence": {
+   "count": 8,
+   "kind": "dropped_condition",
+   "examples": [
+    "st-0205",
+    "st-0243",
+    "st-0244"
+   ]
+  },
+  "source": "second_reader",
+  "round": 2
+ }
+]

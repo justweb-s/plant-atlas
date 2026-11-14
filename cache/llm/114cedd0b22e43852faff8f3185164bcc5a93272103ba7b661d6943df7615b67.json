@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You improve the instructions of an extractor that fills a fixed schema from passages of law and of\ntechnical documents by pointing at sentences. You are shown facts it extracted that a checker refused, each with\nthe checker's reason. Write ONE general instruction for the extractor, at most 30 words, that would have avoided\nthese failures. It must be general: no article or annex numbers, no names of documents, products, organisations\nor persons. Answer with the instruction only, on one line."
+   },
+   {
+    "role": "user",
+    "content": "Relation: openPoint\nFailure: no_anchor (48 facts)\n\n- relation: openPoint | subject: Art. 2(1) | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Art. 6(7) | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Art. 40(1) | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Art. 46(1) | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Art. 47(3) | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Annex II | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Annex III, 1.1.6 | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Annex III, 1.2.6 | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Annex III, 1.7.4.2 | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage\n- relation: openPoint | subject: Annex III, 2.2.1.1 | value:  | condition: (none)\n  quoted text: (none)\n  checker: the quoted spans were missing or not in the passage"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 120
+ },
+ "response": {
+  "text": "Emit an openPoint fact only when the passage explicitly leaves something undecided, and always quote the exact sentence span showing it, with a non-empty value; if no such sentence exists, output nothing.",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 66,
+   "prompt_tokens": 815,
+   "total_tokens": 881,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.00229,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.00229,
+   "gateway_cost": 0.00229
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You improve the instructions of an extractor that fills a fixed schema from passages of law and of\ntechnical documents by pointing at sentences. You are shown facts it extracted that a checker refused, each with\nthe checker's reason. Write ONE general instruction for the extractor, at most 30 words, that would have avoided\nthese failures. It must be general: no article or annex numbers, no names of documents, products, organisations\nor persons. Answer with the instruction only, on one line."
+   },
+   {
+    "role": "user",
+    "content": "Relation: hasObligation\nFailure: dropped_condition (43 facts)\n\n- relation: hasObligation | subject: manufacturers | value: shall ensure that procedures are in place | condition: (none)\n  quoted text: Manufacturers shall ensure that procedures are in place in order that machinery or related products that are part of a series production remain in conformity with this Regulation.\n  checker: Passage states manufacturers shall ensure procedures are in place, but limits it to machinery or related products in series production; claim omits this scope.\n- relation: hasObligation | subject: manufacturers | value: Adequate account shall be taken of changes | condition: (none)\n  quoted text: Adequate account shall be taken of changes in the production process or in the design or characteristics of the machinery or related product, and changes in the harmonised standards, in other technical specifications, or in the common specifications referred to in Article 20 by reference to which the conformity of the machinery or related product is declared.\n  checker: Passage states adequate account shall be taken of changes, but context limits it to series production procedures; claim omits that scope.\n- relation: hasObligation | subject: manufacturers | value: bears at least a designation | condition: \"\"\n  quoted text: Manufacturers shall ensure that the machinery or related product which they place on the market or put into service bears at least a designation of the machinery or related product model, series or type, the year of construction, namely the year in which the manufacturing process was completed, and any batch or serial number or other element allowing its identification that exists, or, where the size or nature of the machinery or related product does not allow this, that the required information is provided on the packaging or in a document accompanying the machinery or related product.\n  checker: Passage requires manufacturers to ensure marking, but allows packaging/document alternative where size or nature prevents it; claim omits that condition and the other required items.\n- relation: hasObligation | subject: manufacturer contact details | value: shall be in a language easily understood | condition: (none)\n  quoted text: The contact details shall be in a language easily understood by users and market surveillance authorities.\n  checker: Passage says contact details shall be in a language easily understood by users and market surveillance authorities; claim omits the 'by users and authorities' scope restriction.\n- relation: hasObligation | subject: manufacturer, digital instructions | value: present them in a format that makes it possible for the user to print and download the instructions for use | condition: (none)\n  quoted text: (b) present them in a format that makes it possible for the user to print and download the instructions for use and save them on an electronic device so that he or she can access them at all times, in particular during a breakdown of the machinery or related product;\n  checker: Passage requires presenting digital instructions in printable/downloadable format, but claim omits 'save them on an electronic device so accessible at all times' and the extension; also the passage's \n- relation: hasObligation | subject: manufacturers | value: immediately inform the competent national authorities | condition: where the machinery or related product presents a risk to the health or safety of persons\n  quoted text: Furthermore, where the machinery or related product presents a risk to the health or safety of persons, and, where appropriate, domestic animals or to property, and, where applicable, to the environment, manufacturers shall immediately inform the competent national authorities of the Member States in which they made the machinery or related product available on the market, or in which they put it into service, to that effect, giving details, in particular, of the non-conformity and of any corrective actions taken.\n  checker: Passage requires immediate informing of authorities where risk exists; claim omits added scope: authorities of Member States where made available/put into service, and risk to animals/property/environ\n- relation: hasObligation | subject: manufacturers | value: cooperate with that authority | condition: at its request, on any actions taken to eliminate the risks presented by the machinery or related products\n  quoted text: They shall cooperate with that authority, at its request, on any actions taken to eliminate the risks presented by the machinery or related products, which they have placed on the market or put into service.\n  checker: Passage says manufacturers shall cooperate with that authority at its request on actions to eliminate risks; the claim's condition matches, though it omits 'placed on market or put into service' quali\n- relation: hasObligation | subject: manufacturers of partly completed machinery | value: shall ensure that it has been designed and constructed | condition: When placing partly completed machinery on the market\n  quoted text: When placing partly completed machinery on the market, manufacturers shall ensure that it has been designed and constructed in accordance with the relevant essential health and safety requirements set out in Annex III.\n  checker: Passage requires design and construction 'in accordance with relevant essential requirements in Annex III'; the claim omits this standard, so its scope is broader than the passage.\n- relation: hasObligation | subject: manufacturers of partly completed machinery | value: shall keep the technical documentation | condition: (none)\n  quoted text: Manufacturers shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities for at least 10 years after the partly completed machinery has been placed on the market.\n  checker: Passage says manufacturers keep technical documentation available to authorities for at least 10 years after placing on market; claim omits that duration and authority-availability scope.\n- relation: hasObligation | subject: manufacturers of partly completed machinery | value: bears at least the designation of the partly completed machinery | condition: (none)\n  quoted text: Manufacturers shall ensure that the partly completed machinery which they place on the market bears at least the designation of the partly completed machinery, the year of construction, namely the year in which the manufacturing process was completed, model and series or type and any batch or serial number or other element allowing its identification that exists, or, where the size or nature of the partly completed machinery does not allow this, that the required information is provided on the packaging or in a document accompanying the partly completed machinery.\n  checker: Passage requires marking with designation, but allows packaging/document where size or nature prevents marking; claim omits this alternative condition."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 120
+ },
+ "response": {
+  "text": "When extracting an obligation, put every scope limit, exception, alternative, duration, recipient and qualifier from the sentence into the value or condition field, and do not shorten the duty to its bare verb phrase.",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 68,
+   "prompt_tokens": 2136,
+   "total_tokens": 2204,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.004952,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.004952,
+   "gateway_cost": 0.004952
+  }
+ }
+}

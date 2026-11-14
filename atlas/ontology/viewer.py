@@ -91,7 +91,8 @@ def _events(statements, devices, regime, today: date) -> list[dict]:
     ids = {s.id: s for s in statements}
     for s in statements:
         old = ids.get(s.conflicts_with)
-        if s.status == "current" and old is not None and old.status == "closed" and s.in_force_from:
+        if (s.status == "current" and old is not None and old.status == "closed" and s.in_force_from
+                and s.asserted_by.endswith(":corrigendum")):   # a repair or a re-extraction is not a published correction
             by_day.setdefault(s.in_force_from.isoformat(), []).append((old, s))
     for day, pairs in by_day.items():
         kinds = sorted({law_tier(new.source_doc) for _, new in pairs})

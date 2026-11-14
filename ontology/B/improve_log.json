@@ -1,0 +1,1142 @@
+[
+ {
+  "round": 2,
+  "passages_reextracted": 80,
+  "old_failures": 113,
+  "replaced_by_passing_fact": 56,
+  "still_failing": 57,
+  "new_facts_added": 9,
+  "gate_rejections_before": 7,
+  "gate_rejections_after": 5,
+  "lessons": 8,
+  "candidates_read": 95,
+  "candidates_not_read_call_cap": 0,
+  "calls": 183,
+  "cost_usd_estimate": 0.353,
+  "still_failing_ids": [
+   "st-0008",
+   "st-0010",
+   "st-0011",
+   "st-0012",
+   "st-0022",
+   "st-0040",
+   "st-0055",
+   "st-0074",
+   "st-0078",
+   "st-0083",
+   "st-0089",
+   "st-0094",
+   "st-0096",
+   "st-0098",
+   "st-0101",
+   "st-0108",
+   "st-0109",
+   "st-0115",
+   "st-0135",
+   "st-0141",
+   "st-0147",
+   "st-0151",
+   "st-0155",
+   "st-0169",
+   "st-0181",
+   "st-0186",
+   "st-0190",
+   "st-0193",
+   "st-0203",
+   "st-0205",
+   "st-0236",
+   "st-0244",
+   "st-0245",
+   "st-0250",
+   "st-0270",
+   "st-0279",
+   "st-0312",
+   "st-0313",
+   "st-0314",
+   "st-0315",
+   "st-0316",
+   "st-0388",
+   "st-0398",
+   "st-0406",
+   "st-0500",
+   "st-0632",
+   "st-0785",
+   "st-0787",
+   "st-0789",
+   "st-0938",
+   "st-0974",
+   "st-0998",
+   "st-1000",
+   "st-1045",
+   "st-1255",
+   "st-1567",
+   "st-1576"
+  ],
+  "replacements": [
+   {
+    "old": {
+     "id": "st-0243",
+     "predicate": "requiresProcedure",
+     "subject": "machinery category listed in Annex I, Part B",
+     "object_as_written": "internal production control (module A)",
+     "condition": "Where the category of machinery or related product is listed in Annex I, Part B",
+     "quote": "(a) internal production control (module A) set out in Annex VI;",
+     "why_failed": "Passage lists module A as one of several alternatives ('one of the following procedures'); claim presents it as the required procedure, omitting alternatives like module B+C."
+    },
+    "new": {
+     "id": "reextracted-r2-0001",
+     "predicate": "requiresProcedure",
+     "subject": "machinery category listed in Annex I, Part B",
+     "object_as_written": "internal production control (module A)",
+     "condition": "where the category is listed in Annex I, Part B; one of the alternative procedures (a) to (d)",
+     "quote": "(a) internal production control (module A) set out in Annex VI;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0246",
+     "predicate": "requiresProcedure",
+     "subject": "machinery category listed in Annex I, Part B",
+     "object_as_written": "conformity based on full quality assurance (module H)",
+     "condition": "Where the category of machinery or related product is listed in Annex I, Part B",
+     "quote": "(c) conformity based on full quality assurance (module H) set out in Annex IX;",
+     "why_failed": "Passage lists module H as one option among (b),(c),(d) alternatives; claim presents it as the procedure without the 'or' alternatives, and the Annex I Part B scope isn't shown in passage."
+    },
+    "new": {
+     "id": "reextracted-r2-0002",
+     "predicate": "requiresProcedure",
+     "subject": "machinery category listed in Annex I, Part B",
+     "object_as_written": "conformity based on full quality assurance (module H)",
+     "condition": "where the category is listed in Annex I, Part B; one of the alternative procedures (a) to (d)",
+     "quote": "(c) conformity based on full quality assurance (module H) set out in Annex IX;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0247",
+     "predicate": "requiresProcedure",
+     "subject": "machinery category listed in Annex I, Part B",
+     "object_as_written": "conformity based on unit verification (module G)",
+     "condition": "Where the category of machinery or related product is listed in Annex I, Part B",
+     "quote": "(d) conformity based on unit verification (module G) set out in Annex X.",
+     "why_failed": "Passage lists (d) unit verification (module G) as an option, but the shown text doesn't state it applies to Annex I Part B categories; the lead-in is missing."
+    },
+    "new": {
+     "id": "reextracted-r2-0003",
+     "predicate": "requiresProcedure",
+     "subject": "machinery category listed in Annex I, Part B",
+     "object_as_written": "conformity based on unit verification (module G)",
+     "condition": "where the category is listed in Annex I, Part B; one of the alternative procedures (a) to (d)",
+     "quote": "(d) conformity based on unit verification (module G) set out in Annex X."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0396",
+     "predicate": "listedIn",
+     "subject": "band-saws with manual loading and/or unloading",
+     "object_as_written": "4.",
+     "condition": "with manual loading and/or unloading for working with wood or meat",
+     "quote": "4. Band-saws with manual loading and/or unloading for working with wood and material with similar physical characteristics or for working with meat and material with similar physical characteristics, of the following types:",
+     "why_failed": "Passage lists band-saws under point 4 for wood/similar material or meat/similar material; claim omits 'similar physical characteristics' material and 'of the following types' restriction."
+    },
+    "new": {
+     "id": "reextracted-r2-0004",
+     "predicate": "listedIn",
+     "subject": "band-saws with manual loading and/or unloading",
+     "object_as_written": "4.",
+     "condition": "for working with wood and material with similar physical characteristics or for working with meat and material with similar physical characteristics; with manual loading and/or unloading; of the following types",
+     "quote": "4. Band-saws with manual loading and/or unloading for working with wood and material with similar physical characteristics or for working with meat and material with similar physical characteristics, of the following types:"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0397",
+     "predicate": "listedIn",
+     "subject": "sawing machinery with fixed blade(s) during cutting",
+     "object_as_written": "4.1.",
+     "condition": "",
+     "quote": "4.1. sawing machinery with fixed blade(s) during cutting, having a fixed or reciprocating-movement bed or support for the workpiece;",
+     "why_failed": "Passage lists point 4.1 as sawing machinery with fixed blades, but only as a type of band-saws with manual loading/unloading for wood or meat; claim omits this scope."
+    },
+    "new": {
+     "id": "reextracted-r2-0005",
+     "predicate": "listedIn",
+     "subject": "sawing machinery with fixed blade(s) during cutting, having a fixed or reciprocating-movement bed or support for the workpiece",
+     "object_as_written": "4.1.",
+     "condition": "during cutting, having a fixed or reciprocating-movement bed or support for the workpiece; sub-item of point 4 (band-saws with manual loading and/or unloading for wood or meat and similar materials)",
+     "quote": "4.1. sawing machinery with fixed blade(s) during cutting, having a fixed or reciprocating-movement bed or support for the workpiece;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0204",
+     "predicate": "hasObligation",
+     "subject": "person who carries out substantial modification",
+     "object_as_written": "ensure and declare on its sole responsibility",
+     "condition": "",
+     "quote": "The person who carries out the substantial modification shall in particular, but without prejudice to other obligations set out in Article 10, ensure and declare on its sole responsibility that the machinery or related product concerned is in conformity with the applicable requirements of this Regulation and shall apply the relevant conformity assessment procedure as provided in Article 25 (2), (3) and (4) of this Regulation.",
+     "why_failed": "Passage states the modifier must ensure and declare on sole responsibility conformity, but the following sentence exempts non-professional users modifying for own use; claim omits this."
+    },
+    "new": {
+     "id": "reextracted-r2-0006",
+     "predicate": "hasObligation",
+     "subject": "person who carries out the substantial modification",
+     "object_as_written": "ensure and declare on its sole responsibility",
+     "condition": "in particular, but without prejudice to other obligations set out in Article 10; that the machinery or related product is in conformity with the applicable requirements of this Regulation",
+     "quote": "The person who carries out the substantial modification shall in particular, but without prejudice to other obligations set out in Article 10, ensure and declare on its sole responsibility that the machinery or related product concerned is in conformity with the applicable requirements of this Regulation and shall apply the relevant conformity assessment procedure as provided in Article 25 (2), (3) and (4) of this Regulation."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0073",
+     "predicate": "hasObligation",
+     "subject": "manufacturers",
+     "object_as_written": "shall ensure that procedures are in place",
+     "condition": "",
+     "quote": "Manufacturers shall ensure that procedures are in place in order that machinery or related products that are part of a series production remain in conformity with this Regulation.",
+     "why_failed": "Passage states manufacturers shall ensure procedures are in place, but limits it to machinery or related products in series production; claim omits this scope."
+    },
+    "new": {
+     "id": "reextracted-r2-0007",
+     "predicate": "hasObligation",
+     "subject": "manufacturers of series-produced machinery",
+     "object_as_written": "shall ensure that procedures are in place",
+     "condition": "for machinery or related products that are part of a series production",
+     "quote": "Manufacturers shall ensure that procedures are in place in order that machinery or related products that are part of a series production remain in conformity with this Regulation."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0088",
+     "predicate": "hasObligation",
+     "subject": "manufacturer, digital instructions",
+     "object_as_written": "present them in a format that makes it possible for the user to print and download the instructions for use",
+     "condition": "",
+     "quote": "(b) present them in a format that makes it possible for the user to print and download the instructions for use and save them on an electronic device so that he or she can access them at all times, in particular during a breakdown of the machinery or related product;",
+     "why_failed": "Passage requires presenting digital instructions in printable/downloadable format, but claim omits 'save them on an electronic device so accessible at all times' and the extension; also the passage's "
+    },
+    "new": {
+     "id": "reextracted-r2-0008",
+     "predicate": "hasObligation",
+     "subject": "manufacturer, digital instructions",
+     "object_as_written": "present them in a format that makes it possible for the user to print and download the instructions for use",
+     "condition": "in particular during a breakdown of the machinery or related product",
+     "quote": "(b) present them in a format that makes it possible for the user to print and download the instructions for use and save them on an electronic device so that he or she can access them at all times, in particular during a breakdown of the machinery or related product;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0156",
+     "predicate": "hasObligation",
+     "subject": "importers",
+     "object_as_written": "cooperate with that authority",
+     "condition": "at its request, on any action taken to eliminate the risks to the health and safety of persons",
+     "quote": "Importers shall cooperate with that authority, at its request, on any action taken to eliminate the risks to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment presented by machinery or related products which they have placed on the market.",
+     "why_failed": "Passage states importers cooperate at authority's request on action to eliminate risks, but claim omits the additional risks (domestic animals, property, environment) and 'which they have placed on th"
+    },
+    "new": {
+     "id": "reextracted-r2-0009",
+     "predicate": "hasObligation",
+     "subject": "importers",
+     "object_as_written": "cooperate with that authority",
+     "condition": "at its request, on any action taken to eliminate the risks to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment presented by machinery or related products which they have placed on the market",
+     "quote": "Importers shall cooperate with that authority, at its request, on any action taken to eliminate the risks to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment presented by machinery or related products which they have placed on the market."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0185",
+     "predicate": "hasObligation",
+     "subject": "distributors",
+     "object_as_written": "shall make sure that the corrective actions",
+     "condition": "consider or have reason to believe that machinery or a related product",
+     "quote": "Distributors who consider or have reason to believe that machinery or a related product which they have made available on the market is not in conformity with this Regulation shall make sure that the corrective actions necessary to bring that machinery or related product into conformity, to withdraw it or recall it, as appropriate, are taken.",
+     "why_failed": "Passage states distributors must ensure corrective actions when they believe machinery is non-conforming; the claim's condition omits 'not in conformity' but value and trigger are largely present."
+    },
+    "new": {
+     "id": "reextracted-r2-0010",
+     "predicate": "hasObligation",
+     "subject": "distributors",
+     "object_as_written": "shall make sure that the corrective actions",
+     "condition": "Distributors who consider or have reason to believe that machinery or a related product which they have made available on the market is not in conformity with this Regulation",
+     "quote": "Distributors who consider or have reason to believe that machinery or a related product which they have made available on the market is not in conformity with this Regulation shall make sure that the corrective actions necessary to bring that machinery or related product into conformity, to withdraw it or recall it, as appropriate, are taken."
+    }
+   },
+   {
+    "old": {
+     "id": "st-1507",
+     "predicate": "retentionPeriod",
+     "subject": "relevant technical documentation for partly completed machinery",
+     "object_as_written": "at least 10 years",
+     "condition": "",
+     "quote": "The relevant technical documentation must be available for at least 10 years following the date of manufacture of the partly completed machinery or, in the case of series manufacture, of the last unit produced, and on request presented to the competent authorities of the Member States.",
+     "why_failed": "Passage states at least 10 years, but measured from date of manufacture or last unit in series manufacture; claim omits this starting-point condition."
+    },
+    "new": {
+     "id": "reextracted-r2-0011",
+     "predicate": "retentionPeriod",
+     "subject": "relevant technical documentation for partly completed machinery",
+     "object_as_written": "at least 10 years",
+     "condition": "in the case of series manufacture, of the last unit produced",
+     "quote": "The relevant technical documentation must be available for at least 10 years following the date of manufacture of the partly completed machinery or, in the case of series manufacture, of the last unit produced, and on request presented to the competent authorities of the Member States."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0395",
+     "predicate": "listedIn",
+     "subject": "thicknessers for one-side dressing",
+     "object_as_written": "3.",
+     "condition": "having a built-in mechanical feed device, with manual loading and/or unloading",
+     "quote": "3. Thicknessers for one-side dressing having a built-in mechanical feed device, with manual loading and/or unloading for woodworking.",
+     "why_failed": "Passage lists thicknessers at point 3 with feed device and manual loading/unloading; claim omits the 'for woodworking' scope restriction."
+    },
+    "new": {
+     "id": "reextracted-r2-0012",
+     "predicate": "listedIn",
+     "subject": "thicknessers for one-side dressing",
+     "object_as_written": "3.",
+     "condition": "having a built-in mechanical feed device, with manual loading and/or unloading, for woodworking",
+     "quote": "3. Thicknessers for one-side dressing having a built-in mechanical feed device, with manual loading and/or unloading for woodworking."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0399",
+     "predicate": "listedIn",
+     "subject": "combined machinery for working with wood and similar material",
+     "object_as_written": "5.",
+     "condition": "",
+     "quote": "5. Combined machinery of the types referred to in points 1 to 4 and in point 7 for working with wood and material with similar physical characteristics.",
+     "why_failed": "Passage point 5 lists combined machinery for working wood and similar material; claim matches, and the restriction to types in points 1-4 and 7 is omitted."
+    },
+    "new": {
+     "id": "reextracted-r2-0013",
+     "predicate": "listedIn",
+     "subject": "combined machinery",
+     "object_as_written": "5.",
+     "condition": "of the types referred to in points 1 to 4 and in point 7 for working with wood and material with similar physical characteristics",
+     "quote": "5. Combined machinery of the types referred to in points 1 to 4 and in point 7 for working with wood and material with similar physical characteristics."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0100",
+     "predicate": "hasObligation",
+     "subject": "manufacturers",
+     "object_as_written": "cooperate with that authority",
+     "condition": "at its request, on any actions taken to eliminate the risks presented by the machinery or related products",
+     "quote": "They shall cooperate with that authority, at its request, on any actions taken to eliminate the risks presented by the machinery or related products, which they have placed on the market or put into service.",
+     "why_failed": "Passage says manufacturers shall cooperate with that authority at its request on actions to eliminate risks; the claim's condition matches, though it omits 'placed on market or put into service' quali"
+    },
+    "new": {
+     "id": "reextracted-r2-0014",
+     "predicate": "hasObligation",
+     "subject": "manufacturers",
+     "object_as_written": "cooperate with that authority",
+     "condition": "at its request, on any actions taken to eliminate the risks presented by the machinery or related products, which they have placed on the market or put into service",
+     "quote": "They shall cooperate with that authority, at its request, on any actions taken to eliminate the risks presented by the machinery or related products, which they have placed on the market or put into service."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0113",
+     "predicate": "hasObligation",
+     "subject": "manufacturer contact details",
+     "object_as_written": "The contact details shall be in a language easily understood",
+     "condition": "",
+     "quote": "The contact details shall be in a language easily understood by the person who incorporates the partly completed machinery into machinery and by market surveillance authorities.",
+     "why_failed": "Passage requires a language easily understood by the incorporator and market surveillance authorities; claim omits this audience qualifier, making it broader."
+    },
+    "new": {
+     "id": "reextracted-r2-0015",
+     "predicate": "hasObligation",
+     "subject": "manufacturer contact details",
+     "object_as_written": "The contact details shall be in a language easily understood",
+     "condition": "by the person who incorporates the partly completed machinery into machinery and by market surveillance authorities",
+     "quote": "The contact details shall be in a language easily understood by the person who incorporates the partly completed machinery into machinery and by market surveillance authorities."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0132",
+     "predicate": "hasObligation",
+     "subject": "authorised representative",
+     "object_as_written": "cooperate with the competent national authorities",
+     "condition": "at their request, on any actions taken to eliminate the risks",
+     "quote": "(c) cooperate with the competent national authorities, at their request, on any actions taken to eliminate the risks presented by a product within the scope of this Regulation covered by the authorised representative’s mandate.",
+     "why_failed": "Passage states cooperation at authorities' request on actions to eliminate risks; claim omits the restriction to products covered by the mandate and within the Regulation's scope."
+    },
+    "new": {
+     "id": "reextracted-r2-0016",
+     "predicate": "hasObligation",
+     "subject": "authorised representative",
+     "object_as_written": "cooperate with the competent national authorities",
+     "condition": "at their request, on any actions taken to eliminate the risks presented by a product within the scope of this Regulation covered by the authorised representative's mandate",
+     "quote": "(c) cooperate with the competent national authorities, at their request, on any actions taken to eliminate the risks presented by a product within the scope of this Regulation covered by the authorised representative’s mandate."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0149",
+     "predicate": "hasObligation",
+     "subject": "importers",
+     "object_as_written": "shall immediately inform the competent national authorities",
+     "condition": "where the machinery or related product presents a risk to the health and safety of persons",
+     "quote": "Furthermore, where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment, importers shall immediately inform the competent national authorities of the Member States in which they made the machinery or related product available on the market to that effect, giving details, in particular, of the non-conformity and of any corrective actions taken.",
+     "why_failed": "Passage requires importers to immediately inform authorities where product presents a risk; claim omits the additional risk scope (animals, property, environment) and the Member States where made avai"
+    },
+    "new": {
+     "id": "reextracted-r2-0017",
+     "predicate": "hasObligation",
+     "subject": "importers of machinery and related products",
+     "object_as_written": "shall immediately inform the competent national authorities",
+     "condition": "where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment",
+     "quote": "Furthermore, where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment, importers shall immediately inform the competent national authorities of the Member States in which they made the machinery or related product available on the market to that effect, giving details, in particular, of the non-conformity and of any corrective actions taken."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0200",
+     "predicate": "hasObligation",
+     "subject": "Distributors",
+     "object_as_written": "cooperate with that authority",
+     "condition": "at its request",
+     "quote": "They shall cooperate with that authority, at its request, on any action taken to eliminate the risks as regards the essential health and safety requirements presented by partly completed machinery which they have made available on the market.",
+     "why_failed": "Passage says distributors cooperate with that authority at its request on actions to eliminate risks; claim omits the scope limit (action to eliminate risks of partly completed machinery they made ava"
+    },
+    "new": {
+     "id": "reextracted-r2-0018",
+     "predicate": "hasObligation",
+     "subject": "distributors of partly completed machinery",
+     "object_as_written": "cooperate with that authority",
+     "condition": "at its request, on any action taken to eliminate the risks as regards the essential health and safety requirements presented by partly completed machinery which they have made available on the market",
+     "quote": "They shall cooperate with that authority, at its request, on any action taken to eliminate the risks as regards the essential health and safety requirements presented by partly completed machinery which they have made available on the market."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0209",
+     "predicate": "retentionPeriod",
+     "subject": "economic operators: information referred to in paragraph 1",
+     "object_as_written": "at least 10 years",
+     "condition": "",
+     "quote": "In order to be able to comply with the obligation in paragraph 1, economic operators shall retain the information referred to in that paragraph for at least 10 years after they supplied or were supplied with the products within the scope of this Regulation.",
+     "why_failed": "Passage states economic operators retain information for at least 10 years after supply; the 'after supplied/were supplied' trigger is timing, not a restriction the claim omits materially... but it is"
+    },
+    "new": {
+     "id": "reextracted-r2-0019",
+     "predicate": "retentionPeriod",
+     "subject": "information referred to in paragraph 1 (retained by economic operators)",
+     "object_as_written": "at least 10 years",
+     "condition": "after they supplied or were supplied with the products within the scope of this Regulation",
+     "quote": "In order to be able to comply with the obligation in paragraph 1, economic operators shall retain the information referred to in that paragraph for at least 10 years after they supplied or were supplied with the products within the scope of this Regulation."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0232",
+     "predicate": "hasObligation",
+     "subject": "notified body identification number affixing",
+     "object_as_written": "shall be affixed by the body itself or, under its instructions, by the manufacturer",
+     "condition": "Where the conformity of machinery or a related product is assessed",
+     "quote": "The identification number of that notified body shall be affixed by the body itself or, under its instructions, by the manufacturer or the manufacturer’s authorised representative.",
+     "why_failed": "Passage allows affixing by body or, under instructions, manufacturer or authorised representative; claim omits representative and the specific procedure references (Art. 25(2),(3) points)."
+    },
+    "new": {
+     "id": "reextracted-r2-0020",
+     "predicate": "hasObligation",
+     "subject": "manufacturer or manufacturer's authorised representative",
+     "object_as_written": "shall be affixed by the body itself or, under its instructions, by the manufacturer",
+     "condition": "under its instructions, if the notified body does not affix the number itself",
+     "quote": "The identification number of that notified body shall be affixed by the body itself or, under its instructions, by the manufacturer or the manufacturer’s authorised representative."
+    }
+   },
+   {
+    "old": {
+     "id": "st-1001",
+     "predicate": "requiresProcedure",
+     "subject": "machinery referred to in Annex IV",
+     "object_as_written": "the full quality assurance procedure provided for in Annex X",
+     "condition": "Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2)",
+     "quote": "(b) the full quality assurance procedure provided for in Annex X.",
+     "why_failed": "Passage lists Annex X full quality assurance as an option (b) alongside (a) EC type-examination plus internal checks; the claim presents it as the sole requirement, omitting the alternative."
+    },
+    "new": {
+     "id": "reextracted-r2-0021",
+     "predicate": "requiresProcedure",
+     "subject": "machinery referred to in Annex IV",
+     "object_as_written": "full quality assurance procedure provided for in Annex X",
+     "condition": "Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2), or only partly in accordance with such standards, or if the harmonised standards do not cover all the relevant essential health and safety requirements or if no harmonised standards exist for the machinery in question",
+     "quote": "Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2), or only partly in accordance with such standards, or if the harmonised standards do not cover all the relevant essential health and safety requirements or if no harmonised standards exist for the machinery in question, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3; (b) the full quality assurance procedure provided for in Annex X."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0139",
+     "predicate": "hasObligation",
+     "subject": "importer",
+     "object_as_written": "indicate their name, registered trade name or registered trade mark",
+     "condition": "\"\"",
+     "quote": "Importers shall indicate their name, registered trade name or registered trade mark, and the postal address and website, email address or other digital contact at which they can be contacted, on the machinery or related product or, where that is not possible, on its packaging or in a document accompanying the machinery or related product.",
+     "why_failed": "Passage requires importers to indicate name/trade name/mark, but the claim omits the location condition (on the product, or if not possible, packaging/document) and postal address and contact details."
+    },
+    "new": {
+     "id": "reextracted-r2-0022",
+     "predicate": "hasObligation",
+     "subject": "importers",
+     "object_as_written": "shall indicate their name, registered trade name or registered trade mark",
+     "condition": "on the machinery or related product or, where that is not possible, on its packaging or in a document accompanying the machinery or related product",
+     "quote": "Importers shall indicate their name, registered trade name or registered trade mark, and the postal address and website, email address or other digital contact at which they can be contacted, on the machinery or related product or, where that is not possible, on its packaging or in a document accompanying the machinery or related product."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0138",
+     "predicate": "hasObligation",
+     "subject": "importer",
+     "object_as_written": "shall inform the manufacturer and the market surveillance authorities",
+     "condition": "where the machinery or related product presents a risk to the health and safety of persons",
+     "quote": "Furthermore, where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment, the importer shall inform the manufacturer and the market surveillance authorities to that effect.",
+     "why_failed": "Passage states importer informs manufacturer and authorities when risk to health and safety; claim omits the 'and, where appropriate, domestic animals and property, and ... environment' scope extensio"
+    },
+    "new": {
+     "id": "reextracted-r2-0023",
+     "predicate": "hasObligation",
+     "subject": "importer",
+     "object_as_written": "the importer shall inform the manufacturer and the market surveillance authorities",
+     "condition": "where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment",
+     "quote": "Furthermore, where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment, the importer shall inform the manufacturer and the market surveillance authorities to that effect."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0164",
+     "predicate": "hasObligation",
+     "subject": "importers, contact details",
+     "object_as_written": "in a language easily understood",
+     "condition": "",
+     "quote": "The contact details shall be in a language easily understood by the person who incorporates the partly completed machinery and by the market surveillance authorities.",
+     "why_failed": "Passage requires contact details in an easily understood language, but only by the incorporating person and market surveillance authorities; claim omits this audience restriction."
+    },
+    "new": {
+     "id": "reextracted-r2-0024",
+     "predicate": "hasObligation",
+     "subject": "contact details",
+     "object_as_written": "shall be in a language easily understood",
+     "condition": "by the person who incorporates the partly completed machinery and by the market surveillance authorities",
+     "quote": "The contact details shall be in a language easily understood by the person who incorporates the partly completed machinery and by the market surveillance authorities."
+    }
+   },
+   {
+    "old": {
+     "id": "st-1523",
+     "predicate": "requiresProcedure",
+     "subject": "machinery referred to in Annex IV",
+     "object_as_written": "full quality assurance",
+     "condition": "",
+     "quote": "ANNEX X Full quality assurance This Annex describes the conformity assessment of machinery referred to in Annex IV, manufactured using a full quality assurance system, and the procedure whereby a notified body assesses and approves the quality system and monitors its application.",
+     "why_failed": "Passage says Annex X describes conformity assessment of Annex IV machinery manufactured using full quality assurance; it is not stated as a requirement, and it is one option."
+    },
+    "new": {
+     "id": "reextracted-r2-0025",
+     "predicate": "requiresProcedure",
+     "subject": "machinery referred to in Annex IV",
+     "object_as_written": "full quality assurance system",
+     "condition": "",
+     "quote": "ANNEX X Full quality assurance This Annex describes the conformity assessment of machinery referred to in Annex IV, manufactured using a full quality assurance system, and the procedure whereby a notified body assesses and approves the quality system and monitors its application."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0126",
+     "predicate": "hasObligation",
+     "subject": "manufacturers of partly completed machinery",
+     "object_as_written": "provide that authority with all the information",
+     "condition": "further to a reasoned request from a competent national authority",
+     "quote": "Manufacturers shall, further to a reasoned request from a competent national authority, provide that authority with all the information and documentation, in paper or digital format, necessary to demonstrate the conformity of the partly completed machinery with this Regulation, in a language which can be easily understood by that authority.",
+     "why_failed": "Passage requires manufacturers to provide all information on reasoned request from competent authority; claim's value omits only 'necessary to demonstrate conformity' and format/language, which are sc"
+    },
+    "new": {
+     "id": "reextracted-r2-0026",
+     "predicate": "hasObligation",
+     "subject": "manufacturers of partly completed machinery",
+     "object_as_written": "provide that authority with all the information and documentation",
+     "condition": "further to a reasoned request from a competent national authority",
+     "quote": "Manufacturers shall, further to a reasoned request from a competent national authority, provide that authority with all the information and documentation, in paper or digital format, necessary to demonstrate the conformity of the partly completed machinery with this Regulation, in a language which can be easily understood by that authority."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0002",
+     "predicate": "definedAs",
+     "subject": "products within the scope of this Regulation",
+     "object_as_written": "machinery, the related products listed in the first subparagraph",
+     "condition": "",
+     "quote": "For the purposes of this Regulation, machinery, the related products listed in the first subparagraph and partly completed machinery shall together be referred to as ‘products within the scope of this Regulation’.",
+     "why_failed": "Passage defines the term as machinery, listed related products, and partly completed machinery; the claim omits partly completed machinery, so the definition is incomplete."
+    },
+    "new": {
+     "id": "reextracted-r2-0027",
+     "predicate": "definedAs",
+     "subject": "products within the scope of this Regulation",
+     "object_as_written": "machinery, the related products listed in the first subparagraph and partly completed machinery",
+     "condition": "For the purposes of this Regulation",
+     "quote": "For the purposes of this Regulation, machinery, the related products listed in the first subparagraph and partly completed machinery shall together be referred to as ‘products within the scope of this Regulation’."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0194",
+     "predicate": "hasObligation",
+     "subject": "distributor of partly completed machinery",
+     "object_as_written": "shall not make the partly completed machinery available on the market",
+     "condition": "Where a distributor considers or has reason to believe that partly completed machinery is not in conformity with this Regulation",
+     "quote": "Where a distributor considers or has reason to believe that partly completed machinery is not in conformity with this Regulation, the distributor shall not make the partly completed machinery available on the market until it has been brought into conformity.",
+     "why_failed": "Passage states the prohibition with the same triggering condition; the 'until brought into conformity' limit is a temporal end, not dropped condition of scope... though not in claim."
+    },
+    "new": {
+     "id": "reextracted-r2-0028",
+     "predicate": "hasObligation",
+     "subject": "distributor",
+     "object_as_written": "shall not make the partly completed machinery available on the market until it has been brought into conformity",
+     "condition": "Where a distributor considers or has reason to believe that partly completed machinery is not in conformity with this Regulation",
+     "quote": "Where a distributor considers or has reason to believe that partly completed machinery is not in conformity with this Regulation, the distributor shall not make the partly completed machinery available on the market until it has been brought into conformity."
+    }
+   },
+   {
+    "old": {
+     "id": "st-1583",
+     "predicate": "retentionPeriod",
+     "subject": "dichiarazione autocertificativa su formazione e addestramento",
+     "object_as_written": "per tutta la durata del noleggio",
+     "condition": "",
+     "quote": "((Deve altresì acquisire e conservare agli atti, per tutta la durata del noleggio o della concessione dell'attrezzatura, una dichiarazione autocertificativa del soggetto che prende a noleggio, o in concessione in uso, o del datore di lavoro, che attesti l'avvenuta formazione e addestramento specifico, effettuati conformemente alle disposizioni del presente Titolo, dei soggetti individuati per l'utilizzo.))",
+     "why_failed": "Passage requires keeping the self-certification for the whole rental or concession; claim says rental only, omitting 'o della concessione' alternative."
+    },
+    "new": {
+     "id": "reextracted-r2-0029",
+     "predicate": "retentionPeriod",
+     "subject": "dichiarazione autocertificativa",
+     "object_as_written": "per tutta la durata del noleggio o della concessione",
+     "condition": "",
+     "quote": "((Deve altresì acquisire e conservare agli atti, per tutta la durata del noleggio o della concessione dell'attrezzatura, una dichiarazione autocertificativa del soggetto che prende a noleggio, o in concessione in uso, o del datore di lavoro, che attesti l'avvenuta formazione e addestramento specifico, effettuati conformemente alle disposizioni del presente Titolo, dei soggetti individuati per l'utilizzo.))"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0017",
+     "predicate": "definedAs",
+     "subject": "putting into service",
+     "object_as_written": "the first use, for its intended purpose, in the Union",
+     "condition": "",
+     "quote": "(13) ‘putting into service’ means the first use, for its intended purpose, in the Union, of machinery or related products;",
+     "why_failed": "Passage defines putting into service as first use, for intended purpose, in the Union, of machinery or related products; claim omits the 'of machinery or related products' scope."
+    },
+    "new": {
+     "id": "reextracted-r2-0030",
+     "predicate": "definedAs",
+     "subject": "putting into service",
+     "object_as_written": "the first use, for its intended purpose, in the Union, of machinery or related products",
+     "condition": "",
+     "quote": "(13) ‘putting into service’ means the first use, for its intended purpose, in the Union, of machinery or related products;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0028",
+     "predicate": "definedAs",
+     "subject": "economic operator",
+     "object_as_written": "means the manufacturer, the authorised representative",
+     "condition": "",
+     "quote": "(22) ‘economic operator’ means the manufacturer, the authorised representative, the importer or the distributor;",
+     "why_failed": "Passage defines economic operator as manufacturer, authorised representative, importer or distributor; claim omits importer and distributor, narrowing the list, so it's incomplete."
+    },
+    "new": {
+     "id": "reextracted-r2-0031",
+     "predicate": "definedAs",
+     "subject": "economic operator",
+     "object_as_written": "the manufacturer, the authorised representative, the importer or the distributor",
+     "condition": "",
+     "quote": "(22) ‘economic operator’ means the manufacturer, the authorised representative, the importer or the distributor;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0152",
+     "predicate": "hasObligation",
+     "subject": "importers",
+     "object_as_written": "ensure that the technical documentation set out in Annex IV, Part A, can be made available to those authorities upon request",
+     "condition": "",
+     "quote": "Importers shall, for at least 10 years after the machinery or related product has been placed on the market, keep a copy of the EU declaration of conformity at the disposal of the market surveillance authorities and ensure that the technical documentation set out in Annex IV, Part A, can be made available to those authorities upon request.",
+     "why_failed": "Passage states importers must ensure technical documentation can be made available upon request; the 10-year period attaches to both duties, and the claim omits it."
+    },
+    "new": {
+     "id": "reextracted-r2-0032",
+     "predicate": "hasObligation",
+     "subject": "importers",
+     "object_as_written": "ensure that the technical documentation set out in Annex IV, Part A",
+     "condition": "can be made available to those authorities upon request",
+     "quote": "Importers shall, for at least 10 years after the machinery or related product has been placed on the market, keep a copy of the EU declaration of conformity at the disposal of the market surveillance authorities and ensure that the technical documentation set out in Annex IV, Part A, can be made available to those authorities upon request."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0997",
+     "predicate": "requiresProcedure",
+     "subject": "machinery referred to in Annex IV",
+     "object_as_written": "EC type-examination procedure",
+     "condition": "provided that those standards cover all of the relevant essential health and safety requirements",
+     "quote": "(b) the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3;",
+     "why_failed": "Passage lists EC type-examination plus Annex VIII point 3 checks as option (b); the claim omits the 'plus internal checks' and the stated condition is not in the passage."
+    },
+    "new": {
+     "id": "reextracted-r2-0033",
+     "predicate": "requiresProcedure",
+     "subject": "machinery referred to in Annex IV, alternative (b), combined with Annex VIII point 3",
+     "object_as_written": "the EC type-examination procedure provided for in Annex IX",
+     "condition": "where the machinery is manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements",
+     "quote": "Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII; (b) the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0183",
+     "predicate": "hasObligation",
+     "subject": "distributor",
+     "object_as_written": "shall inform the manufacturer or the importer as well as the market surveillance authorities",
+     "condition": "where the machinery or related product presents a risk to the health and safety of persons",
+     "quote": "Furthermore, where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment, the distributor shall inform the manufacturer or the importer as well as the market surveillance authorities to that effect.",
+     "why_failed": "Passage's obligation is stated, but it also covers domestic animals, property (where appropriate) and environment (where applicable); claim's condition narrows risk to persons only, omitting these alt"
+    },
+    "new": {
+     "id": "reextracted-r2-0034",
+     "predicate": "hasObligation",
+     "subject": "distributor",
+     "object_as_written": "shall inform the manufacturer or the importer",
+     "condition": "where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment; also informs the market surveillance authorities",
+     "quote": "Furthermore, where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment, the distributor shall inform the manufacturer or the importer as well as the market surveillance authorities to that effect."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0029",
+     "predicate": "definedAs",
+     "subject": "technical specifications",
+     "object_as_written": "a document that prescribes technical requirements",
+     "condition": "",
+     "quote": "(23) ‘technical specifications’ means a document that prescribes technical requirements to be fulfilled by products within the scope of this Regulation;",
+     "why_failed": "Passage defines technical specifications as a document prescribing technical requirements, but limits to those to be fulfilled by products within the Regulation's scope; claim omits this."
+    },
+    "new": {
+     "id": "reextracted-r2-0035",
+     "predicate": "definedAs",
+     "subject": "technical specifications",
+     "object_as_written": "a document that prescribes technical requirements to be fulfilled by products within the scope of this Regulation",
+     "condition": "",
+     "quote": "(23) ‘technical specifications’ means a document that prescribes technical requirements to be fulfilled by products within the scope of this Regulation;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0016",
+     "predicate": "definedAs",
+     "subject": "placing on the market",
+     "object_as_written": "the first making available of a product",
+     "condition": "",
+     "quote": "(12) ‘placing on the market’ means the first making available of a product within the scope of this Regulation on the Union market;",
+     "why_failed": "Passage defines placing on the market as first making available of a product, but restricts it to products within the Regulation's scope and on the Union market; claim omits these."
+    },
+    "new": {
+     "id": "reextracted-r2-0036",
+     "predicate": "definedAs",
+     "subject": "placing on the market",
+     "object_as_written": "the first making available of a product within the scope of this Regulation on the Union market",
+     "condition": "",
+     "quote": "(12) ‘placing on the market’ means the first making available of a product within the scope of this Regulation on the Union market;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0996",
+     "predicate": "requiresProcedure",
+     "subject": "machinery referred to in Annex IV",
+     "object_as_written": "internal checks on the manufacture of machinery",
+     "condition": "provided that those standards cover all of the relevant essential health and safety requirements",
+     "quote": "Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII;",
+     "why_failed": "Passage lists internal checks as one alternative, conditioned on manufacture per harmonised standards (Art 7(2)) and coverage; claim omits the manufacture-in-accordance condition and the 'one of' alte"
+    },
+    "new": {
+     "id": "reextracted-r2-0037",
+     "predicate": "requiresProcedure",
+     "subject": "machinery referred to in Annex IV, internal checks alternative (a)",
+     "object_as_written": "the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII",
+     "condition": "where the machinery is manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements",
+     "quote": "Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0026",
+     "predicate": "definedAs",
+     "subject": "importer",
+     "object_as_written": "any natural or legal person established within the Union",
+     "condition": "",
+     "quote": "(20) ‘importer’ means any natural or legal person established within the Union who places a product within the scope of this Regulation from a third country on the Union market;",
+     "why_failed": "Passage defines importer as person established in the Union who places a third-country product on the market; claim omits that placing-on-market element, so it is only a fragment."
+    },
+    "new": {
+     "id": "reextracted-r2-0038",
+     "predicate": "definedAs",
+     "subject": "importer",
+     "object_as_written": "any natural or legal person established within the Union who places a product within the scope of this Regulation from a third country on the Union market",
+     "condition": "",
+     "quote": "(20) ‘importer’ means any natural or legal person established within the Union who places a product within the scope of this Regulation from a third country on the Union market;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0144",
+     "predicate": "hasObligation",
+     "subject": "importers",
+     "object_as_written": "shall ensure that the machinery or related product",
+     "condition": "",
+     "quote": "Importers shall ensure that the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7).",
+     "why_failed": "Passage states importers shall ensure the product is accompanied by instructions; claim's value is a truncated fragment omitting what must be ensured, though no condition exists."
+    },
+    "new": {
+     "id": "reextracted-r2-0039",
+     "predicate": "hasObligation",
+     "subject": "importers",
+     "object_as_written": "shall ensure that the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7)",
+     "condition": "",
+     "quote": "Importers shall ensure that the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7)."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0025",
+     "predicate": "definedAs",
+     "subject": "authorised representative",
+     "object_as_written": "any natural or legal person established within the Union",
+     "condition": "",
+     "quote": "(19) ‘authorised representative’ means any natural or legal person established within the Union who has received a written mandate from a manufacturer to act on its behalf in relation to specified tasks;",
+     "why_failed": "Passage defines authorised representative as a person established in the Union who has a written mandate from a manufacturer for specified tasks; claim omits the mandate condition."
+    },
+    "new": {
+     "id": "reextracted-r2-0040",
+     "predicate": "definedAs",
+     "subject": "authorised representative",
+     "object_as_written": "any natural or legal person established within the Union who has received a written mandate from a manufacturer to act on its behalf in relation to specified tasks",
+     "condition": "",
+     "quote": "(19) ‘authorised representative’ means any natural or legal person established within the Union who has received a written mandate from a manufacturer to act on its behalf in relation to specified tasks;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0272",
+     "predicate": "hasObligation",
+     "subject": "conformity assessment body",
+     "object_as_written": "shall ensure that the activities of its subsidiaries",
+     "condition": "",
+     "quote": "A conformity assessment body shall ensure that the activities of its subsidiaries or subcontractors do not affect the confidentiality, objectivity or impartiality of its conformity assessment activities.",
+     "why_failed": "Passage covers subsidiaries or subcontractors; claim's value omits subcontractors and the effect on confidentiality, objectivity, impartiality, so it is broader/truncated; also relation mislabels subj"
+    },
+    "new": {
+     "id": "reextracted-r2-0041",
+     "predicate": "hasObligation",
+     "subject": "conformity assessment body",
+     "object_as_written": "shall ensure that the activities of its subsidiaries or subcontractors do not affect the confidentiality, objectivity or impartiality of its conformity assessment activities",
+     "condition": "",
+     "quote": "A conformity assessment body shall ensure that the activities of its subsidiaries or subcontractors do not affect the confidentiality, objectivity or impartiality of its conformity assessment activities."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0105",
+     "predicate": "hasObligation",
+     "subject": "manufacturers of partly completed machinery",
+     "object_as_written": "shall keep the technical documentation",
+     "condition": "",
+     "quote": "Manufacturers shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities for at least 10 years after the partly completed machinery has been placed on the market.",
+     "why_failed": "Passage says manufacturers keep technical documentation available to authorities for at least 10 years after placing on market; claim omits that duration and authority-availability scope."
+    },
+    "new": {
+     "id": "reextracted-r2-0042",
+     "predicate": "hasObligation",
+     "subject": "manufacturers",
+     "object_as_written": "shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities",
+     "condition": "for at least 10 years after the partly completed machinery has been placed on the market",
+     "quote": "Manufacturers shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities for at least 10 years after the partly completed machinery has been placed on the market."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0031",
+     "predicate": "definedAs",
+     "subject": "CE marking",
+     "object_as_written": "a marking by which the manufacturer indicates",
+     "condition": "",
+     "quote": "(25) ‘CE marking’ means a marking by which the manufacturer indicates that machinery or a related product is in conformity with the applicable requirements set out in Union harmonisation legislation providing for its affixing;",
+     "why_failed": "The value is only a fragment ('a marking by which the manufacturer indicates') that omits what is indicated: conformity with applicable requirements; it doesn't carry the definition's meaning."
+    },
+    "new": {
+     "id": "reextracted-r2-0043",
+     "predicate": "definedAs",
+     "subject": "CE marking",
+     "object_as_written": "a marking by which the manufacturer indicates that machinery or a related product is in conformity with the applicable requirements set out in Union harmonisation legislation providing for its affixing",
+     "condition": "",
+     "quote": "(25) ‘CE marking’ means a marking by which the manufacturer indicates that machinery or a related product is in conformity with the applicable requirements set out in Union harmonisation legislation providing for its affixing;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0014",
+     "predicate": "definedAs",
+     "subject": "partly completed machinery",
+     "object_as_written": "an assembly which is not yet machinery",
+     "condition": "",
+     "quote": "(10) ‘partly completed machinery’ means an assembly which is not yet machinery as it cannot in itself perform a specific application and which is only intended to be incorporated into or assembled with machinery or other partly completed machinery or equipment, thereby forming machinery;",
+     "why_failed": "Passage defines partly completed machinery as an assembly not yet machinery, but adds 'cannot in itself perform a specific application' and incorporation-only intent; claim omits these."
+    },
+    "new": {
+     "id": "reextracted-r2-0044",
+     "predicate": "definedAs",
+     "subject": "'partly completed machinery'",
+     "object_as_written": "an assembly which is not yet machinery as it cannot in itself perform a specific application and which is only intended to be incorporated into or assembled with machinery or other partly completed machinery or equipment, thereby forming machinery",
+     "condition": "",
+     "quote": "(10) ‘partly completed machinery’ means an assembly which is not yet machinery as it cannot in itself perform a specific application and which is only intended to be incorporated into or assembled with machinery or other partly completed machinery or equipment, thereby forming machinery;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0018",
+     "predicate": "definedAs",
+     "subject": "essential health and safety requirements",
+     "object_as_written": "the mandatory provisions, set out in Annex III",
+     "condition": "",
+     "quote": "(14) ‘essential health and safety requirements’ means the mandatory provisions, set out in Annex III, relating to the design and construction of products within the scope of this Regulation to ensure a high level of protection of the health and safety of persons, and, where appropriate, domestic animals and property, and, where applicable, of the environment;",
+     "why_failed": "The passage defines the term as mandatory provisions in Annex III, but the claim omits the scope limits: design and construction of products within the Regulation's scope, to ensure protection."
+    },
+    "new": {
+     "id": "reextracted-r2-0045",
+     "predicate": "definedAs",
+     "subject": "essential health and safety requirements",
+     "object_as_written": "the mandatory provisions, set out in Annex III, relating to the design and construction of products within the scope of this Regulation to ensure a high level of protection of the health and safety of persons, and, where appropriate, domestic animals and property, and, where applicable, of the environment",
+     "condition": "",
+     "quote": "(14) ‘essential health and safety requirements’ means the mandatory provisions, set out in Annex III, relating to the design and construction of products within the scope of this Regulation to ensure a high level of protection of the health and safety of persons, and, where appropriate, domestic animals and property, and, where applicable, of the environment;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0019",
+     "predicate": "definedAs",
+     "subject": "substantial modification",
+     "object_as_written": "a modification of machinery or a related product",
+     "condition": "which is not foreseen or planned by the manufacturer",
+     "quote": "(16) ‘substantial modification’ means a modification of machinery or a related product, by physical or digital means after that machinery or related product has been placed on the market or put into service, which is not foreseen or planned by the manufacturer, and which affects the safety of that machinery or related product, by creating a new hazard, or by increasing an existing risk, which requires:",
+     "why_failed": "Passage defines substantial modification as a modification of machinery, but also requires after placing on market, affecting safety, and requiring added guards; claim's condition keeps only the unfor"
+    },
+    "new": {
+     "id": "reextracted-r2-0046",
+     "predicate": "definedAs",
+     "subject": "substantial modification",
+     "object_as_written": "‘substantial modification’ means a modification of machinery or a related product, by physical or digital means after that machinery or related product has been placed on the market or put into service, which is not foreseen or planned by the manufacturer, and which affects the safety of that machinery or related product, by creating a new hazard, or by increasing an existing risk",
+     "condition": "which requires: (a) the addition of guards or protective devices to that machinery or related product the processing of which necessitates the modification of the existing safety control system; or (b) the adoption of additional protective measures to ensure the stability or mechanical strength of that machinery or related product",
+     "quote": "(16) ‘substantial modification’ means a modification of machinery or a related product, by physical or digital means after that machinery or related product has been placed on the market or put into service, which is not foreseen or planned by the manufacturer, and which affects the safety of that machinery or related product, by creating a new hazard, or by increasing an existing risk, which requires: (a) the addition of guards or protective devices to that machinery or related product the processing of which necessitates the modification of the existing safety control system; or (b) the adoption of additional protective measures to ensure the stability or mechanical strength of that machinery or related product;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0015",
+     "predicate": "definedAs",
+     "subject": "making available on the market",
+     "object_as_written": "means any supply of a product",
+     "condition": "within the scope of this Regulation; in the course of a commercial activity, whether in return for payment or free of charge",
+     "quote": "(11) ‘making available on the market’ means any supply of a product within the scope of this Regulation for distribution or use on the Union market in the course of a commercial activity, whether in return for payment or free of charge;",
+     "why_failed": "Passage defines the term as supply of a product within scope, for distribution or use on Union market, in commercial activity; claim omits 'for distribution or use on the Union market'."
+    },
+    "new": {
+     "id": "reextracted-r2-0047",
+     "predicate": "definedAs",
+     "subject": "making available on the market",
+     "object_as_written": "any supply of a product within the scope of this Regulation for distribution or use on the Union market in the course of a commercial activity, whether in return for payment or free of charge",
+     "condition": "",
+     "quote": "(11) ‘making available on the market’ means any supply of a product within the scope of this Regulation for distribution or use on the Union market in the course of a commercial activity, whether in return for payment or free of charge;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0196",
+     "predicate": "hasObligation",
+     "subject": "distributors",
+     "object_as_written": "Distributors shall ensure that",
+     "condition": "while a partly completed machinery is under their responsibility",
+     "quote": "Distributors shall ensure that, while a partly completed machinery is under their responsibility, the storage or transport conditions do not jeopardise conformity with the relevant essential health and safety requirements set out in Annex III.",
+     "why_failed": "Value 'Distributors shall ensure that' is only a fragment; it omits the content (storage/transport not jeopardising conformity), so it doesn't carry the obligation's meaning."
+    },
+    "new": {
+     "id": "reextracted-r2-0048",
+     "predicate": "hasObligation",
+     "subject": "distributors of partly completed machinery",
+     "object_as_written": "do not jeopardise conformity",
+     "condition": "while a partly completed machinery is under their responsibility",
+     "quote": "Distributors shall ensure that, while a partly completed machinery is under their responsibility, the storage or transport conditions do not jeopardise conformity with the relevant essential health and safety requirements set out in Annex III."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0021",
+     "predicate": "definedAs",
+     "subject": "instructions for use",
+     "object_as_written": "the information, provided by the manufacturer",
+     "condition": "\"\"",
+     "quote": "(17) ‘instructions for use’ means the information, provided by the manufacturer when the machinery or related product is placed on the market or put into service, to inform the user of the machinery or related product, of the intended and proper use of that machinery or related product, as well as information on any precautions to be taken when using or installing the machinery or related product, including information on the safety aspects, and on how to keep that machinery or related product safe, and to ensure that it remains fit for purpose during its entire lifetime;",
+     "why_failed": "Passage defines instructions for use as information provided by manufacturer, but only when machinery is placed on market or put into service; claim omits this timing condition."
+    },
+    "new": {
+     "id": "reextracted-r2-0049",
+     "predicate": "definedAs",
+     "subject": "'instructions for use'",
+     "object_as_written": "the information, provided by the manufacturer when the machinery or related product is placed on the market or put into service, to inform the user of the machinery or related product, of the intended and proper use of that machinery or related product, as well as information on any precautions to be taken when using or installing the machinery or related product, including information on the safety aspects, and on how to keep that machinery or related product safe, and to ensure that it remains fit for purpose during its entire lifetime",
+     "condition": "",
+     "quote": "(17) ‘instructions for use’ means the information, provided by the manufacturer when the machinery or related product is placed on the market or put into service, to inform the user of the machinery or related product, of the intended and proper use of that machinery or related product, as well as information on any precautions to be taken when using or installing the machinery or related product, including information on the safety aspects, and on how to keep that machinery or related product safe, and to ensure that it remains fit for purpose during its entire lifetime;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0007",
+     "predicate": "definedAs",
+     "subject": "safety component",
+     "object_as_written": "‘safety component’ means a physical or digital component",
+     "condition": "but which is not necessary in order for that product to function or for which normal components may be substituted in order for that product to function",
+     "quote": "(3) ‘safety component’ means a physical or digital component, including software, of a product within the scope of this Regulation, which is designed or intended to fulfil a safety function and which is independently placed on the market, the failure or malfunction of which endanger the safety of persons, but which is not necessary in order for that product to function or for which normal components may be substituted in order for that product to function;",
+     "why_failed": "Passage defines safety component as a physical or digital component, but adds conditions (product scope, safety function, independently placed on market, endangering safety) that the claim's condition"
+    },
+    "new": {
+     "id": "reextracted-r2-0050",
+     "predicate": "definedAs",
+     "subject": "safety component",
+     "object_as_written": "a physical or digital component, including software, of a product within the scope of this Regulation, which is designed or intended to fulfil a safety function and which is independently placed on the market, the failure or malfunction of which endanger the safety of persons, but which is not necessary in order for that product to function or for which normal components may be substituted in order for that product to function",
+     "condition": "",
+     "quote": "(3) ‘safety component’ means a physical or digital component, including software, of a product within the scope of this Regulation, which is designed or intended to fulfil a safety function and which is independently placed on the market, the failure or malfunction of which endanger the safety of persons, but which is not necessary in order for that product to function or for which normal components may be substituted in order for that product to function;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0006",
+     "predicate": "definedAs",
+     "subject": "interchangeable equipment",
+     "object_as_written": "means a device which",
+     "condition": "provided that the device is not a tool",
+     "quote": "(2) ‘interchangeable equipment’ means a device which, after the putting into service of machinery or an agricultural or forestry tractor, is assembled with that machinery or agricultural or forestry tractor by the operator in order to change its function or to attribute a new function to it, provided that the device is not a tool;",
+     "why_failed": "The value 'means a device which' is only a fragment that omits the definition's substance (assembled after putting into service to change or add function), though the proviso is kept."
+    },
+    "new": {
+     "id": "reextracted-r2-0051",
+     "predicate": "definedAs",
+     "subject": "interchangeable equipment",
+     "object_as_written": "a device which, after the putting into service of machinery or an agricultural or forestry tractor, is assembled with that machinery or agricultural or forestry tractor by the operator in order to change its function or to attribute a new function to it, provided that the device is not a tool",
+     "condition": "provided that the device is not a tool",
+     "quote": "(2) ‘interchangeable equipment’ means a device which, after the putting into service of machinery or an agricultural or forestry tractor, is assembled with that machinery or agricultural or forestry tractor by the operator in order to change its function or to attribute a new function to it, provided that the device is not a tool;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0184",
+     "predicate": "hasObligation",
+     "subject": "distributors",
+     "object_as_written": "shall ensure that",
+     "condition": "while machinery or a related product is under their responsibility",
+     "quote": "Distributors shall ensure that, while machinery or a related product is under their responsibility, the storage or transport conditions do not jeopardise conformity with the essential health and safety requirements set out in Annex III.",
+     "why_failed": "Passage says distributors shall ensure, while under their responsibility; but the value 'shall ensure that' is a fragment lacking the content (storage/transport conditions not jeopardising conformity)"
+    },
+    "new": {
+     "id": "reextracted-r2-0052",
+     "predicate": "hasObligation",
+     "subject": "distributors",
+     "object_as_written": "the storage or transport conditions do not jeopardise conformity",
+     "condition": "while machinery or a related product is under their responsibility",
+     "quote": "Distributors shall ensure that, while machinery or a related product is under their responsibility, the storage or transport conditions do not jeopardise conformity with the essential health and safety requirements set out in Annex III."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0005",
+     "predicate": "definedAs",
+     "subject": "machinery",
+     "object_as_written": "means:",
+     "condition": "",
+     "quote": "(1) ‘machinery’ means: (a) an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application; (b) an assembly referred to in point (a), missing only the components to connect it on site or to sources of energy and motion;",
+     "why_failed": "The value \"means:\" is only a fragment that carries no definitional content; the actual definition (assemblies with drive system, etc.) is not given in the claim."
+    },
+    "new": {
+     "id": "reextracted-r2-0053",
+     "predicate": "definedAs",
+     "subject": "machinery",
+     "object_as_written": "(a) an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application; (b) an assembly referred to in point (a), missing only the components to connect it on site or to sources of energy and motion;",
+     "condition": "",
+     "quote": "(a) an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application; (b) an assembly referred to in point (a), missing only the components to connect it on site or to sources of energy and motion;"
+    }
+   },
+   {
+    "old": {
+     "id": "st-0384",
+     "predicate": "listedIn",
+     "subject": "safety components with fully or partially self-evolving behaviour",
+     "object_as_written": "Safety components with fully or partially self-evolving behaviour",
+     "condition": "",
+     "quote": "Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions.",
+     "why_failed": "The passage lists these safety components at Annex I, Part A, point 5, but only those using machine learning approaches ensuring safety functions; the claim omits that qualifier."
+    },
+    "new": {
+     "id": "reextracted-r2-0054",
+     "predicate": "listedIn",
+     "subject": "safety components",
+     "object_as_written": "5.",
+     "condition": "with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions",
+     "quote": "5. Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0407",
+     "predicate": "listedIn",
+     "subject": "manually loaded household refuse collection trucks with compression mechanism",
+     "object_as_written": "Manually loaded trucks for the collection of household refuse",
+     "condition": "",
+     "quote": "Manually loaded trucks for the collection of household refuse incorporating a compression mechanism.",
+     "why_failed": "Passage lists trucks only if they incorporate a compression mechanism; the claim's value omits this, though the subject includes it. Value is a fragment lacking that qualifier."
+    },
+    "new": {
+     "id": "reextracted-r2-0055",
+     "predicate": "listedIn",
+     "subject": "manually loaded trucks",
+     "object_as_written": "13.",
+     "condition": "for the collection of household refuse incorporating a compression mechanism",
+     "quote": "13. Manually loaded trucks for the collection of household refuse incorporating a compression mechanism."
+    }
+   },
+   {
+    "old": {
+     "id": "st-0414",
+     "predicate": "listedIn",
+     "subject": "safety components (a) to (g) of point 17",
+     "object_as_written": "17.",
+     "condition": "",
+     "quote": "17. (a) devices for locking landing doors;",
+     "why_failed": "Passage lists only (a) devices for locking landing doors under point 17 and (b); no (a) to (g) range shown, so claim's subject isn't supported."
+    },
+    "new": {
+     "id": "reextracted-r2-0056",
+     "predicate": "listedIn",
+     "subject": "devices for locking landing doors",
+     "object_as_written": "(a)",
+     "condition": "",
+     "quote": "(a) devices for locking landing doors;"
+    }
+   }
+  ]
+ }
+]
