@@ -53,6 +53,9 @@ def test_structure():
             assert ev["role"] in roles, (cq["id"], ev["role"])
         for group in ("explicit", "implicit", "derived"):
             assert set(cq["terms"][group]) == {"classes", "properties"}, (cq["id"], group)
+        if cq["answer"]["kind"] == "text":
+            groups = cq["answer"]["keywords"]
+            assert groups and all(isinstance(g, list) and g for g in groups), cq["id"]
 
 
 def test_quotes_are_in_their_sources():
