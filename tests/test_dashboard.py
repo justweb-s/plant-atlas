@@ -80,3 +80,15 @@ def test_every_relation_has_plain_words(page):
     rel = _data(page)["rel"]
     assert set(schema_b.RELATIONS) <= set(dashboard.REL_WORDS)
     assert all(rel.get(k, "").strip() for k in schema_b.RELATIONS)
+
+
+def test_document_map(page):
+    from collections import Counter
+    from atlas.ontology import atlas_page
+    assert page.index('data-tab="ask"') < page.index('data-tab="documents"') < page.index('data-tab="ontology"')
+    dmap = _data(page)["dmap"]
+    store = atlas_page.viewer._store()
+    count = Counter(dashboard.doc_key(s.source_doc) for s in store.statements if s.status == "current")
+    assert {d["key"]: d["n"] for d in dmap["docs"]} == dict(count)
+    assert dmap["edges"] and all(e["n"] > 0 for e in dmap["edges"])
+    assert {e["kind"] for e in dmap["edges"]} <= {"cites", "corrects", "prevails", "applied"}

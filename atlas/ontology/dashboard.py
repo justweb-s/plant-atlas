@@ -102,6 +102,81 @@ DEMOS = {
 }
 
 
+DOC_NAMES = {
+    "REG": "Regulation 2023/1230", "DIR": "Directive 2006/42/EC", "CORR": "Corrigendum 2023", "DLGS": "D.Lgs. 81/08 art. 69-73",
+    "DLGSALLVII": "Annex VII", "DM2011": "DM 11 April 2011", "inail-guide": "INAIL guide", "robot-cell-sheet": "Robotic-cell sheet",
+    "ur5e-manual": "UR5e manual", "ur10e-manual": "UR10e manual", "nanoscan3-manual": "nanoScan3 manual",
+    "mastar-manual": "MA STAR manual", "unict-guideline": "Catania guideline", "univpm-guideline": "UNIVPM guideline",
+    "igea-equipment": "IGEA equipment list",
+}
+DOC_ORDER = ["CORR", "REG", "DIR", "DM2011", "DLGS", "DLGSALLVII"]
+
+
+def doc_key(source: str) -> str:
+    from atlas.ontology import impact
+    for key, (_, sources, _) in impact.DOCUMENTS.items():
+        if source in sources:
+            return key
+    return source
+
+
+def _docmap(store, impact_data: dict, questions: list, facts: dict, vb: dict) -> dict:
+    """The documents with facts in force and the links between them, counted from the store."""
+    import re
+    from atlas.ontology import impact
+    vbf = {f["id"]: f for f in vb["facts"]}
+    known = {d["source"]: d for d in impact_data["documents"]}
+    ids = {st.id: st for st in store.statements}
+    current = [st for st in store.statements if st.status == "current"]
+    count = Counter(doc_key(st.source_doc) for st in current)
+    layer = {}
+    for st in current:
+        layer.setdefault(doc_key(st.source_doc), vbf[st.id]["l"])
+    edges: dict = {}
+
+    def add(a, b, kind, st=None):
+        if a == b or a not in count or b not in count:
+            return
+        e = edges.setdefault((a, b, kind), {"a": a, "b": b, "kind": kind, "n": 0, "ex": []})
+        e["n"] += 1
+        if st is not None and len(e["ex"]) < 3 and st.id in vbf:
+            e["ex"].append(st.id)
+            facts.setdefault(st.id, dict(vbf[st.id], n=vb["sources"][vbf[st.id]["d"]]["noun"]))
+
+    for key, (_, sources, cites) in impact.DOCUMENTS.items():
+        if not cites:
+            continue
+        pattern = re.compile(cites)
+        for st in current:
+            if st.source_doc not in sources and pattern.search(f"{st.quote} {st.object_as_written}"):
+                add(doc_key(st.source_doc), key, "cites", st)
+    for st in store.statements:
+        other = ids.get(st.conflicts_with) if st.conflicts_with else None
+        if other is None:
+            continue
+        if st.status in ("closed", "conflict"):
+            add(doc_key(other.source_doc), doc_key(st.source_doc), "corrects" if st.status == "closed" else "prevails")
+        elif other.status in ("closed", "conflict") and other.conflicts_with != st.id:
+            add(doc_key(st.source_doc), doc_key(other.source_doc), "corrects" if other.status == "closed" else "prevails")
+    applied = known.get("DLGSALLVII", {}).get("devices_affected", 0)
+    if applied and "DLGSALLVII" in count and "igea-equipment" in count:
+        edges[("DLGSALLVII", "igea-equipment", "applied")] = {"a": "DLGSALLVII", "b": "igea-equipment", "kind": "applied", "n": applied, "ex": []}
+    used: dict = {}
+    for q in questions:
+        for step in q.get("steps") or []:
+            f = facts.get(step.get("f"))
+            if f:
+                used.setdefault(doc_key(f["d"]), [])
+                if q["short"] not in used[doc_key(f["d"])]:
+                    used[doc_key(f["d"])].append(q["short"])
+    order = {k: i for i, k in enumerate(DOC_ORDER)}
+    docs = [{"key": k, "name": DOC_NAMES.get(k, k), "title": known.get(k, {}).get("title", k), "layer": layer[k], "n": n,
+             "pieces": known.get(k, {}).get("pieces"), "devices": known.get(k, {}).get("devices_affected", 0),
+             "answers": used.get(k, [])}
+            for k, n in sorted(count.items(), key=lambda kv: (order.get(kv[0], 99), -kv[1]))]
+    return {"docs": docs, "edges": list(edges.values())}
+
+
 def _load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -155,12 +230,13 @@ def build(store=None, today: date | None = None) -> dict:
     numbers = base["numbers"]
     vb = atlas_page.viewer.build_data(store, today)
     whole, flagged = _whole(vb, verify["verdicts"], impact, base["facts"], store)
+    dmap = _docmap(store, impact, questions, base["facts"], vb)
     index = {}
     for f in vb["facts"]:
         if f.get("st") == "current" and f["id"] not in base["facts"]:
             index[f["id"]] = [f.get("s", ""), f.get("p", ""), f.get("w") or f.get("o", ""), f.get("d", ""), f.get("a", ""), f.get("l", "")]
     return {
-        "facts": base["facts"], "scenes": [dict(sc, demo=DEMOS.get(sc["id"], "")) for sc in base["scenes"]], "index": index, "whole": whole, "flagged": flagged,
+        "facts": base["facts"], "scenes": [dict(sc, demo=DEMOS.get(sc["id"], "")) for sc in base["scenes"]], "index": index, "whole": whole, "flagged": flagged, "dmap": dmap,
         "rel": {k: REL_WORDS[k] for k in schema_b.RELATIONS},
         "layers": [dict(l, words=BAND_WORDS[l["name"]]) for l in base["layers"]],
         "scenario_label": base["scenario_label"], "today": base["today"], "today_plain": base["today_plain"],
@@ -280,6 +356,18 @@ svg.links.fadein path, svg.links.fadein text { animation: fade .3s ease-out; }
 @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
 @keyframes pulse { 40% { transform: scale(1.14); color: var(--right); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+.nodes { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 14px 26px; align-items: center; align-content: center; padding-left: 6px; }
+.node { position: relative; z-index: 2; background: var(--surface); border: 1.5px solid var(--lc); border-radius: 999px; padding: 5px 12px; font-size: 13px; font-weight: 600; box-shadow: var(--shadow); transition: opacity .35s ease-out, transform .35s ease-out, background-color .35s ease-out; }
+.node b { margin-left: 6px; color: var(--lc); }
+.node.sel { background: var(--lc); color: var(--surface); } .node.sel b { color: var(--surface); }
+.node.gone { opacity: .5; border-style: dashed; background: transparent; color: var(--muted); box-shadow: none; transform: scale(.94); }
+.node.gone b { color: var(--muted); }
+svg.links path, svg.links text { transition: opacity .35s ease-out; }
+svg.links .dim { opacity: .22; }
+svg.links text.dim { opacity: 0; }
+svg.links .pend { opacity: 0; }
+.cnt { display: grid; gap: 3px; margin: 4px 0 0; padding: 0; list-style: none; font-size: 13px; }
+.cnt b { font-family: "Space Grotesk", Inter, sans-serif; font-size: 16px; }
 .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
 .demo { font-size: 13px; margin: 0 0 6px !important; font-weight: 400 !important; }
 .demo b { font-weight: 700; }
@@ -446,7 +534,7 @@ select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; ba
     </section>
     <section class="right">
       <div class="tabs" role="tablist" id="tabs">
-        <button role="tab" data-tab="ask">Ask</button><button role="tab" data-tab="ontology">Ontology</button><button role="tab" data-tab="score">Score</button><button role="tab" data-tab="changes">Changes</button><button role="tab" data-tab="scenes">Scenes</button>
+        <button role="tab" data-tab="ask">Ask</button><button role="tab" data-tab="documents">Documents</button><button role="tab" data-tab="ontology">Ontology</button><button role="tab" data-tab="score">Score</button><button role="tab" data-tab="changes">Changes</button><button role="tab" data-tab="scenes">Scenes</button>
       </div>
       <div class="panel" id="panel" role="tabpanel"></div>
     </section>
@@ -590,9 +678,9 @@ function drawLinks(hide) {
     let d, lx, ly;
     if (Math.abs(a.y - b.y) < 20) { const p = a.x < b.x ? [a, b] : [b, a]; d = "M" + p[0].r + " " + p[0].y + " L" + p[1].l + " " + p[1].y; lx = (p[0].r + p[1].l) / 2; ly = p[0].y - 5; }
     else { const up = a.y > b.y ? [b, a] : [a, b]; const y1 = up[0].b, y2 = up[1].t, m = (y1 + y2) / 2; d = "M" + up[0].x + " " + y1 + " C" + up[0].x + " " + m + " " + up[1].x + " " + m + " " + up[1].x + " " + y2; lx = (up[0].x + up[1].x) / 2; ly = m - 3; }
-    const tag = (hide === true ? " pend" : "") + "' data-a='" + esc(k.a) + "' data-b='" + esc(k.b) + "'";
-    out += "<path class='" + (k.kind === "stored" ? "stored" : "derived") + tag + " d='" + d + "'/>";
-    if (k.label && k.kind === "stored") out += "<text class='" + tag + " text-anchor='middle' x='" + lx + "' y='" + ly + "'>" + esc(k.label) + "</text>";
+    const tag = (hide === true || k.hidden ? " pend" : "") + (k.dim ? " dim" : "") + "' data-a='" + esc(k.a) + "' data-b='" + esc(k.b) + "'";
+    out += "<path class='" + (k.kind === "stored" ? "stored" : "derived") + tag + (k.w ? " style='stroke-width:" + k.w + "px'" : "") + " d='" + d + "'/>";
+    if (k.text || (k.label && k.kind === "stored")) out += "<text class='" + tag + " text-anchor='middle' x='" + lx + "' y='" + ly + "'>" + esc(k.text || k.label) + "</text>";
   });
   svg.innerHTML = out;
 }
@@ -616,6 +704,7 @@ function openMore(layer) {
   $("#drawer").hidden = false;
 }
 document.addEventListener("click", e => {
+  const nd = e.target.closest("[data-node]"); if (nd) { S.dm.sel = nd.dataset.node; renderDocuments(); return; }
   const t = e.target.closest("[data-card],[data-more],[data-close],[data-doc],[data-moredocs]");
   if (!t) { if (!$("#drawer").hidden && !e.target.closest("#drawer") && !e.target.closest("[data-step]")) $("#drawer").hidden = true; return; }
   if (t.dataset.close != null) { $("#drawer").hidden = true; return; }
@@ -709,6 +798,76 @@ function renderOntology() {
   $("#panel").innerHTML = h; showLeft(wholeView());
 }
 
+/* ---------- documents ---------- */
+const DM = D.dmap; const DOC = Object.fromEntries(DM.docs.map(d => [d.key, d]));
+S.dm = {sel: DOC.DIR ? "DIR" : DM.docs[0].key, off: new Set(), prev: new Set(), msg: "", anim: false};
+const EDGE_WORD = {cites: "cites", corrects: "corrects", prevails: "prevails over", applied: "is applied to"};
+function reduced() { return !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); }
+function showDocMap() {
+  S.timers.forEach(clearTimeout); S.timers = [];
+  const prev = S.dm.prev, off = S.dm.off, sel = S.dm.sel;
+  const bands = $("#bands"); bands.querySelectorAll(".band").forEach(b => b.remove()); bands.classList.remove("fadein"); $("#links").classList.remove("fadein");
+  D.layers.forEach(l => {
+    const el = document.createElement("div"); el.className = "band"; el.dataset.l = l.name;
+    el.innerHTML = "<div class='bname'><strong>" + esc(l.label) + "</strong><span>" + esc(l.words) + "</span><em>" + num(DM.docs.filter(d => d.layer === l.name && !off.has(d.key)).reduce((n, d) => n + d.n, 0)) + " facts in force</em></div><div class='nodes'>" +
+      DM.docs.filter(d => d.layer === l.name).map(d => "<button class='node" + (prev.has(d.key) ? " gone" : "") + (d.key === sel ? " sel" : "") + "' data-node=\"" + esc(d.key) + "\" data-card=\"" + esc(d.key) + "\" title=\"" + esc(d.title) + "\">" + esc(d.name) + "<b>" + num(d.n) + "</b></button>").join("") + "</div>";
+    bands.appendChild(el);
+  });
+  S.view = {cards: [], links: DM.edges.map(e => ({a: e.a, b: e.b, kind: e.kind === "cites" || e.kind === "applied" ? "derived" : "stored", w: (1.2 + Math.min(3.6, Math.sqrt(e.n) * .7)).toFixed(1), text: EDGE_WORD[e.kind] + " \u00b7 " + e.n, hidden: prev.has(e.a) || prev.has(e.b), dim: e.a !== sel && e.b !== sel}))};
+  const on = DM.docs.filter(d => !off.has(d.key));
+  $("#showing").innerHTML = "<b>The document map</b>: " + on.length + " documents, " + num(on.reduce((n, d) => n + d.n, 0)) + " facts in force" + (off.size ? " \u00b7 " + off.size + " withdrawn and kept" : "");
+  requestAnimationFrame(() => { drawLinks(false); requestAnimationFrame(() => {
+    document.querySelectorAll("#bands .node").forEach(n => n.classList.toggle("gone", off.has(n.dataset.node)));
+    document.querySelectorAll("#links [data-a]").forEach(p => { const was = p.classList.contains("pend"); const now = off.has(p.dataset.a) || off.has(p.dataset.b); if (now) p.classList.add("pend"); else if (was) { if (reduced()) p.classList.remove("pend"); else S.timers.push(setTimeout(() => drawIn(p), 350)); } });
+    S.view.links.forEach(k => { k.hidden = off.has(k.a) || off.has(k.b); });
+    S.dm.prev = new Set(off);
+  }); });
+}
+function countUp() {
+  const go = S.dm.anim && !reduced(); S.dm.anim = false;
+  document.querySelectorAll("#panel [data-count]").forEach(el => {
+    const to = +el.dataset.count; if (!go) { el.textContent = num(to); return; }
+    const t0 = performance.now(); const tick = t => { const k = Math.min(1, (t - t0) / 800); el.textContent = num(Math.round(to * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(tick); }; el.textContent = "0"; requestAnimationFrame(tick);
+  });
+}
+function renderDocuments() {
+  const d = DOC[S.dm.sel]; const off = S.dm.off.has(d.key);
+  const out = DM.edges.filter(e => e.a === d.key), inc = DM.edges.filter(e => e.b === d.key);
+  const citing = inc.filter(e => e.kind === "cites" && !S.dm.off.has(e.a)); const M = citing.reduce((n, e) => n + e.n, 0);
+  const corr = out.filter(e => e.kind === "corrects");
+  const kinds = {}; DM.edges.forEach(e => { const k = kinds[e.kind] = kinds[e.kind] || [0, 0]; k[0]++; k[1] += e.n; });
+  const c = n => "<b data-count='" + n + "'>" + num(n) + "</b>";
+  let h = "<p class='lead' style='margin-bottom:6px'>The ontology is built from documents that relate to each other. It changes when one is added or removed.</p>" +
+    "<div class='row'><button class='btn ghost' data-preset='corr'>Add the corrigendum</button><button class='btn ghost' data-preset='ur10e'>Add the UR10e manual</button><button class='btn ghost' data-preset='dir'>Remove the Directive</button></div>" +
+    "<div class='box' style='border-left:4px solid var(--" + d.layer + ")'><div class='lab'>" + esc(LAYER[d.layer].label.toUpperCase()) + " DOCUMENT" + (off ? " \u00b7 WITHDRAWN" : "") + "</div><p>" + esc(d.title) + "</p>" +
+    "<p class='sub'>" + (d.pieces ? num(d.pieces) + " passages \u00b7 " : "") + num(d.n) + " facts in force" + (off ? " when present" : "") + "</p>" +
+    "<p class='sub'><b>It</b> " + (out.length ? out.map(e => EDGE_WORD[e.kind] + " " + esc(DOC[e.b].name) + " (" + e.n + ")").join(", ") : "has no link to another document") + ".</p>" +
+    "<p class='sub'><b>Others:</b> " + (inc.length ? inc.map(e => esc(DOC[e.a].name) + " " + EDGE_WORD[e.kind] + " it (" + e.n + ")").join(", ") : "no other document links to it") + ".</p>" +
+    "<div class='row' style='margin-top:8px'><button class='btn' data-dm='toggle'>" + (off ? "Put it back" : "Remove this document") + "</button></div></div>";
+  if (off) {
+    h += "<div class='box warn'><div class='lab'>WITHOUT IT</div><ul class='cnt'><li>" + c(d.n) + " facts leave the ontology (kept as withdrawn, not deleted)</li>" +
+      corr.map(e => "<li>" + c(e.n) + " values of " + esc(DOC[e.b].name) + " go back to how they were first printed</li>").join("") +
+      "<li>" + c(M) + " facts in other documents that cite it are flagged for review</li><li>" + c(d.devices) + " lifting devices lose their result</li></ul>" +
+      "<p class='sub'>Recorded answers that used it: " + (d.answers.length ? esc(d.answers.join("; ")) : "no recorded answer used it") + ".</p></div>";
+    const ex = []; citing.forEach(e => e.ex.forEach(i => { if (ex.length < 3 && D.facts[i]) ex.push(D.facts[i]); }));
+    if (ex.length) h += "<ol class='steps' style='max-height:150px'>" + ex.map(f => "<li><button data-fact=\"" + esc(f.id) + "\" style='padding-left:8px'>" + esc(f.s) + " \u00b7 flagged for review<q>" + esc(f.q || "") + "</q><span class='loc'>" + esc(f.d + " \u00b7 " + f.a) + "</span></button></li>").join("") + "</ol>";
+  } else if (S.dm.msg === d.key) {
+    h += "<div class='box ok'><div class='lab'>WITH IT</div><ul class='cnt'><li>" + c(d.n) + " checked facts arrive, each with its quote</li>" +
+      corr.map(e => "<li>" + c(e.n) + " facts of " + esc(DOC[e.b].name) + " change; the old ones are closed and kept</li>").join("") +
+      "<li>" + c(out.filter(e => e.kind === "cites").reduce((n, e) => n + e.n, 0)) + " of its facts cite another document</li></ul></div>";
+  }
+  h += "<p class='note'>Lines: " + Object.keys(kinds).map(k => EDGE_WORD[k] + " " + kinds[k][1] + " (" + kinds[k][0] + (kinds[k][0] === 1 ? " line" : " lines") + ")").join(" \u00b7 ") + ". Solid: stored in the facts. Dashed: computed.</p>" +
+    "<p class='note'>This replays what the store already holds for each document: adding a document here shows its checked facts arriving. Reading a brand-new document runs the extraction first.</p>";
+  $("#panel").innerHTML = h; countUp(); showDocMap();
+}
+function preset(which) {
+  const key = {corr: "CORR", ur10e: "ur10e-manual", dir: "DIR"}[which]; if (!DOC[key]) return;
+  const adding = which !== "dir"; S.dm.sel = key; S.dm.msg = "";
+  S.dm.off = new Set(adding ? [key] : []); if (adding) S.dm.prev = new Set([key]);
+  renderDocuments();
+  S.timers.push(setTimeout(() => { if (S.tab !== "documents") return; if (adding) { S.dm.off.delete(key); S.dm.msg = key; } else S.dm.off.add(key); S.dm.anim = true; renderDocuments(); }, reduced() ? 0 : 900));
+}
+
 /* ---------- score ---------- */
 function stack(t) {
   return "<div class='stack' role='img' aria-label='" + t.correct + " right, " + t.unknown + " unknown, " + t.wrong + " wrong'>" + [["right", t.correct], ["unknown", t.unknown], ["wrong", t.wrong]].filter(p => p[1] > 0).map(p => "<div class='" + p[0] + "' style='flex:" + p[1] + "'>" + p[1] + "</div>").join("") + "</div>";
@@ -761,6 +920,7 @@ function setTab(tab, keepLeft) {
   if (history.replaceState) history.replaceState(null, "", "#" + tab);
   const P = $("#panel"); P.scrollTop = 0; P.classList.remove("fadein"); P.getBoundingClientRect(); P.classList.add("fadein");
   if (tab === "ontology") renderOntology();
+  else if (tab === "documents") renderDocuments();
   else if (tab === "ask") { renderAsk(); if (!keepLeft) { if (S.answer && S.answer.B && S.answer.B.steps && S.answer.B.steps.length && S.asked) showLeft(answerView(S.answer.B)); else showLeft(sceneView(0, 0)); } }
   else if (tab === "score") { renderScore(); if (!S.view) showLeft(sceneView(0, 0)); }
   else if (tab === "changes") renderChanges();
@@ -770,6 +930,9 @@ $("#tabs").addEventListener("click", e => { const b = e.target.closest("button")
 $("#panel").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
   if (b.dataset.go) setTab(b.dataset.go);
+  else if (b.dataset.preset) preset(b.dataset.preset);
+  else if (b.dataset.dm) { const k = S.dm.sel; if (S.dm.off.has(k)) { S.dm.off.delete(k); S.dm.msg = k; } else { S.dm.off.add(k); S.dm.msg = ""; } S.dm.anim = true; renderDocuments(); }
+  else if (b.dataset.fact) { const c = factCard(b.dataset.fact, {status: "flagged for review", flag: true}); if (c) openCard(c); }
   else if (b.id === "odback") { S.odoc = ""; renderOntology(); }
   else if (b.dataset.q) { const q = D.questions.find(x => x.id === b.dataset.q); S.asked = true; ask(q[S.lang], q, true); }
   else if (b.dataset.lang) { S.lang = b.dataset.lang; if (S.q) S.text = S.q[S.lang]; renderAsk(); }
@@ -787,7 +950,7 @@ $("#panel").addEventListener("change", e => { if (e.target.id === "docpick") { S
   const first = D.questions.find(q => q.steps && q.steps.length >= 3 && q.B && q.B.score >= 0.999) || D.questions.find(q => q.steps) || D.questions[0];
   S.q = first; S.text = first.en; S.answer = recorded(first); S.asked = true;
   const tab = (location.hash || "").slice(1);
-  setTab(["ontology", "ask", "score", "changes", "scenes"].indexOf(tab) >= 0 ? tab : DEFAULT_TAB);
+  setTab(["documents", "ontology", "ask", "score", "changes", "scenes"].indexOf(tab) >= 0 ? tab : DEFAULT_TAB);
   if (/^https?:$/.test(location.protocol)) {
     const ctl = new AbortController(); setTimeout(() => ctl.abort(), 2500);
     fetch("/api/status", {signal: ctl.signal}).then(r => r.ok ? r.json() : Promise.reject()).then(j => {
