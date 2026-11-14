@@ -1,6 +1,6 @@
 # Note di Prodotto
 
-_Aggiornato: 11:50_
+_Aggiornato: 11:43_
 
 ## Fatto
 - **Repo pubblico:** https://github.com/justweb-s/plant-atlas. Clona e lancia una volta `git config core.hooksPath .githooks`.
