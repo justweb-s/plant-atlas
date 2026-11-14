@@ -28,7 +28,15 @@ LABELS = {"rag": "RAG", "A": "A (free extraction)", "B": "B (checked facts)"}
 def run_mode(mode: str) -> dict:
     """Ask every question with strategy A or B and save results/<mode>.json."""
     from atlas import api
-    rows = run(lambda q: api.answer(q, mode), load_cqs())
+    cqs = load_cqs()
+    done = [0]
+
+    def ask(question: str):
+        done[0] += 1
+        print(f"{mode} {done[0]}/{len(cqs)}", file=sys.stderr, flush=True)   # progress, to see a stuck call
+        return api.answer(question, mode)
+
+    rows = run(ask, cqs)
     out = {"summary": summary(rows), "rows": rows}
     RESULTS.mkdir(exist_ok=True)
     (RESULTS / f"{mode}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -56,12 +64,15 @@ def _split_line(rows: list[dict]) -> dict:
 
 
 def sources_read_by_b() -> set[str]:
-    """The documents strategy B has extracted facts from (ontology/B/statements.json, written by Core)."""
-    path = ROOT / "ontology" / "B" / "statements.json"
-    if not path.exists():
-        return set()
-    data = json.loads(path.read_text(encoding="utf-8"))
-    return {s.get("source_doc") for s in (data if isinstance(data, list) else data.get("statements", []))}
+    """The documents strategy B has extracted facts from (ontology/B/statements.json and parts/*.json, by Core)."""
+    folder = ROOT / "ontology" / "B"
+    read: set[str] = set()
+    for path in [folder / "statements.json", *sorted((folder / "parts").glob("*.json"))]:
+        if path.exists():
+            data = json.loads(path.read_text(encoding="utf-8"))
+            facts = data if isinstance(data, list) else data.get("statements", [])
+            read |= {s.get("source_doc") for s in facts if isinstance(s, dict)}
+    return read
 
 
 def covered(cq: dict, read: set[str]) -> bool:
