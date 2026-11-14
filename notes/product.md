@@ -1,6 +1,6 @@
 # Note di Prodotto
 
-_Aggiornato: 11:45_
+_Aggiornato: 11:40_
 
 ## Fatto
 - **15 competency questions** con risposte attese, citazioni e termini attesi: `data/cq/cqs.json`, committate alle 11:25. Prova: `python -m pytest -q tests/test_cqs.py` (ogni citazione viene cercata nel testo ufficiale).
@@ -13,9 +13,9 @@ _Aggiornato: 11:45_
 - Poi baseline RAG (`evaluation/rag.py`) e tabellone reale.
 
 ## Mi serve da te
-- 11:45 — Leggi `docs/decisions/` e il contratto nuovo (`atlas/contracts.py`, `atlas/api.py`). Se qualcosa non va, scrivi una decisione che lo sostituisce.
-- 11:45 — Rivedi le 15 domande in `data/cq/cqs.json`.
-- 11:45 — Una volta sola, nel tuo clone: `git config core.hooksPath .githooks`.
+- 11:40 — Leggi `docs/decisions/` e il contratto nuovo (`atlas/contracts.py`, `atlas/api.py`). Se qualcosa non va, scrivi una decisione che lo sostituisce.
+- 11:40 — Rivedi le 15 domande in `data/cq/cqs.json`.
+- 11:40 — Una volta sola, nel tuo clone: `git config core.hooksPath .githooks`.
 
 ## Bloccato
 - Manca `.env` con la chiave del team: va presa da `/me` («Show the key»).
