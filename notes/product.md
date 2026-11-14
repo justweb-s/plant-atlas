@@ -1,6 +1,6 @@
 # Note di Prodotto
 
-_Aggiornato: 11:35_
+_Aggiornato: 11:25_
 
 ## Fatto
 - Repo creato con regole (`AGENTS.md`), contratto (`atlas/contracts.py`, `atlas/api.py`), dati finti e app Streamlit minima. Prova: `ATLAS_FAKE=1 streamlit run app/streamlit_app.py`
@@ -12,7 +12,7 @@ _Aggiornato: 11:35_
 - Riunione su `docs/VISION-ontology.md` §1, poi video e abstract (entro le 12:30).
 
 ## Mi serve da te
-- 11:35 — Rivedi le 15 domande in `data/cq/cqs.json` e soprattutto le risposte attese: chi le cambia, le cambia con un commit nuovo (mai amend) prima del primo estrattore.
-- 11:35 — I fatti della fabbrica (`plant` in `cqs.json`) sono la specifica dei documenti di fantasia: le risposte di CQ13–CQ15 dipendono da lì.
+- 11:25 — Rivedi le 15 domande in `data/cq/cqs.json` e soprattutto le risposte attese: chi le cambia, le cambia con un commit nuovo (mai amend) prima del primo estrattore.
+- 11:25 — I fatti della fabbrica (`plant` in `cqs.json`) sono la specifica dei documenti di fantasia: le risposte di CQ13–CQ15 dipendono da lì.
 
 ## Bloccato
