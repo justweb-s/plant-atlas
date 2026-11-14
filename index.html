@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plant Atlas — pitch</title>
+<style>
+  :root {
+    --bg: #f6f7fb; --surface: #ffffff; --soft: #eef0ff; --text: #14162b; --muted: #5d637d;
+    --border: #e3e6f0; --accent: #4338ca; --ok: #0f7a4b; --ok-soft: #e3f6ec; --warn: #a65b00;
+    --warn-soft: #fdf1dc; --bad: #b3261e; --bad-soft: #fde8e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0d1a; --surface: #14172a; --soft: #1e2147; --text: #eef0fb; --muted: #9ba1bd;
+      --border: #262b47; --accent: #8b8dff; --ok: #4ade80; --ok-soft: #10301f; --warn: #fbbf24;
+      --warn-soft: #35270a; --bad: #f87171; --bad-soft: #3a1513;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.55;
+         font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; }
+  main { max-width: 880px; margin: 0 auto; padding: 40px 16px 80px; }
+  h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+  h2 { font-size: 1.35rem; margin: 48px 0 12px; letter-spacing: -0.01em; }
+  p { margin: 0 0 12px; }
+  .lead { font-size: 1.2rem; color: var(--muted); max-width: 44em; }
+  .tag { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent);
+         background: var(--soft); padding: 4px 10px; border-radius: 999px; margin-bottom: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin: 12px 0; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .num { font-size: 2rem; font-weight: 650; letter-spacing: -0.02em; line-height: 1.1; }
+  .small { font-size: 0.9rem; color: var(--muted); }
+  .quote { border-left: 4px solid var(--accent); background: var(--soft); border-radius: 10px; padding: 12px 14px; margin: 10px 0; }
+  .wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .m { font-size: 0.78rem; font-weight: 600; padding: 2px 7px; border-radius: 6px; white-space: nowrap; }
+  .m.v { color: var(--ok); background: var(--ok-soft); }
+  .m.d { color: var(--warn); background: var(--warn-soft); }
+  .m.u { color: var(--bad); background: var(--bad-soft); }
+  ol, ul { padding-left: 1.2em; margin: 0 0 12px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); }
+  code { font-family: Consolas, ui-monospace, monospace; font-size: 0.9em; background: var(--soft); padding: 1px 5px; border-radius: 5px; }
+</style>
+</head>
+<body>
+<main>
+
+<span class="tag">Track: Building an ontology from a knowledge base · state at 15:00, 14 November</span>
+<h1>Plant Atlas</h1>
+<p class="lead">A plant safety officer asks: can this machine be used today, and what do I have to do, by when? The answer
+is spread over the law, the machine manual and the plant's own equipment list. We turn those documents into an ontology
+in which every fact carries the exact words of its source, or it does not get in.</p>
+
+<h2>The problem, on a real list</h2>
+<p>IGEA S.p.A., a company that works in mining areas in Sardinia, publishes the list of its 24 lifting machines
+<span class="m v">verified: IGEA technical sheet, public PDF</span>. The sheet says each one must be verified at the
+intervals of Annex VII of Legislative Decree 81/2008. Annex VII has 29 rows. Which row applies depends on whether the
+machine is fixed or mobile, on the sector, and on whether it is more than ten years old.</p>
+<p>So the same overhead crane, built in 2017, is verified every two years today and every year from 2028. No law changes
+in between: the crane gets older. A search over the documents finds the two rows. It does not tell the safety officer
+which one is his.</p>
+
+<h2>What you will see in the demo</h2>
+<ol>
+  <li><b>Ask.</b> «Who carries out the first periodic verification, and within what time?» The answer is INAIL, within
+  45 days, and under it the sentence of Article 71 it comes from, word for word.</li>
+  <li><b>Two sources disagree.</b> The 2011 ministerial decree says sixty days; Article 71 in force says forty-five. The
+  higher source wins, and the old fact stays visible, closed.</li>
+  <li><b>The cell.</b> Four real machines (two Universal Robots arms, a SICK safety scanner, a MAHA vehicle lift) with
+  the facts taken from their official manuals: what must be checked every six months, every year, and the warning that
+  a robot arm alone cannot be put into service.</li>
+  <li><b>Why trust it.</b> The scoreboard, including the questions we get wrong.</li>
+</ol>
+<p class="small">The app runs on our laptops (Next.js and a small Python server); there is no public deployment.
+Repository: <a href="https://github.com/justweb-s/plant-atlas">github.com/justweb-s/plant-atlas</a>.</p>
+
+<h2>The rule: no quote, no fact</h2>
+<p>A model proposes a fact and points to the sentence it comes from. Code then checks, word by word, that the sentence
+is in the text, that the value is in the sentence, and that an «if» or «unless» in the text has not been lost.</p>
+<div class="grid">
+  <div class="card"><div class="num">1,668</div><div class="small">facts proposed by the model on 773 passages of law</div></div>
+  <div class="card"><div class="num">1,602</div><div class="small">accepted, each with its quote</div></div>
+  <div class="card"><div class="num">66</div><div class="small">rejected by the check: 39 quote not in the text, 19 lost condition, 7 value not in the quote, 1 outside the schema</div></div>
+  <div class="card"><div class="num">$0.36</div><div class="small">model cost of the whole build</div></div>
+</div>
+<p class="small"><span class="m v">verified: ontology/B/build.json in the repository</span> The result is 13,963 triples
+in Turtle, with SHACL shapes that find 5 real violations in our own data. The official corrigendum of the Regulation
+closed 9 facts and opened 9 corrected ones; nothing was deleted.</p>
+
+<h2>Measured, with questions written first</h2>
+<p>We wrote 34 questions with their expected answers before the code that answers them; the git history shows it.
+12 of them are held out: the code that builds the ontology never reads them.</p>
+<div class="wrap card">
+<table>
+  <thead><tr><th>On the 12 design questions about the law</th><th class="n">Right</th><th class="n">Partly</th><th class="n">Wrong</th><th class="n">«I don't know»</th></tr></thead>
+  <tbody>
+    <tr><td><b>Plant Atlas</b> (facts with their source)</td><td class="n"><b>7</b></td><td class="n">2</td><td class="n">3</td><td class="n">0</td></tr>
+    <tr><td>Plain search over the same documents</td><td class="n">5</td><td class="n">2</td><td class="n">4</td><td class="n">1</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="small"><span class="m v">verified: results/rag.json and the app's scoreboard, same model for both</span></p>
+<ul>
+  <li><b>Our kill criterion</b>, written at 10:37: stop claiming an advantage if Plant Atlas is right on fewer than 2
+  more questions than plain search (then on 15 questions). On these 12 it is exactly 2 more. That is the threshold, not a margin.</li>
+  <li><b>What is not measured yet.</b> Plant Atlas has not answered the other 22 questions (the IGEA list, the
+  machines, the held-out ones). Plain search on all 34: 12 right, 7 wrong, 15 «I don't know».</li>
+  <li><b>What we get wrong.</b> One question on the corrigendum is answered «no» where the right answer is «yes»: the
+  correct facts are in the ontology, the error is in the answering step.</li>
+</ul>
+
+<h2>Real, and not built</h2>
+<div class="wrap card">
+<table>
+  <tbody>
+    <tr><td><span class="m v">real</span></td><td>The documents: EU Regulation 2023/1230 and its corrigendum, Directive 2006/42/EC, Legislative Decree 81/2008 with Annex VII, the 2011 decree, four manufacturers' manuals, the IGEA list. 5,195 passages.</td></tr>
+    <tr><td><span class="m v">real</span></td><td>The ontology on the law, the check that rejects facts, the answers with quotes, the scoreboard, the app.</td></tr>
+    <tr><td><span class="m u">not built</span></td><td>The second strategy (a model building the ontology freely), so the comparison is with plain search only.</td></tr>
+    <tr><td><span class="m u">not built</span></td><td>Changing a document live and listing the answers that change.</td></tr>
+    <tr><td><span class="m d">assumed</span></td><td>That IGEA's cranes fall under the «mining» rows of Annex VII, and that its elevating platform is a mobile elevating work platform. A safety expert should confirm both.</td></tr>
+    <tr><td><span class="m u">none</span></td><td>No safety officer has used the app yet.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Why it is hard to copy</h2>
+<p>The questions and their expected answers come before the system and are public, so any other approach can be scored
+on the same table. The check that rejects a fact is code, not a prompt: it cannot be talked out of it. And when a
+source changes, the old fact is closed with its date instead of being overwritten, so an answer can be given as of any
+day.</p>
+
+<h2>Business case</h2>
+<div class="wrap card">
+<table>
+  <thead><tr><th>What</th><th class="n">Number</th><th>Where it comes from</th></tr></thead>
+  <tbody>
+    <tr><td>Annual licence per plant</td><td class="n">€3,600</td><td><span class="m d">declared: our estimate</span></td></tr>
+    <tr><td>One-off setup per plant (loading its documents)</td><td class="n">€1,500</td><td><span class="m d">declared</span></td></tr>
+    <tr><td>Plants in the first year</td><td class="n">20</td><td><span class="m d">declared</span></td></tr>
+    <tr><td>Revenue in the first year</td><td class="n">€102,000</td><td>arithmetic on the three rows above</td></tr>
+    <tr><td>Cost to win one customer</td><td class="n">€2,900</td><td><span class="m d">declared</span> safety consultancies and direct contact, one person selling</td></tr>
+    <tr><td>Months to earn it back</td><td class="n">9.7</td><td>from the model saved on Control8</td></tr>
+    <tr><td>Model cost to build the ontology on the law</td><td class="n">$0.36</td><td><span class="m v">verified: build.json</span></td></tr>
+  </tbody>
+</table>
+</div>
+<p>Who pays: the manufacturing company that has a safety officer, or the safety consultancy that follows several
+plants. Everything here rests on the licence price, and no buyer has confirmed it.</p>
+
+<h2>Models and AI tools</h2>
+<ul>
+  <li><b>In the product:</b> <code>anthropic/claude-haiku-5.5</code> to propose facts, <code>anthropic/claude-sonnet-5.5</code>
+  to answer, <code>openai/text-embedding-3-small</code> for plain search, all through the Vercel AI Gateway. Every
+  response is cached in the repository, so the numbers can be reproduced without paying again.</li>
+  <li><b>To build it:</b> Claude Code (Claude Opus 5.5 and Claude Fable 5.2) and the 8hack skill. The full list is in
+  <code>AI_TOOLS.md</code>.</li>
+  <li><b>How outputs were checked:</b> every quote in the expected answers is searched in the official text by a test;
+  every fact in the ontology passes the same check before it is stored.</li>
+  <li><b>What the model got wrong, and how it was caught:</b> 66 of the facts it proposed had a quote that is not in
+  the text, a value that is not in the quote, or a lost condition. The check rejected and counted them.</li>
+</ul>
+
+<h2>Next test</h2>
+<p>Run Plant Atlas on the 12 held-out questions and on the IGEA list, and put the two assumptions above in front of a
+safety officer. If Plant Atlas is not right on at least 2 more held-out questions than plain search, we present the
+comparison as a negative result.</p>
+
+</main>
+</body>
+</html>
