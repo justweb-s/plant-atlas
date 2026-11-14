@@ -109,6 +109,8 @@ DOC_NAMES = {
     "mastar-manual": "MA STAR manual", "unict-guideline": "Catania guideline", "univpm-guideline": "UNIVPM guideline",
     "igea-equipment": "IGEA equipment list",
 }
+BUILD_ORDER = ["REG", "DIR", "DLGS", "DLGSALLVII", "DM2011", "CORR", "inail-guide", "robot-cell-sheet", "ur5e-manual",
+               "nanoscan3-manual", "mastar-manual", "unict-guideline", "univpm-guideline", "igea-equipment", "ur10e-manual"]
 DOC_ORDER = ["CORR", "REG", "DIR", "DM2011", "DLGS", "DLGSALLVII"]
 
 
@@ -175,7 +177,31 @@ def _docmap(store, impact_data: dict, questions: list, facts: dict, vb: dict) ->
              "answers": used.get(k, [])}
             for k, n in sorted(count.items(), key=lambda kv: (order.get(kv[0], 99), -kv[1]))]
     group = {src: key for key, (_, sources, _) in impact.DOCUMENTS.items() for src in sources}
-    return {"docs": docs, "edges": list(edges.values()), "group": group}
+    keys = [d["key"] for d in docs]
+    order = [k for k in BUILD_ORDER if k in keys] + [k for k in keys if k not in BUILD_ORDER]
+
+    def pick(test):
+        return next((f for f in vb["facts"] if f.get("st") == "current" and test(f)), None)
+
+    def words(f):
+        return f"{f.get('w', '')} {f.get('o', '')} {f.get('q', '')}".lower()
+
+    notice = (pick(lambda f: f["d"] == "igea-equipment" and f["p"] == "hasTimeLimit" and re.search(r"15|quindici", words(f)))
+              or pick(lambda f: f["d"] == "igea-equipment" and re.search(r"15 giorni|quindici giorni", words(f))))
+    dates = sorted((f for f in vb["facts"] if f.get("st") == "current" and f["d"] == "CORR" and f["p"] == "appliesFrom" and f.get("x")),
+                   key=lambda f: str(f.get("o", "")))
+    new_date = dates[-1] if dates else None
+    reach = pick(lambda f: f["d"] == "ur10e-manual" and f["p"] == "hasReach" and "1300" in words(f))
+    addfacts = []
+    for label, f in (("Fifteen-day notice (plant)", notice), ("Corrected application date (law)", new_date), ("UR10e reach 1300 mm (manufacturer)", reach)):
+        if not f:
+            continue
+        old = f.get("x") if f.get("x") in vbf and vbf[f["x"]].get("st") == "closed" else None
+        for i in (f["id"], old):
+            if i:
+                facts.setdefault(i, dict(vbf[i], n=vb["sources"][vbf[i]["d"]]["noun"]))
+        addfacts.append({"label": label, "id": f["id"], "old": old, "doc": doc_key(f["d"])})
+    return {"docs": docs, "edges": list(edges.values()), "group": group, "order": order, "addfacts": addfacts}
 
 
 def _load(path: Path):
@@ -533,8 +559,34 @@ svg.links .pend { opacity: 0; }
 .why a { color: inherit; }
 .app.embed { padding: 0; }
 .app.embed .top, .app.embed .why { display: none; }
+#player { flex: none; display: grid; gap: 4px; margin-bottom: 8px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); font-size: 12px; }
+.prow { display: flex; gap: 6px; align-items: center; min-width: 0; }
+.prow strong { font-family: "Space Grotesk", Inter, sans-serif; font-size: 14px; margin-right: 4px; white-space: nowrap; }
+#player .btn { padding: 3px 10px; font-size: 12.5px; white-space: nowrap; }
+.prog { flex: 1; display: flex; gap: 3px; align-items: center; margin-left: 6px; min-width: 0; }
+.prog button { flex: 1; height: 10px; border: 0; border-radius: 999px; background: var(--surface-2); padding: 0; }
+.prog button.on { background: var(--accent); }
+.pn, .pl, .phon { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pcap { font-size: 13px; font-weight: 500; min-height: 36px; line-height: 1.35; }
+.node.absent { opacity: 0; pointer-events: none; }
+.node.arrive { animation: drop .5s ease-out; }
+.node.pulse { animation: npulse .6s ease-out .45s; }
+.card[data-new] { animation: rise .5s ease-out; }
+@keyframes drop { from { opacity: 0; transform: translateY(-18px) scale(.7); } }
+@keyframes npulse { 40% { transform: scale(1.1); box-shadow: 0 0 0 5px color-mix(in srgb, var(--lc) 35%, transparent); } }
+.app.solo .top, .app.solo .why, .app.solo .right { display: none; }
+.app.solo .grid { grid-template-columns: 1fr; }
+.app.solo .left { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 3fr); grid-template-rows: auto auto minmax(0, 1fr) auto; column-gap: 16px; }
+.app.solo .lhead { grid-column: 1 / 3; }
+.app.solo #player, .app.solo .bands, .app.solo .legend { grid-column: 1; }
+.app.solo .bands { grid-row: 3; } .app.solo .legend { grid-row: 4; } .app.solo #player { grid-row: 2; }
+#side { grid-column: 2; grid-row: 2 / 5; min-height: 0; overflow: auto; border-left: 1px solid var(--line); padding-left: 16px; }
+#side h3 { font-size: 15px; margin: 0 0 6px; }
+#side select { width: 100%; margin-bottom: 8px; }
+#side .qtext { font-size: 13.5px; font-weight: 500; margin: 0 0 10px; }
 @media (max-width: 900px) {
   .why { display: none; }
+  .app.solo .left { display: flex; }
   html, body { height: auto; }
   .app { height: auto; }
   .grid { grid-template-columns: 1fr; }
@@ -567,8 +619,10 @@ svg.links .pend { opacity: 0; }
   <div class="grid">
     <section class="left" aria-label="The ontology">
       <div class="lhead"><h2>The ontology</h2><div class="showing" id="showing"></div><span class="seg" id="lefttoggle" aria-label="What the left panel shows"><button data-left="facts" aria-pressed="true">Facts</button><button data-left="docs" aria-pressed="false">Documents</button></span></div>
+      <div id="player" hidden></div>
       <div class="bands" id="bands"><svg class="links" id="links" aria-hidden="true"></svg></div>
       <div class="legend"><span><i></i>link stored in the ontology</span><span><i class="d"></i>link derived by a rule or by the selection</span><span><span class="k"></span>kept, not in force</span></div>
+      <aside id="side" hidden></aside>
       <div id="dover" hidden></div>
     </section>
     <section class="right">
@@ -677,7 +731,7 @@ function setToggle() { document.querySelectorAll("#lefttoggle button").forEach(b
 function showLeft(view) {
   S.factView = view; setToggle();
   if (leftMode() === "docs") { showDocMap(); return; }
-  $("#dover").hidden = true;
+  $("#dover").hidden = true; $("#player").hidden = true; renderSide();
   S.view = view; $("#showing").innerHTML = view.title;
   const bands = $("#bands"); bands.querySelectorAll(".band").forEach(b => b.remove());
   D.layers.forEach(l => {
@@ -720,7 +774,7 @@ function drawLinks(hide) {
   (view.links || []).forEach(k => {
     const a = pos(k.a), b = pos(k.b); if (!a || !b) return;
     let d, lx, ly;
-    if (Math.abs(a.y - b.y) < 20) { const p = a.x < b.x ? [a, b] : [b, a]; d = "M" + p[0].r + " " + p[0].y + " L" + p[1].l + " " + p[1].y; lx = (p[0].r + p[1].l) / 2; ly = p[0].y - 5; }
+    if (Math.abs(a.y - b.y) < 20) { const p = a.x < b.x ? [a, b] : [b, a]; d = "M" + p[0].r + " " + p[0].y + " L" + p[1].l + " " + p[1].y; lx = (p[0].r + p[1].l) / 2; ly = Math.min(p[0].t, p[1].t) - 4; }
     else { const up = a.y > b.y ? [b, a] : [a, b]; const y1 = up[0].b, y2 = up[1].t, m = (y1 + y2) / 2; d = "M" + up[0].x + " " + y1 + " C" + up[0].x + " " + m + " " + up[1].x + " " + m + " " + up[1].x + " " + y2; lx = (up[0].x + up[1].x) / 2; ly = m - 3; }
     const tag = (hide === true || k.hidden ? " pend" : "") + (k.dim ? " dim" : "") + "' data-a='" + esc(k.a) + "' data-b='" + esc(k.b) + "'";
     out += "<path class='" + (k.kind === "stored" ? "stored" : "derived") + tag + (k.w ? " style='stroke-width:" + k.w + "px'" : "") + " d='" + d + "'/>";
@@ -748,9 +802,19 @@ function openMore(layer) {
   $("#drawer").hidden = false;
 }
 document.addEventListener("click", e => {
-  const dmo = e.target.closest("[data-dmo]"); if (dmo) { const k = S.dm.pick; if (dmo.dataset.dmo === "close") S.dm.pick = null; else if (S.dm.off.has(k)) S.dm.off.delete(k); else S.dm.off.add(k); showDocMap(); return; }
+  const pb = e.target.closest("[data-b],[data-bstep],[data-addfact]");
+  if (pb) {
+    if (pb.dataset.bstep) { buildPause(); buildGo(+pb.dataset.bstep); }
+    else if (pb.dataset.addfact) addFact(+pb.dataset.addfact);
+    else if (pb.dataset.b === "play") buildPlay();
+    else if (pb.dataset.b === "pause") { buildPause(); renderPlayer(); }
+    else if (pb.dataset.b === "step") { buildPause(); buildGo((S.build.i == null || S.build.i >= ORDER.length ? 0 : S.build.i) + 1); }
+    else { buildPause(); buildGo(0); }
+    return;
+  }
+  const dmo = e.target.closest("[data-dmo]"); if (dmo) { const k = S.dm.pick || S.dm.focus; if (dmo.dataset.dmo === "close") S.dm.pick = null; else if (S.dm.off.has(k)) { S.dm.off.delete(k); S.build.cap = DOC[k].name + " put back: " + num(DOC[k].n) + " facts return, with their links."; } else { S.dm.off.add(k); S.build.cap = removedCap(k); } showDocMap(); return; }
   const lt = e.target.closest("[data-left]"); if (lt) { S.left = lt.dataset.left; setToggle(); if (S.tab !== "documents") { if (S.left === "docs") showDocMap(); else showLeft(S.factView || sceneView(0, 0)); } return; }
-  const nd = e.target.closest("[data-node]"); if (nd) { S.dm.sel = nd.dataset.node; if (S.tab === "documents") renderDocuments(); else { S.dm.pick = S.dm.sel; showDocMap(); } return; }
+  const nd = e.target.closest("[data-node]"); if (nd) { S.dm.addfact = null; S.dm.sel = nd.dataset.node; if (S.tab === "documents") renderDocuments(); else { S.dm.pick = S.dm.sel; showDocMap(); } return; }
   const t = e.target.closest("[data-card],[data-more],[data-close],[data-doc],[data-moredocs]");
   if (!t) { if (!$("#drawer").hidden && !e.target.closest("#drawer") && !e.target.closest("[data-step]")) $("#drawer").hidden = true; return; }
   if (t.dataset.close != null) { $("#drawer").hidden = true; return; }
@@ -849,27 +913,91 @@ const DM = D.dmap; const DOC = Object.fromEntries(DM.docs.map(d => [d.key, d]));
 S.dm = {sel: DOC.DIR ? "DIR" : DM.docs[0].key, off: new Set(), prev: new Set(), msg: "", anim: false};
 const EDGE_WORD = {cites: "cites", corrects: "corrects", prevails: "prevails over", applied: "is applied to"};
 function reduced() { return !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); }
+S.build = {i: null, timer: null, cap: ""};
+const ORDER = DM.order;
+function absentSet() { return new Set(S.build.i == null ? [] : ORDER.slice(S.build.i)); }
+function stepCaption(k) {
+  const d = DOC[k]; const here = new Set(ORDER.slice(0, S.build.i)); const parts = [];
+  DM.edges.forEach(e => {
+    if (e.a === k && here.has(e.b)) parts.push(e.kind === "cites" ? e.n + " cite " + DOC[e.b].name : e.kind === "corrects" ? e.n + " facts of " + DOC[e.b].name + " corrected, the old ones kept" : e.kind === "prevails" ? e.n + " fact of " + DOC[e.b].name + " loses to it" : "it now decides " + e.n + " of the " + DOC[e.b].devices + " devices of " + DOC[e.b].name);
+    else if (e.b === k && here.has(e.a)) parts.push(e.kind === "cites" ? e.n + " facts of " + DOC[e.a].name + " cite it" : e.kind === "prevails" ? e.n + " of its facts loses to " + DOC[e.a].name : e.kind === "applied" ? DOC[e.a].name + " now decides " + e.n + " of its " + d.devices + " devices" : e.n + " of its facts corrected by " + DOC[e.a].name);
+  });
+  return d.name + " added: " + num(d.n) + " facts" + (parts.length ? "; " + parts.join("; ") : "; no link yet to the documents already present") + ".";
+}
+function removedCap(k) {
+  const hid = new Set([...S.dm.off, ...absentSet()]);
+  const M = DM.edges.filter(e => e.b === k && e.kind === "cites" && !hid.has(e.a)).reduce((n, e) => n + e.n, 0);
+  return DOC[k].name + " removed: " + num(DOC[k].n) + " facts leave the ontology, kept as withdrawn; " + num(M) + " facts that cite it are flagged for review; " + num(DOC[k].devices) + " lifting devices lose their result.";
+}
+function buildPause() { clearInterval(S.build.timer); S.build.timer = null; }
+function buildSet(i) {
+  S.dm.addfact = null; S.dm.pick = null; S.build.i = Math.max(0, Math.min(ORDER.length, i));
+  if (S.build.i > 0) { const k = ORDER[S.build.i - 1]; S.dm.focus = k; S.dm.off.delete(k); S.build.cap = stepCaption(k); }
+  else { S.dm.focus = null; S.dm.off = new Set(); S.build.cap = "Empty: no document has been read yet."; }
+}
+function buildGo(i) { buildSet(i); if (S.build.i >= ORDER.length) buildPause(); showDocMap(); }
+function buildPlay() {
+  if (S.build.timer) return; if (reduced()) { buildGo(ORDER.length); return; }
+  if (S.build.i == null || S.build.i >= ORDER.length) buildGo(0);
+  S.build.timer = setInterval(() => { if (leftMode() !== "docs") { buildPause(); return; } buildGo(S.build.i + 1); }, 1400); renderPlayer();
+}
+function addFact(j) {
+  buildPause(); const a = DM.addfacts[j]; if (!a) return;
+  S.build.i = null; S.dm.off.delete(a.doc); S.dm.pick = null; S.dm.focus = a.doc; S.dm.addfact = {id: a.id, old: a.old, doc: a.doc, stage: 0};
+  S.build.cap = "Before: " + DOC[a.doc].name + " without this fact" + (a.old ? "; the value first printed is in force." : ".");
+  showDocMap();
+  S.timers.push(setTimeout(() => {
+    S.dm.addfact.stage = 1; const c = factCard(a.id);
+    S.build.cap = "Fact added to " + DOC[a.doc].name + ": " + c.s + " " + c.rel + " " + c.val + (a.old ? "; the old value is kept, not in force, and linked to it" : "") + ". Quote: “" + String(c.fact.q || "").slice(0, 110) + "”";
+    showDocMap();
+  }, reduced() ? 0 : 900));
+}
+function renderPlayer() {
+  const P = $("#player"); const n = ORDER.length; const i = S.build.i == null ? n : S.build.i;
+  P.innerHTML = "<div class='prow'><strong>Build the ontology</strong><button class='btn' data-b='" + (S.build.timer ? "pause" : "play") + "'>" + (S.build.timer ? "Pause" : "Play") + "</button><button class='btn ghost' data-b='step'>Step</button><button class='btn ghost' data-b='reset'>Reset</button><span class='prog'>" +
+    ORDER.map((k, j) => "<button data-bstep='" + (j + 1) + "' class='" + (j < i ? "on" : "") + "' title=\"" + (j + 1) + ". " + esc(DOC[k].name) + "\" aria-label=\"Step " + (j + 1) + ": " + esc(DOC[k].name) + "\"></button>").join("") + "</span><span class='pn'>" + i + " of " + n + "</span></div>" +
+    "<div class='pcap'>" + esc(S.build.cap || "All " + n + " documents are in. Press Play to build the ontology from empty, one document at a time.") + "</div>" +
+    "<div class='prow'><span class='pl'>Add a fact</span>" + DM.addfacts.map((a, j) => "<button class='btn ghost' data-addfact='" + j + "'>" + esc(a.label) + "</button>").join("") + "</div>" +
+    "<div class='phon'>This replays what the store holds for each document. Reading a brand-new document runs the extraction first.</div>";
+  P.hidden = false;
+}
+function tickTo(el, to) { if (reduced()) return; const t0 = performance.now(); const f = t => { const k = Math.min(1, (t - t0) / 800); el.textContent = num(Math.round(to * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(f); }; el.textContent = "0"; requestAnimationFrame(f); }
 function showDocMap() {
   S.timers.forEach(clearTimeout); S.timers = [];
-  setToggle(); const inTab = S.tab === "documents";
-  const prev = S.dm.prev, off = S.dm.off, sel = inTab ? S.dm.sel : (S.dm.pick || null); const hl = inTab ? [] : pathDocs();
+  setToggle(); const inTab = S.tab === "documents"; const building = S.build.i != null; const af = S.dm.addfact;
+  const abs = absentSet(), off = S.dm.off, prev = S.dm.prev, prevAbs = S.dm.prevAbs || new Set(); const hid = new Set([...off, ...abs]);
+  const sel = (building || af) && S.dm.focus && !S.dm.pick ? S.dm.focus : (inTab ? S.dm.sel : (S.dm.pick || null));
+  const hl = inTab || building || af ? [] : pathDocs(); const cards = [];
   const bands = $("#bands"); bands.querySelectorAll(".band").forEach(b => b.remove()); bands.classList.remove("fadein"); $("#links").classList.remove("fadein");
   D.layers.forEach(l => {
+    const here = af && DOC[af.doc].layer === l.name; let extra = "";
+    if (here) {
+      if (af.old) { const c = af.stage ? factCard(af.old) : factCard(af.old, {state: "in", status: "in force"}); if (c) { cards.push(c); extra += cardHtml(c, " style='flex:0 0 230px'"); } }
+      if (af.stage) { const c = factCard(af.id); if (c) { cards.push(c); extra += cardHtml(c, " data-new='1' style='flex:0 0 230px'"); } }
+    }
     const el = document.createElement("div"); el.className = "band"; el.dataset.l = l.name;
-    el.innerHTML = "<div class='bname'><strong>" + esc(l.label) + "</strong><span>" + esc(l.words) + "</span><em>" + num(DM.docs.filter(d => d.layer === l.name && !off.has(d.key)).reduce((n, d) => n + d.n, 0)) + " facts in force</em></div><div class='nodes'>" +
-      DM.docs.filter(d => d.layer === l.name).map(d => "<button class='node" + (prev.has(d.key) ? " gone" : "") + (d.key === sel ? " sel" : "") + (hl.indexOf(d.key) >= 0 ? " hl" : "") + "' data-node=\"" + esc(d.key) + "\" data-card=\"" + esc(d.key) + "\" title=\"" + esc(d.title) + "\">" + esc(d.name) + "<b>" + num(d.n) + "</b>" + (hl.indexOf(d.key) >= 0 ? "<span class='num'>" + (hl.indexOf(d.key) + 1) + "</span>" : "") + "</button>").join("") + "</div>";
+    el.innerHTML = "<div class='bname'><strong>" + esc(l.label) + "</strong><span>" + esc(l.words) + "</span><em>" + num(DM.docs.filter(d => d.layer === l.name && !hid.has(d.key)).reduce((n, d) => n + d.n, 0)) + " facts in force</em></div><div class='nodes'" + (here ? " style='flex-wrap:nowrap;justify-content:flex-start'" : "") + ">" +
+      DM.docs.filter(d => d.layer === l.name && !(here && d.key !== af.doc)).map(d => "<button class='node" + (prevAbs.has(d.key) ? " absent" : prev.has(d.key) ? " gone" : "") + (d.key === sel ? " sel" : "") + (hl.indexOf(d.key) >= 0 ? " hl" : "") + "' data-node=\"" + esc(d.key) + "\" data-card=\"" + esc(d.key) + "\" title=\"" + esc(d.title) + "\">" + esc(d.name) + "<b>" + num(d.n) + "</b>" + (hl.indexOf(d.key) >= 0 ? "<span class='num'>" + (hl.indexOf(d.key) + 1) + "</span>" : "") + "</button>").join("") + extra + "</div>";
     bands.appendChild(el);
   });
-  S.view = {cards: [], links: DM.edges.map(e => ({a: e.a, b: e.b, kind: e.kind === "cites" || e.kind === "applied" ? "derived" : "stored", w: (1.2 + Math.min(3.6, Math.sqrt(e.n) * .7)).toFixed(1), text: e.a === sel || e.b === sel ? EDGE_WORD[e.kind] + " \u00b7 " + e.n : "", hidden: prev.has(e.a) || prev.has(e.b), dim: (sel || hl.length) ? (e.a !== sel && e.b !== sel) : false}))};
+  S.view = {cards: cards, links: DM.edges.map(e => ({a: e.a, b: e.b, kind: e.kind === "cites" || e.kind === "applied" ? "derived" : "stored", w: (1.2 + Math.min(3.6, Math.sqrt(e.n) * .7)).toFixed(1), text: e.a === sel || e.b === sel ? EDGE_WORD[e.kind] + " " + e.n : "", hidden: prev.has(e.a) || prev.has(e.b), dim: (sel || hl.length) ? (e.a !== sel && e.b !== sel) : false}))};
   for (let i = 1; i < hl.length; i++) S.view.links.push({a: hl[i - 1], b: hl[i], kind: "derived", w: 2.4, hidden: prev.has(hl[i - 1]) || prev.has(hl[i])});
-  const on = DM.docs.filter(d => !off.has(d.key));
-  renderOver();
-  $("#showing").innerHTML = hl.length ? "<b>The agent's path through the documents</b>: " + hl.length + " documents, numbered in the order the agent used them" : "<b>The document map</b>: " + on.length + " documents, " + num(on.reduce((n, d) => n + d.n, 0)) + " facts in force" + (off.size ? " \u00b7 " + off.size + " withdrawn and kept" : "");
+  if (af && af.stage && af.old) S.view.links.push({a: af.old, b: af.id, kind: "stored", label: "replaced by", w: 2});
+  const on = DM.docs.filter(d => !hid.has(d.key)); const nl = DM.edges.filter(e => !hid.has(e.a) && !hid.has(e.b)).length;
+  renderOver(); renderPlayer(); renderSide();
+  $("#showing").innerHTML = hl.length ? "<b>The agent's path through the documents</b>: " + hl.length + " documents, numbered in the order the agent used them" : "<b>The document map</b>: " + on.length + " documents · " + num(on.reduce((n, d) => n + d.n, 0)) + " facts in force · " + nl + " links" + (off.size ? " · " + off.size + " withdrawn and kept" : "");
   requestAnimationFrame(() => { drawLinks(false); requestAnimationFrame(() => {
-    document.querySelectorAll("#bands .node").forEach(n => n.classList.toggle("gone", off.has(n.dataset.node)));
-    document.querySelectorAll("#links [data-a]").forEach(p => { const was = p.classList.contains("pend"); const now = off.has(p.dataset.a) || off.has(p.dataset.b); if (now) p.classList.add("pend"); else if (was) { if (reduced()) p.classList.remove("pend"); else S.timers.push(setTimeout(() => drawIn(p), 350)); } });
-    S.view.links.forEach(k => { k.hidden = off.has(k.a) || off.has(k.b); });
-    S.dm.prev = new Set(off);
+    const fresh = new Set();
+    document.querySelectorAll("#bands .node").forEach(n => { const k = n.dataset.node; n.classList.toggle("gone", off.has(k) && !abs.has(k)); n.classList.toggle("absent", abs.has(k));
+      if (prevAbs.has(k) && !abs.has(k)) { fresh.add(k); n.classList.add("arrive"); const b = n.querySelector("b"); if (b) tickTo(b, DOC[k].n); } });
+    const order = {}; let idx = 0;
+    document.querySelectorAll("#links [data-a]").forEach(p => { const was = p.classList.contains("pend"); const now = hid.has(p.dataset.a) || hid.has(p.dataset.b);
+      if (now) p.classList.add("pend");
+      else if (was) { if (reduced()) { p.classList.remove("pend"); return; } const key = p.dataset.a + "|" + p.dataset.b; if (!(key in order)) order[key] = idx++;
+        S.timers.push(setTimeout(() => drawIn(p), 380 + order[key] * 220));
+        [p.dataset.a, p.dataset.b].forEach(k => { if (!fresh.has(k)) { const n = document.querySelector("#bands [data-node=\"" + CSS.escape(k) + "\"]"); if (n) n.classList.add("pulse"); } }); } });
+    S.view.links.forEach(k => { k.hidden = hid.has(k.a) || hid.has(k.b); });
+    S.dm.prev = hid; S.dm.prevAbs = abs;
   }); });
 }
 function pathDocs() {
@@ -877,8 +1005,34 @@ function pathDocs() {
   v.cards.slice().sort((a, b) => a.num - b.num).forEach(c => { const src = c.fact && c.fact.d; const k = DM.group[src] || src; if (DOC[k] && out.indexOf(k) < 0) out.push(k); });
   return out;
 }
+function renderSide() {
+  const o = $("#side"); if (!S.solo) { o.hidden = true; return; }
+  let h = "";
+  if (leftMode() === "docs") {
+    const d = DOC[S.dm.pick || S.dm.focus];
+    if (!d) h = "<h3>Documents</h3><p class='note'>Click a document on the map to see what it cites, what cites it, and to remove it.</p>";
+    else {
+      const off = S.dm.off.has(d.key); const inc = DM.edges.filter(e => e.b === d.key), out = DM.edges.filter(e => e.a === d.key);
+      const M = inc.filter(e => e.kind === "cites" && !S.dm.off.has(e.a)).reduce((n, e) => n + e.n, 0);
+      h = "<div class='box' style='margin-top:0;border-left:4px solid var(--" + d.layer + ")'><div class='lab'>" + esc(LAYER[d.layer].label.toUpperCase()) + " DOCUMENT" + (off ? " \u00b7 WITHDRAWN" : "") + "</div><p>" + esc(d.title) + "</p>" +
+        "<p class='sub'>" + (d.pieces ? num(d.pieces) + " passages \u00b7 " : "") + num(d.n) + " facts in force" + (off ? " when present" : "") + "</p>" +
+        "<p class='sub'><b>It</b> " + (out.length ? out.map(e => EDGE_WORD[e.kind] + " " + esc(DOC[e.b].name) + " (" + e.n + ")").join(", ") : "has no link to another document") + ".</p>" +
+        "<p class='sub'><b>Others:</b> " + (inc.length ? inc.map(e => esc(DOC[e.a].name) + " " + EDGE_WORD[e.kind] + " it (" + e.n + ")").join(", ") : "no other document links to it") + ".</p>" +
+        "<div class='row' style='margin-top:8px'><button class='btn' data-dmo='toggle'>" + (off ? "Put it back" : "Remove this document") + "</button></div></div>" +
+        (off ? "<div class='box warn'><div class='lab'>WITHOUT IT</div><ul class='cnt'><li><b>" + num(d.n) + "</b> facts leave the ontology (kept as withdrawn, not deleted)</li><li><b>" + num(M) + "</b> facts in other documents that cite it are flagged for review</li><li><b>" + num(d.devices) + "</b> lifting devices lose their result</li></ul><p class='sub'>Recorded answers that used it: " + (d.answers.length ? esc(d.answers.join("; ")) : "no recorded answer used it") + ".</p></div>" : "");
+    }
+  } else {
+    const q = S.q; const a = S.answer || {};
+    h = "<select id='soloq' aria-label='Recorded question'>" + D.questions.map(x => "<option value='" + x.id + "'" + (q && q.id === x.id ? " selected" : "") + ">" + esc(x.id.replace("CQ", "Q") + " " + x.short) + "</option>").join("") + "</select>" +
+      "<p class='qtext'>" + esc(q ? q.en : "") + "</p>" + ansPanel("atlas", "Plant Atlas, from checked facts", a.B) + ansPanel("rag", "Plain search (RAG)", a.rag) +
+      "<div class='row'><button class='btn ghost' id='soloreplay'>Replay path</button></div>";
+  }
+  o.innerHTML = h; o.hidden = false;
+}
+document.addEventListener("change", e => { if (e.target.id !== "soloq") return; const q = D.questions.find(x => x.id === e.target.value); if (!q) return; S.q = q; S.text = q.en; S.answer = recorded(q); showLeft(answerView(S.answer.B)); });
+document.addEventListener("click", e => { if (e.target.id === "soloreplay" && S.answer && S.answer.B) showLeft(answerView(S.answer.B)); });
 function renderOver() {
-  const o = $("#dover"); const d = S.tab !== "documents" && S.dm.pick ? DOC[S.dm.pick] : null;
+  const o = $("#dover"); const d = !S.solo && S.tab !== "documents" && S.dm.pick ? DOC[S.dm.pick] : null;
   if (!d) { o.hidden = true; return; }
   const off = S.dm.off.has(d.key); const inc = DM.edges.filter(e => e.b === d.key), out = DM.edges.filter(e => e.a === d.key);
   const M = inc.filter(e => e.kind === "cites" && !S.dm.off.has(e.a)).reduce((n, e) => n + e.n, 0);
@@ -982,7 +1136,7 @@ function play() {
 /* ---------- tabs and events ---------- */
 function setTab(tab, keepLeft) {
   S.tab = tab; document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
-  if (history.replaceState) history.replaceState(null, "", "#" + tab + (S.left === "docs" && tab !== "documents" ? "&docs" : "") + (S.embed ? "&embed" : ""));
+  if (history.replaceState) history.replaceState(null, "", "#" + tab + (S.left === "docs" && tab !== "documents" ? "&docs" : "") + (S.embed ? "&embed" : "") + (S.solo ? "&solo" : ""));
   const P = $("#panel"); P.scrollTop = 0; P.classList.remove("fadein"); P.getBoundingClientRect(); P.classList.add("fadein");
   if (tab === "ontology") renderOntology();
   else if (tab === "documents") renderDocuments();
@@ -1016,6 +1170,12 @@ $("#panel").addEventListener("change", e => { if (e.target.id === "docpick") { S
   S.q = first; S.text = first.en; S.answer = recorded(first); S.asked = true;
   const tokens = new Set(((location.hash || "") + "&" + (location.search || "")).split(/[#&?=,]/).filter(Boolean));
   if (tokens.has("docs")) S.left = "docs";
+  let auto = false;
+  if (tokens.has("build")) {
+    S.left = "docs"; const m = /step=(\d+)/.exec((location.hash || "") + (location.search || ""));
+    buildSet(m ? +m[1] : (reduced() ? ORDER.length : 0)); S.dm.prevAbs = absentSet(); S.dm.prev = absentSet(); auto = !m && !reduced();
+  }
+  if (tokens.has("solo")) { S.solo = true; document.querySelector(".app").classList.add("solo"); }
   if (tokens.has("embed")) { S.embed = true; document.querySelector(".app").classList.add("embed"); }
   const W = D.whole.totals, H = D.health;
   $("#why").innerHTML = "<span><b>Predictable:</b> the agent follows typed relations between checked facts (<b>" + W.relations + "</b> relations in the schema, <b>" + num(W.in_force) + "</b> facts in force)</span>" +
@@ -1023,6 +1183,7 @@ $("#panel").addEventListener("change", e => { if (e.target.id === "docpick") { S
     "<span><b>Portable:</b> the ontology is a standard file any agent can read (Turtle with SHACL shapes: <a href='ontology.ttl'>ontology.ttl</a>)</span>";
   const tab = ["documents", "ontology", "ask", "score", "changes", "scenes"].find(t => tokens.has(t));
   setTab(tab || DEFAULT_TAB);
+  if (auto) setTimeout(buildPlay, 600);
   if (/^https?:$/.test(location.protocol)) {
     const ctl = new AbortController(); setTimeout(() => ctl.abort(), 2500);
     fetch("/api/status", {signal: ctl.signal}).then(r => r.ok ? r.json() : Promise.reject()).then(j => {

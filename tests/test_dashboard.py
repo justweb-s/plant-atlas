@@ -98,3 +98,17 @@ def test_left_toggle_and_deep_links(page):
     assert 'id="lefttoggle"' in page and 'data-left="facts"' in page and 'data-left="docs"' in page
     assert 'tokens.has("docs")' in page and 'tokens.has("embed")' in page
     assert 'id="why"' in page and "ontology.ttl" in page
+
+
+def test_build_player(page):
+    assert 'tokens.has("build")' in page and "step=(" in page and 'id="player"' in page
+    dmap = _data(page)["dmap"]
+    assert sorted(dmap["order"]) == sorted(d["key"] for d in dmap["docs"])
+    assert len(dmap["order"]) == len(set(dmap["order"]))
+    facts = _data(page)["facts"]
+    assert all(a["id"] in facts for a in dmap["addfacts"])
+
+
+def test_solo_mode_is_handled(page):
+    assert 'tokens.has("solo")' in page and 'id="side"' in page
+    assert ".app.solo .right { display: none; }" in page or ".app.solo .top, .app.solo .why, .app.solo .right { display: none; }" in page
