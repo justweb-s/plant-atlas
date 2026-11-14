@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 89\n\n8. Installation 8.7. General Purpose Digital I/O Description The Startup screen contains settings for automatically loading and starting a default program, and for auto-initializing the Robot arm during power up. General This section describes the general purpose 24V I/O (Gray terminals) and the configurable purpose I/O (Yellow terminals with black text) when not configured as safety I/O. digital I/O The general purpose I/O can be used to drive equipment like pneumatic relays directly or for communication with other PLC systems. All Digital Outputs can be disabled automatically when program execution is stopped. In this mode, the output is always low when a program is not running. Examples are shown in the following subsections. These examples use regular Digital Outputs but any configurable outputs could also have be Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. used if they are not configured to perform a safety function. Digital Inputs Digital Outputs 24V 24V 0V 0V LOAD DI0 DI4 DO0 DO4 24V 24V 0V 0V DO1 DO5 DI1 DI5 0V 0V 24V 24V DO2 DO6 DI2 DI6 0V 0V 24V 24V DO3 DO7 DI3 DI7 In this example a load is controlled from a Digital In this example a simple button is Outputs when connected. connected to a Digital Input. Communication You can use the digital I/O to communicate with other equipment if a common GND with other (0V) is established and if the machine uses PNP technology, see below. machines or PLCs Digital Inputs Digital Outputs Digital Inputs Digital Outputs 24V 24V 0V 0V 24V 24V 0V 0V DI0 24V DI4 24V DO0 0V DO4 0V A B DI0 24V DI4 24V DO0 0V DO4 0V DI1 DI5 DO1 DO5 DI1 DI5 DO1 DO5 24V 24V 0V 0V 24V 24V 0V 0V DI2 DI6 DO2 DO6 DI2 DI6 DO2 DO6 24V 24V 0V 0V 24V 24V 0V 0V DI3 DI7 DO3 DO7 DI3 DI7 DO3 DO7 NOTICE Use shielded cables to connect Digital I/Os. User Manual 92 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "General purpose 24V I/O | uses terminal color | Gray terminals | | general purpose 24V I/O (Gray terminals)\nConfigurable purpose I/O | uses terminal color | Yellow terminals with black text | when not configured as safety I/O | configurable purpose I/O (Yellow terminals with black text) when not configured as safety I/O\nAll Digital Outputs | can be disabled automatically | when program execution is stopped | | All Digital Outputs can be disabled automatically when program execution is stopped\nDigital output | is | always low when a program is not running | when the automatic disable mode is enabled | In this mode, the output is always low when a program is not running.\nGeneral purpose I/O | can drive | equipment like pneumatic relays directly | | The general purpose I/O can be used to drive equipment like pneumatic relays directly\nDigital I/O | can communicate with | other machines or PLCs | a common GND (0V) is established and the machine uses PNP technology | You can use the digital I/O to communicate with other equipment if a common GND (0V) is established and if the machine uses PNP technology\nConfigurable outputs | can be used as | regular Digital Outputs | they are not configured to perform a safety function | any configurable outputs could also have be used if they are not configured to perform a safety function\nDigital I/Os | must be connected with | shielded cables | | Use shielded cables to connect Digital I/Os.\nStartup screen | contains settings for | automatically loading and starting a default program | | The Startup screen contains settings for automatically loading and starting a default program\nStartup screen | contains settings for | auto-initializing the Robot arm during power up | | and for auto-initializing the Robot arm during power up",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1167,
+   "prompt_tokens": 998,
+   "total_tokens": 2165,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 610,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006833,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006833,
+   "gateway_cost": 0.0006833
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.2.3\n\n1.2.3. Starting It must be possible to start machinery only by voluntary actuation of a control device provided for the purpose. The same requirement applies: — when restarting the machinery after a stoppage, whatever the cause, — when effecting a significant change in the operating conditions. However, the restarting of the machinery or a change in operating conditions may be effected by voluntary actuation of a device other than the control device provided for the purpose, on condition that this does not lead to a hazardous situation. For machinery functioning in automatic mode, the starting of the machinery, restarting after a stoppage, or a change in operating conditions may be possible without intervention, provided this does not lead to a hazardous situation. Where machinery has several starting control devices and the operators can therefore put each other in danger, additional devices must be fitted to rule out such risks. If safety requires that starting and/or stopping must be performed in a specific sequence, there must be devices which ensure that these operations are performed in the correct order."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery | mustBeStartedBy | voluntary actuation of a control device provided for the purpose | | It must be possible to start machinery only by voluntary actuation of a control device provided for the purpose.\nMachinery restarted after a stoppage | requiresVoluntaryActuation | control device provided for the purpose | whatever the cause of the stoppage | when restarting the machinery after a stoppage, whatever the cause\nSignificant change in operating conditions | requiresVoluntaryActuation | control device provided for the purpose | | when effecting a significant change in the operating conditions\nRestarting or changing operating conditions | mayUseOtherDevice | voluntary actuation of a device other than the control device provided for the purpose | does not lead to a hazardous situation | the restarting of the machinery or a change in operating conditions may be effected by voluntary actuation of a device other than the control device provided for the purpose, on condition that this does not lead to a hazardous situation\nMachinery in automatic mode | mayStartWithoutIntervention | starting, restarting after a stoppage, or changing operating conditions | does not lead to a hazardous situation | For machinery functioning in automatic mode, the starting of the machinery, restarting after a stoppage, or a change in operating conditions may be possible without intervention, provided this does not lead to a hazardous situation\nMachinery with several starting control devices | mustHaveAdditionalDevices | rule out risks of operators endangering each other | operators can therefore put each other in danger | Where machinery has several starting control devices and the operators can therefore put each other in danger, additional devices must be fitted to rule out such risks\nMachinery requiring a specific start/stop sequence | mustHaveSequenceDevices | devices ensuring starting and/or stopping operations are performed in the correct order | safety requires a specific sequence | If safety requires that starting and/or stopping must be performed in a specific sequence, there must be devices which ensure that these operations are performed in the correct order",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1195,
+   "prompt_tokens": 521,
+   "total_tokens": 1716,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 542,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006496,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006496,
+   "gateway_cost": 0.0006496
+  }
+ }
+}

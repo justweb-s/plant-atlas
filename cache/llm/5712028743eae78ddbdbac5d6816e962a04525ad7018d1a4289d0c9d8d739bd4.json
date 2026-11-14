@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 13(8)\n\nArticle 13 Obligations of importers of machinery and related products. 8. Importers shall, for at least 10 years after the machinery or related product has been placed on the market, keep a copy of the EU declaration of conformity at the disposal of the market surveillance authorities and ensure that the technical documentation set out in Annex IV, Part A, can be made available to those authorities upon request. Where relevant, the source code or the programming logic included in the technical documentation shall, upon a reasoned request, be made available to the competent national authorities, if that source code or programming logic is necessary in order for them to be able to check compliance with the essential health and safety requirements set out in Annex III."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Importers | keepDeclarationCopy | copy of the EU declaration of conformity, kept at the disposal of market surveillance authorities | for at least 10 years after the machinery or related product has been placed on the market | Importers shall, for at least 10 years after the machinery or related product has been placed on the market, keep a copy of the EU declaration of conformity at the disposal of the market surveillance authorities\nImporters | ensureTechnicalDocumentation | technical documentation set out in Annex IV, Part A, can be made available to market surveillance authorities | upon request | ensure that the technical documentation set out in Annex IV, Part A, can be made available to those authorities upon request\nImporters | provideSourceCode | source code or programming logic in the technical documentation, made available to competent national authorities | where relevant; upon a reasoned request; and only if necessary for them to check compliance with the essential health and safety requirements in Annex III | Where relevant, the source code or the programming logic included in the technical documentation shall, upon a reasoned request, be made available to the competent national authorities, if that source code or programming logic is necessary in order for them to be able to check compliance with the essential health and safety requirements set out in Annex III",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 533,
+   "prompt_tokens": 415,
+   "total_tokens": 948,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 140,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000308,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000308,
+   "gateway_cost": 0.000308
+  }
+ }
+}

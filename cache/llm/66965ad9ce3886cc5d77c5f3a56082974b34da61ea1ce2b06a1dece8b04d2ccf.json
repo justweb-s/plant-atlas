@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 12(4)\n\nArticle 12 Procedures for assessing the conformity of machinery. 4. Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2), or only partly in accordance with such standards, or if the harmonised standards do not cover all the relevant essential health and safety requirements or if no harmonised standards exist for the machinery in question, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3; (b) the full quality assurance procedure provided for in Annex X."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery referred to in Annex IV | requires | manufacturer or authorised representative to apply one of the listed procedures | machinery not manufactured in accordance with the harmonised standards referred to in Article 7(2), or only partly in accordance with them | \"the manufacturer or his authorised representative shall apply one of the following procedures\"\nMachinery referred to in Annex IV | requires | manufacturer or authorised representative to apply one of the listed procedures | harmonised standards do not cover all the relevant essential health and safety requirements | \"if the harmonised standards do not cover all the relevant essential health and safety requirements\"\nMachinery referred to in Annex IV | requires | manufacturer or authorised representative to apply one of the listed procedures | no harmonised standards exist for the machinery in question | \"if no harmonised standards exist for the machinery in question\"\nProcedure (a) | consists of | EC type-examination procedure in Annex IX plus internal checks on manufacture in Annex VIII, point 3 | the Article 12(4) conditions apply | \"(a) the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3\"\nProcedure (b) | is | full quality assurance procedure provided for in Annex X | the Article 12(4) conditions apply | \"(b) the full quality assurance procedure provided for in Annex X\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1089,
+   "prompt_tokens": 438,
+   "total_tokens": 1527,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 620,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005883,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005883,
+   "gateway_cost": 0.0005883
+  }
+ }
+}

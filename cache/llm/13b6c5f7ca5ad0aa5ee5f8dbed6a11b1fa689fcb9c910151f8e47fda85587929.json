@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS73, art. 73, c. 5\n\n5. In sede di Conferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano sono individuate le attrezzature di lavoro per le quali è richiesta una specifica abilitazione degli operatori nonché le modalità per il riconoscimento di tale abilitazione, i soggetti formatori, la durata, gli indirizzi ed i requisiti minimi di validità della formazione e le condizioni considerate equivalenti alla specifica abilitazione."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Conferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano | individuaAttrezzature | attrezzature di lavoro per le quali è richiesta una specifica abilitazione degli operatori | \"\" | \"sono individuate le attrezzature di lavoro per le quali è richiesta una specifica abilitazione degli operatori\"\nConferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano | individuaModalitaRiconoscimento | modalità per il riconoscimento della specifica abilitazione | \"\" | \"le modalità per il riconoscimento di tale abilitazione\"\nConferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano | individuaSoggettiFormatori | soggetti formatori | \"\" | \"i soggetti formatori\"\nConferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano | individuaDurata | durata della formazione | \"\" | \"la durata\"\nConferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano | individuaIndirizziRequisiti | indirizzi ed requisiti minimi di validità della formazione | \"\" | \"gli indirizzi ed i requisiti minimi di validità della formazione\"\nConferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano | individuaEquivalenze | condizioni considerate equivalenti alla specifica abilitazione | \"\" | \"le condizioni considerate equivalenti alla specifica abilitazione\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1034,
+   "prompt_tokens": 380,
+   "total_tokens": 1414,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 444,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000555,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000555,
+   "gateway_cost": 0.000555
+  }
+ }
+}

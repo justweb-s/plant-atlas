@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.1.2.4\n\n4.1.2.4. Pulleys, drums, wheels, ropes and chains Pulleys, drums and wheels shall have a diameter commensurate with the size of the ropes or chains with which they can be fitted. Drums and wheels shall be designed, constructed and installed in such a way that the ropes or chains with which they are equipped can be wound without coming off. Ropes used directly for lifting or supporting the load shall not include any splicing other than at their ends. Splicings are, however, tolerated in installations, which are intended by design to be modified regularly according to needs of use. Complete ropes and their endings shall have a working coefficient chosen in such a way as to guarantee an adequate level of safety. As a general rule, this coefficient is equal to 5. Lifting chains shall have a working coefficient chosen in such a way as to guarantee an adequate level of safety. As a general rule, this coefficient is equal to 4. In order to verify that an adequate working coefficient has been attained, the manufacturer shall, for each type of chain and rope used directly for lifting the load and for the rope ends, perform the appropriate tests or have such tests performed."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Pulleys, drums and wheels | shall have | a diameter commensurate with the size of the ropes or chains they can be fitted with | | Pulleys, drums and wheels shall have a diameter commensurate with the size of the ropes or chains with which they can be fitted.\nDrums and wheels | shall be designed, constructed and installed | so that the ropes or chains they carry can be wound without coming off | | Drums and wheels shall be designed, constructed and installed in such a way that the ropes or chains with which they are equipped can be wound without coming off.\nRopes used directly for lifting or supporting the load | shall not include | any splicing other than at their ends | | Ropes used directly for lifting or supporting the load shall not include any splicing other than at their ends.\nSplicings | are tolerated | in installations intended by design to be modified regularly | installations are intended by design to be modified regularly according to needs of use | Splicings are, however, tolerated in installations, which are intended by design to be modified regularly according to needs of use.\nComplete ropes and their endings | shall have | a working coefficient chosen to guarantee an adequate level of safety | | Complete ropes and their endings shall have a working coefficient chosen in such a way as to guarantee an adequate level of safety.\nWorking coefficient for complete ropes and their endings | is equal to | 5 | as a general rule | As a general rule, this coefficient is equal to 5.\nLifting chains | shall have | a working coefficient chosen to guarantee an adequate level of safety | | Lifting chains shall have a working coefficient chosen in such a way as to guarantee an adequate level of safety.\nWorking coefficient for lifting chains | is equal to | 4 | as a general rule | As a general rule, this coefficient is equal to 4.\nManufacturer | shall perform or have performed | tests verifying an adequate working coefficient for each type of chain and rope used directly for lifting the load and for the rope ends | | In order to verify that an adequate working coefficient has been attained, the manufacturer shall, for each type of chain and rope used directly for lifting the load and for the rope ends, perform the appropriate tests or have such tests performed.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1246,
+   "prompt_tokens": 580,
+   "total_tokens": 1826,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 531,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000681,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000681,
+   "gateway_cost": 0.000681
+  }
+ }
+}

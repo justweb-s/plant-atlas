@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.2.2\n\n1.2.2. Control devices Control devices must be: — clearly visible and identifiable, using pictograms where appropriate, — positioned in such a way as to be safely operated without hesitation or loss of time and without ambiguity, — designed in such a way that the movement of the control device is consistent with its effect, — located outside the danger zones, except where necessary for certain control devices such as an emergency stop or a teach pendant, — positioned in such a way that their operation cannot cause additional risk, — designed or protected in such a way that the desired effect, where a hazard is involved, can only be achieved by a deliberate action, — made in such a way as to withstand foreseeable forces; particular attention must be paid to emergency stop devices liable to be subjected to considerable forces. Where a control device is designed and constructed to perform several different actions, namely where there is no one-to-one correspondence, the action to be performed must be clearly displayed and subject to confirmation, where necessary. Control devices must be so arranged that their layout, travel and resistance to operation are compatible with the action to be performed, taking account of ergonomic principles. Machinery must be fitted with indicators as required for safe operation. The operator must be able to read them from the control position. From each control position, the operator must be able to ensure that no-one is in the danger zones, or the control system must be designed and constructed in such a way that starting is prevented while someone is in the danger zone. If neither of these possibilities is applicable, before the machinery starts, an acoustic and/or visual warning signal must be given. The exposed persons must have time to leave the danger zone or prevent the machinery starting up. If necessary, means must be provided to ensure that the machinery can be controlled only from control positions located in one or more predetermined zones or locations. Where there is more than one control position, the control system must be designed in such a way that the use of one of them precludes the use of the others, except for stop controls and emergency stops. When machinery has two or more operating positions, each position must be provided with all the required control devices without the operators hindering or putting each other into a hazardous situation."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Control devices | must be | clearly visible and identifiable, using pictograms | where appropriate | clearly visible and identifiable, using pictograms where appropriate\nControl devices | must be positioned | so they can be safely operated without ambiguity | | positioned in such a way as to be safely operated without hesitation or loss of time and without ambiguity\nControl devices | must be located | outside the danger zones | except where necessary for certain devices such as an emergency stop or a teach pendant | located outside the danger zones, except where necessary for certain control devices such as an emergency stop or a teach pendant\nControl devices | must be positioned | so their operation cannot cause additional risk | | positioned in such a way that their operation cannot cause additional risk\nControl devices | must be designed or protected | so a hazardous effect can only be achieved by a deliberate action | | designed or protected in such a way that the desired effect, where a hazard is involved, can only be achieved by a deliberate action\nControl devices | must withstand | foreseeable forces | | made in such a way as to withstand foreseeable forces\nControl device with several actions | must display | the action to be performed clearly and subject to confirmation | where there is no one-to-one correspondence and where necessary | the action to be performed must be clearly displayed and subject to confirmation, where necessary\nControl devices | must be arranged | so layout, travel and resistance to operation are compatible with the action | taking account of ergonomic principles | so arranged that their layout, travel and resistance to operation are compatible with the action to be performed, taking account of ergonomic principles\nMachinery | must be fitted with | indicators required for safe operation | | Machinery must be fitted with indicators as required for safe operation\nMachinery | must be controlled from | the operator's position with a view of danger zones, or starting must be prevented while someone is in a danger zone | where the operator cannot ensure no one is in the danger zones | From each control position, the operator must be able to ensure that no-one is in the danger zones, or the control system must be designed and constructed in such a way that starting is prevented while someone is in the danger zone\nMachinery | must give | an acoustic and/or visual warning signal before starting | where neither possibility of ensuring safety or preventing start is applicable | before the machinery starts, an acoustic and/or visual warning signal must be given\nMachinery | can be controlled only from | control positions in predetermined zones or locations | if necessary | means must be provided to ensure that the machinery can be controlled only from control positions located in one or more predetermined zones or locations",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1964,
+   "prompt_tokens": 871,
+   "total_tokens": 2835,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1135,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010691,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010691,
+   "gateway_cost": 0.0010691
+  }
+ }
+}

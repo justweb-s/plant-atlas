@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 46(2)\n\nArticle 46 Formal non-compliance. 2. Without prejudice to Article 43, where a Member State makes one of the following findings with regard to partly completed machinery, it shall require the relevant economic operator to put an end to the non-compliance concerned: (a) the EU declaration of incorporation has not been drawn up or has not been drawn up correctly; (b) the technical documentation is either not available or not complete; (c) the information referred to in Article 11(5) or Article 14(3) is absent, false or incomplete; (d) any other administrative requirement provided for in Article 11 or Article 14 is not fulfilled."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Member State | shall require end of non-compliance | relevant economic operator | where it finds a non-compliance listed in (a) to (d) with regard to partly completed machinery | \"it shall require the relevant economic operator to put an end to the non-compliance concerned\"\nEU declaration of incorporation | must be drawn up correctly | drawn up correctly | \"\" | \"the EU declaration of incorporation has not been drawn up or has not been drawn up correctly\"\nTechnical documentation | must be available and complete | available and complete | \"\" | \"the technical documentation is either not available or not complete\"\nInformation referred to in Article 11(5) or Article 14(3) | must be present, true and complete | present, true and complete | \"\" | \"the information referred to in Article 11(5) or Article 14(3) is absent, false or incomplete\"\nOther administrative requirement under Article 11 or Article 14 | must be fulfilled | fulfilled | \"\" | \"any other administrative requirement provided for in Article 11 or Article 14 is not fulfilled\"\nArticle 46(2) | applies without prejudice to | Article 43 | \"\" | \"Without prejudice to Article 43\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 887,
+   "prompt_tokens": 405,
+   "total_tokens": 1292,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 513,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000484,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000484,
+   "gateway_cost": 0.000484
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 3.6.3.1\n\n3.6.3.1. Vibrations The instructions for use shall give the following information concerning vibrations, expressed as acceleration (m/s 2 ), transmitted by the machinery or related products to the hand-arm system or to the whole body: (a) the vibration total value from continuous vibrations to which the hand-arm system is subjected; (b) the mean value of the peak amplitude of the acceleration from repeated shock vibrations, to which the hand-arm system is subjected; (c) the highest root mean square value of weighted acceleration to which the whole body is subjected, if it exceeds 0,5 m/s 2 ; where this value does not exceed 0,5 m/s 2 , this shall be mentioned; (d) the uncertainty of measurements. These values shall be either those actually measured for the machinery or related product in question or those established on the basis of measurements taken in respect of technically comparable machinery or related products which are representative of the machinery or related products to be produced. Where harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) cannot be applied, the vibration shall be measured using the most appropriate measurement code for the machinery or related products concerned. The operating conditions during measurement and the measurement codes used shall be described."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Instructions for use | shall give | vibration total value from continuous vibrations to which the hand-arm system is subjected | \"\" | (a) the vibration total value from continuous vibrations to which the hand-arm system is subjected\nInstructions for use | shall give | mean value of the peak amplitude of acceleration from repeated shock vibrations to which the hand-arm system is subjected | \"\" | (b) the mean value of the peak amplitude of the acceleration from repeated shock vibrations, to which the hand-arm system is subjected\nInstructions for use | shall give | highest root mean square value of weighted acceleration to which the whole body is subjected | where it exceeds 0,5 m/s 2 | (c) the highest root mean square value of weighted acceleration to which the whole body is subjected, if it exceeds 0,5 m/s 2\nInstructions for use | shall mention | that the whole-body weighted acceleration value does not exceed 0,5 m/s 2 | where this value does not exceed 0,5 m/s 2 | where this value does not exceed 0,5 m/s 2 , this shall be mentioned\nInstructions for use | shall give | uncertainty of vibration measurements | \"\" | (d) the uncertainty of measurements\nVibration values | shall be | those actually measured for the machinery or related product | where measured values are available for the product in question | These values shall be either those actually measured for the machinery or related product in question\nVibration values | shall be | those established from measurements on technically comparable machinery representative of the product to be produced | where the product itself is not measured | or those established on the basis of measurements taken in respect of technically comparable machinery or related products which are representative of the machinery or related products to be produced\nVibration | shall be measured | using the most appropriate measurement code for the machinery or related product | where harmonised standards or common specifications under Article 20(3) cannot be applied | Where harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) cannot be applied, the vibration shall be measured using the most appropriate measurement code",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1226,
+   "prompt_tokens": 616,
+   "total_tokens": 1842,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 551,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006746,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006746,
+   "gateway_cost": 0.0006746
+  }
+ }
+}

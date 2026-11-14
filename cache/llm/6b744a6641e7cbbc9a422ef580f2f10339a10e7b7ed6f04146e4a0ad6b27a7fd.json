@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex VII, 4\n\n4. EU type-examination The notified body shall: (a) examine the technical documentation to assess the adequacy of the technical design of the machinery or related product. In conducting such an examination, Annex IV, Part A, second subparagraph, points (h) and (l), need not be taken into account; (b) for machinery or related products produced in series where each item is adapted to fit an individual user, examine the description of the measures to assess their adequacy; (c) verify that the specimen(s) have been manufactured in conformity with the technical documentation, and identify the elements that have been designed in accordance with the applicable provisions of the relevant harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3), as well as the elements that have been designed in accordance with other technical specifications; (d) carry out appropriate examinations and tests, or have them carried out, to check whether, where the manufacturer has chosen to apply the solutions in the relevant harmonised standards, or common specifications adopted by the Commission in accordance with Article 20(3), those have been applied correctly; (e) carry out appropriate examinations and tests, or have them carried out, to check whether, where the solutions in the relevant harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) have not been applied, the solutions adopted by the manufacturer, including those in other technical specifications applied, meet the corresponding essential health and safety requirements and have been applied correctly."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "examine technical documentation | assess adequacy of technical design of machinery or related product | notified body must do this | Annex IV, Part A, second subparagraph, points (h) and (l) need not be taken into account when conducting such an examination | examine the technical documentation to assess the adequacy of the technical design of the machinery or related product\nnotified body | need not take into account | Annex IV, Part A, second subparagraph, points (h) and (l) | when conducting the technical documentation examination | In conducting such an examination, Annex IV, Part A, second subparagraph, points (h) and (l), need not be taken into account\nnotified body | examines | description of measures for series-produced machinery | machinery is produced in series and each item is adapted to fit an individual user | examine the description of the measures to assess their adequacy\nnotified body | verifies | specimen(s) manufactured in conformity with technical documentation | | verify that the specimen(s) have been manufactured in conformity with the technical documentation\nnotified body | identifies | elements designed per harmonised standards or Commission common specifications, and elements designed per other technical specifications | | identify the elements that have been designed in accordance with the applicable provisions of the relevant harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3), as well as the elements that have been designed in accordance with other technical specifications\nnotified body | carries out or has carried out tests checking correct application of harmonised standard solutions | manufacturer chose to apply solutions in harmonised standards or Commission common specifications | where the manufacturer has chosen to apply the solutions in the relevant harmonised standards, or common specifications adopted by the Commission in accordance with Article 20(3), those have been applied correctly | carry out appropriate examinations and tests, or have them carried out, to check whether, where the manufacturer has chosen to apply the solutions in the relevant harmonised standards, or common specifications adopted by the Commission in accordance with Article 20(3), those have been applied correctly\nnotified body | carries out or has carried out tests checking manufacturer's solutions meet essential health and safety requirements | harmonised standard or common specification solutions have not been applied | where the solutions in the relevant harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) have not been applied | carry out appropriate examinations and tests, or have them carried out, to check whether, where the solutions in the relevant harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) have not been applied, the solutions adopted by the manufacturer, including those in other technical specifications applied, meet the corresponding essential health and safety requirements and have been applied correctly\nmanufacturer's adopted solutions | must meet and be applied correctly | corresponding essential health and safety requirements | harmonised standard or common specification solutions have not been applied | the solutions adopted by the manufacturer, including those in other technical specifications applied, meet the corresponding essential health and safety requirements and have been applied correctly",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1597,
+   "prompt_tokens": 674,
+   "total_tokens": 2271,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 610,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008659,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008659,
+   "gateway_cost": 0.0008659
+  }
+ }
+}

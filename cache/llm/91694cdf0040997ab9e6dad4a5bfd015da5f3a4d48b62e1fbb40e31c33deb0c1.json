@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 24(3)\n\nArticle 24 Amendment of Directive 95/16/EC. 3. This Directive shall not apply to: — lifting appliances whose speed is not greater than 0,15 m/s, — construction site hoists, — cableways, including funicular railways, — lifts specially designed and constructed for military or police purposes, — lifting appliances from which work can be carried out, — mine winding gear, — lifting appliances intended for lifting performers during artistic performances, — lifting appliances fitted in means of transport, — lifting appliances connected to machinery and intended exclusively for access to workstations including maintenance and inspection points on the machinery, — rack and pinion trains, — escalators and mechanical walkways.’;"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "this Directive | doesNotApplyTo | lifting appliances | speed is not greater than 0,15 m/s | lifting appliances whose speed is not greater than 0,15 m/s\nthis Directive | doesNotApplyTo | construction site hoists | | construction site hoists\nthis Directive | doesNotApplyTo | cableways, including funicular railways | | cableways, including funicular railways\nthis Directive | doesNotApplyTo | lifts specially designed and constructed for military or police purposes | | lifts specially designed and constructed for military or police purposes\nthis Directive | doesNotApplyTo | lifting appliances from which work can be carried out | | lifting appliances from which work can be carried out\nthis Directive | doesNotApplyTo | mine winding gear | | mine winding gear\nthis Directive | doesNotApplyTo | lifting appliances intended for lifting performers during artistic performances | | lifting appliances intended for lifting performers during artistic performances\nthis Directive | doesNotApplyTo | lifting appliances fitted in means of transport | | lifting appliances fitted in means of transport\nthis Directive | doesNotApplyTo | lifting appliances connected to machinery and intended exclusively for access to workstations | access to workstations including maintenance and inspection points on the machinery | lifting appliances connected to machinery and intended exclusively for access to workstations including maintenance and inspection points on the machinery\nthis Directive | doesNotApplyTo | rack and pinion trains | | rack and pinion trains\nthis Directive | doesNotApplyTo | escalators and mechanical walkways | | escalators and mechanical walkways",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1343,
+   "prompt_tokens": 434,
+   "total_tokens": 1777,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 801,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007149,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007149,
+   "gateway_cost": 0.0007149
+  }
+ }
+}

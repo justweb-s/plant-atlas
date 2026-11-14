@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 18(1)\n\nArticle 18 Confidentiality. 1. Without prejudice to existing national provisions and practices in the area of confidentiality, Members States shall ensure that all parties and persons concerned by the application of this Directive are required to treat as confidential information obtained in the execution of their tasks. More particularly business, professional and trade secrets shall be treated as confidential, unless the divulging of such information is necessary in order to protect the health and safety of persons."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Member States | shallEnsure | all parties and persons concerned by the application of this Directive are required to treat as confidential information obtained in the execution of their tasks | without prejudice to existing national provisions and practices in the area of confidentiality | \"Without prejudice to existing national provisions and practices in the area of confidentiality, Members States shall ensure that all parties and persons concerned by the application of this Directive are required to treat as confidential information obtained in the execution of their tasks\"\nbusiness, professional and trade secrets | shallBeTreatedAs | confidential | unless the divulging of such information is necessary in order to protect the health and safety of persons | \"business, professional and trade secrets shall be treated as confidential, unless the divulging of such information is necessary in order to protect the health and safety of persons\"\ndivulging of business, professional and trade secrets | isPermittedWhen | necessary to protect the health and safety of persons | necessary to protect the health and safety of persons | \"unless the divulging of such information is necessary in order to protect the health and safety of persons\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 709,
+   "prompt_tokens": 346,
+   "total_tokens": 1055,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 370,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003891,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003891,
+   "gateway_cost": 0.0003891
+  }
+ }
+}

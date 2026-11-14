@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex VII, 7\n\n7. Review of the EU type-examination certificate 7.1. 7.2. 7.3. 7.4. (a) in the case of a modification to the approved type referred to in point 7.2; (b) in the case of a change in the state of the art referred to in point 7.3; (c) at the latest, before the date of expiry of the certificate. In the case referred to in point (c), the review may lead to a renewal of the EU type-examination certificate only when the application is submitted by the manufacturer at the earliest 12 months and at the latest 6 months prior to the expiry date of the EU type-examination certificate. Where the manufacturer fails to comply with the deadlines mentioned above, the review may lead only to an approval in the form of an addition to the original EU type-examination certificate and the expiry date of the certificate shall be that of the original certificate. 7.5. 7.6. (a) its name and address and data identifying the EU type-examination certificate concerned; (b) confirmation that there has been no modification to the approved type as referred to in point 7.2, including materials, sub-components or sub-assemblies, nor to the relevant harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) or other technical specifications applied; (c) confirmation that there has been no change in the state of the art as referred to in point 7.3; and (d) where not already supplied, copies of current product drawings and photographs, product marking and information; Where the notified body has confirmed that no modification to the approved type referred to in point 7.2 and no change in the state of the art referred to in point 7.3 has occurred, the simplified review procedure shall be applied and the examinations and tests referred to in point 7.5 shall not be carried out. In that case, the notified body shall renew the EU type-examination certificate. The costs associated with that renewal shall be proportionate to the administrative burden of the simplified procedure. If the notified body finds that a change in the state of the art referred to in point 7.3 has occurred, the procedure set out in point 7.5 shall apply. 7.7. 8. Each notified body shall inform its notifying authority concerning the EU type-examination certificates and/or any additions thereto which it has issued or withdrawn, and shall, periodically or upon request, make available to its notifying authority the list of such certificates and/or any additions thereto refused, suspended or otherwise restricted. Each notified body shall inform the other notified bodies concerning the EU type-examination certificates and/or any additions thereto, which it has refused, withdrawn, suspended or otherwise restricted, and, upon request, concerning the EU type-examination certificates and/or additions thereto which it has issued. The Commission, the Member States and the other notified bodies may, on request, obtain a copy of the EU type-examination certificates and/or additions thereto. On request, the Commission and the Member States may obtain a copy of the technical documentation and the results of the examinations carried out by the notified body. The notified body shall keep a copy of the EU type-examination certificate, its annexes and additions, as well as the technical file including the documentation submitted by the manufacturer, for a period of five years after the expiry of the validity of that certificate. 9. The manufacturer shall keep a copy of the EU type-examination certificate, its annexes and additions, together with the technical documentation at the disposal of the national authorities, for at least 10 years after the machinery or related product has been placed on the market or put into service. 10. The manufacturer’s authorised representative may lodge the application referred to in point 3 and fulfil the obligations set out in points 7.2, 7.4 and 9, provided that they are specified in the mandate."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Review of EU type-examination certificate | is triggered | in the case of a modification to the approved type referred to in point 7.2 | in the case of a modification to the approved type referred to in point 7.2 | (a) in the case of a modification to the approved type referred to in point 7.2\nReview of EU type-examination certificate | is triggered | in the case of a change in the state of the art referred to in point 7.3 | in the case of a change in the state of the art referred to in point 7.3 | (b) in the case of a change in the state of the art referred to in point 7.3\nManufacturer's renewal application | must be submitted | at the earliest 12 months and at the latest 6 months prior to the expiry date of the EU type-examination certificate | the review leads to renewal only when this timing is met | the review may lead to a renewal of the EU type-examination certificate only when the application is submitted by the manufacturer at the earliest 12 months and at the latest 6 months prior to the expiry date of the EU type-examination certificate\nLate-submitting manufacturer | receives | an approval only in the form of an addition to the original EU type-examination certificate | the manufacturer fails to comply with the deadlines | the review may lead only to an approval in the form of an addition to the original EU type-examination certificate\nExpiry date of addition | equals | the expiry date of the original certificate | the manufacturer fails to comply with the deadlines | the expiry date of the certificate shall be that of the original certificate\nNotified body | renews | the EU type-examination certificate under the simplified review procedure | the notified body has confirmed no modification to the approved type and no change in the state of the art | the notified body shall renew the EU type-examination certificate\nNotified body | does not carry out | the examinations and tests referred to in point 7.5 | the simplified review procedure is applied | the examinations and tests referred to in point 7.5 shall not be carried out\nRenewal costs under simplified procedure | must be | proportionate to the administrative burden of the simplified procedure | the simplified procedure is applied | The costs associated with that renewal shall be proportionate to the administrative burden of the simplified procedure\nNotified body | applies | the procedure set out in point 7.5 | the notified body finds that a change in the state of the art has occurred | If the notified body finds that a change in the state of the art referred to in point 7.3 has occurred, the procedure set out in point 7.5 shall apply\nNotified body | informs | its notifying authority about EU type-examination certificates it has issued or withdrawn | none | Each notified body shall inform its notifying authority concerning the EU type-examination certificates and/or any additions thereto which it has issued or withdrawn\nNotified body | keeps | a copy of the certificate, its annexes and additions, and the technical file for five years | after the expiry of the validity of that certificate | The notified body shall keep a copy of the EU type-examination certificate, its annexes and additions, as well as the technical file including the documentation submitted by the manufacturer, for a period of five years after the expiry of the validity of that certificate\nManufacturer | keeps | a copy of the certificate, its annexes and additions, with the technical documentation at the disposal of national authorities | for at least 10 years after the machinery or related product has been placed on the market or put into service | The manufacturer shall keep a copy of the EU type-examination certificate, its annexes and additions, together with the technical documentation at the disposal of the national authorities, for at least 10 years after the machinery or related product has been placed on the market or put into service.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1808,
+   "prompt_tokens": 1384,
+   "total_tokens": 3192,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 656,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010424,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010424,
+   "gateway_cost": 0.0010424
+  }
+ }
+}

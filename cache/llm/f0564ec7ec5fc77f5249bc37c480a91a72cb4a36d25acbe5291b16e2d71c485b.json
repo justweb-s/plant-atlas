@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 45(1)\n\nArticle 45 Compliant products within the scope of this Regulation which present a risk. 1. Where, having carried out an evaluation under Article 43(1), a Member State finds that although a product within the scope of this Regulation is in compliance with the essential health and safety requirements set out in Annex III, it presents a risk to the health and safety of persons and, where appropriate, domestic animals or to property, and, where applicable, to the environment, it shall require the relevant economic operator to take all appropriate measures to ensure that the product concerned, when placed on the market, no longer presents that risk, to withdraw that product or to recall it within a reasonable period, commensurate with the nature of the risk."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "a Member State | finds | a compliant product presents a risk to health and safety | after an evaluation under Article 43(1), even though the product meets Annex III essential requirements | although a product within the scope of this Regulation is in compliance with the essential health and safety requirements set out in Annex III, it presents a risk to the health and safety of persons\na Member State | shall require | the relevant economic operator to take all appropriate measures so the product no longer presents that risk | when the product is placed on the market | to ensure that the product concerned, when placed on the market, no longer presents that risk\na Member State | shall require | the relevant economic operator to withdraw the product or recall it | within a reasonable period commensurate with the nature of the risk | to withdraw that product or to recall it within a reasonable period, commensurate with the nature of the risk\nrisk to be addressed | extends to | domestic animals, property, and where applicable the environment | where appropriate or applicable | it presents a risk to the health and safety of persons and, where appropriate, domestic animals or to property, and, where applicable, to the environment",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 799,
+   "prompt_tokens": 422,
+   "total_tokens": 1221,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 451,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004417,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004417,
+   "gateway_cost": 0.0004417
+  }
+ }
+}

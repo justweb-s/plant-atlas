@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 3.3.3\n\n3.3.3. Travelling function Without prejudice to road traffic regulations, self-propelled machinery and its trailers must meet the requirements for slowing down, stopping, braking and immobilisation so as to ensure safety under all the operating, load, speed, ground and gradient conditions allowed for. The driver must be able to slow down and stop self-propelled machinery by means of a main device. Where safety so requires, in the event of a failure of the main device, or in the absence of the energy supply needed to actuate the main device, an emergency device with a fully independent and easily accessible control device must be provided for slowing down and stopping. Where safety so requires, a parking device must be provided to render stationary machinery immobile. This device may be combined with one of the devices referred to in the second paragraph, provided that it is purely mechanical. Remote-controlled machinery must be equipped with devices for stopping operation automatically and immediately and for preventing potentially dangerous operation in the following situations: — if the driver loses control, — if it receives a stop signal, — if a fault is detected in a safety-related part of the system, — if no validation signal is detected within a specified time. Section 1.2.4 does not apply to the travelling function."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Self-propelled machinery and its trailers | mustMeetRequirementsFor | slowing down, stopping, braking and immobilisation | safety under all operating, load, speed, ground and gradient conditions allowed for | \"self-propelled machinery and its trailers must meet the requirements for slowing down, stopping, braking and immobilisation so as to ensure safety under all the operating, load, speed, ground and gradient conditions allowed for\"\nDriver | mustBeAbleTo | slow down and stop self-propelled machinery by means of a main device | | \"The driver must be able to slow down and stop self-propelled machinery by means of a main device.\"\nSelf-propelled machinery | mustBeProvidedWith | emergency device with a fully independent and easily accessible control device for slowing down and stopping | where safety so requires, on main device failure or absence of energy supply to the main device | \"Where safety so requires, in the event of a failure of the main device, or in the absence of the energy supply needed to actuate the main device, an emergency device with a fully independent and easily accessible control device must be provided for slowing down and stopping.\"\nStationary machinery | mustBeProvidedWith | parking device to render it immobile | where safety so requires | \"Where safety so requires, a parking device must be provided to render stationary machinery immobile.\"\nParking device | mayBeCombinedWith | one of the devices referred to in the second paragraph | provided that it is purely mechanical | \"This device may be combined with one of the devices referred to in the second paragraph, provided that it is purely mechanical.\"\nRemote-controlled machinery | mustStopOperationAutomaticallyAndImmediatelyWhen | driver loses control | | \"if the driver loses control\"\nRemote-controlled machinery | mustStopOperationAutomaticallyAndImmediatelyWhen | it receives a stop signal | | \"if it receives a stop signal\"\nRemote-controlled machinery | mustStopOperationAutomaticallyAndImmediatelyWhen | a fault is detected in a safety-related part of the system | | \"if a fault is detected in a safety-related part of the system\"\nRemote-controlled machinery | mustStopOperationAutomaticallyAndImmediatelyWhen | no validation signal is detected within a specified time | | \"if no validation signal is detected within a specified time\"\nSection 1.2.4 | doesNotApplyTo | the travelling function | | \"Section 1.2.4 does not apply to the travelling function.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1522,
+   "prompt_tokens": 596,
+   "total_tokens": 2118,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 707,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008206,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008206,
+   "gateway_cost": 0.0008206
+  }
+ }
+}

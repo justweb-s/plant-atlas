@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 36(1)\n\nArticle 36 Changes to notifications. 1. Where a notifying authority has ascertained or has been informed that a notified body no longer meets the requirements laid down in Article 30, or that it is failing to fulfil its obligations as set out in Article 38 the notifying authority shall restrict, suspend or withdraw the notification, as appropriate, depending on the seriousness of the failure to meet those requirements or fulfil those obligations. It shall immediately inform the Commission and the other Member States accordingly."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "notifying authority | shall restrict, suspend or withdraw | the notification | where it has ascertained or been informed that a notified body no longer meets the Article 30 requirements or is failing to fulfil its Article 38 obligations | \"shall restrict, suspend or withdraw the notification, as appropriate\"\nnotifying authority | chooses among restricting, suspending or withdrawing according to | seriousness of the failure | where a notified body fails to meet Article 30 requirements or fulfil Article 38 obligations | \"depending on the seriousness of the failure to meet those requirements or fulfil those obligations\"\nnotifying authority | shall immediately inform | the Commission | where a notified body no longer meets Article 30 requirements or fails its Article 38 obligations | \"It shall immediately inform the Commission and the other Member States accordingly.\"\nnotifying authority | shall immediately inform | the other Member States | where a notified body no longer meets Article 30 requirements or fails its Article 38 obligations | \"It shall immediately inform the Commission and the other Member States accordingly.\"\nnotified body | shall meet | the requirements laid down in Article 30 | | \"a notified body no longer meets the requirements laid down in Article 30\"\nnotified body | shall fulfil | its obligations set out in Article 38 | | \"failing to fulfil its obligations as set out in Article 38\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 939,
+   "prompt_tokens": 367,
+   "total_tokens": 1306,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 494,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005062,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005062,
+   "gateway_cost": 0.0005062
+  }
+ }
+}

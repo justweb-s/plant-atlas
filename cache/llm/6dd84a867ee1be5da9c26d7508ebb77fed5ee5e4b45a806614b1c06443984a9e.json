@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex I, Part B, point 9\n\n9. Presses, including press-brakes, for the cold working of metals, with manual loading and/or unloading, whose movable working parts may have a travel exceeding 6 mm and a speed exceeding 30 mm/s."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Presses, including press-brakes, for cold working of metals | areListedAs | machinery in REG Annex I Part B point 9 | with manual loading and/or unloading | Presses, including press-brakes, for the cold working of metals, with manual loading and/or unloading\nMovable working parts of these presses | mayHaveTravel | exceeding 6 mm | together with speed exceeding 30 mm/s | whose movable working parts may have a travel exceeding 6 mm and a speed exceeding 30 mm/s\nMovable working parts of these presses | mayHaveSpeed | exceeding 30 mm/s | together with travel exceeding 6 mm | whose movable working parts may have a travel exceeding 6 mm and a speed exceeding 30 mm/s",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 881,
+   "prompt_tokens": 279,
+   "total_tokens": 1160,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 626,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004684,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004684,
+   "gateway_cost": 0.0004684
+  }
+ }
+}

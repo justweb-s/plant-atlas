@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.2.6\n\n1.2.6. Failure of the power supply or communication network connection The interruption, the re-establishment after an interruption or the fluctuation in whatever manner of the power supply or communication network connection to the machinery or related product shall not lead to hazardous situations. Particular attention shall be given to the following: (a) the machinery or related product shall not start unexpectedly; (b) the parameters of the machinery shall not change in an uncontrolled way when such change can lead to hazardous situations; (c) the machinery or related product shall not be prevented from stopping if the stop command has already been given; (d) no moving part of the machinery or related product or piece held by the machinery or related product shall fall or be ejected; (e) automatic or manual stopping of the moving parts, whatever they may be, shall be unimpeded; (f) the protective devices shall remain fully effective or give a stop command."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "machinery or related product | shall not start | unexpectedly | | \"shall not start unexpectedly\"\nparameters of the machinery | shall not change | in an uncontrolled way | when such change can lead to hazardous situations | \"the parameters of the machinery shall not change in an uncontrolled way when such change can lead to hazardous situations\"\ninterruption, re-establishment or fluctuation of the power supply or communication network connection | shall not lead to | hazardous situations | | \"The interruption, the re-establishment after an interruption or the fluctuation in whatever manner of the power supply or communication network connection to the machinery or related product shall not lead to hazardous situations\"\nmachinery or related product | shall not be prevented from stopping | | if the stop command has already been given | \"the machinery or related product shall not be prevented from stopping if the stop command has already been given\"\nmoving part of the machinery or related product, or piece held by it | shall not fall or be ejected | | | \"no moving part of the machinery or related product or piece held by the machinery or related product shall fall or be ejected\"\nautomatic or manual stopping of the moving parts | shall be unimpeded | | | \"automatic or manual stopping of the moving parts, whatever they may be, shall be unimpeded\"\nprotective devices | shall remain fully effective or give a stop command | | | \"the protective devices shall remain fully effective or give a stop command\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1021,
+   "prompt_tokens": 487,
+   "total_tokens": 1508,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 573,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005592,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005592,
+   "gateway_cost": 0.0005592
+  }
+ }
+}

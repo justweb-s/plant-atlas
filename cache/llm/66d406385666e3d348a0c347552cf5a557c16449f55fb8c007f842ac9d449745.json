@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 1(2)\n\nArticle 1 Scope. 2. The following are excluded from the scope of this Directive: (a) safety components intended to be used as spare parts to replace identical components and supplied by the manufacturer of the original machinery; (b) specific equipment for use in fairgrounds and/or amusement parks; (c) machinery specially designed or put into service for nuclear purposes which, in the event of failure, may result in an emission of radioactivity; (d) weapons, including firearms; (e) the following means of transport: — agricultural and forestry tractors for the risks covered by Directive 2003/37/EC, with the exclusion of machinery mounted on these vehicles, — motor vehicles and their trailers covered by Council Directive 70/156/EEC of 6 February 1970 on the approximation of the laws of the Member States relating to the type-approval of motor vehicles and their trailers ( 13 ) , with the exclusion of machinery mounted on these vehicles, — vehicles covered by Directive 2002/24/EC of the European Parliament and of the Council of 18 March 2002 relating to the type-approval of two or three-wheel motor vehicles ( 14 ) , with the exclusion of machinery mounted on these vehicles, — motor vehicles exclusively intended for competition, and — means of transport by air, on water and on rail networks with the exclusion of machinery mounted on these means of transport; (f) seagoing vessels and mobile offshore units and machinery installed on board such vessels and/or units; (g) machinery specially designed and constructed for military or police purposes; (h) machinery specially designed and constructed for research purposes for temporary use in laboratories; (i) mine winding gear; (j) machinery intended to move performers during artistic performances; (k) electrical and electronic products falling within the following areas, insofar as they are covered by Council Directive 73/23/EEC of 19 February 1973 on the harmonisation of the laws of Member States relating to electrical equipment designed for use within certain voltage limits ( 15 ) : — household appliances intended for domestic use, — audio and video equipment, — information technology equipment, — ordinary office machinery, — low-voltage switchgear and control gear, — electric motors; (l) the following types of high-voltage electrical equipment: — switch gear and control gear, — transformers."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "safety components used as spare parts | isExcludedFromScope | this Directive | intended to replace identical components and supplied by the manufacturer of the original machinery | safety components intended to be used as spare parts to replace identical components and supplied by the manufacturer of the original machinery\nspecific equipment for fairgrounds and amusement parks | isExcludedFromScope | this Directive | | specific equipment for use in fairgrounds and/or amusement parks\nmachinery for nuclear purposes | isExcludedFromScope | this Directive | specially designed or put into service for nuclear purposes and which, in the event of failure, may result in an emission of radioactivity | machinery specially designed or put into service for nuclear purposes which, in the event of failure, may result in an emission of radioactivity\nweapons, including firearms | isExcludedFromScope | this Directive | | weapons, including firearms\nagricultural and forestry tractors | isExcludedFromScope | this Directive | for the risks covered by Directive 2003/37/EC; machinery mounted on these vehicles is not excluded | agricultural and forestry tractors for the risks covered by Directive 2003/37/EC, with the exclusion of machinery mounted on these vehicles\nmotor vehicles exclusively intended for competition | isExcludedFromScope | this Directive | | motor vehicles exclusively intended for competition\nseagoing vessels and mobile offshore units | isExcludedFromScope | this Directive | machinery installed on board is also excluded | seagoing vessels and mobile offshore units and machinery installed on board such vessels and/or units\nmachinery for military or police purposes | isExcludedFromScope | this Directive | specially designed and constructed for military or police purposes | machinery specially designed and constructed for military or police purposes\nresearch machinery for temporary laboratory use | isExcludedFromScope | this Directive | specially designed and constructed for research purposes for temporary use in laboratories | machinery specially designed and constructed for research purposes for temporary use in laboratories\nmine winding gear | isExcludedFromScope | this Directive | | mine winding gear\nmachinery moving performers during artistic performances | isExcludedFromScope | this Directive | | machinery intended to move performers during artistic performances\nhousehold appliances, audio/video equipment, IT equipment, office machinery, low-voltage switchgear, electric motors | isExcludedFromScope | this Directive | insofar as covered by Directive 73/23/EEC | electrical and electronic products falling within the following areas, insofar as they are covered by Council Directive 73/23/EEC",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1467,
+   "prompt_tokens": 964,
+   "total_tokens": 2431,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 612,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008299,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008299,
+   "gateway_cost": 0.0008299
+  }
+ }
+}

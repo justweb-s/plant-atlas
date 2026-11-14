@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 14(6)\n\nArticle 14 Notified bodies. 6. If a notified body finds that relevant requirements of this Directive have not been met or are no longer met by the manufacturer or that an EC type-examination certificate or the approval of a quality assurance system should not have been issued, it shall, taking account of the principle of proportionality, suspend or withdraw the certificate or the approval issued or place restrictions on it, giving detailed reasons, unless compliance with such requirements is ensured by the implementation of appropriate corrective measures by the manufacturer. In the event of suspension or withdrawal of the certificate or the approval or of any restriction placed on it, or in cases where intervention by the competent authority may prove necessary, the notified body shall inform the competent authority pursuant to Article 4. The Member State shall inform the other Member States and the Commission without delay. An appeal procedure shall be available."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "notified body | shall suspend, withdraw or restrict certificate or approval | EC type-examination certificate or quality assurance approval | relevant requirements not met or no longer met, or certificate/approval should not have been issued; taking account of proportionality | \"it shall, taking account of the principle of proportionality, suspend or withdraw the certificate or the approval issued or place restrictions on it\"\nnotified body | gives detailed reasons | suspension, withdrawal or restriction of certificate or approval | \"\" | \"giving detailed reasons\"\nnotified body | need not suspend, withdraw or restrict certificate or approval | certificate or approval | compliance with requirements ensured by appropriate corrective measures by manufacturer | \"unless compliance with such requirements is ensured by the implementation of appropriate corrective measures by the manufacturer\"\nnotified body | shall inform competent authority pursuant to Article 4 | suspension, withdrawal or restriction of certificate or approval | suspension, withdrawal or restriction applied, or competent authority intervention may prove necessary | \"the notified body shall inform the competent authority pursuant to Article 4\"\nMember State | shall inform other Member States and Commission | notified body action on certificate or approval | \"\" | \"The Member State shall inform the other Member States and the Commission without delay.\"\nappeal procedure | shall be available | notified body decisions | \"\" | \"An appeal procedure shall be available.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1056,
+   "prompt_tokens": 488,
+   "total_tokens": 1544,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 591,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005768,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005768,
+   "gateway_cost": 0.0005768
+  }
+ }
+}

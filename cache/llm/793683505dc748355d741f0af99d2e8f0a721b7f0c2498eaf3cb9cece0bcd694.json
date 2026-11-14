@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 6(10)\n\nArticle 6 Categories of machinery and related products listed in Annex I subject to relevant conformity assessment procedures. 10. The Commission shall adopt implementing acts setting out and, where necessary in the light of technological and market development, updating a template concerning the collection by Member States of the data and the information referred to in paragraph 5, points (a) to (d). When adopting those implementing acts, the Commission shall issue guidance to Member States on the collection and transmission of comparable, high-quality data and information. Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 48(3). The first such implementing act shall be adopted not later than 14 July 2024."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Commission | shall adopt | implementing acts setting out a template concerning the collection by Member States of the data and information referred to in paragraph 5, points (a) to (d) | | The Commission shall adopt implementing acts setting out and, where necessary in the light of technological and market development, updating a template concerning the collection by Member States of the data and the information referred to in paragraph 5, points (a) to (d).\nCommission | shall update | template concerning the collection by Member States of data and information | where necessary in light of technological and market development | where necessary in the light of technological and market development, updating a template concerning the collection by Member States of the data and the information referred to in paragraph 5, points (a) to (d)\nCommission | shall issue | guidance to Member States on the collection and transmission of comparable, high-quality data and information | when adopting those implementing acts | When adopting those implementing acts, the Commission shall issue guidance to Member States on the collection and transmission of comparable, high-quality data and information.\nImplementing acts under paragraph 10 | shall be adopted under | the examination procedure referred to in Article 48(3) | | Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 48(3).\nFirst such implementing act | shall be adopted by | 14 July 2024 | not later than 14 July 2024 | The first such implementing act shall be adopted not later than 14 July 2024.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 908,
+   "prompt_tokens": 423,
+   "total_tokens": 1331,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 452,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004963,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004963,
+   "gateway_cost": 0.0004963
+  }
+ }
+}

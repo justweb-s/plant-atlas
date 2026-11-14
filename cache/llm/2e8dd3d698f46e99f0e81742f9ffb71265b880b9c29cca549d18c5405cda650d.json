@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS71, art. 71, c. 11\n\n11. Oltre a quanto previsto dal comma 8, il datore di lavoro sottopone le attrezzature di lavoro riportate nell'allegato VII a verifiche periodiche volte a valutarne l'effettivo stato di conservazione e di efficienza ai fini di sicurezza, con la frequenza indicata nel medesimo allegato. Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta. Una volta decorso inutilmente il termine di quarantacinque giorni sopra indicato, il datore di lavoro può avvalersi, a propria scelta, di altri soggetti pubblici o privati abilitati secondo le modalità di cui al comma 13. Le successive verifiche sono effettuate su libera scelta del datore di lavoro dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati che vi provvedono secondo le modalità di cui al comma 13. Per l'effettuazione delle verifiche l'INAIL può avvalersi del supporto di soggetti pubblici o privati abilitati. I verbali redatti all'esito delle verifiche di cui al presente comma devono essere conservati e tenuti a disposizione dell'organo di vigilanza. Le verifiche di cui al presente comma sono effettuate a titolo oneroso e le spese per la loro effettuazione sono poste a carico del datore di lavoro. (("
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "datore di lavoro | sottopone | attrezzature di lavoro riportate nell'allegato VII a verifiche periodiche volte a valutarne lo stato di conservazione ed efficienza | con la frequenza indicata nell'allegato VII; oltre a quanto previsto dal comma 8 | \"Oltre a quanto previsto dal comma 8, il datore di lavoro sottopone le attrezzature di lavoro riportate nell'allegato VII a verifiche periodiche\"\nINAIL | effettua | la prima verifica | entro quarantacinque giorni dalla richiesta del datore di lavoro | \"Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta.\"\ndatore di lavoro | può avvalersi | di altri soggetti pubblici o privati abilitati per la prima verifica | decorso inutilmente il termine di quarantacinque giorni | \"Una volta decorso inutilmente il termine di quarantacinque giorni sopra indicato, il datore di lavoro può avvalersi, a propria scelta, di altri soggetti pubblici o privati abilitati\"\ndatore di lavoro | sceglie per le verifiche successive | ASL, ARPA o soggetti pubblici o privati abilitati | ARPA solo ove prevista da legge regionale | \"Le successive verifiche sono effettuate su libera scelta del datore di lavoro dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati\"\nINAIL | può avvalersi | del supporto di soggetti pubblici o privati abilitati per l'effettuazione delle verifiche | \"\" | \"Per l'effettuazione delle verifiche l'INAIL può avvalersi del supporto di soggetti pubblici o privati abilitati.\"\nverbali delle verifiche | devono essere conservati e tenuti a disposizione | dell'organo di vigilanza | \"\" | \"I verbali redatti all'esito delle verifiche di cui al presente comma devono essere conservati e tenuti a disposizione dell'organo di vigilanza.\"\nverifiche di cui al comma 11 | sono effettuate a titolo oneroso con spese a carico | del datore di lavoro | \"\" | \"Le verifiche di cui al presente comma sono effettuate a titolo oneroso e le spese per la loro effettuazione sono poste a carico del datore di lavoro.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1735,
+   "prompt_tokens": 733,
+   "total_tokens": 2468,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 879,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009408,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009408,
+   "gateway_cost": 0.0009408
+  }
+ }
+}

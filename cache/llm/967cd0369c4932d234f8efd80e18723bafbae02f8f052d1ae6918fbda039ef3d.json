@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 10(5)\n\nArticle 10 Obligations of manufacturers of machinery and related products. 5. Manufacturers shall ensure that the machinery or related product which they place on the market or put into service bears at least a designation of the machinery or related product model, series or type, the year of construction, namely the year in which the manufacturing process was completed, and any batch or serial number or other element allowing its identification that exists, or, where the size or nature of the machinery or related product does not allow this, that the required information is provided on the packaging or in a document accompanying the machinery or related product."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturers | shall ensure machinery bears | a designation of model, series or type | | \"shall ensure that the machinery or related product which they place on the market or put into service bears at least a designation of the machinery or related product model, series or type\"\nMachinery | bears | year of construction | | \"the year of construction, namely the year in which the manufacturing process was completed\"\nYear of construction | means | year in which manufacturing process was completed | | \"the year of construction, namely the year in which the manufacturing process was completed\"\nMachinery | bears | batch or serial number or other identifying element | that such element exists | \"any batch or serial number or other element allowing its identification that exists\"\nRequired identification information | is provided on | packaging or accompanying document | size or nature of machinery does not allow marking on it | \"where the size or nature of the machinery or related product does not allow this, that the required information is provided on the packaging or in a document accompanying the machinery or related product\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 608,
+   "prompt_tokens": 374,
+   "total_tokens": 982,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 309,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003414,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003414,
+   "gateway_cost": 0.0003414
+  }
+ }
+}

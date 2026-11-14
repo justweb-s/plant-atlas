@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 6.5\n\n6.5. Markings The carrier shall bear the information necessary to ensure safety including: (a) the number of persons permitted on the carrier; (b) the maximum working load. ( 1 ) Regulation (EC) No 1107/2009 of the European Parliament and of the Council of 21 October 2009 concerning the placing of plant protection products on the market and repealing Council Directives 79/117/EEC and 91/414/EEC ( OJ L 309, 24.11.2009, p. 1 ). ( 2 ) Directive 2009/128/EC of the European Parliament and of the Council of 21 October 2009 establishing a framework for Community action to achieve the sustainable use of pesticides ( OJ L 309, 24.11.2009, p. 71 )."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "carrier | shallBear | information necessary to ensure safety including the number of persons permitted on the carrier and the maximum working load | | The carrier shall bear the information necessary to ensure safety including: (a) the number of persons permitted on the carrier; (b) the maximum working load.\ncarrier | shallBear | the number of persons permitted on the carrier | | (a) the number of persons permitted on the carrier\ncarrier | shallBear | the maximum working load | | (b) the maximum working load",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 160,
+   "prompt_tokens": 457,
+   "total_tokens": 617,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0001257,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0001257,
+   "gateway_cost": 0.0001257
+  }
+ }
+}

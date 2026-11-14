@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.1.2.8.5\n\n4.1.2.8.5. Landings Risks due to contact of persons at landings with the moving carrier or other moving parts shall be prevented. Where there is a risk due to persons falling into the travel zone when the carrier is not present at the landings, guards shall be fitted in order to prevent this risk. Such guards shall not open in the direction of the travel zone. They shall be fitted with an interlocking device with guard locking controlled by the position of the carrier that prevents: (a) hazardous movements of the carrier until the guards are closed and locked; (b) hazardous opening of a guard until the carrier has stopped at the corresponding landing."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Risks due to contact of persons at landings with the moving carrier or other moving parts | shall be prevented | risks from contact at landings | | Risks due to contact of persons at landings with the moving carrier or other moving parts shall be prevented\nGuards | shall be fitted | to prevent persons falling into the travel zone | where there is a risk due to persons falling into the travel zone when the carrier is not present at the landings | guards shall be fitted in order to prevent this risk\nGuards | shall not open | in the direction of the travel zone | | Such guards shall not open in the direction of the travel zone\nGuards | shall be fitted with | an interlocking device with guard locking controlled by the position of the carrier | | They shall be fitted with an interlocking device with guard locking controlled by the position of the carrier\nInterlocking device | prevents | hazardous movements of the carrier | until the guards are closed and locked | (a) hazardous movements of the carrier until the guards are closed and locked\nInterlocking device | prevents | hazardous opening of a guard | until the carrier has stopped at the corresponding landing | (b) hazardous opening of a guard until the carrier has stopped at the corresponding landing",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 703,
+   "prompt_tokens": 417,
+   "total_tokens": 1120,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 313,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003932,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003932,
+   "gateway_cost": 0.0003932
+  }
+ }
+}

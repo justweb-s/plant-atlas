@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 11(7)\n\nArticle 11 Obligations of manufacturers of partly completed machinery. 7. Manufacturers shall ensure that the partly completed machinery is accompanied by the assembly instructions set out in Annex XI. The assembly instructions may be provided by the manufacturer in digital format. When the assembly instructions are provided in digital format, the manufacturer shall: (a) mark on the partly completed machinery, or, where that is not possible, on its packaging or in an accompanying document, how to access the digital assembly instructions; (b) present them in a format that makes it possible for the person who incorporates the partly completed machinery to print and download the assembly instructions and save them on an electronic device so that he or she can access them at all times, in particular during a breakdown of the partly completed machinery; this requirement also applies where the assembly instructions are embedded in the software of the partly completed machinery; (c) make them accessible online for at least 10 years after the placing on the market of the partly completed machinery. However, at the request of the person who incorporates the partly completed machinery at the time of purchase, the manufacturer shall provide the assembly instructions in paper format free of charge within one month. The assembly instructions shall be in a language which can be easily understood by the person who incorporates the partly completed machinery, as determined by the Member State concerned, and shall be clear, understandable, and legible."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturers | shall ensure accompaniment by | assembly instructions set out in Annex XI | | Manufacturers shall ensure that the partly completed machinery is accompanied by the assembly instructions set out in Annex XI.\nManufacturer | may provide assembly instructions | in digital format | | The assembly instructions may be provided by the manufacturer in digital format.\nManufacturer | marks access information | how to access the digital assembly instructions, on machinery, packaging, or accompanying document | where marking on the machinery is not possible | mark on the partly completed machinery, or, where that is not possible, on its packaging or in an accompanying document, how to access the digital assembly instructions\nManufacturer | presents digital instructions | in a format allowing printing, downloading, and saving on an electronic device | | present them in a format that makes it possible for the person who incorporates the partly completed machinery to print and download the assembly instructions and save them on an electronic device\nDigital-format requirement | also applies to | assembly instructions embedded in the machinery's software | where instructions are embedded in software | this requirement also applies where the assembly instructions are embedded in the software of the partly completed machinery\nManufacturer | makes accessible online | digital assembly instructions | for at least 10 years after placing on the market | make them accessible online for at least 10 years after the placing on the market of the partly completed machinery\nManufacturer | provides paper copy free of charge | assembly instructions | within one month, at request of incorporator at time of purchase | at the request of the person who incorporates the partly completed machinery at the time of purchase, the manufacturer shall provide the assembly instructions in paper format free of charge within one month\nAssembly instructions language | determined by | Member State concerned | language must be easily understood by the incorporator | in a language which can be easily understood by the person who incorporates the partly completed machinery, as determined by the Member State concerned\nAssembly instructions | shall be | clear, understandable, and legible | | shall be clear, understandable, and legible",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1188,
+   "prompt_tokens": 640,
+   "total_tokens": 1828,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 522,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000658,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000658,
+   "gateway_cost": 0.000658
+  }
+ }
+}

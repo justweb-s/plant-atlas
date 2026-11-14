@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.6.1\n\n1.6.1. Machinery or related product maintenance Adjustment and maintenance points shall be located outside danger zones. It shall be possible to carry out adjustment, maintenance, repair, cleaning and servicing operations while the machinery or related product is at a standstill. If one or more of the above conditions cannot be satisfied for technical reasons, measures shall be taken to ensure that these operations can be carried out safely (see section 1.2.5). In the case of automated machinery and, where necessary, other machinery or related products, a connecting device for mounting diagnostic fault-finding equipment shall be provided. Automated machinery or related product components, which have to be changed frequently, shall be capable of being removed and replaced easily and safely. Access to the components shall enable these tasks to be carried out with the necessary technical means in accordance with a specified operating method."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related product | shallBeLocatedOutside | Adjustment and maintenance points outside danger zones | \"\" | \"Adjustment and maintenance points shall be located outside danger zones.\"\nMachinery or related product | shallAllowOperationsAtStandstill | Adjustment, maintenance, repair, cleaning and servicing operations | while the machinery or related product is at a standstill | \"It shall be possible to carry out adjustment, maintenance, repair, cleaning and servicing operations while the machinery or related product is at a standstill.\"\nMeasures | shallEnsureSafeOperation | Adjustment, maintenance, repair, cleaning and servicing operations can be carried out safely | if one or more of the above conditions cannot be satisfied for technical reasons | \"If one or more of the above conditions cannot be satisfied for technical reasons, measures shall be taken to ensure that these operations can be carried out safely (see section 1.2.5).\"\nAutomated machinery and, where necessary, other machinery or related products | shallProvideConnectingDevice | Connecting device for mounting diagnostic fault-finding equipment | \"\" | \"In the case of automated machinery and, where necessary, other machinery or related products, a connecting device for mounting diagnostic fault-finding equipment shall be provided.\"\nAutomated machinery or related product components which have to be changed frequently | shallBeRemovableAndReplaceable | Components removed and replaced easily and safely | \"\" | \"Automated machinery or related product components, which have to be changed frequently, shall be capable of being removed and replaced easily and safely.\"\nAccess to the components | shallEnableTasks | Tasks carried out with the necessary technical means in accordance with a specified operating method | \"\" | \"Access to the components shall enable these tasks to be carried out with the necessary technical means in accordance with a specified operating method.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1190,
+   "prompt_tokens": 481,
+   "total_tokens": 1671,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 582,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006431,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006431,
+   "gateway_cost": 0.0006431
+  }
+ }
+}

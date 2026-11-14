@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.6.3\n\n1.6.3. Isolation of energy sources Machinery must be fitted with means to isolate it from all energy sources. Such isolators must be clearly identified. They must be capable of being locked if reconnection could endanger persons. Isolators must also be capable of being locked where an operator is unable, from any of the points to which he has access, to check that the energy is still cut off. In the case of machinery capable of being plugged into an electricity supply, removal of the plug is sufficient, provided that the operator can check from any of the points to which he has access that the plug remains removed. After the energy is cut off, it must be possible to dissipate normally any energy remaining or stored in the circuits of the machinery without risk to persons. As an exception to the requirement laid down in the previous paragraphs, certain circuits may remain connected to their energy sources in order, for example, to hold parts, to protect information, to light interiors, etc. In this case, special steps must be taken to ensure operator safety."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery | mustBeFittedWith | means to isolate it from all energy sources | | Machinery must be fitted with means to isolate it from all energy sources.\nIsolators | mustBeClearlyIdentified | clearly identified | | Such isolators must be clearly identified.\nIsolators | mustBeLockable | locked against reconnection | if reconnection could endanger persons | They must be capable of being locked if reconnection could endanger persons.\nIsolators | mustBeLockable | locked to verify energy is cut off | where the operator cannot check from any access point that energy is still cut off | Isolators must also be capable of being locked where an operator is unable, from any of the points to which he has access, to check that the energy is still cut off.\nPlug removal | isSufficientIsolation | removal of the plug | machinery is capable of being plugged into an electricity supply and the operator can check from any access point that the plug remains removed | In the case of machinery capable of being plugged into an electricity supply, removal of the plug is sufficient, provided that the operator can check from any of the points to which he has access that the plug remains removed.\nResidual energy | mustBeDissipatedNormally | energy remaining or stored in circuits | after the energy is cut off, without risk to persons | After the energy is cut off, it must be possible to dissipate normally any energy remaining or stored in the circuits of the machinery without risk to persons.\nCertain circuits | mayRemainConnectedToEnergySources | to hold parts, protect information, light interiors | as an exception to the isolation requirements | As an exception to the requirement laid down in the previous paragraphs, certain circuits may remain connected to their energy sources in order, for example, to hold parts, to protect information, to light interiors, etc.\nCircuits remaining connected | requireSpecialSteps | to ensure operator safety | where certain circuits remain connected to energy sources | In this case, special steps must be taken to ensure operator safety.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1252,
+   "prompt_tokens": 516,
+   "total_tokens": 1768,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 613,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006776,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006776,
+   "gateway_cost": 0.0006776
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.7.4\n\n1.7.4. Instructions All machinery must be accompanied by instructions in the official Community language or languages of the Member State in which it is placed on the market and/or put into service. The instructions accompanying the machinery must be either ‘Original instructions’ or a ‘Translation of the original instructions’, in which case the translation must be accompanied by the original instructions. By way of exception, the maintenance instructions intended for use by specialised personnel mandated by the manufacturer or his authorised representative may be supplied in only one Community language which the specialised personnel understand. The instructions must be drafted in accordance with the principles set out below."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "All machinery | mustBeAccompaniedBy | instructions in the official Community language or languages of the Member State where it is placed on the market and/or put into service | | All machinery must be accompanied by instructions in the official Community language or languages of the Member State in which it is placed on the market and/or put into service.\nInstructions accompanying machinery | mustBeEither | 'Original instructions' or 'Translation of the original instructions' | | The instructions accompanying the machinery must be either 'Original instructions' or a 'Translation of the original instructions'\nTranslation of the original instructions | mustBeAccompaniedBy | the original instructions | the instructions are a translation | in which case the translation must be accompanied by the original instructions\nMaintenance instructions | mayBeSuppliedIn | only one Community language which the specialised personnel understand | intended for use by specialised personnel mandated by the manufacturer or his authorised representative | By way of exception, the maintenance instructions intended for use by specialised personnel mandated by the manufacturer or his authorised representative may be supplied in only one Community language which the specialised personnel understand.\nInstructions | mustBeDraftedIn | accordance with the principles set out below | | The instructions must be drafted in accordance with the principles set out below.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 845,
+   "prompt_tokens": 407,
+   "total_tokens": 1252,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 430,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004632,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004632,
+   "gateway_cost": 0.0004632
+  }
+ }
+}

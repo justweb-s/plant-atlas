@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.6.5\n\n1.6.5. Cleaning of internal parts The machinery or related product shall be designed and constructed in such a way that it is possible to clean internal parts, which have contained dangerous substances or mixtures without entering them; any necessary unblocking shall also be possible from the outside. If it is impossible to avoid entering the machinery or related product, it shall be designed and constructed in such a way as to allow cleaning to take place safely."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "machinery or related product | shall be designed to allow | cleaning of internal parts that have contained dangerous substances or mixtures without entering them | \"\" | it is possible to clean internal parts, which have contained dangerous substances or mixtures without entering them\nmachinery or related product | shall allow | any necessary unblocking from the outside | \"\" | any necessary unblocking shall also be possible from the outside\nmachinery or related product | shall allow | cleaning to take place safely | if entering the machinery or related product cannot be avoided | it shall be designed and constructed in such a way as to allow cleaning to take place safely",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 488,
+   "prompt_tokens": 343,
+   "total_tokens": 831,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 292,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0002783,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0002783,
+   "gateway_cost": 0.0002783
+  }
+ }
+}

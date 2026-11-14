@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 2.4.10\n\n2.4.10. Instructions for use The instructions for use shall provide the following information: (a) precautions to be taken during mixing, loading, application, emptying, cleaning, servicing and transport operations in order to avoid contamination of the environment; (b) detailed conditions of use for the different operating environments envisaged, including the corresponding preparation and adjustments required to ensure the deposition of the plant protection product on target areas while minimising losses to other areas, to prevent drift to the environment and, where appropriate, to ensure an even distribution and homogeneous deposition of the plant protection product; (c) the range of types and sizes of nozzles, strainers and filters that can be used with the machinery or related product; (d) the frequency of checks and the criteria and method for the replacement of parts subject to wear that affect the correct functioning of the machinery or related product, such as nozzles, strainers and filters; (e) specification of calibration, daily maintenance, winter preparation and other checks necessary to ensure the correct functioning of the machinery or related product; (f) types of plant protection products that may cause incorrect functioning of the machinery or related product; (g) an indication that the operator should keep updated the name of the plant protection product in use on the specific mounting referred to in section 2.4.9; (h) the connexion and use of any special equipment or accessories, and the necessary precautions to be taken; (i) an indication that the machinery or related product may be subject to national requirements for regular inspection by designated bodies, as provided for in Directive 2009/128/EC of the European Parliament and of the Council ( 2 ) ; (j) the features of the machinery or related product, which shall be inspected to ensure its correct functioning; (k) instructions for connecting the necessary measuring instruments."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "instructions for use | provideInformationOn | precautions during mixing, loading, application, emptying, cleaning, servicing and transport to avoid contamination of the environment | \"\" | \"precautions to be taken during mixing, loading, application, emptying, cleaning, servicing and transport operations in order to avoid contamination of the environment\"\ninstructions for use | provideInformationOn | detailed conditions of use for each envisaged operating environment, including preparation and adjustments for deposition on target areas | \"\" | \"detailed conditions of use for the different operating environments envisaged\"\ninstructions for use | specifyUsableComponents | range of types and sizes of nozzles, strainers and filters usable with the machinery | \"\" | \"the range of types and sizes of nozzles, strainers and filters that can be used with the machinery or related product\"\ninstructions for use | specifyReplacementCriteria | frequency of checks and criteria and method for replacing wear parts affecting correct functioning | \"\" | \"the frequency of checks and the criteria and method for the replacement of parts subject to wear\"\ninstructions for use | specifyMaintenance | calibration, daily maintenance, winter preparation and other necessary checks | \"\" | \"specification of calibration, daily maintenance, winter preparation and other checks necessary to ensure the correct functioning\"\ninstructions for use | specifyIncompatibleProducts | types of plant protection products that may cause incorrect functioning | \"\" | \"types of plant protection products that may cause incorrect functioning of the machinery or related product\"\noperator | keepUpdated | name of the plant protection product in use on the specific mounting referred to in section 2.4.9 | \"\" | \"the operator should keep updated the name of the plant protection product in use on the specific mounting\"\nspecial equipment or accessories | requirePrecautions | connection and use of the equipment with the necessary precautions | \"\" | \"the connexion and use of any special equipment or accessories, and the necessary precautions to be taken\"\nmachinery | mayBeSubjectTo | national requirements for regular inspection by designated bodies | as provided for in Directive 2009/128/EC | \"may be subject to national requirements for regular inspection by designated bodies, as provided for in Directive 2009/128/EC\"\nfeatures of the machinery | requireInspection | inspection to ensure correct functioning | \"\" | \"the features of the machinery or related product, which shall be inspected to ensure its correct functioning\"\ninstructions for use | provideInstructionsFor | connecting the necessary measuring instruments | \"\" | \"instructions for connecting the necessary measuring instruments\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1439,
+   "prompt_tokens": 776,
+   "total_tokens": 2215,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 598,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007971,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007971,
+   "gateway_cost": 0.0007971
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 45(4)\n\nArticle 45 Compliant products within the scope of this Regulation which present a risk. 4. The Commission shall without delay enter into consultation with the Member States and the relevant economic operator or operators and shall evaluate the national measures taken. On the basis of the results of that evaluation, the Commission shall adopt an implementing act in the form of a decision determining whether the national measure is justified or not and, where necessary, order appropriate measures. That implementing act shall be adopted in accordance with the examination procedure referred to in Article 48(3). On duly justified imperative grounds of urgency relating to the protection of the health and safety of persons, the Commission shall adopt an immediately applicable implementing act in accordance with the procedure referred to in Article 48(4)."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Commission | shallEnterConsultationWith | Member States and the relevant economic operator or operators | without delay | \"The Commission shall without delay enter into consultation with the Member States and the relevant economic operator or operators\"\nCommission | shallEvaluate | national measures taken | | \"shall evaluate the national measures taken\"\nCommission | shallAdoptDecision | implementing act determining whether the national measure is justified or not | on the basis of the results of the evaluation | \"On the basis of the results of that evaluation, the Commission shall adopt an implementing act in the form of a decision determining whether the national measure is justified or not\"\nCommission | mayOrderMeasures | appropriate measures | where necessary | \"where necessary, order appropriate measures\"\nImplementing act under Article 45(4) | isAdoptedUnder | examination procedure referred to in Article 48(3) | | \"That implementing act shall be adopted in accordance with the examination procedure referred to in Article 48(3)\"\nCommission | shallAdoptImmediatelyApplicableAct | implementing act | on duly justified imperative grounds of urgency relating to the protection of the health and safety of persons | \"On duly justified imperative grounds of urgency relating to the protection of the health and safety of persons, the Commission shall adopt an immediately applicable implementing act\"\nUrgent implementing act under Article 45(4) | isAdoptedUnder | procedure referred to in Article 48(4) | on duly justified imperative grounds of urgency relating to the protection of the health and safety of persons | \"the Commission shall adopt an immediately applicable implementing act in accordance with the procedure referred to in Article 48(4)\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1080,
+   "prompt_tokens": 446,
+   "total_tokens": 1526,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 529,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005846,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005846,
+   "gateway_cost": 0.0005846
+  }
+ }
+}

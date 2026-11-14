@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex X\n\nANNEX X Full quality assurance This Annex describes the conformity assessment of machinery referred to in Annex IV, manufactured using a full quality assurance system, and the procedure whereby a notified body assesses and approves the quality system and monitors its application. 1. The manufacturer must operate an approved quality system for design, manufacture, final inspection and testing, as specified in point 2, and shall be subject to the surveillance referred to in point 3. 2. Quality system 2.1. The application shall contain: — the name and address of the manufacturer and, where appropriate, his authorised representative, — the places of design, manufacture, inspection, testing and storage of the machinery, — the technical file described in Annex VII, Part A, for one model of each category of machinery referred to in Annex IV which he intends to manufacture, — the documentation on the quality system, — a written declaration that the application has not been submitted to another notified body. 2.2. It must contain, in particular, an adequate description of: — the quality objectives, the organisational structure, and the responsibilities and powers of the management with regard to the design and quality of the machinery, — the technical design specifications, including standards that will be applied and, where the standards referred to in Article 7(2) are not applied in full, the means that will be used to ensure that the essential health and safety requirements of this Directive are fulfilled, — the design inspection and design verification techniques, processes and systematic actions that will be used when designing machinery covered by this Directive, — the corresponding manufacturing, quality control and quality assurance techniques, processes and systematic actions that will be used, — the inspections and tests that will be carried out before, during and after manufacture, and the frequency with which they will be carried out, — the quality records, such as inspection reports and test data, calibration data, and reports on the qualifications of the personnel concerned, — the means of monitoring the achievement of the required design and quality of the machinery, as well as the effective operation of the quality system. 2.3. The elements of the quality system which conform to the relevant harmonised standard shall be presumed to conform to the corresponding requirements referred to in point 2.2. The team of auditors must have at least one member who is experienced in the assessment of the technology of the machinery. The assessment procedure shall include an inspection to be carried out at the manufacturer's premises. During the assessment, the team of auditors shall carry out a review of the technical files referred to in point 2.1, second paragraph, third indent to ensure their compliance with the relevant health and safety requirements. The manufacturer or his authorised representative shall be notified of the decision. The notification shall contain the conclusions of the examination and the reasoned assessment decision. An appeal procedure must be available. 2.4. The manufacturer or his authorised representative shall inform the notified body which approved the quality system of any planned change to it. The notified body shall evaluate the proposed changes and decide whether the modified quality assurance system will continue to satisfy the requirements referred to in point 2.2, or whether a re-assessment is necessary. It shall notify the manufacturer of its decision. The notification shall contain the conclusions of the examination and the reasoned assessment decision. 3. Surveillance under the responsibility of the notified body 3.1. The purpose of surveillance is to make sure that the manufacturer duly fulfils the obligations arising out of the approved quality system. 3.2. — the documentation concerning the quality system, — the quality records provided for in that part of the quality system concerned with design, such as the results of analyses, calculations, tests, etc., — the quality records provided for in that part of the quality system concerned with manufacture, such as inspection reports and test data, calibration data, reports on the qualifications of the personnel concerned, etc. 3.3. The notified body shall conduct periodic audits to make sure that the manufacturer is maintaining and applying the quality system; it shall provide the manufacturer with an audit report. The frequency of the periodic audits shall be such that a full reassessment is carried out every three years. 3.4. — the results of previous surveillance visits, — the need to monitor remedial measures, — where appropriate, special conditions attaching to approval of the system, — significant modifications in the organisation of the manufacturing process, measures or techniques. On the occasion of such visits, the notified body may, if necessary, carry out tests or have them carried out in order to check the proper functioning of the quality system. It shall provide the manufacturer with a visit report and, if a test was carried out, with a test report. 4. — the documentation referred to in point 2.1, — the decisions and reports of the notified body referred to in point 2.4, third and fourth subparagraphs, and in points 3.3 and 3.4."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "The manufacturer | must operate | an approved quality system for design, manufacture, final inspection and testing | as specified in point 2 | The manufacturer must operate an approved quality system for design, manufacture, final inspection and testing, as specified in point 2\nThe application | shall contain | the technical file described in Annex VII, Part A, for one model of each category of machinery referred to in Annex IV which he intends to manufacture | \"\" | the technical file described in Annex VII, Part A, for one model of each category of machinery referred to in Annex IV which he intends to manufacture\nThe application | shall contain | a written declaration that the application has not been submitted to another notified body | \"\" | a written declaration that the application has not been submitted to another notified body\nThe quality system description | must contain | the quality objectives, the organisational structure, and the responsibilities and powers of the management | \"\" | the quality objectives, the organisational structure, and the responsibilities and powers of the management with regard to the design and quality of the machinery\nThe quality system documentation | must include | the inspections and tests carried out before, during and after manufacture, and the frequency with which they will be carried out | \"\" | the inspections and tests that will be carried out before, during and after manufacture, and the frequency with which they will be carried out\nThe elements of the quality system which conform to the relevant harmonised standard | shall be presumed to conform | to the corresponding requirements referred to in point 2.2 | \"\" | The elements of the quality system which conform to the relevant harmonised standard shall be presumed to conform to the corresponding requirements referred to in point 2.2\nThe team of auditors | must have | at least one member who is experienced in the assessment of the technology of the machinery | \"\" | The team of auditors must have at least one member who is experienced in the assessment of the technology of the machinery\nThe assessment procedure | shall include | an inspection to be carried out at the manufacturer's premises | \"\" | The assessment procedure shall include an inspection to be carried out at the manufacturer's premises\nThe manufacturer or his authorised representative | shall inform | the notified body which approved the quality system of any planned change to it | \"\" | The manufacturer or his authorised representative shall inform the notified body which approved the quality system of any planned change to it\nThe notified body | shall conduct | periodic audits to make sure that the manufacturer is maintaining and applying the quality system | \"\" | The notified body shall conduct periodic audits to make sure that the manufacturer is maintaining and applying the quality system\nThe frequency of the periodic audits | shall be such that | a full reassessment is carried out every three years | \"\" | The frequency of the periodic audits shall be such that a full reassessment is carried out every three years\nThe notified body | may carry out | tests, or have them carried out, to check the proper functioning of the quality system | if necessary, during visits | On the occasion of such visits, the notified body may, if necessary, carry out tests or have them carried out in order to check the proper functioning of the quality system",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1589,
+   "prompt_tokens": 1724,
+   "total_tokens": 3313,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 633,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009669,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009669,
+   "gateway_cost": 0.0009669
+  }
+ }
+}

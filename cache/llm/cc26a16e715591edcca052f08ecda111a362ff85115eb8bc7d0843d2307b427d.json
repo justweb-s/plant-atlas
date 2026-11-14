@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 12\n\n2. Liability and Intended Use 2. Liability and Intended Use 2.1. Limitation of Liability Description Any information provided in this manual must not be construed as a warranty, by UR, that the industrial robot will not cause injury or damage, even if the industrial robot complies with all safety instructions and information for use. 2.2. Intended Use Description Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. NOTICE Universal Robots takes no responsibility and assumes no liability for unapproved uses of its robots or uses for which its robots are not intended and Universal Robots will provide no support for unintended uses. READ MANUAL Failure to use the robot in accordance with the intended use can result in hazardous situations. • Read and follow the recommendations for intended use and the specifications provided in the User Manual. Universal Robots robots are intended for industrial use, to handle tools/end effectors and fixtures, or to process or transfer components or products. All UR robots are equipped with safety functions, which are purposely designed to enable collaborative applications, where the robot application operates together with a human. The safety function settings must be set to the appropriate values as determined by the robot application risk assessment. The robot and Control Box are intended for inside use where, normally, only non- conductive pollution occurs i.e. Pollution degree 2 environments. Collaborative applications are only intended for non-hazardous applications, where the complete application, including tool/end effector, work piece, obstacles and other machines, is low risk according to the risk assessment of the specific application. UR5e 15 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Any information provided in this manual | must not be construed as | a warranty by UR that the industrial robot will not cause injury or damage | even if the industrial robot complies with all safety instructions and information for use | Any information provided in this manual must not be construed as a warranty, by UR, that the industrial robot will not cause injury or damage\nUniversal Robots | takes no responsibility or liability for | unapproved uses of its robots or uses for which its robots are not intended | | Universal Robots takes no responsibility and assumes no liability for unapproved uses of its robots or uses for which its robots are not intended\nUniversal Robots | will provide no support for | unintended uses | | Universal Robots will provide no support for unintended uses\nFailure to use the robot in accordance with intended use | can result in | hazardous situations | | Failure to use the robot in accordance with the intended use can result in hazardous situations\nUR robots | are intended for | industrial use, handling tools/end effectors and fixtures, or processing or transferring components or products | | Universal Robots robots are intended for industrial use, to handle tools/end effectors and fixtures, or to process or transfer components or products\nAll UR robots | are equipped with | safety functions designed to enable collaborative applications | | All UR robots are equipped with safety functions, which are purposely designed to enable collaborative applications\nSafety function settings | must be set to | values determined by the robot application risk assessment | | The safety function settings must be set to the appropriate values as determined by the robot application risk assessment\nRobot and Control Box | are intended for | inside use | normally only non-conductive pollution occurs, i.e. pollution degree 2 environments | The robot and Control Box are intended for inside use where, normally, only non- conductive pollution occurs i.e. Pollution degree 2 environments\nCollaborative applications | are only intended for | non-hazardous applications | the complete application, including tool/end effector, work piece, obstacles and other machines, is low risk according to the application's risk assessment | Collaborative applications are only intended for non-hazardous applications, where the complete application, including tool/end effector, work piece, obstacles and other machines, is low risk according to the risk assessment of the specific application",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1449,
+   "prompt_tokens": 721,
+   "total_tokens": 2170,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 732,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007966,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007966,
+   "gateway_cost": 0.0007966
+  }
+ }
+}

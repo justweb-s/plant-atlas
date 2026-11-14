@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 2.2.1.1\n\n2.2.1.1. Instructions The instructions must give the following information concerning vibrations transmitted by portable hand-held and hand-guided machinery: — the vibration total value to which the hand-arm system is subjected, if it exceeds 2,5 m/s 2 . Where this value does not exceed 2,5 m/s 2 , this must be mentioned, — the uncertainty of measurement. These values must be either those actually measured for the machinery in question or those established on the basis of measurements taken for technically comparable machinery which is representative of the machinery to be produced. If harmonised standards are not applied, the vibration data must be measured using the most appropriate measurement code for the machinery. The operating conditions during measurement and the methods used for measurement, or the reference of the harmonised standard applied, must be specified."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Instructions for portable hand-held and hand-guided machinery | must give | vibration total value to which the hand-arm system is subjected | if it exceeds 2.5 m/s² | \"the vibration total value to which the hand-arm system is subjected, if it exceeds 2,5 m/s 2\"\nInstructions for portable hand-held and hand-guided machinery | must mention | that the vibration total value does not exceed 2.5 m/s² | where the value does not exceed 2.5 m/s² | \"Where this value does not exceed 2,5 m/s 2 , this must be mentioned\"\nInstructions for portable hand-held and hand-guided machinery | must give | the uncertainty of measurement for vibration values | | \"the uncertainty of measurement\"\nVibration values in instructions | must be | those actually measured for the machinery in question or established from measurements on technically comparable representative machinery | | \"These values must be either those actually measured for the machinery in question or those established on the basis of measurements taken for technically comparable machinery which is representative of the machinery to be produced\"\nVibration data | must be measured using | the most appropriate measurement code for the machinery | if harmonised standards are not applied | \"If harmonised standards are not applied, the vibration data must be measured using the most appropriate measurement code for the machinery\"\nOperating conditions during vibration measurement | must be | specified | | \"The operating conditions during measurement ... must be specified\"\nMethods used for vibration measurement | must be | specified | | \"the methods used for measurement ... must be specified\"\nReference of harmonised standard applied for vibration measurement | must be | specified | | \"or the reference of the harmonised standard applied, must be specified\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1192,
+   "prompt_tokens": 470,
+   "total_tokens": 1662,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 639,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000643,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000643,
+   "gateway_cost": 0.000643
+  }
+ }
+}

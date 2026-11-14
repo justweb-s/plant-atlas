@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.1.2.6\n\n4.1.2.6. Control of movements Devices for controlling movements shall act in such a way that the machinery or related product on which they are installed is kept safe. (a) Machinery or related products shall be designed and constructed or fitted with devices in such a way that the amplitude of movement of its components is kept within the specified limits. The operation of such devices shall, where appropriate, be preceded by a warning; (b) Where several fixed or rail-mounted machinery or related products can be manoeuvred simultaneously in the same place, with risks of collision, such machinery shall be designed and constructed in such a way as to make it possible to fit systems enabling these risks to be avoided; (c) Machinery or related products shall be designed and constructed in such a way that the loads cannot creep dangerously or fall freely and unexpectedly, even in the event of partial or total failure of the power supply or when the operator stops operating the machinery; (d) It shall not be possible, under normal operating conditions, to lower the load solely by friction brake, except in the case of machinery or related products whose function requires it to operate in that way; (e) Holding devices shall be designed and constructed in such a way that inadvertent dropping of the loads is avoided."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related products | shall be designed and constructed or fitted with devices so that the amplitude of movement of components is kept within specified limits | | The amplitude of movement of its components is kept within the specified limits. Where appropriate, the operation of such devices shall be preceded by a warning\nDevices for controlling movements | shall act so that the machinery on which they are installed is kept safe | | Devices for controlling movements shall act in such a way that the machinery or related product on which they are installed is kept safe.\nOperation of movement-control devices | shall be preceded by a warning | where appropriate | The operation of such devices shall, where appropriate, be preceded by a warning\nSeveral fixed or rail-mounted machinery manoeuvred simultaneously in the same place | shall be designed to make it possible to fit systems avoiding collision risks | where collision risks exist | Where several fixed or rail-mounted machinery or related products can be manoeuvred simultaneously in the same place, with risks of collision, such machinery shall be designed and constructed in such a way as to make it possible to fit systems enabling these risks to be avoided\nMachinery or related products | shall be designed so loads cannot creep dangerously or fall freely and unexpectedly | even in the event of partial or total power supply failure or when the operator stops operating the machinery | Machinery or related products shall be designed and constructed in such a way that the loads cannot creep dangerously or fall freely and unexpectedly, even in the event of partial or total failure of the power supply or when the operator stops operating the machinery\nLowering a load solely by friction brake | shall not be possible under normal operating conditions | except where the machinery's function requires it to operate that way | It shall not be possible, under normal operating conditions, to lower the load solely by friction brake, except in the case of machinery or related products whose function requires it to operate in that way\nHolding devices | shall be designed so inadvertent dropping of loads is avoided | | Holding devices shall be designed and constructed in such a way that inadvertent dropping of the loads is avoided.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1093,
+   "prompt_tokens": 597,
+   "total_tokens": 1690,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 423,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006062,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006062,
+   "gateway_cost": 0.0006062
+  }
+ }
+}

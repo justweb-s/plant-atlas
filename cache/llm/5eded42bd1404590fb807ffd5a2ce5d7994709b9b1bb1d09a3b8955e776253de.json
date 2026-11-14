@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 77\n\n8. Installation 8.6. Safety I/O Safety I/O This section describes dedicated safety input (Yellow terminal with red text) and configurable I/O (Yellow terminals with black text) when configured as safety I/O. Safety devices and equipment must be installed according to the safety instructions and the risk assessment in chapter Safety. All safety I/O are paired (redundant), so a single fault does not cause loss of the safety function. However, the safety I/O must be kept as two separate branches. The permanent safety input types are: • Robot Emergency Stop for emergency stop equipment only • Safeguard Stop for protective devices • 3PE Stop for protective devices Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Table The functional difference is shown below. Emergency Safeguard Stop 3PE Stop Stop Robot stops moving Yes Yes Yes Program execution Pauses Pauses Pauses Drive power Off On On Automatic or Automatic or Reset Manual manual manual Every cycle to Every cycle to Frequency of use Infrequent infrequent infrequent Brake release Requires re-initialization No No only Stop Category (IEC 60204-1) 1 2 2 Performance level of monitoring PLd PLd PLd function (ISO 13849-1) Safety Use the configurable I/O to set up additional safety I/O functionality, e.g. Emergency Stop caution Output. Use the PolyScope interface to define a set of configurable I/O for safety functions. CAUTION Failure to verify and test the safety functions regularly can lead to hazardous situations. • Safety functions shall be verified before putting the robot into operation. • Safety functions shall be tested regularly. User Manual 80 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety I/O | arePaired | redundant | \"\" | All safety I/O are paired (redundant), so a single fault does not cause loss of the safety function.\nSafety I/O | mustBeKeptAs | two separate branches | \"\" | However, the safety I/O must be kept as two separate branches.\nSafety devices and equipment | mustBeInstalledAccordingTo | the safety instructions and the risk assessment in chapter Safety | \"\" | Safety devices and equipment must be installed according to the safety instructions and the risk assessment in chapter Safety.\nRobot Emergency Stop | isIntendedFor | emergency stop equipment only | \"\" | Robot Emergency Stop for emergency stop equipment only\nSafeguard Stop | isIntendedFor | protective devices | \"\" | Safeguard Stop for protective devices\nEmergency Stop | setsDrivePower | Off | \"\" | Emergency Stop Safeguard Stop 3PE Stop ... Drive power Off On On\nEmergency Stop | requiresBrakeReleaseReinitialization | Yes | \"\" | Brake release Requires re-initialization No No only\nEmergency Stop | hasStopCategory | 1 (IEC 60204-1) | \"\" | Stop Category (IEC 60204-1) 1 2 2\nSafeguard Stop | hasStopCategory | 2 (IEC 60204-1) | \"\" | Stop Category (IEC 60204-1) 1 2 2\n3PE Stop | hasStopCategory | 2 (IEC 60204-1) | \"\" | Stop Category (IEC 60204-1) 1 2 2\nEmergency Stop, Safeguard Stop, 3PE Stop | havePerformanceLevel | PLd (ISO 13849-1) | \"\" | Performance level of monitoring function (ISO 13849-1) PLd PLd PLd\nSafety functions | mustBeVerifiedBefore | putting the robot into operation | \"\" | Safety functions shall be verified before putting the robot into operation.\nSafety functions | mustBeTestedRegularly | regularly | \"\" | Safety functions shall be tested regularly.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1593,
+   "prompt_tokens": 792,
+   "total_tokens": 2385,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 875,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008757,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008757,
+   "gateway_cost": 0.0008757
+  }
+ }
+}

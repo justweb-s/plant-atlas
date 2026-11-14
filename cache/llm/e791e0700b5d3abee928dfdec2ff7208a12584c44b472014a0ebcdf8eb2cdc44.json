@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex VII\n\nANNEX VII EU TYPE-EXAMINATION (Module B) 1. EU type-examination is the part of a conformity assessment procedure in which a notified body examines the technical design of machinery or a related product and verifies and attests that the technical design of the machinery or related product meets the applicable requirements of this Regulation. 2. EU type-examination shall be carried out by assessment of the adequacy of the technical design of the machinery or related product through examination of the technical documentation, plus examination of a specimen of the machinery or related product that is representative of the production envisaged (production type)."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "notified body | examinesTechnicalDesign | technical design of machinery or related product | | a notified body examines the technical design of machinery or a related product\nnotified body | verifiesAndAttests | technical design meets applicable requirements of this Regulation | | verifies and attests that the technical design of the machinery or related product meets the applicable requirements of this Regulation\nEU type-examination | isPartOf | conformity assessment procedure | | EU type-examination is the part of a conformity assessment procedure\nEU type-examination | assesses | adequacy of technical design | | by assessment of the adequacy of the technical design of the machinery or related product\nEU type-examination | includesExaminationOf | technical documentation | | through examination of the technical documentation\nEU type-examination | includesExaminationOf | specimen representative of production envisaged | | plus examination of a specimen of the machinery or related product that is representative of the production envisaged (production type)",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 683,
+   "prompt_tokens": 387,
+   "total_tokens": 1070,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 381,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003802,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003802,
+   "gateway_cost": 0.0003802
+  }
+ }
+}

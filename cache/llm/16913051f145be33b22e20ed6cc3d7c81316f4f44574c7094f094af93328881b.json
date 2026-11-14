@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 3.6.3.1\n\n3.6.3.1. Vibrations The instructions must give the following information concerning vibrations transmitted by the machinery to the hand-arm system or to the whole body: — the vibration total value to which the hand-arm system is subjected, if it exceeds 2,5 m/s 2 . Where this value does not exceed 2,5 m/s 2 , this must be mentioned, — the highest root mean square value of weighted acceleration to which the whole body is subjected, if it exceeds 0,5 m/s 2 . Where this value does not exceed 0,5 m/s 2 , this must be mentioned, — the uncertainty of measurement. These values must be either those actually measured for the machinery in question or those established on the basis of measurements taken for technically comparable machinery which is representative of the machinery to be produced. Where harmonised standards are not applied, the vibration must be measured using the most appropriate measurement code for the machinery concerned. The operating conditions during measurement and the measurement codes used must be described."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Instructions | mustGiveHandArmVibrationTotal | vibration total value to which the hand-arm system is subjected | exceeds 2.5 m/s² | the vibration total value to which the hand-arm system is subjected, if it exceeds 2,5 m/s 2\nInstructions | mustStateHandArmValueBelowThreshold | that the hand-arm vibration value does not exceed 2.5 m/s² | value does not exceed 2.5 m/s² | Where this value does not exceed 2,5 m/s 2 , this must be mentioned\nInstructions | mustGiveWholeBodyVibrationValue | highest root mean square value of weighted acceleration to which the whole body is subjected | exceeds 0.5 m/s² | the highest root mean square value of weighted acceleration to which the whole body is subjected, if it exceeds 0,5 m/s 2\nInstructions | mustStateWholeBodyValueBelowThreshold | that the whole-body value does not exceed 0.5 m/s² | value does not exceed 0.5 m/s² | Where this value does not exceed 0,5 m/s 2 , this must be mentioned\nInstructions | mustGiveUncertaintyOfMeasurement | uncertainty of measurement for the vibration values | | the uncertainty of measurement\nVibration values | mustBeMeasuredOrEstablished | either those actually measured for the machinery in question or those established from measurements on technically comparable representative machinery | | These values must be either those actually measured for the machinery in question or those established on the basis of measurements taken for technically comparable machinery which is representative of the machinery to be produced\nVibration | mustBeMeasuredWithAppropriateCode | measured using the most appropriate measurement code for the machinery concerned | harmonised standards are not applied | Where harmonised standards are not applied, the vibration must be measured using the most appropriate measurement code for the machinery concerned\nOperating conditions during measurement | mustBeDescribed | operating conditions and measurement codes used | | The operating conditions during measurement and the measurement codes used must be described",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1170,
+   "prompt_tokens": 534,
+   "total_tokens": 1704,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 470,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006384,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006384,
+   "gateway_cost": 0.0006384
+  }
+ }
+}

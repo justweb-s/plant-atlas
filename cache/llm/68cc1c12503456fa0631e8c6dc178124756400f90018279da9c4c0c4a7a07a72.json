@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.7.3\n\n1.7.3. Marking of machinery All machinery must be marked visibly, legibly and indelibly with the following minimum particulars: — the business name and full address of the manufacturer and, where applicable, his authorised representative, — designation of the machinery, — the CE Marking (see Annex III), — designation of series or type, — serial number, if any, — the year of construction, that is the year in which the manufacturing process is completed. It is prohibited to pre-date or post-date the machinery when affixing the CE marking. Furthermore, machinery designed and constructed for use in a potentially explosive atmosphere must be marked accordingly. Machinery must also bear full information relevant to its type and essential for safe use. Such information is subject to the requirements set out in section 1.7.1. Where a machine part must be handled during use with lifting equipment, its mass must be indicated legibly, indelibly and unambiguously."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "All machinery | mustBeMarked | visibly, legibly and indelibly with the following minimum particulars | | All machinery must be marked visibly, legibly and indelibly with the following minimum particulars\nMarking | includes | the business name and full address of the manufacturer | | the business name and full address of the manufacturer and, where applicable, his authorised representative\nMarking | includes | the business name and full address of the authorised representative | where applicable | where applicable, his authorised representative\nMachinery | mustBearDesignation | designation of the machinery | | designation of the machinery\nMachinery | mustBearCEMarking | the CE Marking (see Annex III) | | the CE Marking (see Annex III)\nMachinery | mustBearSeriesOrTypeDesignation | designation of series or type | | designation of series or type\nMachinery | mustBearSerialNumber | serial number | if any | serial number, if any\nMachinery | mustBearYearOfConstruction | the year in which the manufacturing process is completed | | the year of construction, that is the year in which the manufacturing process is completed\nCE marking | mustNotBePreOrPostDated | the machinery when affixing the CE marking | | It is prohibited to pre-date or post-date the machinery when affixing the CE marking\nMachinery designed for potentially explosive atmosphere | mustBeMarkedAccordingly | marked accordingly | designed and constructed for use in a potentially explosive atmosphere | machinery designed and constructed for use in a potentially explosive atmosphere must be marked accordingly\nMachinery | mustBearSafeUseInformation | full information relevant to its type and essential for safe use | | Machinery must also bear full information relevant to its type and essential for safe use\nSafe-use information | subjectTo | the requirements set out in section 1.7.1 | | Such information is subject to the requirements set out in section 1.7.1\nMachine part handled during use with lifting equipment | mustHaveMassIndicated | its mass, legibly, indelibly and unambiguously | must be handled during use with lifting equipment | its mass must be indicated legibly, indelibly and unambiguously",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1451,
+   "prompt_tokens": 499,
+   "total_tokens": 1950,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 744,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007754,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007754,
+   "gateway_cost": 0.0007754
+  }
+ }
+}

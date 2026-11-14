@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 13(1)\n\nArticle 13 Procedure for partly completed machinery. 1. The manufacturer of partly completed machinery or his authorised representative shall, before placing it on the market, ensure that: (a) the relevant technical documentation described in Annex VII, part B is prepared; (b) assembly instructions described in Annex VI are prepared; (c) a declaration of incorporation described in Annex II, part 1, Section B has been drawn up."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturer of partly completed machinery or authorised representative | shall ensure that technical documentation is prepared | relevant technical documentation described in Annex VII, part B | before placing the machinery on the market | \"shall, before placing it on the market, ensure that: (a) the relevant technical documentation described in Annex VII, part B is prepared\"\nManufacturer of partly completed machinery or authorised representative | shall ensure that assembly instructions are prepared | assembly instructions described in Annex VI | before placing the machinery on the market | \"(b) assembly instructions described in Annex VI are prepared\"\nManufacturer of partly completed machinery or authorised representative | shall ensure that a declaration is drawn up | declaration of incorporation described in Annex II, part 1, Section B | before placing the machinery on the market | \"(c) a declaration of incorporation described in Annex II, part 1, Section B has been drawn up\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 701,
+   "prompt_tokens": 344,
+   "total_tokens": 1045,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 396,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003849,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003849,
+   "gateway_cost": 0.0003849
+  }
+ }
+}

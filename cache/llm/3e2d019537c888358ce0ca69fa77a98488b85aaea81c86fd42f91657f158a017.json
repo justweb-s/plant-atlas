@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 3(16)\n\n(16) ‘substantial modification’ means a modification of machinery or a related product, by physical or digital means after that machinery or related product has been placed on the market or put into service, which is not foreseen or planned by the manufacturer, and which affects the safety of that machinery or related product, by creating a new hazard, or by increasing an existing risk, which requires: (a) the addition of guards or protective devices to that machinery or related product the processing of which necessitates the modification of the existing safety control system; or (b) the adoption of additional protective measures to ensure the stability or mechanical strength of that machinery or related product;"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "substantial modification | meansModificationOf | machinery or a related product | modification made by physical or digital means after the product has been placed on the market or put into service | \"a modification of machinery or a related product, by physical or digital means after that machinery or related product has been placed on the market or put into service\"\nmodification | isNotForeseenOrPlannedBy | the manufacturer | the modification must also affect safety to qualify as substantial | \"which is not foreseen or planned by the manufacturer\"\nmodification | affectsSafetyBy | creating a new hazard or increasing an existing risk | \"\" | \"which affects the safety of that machinery or related product, by creating a new hazard, or by increasing an existing risk\"\nsubstantial modification | requires | addition of guards or protective devices | the processing necessitates modification of the existing safety control system | \"(a) the addition of guards or protective devices to that machinery or related product the processing of which necessitates the modification of the existing safety control system\"\nsubstantial modification | requires | adoption of additional protective measures to ensure stability or mechanical strength | alternative to the requirement in point (a) | \"(b) the adoption of additional protective measures to ensure the stability or mechanical strength of that machinery or related product\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1116,
+   "prompt_tokens": 396,
+   "total_tokens": 1512,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 724,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005976,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005976,
+   "gateway_cost": 0.0005976
+  }
+ }
+}

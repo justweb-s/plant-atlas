@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 6.1.1\n\n6.1.1. Mechanical strength The carrier, including any trapdoors, must be designed and constructed in such a way as to offer the space and strength corresponding to the maximum number of persons permitted on the carrier and the maximum working load. The working coefficients for components set out in sections 4.1.2.4 and 4.1.2.5 are inadequate for machinery intended for the lifting of persons and must, as a general rule, be doubled. Machinery intended for lifting persons or persons and goods must be fitted with a suspension or supporting system for the carrier designed and constructed in such a way as to ensure an adequate overall level of safety and to prevent the risk of the carrier falling. If ropes or chains are used to suspend the carrier, as a general rule, at least two independent ropes or chains are required, each with its own anchorage."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery for lifting persons | mustBeFittedWith | suspension or supporting system for the carrier designed to ensure adequate overall safety and prevent the risk of the carrier falling | \"\" | \"Machinery intended for lifting persons or persons and goods must be fitted with a suspension or supporting system for the carrier designed and constructed in such a way as to ensure an adequate overall level of safety and to prevent the risk of the carrier falling\"\nThe carrier, including any trapdoors | mustOfferSpaceAndStrength | corresponding to the maximum number of persons permitted on the carrier and the maximum working load | \"\" | \"must be designed and constructed in such a way as to offer the space and strength corresponding to the maximum number of persons permitted on the carrier and the maximum working load\"\nWorking coefficients for components in sections 4.1.2.4 and 4.1.2.5 | areInadequateFor | machinery intended for lifting persons | \"\" | \"The working coefficients for components set out in sections 4.1.2.4 and 4.1.2.5 are inadequate for machinery intended for the lifting of persons\"\nWorking coefficients for components in sections 4.1.2.4 and 4.1.2.5 | mustBeDoubled | machinery intended for lifting persons | as a general rule | \"must, as a general rule, be doubled\"\nCarrier suspended by ropes or chains | requiresAtLeast | two independent ropes or chains | as a general rule | \"at least two independent ropes or chains are required\"\nEach suspension rope or chain | mustHaveOwnAnchorage | its own anchorage | carrier suspended by ropes or chains, as a general rule | \"each with its own anchorage\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1053,
+   "prompt_tokens": 475,
+   "total_tokens": 1528,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 494,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000574,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000574,
+   "gateway_cost": 0.000574
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.1.6\n\n1.1.6. Ergonomics Under the intended conditions of use, the discomfort, fatigue and physical and psychological stress faced by the operator shall be eliminated or reduced to the minimum possible, taking into account at least, the following ergonomic principles: (a) allowing for the variability of the operator’s physical dimensions, strength and stamina; (b) avoiding the need for demanding work postures or movements and manual force exertions that exceed the operator’s capacity; (c) providing enough space for movements of the parts of the operator’s body; (d) avoiding a machine-determined work rate; (e) avoiding monitoring that requires lengthy concentration; (f) adapting the human-machine interface to the foreseeable characteristics of the operators, including with respect to machinery or a related product with intended fully or partially self-evolving behaviour or logic that is designed to operate with varying levels of autonomy; (g) where relevant, adapting machinery or a related product with intended fully or partially self-evolving behaviour or logic that is designed to operate with varying levels of autonomy to respond to people adequately and appropriately (such as verbally through words and non-verbally through gestures, facial expressions or body movement) and to communicate its planned actions (such as what it is going to do and why) to operators in a comprehensible manner."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "operator discomfort, fatigue and stress | shall be eliminated or reduced | to the minimum possible | under the intended conditions of use | \"the discomfort, fatigue and physical and psychological stress faced by the operator shall be eliminated or reduced to the minimum possible\"\nmachinery design | shallAllowForOperatorVariability | variability of the operator's physical dimensions, strength and stamina | taking into account at least the listed ergonomic principles | \"allowing for the variability of the operator's physical dimensions, strength and stamina\"\nmachinery design | shallAvoidDemandingPostures | demanding work postures or movements and manual force exertions exceeding the operator's capacity | \"\" | \"avoiding the need for demanding work postures or movements and manual force exertions that exceed the operator's capacity\"\nmachinery design | shallProvideSpaceForMovement | enough space for movements of the parts of the operator's body | \"\" | \"providing enough space for movements of the parts of the operator's body\"\nmachinery design | shallAvoidMachineDeterminedWorkRate | a machine-determined work rate | \"\" | \"avoiding a machine-determined work rate\"\nmachinery design | shallAvoidLengthyMonitoring | monitoring that requires lengthy concentration | \"\" | \"avoiding monitoring that requires lengthy concentration\"\nhuman-machine interface | shallBeAdaptedToOperators | the foreseeable characteristics of the operators | machinery with intended fully or partially self-evolving behaviour or logic designed to operate with varying levels of autonomy | \"adapting the human-machine interface to the foreseeable characteristics of the operators\"\nself-evolving machinery | shallRespondToPeople | people adequately and appropriately, verbally or non-verbally | where relevant | \"to respond to people adequately and appropriately (such as verbally through words and non-verbally through gestures, facial expressions or body movement)\"\nself-evolving machinery | shallCommunicatePlannedActions | its planned actions, including what it is going to do and why, to operators in a comprehensible manner | where relevant | \"to communicate its planned actions (such as what it is going to do and why) to operators in a comprehensible manner\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1675,
+   "prompt_tokens": 633,
+   "total_tokens": 2308,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 952,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009008,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009008,
+   "gateway_cost": 0.0009008
+  }
+ }
+}

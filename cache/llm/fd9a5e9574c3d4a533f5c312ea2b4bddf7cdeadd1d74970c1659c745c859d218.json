@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.1.7\n\n1.1.7. Operating positions The operating position must be designed and constructed in such a way as to avoid any risk due to exhaust gases and/or lack of oxygen. If the machinery is intended to be used in a hazardous environment presenting risks to the health and safety of the operator or if the machinery itself gives rise to a hazardous environment, adequate means must be provided to ensure that the operator has good working conditions and is protected against any foreseeable hazards. Where appropriate, the operating position must be fitted with an adequate cabin designed, constructed and/or equipped to fulfil the above requirements. The exit must allow rapid evacuation. Moreover, when applicable, an emergency exit must be provided in a direction which is different from the usual exit."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "operating position | must be designed and constructed to avoid | any risk due to exhaust gases and/or lack of oxygen | | must be designed and constructed in such a way as to avoid any risk due to exhaust gases and/or lack of oxygen\nmachinery | must provide | adequate means ensuring the operator has good working conditions and is protected against foreseeable hazards | machinery is intended for use in a hazardous environment presenting risks to operator health and safety, or the machinery itself gives rise to a hazardous environment | If the machinery is intended to be used in a hazardous environment presenting risks to the health and safety of the operator or if the machinery itself gives rise to a hazardous environment, adequate means must be provided to ensure that the operator has good working conditions and is protected against any foreseeable hazards\noperating position | must be fitted with | adequate cabin designed, constructed and/or equipped to fulfil the above requirements | where appropriate | Where appropriate, the operating position must be fitted with an adequate cabin designed, constructed and/or equipped to fulfil the above requirements\nexit | must allow | rapid evacuation | | The exit must allow rapid evacuation\nemergency exit | must be provided | in a direction different from the usual exit | when applicable | when applicable, an emergency exit must be provided in a direction which is different from the usual exit",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 808,
+   "prompt_tokens": 449,
+   "total_tokens": 1257,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 368,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004489,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004489,
+   "gateway_cost": 0.0004489
+  }
+ }
+}

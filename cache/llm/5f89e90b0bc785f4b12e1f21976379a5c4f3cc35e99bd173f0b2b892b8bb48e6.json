@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.3.2\n\n1.3.2. Risk of break-up during operation The various parts of machinery or related products and their linkages shall be able to withstand the stresses to which they are subject when used. The durability of the materials used shall be adequate for the nature of the working environment foreseen by the manufacturer, in particular as regards the phenomena of fatigue, ageing, corrosion and abrasion. The instructions for use shall indicate the type and frequency of inspections and maintenance required for safety reasons. They shall, where appropriate, indicate the parts subject to wear and the criteria for replacement. Where a risk of rupture or disintegration remains despite the measures taken, the parts concerned shall be mounted, positioned or guarded in such a way that any fragments will be contained, preventing hazardous situations. Both rigid and flexible pipes carrying fluids, particularly those under high pressure, shall be able to withstand the foreseen internal and external stresses and shall be firmly attached or protected to ensure that no risk is presented by a rupture. Where the material to be processed is fed to the tool automatically, the following conditions shall be fulfilled to avoid risks to persons: (a) when the work piece comes into contact with the tool, the latter shall have attained its normal working condition; (b) when the tool starts and/or stops (intentionally or accidentally), the feed movement and the tool movement shall be coordinated."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "The various parts of machinery or related products and their linkages | shall withstand | the stresses to which they are subject | when used | \"The various parts of machinery or related products and their linkages shall be able to withstand the stresses to which they are subject when used.\"\ndurability of the materials used | shall be adequate | the nature of the working environment foreseen by the manufacturer | as regards fatigue, ageing, corrosion and abrasion | \"The durability of the materials used shall be adequate for the nature of the working environment foreseen by the manufacturer, in particular as regards the phenomena of fatigue, ageing, corrosion and abrasion.\"\ninstructions for use | shall indicate | type and frequency of inspections and maintenance required for safety reasons | \"\" | \"The instructions for use shall indicate the type and frequency of inspections and maintenance required for safety reasons.\"\ninstructions for use | shall indicate | parts subject to wear and the criteria for replacement | where appropriate | \"They shall, where appropriate, indicate the parts subject to wear and the criteria for replacement.\"\nparts concerned | shall be mounted, positioned or guarded | so that any fragments will be contained | where a risk of rupture or disintegration remains despite the measures taken | \"Where a risk of rupture or disintegration remains despite the measures taken, the parts concerned shall be mounted, positioned or guarded in such a way that any fragments will be contained, preventing hazardous situations.\"\nrigid and flexible pipes carrying fluids | shall withstand | the foreseen internal and external stresses | particularly those under high pressure | \"Both rigid and flexible pipes carrying fluids, particularly those under high pressure, shall be able to withstand the foreseen internal and external stresses...\"\nrigid and flexible pipes carrying fluids | shall be firmly attached or protected | so that no risk is presented by a rupture | \"\" | \"...and shall be firmly attached or protected to ensure that no risk is presented by a rupture.\"\ntool fed automatically with material | shall have attained its normal working condition | before the work piece comes into contact with the tool | where the material to be processed is fed to the tool automatically | \"(a) when the work piece comes into contact with the tool, the latter shall have attained its normal working condition;\"\nfeed movement and tool movement | shall be coordinated | when the tool starts and/or stops | whether intentional or accidental | \"(b) when the tool starts and/or stops (intentionally or accidentally), the feed movement and the tool movement shall be coordinated.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1510,
+   "prompt_tokens": 656,
+   "total_tokens": 2166,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 688,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008206,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008206,
+   "gateway_cost": 0.0008206
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.1.2.5\n\n4.1.2.5. Lifting accessories and their components Lifting accessories and their components shall be sized with due regard to fatigue and ageing processes for a number of operating cycles consistent with their expected life-span as specified in the operating conditions for a given application. Moreover: (a) the working coefficient of wire-rope/rope-end combinations shall be chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 5. Ropes shall not comprise any splices or loops other than at their ends; (b) where chains with welded links are used, they shall be of the short-link type. The working coefficient of chains shall be chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 4; (c) the working coefficient for textile ropes, slings or webbing is dependent on the material, method of manufacture, dimensions and use. This coefficient shall be chosen in such a way as to guarantee an adequate level of safety; it is, as a general rule, equal to 7, provided the materials used are shown to be of very good quality and the method of manufacture is appropriate to the intended use. Should this not be the case, the coefficient is, as a general rule, set at a higher level in order to secure an equivalent level of safety. Textile ropes, slings or webbings shall not include any knots, connections or splicing other than at the ends of the sling, except in the case of an endless sling; (d) all metallic components making up, or used with, a sling shall have a working coefficient chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 4; (e) the maximum working load of a multilegged sling is determined on the basis of the working coefficient of the weakest leg, the number of legs and a reduction factor which depends on the slinging configuration; (f) in order to verify that an adequate working coefficient has been attained, the manufacturer shall, for each type of component referred to in points (a) to (d), perform the appropriate tests or have such tests performed."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Lifting accessories and their components | shall be sized with due regard to | fatigue and ageing processes for a number of operating cycles | condition: consistent with expected life-span as specified in the operating conditions for a given application | Lifting accessories and their components shall be sized with due regard to fatigue and ageing processes for a number of operating cycles consistent with their expected life-span as specified in the operating conditions for a given application\nwire-rope/rope-end combination | has, as a general rule, a working coefficient of | 5 | condition: chosen to guarantee an adequate level of safety | the working coefficient of wire-rope/rope-end combinations shall be chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 5\nropes | shall not comprise | any splices or loops other than at their ends | condition: \"\" | Ropes shall not comprise any splices or loops other than at their ends\nwelded-link chains | shall be | of the short-link type | condition: where chains with welded links are used | where chains with welded links are used, they shall be of the short-link type\nchains | have, as a general rule, a working coefficient of | 4 | condition: chosen to guarantee an adequate level of safety | this coefficient is, as a general rule, equal to 4\ntextile ropes, slings or webbing | have, as a general rule, a working coefficient of | 7 | condition: materials shown to be of very good quality and manufacture appropriate to the intended use | it is, as a general rule, equal to 7, provided the materials used are shown to be of very good quality and the method of manufacture is appropriate to the intended use\ntextile ropes, slings or webbings | shall not include | any knots, connections or splicing other than at the ends of the sling | condition: except in the case of an endless sling | Textile ropes, slings or webbings shall not include any knots, connections or splicing other than at the ends of the sling, except in the case of an endless sling\nmetallic components of a sling | have a working coefficient of | 4 as a general rule, chosen to guarantee an adequate level of safety | condition: \"\" | all metallic components making up, or used with, a sling shall have a working coefficient chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 4\nmaximum working load of a multilegged sling | is determined on the basis of | the working coefficient of the weakest leg, the number of legs and a reduction factor depending on the slinging configuration | condition: \"\" | the maximum working load of a multilegged sling is determined on the basis of the working coefficient of the weakest leg, the number of legs and a reduction factor which depends on the slinging configuration\nmanufacturer | shall perform or have performed | appropriate tests verifying an adequate working coefficient for each component type in points (a) to (d) | condition: \"\" | the manufacturer shall, for each type of component referred to in points (a) to (d), perform the appropriate tests or have such tests performed",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1487,
+   "prompt_tokens": 875,
+   "total_tokens": 2362,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 518,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000831,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000831,
+   "gateway_cost": 0.000831
+  }
+ }
+}

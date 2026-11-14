@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS69, art. 69, c. 1\n\n1. Agli effetti delle disposizioni di cui al presente titolo si intende per: a) attrezzatura di lavoro: qualsiasi macchina, apparecchio, utensile o impianto, inteso come il complesso di macchine, attrezzature e componenti necessari all'attuazione di un processo produttivo, destinato ad essere usato durante il lavoro; b) uso di una attrezzatura di lavoro: qualsiasi operazione lavorativa connessa ad una attrezzatura di lavoro, quale la messa in servizio o fuori servizio, l'impiego, il trasporto, la riparazione, la trasformazione, la manutenzione, la pulizia, il montaggio, lo smontaggio; c) zona pericolosa: qualsiasi zona all'interno ovvero in prossimità di una attrezzatura di lavoro nella quale la presenza di un lavoratore costituisce un rischio per la salute o la sicurezza dello stesso; d) lavoratore esposto: qualsiasi lavoratore che si trovi interamente o in parte in una zona pericolosa; e) operatore: il lavoratore incaricato dell'uso di una attrezzatura di lavoro ((o il datore di lavoro che ne fa uso)) ."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "attrezzatura di lavoro | è definita come | qualsiasi macchina, apparecchio, utensile o impianto, inteso come il complesso di macchine, attrezzature e componenti necessari all'attuazione di un processo produttivo | destinato ad essere usato durante il lavoro | a) attrezzatura di lavoro: qualsiasi macchina, apparecchio, utensile o impianto\nuso di una attrezzatura di lavoro | comprende | qualsiasi operazione lavorativa connessa ad una attrezzatura di lavoro, quale la messa in servizio o fuori servizio, l'impiego, il trasporto, la riparazione, la trasformazione, la manutenzione, la pulizia, il montaggio, lo smontaggio | | b) uso di una attrezzatura di lavoro: qualsiasi operazione lavorativa connessa ad una attrezzatura di lavoro\nzona pericolosa | è definita come | qualsiasi zona all'interno ovvero in prossimità di una attrezzatura di lavoro nella quale la presenza di un lavoratore costituisce un rischio per la salute o la sicurezza dello stesso | | c) zona pericolosa: qualsiasi zona all'interno ovvero in prossimità di una attrezzatura di lavoro\nlavoratore esposto | è definito come | qualsiasi lavoratore che si trovi interamente o in parte in una zona pericolosa | | d) lavoratore esposto: qualsiasi lavoratore che si trovi interamente o in parte in una zona pericolosa\noperatore | è definito come | il lavoratore incaricato dell'uso di una attrezzatura di lavoro | | e) operatore: il lavoratore incaricato dell'uso di una attrezzatura di lavoro\noperatore | include | il datore di lavoro che ne fa uso | il datore di lavoro fa uso dell'attrezzatura | e) operatore: ... ((o il datore di lavoro che ne fa uso))\ndefinizioni del comma 1 | valgono | agli effetti delle disposizioni di cui al presente titolo | ai fini delle disposizioni del presente titolo | Agli effetti delle disposizioni di cui al presente titolo si intende per",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1262,
+   "prompt_tokens": 634,
+   "total_tokens": 1896,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 500,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006944,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006944,
+   "gateway_cost": 0.0006944
+  }
+ }
+}

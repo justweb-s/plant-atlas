@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 2.3\n\n2.3. Machinery or related products for working wood and material with similar physical characteristics Machinery or related products for working wood and materials with similar physical characteristics shall comply with the following requirements: (a) the machinery or related product shall be designed, constructed or equipped in such a way that the piece being machined can be placed and guided in safety; where the piece is hand-held on a work-bench, the latter shall be sufficiently stable during the work and shall not impede the movement of the piece; (b) where the machinery or related product is likely to be used in conditions involving the risk of ejection of work pieces or parts of them, it shall be designed, constructed, or equipped in such a way as to prevent such ejection, or, if this is not possible, so that the ejection does not engender risks for the operator and/or exposed persons; (c) the machinery or related product shall be equipped with an automatic brake that stops the tool in a sufficiently short time if there is a risk of contact with the tool whilst it runs down; (d) where the tool is incorporated into non-fully automated machinery or a related product, that machinery or related product shall be designed and constructed in such a way as to eliminate or reduce the risk of accidental injury."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "machinery or related product for working wood | shallBeDesignedSoThat | piece being machined can be placed and guided in safety | | the piece being machined can be placed and guided in safety\nwork-bench for hand-held piece | shallBeSufficientlyStable | during the work | where the piece is hand-held on a work-bench | the latter shall be sufficiently stable during the work\nwork-bench for hand-held piece | shallNotImpede | movement of the piece | where the piece is hand-held on a work-bench | shall not impede the movement of the piece\nmachinery likely to eject work pieces | shallPreventEjectionOrLimitRisk | ejection does not engender risks for operator or exposed persons | where prevention of ejection is not possible | so that the ejection does not engender risks for the operator and/or exposed persons\nmachinery or related product | shallBeEquippedWith | automatic brake that stops the tool in a sufficiently short time | if there is a risk of contact with the tool whilst it runs down | shall be equipped with an automatic brake that stops the tool in a sufficiently short time if there is a risk of contact with the tool whilst it runs down\nnon-fully automated machinery with incorporated tool | shallEliminateOrReduce | risk of accidental injury | | shall be designed and constructed in such a way as to eliminate or reduce the risk of accidental injury",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1040,
+   "prompt_tokens": 586,
+   "total_tokens": 1626,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 594,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005786,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005786,
+   "gateway_cost": 0.0005786
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 3(3)\n\n(3) ‘safety component’ means a physical or digital component, including software, of a product within the scope of this Regulation, which is designed or intended to fulfil a safety function and which is independently placed on the market, the failure or malfunction of which endanger the safety of persons, but which is not necessary in order for that product to function or for which normal components may be substituted in order for that product to function;"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "safety component | isDefinedAs | physical or digital component, including software, of a product within the scope of this Regulation | designed or intended to fulfil a safety function and independently placed on the market | ‘safety component’ means a physical or digital component, including software, of a product within the scope of this Regulation\nsafety component | hasSafetyFunction | designed or intended to fulfil a safety function | independently placed on the market | which is designed or intended to fulfil a safety function and which is independently placed on the market\nsafety component | hasFailureConsequence | failure or malfunction endangers the safety of persons | \"\" | the failure or malfunction of which endanger the safety of persons\nsafety component | isNotNecessaryForProductFunction | product function | not necessary for the product to function, or normal components may be substituted for it | but which is not necessary in order for that product to function or for which normal components may be substituted in order for that product to function",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 785,
+   "prompt_tokens": 321,
+   "total_tokens": 1106,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 496,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004246,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004246,
+   "gateway_cost": 0.0004246
+  }
+ }
+}

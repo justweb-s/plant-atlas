@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 9(1)\n\nArticle 9 Specific measures to deal with potentially hazardous machinery. 1. When, in accordance with the procedure referred to in Article 10, the Commission considers that a harmonised standard does not entirely satisfy the essential health and safety requirements which it covers and which are set out in Annex I, the Commission may, in accordance with paragraph 3 of this Article, take measures requiring Member States to prohibit or restrict the placing on the market of machinery with technical characteristics presenting risks due to the shortcomings in the standard or to make such machinery subject to special conditions. When, in accordance with the procedure referred to in Article 11, the Commission considers that a measure taken by a Member State is justified, the Commission may, in accordance with paragraph 3 of this Article, take measures requiring Member States to prohibit or restrict the placing on the market of machinery presenting the same risk by virtue of its technical characteristics or to make such machinery subject to special conditions."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Commission | may take measures requiring Member States to prohibit or restrict placing on market | machinery with technical characteristics presenting risks due to shortcomings in the standard | Commission considers, under Article 10 procedure, that a harmonised standard does not entirely satisfy the essential health and safety requirements it covers | \"the Commission may, in accordance with paragraph 3 of this Article, take measures requiring Member States to prohibit or restrict the placing on the market of machinery with technical characteristics presenting risks due to the shortcomings in the standard\"\nCommission | may make machinery subject to special conditions | machinery with technical characteristics presenting risks due to shortcomings in the standard | Commission considers, under Article 10 procedure, that a harmonised standard does not entirely satisfy the essential health and safety requirements it covers | \"or to make such machinery subject to special conditions\"\nCommission | considers harmonised standard does not entirely satisfy essential health and safety requirements | harmonised standard | in accordance with the procedure referred to in Article 10 | \"When, in accordance with the procedure referred to in Article 10, the Commission considers that a harmonised standard does not entirely satisfy the essential health and safety requirements which it covers\"\nEssential health and safety requirements | are set out in | Annex I | \"\" | \"essential health and safety requirements which it covers and which are set out in Annex I\"\nCommission | may prohibit or restrict placing on market of machinery presenting same risk | machinery presenting the same risk by virtue of its technical characteristics | Commission considers, under Article 11 procedure, that a Member State measure is justified | \"the Commission may, in accordance with paragraph 3 of this Article, take measures requiring Member States to prohibit or restrict the placing on the market of machinery presenting the same risk by virtue of its technical characteristics\"\nCommission | may make machinery presenting same risk subject to special conditions | machinery presenting the same risk by virtue of its technical characteristics | Commission considers, under Article 11 procedure, that a Member State measure is justified | \"or to make such machinery subject to special conditions\"\nCommission | considers a Member State measure justified | Member State measure | in accordance with the procedure referred to in Article 11 | \"When, in accordance with the procedure referred to in Article 11, the Commission considers that a measure taken by a Member State is justified\"\nMeasures under this Article | are taken in accordance with | paragraph 3 of this Article | \"\" | \"in accordance with paragraph 3 of this Article\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1208,
+   "prompt_tokens": 517,
+   "total_tokens": 1725,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 377,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006557,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006557,
+   "gateway_cost": 0.0006557
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.4.2\n\n4.4.2. Lifting machinery or related products Lifting machinery or related products shall be accompanied by instructions for use containing information on: (a) the technical characteristics of the lifting machinery or related product, and in particular: (i) the maximum working load and, where appropriate, a copy of the load plate or load table described in the second paragraph of section 4.3.3; (ii) the reactions at the supports or anchors and, where appropriate, characteristics of the tracks; (iii) where appropriate, the definition and the means of installation of the ballast; (b) the contents of the logbook, if the latter is not supplied with the lifting machinery; (c) advice for use, particularly to offset the lack of direct vision of the load by the operator; (d) where appropriate, a test report detailing the static and dynamic tests carried out by or for the manufacturer; (e) for lifting machinery or related products, which are not assembled on the premises of the manufacturer in the form in which they are to be used, the necessary instructions for performing the measures referred to in section 4.1.3 before they are first put into service."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Lifting machinery or related products | beAccompaniedBy | instructions for use | \"\" | \"Lifting machinery or related products shall be accompanied by instructions for use containing information on\"\ninstructions for use | includeMaximumWorkingLoad | maximum working load | \"\" | \"(i) the maximum working load\"\ninstructions for use | includeLoadPlateCopy | copy of the load plate or load table described in the second paragraph of section 4.3.3 | where appropriate | \"where appropriate, a copy of the load plate or load table described in the second paragraph of section 4.3.3\"\ninstructions for use | includeSupportReactions | reactions at the supports or anchors | \"\" | \"(ii) the reactions at the supports or anchors\"\ninstructions for use | includeBallastDetails | definition and means of installation of the ballast | where appropriate | \"(iii) where appropriate, the definition and the means of installation of the ballast\"\ninstructions for use | includeLogbookContents | contents of the logbook | logbook not supplied with the lifting machinery | \"(b) the contents of the logbook, if the latter is not supplied with the lifting machinery\"\ninstructions for use | includeOperatorAdvice | advice for use to offset the lack of direct vision of the load by the operator | \"\" | \"(c) advice for use, particularly to offset the lack of direct vision of the load by the operator\"\ninstructions for use | includeTestReport | test report detailing the static and dynamic tests carried out by or for the manufacturer | where appropriate | \"(d) where appropriate, a test report detailing the static and dynamic tests carried out by or for the manufacturer\"\ninstructions for use | includePreServiceMeasures | necessary instructions for performing the measures referred to in section 4.1.3 before first put into service | lifting machinery or related products not assembled on the manufacturer's premises in the form in which they are to be used | \"(e) for lifting machinery or related products, which are not assembled on the premises of the manufacturer in the form in which they are to be used, the necessary instructions for performing the measures referred to in section 4.1.3 before they are first put into service\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1369,
+   "prompt_tokens": 554,
+   "total_tokens": 1923,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 679,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007399,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007399,
+   "gateway_cost": 0.0007399
+  }
+ }
+}

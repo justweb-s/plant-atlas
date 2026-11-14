@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 3.5.4\n\n3.5.4. Risk of contact with live overhead power lines Depending on their height, mobile machinery or related products shall, where relevant, be designed, constructed and equipped, so as to prevent the risk of contact with an energised overhead power line or the risk of creating an electric arc between any part of the machinery or an operator driving the machinery and an energised overhead power line. When the risk to the persons operating machinery incurred by the contact with an energised overhead power line cannot be fully avoided, mobile machinery or related products shall be designed, constructed and equipped so as to prevent any electrical hazards."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Mobile machinery or related products | shallBeDesignedToPreventContact | contact with an energised overhead power line | depending on their height, where relevant | \"Depending on their height, mobile machinery or related products shall, where relevant, be designed, constructed and equipped, so as to prevent the risk of contact with an energised overhead power line\"\nMobile machinery or related products | shallBeDesignedToPreventArcing | creation of an electric arc between any part of the machinery or operator and an energised overhead power line | depending on their height, where relevant | \"or the risk of creating an electric arc between any part of the machinery or an operator driving the machinery and an energised overhead power line\"\nMobile machinery or related products | shallBeDesignedToPreventElectricalHazards | any electrical hazards | when the risk to operators from contact with an energised overhead power line cannot be fully avoided | \"When the risk to the persons operating machinery incurred by the contact with an energised overhead power line cannot be fully avoided, mobile machinery or related products shall be designed, constructed and equipped so as to prevent any electrical hazards.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 735,
+   "prompt_tokens": 399,
+   "total_tokens": 1134,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 371,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004074,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004074,
+   "gateway_cost": 0.0004074
+  }
+ }
+}

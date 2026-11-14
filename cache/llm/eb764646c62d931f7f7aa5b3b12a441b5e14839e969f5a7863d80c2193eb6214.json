@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.1.2\n\n1.1.2. Principles of safety integration (a) Machinery must be designed and constructed so that it is fitted for its function, and can be operated, adjusted and maintained without putting persons at risk when these operations are carried out under the conditions foreseen but also taking into account any reasonably foreseeable misuse thereof. The aim of measures taken must be to eliminate any risk throughout the foreseeable lifetime of the machinery including the phases of transport, assembly, dismantling, disabling and scrapping. (b) In selecting the most appropriate methods, the manufacturer or his authorised representative must apply the following principles, in the order given: — eliminate or reduce risks as far as possible (inherently safe machinery design and construction), — take the necessary protective measures in relation to risks that cannot be eliminated, — inform users of the residual risks due to any shortcomings of the protective measures adopted, indicate whether any particular training is required and specify any need to provide personal protective equipment. (c) When designing and constructing machinery and when drafting the instructions, the manufacturer or his authorised representative must envisage not only the intended use of the machinery but also any reasonably foreseeable misuse thereof. The machinery must be designed and constructed in such a way as to prevent abnormal use if such use would engender a risk. Where appropriate, the instructions must draw the user's attention to ways — which experience has shown might occur — in which the machinery should not be used. (d) Machinery must be designed and constructed to take account of the constraints to which the operator is subject as a result of the necessary or foreseeable use of personal protective equipment. (e) Machinery must be supplied with all the special equipment and accessories essential to enable it to be adjusted, maintained and used safely."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturer or authorised representative | must design machinery to be fit for its function and operable, adjustable and maintainable without risk to persons | when operations are carried out under the foreseen conditions, taking into account reasonably foreseeable misuse | Machinery must be designed and constructed so that it is fitted for its function, and can be operated, adjusted and maintained without putting persons at risk when these operations are carried out under the conditions foreseen but also taking into account any reasonably foreseeable misuse thereof\nMeasures taken | must aim to eliminate any risk | throughout the foreseeable lifetime of the machinery, including transport, assembly, dismantling, disabling and scrapping | | The aim of measures taken must be to eliminate any risk throughout the foreseeable lifetime of the machinery including the phases of transport, assembly, dismantling, disabling and scrapping\nManufacturer or authorised representative | must first eliminate or reduce risks as far as possible | by inherently safe design and construction, applied first in the order given | in the order given | eliminate or reduce risks as far as possible (inherently safe machinery design and construction)\nManufacturer or authorised representative | must take necessary protective measures | for risks that cannot be eliminated | | take the necessary protective measures in relation to risks that cannot be eliminated\nManufacturer or authorised representative | must inform users of residual risks | arising from any shortcomings of the protective measures adopted | | inform users of the residual risks due to any shortcomings of the protective measures adopted\nManufacturer or authorised representative | must indicate whether particular training is required and specify any need for personal protective equipment | | | indicate whether any particular training is required and specify any need to provide personal protective equipment\nManufacturer or authorised representative | must envisage reasonably foreseeable misuse | when designing and constructing machinery and drafting instructions | | envisage not only the intended use of the machinery but also any reasonably foreseeable misuse thereof\nMachinery | must be designed to prevent abnormal use | where such use would engender a risk | if such use would engender a risk | The machinery must be designed and constructed in such a way as to prevent abnormal use if such use would engender a risk\nInstructions | must draw the user's attention to ways of misuse | ways, known from experience, in which the machinery should not be used | where appropriate | Where appropriate, the instructions must draw the user's attention to ways — which experience has shown might occur — in which the machinery should not be used\nMachinery | must be designed to account for operator constraints | constraints arising from necessary or foreseeable use of personal protective equipment | | Machinery must be designed and constructed to take account of the constraints to which the operator is subject as a result of the necessary or foreseeable use of personal protective equipment\nMachinery | must be supplied with | all special equipment and accessories essential to adjust, maintain and use it safely | | Machinery must be supplied with all the special equipment and accessories essential to enable it to be adjusted, maintained and used safely",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1965,
+   "prompt_tokens": 774,
+   "total_tokens": 2739,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 972,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010599,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010599,
+   "gateway_cost": 0.0010599
+  }
+ }
+}

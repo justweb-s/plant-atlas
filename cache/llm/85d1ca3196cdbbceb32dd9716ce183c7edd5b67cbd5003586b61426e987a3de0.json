@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 26(1)\n\nArticle 26 Transposition. 1. Member States shall adopt and publish the provisions necessary to comply with this Directive by 29 June 2008 at the latest. They shall forthwith inform the Commission thereof. They shall apply those provisions with effect from 29 December 2009. When Member States adopt those provisions, they shall contain a reference to this Directive or shall be accompanied by such reference on the occasion of their official publication. Member States shall determine how such reference is to be made."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Member States | shall adopt and publish | provisions necessary to comply with this Directive | by 29 June 2008 at the latest | Member States shall adopt and publish the provisions necessary to comply with this Directive by 29 June 2008 at the latest\nMember States | shall inform | the Commission of those provisions | | They shall forthwith inform the Commission thereof\nMember States | shall apply | those provisions | with effect from 29 December 2009 | They shall apply those provisions with effect from 29 December 2009\nAdopted provisions | shall contain | a reference to this Directive | or shall be accompanied by such reference on the occasion of their official publication | When Member States adopt those provisions, they shall contain a reference to this Directive or shall be accompanied by such reference on the occasion of their official publication\nMember States | shall determine | how such reference is to be made | | Member States shall determine how such reference is to be made",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 623,
+   "prompt_tokens": 360,
+   "total_tokens": 983,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 327,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003475,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003475,
+   "gateway_cost": 0.0003475
+  }
+ }
+}

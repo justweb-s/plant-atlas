@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS73, art. 73, c. 4-bis\n\n4-bis. Il datore di lavoro che fa uso delle attrezzature che richiedono conoscenze particolari di cui all'articolo 71, comma 7, provvede alla propria formazione e al proprio addestramento specifico al fine di garantire l'utilizzo delle attrezzature in modo idoneo e sicuro. ))"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "datore di lavoro | provvedeAllaPropriaFormazione | formazione e addestramento specifico del datore di lavoro stesso | fa uso delle attrezzature che richiedono conoscenze particolari di cui all'articolo 71, comma 7 | \"Il datore di lavoro che fa uso delle attrezzature che richiedono conoscenze particolari di cui all'articolo 71, comma 7, provvede alla propria formazione e al proprio addestramento specifico\"\nformazione e addestramento | hasPurpose | garantire l'utilizzo delle attrezzature in modo idoneo e sicuro | | \"al fine di garantire l'utilizzo delle attrezzature in modo idoneo e sicuro\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 808,
+   "prompt_tokens": 324,
+   "total_tokens": 1132,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 561,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004364,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004364,
+   "gateway_cost": 0.0004364
+  }
+ }
+}

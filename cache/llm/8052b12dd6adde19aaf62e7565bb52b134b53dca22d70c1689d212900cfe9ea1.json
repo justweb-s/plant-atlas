@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGSALLVII, Allegato VII, riga 29\n\nGeneratori di calore alimentati da combustibile solido, liquido o gassoso per impianti centrali di riscaldamento utilizzanti acqua calda sotto pressione con temperatura dell'acqua non superiore alla temperatura di ebollizione alla pressione atmosferica, aventi potenzialità globale dei focolai superiore a 116 kW | Verifica quinquennale"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Generatori di calore per impianti centrali di riscaldamento | richiedono verifica | verifica quinquennale | alimentati da combustibile solido, liquido o gassoso; acqua calda sotto pressione con temperatura non superiore alla temperatura di ebollizione alla pressione atmosferica; potenzialità globale dei focolai superiore a 116 kW | \"Generatori di calore alimentati da combustibile solido, liquido o gassoso per impianti centrali di riscaldamento utilizzanti acqua calda sotto pressione con temperatura dell'acqua non superiore alla temperatura di ebollizione alla pressione atmosferica, aventi potenzialità globale dei focolai superiore a 116 kW | Verifica quinquennale\"\nGeneratori di calore per impianti centrali di riscaldamento | hanno soglia di applicazione | potenzialità globale dei focolai superiore a 116 kW | alimentati da combustibile solido, liquido o gassoso; acqua calda sotto pressione con temperatura non superiore alla temperatura di ebollizione alla pressione atmosferica | \"aventi potenzialità globale dei focolai superiore a 116 kW\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 776,
+   "prompt_tokens": 343,
+   "total_tokens": 1119,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 370,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004223,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004223,
+   "gateway_cost": 0.0004223
+  }
+ }
+}

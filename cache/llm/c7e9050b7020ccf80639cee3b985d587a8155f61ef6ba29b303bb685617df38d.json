@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 30(6)\n\nArticle 30 Requirements relating to notified bodies. 6. A conformity assessment body shall be capable of carrying out all the conformity assessment tasks assigned to it by Annexes VII, IX and X and in relation to which it has been notified, regardless of whether those tasks are carried out by the conformity assessment body itself or on its behalf and under its responsibility. At all times, and for each conformity assessment procedure and each kind of machinery or related products for which it has been notified, a conformity assessment body shall have at its disposal the necessary: (a) personnel with technical knowledge and sufficient and appropriate experience to perform the conformity assessment tasks; (b) descriptions of procedures in accordance with which conformity assessment is carried out, ensuring the transparency and the ability of reproduction of those procedures; (c) appropriate policies and procedures to distinguish between tasks that it carries out as a notified body and other activities; (d) procedures for the performance of conformity assessment activities which take due account of the size of an undertaking, the sector in which it operates, its structure, the degree of complexity of the machinery or related product technology in question and the mass or serial nature of the production process. A conformity assessment body shall have the means necessary to perform the technical and administrative tasks connected with the conformity assessment activities in an appropriate manner and shall have access to all necessary equipment or facilities."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "A conformity assessment body | shall be capable of carrying out | all conformity assessment tasks assigned to it by Annexes VII, IX and X for which it has been notified | regardless of whether those tasks are carried out by the body itself or on its behalf and under its responsibility | \"shall be capable of carrying out all the conformity assessment tasks assigned to it by Annexes VII, IX and X and in relation to which it has been notified, regardless of whether those tasks are carried out by the conformity assessment body itself or on its behalf and under its responsibility\"\nA conformity assessment body | shall have at its disposal | necessary personnel with technical knowledge and sufficient and appropriate experience to perform the conformity assessment tasks | at all times, for each conformity assessment procedure and each kind of machinery or related products for which it has been notified | \"At all times, and for each conformity assessment procedure and each kind of machinery or related products for which it has been notified, a conformity assessment body shall have at its disposal the necessary: (a) personnel with technical knowledge and sufficient and appropriate experience to perform the conformity assessment tasks\"\nA conformity assessment body | shall have at its disposal | descriptions of procedures for carrying out conformity assessment, ensuring transparency and the ability of reproduction | at all times, for each conformity assessment procedure and each kind of machinery or related products for which it has been notified | \"(b) descriptions of procedures in accordance with which conformity assessment is carried out, ensuring the transparency and the ability of reproduction of those procedures\"\nA conformity assessment body | shall have at its disposal | appropriate policies and procedures to distinguish notified body tasks from its other activities | at all times, for each conformity assessment procedure and each kind of machinery or related products for which it has been notified | \"(c) appropriate policies and procedures to distinguish between tasks that it carries out as a notified body and other activities\"\nA conformity assessment body | shall have at its disposal | procedures for conformity assessment that take due account of undertaking size, sector, structure, complexity of the machinery or related product technology, and mass or serial production | at all times, for each conformity assessment procedure and each kind of machinery or related products for which it has been notified | \"(d) procedures for the performance of conformity assessment activities which take due account of the size of an undertaking, the sector in which it operates, its structure, the degree of complexity of the machinery or related product technology in question and the mass or serial nature of the production process\"\nA conformity assessment body | shall have | the means necessary to perform the technical and administrative tasks connected with conformity assessment activities in an appropriate manner | \"\" | \"A conformity assessment body shall have the means necessary to perform the technical and administrative tasks connected with the conformity assessment activities in an appropriate manner\"\nA conformity assessment body | shall have access to | all necessary equipment or facilities | \"\" | \"shall have access to all necessary equipment or facilities\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1613,
+   "prompt_tokens": 651,
+   "total_tokens": 2264,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 648,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008716,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008716,
+   "gateway_cost": 0.0008716
+  }
+ }
+}

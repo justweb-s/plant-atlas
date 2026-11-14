@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 15(5)\n\nArticle 15 Obligations of distributors of machinery and related products. 5. Distributors who consider or have reason to believe that machinery or a related product which they have made available on the market is not in conformity with this Regulation shall make sure that the corrective actions necessary to bring that machinery or related product into conformity, to withdraw it or recall it, as appropriate, are taken. Furthermore, where the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment, distributors shall immediately inform the competent national authorities of the Member States in which they have made the machinery or related product available on the market to that effect, giving details, in particular, of the non-conformity and of any corrective actions taken."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Distributors | shall make sure | corrective actions are taken to bring the machinery or related product into conformity, or to withdraw or recall it, as appropriate | distributors consider or have reason to believe the machinery or related product they made available on the market is not in conformity with this Regulation | \"shall make sure that the corrective actions necessary to bring that machinery or related product into conformity, to withdraw it or recall it, as appropriate, are taken\"\nDistributors | shall immediately inform | competent national authorities of the Member States in which they made the machinery or related product available on the market | the machinery or related product presents a risk to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment | \"distributors shall immediately inform the competent national authorities of the Member States in which they have made the machinery or related product available on the market to that effect\"\nDistributors informing authorities | shall give details | of the non-conformity and of any corrective actions taken | the machinery or related product presents a risk as described above | \"giving details, in particular, of the non-conformity and of any corrective actions taken\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 832,
+   "prompt_tokens": 446,
+   "total_tokens": 1278,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 478,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004606,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004606,
+   "gateway_cost": 0.0004606
+  }
+ }
+}

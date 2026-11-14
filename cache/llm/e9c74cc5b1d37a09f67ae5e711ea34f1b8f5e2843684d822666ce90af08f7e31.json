@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS71, art. 71, c. 8\n\n8. Fermo restando quanto disposto al comma 4, il datore di lavoro , secondo le indicazioni fornite dai fabbricanti ovvero, in assenza di queste, dalle pertinenti norme tecniche o dalle buone prassi o da linee guida, provvede affinchè: a) le attrezzature di lavoro la cui sicurezza dipende dalle condizioni di installazione siano sottoposte a un controllo iniziale (dopo l'installazione e prima della messa in esercizio) e ad un controllo dopo ogni montaggio in un nuovo cantiere o in una nuova località di impianto, al fine di assicurarne l'installazione corretta e il buon funzionamento; b) le attrezzature soggette a influssi che possono provocare deterioramenti suscettibili di dare origine a situazioni pericolose siano sottoposte: 1. ad interventi di controllo periodici, secondo frequenze stabilite in base alle indicazioni fornite dai fabbricanti, ovvero dalle norme di buona tecnica, o in assenza di queste ultime, desumibili dai codici di buona prassi; 2. ad interventi di controllo straordinari al fine di garantire il mantenimento di buone condizioni di sicurezza, ogni volta che intervengano eventi eccezionali che possano avere conseguenze pregiudizievoli per la sicurezza delle attrezzature di lavoro, quali riparazioni, trasformazioni, incidenti, fenomeni naturali o periodi prolungati di inattività; c) Gli interventi di controllo di cui alle lettere a) e b) sono volti ad assicurare il buono stato di conservazione e l'efficienza a fini di sicurezza delle attrezzature di lavoro e devono essere effettuati da persona competente."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "datore di lavoro | provvede a sottoporre | attrezzature la cui sicurezza dipende dalle condizioni di installazione a un controllo iniziale | dopo l'installazione e prima della messa in esercizio | le attrezzature di lavoro la cui sicurezza dipende dalle condizioni di installazione siano sottoposte a un controllo iniziale (dopo l'installazione e prima della messa in esercizio)\ndatore di lavoro | provvede a sottoporre | attrezzature la cui sicurezza dipende dalle condizioni di installazione a un controllo dopo ogni montaggio | in un nuovo cantiere o in una nuova località di impianto | e ad un controllo dopo ogni montaggio in un nuovo cantiere o in una nuova località di impianto\ndatore di lavoro | segue per le frequenze dei controlli periodici | indicazioni dei fabbricanti, norme di buona tecnica o codici di buona prassi | in assenza di indicazioni dei fabbricanti e norme | secondo frequenze stabilite in base alle indicazioni fornite dai fabbricanti, ovvero dalle norme di buona tecnica, o in assenza di queste ultime, desumibili dai codici di buona prassi\nattrezzature soggette a influssi che possono provocare deterioramenti | sono sottoposte a interventi di controllo periodici | | | ad interventi di controllo periodici\nattrezzature soggette a influssi che possono provocare deterioramenti | sono sottoposte a interventi di controllo straordinari | ogni volta che intervengano eventi eccezionali che possano avere conseguenze pregiudizievoli per la sicurezza | eventi eccezionali con possibili conseguenze pregiudizievoli per la sicurezza | ad interventi di controllo straordinari al fine di garantire il mantenimento di buone condizioni di sicurezza, ogni volta che intervengano eventi eccezionali che possano avere conseguenze pregiudizievoli per la sicurezza delle attrezzature di lavoro\neventi eccezionali | includono | riparazioni, trasformazioni, incidenti, fenomeni naturali o periodi prolungati di inattività | | quali riparazioni, trasformazioni, incidenti, fenomeni naturali o periodi prolungati di inattività\ncontrolli di cui alle lettere a) e b) | sono volti ad assicurare | buono stato di conservazione e efficienza a fini di sicurezza delle attrezzature di lavoro | | Gli interventi di controllo di cui alle lettere a) e b) sono volti ad assicurare il buono stato di conservazione e l'efficienza a fini di sicurezza delle attrezzature di lavoro\ncontrolli di cui alle lettere a) e b) | devono essere effettuati da | persona competente | | devono essere effettuati da persona competente\nobblighi del comma 8 | restano fermi rispetto a | quanto disposto al comma 4 | | Fermo restando quanto disposto al comma 4",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1816,
+   "prompt_tokens": 820,
+   "total_tokens": 2636,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 783,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.00099,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.00099,
+   "gateway_cost": 0.00099
+  }
+ }
+}

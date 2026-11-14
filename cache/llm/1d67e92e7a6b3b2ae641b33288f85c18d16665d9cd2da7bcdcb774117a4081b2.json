@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 4.3.2\n\n4.3.2. Lifting accessories Lifting accessories must show the following particulars: — identification of the material where this information is needed for safe use, — the maximum working load. In the case of lifting accessories on which marking is physically impossible, the particulars referred to in the first paragraph must be displayed on a plate or other equivalent means and securely affixed to the accessory. The particulars must be legible and located in a place where they are not liable to disappear as a result of wear or jeopardise the strength of the accessory."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Lifting accessories | mustShowParticulars | identification of the material | where this information is needed for safe use | identification of the material where this information is needed for safe use\nLifting accessories | mustShowParticulars | the maximum working load | | the maximum working load\nLifting accessories on which marking is physically impossible | mustDisplayParticulars | the particulars on a plate or other equivalent means securely affixed to the accessory | marking is physically impossible | the particulars referred to in the first paragraph must be displayed on a plate or other equivalent means and securely affixed to the accessory\nParticulars on lifting accessories | mustBeLegible | legible | | The particulars must be legible\nParticulars on lifting accessories | mustBeLocatedWhereNotLiableToDisappear | a place where they are not liable to disappear as a result of wear or jeopardise the strength of the accessory | | located in a place where they are not liable to disappear as a result of wear or jeopardise the strength of the accessory",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 783,
+   "prompt_tokens": 368,
+   "total_tokens": 1151,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 458,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004283,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004283,
+   "gateway_cost": 0.0004283
+  }
+ }
+}

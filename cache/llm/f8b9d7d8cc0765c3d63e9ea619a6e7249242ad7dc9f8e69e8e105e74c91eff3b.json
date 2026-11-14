@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS71, art. 71, c. 13\n\n13. Le modalità di effettuazione delle verifiche periodiche di cui all'allegato VII, nonché i criteri per l'abilitazione dei soggetti pubblici o privati di cui al comma precedente sono stabiliti con decreto del Ministro del lavoro, della salute e delle politiche sociali e del Ministro del lavoro, della salute e delle politiche sociali, di concerto con il Ministro dello sviluppo economico, sentita la Conferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano, da adottarsi entro dodici mesi dalla data di entrata in vigore del presente decreto."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Modalità di effettuazione delle verifiche periodiche di cui all'allegato VII | sonoStabilite | con decreto del Ministro del lavoro, della salute e delle politiche sociali | | Le modalità di effettuazione delle verifiche periodiche di cui all'allegato VII ... sono stabiliti con decreto del Ministro del lavoro, della salute e delle politiche sociali\nCriteri per l'abilitazione dei soggetti pubblici o privati di cui al comma precedente | sonoStabiliti | con decreto del Ministro del lavoro, della salute e delle politiche sociali | | nonché i criteri per l'abilitazione dei soggetti pubblici o privati di cui al comma precedente sono stabiliti con decreto\nDecreto sulle verifiche periodiche e sull'abilitazione | èAdottatoDi | concerto con il Ministro dello sviluppo economico | | di concerto con il Ministro dello sviluppo economico\nDecreto sulle verifiche periodiche e sull'abilitazione | èAdottatoSentita | la Conferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano | | sentita la Conferenza permanente per i rapporti tra Stato, le regioni e le province autonome di Trento e di Bolzano\nDecreto sulle verifiche periodiche e sull'abilitazione | èAdottatoEntro | dodici mesi dalla data di entrata in vigore del presente decreto | | da adottarsi entro dodici mesi dalla data di entrata in vigore del presente decreto",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 851,
+   "prompt_tokens": 437,
+   "total_tokens": 1288,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 299,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004692,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004692,
+   "gateway_cost": 0.0004692
+  }
+ }
+}

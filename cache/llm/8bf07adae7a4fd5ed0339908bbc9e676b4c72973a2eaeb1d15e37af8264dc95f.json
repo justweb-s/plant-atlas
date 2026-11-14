@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 53\n\n7. First Boot 7. First Boot Description The first boot is the initial sequence of actions you can take to configure the robot for the first time after assembly. This initial sequence requires you to: • Power on the robot • Insert the serial number • Initialize the robot arm • Use Freedrive • Power down the robot CAUTION Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Failure to verify the payload and installation before starting up the robot arm can lead to injury to personnel and/or property damage. • Always verify the actual payload and installation are correct before starting up the robot arm. CAUTION Incorrect payload and installation settings prevent the robot arm and Control Box functioning correctly. • Always verify the payload and installation setting are correct. NOTICE Starting up the robot in lower temperatures can result in lower performance, or stops, due to temperature dependent oil and grease viscosity. • Starting up the robot in low temperatures can require a warmup phase. User Manual 56 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "First boot | requiresStep | powering on the robot | | This initial sequence requires you to: • Power on the robot\nFirst boot | requiresStep | inserting the serial number | | • Insert the serial number\nFirst boot | requiresStep | initializing the robot arm | | • Initialize the robot arm\nFirst boot | requiresStep | using Freedrive | | • Use Freedrive\nFirst boot | requiresStep | powering down the robot | | • Power down the robot\nFailure to verify payload and installation before starting up the robot arm | canLeadTo | injury to personnel and/or property damage | | Failure to verify the payload and installation before starting up the robot arm can lead to injury to personnel and/or property damage.\nActual payload and installation | shouldBeVerifiedBefore | starting up the robot arm | | Always verify the actual payload and installation are correct before starting up the robot arm.\nIncorrect payload and installation settings | preventCorrectFunctionOf | robot arm and Control Box | | Incorrect payload and installation settings prevent the robot arm and Control Box functioning correctly.\nStarting up the robot | canResultIn | lower performance or stops | in lower temperatures, due to temperature-dependent oil and grease viscosity | Starting up the robot in lower temperatures can result in lower performance, or stops, due to temperature dependent oil and grease viscosity.\nStarting up the robot | mayRequire | a warmup phase | in low temperatures | Starting up the robot in low temperatures can require a warmup phase.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1049,
+   "prompt_tokens": 539,
+   "total_tokens": 1588,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 544,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005784,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005784,
+   "gateway_cost": 0.0005784
+  }
+ }
+}

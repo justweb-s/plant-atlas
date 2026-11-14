@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.2.4.1\n\n1.2.4.1. Normal stop Machinery must be fitted with a control device whereby the machinery can be brought safely to a complete stop. Each workstation must be fitted with a control device to stop some or all of the functions of the machinery, depending on the existing hazards, so that the machinery is rendered safe. The machinery's stop control must have priority over the start controls. Once the machinery or its hazardous functions have stopped, the energy supply to the actuators concerned must be cut off."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery | mustBeFittedWith | a control device whereby it can be brought safely to a complete stop | | Machinery must be fitted with a control device whereby the machinery can be brought safely to a complete stop.\nEach workstation | mustBeFittedWith | a control device to stop some or all functions of the machinery | depending on the existing hazards, so that the machinery is rendered safe | Each workstation must be fitted with a control device to stop some or all of the functions of the machinery, depending on the existing hazards, so that the machinery is rendered safe.\nMachinery stop control | mustHavePriorityOver | the start controls | | The machinery's stop control must have priority over the start controls.\nEnergy supply to actuators concerned | mustBeCutOff | after the machinery or its hazardous functions have stopped | Once the machinery or its hazardous functions have stopped | Once the machinery or its hazardous functions have stopped, the energy supply to the actuators concerned must be cut off.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 681,
+   "prompt_tokens": 365,
+   "total_tokens": 1046,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 358,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000377,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000377,
+   "gateway_cost": 0.000377
+  }
+ }
+}

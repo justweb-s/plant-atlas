@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 6.4.1\n\n6.4.1. Risks to persons in or on the carrier The carrier shall be designed and constructed in such a way as to prevent risks due to contact between persons and/or objects in or on the carrier with any fixed or moving elements. Where necessary in order to fulfil this requirement, the carrier itself shall be completely enclosed with doors fitted with an interlocking device that prevents hazardous movements of the carrier unless the doors are closed. The doors shall remain closed if the carrier stops between landings where there is a risk of falling from the carrier. Machinery or related products shall be designed, constructed and, where necessary, equipped with devices in such a way as to prevent uncontrolled upward or downward movement of the carrier. These devices shall be able to stop the carrier at its maximum working load and at the foreseeable maximum speed. The stopping action shall not cause deceleration harmful to the occupants, whatever the load conditions."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "carrier | designedToPreventContactRisk | risks due to contact between persons and/or objects in or on the carrier and any fixed or moving elements | | The carrier shall be designed and constructed in such a way as to prevent risks due to contact between persons and/or objects in or on the carrier with any fixed or moving elements.\ncarrier | shallBeCompletelyEnclosed | doors fitted with an interlocking device | where necessary to fulfil the contact-risk requirement | Where necessary in order to fulfil this requirement, the carrier itself shall be completely enclosed with doors fitted with an interlocking device that prevents hazardous movements of the carrier unless the doors are closed.\ninterlocking device | preventsHazardousMovement | hazardous movements of the carrier | unless the doors are closed | the carrier itself shall be completely enclosed with doors fitted with an interlocking device that prevents hazardous movements of the carrier unless the doors are closed\ndoors | shallRemainClosed | when the carrier stops between landings | where there is a risk of falling from the carrier | The doors shall remain closed if the carrier stops between landings where there is a risk of falling from the carrier.\nmachinery or related products | preventsUncontrolledMovement | uncontrolled upward or downward movement of the carrier | where necessary, equipped with devices | Machinery or related products shall be designed, constructed and, where necessary, equipped with devices in such a way as to prevent uncontrolled upward or downward movement of the carrier.\ndevices | shallStopCarrier | the carrier at its maximum working load and at the foreseeable maximum speed | | These devices shall be able to stop the carrier at its maximum working load and at the foreseeable maximum speed.\nstopping action | shallNotCauseHarmfulDeceleration | deceleration harmful to the occupants | whatever the load conditions | The stopping action shall not cause deceleration harmful to the occupants, whatever the load conditions.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1340,
+   "prompt_tokens": 507,
+   "total_tokens": 1847,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 690,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007207,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007207,
+   "gateway_cost": 0.0007207
+  }
+ }
+}

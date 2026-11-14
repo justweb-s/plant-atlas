@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 30(4)\n\nArticle 30 Requirements relating to notified bodies. 4. A conformity assessment body, its top-level management and the personnel responsible for carrying out the conformity assessment tasks shall not be the designer, manufacturer, supplier, importer, distributor, installer, purchaser, owner, user or maintainer of machinery or related products that they assess, nor shall it fulfil any of those roles in relation to partly completed machinery that has been incorporated into the assessed product or be the representative of any of those parties. This shall not preclude the use of assessed machinery or related products that are necessary for the operations of the conformity assessment body or the use of machinery or related products for personal purposes. A conformity assessment body, its top-level management and the personnel responsible for carrying out the conformity assessment tasks shall not be directly involved in the design, import, distribution, manufacture, marketing, installation, use or maintenance of the machinery or related products, or represent the parties engaged in those activities. They shall not engage in any activity that may conflict with their independence of judgement or integrity in relation to conformity assessment activities for which they are notified. This shall in particular apply to consultancy services. A conformity assessment body shall ensure that the activities of its subsidiaries or subcontractors do not affect the confidentiality, objectivity or impartiality of its conformity assessment activities."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "A conformity assessment body, its top-level management and assessment personnel | shall not be | designer, manufacturer, supplier, importer, distributor, installer, purchaser, owner, user or maintainer of machinery or related products they assess, or representative of such parties | | A conformity assessment body, its top-level management and the personnel responsible for carrying out the conformity assessment tasks shall not be the designer, manufacturer, supplier, importer, distributor, installer, purchaser, owner, user or maintainer of machinery or related products that they assess\nA conformity assessment body, its top-level management and assessment personnel | shall not fulfil roles in relation to | partly completed machinery incorporated into the assessed product | partly completed machinery has been incorporated into the assessed product | nor shall it fulfil any of those roles in relation to partly completed machinery that has been incorporated into the assessed product\nA conformity assessment body, its top-level management and assessment personnel | shall not be | representative of the designer, manufacturer, supplier, importer, distributor, installer, purchaser, owner, user or maintainer of assessed machinery | | or be the representative of any of those parties\nUse of assessed machinery necessary for the body's operations | is not precluded | | the machinery is necessary for the operations of the conformity assessment body | This shall not preclude the use of assessed machinery or related products that are necessary for the operations of the conformity assessment body\nUse of assessed machinery for personal purposes | is not precluded | | personal purposes | or the use of machinery or related products for personal purposes\nA conformity assessment body, its top-level management and assessment personnel | shall not be directly involved in | design, import, distribution, manufacture, marketing, installation, use or maintenance of the assessed machinery or related products | | They shall not be directly involved in the design, import, distribution, manufacture, marketing, installation, use or maintenance of the machinery or related products\nA conformity assessment body, its top-level management and assessment personnel | shall not engage in | any activity that may conflict with their independence of judgement or integrity | in relation to conformity assessment activities for which they are notified | They shall not engage in any activity that may conflict with their independence of judgement or integrity in relation to conformity assessment activities for which they are notified\nConsultancy services | are covered by the prohibition on conflicting activities | | the activity conflicts with independence of judgement or integrity | This shall in particular apply to consultancy services\nA conformity assessment body | shall ensure | its subsidiaries or subcontractors do not affect the confidentiality, objectivity or impartiality of its conformity assessment activities | | A conformity assessment body shall ensure that the activities of its subsidiaries or subcontractors do not affect the confidentiality, objectivity or impartiality of its conformity assessment activities",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1307,
+   "prompt_tokens": 639,
+   "total_tokens": 1946,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 384,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007174,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007174,
+   "gateway_cost": 0.0007174
+  }
+ }
+}

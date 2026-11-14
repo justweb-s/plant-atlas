@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS71, art. 71, c. 4\n\n4. Il datore di lavoro prende le misure necessarie affinchè: a) le attrezzature di lavoro siano: 1) installate ed utilizzate in conformità alle istruzioni d'uso; 2) oggetto di idonea manutenzione al fine di garantire nel tempo la permanenza dei requisiti di sicurezza di cui all'articolo 70 e siano corredate, ove necessario, da apposite istruzioni d'uso e libretto di manutenzione; 3) assoggettate alle misure di aggiornamento dei requisiti minimi di sicurezza stabilite con specifico provvedimento regolamentare adottato in relazione alle prescrizioni di cui all'articolo 18, comma 1, lettera z); b) siano curati la tenuta e l'aggiornamento del registro di controllo delle attrezzature di lavoro per cui lo stesso è previsto."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Datore di lavoro | ensuresInstallationAndUse | attrezzature di lavoro installed and used in conformity with the istruzioni d'uso | | installate ed utilizzate in conformità alle istruzioni d'uso\nDatore di lavoro | ensuresMaintenance | attrezzature di lavoro receive idonea manutenzione | to keep the safety requirements of art. 70 in force over time | oggetto di idonea manutenzione al fine di garantire nel tempo la permanenza dei requisiti di sicurezza di cui all'articolo 70\nAttrezzature di lavoro | areAccompaniedBy | apposite istruzioni d'uso and libretto di manutenzione | where necessary | corredate, ove necessario, da apposite istruzioni d'uso e libretto di manutenzione\nAttrezzature di lavoro | aresubjectTo | misure di aggiornamento dei requisiti minimi di sicurezza | as set by a specific regulatory provision adopted under art. 18, c. 1, lett. z | assoggettate alle misure di aggiornamento dei requisiti minimi di sicurezza stabilite con specifico provvedimento regolamentare\nDatore di lavoro | ensuresUpkeepOf | registro di controllo delle attrezzature di lavoro | for equipment for which the register is required | siano curati la tenuta e l'aggiornamento del registro di controllo delle attrezzature di lavoro per cui lo stesso è previsto",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1181,
+   "prompt_tokens": 510,
+   "total_tokens": 1691,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 678,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006415,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006415,
+   "gateway_cost": 0.0006415
+  }
+ }
+}

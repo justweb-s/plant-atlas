@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 4.1.1\n\n4.1.1. Definitions (a) ‘Lifting operation’ means a movement of unit loads consisting of goods and/or persons necessitating, at a given moment, a change of level. (b) ‘Guided load’ means a load where the total movement is made along rigid or flexible guides whose position is determined by fixed points. (c) ‘Working coefficient’ means the arithmetic ratio between the load guaranteed by the manufacturer or his authorised representative up to which a component is able to hold it and the maximum working load marked on the component. (d) ‘Test coefficient’ means the arithmetic ratio between the load used to carry out the static or dynamic tests on lifting machinery or a lifting accessory and the maximum working load marked on the lifting machinery or lifting accessory. (e) ‘Static test’ means the test during which lifting machinery or a lifting accessory is first inspected and subjected to a force corresponding to the maximum working load multiplied by the appropriate static test coefficient and then re-inspected once the said load has been released to ensure that no damage has occurred. (f) ‘Dynamic test’ means the test during which lifting machinery is operated in all its possible configurations at the maximum working load multiplied by the appropriate dynamic test coefficient with account being taken of the dynamic behaviour of the lifting machinery in order to check that it functions properly. (g) ‘Carrier’ means a part of the machinery on or in which persons and/or goods are supported in order to be lifted."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Lifting operation | means | a movement of unit loads consisting of goods and/or persons necessitating, at a given moment, a change of level | | ‘Lifting operation’ means a movement of unit loads consisting of goods and/or persons necessitating, at a given moment, a change of level.\nGuided load | means | a load where the total movement is made along rigid or flexible guides whose position is determined by fixed points | | ‘Guided load’ means a load where the total movement is made along rigid or flexible guides whose position is determined by fixed points.\nWorking coefficient | means | the arithmetic ratio between the load guaranteed by the manufacturer or his authorised representative up to which a component is able to hold it and the maximum working load marked on the component | | ‘Working coefficient’ means the arithmetic ratio between the load guaranteed by the manufacturer or his authorised representative up to which a component is able to hold it and the maximum working load marked on the component.\nTest coefficient | means | the arithmetic ratio between the load used to carry out the static or dynamic tests on lifting machinery or a lifting accessory and the maximum working load marked on that machinery or accessory | | ‘Test coefficient’ means the arithmetic ratio between the load used to carry out the static or dynamic tests on lifting machinery or a lifting accessory and the maximum working load marked on the lifting machinery or lifting accessory.\nStatic test | means | a test in which lifting machinery or a lifting accessory is first inspected and subjected to a force corresponding to the maximum working load multiplied by the appropriate static test coefficient, then re-inspected once the load is released to ensure no damage has occurred | | ‘Static test’ means the test during which lifting machinery or a lifting accessory is first inspected and subjected to a force corresponding to the maximum working load multiplied by the appropriate static test coefficient and then re-inspected once the said load has been released to ensure that no damage has occurred.\nDynamic test | means | a test in which lifting machinery is operated in all its possible configurations at the maximum working load multiplied by the appropriate dynamic test coefficient, taking account of its dynamic behaviour, to check that it functions properly | | ‘Dynamic test’ means the test during which lifting machinery is operated in all its possible configurations at the maximum working load multiplied by the appropriate dynamic test coefficient with account being taken of the dynamic behaviour of the lifting machinery in order to check that it functions properly.\nCarrier | means | a part of the machinery on or in which persons and/or goods are supported in order to be lifted | | ‘Carrier’ means a part of the machinery on or in which persons and/or goods are supported in order to be lifted.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1519,
+   "prompt_tokens": 697,
+   "total_tokens": 2216,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 628,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008292,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008292,
+   "gateway_cost": 0.0008292
+  }
+ }
+}

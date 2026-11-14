@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 44(3)\n\nArticle 44 Union safeguard procedure. 3. Where the national measure is considered to be justified and the non-compliance of the product within the scope of this Regulation is attributed to shortcomings in the harmonised standards referred to in Article 43(5), point (b), of this Regulation or common specifications referred to in Article 43(5), point (c), of this Regulation, the Commission shall apply the procedure provided for in Article 11 of Regulation (EU) No 1025/2012 or in Article 20(8) of this Regulation respectively."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Commission | shallApplyProcedure | procedure provided for in Article 11 of Regulation (EU) No 1025/2012 | national measure is considered justified and non-compliance is attributed to shortcomings in harmonised standards referred to in Article 43(5), point (b) | \"the Commission shall apply the procedure provided for in Article 11 of Regulation (EU) No 1025/2012\"\nCommission | shallApplyProcedure | procedure provided for in Article 20(8) of this Regulation | national measure is considered justified and non-compliance is attributed to shortcomings in common specifications referred to in Article 43(5), point (c) | \"or in Article 20(8) of this Regulation respectively\"\nnational measure | isConsideredJustified | a precondition for the Commission procedure | \"\" | \"Where the national measure is considered to be justified\"\nnon-compliance of the product | isAttributedTo | shortcomings in harmonised standards or common specifications | \"\" | \"the non-compliance of the product within the scope of this Regulation is attributed to shortcomings in the harmonised standards referred to in Article 43(5), point (b)\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 991,
+   "prompt_tokens": 378,
+   "total_tokens": 1369,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 620,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005333,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005333,
+   "gateway_cost": 0.0005333
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 6(7)\n\nArticle 6 Categories of machinery and related products listed in Annex I subject to relevant conformity assessment procedures. 7. A category of machinery or related product shall be included in Annex I, Part A, if, according to the assessment referred to in paragraph 4, and taking into account the available information, including the data referred to in paragraph 5, it presents a serious inherent potential risk, and one or more of the following conditions is fulfilled: (a) there is a lack of harmonised standards or common specifications covering the relevant essential health and safety requirements; (b) residual risks exist, including those which, according to the manufacturer, could be reduced by particular training or personal protective equipment, and the data and information referred to in paragraph 5, demonstrate the recurrence of similar serious or fatal accidents or damage to health in connection with those residual risks; (c) data and information exist which according to the Commission demonstrate recurring wrongful application of the relevant harmonised standards or common specifications and for which the market surveillance activities that were carried out have not led to major improvements of the market situation, in a reasonable period; (d) there is a degree of uncertainty in the existing risk assessment methods related to new categories of machinery or technologies. Any other category of machinery or related product that, according to that assessment, presents a serious inherent potential risk but does not fulfil one or more of the conditions in points (a) to (d) shall be included in Annex I, Part B."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Category of machinery or related product | shall be included in | Annex I, Part A | it presents a serious inherent potential risk and one or more of conditions (a) to (d) is fulfilled | \"A category of machinery or related product shall be included in Annex I, Part A, if, according to the assessment referred to in paragraph 4, and taking into account the available information, including the data referred to in paragraph 5, it presents a serious inherent potential risk, and one or more of the following conditions is fulfilled\"\nCategory of machinery or related product | presents | serious inherent potential risk | assessed under paragraph 4, taking into account available information including paragraph 5 data | \"according to the assessment referred to in paragraph 4, and taking into account the available information, including the data referred to in paragraph 5, it presents a serious inherent potential risk\"\nCategory of machinery or related product | lacks | harmonised standards or common specifications covering the relevant essential health and safety requirements | condition (a) | \"(a) there is a lack of harmonised standards or common specifications covering the relevant essential health and safety requirements\"\nResidual risks | recur in | similar serious or fatal accidents or damage to health | condition (b): residual risks exist and paragraph 5 data demonstrate recurrence, including risks the manufacturer says could be reduced by particular training or personal protective equipment | \"(b) residual risks exist, including those which, according to the manufacturer, could be reduced by particular training or personal protective equipment, and the data and information referred to in paragraph 5, demonstrate the recurrence of similar serious or fatal accidents or damage to health in connection with those residual risks\"\nCommission data | demonstrates | recurring wrongful application of the relevant harmonised standards or common specifications | condition (c): market surveillance has not led to major improvements of the market situation in a reasonable period | \"(c) data and information exist which according to the Commission demonstrate recurring wrongful application of the relevant harmonised standards or common specifications and for which the market surveillance activities that were carried out have not led to major improvements of the market situation, in a reasonable period\"\nDegree of uncertainty | exists in | existing risk assessment methods related to new categories of machinery or technologies | condition (d) | \"(d) there is a degree of uncertainty in the existing risk assessment methods related to new categories of machinery or technologies\"\nAny other category of machinery or related product | shall be included in | Annex I, Part B | it presents a serious inherent potential risk but does not fulfil one or more of conditions (a) to (d) | \"Any other category of machinery or related product that, according to that assessment, presents a serious inherent potential risk but does not fulfil one or more of the conditions in points (a) to (d) shall be included in Annex I, Part B.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1619,
+   "prompt_tokens": 662,
+   "total_tokens": 2281,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 719,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008757,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008757,
+   "gateway_cost": 0.0008757
+  }
+ }
+}

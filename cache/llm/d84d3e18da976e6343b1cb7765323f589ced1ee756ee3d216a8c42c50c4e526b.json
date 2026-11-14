@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.1.2.7\n\n4.1.2.7. Movements of loads during handling The operating position of machinery shall be located in such a way as to ensure the widest possible view of trajectories of the moving parts, in order to avoid possible collisions with persons, equipment or other machinery, which might be manoeuvring at the same time and liable to constitute a hazard. Machinery with guided loads shall be designed and constructed in such a way as to prevent persons from being injured by movement of the load, the carrier or the counterweights, if any."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "The operating position of machinery | shall be located | to ensure the widest possible view of trajectories of the moving parts | | The operating position of machinery shall be located in such a way as to ensure the widest possible view of trajectories of the moving parts\nMachinery with guided loads | shall be designed and constructed | to prevent persons being injured by movement of the load or the carrier | | Machinery with guided loads shall be designed and constructed in such a way as to prevent persons from being injured by movement of the load, the carrier or the counterweights, if any\nMachinery with guided loads | shall prevent injury to persons from movement of | the counterweights | if counterweights are present | Machinery with guided loads shall be designed and constructed in such a way as to prevent persons from being injured by movement of the load, the carrier or the counterweights, if any",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 659,
+   "prompt_tokens": 368,
+   "total_tokens": 1027,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 393,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003663,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003663,
+   "gateway_cost": 0.0003663
+  }
+ }
+}

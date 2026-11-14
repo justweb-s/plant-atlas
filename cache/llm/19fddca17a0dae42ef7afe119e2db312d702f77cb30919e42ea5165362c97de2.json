@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 9(3)\n\nArticle 9 Specific measures to deal with potentially hazardous machinery. 3. In the cases referred to in paragraph 1, the Commission shall consult the Member States and other interested parties indicating the measures it intends to take, in order to ensure, at Community level, a high level of protection of the health and safety of persons. Taking due account of the results of this consultation, it shall adopt the necessary measures in accordance with the procedure referred to in Article 22(3)."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Commission | shall consult | Member States and other interested parties about measures it intends to take | in the cases referred to in paragraph 1 | In the cases referred to in paragraph 1, the Commission shall consult the Member States and other interested parties indicating the measures it intends to take\nCommission | aims to ensure | high level of protection of the health and safety of persons at Community level | in the cases referred to in paragraph 1 | in order to ensure, at Community level, a high level of protection of the health and safety of persons\nCommission | shall adopt | necessary measures | taking due account of the results of the consultation, and in accordance with the procedure referred to in Article 22(3) | Taking due account of the results of this consultation, it shall adopt the necessary measures in accordance with the procedure referred to in Article 22(3)",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 584,
+   "prompt_tokens": 352,
+   "total_tokens": 936,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 323,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003272,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003272,
+   "gateway_cost": 0.0003272
+  }
+ }
+}

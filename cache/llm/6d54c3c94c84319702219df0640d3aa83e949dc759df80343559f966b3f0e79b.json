@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4\n\n4. SUPPLEMENTARY ESSENTIAL HEALTH AND SAFETY REQUIREMENTS TO OFFSET RISKS DUE TO LIFTING OPERATIONS Machinery or related products presenting risks due to lifting operations shall meet all the relevant essential health and safety requirements set out in this chapter (see General Principles, point 4)."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related products | shall meet | all the relevant essential health and safety requirements set out in this chapter | presenting risks due to lifting operations | Machinery or related products presenting risks due to lifting operations shall meet all the relevant essential health and safety requirements set out in this chapter\nEssential health and safety requirements | are referenced to | General Principles, point 4 | | see General Principles, point 4",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 332,
+   "prompt_tokens": 328,
+   "total_tokens": 660,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 200,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0001988,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0001988,
+   "gateway_cost": 0.0001988
+  }
+ }
+}

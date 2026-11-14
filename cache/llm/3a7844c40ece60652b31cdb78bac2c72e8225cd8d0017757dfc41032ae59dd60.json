@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DM2011, art. 6\n\nArt. 6 l. Restano ferme le disposizioni previste dai decreti: a) Decreto ministeriale 29 febbraio 1988 recante «Norme di sicurezza per la progettazione, l'installazione e l'esercizio dei depositi di gas di petrolio liquefatto con capacita' complessiva non superiore a 5 m³» ; b) Decreto ministeriale 23 settembre 2004 recante «Modifica del decreto del 29 febbraio 1988, recante norme di sicurezza per la progettazione, l'installazione e l'esercizio dei depositi di gas, di petrolio liquefatto con capacita' complessiva non superiore a 5 m³ e adozione dello standard europeo EN 12818 per i serbatoi di gas di petrolio liquefatto di capacita' inferiore a 13 m³»; c) Decreto ministeriale 17 gennaio 2005 recante la «Procedura operativa per la verifica decennale dei serbatoi interrati per GPL con la tecnica basata sul metodo delle emissioni acustiche»; d) Decreto ministeriale 1° dicembre 2004, n. 329 «Regolamento recante norme per la messa in servizio ed utilizzazione delle attrezzature a pressione e degli insiemi di cui all'articolo 19 del decreto legislativo 25 febbraio 2000, n. 93». 2. In ogni caso sono fatte salve le competenze delle regioni a statuto speciale e delle province autonome ai sensi dei rispettivi statuti speciali e relative norme di attuazione. In sede di prima applicazione del presente decreto, nelle regioni a statuto speciale e nelle province autonome di Trento e di Bolzano che hanno disciplinato il sistema di verifica periodica obbligatoria ai fini di sicurezza, i soggetti riconosciuti competenti per l'effettuazione delle verifiche periodiche obbligatorie prima dell'entrata in vigore del presente decreto, ai sensi della disciplina regionale e provinciale in vigore, continuano a esercitare le funzioni attribuite dalla medesima legislazione regionale/provinciale. Il presente decreto entra in vigore 90 giorni dopo la pubblicazione nella Gazzetta Ufficiale, fatta eccezione per l'allegato III, che entra in vigore il giorno successivo alla pubblicazione del presente decreto nella Gazzetta Ufficiale. Roma, 11 aprile 2011 Il Ministro del lavoro e delle politiche sociali Sacconi Il Ministro della salute Fazio Il Ministro dello sviluppo economico Romani"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Restano ferme le disposizioni previste dai decreti | disposizioniRestanoInVigore | disposizioni previste dai decreti elencati alle lettere a)-d) | | Art. 6 l. Restano ferme le disposizioni previste dai decreti\nDecreto ministeriale 29 febbraio 1988 | stabilisce norme di sicurezza | progettazione, installazione ed esercizio dei depositi di GPL fino a 5 m³ | | a) Decreto ministeriale 29 febbraio 1988 recante «Norme di sicurezza per la progettazione, l'installazione e l'esercizio dei depositi di gas di petrolio liquefatto con capacita' complessiva non superiore a 5 m³»\nDecreto ministeriale 23 settembre 2004 | modifica il decreto del 1988 e adotta lo standard EN 12818 | serbatoi di GPL di capacità inferiore a 13 m³ | | b) Decreto ministeriale 23 settembre 2004 recante «Modifica del decreto del 29 febbraio 1988 ... e adozione dello standard europeo EN 12818 per i serbatoi di gas di petrolio liquefatto di capacita' inferiore a 13 m³»\nDecreto ministeriale 17 gennaio 2005 | stabilisce una procedura operativa | verifica decennale dei serbatoi interrati per GPL con metodo delle emissioni acustiche | | c) Decreto ministeriale 17 gennaio 2005 recante la «Procedura operativa per la verifica decennale dei serbatoi interrati per GPL con la tecnica basata sul metodo delle emissioni acustiche»\nDecreto ministeriale 1° dicembre 2004, n. 329 | regola la messa in servizio e l'utilizzazione | attrezzature a pressione e insiemi di cui all'articolo 19 del d.lgs. 93/2000 | | d) Decreto ministeriale 1° dicembre 2004, n. 329 «Regolamento recante norme per la messa in servizio ed utilizzazione delle attrezzature a pressione e degli insiemi di cui all'articolo 19 del decreto legislativo 25 febbraio 2000, n. 93»\nCompetenze delle regioni a statuto speciale e delle province autonome | sono fatte salve | competenze ai sensi dei rispettivi statuti speciali e norme di attuazione | ai sensi dei rispettivi statuti speciali e relative norme di attuazione | In ogni caso sono fatte salve le competenze delle regioni a statuto speciale e delle province autonome ai sensi dei rispettivi statuti speciali e relative norme di attuazione\nSoggetti riconosciuti per le verifiche periodiche obbligatorie | continuano a esercitare le funzioni attribuite dalla legislazione regionale/provinciale | in sede di prima applicazione, nelle regioni e province che hanno disciplinato il sistema di verifica periodica obbligatoria | nelle regioni a statuto speciale e nelle province autonome di Trento e di Bolzano che hanno disciplinato il sistema di verifica periodica obbligatoria ai fini di sicurezza | In sede di prima applicazione del presente decreto ... i soggetti riconosciuti competenti ... continuano a esercitare le funzioni attribuite dalla medesima legislazione regionale/provinciale\nIl presente decreto | entra in vigore | 90 giorni dopo la pubblicazione nella Gazzetta Ufficiale | fatta eccezione per l'allegato III | Il presente decreto entra in vigore 90 giorni dopo la pubblicazione nella Gazzetta Ufficiale, fatta eccezione per l'allegato III\nAllegato III | entra in vigore | il giorno successivo alla pubblicazione nella Gazzetta Ufficiale | | l'allegato III, che entra in vigore il giorno successivo alla pubblicazione del presente decreto nella Gazzetta Ufficiale",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1876,
+   "prompt_tokens": 1117,
+   "total_tokens": 2993,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 494,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010497,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010497,
+   "gateway_cost": 0.0010497
+  }
+ }
+}

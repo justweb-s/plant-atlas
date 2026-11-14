@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.4.2.2\n\n1.4.2.2. Interlocking movable guards Interlocking movable guards shall: (a) as far as possible remain attached to the machinery or related product when open; (b) be designed and constructed in such a way that they can be adjusted only by means of an intentional action. Interlocking movable guards shall be associated with an interlocking device that: (a) prevents the start of hazardous machinery or related product functions until those guards are closed; and (b) gives a stop command whenever those guards are no longer closed. Where it is possible for an operator to reach the danger zone before the risk due to the hazardous machinery or related product functions has ceased, movable guards shall be associated with a guard locking device in addition to an interlocking device that: (a) prevents the start of hazardous machinery or related product functions until the guard is closed and locked; and (b) keeps the guard closed and locked until the risk of injury from the hazardous machinery or related product functions has ceased. Interlocking movable guards shall be designed in such a way that the absence or failure of one of their components prevents starting or stops the hazardous machinery or related product functions."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Interlocking movable guards | shallRemainAttachedWhenOpen | attached to the machinery or related product | as far as possible | \"as far as possible remain attached to the machinery or related product when open\"\nInterlocking movable guards | shallBeAdjustableOnlyIntentionally | adjustment only by intentional action | \"\" | \"be designed and constructed in such a way that they can be adjusted only by means of an intentional action\"\nInterlocking device | shallPreventStart | start of hazardous machinery or related product functions | until those guards are closed | \"prevents the start of hazardous machinery or related product functions until those guards are closed\"\nInterlocking device | shallGiveStopCommand | stop command | whenever those guards are no longer closed | \"gives a stop command whenever those guards are no longer closed\"\nGuard locking device | shallPreventStart | start of hazardous machinery or related product functions | until the guard is closed and locked; where an operator can reach the danger zone before the risk has ceased | \"Where it is possible for an operator to reach the danger zone before the risk due to the hazardous machinery or related product functions has ceased, movable guards shall be associated with a guard locking device in addition to an interlocking device that: (a) prevents the start of hazardous machinery or related product functions until the guard is closed and locked\"\nGuard locking device | shallKeepGuardClosedAndLocked | guard closed and locked | until the risk of injury from the hazardous functions has ceased; where an operator can reach the danger zone before the risk has ceased | \"keeps the guard closed and locked until the risk of injury from the hazardous machinery or related product functions has ceased\"\nMovable guards | shallHaveGuardLockingDevice | guard locking device in addition to an interlocking device | where an operator can reach the danger zone before the risk has ceased | \"movable guards shall be associated with a guard locking device in addition to an interlocking device\"\nInterlocking movable guards | shallBeDesignedSoFailureStopsOrPreventsStart | starting or stopping hazardous functions | absence or failure of one of their components | \"Interlocking movable guards shall be designed in such a way that the absence or failure of one of their components prevents starting or stops the hazardous machinery or related product functions\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1422,
+   "prompt_tokens": 563,
+   "total_tokens": 1985,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 682,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007673,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007673,
+   "gateway_cost": 0.0007673
+  }
+ }
+}

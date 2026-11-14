@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 6(8)\n\nArticle 6 Categories of machinery and related products listed in Annex I subject to relevant conformity assessment procedures. 8. A Member State which has concerns about a category of machinery or related product being listed or not in Annex I shall immediately inform the Commission of those concerns and provide reasons in support thereof. The Commission shall conduct the assessment referred to in paragraph 4 immediately after being informed by a Member State. After making that assessment, the Commission may initiate the procedure laid down in paragraph 2."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Member State | informsCommission | its concerns about a machinery category being listed or not listed in Annex I | the Member State has concerns about such a category | A Member State which has concerns about a category of machinery or related product being listed or not in Annex I shall immediately inform the Commission of those concerns\nMember State | providesReasons | reasons supporting its concerns | when informing the Commission of its concerns | shall immediately inform the Commission of those concerns and provide reasons in support thereof\nCommission | conductsAssessment | the assessment referred to in paragraph 4 | immediately after being informed by a Member State | The Commission shall conduct the assessment referred to in paragraph 4 immediately after being informed by a Member State\nCommission | mayInitiateProcedure | the procedure laid down in paragraph 2 | after making the assessment referred to in paragraph 4 | After making that assessment, the Commission may initiate the procedure laid down in paragraph 2",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 517,
+   "prompt_tokens": 369,
+   "total_tokens": 886,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 205,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0002954,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0002954,
+   "gateway_cost": 0.0002954
+  }
+ }
+}

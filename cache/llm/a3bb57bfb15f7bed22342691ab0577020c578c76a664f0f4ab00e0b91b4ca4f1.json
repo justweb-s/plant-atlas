@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.1.2.3\n\n4.1.2.3. Mechanical strength Machinery or related products, including lifting accessories and their components, shall be capable of withstanding the stresses to which they are subjected during their lifetime, both in and, where applicable, out of use, under the installation and operating conditions provided for and in all relevant configurations, with due regard, where appropriate, to the effects of atmospheric factors and forces exerted by persons. This requirement shall also be satisfied during transport, assembly and dismantling. Machinery or related products, including lifting accessories, shall be designed and constructed in such a way as to prevent failure from fatigue and wear, taking due account of their intended use and any reasonably foreseeable misuse. The materials used shall be chosen on the basis of the intended working environments, with particular regard to corrosion, abrasion, impacts, extreme temperatures, fatigue, brittleness, radiation and ageing. Machinery or related products, including lifting accessories, shall be designed and constructed in such a way as to withstand the overload in the static tests without permanent deformation or patent defect. Strength calculations shall take account of the value of the static test coefficient chosen to guarantee an adequate level of safety. That coefficient has, as a general rule, the following values: (a) manually-operated machinery or related products, including lifting accessories: 1,5; (b) other machinery or related products: 1,25. Machinery or related products shall be designed and constructed in such a way as to undergo, without failure, the dynamic tests carried out using the maximum working load multiplied by the dynamic test coefficient. This dynamic test coefficient is chosen so as to guarantee an adequate level of safety: the coefficient is, as a general rule, equal to 1,1. As a general rule, the tests will be performed at the nominal speeds provided for. Should the control circuit of the machinery or related product allow for a number of simultaneous movements, the tests shall be carried out under the least favourable conditions, as a general rule by combining the movements concerned."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related products, including lifting accessories | shall be capable of withstanding | the stresses to which they are subjected during their lifetime | under the installation and operating conditions provided for and in all relevant configurations, with due regard where appropriate to atmospheric factors and forces exerted by persons | \"shall be capable of withstanding the stresses to which they are subjected during their lifetime, both in and, where applicable, out of use, under the installation and operating conditions provided for and in all relevant configurations\"\nMechanical strength requirement | shall also be satisfied | during transport, assembly and dismantling | | \"This requirement shall also be satisfied during transport, assembly and dismantling.\"\nMachinery or related products | shall be designed and constructed to prevent | failure from fatigue and wear | taking due account of intended use and any reasonably foreseeable misuse | \"designed and constructed in such a way as to prevent failure from fatigue and wear, taking due account of their intended use and any reasonably foreseeable misuse\"\nMaterials used | shall be chosen | on the basis of the intended working environments | | \"The materials used shall be chosen on the basis of the intended working environments\"\nMachinery or related products | shall withstand the overload in static tests | without permanent deformation or patent defect | | \"withstand the overload in the static tests without permanent deformation or patent defect\"\nStatic test coefficient for manually-operated machinery and lifting accessories | equals | 1.5 | as a general rule | \"(a) manually-operated machinery or related products, including lifting accessories: 1,5\"\nStatic test coefficient for other machinery or related products | equals | 1.25 | as a general rule | \"(b) other machinery or related products: 1,25\"\nMachinery or related products | shall undergo without failure | dynamic tests using the maximum working load multiplied by the dynamic test coefficient | | \"undergo, without failure, the dynamic tests carried out using the maximum working load multiplied by the dynamic test coefficient\"\nDynamic test coefficient | equals | 1.1 | as a general rule | \"the coefficient is, as a general rule, equal to 1,1\"\nDynamic tests | are performed at | the nominal speeds provided for | as a general rule | \"the tests will be performed at the nominal speeds provided for\"\nMachinery whose control circuit allows simultaneous movements | shall be tested under | the least favourable conditions, as a general rule by combining the movements concerned | where the control circuit allows a number of simultaneous movements | \"the tests shall be carried out under the least favourable conditions, as a general rule by combining the movements concerned\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1598,
+   "prompt_tokens": 858,
+   "total_tokens": 2456,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 743,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008848,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008848,
+   "gateway_cost": 0.0008848
+  }
+ }
+}
