@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 14:08_
+_Aggiornato: 14:17_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -14,6 +14,8 @@ _Aggiornato: 14:08_
 - **13:31 — `api.corpus()` è reale** (`atlas/corpus/chunker.py`): 4375 chunk per struttura. Regolamento 579, Direttiva, rettifica 14 punti, D.Lgs. 81/08 per comma, più i 16 atti UE di `incoming/`. Locator come nel gold: `Art. 25(2)`, `Art. 3(16)`, `Annex III, 1.3.7`, `Annex I, Part A, point 5`, `Corrigendum, point 5`, `art. 71, c. 11`. `tests/test_corpus.py`: ogni citazione delle domande di progetto sta nell'articolo o nell'allegato indicato. Con `ATLAS_FAKE=0` il RAG può già girare su tutto il corpus. `passage(source, locator)` dà il testo intero di un articolo o allegato.
 
 - **14:05 — strategia B, esportazione e agente pushati** (blocchi 4, 5, 6 in prima versione). Run completo: 773 passaggi, 1668 fatti proposti, 1602 ancorati, 66 rifiutati, 9 corretti dalla rettifica; `ontology/B/ontology.ttl` 13.963 triple, SHACL trova 5 violazioni vere; costo circa 0,36 dollari. Punteggio sulle 12 domande di progetto sulla legge: 7,72. La CQ10 è sbagliata (risponde «no»): i fatti corretti ci sono, l'errore è nel passo di risposta. Il secondo lettore non c'è ancora. Le domande tenute da parte già committate alle 12:00 non sono state lette.
+
+- **14:17 — il corpus ha due strati**: 5067 pezzi, 4386 di legge e 681 del costruttore. I tuoi quattro manuali sono tagliati per pagina (`ur5e-manual`, `ur10e-manual`, `nanoscan3-manual`, `mastar-manual`, locator `p. N`, testo da pdftotext se c'è, altrimenti pypdf); le tue 17 citazioni si ritrovano tutte in una pagina. Il DM 11/4/2011 è nel corpus come `DM2011` (`art. 2, c. 1`: «sessanta giorni»). Ogni `Chunk` ha `layer` e `sha256` (commit `contract:` fatto, con default). I manuali compaiono solo se i PDF sono sulla macchina: `python data/machines/fetch.py`.
 
 ## In corso
 - **13:41 — run completo della strategia B** su Regolamento, Direttiva e D.Lgs. 81/08 (773 passaggi, senza i considerando). Stima scritta prima di lanciare: 773 chiamate a `anthropic/claude-haiku-5.5`, circa 0,65 M token in ingresso e 0,85 M in uscita, cioè meno di 1 dollaro ai prezzi del gateway (0,10 e 0,50 dollari per milione). La pilota su 12 passaggi: 39 fatti proposti, 37 ancorati, 2 rifiutati; la rettifica chiude 8 fatti e ne apre 8 corretti (es. abrogazione della Direttiva dal 14 al 20/1/2027).

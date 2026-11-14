@@ -168,26 +168,99 @@ def italian_article(path: Path) -> list[Chunk]:
     return chunks
 
 
+def ministerial_decree(path: Path) -> list[Chunk]:
+    """DM 11 aprile 2011 as saved from the Gazzetta Ufficiale: '## Art. 2' and '## Allegato II' headings."""
+    source, version = "DM2011", "testo originario, GU n. 98 del 29.4.2011"
+    chunks = []
+    for block in re.split(r"(?m)^## ", path.read_text(encoding="utf-8"))[1:]:
+        heading, _, body = block.partition("\n")
+        body = _clean(body)
+        article = re.fullmatch(r"Art\. (\d+)", heading.strip())
+        if not article:
+            chunks.append(Chunk(f"{source}:{heading.strip().replace(' ', '')}", source, heading.strip(), body, version))
+            continue
+        number, found, expected = article.group(1), [], 1
+        for match in re.finditer(r"(?:^|\s)(\d+)\.\s", body):
+            if int(match.group(1)) == expected:
+                found.append((match.start(), expected))
+                expected += 1
+        if not found:
+            chunks.append(Chunk(f"{source}:art{number}", source, f"art. {number}", body, version))
+        for i, (start, comma) in enumerate(found):
+            end = found[i + 1][0] if i + 1 < len(found) else len(body)
+            chunks.append(Chunk(f"{source}:art{number}c{comma}", source, f"art. {number}, c. {comma}",
+                                body[start:end].strip(), version))
+    return chunks
+
+
+def manual(doc: dict, raw: Path) -> list[Chunk]:
+    """A manufacturer's manual, one chunk per page. The PDF stays out of git (copyright): if it is not on
+    this machine (python data/machines/fetch.py downloads it), the manual has no chunks."""
+    import json
+    import shutil
+    import subprocess
+
+    pdf = raw / doc["file"]
+    if not pdf.exists():
+        return []
+    cache = pdf.with_suffix(".pages.json")
+    if cache.exists():
+        pages = json.loads(cache.read_text(encoding="utf-8"))
+    else:
+        if shutil.which("pdftotext"):   # keeps the spaces between words; pypdf often loses them
+            text = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True).stdout
+            pages = text.split("\f")
+        else:
+            from pypdf import PdfReader
+            pages = [p.extract_text() or "" for p in PdfReader(str(pdf)).pages]
+        cache.write_text(json.dumps(pages), encoding="utf-8")
+    version = doc.get("version") or doc.get("title", "")
+    return [Chunk(f"{doc['id']}:p{n}", doc["id"], f"p. {n}", _clean(text), version)
+            for n, text in enumerate(pages, start=1) if len(_clean(text)) > 40]
+
+
+def layer_of(source: str) -> str:
+    if source.endswith("-manual"):
+        return "manufacturer"
+    if source.startswith("procedure"):
+        return "company"
+    if source.startswith(("layout", "log", "plant")):
+        return "plant"
+    return "law"
+
+
 @lru_cache(maxsize=None)
 def load(with_incoming: bool = True) -> tuple[Chunk, ...]:
-    """The whole corpus. The gold's texts first; then the acts Core registered in incoming/."""
+    """The whole corpus, layer by layer: the law, then the manufacturers' manuals that are on this machine."""
+    import hashlib
+    import json
+
     chunks: list[Chunk] = []
     for source, path, version in EU_ACTS:
         chunks += eu_act(source, path, version)
     chunks += corrigendum(*CORRIGENDUM)
     for path in sorted(LAW.glob("it-dlgs-81-2008-art*.txt")):
         chunks += italian_article(path)
+    decree = next(iter(sorted(LAW.glob("it-dm-2011-04-11*"))), INCOMING / "dm-2011-04-11.md")
+    if decree.exists():
+        chunks += ministerial_decree(decree)
     if with_incoming:
         for path in sorted(INCOMING.glob("eu-*.html")):
             try:
                 chunks += eu_act(path.stem, path, "as published in the Official Journal")
             except ET.ParseError:
                 continue   # not well-formed XHTML: stays out of the chunks, still in the registry
+    machines = ROOT / "data" / "machines" / "machines.json"
+    if machines.exists():
+        for doc in json.loads(machines.read_text(encoding="utf-8"))["documents"]:
+            chunks += manual(doc, machines.parent / "raw")
     seen: dict[str, int] = {}
     for chunk in chunks:   # ids are unique: a repeated one gets a counter
         seen[chunk.id] = seen.get(chunk.id, 0) + 1
         if seen[chunk.id] > 1:
             chunk.id = f"{chunk.id}#{seen[chunk.id]}"
+        chunk.layer = layer_of(chunk.source)
+        chunk.sha256 = hashlib.sha256(chunk.text.encode("utf-8")).hexdigest()
     return tuple(chunks)
 
 
