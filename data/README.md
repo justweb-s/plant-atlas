@@ -4,8 +4,8 @@ Owner: Product. Everything here is either an official text or written on 14 Nove
 
 | Folder | What |
 |---|---|
-| `law/` | official law texts: Reg. (EU) 2023/1230, its corrigendum, D.Lgs. 81/2008 artt. 69–73. Sources and download commands in `law/SOURCES.md` |
-| `cq/` | `cqs.json`: the 15 competency questions with gold answers, quotes and expected terms. Written before building; changed only with `gold:` commits |
-| `plant/` | the fictional plant documents (machine sheets, manuals, procedure PRO-07 v1 and v2, check register), written to match the `plant` block of `cq/cqs.json` |
+| `law/` | official law texts: Directive 2006/42/EC, Reg. (EU) 2023/1230, its corrigendum, D.Lgs. 81/2008 artt. 69–73. Sources and download commands in `law/SOURCES.md` |
+| `cq/` | `cqs.json`: the 20 competency questions (15 design, 5 held out) with gold answers, quotes and expected terms, plus the catalogue facts. Written before building; changed only with `gold:` commits |
+| `catalogue/` | the product sheets of a fictional machinery manufacturer (5 models), written to match the `catalogue` block of `cq/cqs.json` |
 
-No manufacturers' manuals, no real plants, no people.
+No documents of real manufacturers, no people.

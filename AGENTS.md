@@ -25,7 +25,7 @@ Le regole valgono per le persone e per gli agenti. `CLAUDE.md` importa questo fi
 | `atlas/corpus/`, `atlas/strategies/`, `atlas/ontology/`, `atlas/agent/` | Core | |
 | `ontology/` | Core | file generati dalla pipeline (`.ttl`, shapes, `build.json`, modifiche): si committano |
 | `evaluation/`, `app/`, `atlas/fake.py`, `results/` | Prodotto | |
-| `data/` (`cq/`, `law/`, `plant/`), `pitch/` | Prodotto | `data/cq/cqs.json` è il gold (§5) |
+| `data/` (`cq/`, `law/`, `catalogue/`), `pitch/` | Prodotto | `data/cq/cqs.json` è il gold (§5) |
 | `notes/core.md` | Core | |
 | `notes/product.md` | Prodotto | |
 | `atlas/contracts.py`, `atlas/api.py`, `atlas/llm.py` | condivisi | il contratto (§4) |
@@ -53,7 +53,8 @@ La cartella dell'altro si legge, non si scrive. Se serve una modifica lì, chied
 
 ## 5. Il gold e la misura
 
-- `data/cq/cqs.json` (15 domande, risposte attese, citazioni, fatti della fabbrica) è stato committato alle 11:25, prima di qualsiasi estrattore: è la prova che le domande sono venute prima.
+- `data/cq/cqs.json` (20 domande, risposte attese, citazioni, fatti del catalogo) è stato committato prima di qualsiasi estrattore: le prime 12 domande alle 11:25, le altre e il catalogo alle 12:00. È la prova che le domande sono venute prima.
+- Le domande con `split: heldout` (CQ16–CQ20) le legge solo `evaluation/`. Il codice in `atlas/` usa solo quelle con `split: design`: se vedesse le altre, il confronto tra strategie non varrebbe più. Lo controlla `tests/test_cqs.py`.
 - Lo cambia solo Prodotto, con un commit nuovo `gold:` che dice perché. Mai `--amend`, mai riscrivere la storia.
 - `tests/test_cqs.py` deve passare: ogni citazione deve esistere nel testo ufficiale.
 - Nessuno ritocca il gold per far salire un punteggio. Se una risposta attesa è sbagliata, la si corregge con la sua fonte e si rifanno girare tutte le strategie.

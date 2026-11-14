@@ -1,22 +1,23 @@
 # Note di Prodotto
 
-_Aggiornato: 11:43_
+_Aggiornato: 12:05_
 
 ## Fatto
 - **Repo pubblico:** https://github.com/justweb-s/plant-atlas. Clona e lancia una volta `git config core.hooksPath .githooks`.
-- **15 competency questions** con risposte attese, citazioni e termini attesi: `data/cq/cqs.json`, committate alle 11:25. Prova: `python -m pytest -q tests/test_cqs.py` (ogni citazione viene cercata nel testo ufficiale).
-- **Testi di legge** in `data/law/`: Reg. 2023/1230, rettifica del 4/7/2023, D.Lgs. 81/08 artt. 69–73. Fonti in `data/law/SOURCES.md`.
-- **Repo organizzato per la track ontologia:** regole in `AGENTS.md`, decisioni in `docs/decisions/`, piano in `docs/PLAN.md`, contratto nuovo in `atlas/contracts.py` e `atlas/api.py`, unica porta ai modelli con cache in `atlas/llm.py`.
-- **Punteggio:** `evaluation/score.py` (il gold prende 1.0, le trappole 0). App con 4 tab in modalità finta: `streamlit run app/streamlit_app.py`.
+- **Nuova versione (decisione `1200-due-regimi-catalogo`):** il problema è il passaggio dalla Direttiva 2006/42/CE al Regolamento 2023/1230. Esempio verificato: un ponte sollevatore oggi autocertificato dal 20/1/2027 avrà bisogno di un organismo notificato.
+- **20 competency questions** in `data/cq/cqs.json`: 15 di progetto e 5 tenute da parte (CQ16–CQ20). Ogni citazione è controllata sul testo ufficiale da `tests/test_cqs.py`.
+- **Catalogo di fantasia** (5 modelli: SL-30, CS-400, PR-80, RC-5, TC-200) nel blocco `catalogue` di `cqs.json`: è la specifica delle schede prodotto da scrivere in `data/catalogue/`.
+- **Testi di legge** in `data/law/`: Direttiva 2006/42/CE, Reg. 2023/1230, rettifica, D.Lgs. 81/08 artt. 69–73.
+- **Punteggio** (`evaluation/score.py`): punteggi separati per domande di progetto e tenute da parte. App in modalità finta: `streamlit run app/streamlit_app.py`.
 
 ## In corso
 - Video e abstract, entro le 12:30.
-- Poi baseline RAG (`evaluation/rag.py`) e tabellone reale.
+- Poi schede prodotto del catalogo, baseline RAG (`evaluation/rag.py`) e tabellone reale.
 
 ## Mi serve da te
-- 11:40 — Leggi `docs/decisions/` e il contratto nuovo (`atlas/contracts.py`, `atlas/api.py`). Se qualcosa non va, scrivi una decisione che lo sostituisce.
-- 11:40 — Rivedi le 15 domande in `data/cq/cqs.json`.
-- 11:40 — Una volta sola, nel tuo clone: `git config core.hooksPath .githooks`.
+- 12:05 — Leggi `docs/decisions/1200-due-regimi-catalogo.md`: cambia il problema e la domanda della demo, non l'architettura. Se non sei d'accordo, scrivi una decisione che la sostituisce.
+- 12:05 — La strategia B legge solo le domande con `split: design`. Le CQ16–CQ20 non vanno mai lette dal codice in `atlas/`: un test lo controlla.
+- 12:05 — Il corpus ora include `data/law/eu-dir-2006-42.en.xhtml` (Direttiva): va chunkato come il Regolamento.
 
 ## Bloccato
 - Manca `.env` con la chiave del team: va presa da `/me` («Show the key»).

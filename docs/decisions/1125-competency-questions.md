@@ -1,6 +1,6 @@
 # 1125 — Le 15 competency questions sono il gold
 
-- **Stato:** in vigore
+- **Stato:** in vigore, in parte superata da `1200-due-regimi-catalogo` (20 domande con hold-out, catalogo al posto della fabbrica)
 - **Quando:** 2026-11-14 11:25 (commit «data: 15 competency questions with gold answers, written before building»), registrata alle 11:35
 - **Chi:** Prodotto, da rivedere con Core
 - **Contesto:** la track chiede 10–20 domande scritte prima di costruire, con il punteggio ottenuto su di esse.

@@ -3,6 +3,16 @@
 In vigore dal 14/11/2026, ore 11:35. È nato come visione di Prodotto (11:15) a partire dal piano di Core, che ora sta in `docs/archive/PLAN-plant-atlas-v2.md`. Le decisioni, con il loro perché, sono in `docs/decisions/`; le regole di lavoro in `AGENTS.md`.
 Marcatori: **[verificato: fonte]** · **[dichiarato]** · **[non verificato]**. Le decisioni da prendere insieme sono al §1.
 
+## Aggiornamento delle 12:00 (decisione `1200-due-regimi-catalogo`): vale questo, dove il resto dice altro
+
+- **Il problema:** dal 20 gennaio 2027 alcune macchine che oggi si autocertificano avranno bisogno di un organismo notificato, e il costruttore deve scoprire quali, in documenti che mescolano le regole vecchie e quelle nuove. Esempio verificato: un ponte sollevatore per veicoli con norme armonizzate complete oggi usa il controllo interno (Direttiva, Art. 12(3)(a)); dal 20/1/2027 è nell'Allegato I, parte A, e serve B+C, H o G (Regolamento, Art. 25(2)).
+- **Il cliente:** il costruttore di macchine (ufficio tecnico, documentazione tecnica). Riceve una scheda d'impatto per ogni modello; l'ontologia è il motore e la traccia per un controllo. Il Regolamento serve a entrare; tenere la mappa aggiornata è il valore che si ripete.
+- **Il corpus:** Direttiva 2006/42/CE + Regolamento 2023/1230 + rettifica + D.Lgs. 81/08 artt. 69–73. L'Allegato XII del Regolamento (tavola di concordanza) è il riferimento ufficiale per il cambio di regime.
+- **I dati di istanza:** non più la fabbrica ma il catalogo di un costruttore di fantasia, 5 modelli (`catalogue` in `data/cq/cqs.json`).
+- **Le domande:** 20; 15 di progetto e 5 tenute da parte (CQ16–CQ20), che la strategia B non vede. Il tabellone mostra i punteggi separati.
+- **La domanda della demo:** la CQ13, «quali modelli, oggi autocertificati, dal 20/1/2027 dovranno passare da un organismo notificato?». Risposta: SL-30 e RC-5. La rettifica della data (CQ9–CQ10) resta come secondo esempio.
+- **Ancora da fare:** una voce reale (mentor call: come fa oggi un costruttore la gap analysis verso il 2023/1230, chi la fa, quanto costa).
+
 ## 0. In 30 secondi
 
 - **Cambia il prodotto, non il dominio.** Restiamo sulla sicurezza delle macchine (Reg. UE 2023/1230 e D.Lgs. 81/08). Il prodotto diventa: **un'ontologia costruita dai documenti, misurata su domande scritte prima di costruirla, e aggiornata con una modifica revisionabile quando un documento cambia.** La memoria del piano di Core (citazione, validità, nessuna cancellazione) diventa la provenienza e il versioning dell'ontologia.
