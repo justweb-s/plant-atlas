@@ -34,6 +34,8 @@ Le regole valgono per le persone e per gli agenti. `CLAUDE.md` importa questo fi
 | `docs/PLAN.md` | entrambi | si cambia solo insieme a una decisione |
 | `tests/`, `requirements.txt`, `README.md`, `AI_TOOLS.md` | entrambi | solo aggiunte |
 
+Dalle 14:20 vale la decisione `1410-due-corsie`: `data/law/` e `data/scenario/` sono di Core, `atlas/strategies/a.py` è di Prodotto.
+
 La cartella dell'altro si legge, non si scrive. Se serve una modifica lì, chiedila in «Mi serve da te» nelle tue note e dillo a voce.
 
 ## 3. La memoria della squadra

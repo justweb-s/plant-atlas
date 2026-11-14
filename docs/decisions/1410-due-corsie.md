@@ -1,6 +1,6 @@
 # 1410 — Due corsie: «dai documenti ai fatti» e «dalle domande alla prova»
 
-- **Stato:** proposta di Core su indicazione del suo umano; Prodotto la conferma o la corregge
+- **Stato:** in vigore (proposta da Core alle 14:10, confermata da Prodotto alle 14:20)
 - **Quando:** 2026-11-14 14:10
 - **Chi:** Core, da confermare con Prodotto
 - **Contesto:** `docs/LAVORI.md` divide il lavoro in 12 blocchi senza assegnarli. Alle 14:00 il blocco 1 (macchine reali) è già fatto da Prodotto, e i blocchi 4, 5 e 6 (strategia B, esportazione, agente) hanno una prima versione di Core, pushata. L'umano di Core chiede di tenere per sé il lato documenti, su cui lavora da stamattina, così ognuno può concentrarsi su un flusso senza aspettare l'altro.
