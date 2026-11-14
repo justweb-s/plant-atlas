@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered passages given.\n\nRules:\n- Use only these passages. Do not use anything you know from elsewhere.\n- If the passages do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the passages.\n- If the question asks \"which\" or \"what\" and several passages answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [passage numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: What must accompany machinery when it is placed on the market?\n\nPassages:\n[0] DIR, Art. 5(1): Article 5 Placing on the market and putting into service. 1. Before placing machinery on the market and/or putting it into service, the manufacturer or his authorised representative shall: (a) ensure that it satisfies the relevant essential health and safety requirements set out in Annex I; (b) ensure that the technical file referred to in Annex VII, part A is available; (c) provide, in particular, the necessary information, such as instructions; (d) carry out the appropriate procedures for assessing conformity in accordance with Article 12; (e) draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery; (f) affix the CE marking in accordance with Article 16.\n\n[1] REG, Art. 11(5): Article 11 Obligations of manufacturers of partly completed machinery. 5. Manufacturers shall ensure that the partly completed machinery which they place on the market bears at least the designation of the partly completed machinery, the year of construction, namely the year in which the manufacturing process was completed, model and series or type and any batch or serial number or other element allowing its identification that exists, or, where the size or nature of the partly completed machinery does not allow this, that the required information is provided on the packaging or in a document accompanying the partly completed machinery.\n\n[2] DIR, Art. 5(2): Article 5 Placing on the market and putting into service. 2. Before placing partly completed machinery on the market, the manufacturer or his authorised representative shall ensure that the procedure referred to in Article 13 has been completed.\n\n[3] REG, Art. 10(5): Article 10 Obligations of manufacturers of machinery and related products. 5. Manufacturers shall ensure that the machinery or related product which they place on the market or put into service bears at least a designation of the machinery or related product model, series or type, the year of construction, namely the year in which the manufacturing process was completed, and any batch or serial number or other element allowing its identification that exists, or, where the size or nature of the machinery or related product does not allow this, that the required information is provided on the packaging or in a document accompanying the machinery or related product.\n\n[4] DIR, Art. 5(3): Article 5 Placing on the market and putting into service. 3. For the purposes of the procedures referred to in Article 12, the manufacturer or his authorised representative shall have, or shall have access to, the necessary means of ensuring that the machinery satisfies the essential health and safety requirements set out in Annex I.\n\n[5] REG, Art. 15(2): Article 15 Obligations of distributors of machinery and related products. 2. Before making machinery or a related product available on the market, distributors shall verify that: (a) the machinery or related product bears the CE marking; (b) the machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8); (c) the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7), and that they are in a language which can be easily understood by users, as determined by the Member State in which the machinery or related product is to be made available on the market; (d) the manufacturer and the importer have complied with the requirements referred to in Article 10(5) and (6) and Article 13(3) respectively.\n\n[6] DIR, Art. 13(1): Article 13 Procedure for partly completed machinery. 1. The manufacturer of partly completed machinery or his authorised representative shall, before placing it on the market, ensure that: (a) the relevant technical documentation described in Annex VII, part B is prepared; (b) assembly instructions described in Annex VI are prepared; (c) a declaration of incorporation described in Annex II, part 1, Section B has been drawn up.\n\n[7] REG, Art. 16(2): Article 16 Obligations of distributors of partly completed machinery. 2. Before making partly completed machinery available on the market, distributors shall verify that: (a) the partly completed machinery is accompanied by the EU declaration of incorporation referred to in Article 11(8); (b) the partly completed machinery is accompanied by the assembly instructions referred to in Article 11(7), and that they are in a language which can be easily understood by the person who incorporates the partly completed machinery as determined by the Member State in which the partly completed machinery is to be made available on the market; (c) the manufacturer and the importer have complied with the requirements referred to in Article 11(5) and (6) and Article 14(3) respectively.\n\n[8] REG, Art. 11(2): Article 11 Obligations of manufacturers of partly completed machinery. 2. Before placing partly completed machinery on the market, manufacturers shall draw up the technical documentation set out in Annex IV, Part B. Where compliance of partly completed machinery with the relevant essential health and safety requirements set out in Annex III has been demonstrated in the technical documentation set out in Annex IV, Part B, manufacturers shall draw up the EU declaration of incorporation in accordance with Article 22.\n\n[9] REG, Art. 14(2): Article 14 Obligations of importers of partly completed machinery. 2. Before placing partly completed machinery on the market, importers shall ensure that the manufacturer has drawn up the technical documentation set out in Annex IV, Part B, that the partly completed machinery is accompanied by the required documents and that the manufacturer has complied with the requirements set out in Article 11(5), (6) and (8). Where an importer considers or has reason to believe that partly completed machinery is not in conformity with this Regulation, the importer shall not place it on the market until it has been brought into conformity. Furthermore, where the partly completed machinery presents a risk as regards the relevant essential health and safety requirements, the importer shall inform the manufacturer and the market surveillance authorities to that effect."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"EC/EU declaration of conformity\", \"instructions for use\"], \"text\": \"Under the Directive, Article 5(1)(e), the EC declaration of conformity (Annex II, part 1, Section A) must accompany the machinery. Under the Regulation, Article 15(2)(b) and (c), distributors must verify that the machinery is accompanied by the EU declaration of conformity and by the instructions for use. Article 10(5) also allows identification information to be given in an accompanying document where the machinery's size or nature prevents marking it directly.\", \"used\": [0, 5, 3]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 572,
+   "prompt_tokens": 2258,
+   "total_tokens": 2830,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 368,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005118,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005118,
+   "gateway_cost": 0.0005118
+  }
+ }
+}

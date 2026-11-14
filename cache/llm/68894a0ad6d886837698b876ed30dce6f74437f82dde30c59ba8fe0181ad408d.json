@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered passages given.\n\nRules:\n- Use only these passages. Do not use anything you know from elsewhere.\n- If the passages do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the passages.\n- If the question asks \"which\" or \"what\" and several passages answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [passage numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Which conformity assessment procedures can the manufacturer choose for machinery listed in Annex I, Part A?\n\nPassages:\n[0] REG, Art. 25(3): Article 25 Conformity assessment procedures for machinery and related products. 3. Where the category of machinery or related product is listed in Annex I, Part B, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures: (a) internal production control (module A) set out in Annex VI; (b) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (c) conformity based on full quality assurance (module H) set out in Annex IX; (d) conformity based on unit verification (module G) set out in Annex X. If a manufacturer applies the internal production control procedure referred to in point (a), it shall design and construct the machinery or related product in accordance with the harmonised standards or common specifications specific to that category of machinery or related product covering all the relevant essential health and safety requirements. Where the category of machinery or related product is listed in Annex I, Part B, and the machinery or related product was not designed and constructed in accordance with the harmonised standards or common specifications specific to that category of machinery or related product covering all the relevant essential health and safety requirements for that category of machinery or related product, the manufacturer, including a natural or legal person referred to in Article 18, shall apply one of the procedures referred to in points (b), (c) or (d) of this paragraph.\n\n[1] REG, Annex V, Part A, point 9: 9. Where applicable, the machinery or related product is subject to the conformity assessment procedure based on internal production control (Module A).\n\n[2] eu-dir-2014-68, Art. 14(3): Article 14 Conformity assessment procedures. 3. Pressure equipment shall be subject to one of the conformity assessment procedures which may be chosen by the manufacturer among those laid down for the category in which it is classified. The manufacturer may also choose to apply one of the procedures which apply to a higher category, if available.\n\n[3] REG, Art. 25(2): Article 25 Conformity assessment procedures for machinery and related products. 2. Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X.\n\n[4] eu-dir-2014-34, Art. 13(1): Article 13 Conformity assessment procedures. 1. The procedures to be followed for assessing the conformity of equipment and, where necessary, the devices referred to in point (b) of Article 1(1) shall be as follows: (a) for equipment-groups I and II, equipment-categories M 1 and 1, the EU-type examination set out in Annex III, in conjunction with either of the following: — conformity to type based on quality assurance of the production process set out in Annex IV, — conformity to type based on product verification set out in Annex V; (b) for equipment-groups I and II, equipment categories M 2 and 2: (i) in the case of internal combustion engines and electrical equipment in these groups and categories, the EU-type examination set out in Annex III, in conjunction with either of the following: — conformity to type based on internal production control plus supervised product testing set out in Annex VI, — conformity to type based on product quality assurance set out in Annex VII; (ii) in the case of other equipment in these groups and categories, internal production control set out in Annex VIII and the communication of the technical documentation provided for in Annex VIII, point 2, to a notified body, which shall acknowledge receipt of it as soon as possible and shall retain it; (c) for equipment-group II, equipment category 3, internal production control set out in Annex VIII; (d) for equipment-groups I and II, in addition to the procedures referred to in points (a), (b) and (c) of this paragraph, conformity based on unit verification set out in Annex IX may also be followed.\n\n[5] DIR, Art. 12(3): Article 12 Procedures for assessing the conformity of machinery. 3. Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII; (b) the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3; (c) the full quality assurance procedure provided for in Annex X.\n\n[6] eu-dir-2014-68, Art. 14(2): Article 14 Conformity assessment procedures. 2. The conformity assessment procedures to be applied for the various categories are the following: (a) category I: — Module A (b) category II: — Module A2 — Module D1 — Module E1 (c) category III: — Modules B (design type) + D — Modules B (design type) + F — Modules B (production type) + E — Modules B (production type) + C2 — Module H (d) category IV: — Modules B (production type) + D — Modules B (production type) + F — Module G — Module H1 The conformity assessment procedures are set out in Annex III.\n\n[7] REG, Art. 6(1): Article 6 Categories of machinery and related products listed in Annex I subject to relevant conformity assessment procedures. 1. Machinery and related products that fall within the categories listed in Annex I, Part A, shall be subject to the specific conformity assessment procedures referred to in Article 25(2), and machinery and related products that fall within the categories listed in Annex I, Part B shall be subject to the specific conformity assessment procedures referred to in Article 25(3).\n\n[8] REG, Art. 25(4): Article 25 Conformity assessment procedures for machinery and related products. 4. Where the category of machinery or related product is not listed in Annex I, the manufacturer, including a natural or legal person referred to in Article 18, shall apply the internal production control procedure (module A) set out in Annex VI.\n\n[9] eu-reg-2016-425, Art. 19: Article 19 Conformity assessment procedures The conformity assessment procedures to be followed for each of the risk categories set out in Annex I are as follows: (a) Category I: internal production control (module A) set out in Annex IV; (b) Category II: EU type-examination (module B) set out in Annex V, followed by conformity to type based on internal production control (module C) set out in Annex VI; (c) Category III: EU type-examination (module B) set out in Annex V, and either of the following: (i) conformity to type based on internal production control plus supervised product checks at random intervals (module C2) set out in Annex VII; (ii) conformity to type based on quality assurance of the production process (module D) set out in Annex VIII. By way of derogation, for PPE produced as a single unit to fit an individual user and classified according to Category III, the procedure referred to in point (b) may be followed."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"EU type-examination (module B) followed by conformity to type based on internal production control (module C), Annex VII and Annex VIII\", \"conformity based on full quality assurance (module H), Annex IX\", \"conformity based on unit verification (module G), Annex X\"], \"text\": \"For machinery in a category listed in Annex I, Part A, Article 25(2) of the Machinery Regulation requires the manufacturer to apply one of three procedures: module B followed by module C, module H, or module G. Article 6(1) confirms that Part A categories fall under Article 25(2).\", \"used\": [3, 7]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 381,
+   "prompt_tokens": 2774,
+   "total_tokens": 3155,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 173,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004679,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004679,
+   "gateway_cost": 0.0004679
+  }
+ }
+}
