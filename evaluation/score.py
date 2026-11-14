@@ -113,7 +113,8 @@ def summary(rows: list[dict]) -> dict:
     return {
         "n": n,
         "correct": sum(r["score"] == 1.0 for r in rows),
-        "unknown": sum("value" in r and r["value"] is None for r in rows),   # "I don't know" is not "wrong"
+        # "I don't know" is not "wrong"; on a question whose gold is "unknown" it is the right answer
+        "unknown": sum(r["score"] < 1.0 and "value" in r and r["value"] is None for r in rows),
         "wrong": sum(r["score"] < 1.0 and not ("value" in r and r["value"] is None) for r in rows),
         "mean": round(sum(r["score"] for r in rows) / n, 3) if n else 0.0,
         "by_type": _means(rows, "type"),

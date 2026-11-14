@@ -3,6 +3,7 @@
 _Aggiornato: 14:50_
 
 ## Fatto
+- **15:05 — Baseline RAG lanciata sulle 34 domande** (`results/rag.json`, tutto in `cache/llm/`, rilanciabile con `ATLAS_OFFLINE=1`): **12 giuste, 15 «non lo so», 7 sbagliate**; media 0,417 sulle domande di progetto, 0,333 su quelle tenute da parte. Circa 140k token (meno di $0,50). Cade nelle trappole che servono alla demo: CQ09 dice 14/1/2027 (non legge la rettifica), CQ10 dice «no», CQ12 non trova i tre anni, CQ22 dice ogni 2 anni invece di 1. Il RAG si lancia **senza** `PYTHONUTF8=1`: con quel flag il chunker dei manuali crasha (vedi «Mi serve da te»).
 - **14:50 — gold allargato (decisione `1450-gold-igea-e-macchine-reali`)**: CQ21–CQ34, 7 di progetto e 7 tenute da parte, sull'elenco IGEA, l'Allegato VII, il DM 2011 e i manuali. Chiavi delle fonti e locator sono quelli di `api.corpus()` (`igea-equipment`, `DLGSALLVII`, `ur5e-manual`…, `p. N`). Nuovo tipo `unknown` (CQ31: la risposta giusta è `value=None`). Le durate ora si confrontano anche se scritte a parole (`evaluation.score.duration`). **Core: ora puoi lanciare B sui manuali e sui documenti di stabilimento.**
 - **14:34 — app ridisegnata per l'RSPP** (`web/`): «Chiedi» con ricerca grande e domande pronte per tema, risposta con le parole della fonte in primo piano; «La tua cella» con le quattro macchine reali, i controlli periodici e l'avviso sulle quasi-macchine (nuovo `/api/machines`); «Perché fidarsi» con tabellone («non lo so» separato da «sbagliata»), i numeri della regola e l'ontologia. Le risposte di B sono in inglese: per l'utente italiano servirebbe `Answer.text` in italiano.
 - **Repo pubblico:** https://github.com/justweb-s/plant-atlas. Clona e lancia una volta `git config core.hooksPath .githooks`.
@@ -13,12 +14,13 @@ _Aggiornato: 14:50_
 - **Punteggio** (`evaluation/score.py`): punteggi separati per domande di progetto e tenute da parte. App in modalità finta: `streamlit run app/streamlit_app.py`.
 
 ## In corso
-- 14:45 — **Baseline RAG scritta** (`evaluation/rag.py`, test in `tests/test_rag.py`): stesso corpus, stesso modello di testo e stessa risposta JSON di B; i 10 pezzi più vicini; «non lo so» → `value=None`, contato a parte in `summary()` (`unknown` contro `wrong`). **Stima di un run completo:** 26 chiamate di embedding sui 5067 pezzi (circa 870k token, meno di $0,05) + 20 domande × (1 embedding + 1 chat, al massimo 210k token in ingresso): meno di $1 con sonnet. Vettori a 256 dimensioni per non gonfiare `cache/llm/` (circa 30 MB). Non ancora lanciato: manca la chiave in `.env`.
+- 14:45 — **Baseline RAG scritta** (`evaluation/rag.py`, test in `tests/test_rag.py`): stesso corpus, stesso modello di testo e stessa risposta JSON di B; i 10 pezzi più vicini; «non lo so» → `value=None`, contato a parte in `summary()` (`unknown` contro `wrong`). **Stima di un run completo:** 26 chiamate di embedding sui 5067 pezzi (circa 870k token, meno di $0,05) + 20 domande × (1 embedding + 1 chat, al massimo 210k token in ingresso): meno di $1 con sonnet. Vettori a 256 dimensioni per non gonfiare `cache/llm/` (circa 30 MB). Lanciato alle 15:05 (vedi Fatto). Prossimo passo: il tabellone RAG / A / B in `results/`.
 - 13:50 — Divisione dei blocchi di `docs/LAVORI.md`. Le domande tenute da parte vanno committate prima del primo run della strategia B.
 - Video e abstract, entro le 12:30.
 - Poi schede prodotto del catalogo, baseline RAG (`evaluation/rag.py`) e tabellone reale.
 
 ## Mi serve da te
+- 15:05 — **Bug in `atlas/corpus/chunker.py`, `manual()`:** se manca `<manuale>.pages.json`, `subprocess.run(["pdftotext", ...], text=True)` restituisce `stdout=None` con `PYTHONUTF8=1` e `text.split("\f")` crasha. Proposta: `encoding="utf-8", errors="replace"` e un controllo su `None`.
 - 14:45 — **Ho aggiunto `**params` a `llm.embed()`** (file condiviso, solo un'aggiunta): senza parametri la chiave di cache è identica, quindi la tua cache resta valida. La uso per `dimensions=256` nel RAG.
 - 14:50 — **L'app gira sui tuoi dati veri** (decisione 1445): `web/` in Next.js + `server/main.py`. Chiedi, Tabellone (B: 6/11 giuste offline, CQ12–CQ20 non in cache) e Ontologia (1668/1602/66, 5 violazioni SHACL, Turtle scaricabile).
 - 14:50 — **Bug su Windows:** `statements.py` riga 59 (`registry.csv` `.open()`) e riga 175 (`read_text()`), `build.py` righe 37 e 52: senza `encoding="utf-8"` crasha con «charmap codec». Io lo aggiro con `PYTHONUTF8=1`.

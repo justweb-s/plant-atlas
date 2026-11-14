@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered passages given.\n\nRules:\n- Use only these passages. Do not use anything you know from elsewhere.\n- If the passages do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the passages.\n- If the question asks \"which\" or \"what\" and several passages answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [passage numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Can model CS-400 stay with internal production control after 20 January 2027?\n\nPassages:\n[0] REG, Art. 3(34): (34) ‘lifetime’ means the period from the moment that machinery or a related product is placed on the market or put into service until the moment that it is discarded, including the effective time when the machinery or related product is capable of being used and the phases of transport, assembly, dismantling, disabling, scrapping or other physical or digital modifications foreseen by the manufacturer;\n\n[1] DIR, Annex II, 2: 2. CUSTODY The manufacturer of machinery or his authorised representative shall keep the original EC declaration of conformity for a period of at least 10 years from the last date of manufacture of the machinery. The manufacturer of partly completed machinery or his authorised representative shall keep the original declaration of incorporation for a period of at least 10 years from the last date of manufacture of the partly completed machinery.\n\n[2] REG, Annex V, Part B, point 1: 1. The partly completed machinery (product, type, model batch or serial number).\n\n[3] eu-dir-2014-30, Recital 57: (57) It is necessary to provide for reasonable transitional arrangements that allow the making available on the market and putting into service, without the need to comply with further product requirements, of apparatus that has already been placed on the market in accordance with Directive 2004/108/EC before the date of application of national measures transposing this Directive. Distributors should therefore be able to supply apparatus that has been placed on the market, namely stock that is already in the distribution chain, before the date of application of national measures transposing this Directive.\n\n[4] nanoscan3-manual, p. 49: PROJECT PLANNING 5 5.4.8 Figure 33: How the restart interlock works (4): the reset pushbutton must be pressed before restarting the machine. 5.5 5.6 External device monitoring (EDM) Overview The external switching elements (external device monitoring, EDM) must be inspected in line with the regulations which apply at the place of installation or the required reliability of the safety function. The external device monitoring (EDM) monitors the status of downstream contactors. Prerequisites O Positively guided contactors are used for shutting down the machine. If the auxiliary contacts of the positively guided contactors are connected to the external device monitoring, the external device monitoring checks whether the contactors switch correctly when the OSSDs are switched off. Integration into the network Testing plan The manufacturer of the machine and the operating entity must define all required thorough checks. The definition must be based on the application conditions and the risk assessment and must be documented in a traceable manner. The following tests must be planned: O Before commissioning the machine and after making changes, you must check whether the safety functions are fulfilling their planned purpose and whether per- sons are being adequately protected. O The thorough checks of the safety laser scanner must fulfill certain minimum requirements. A test object is required for some thorough checks. An optically opaque cylinder with a black surface can be used as a suitable test object. The diameter must match the configured resolution. 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 49 SUBJECT TO CHANGE WITHOUT NOTICE\n\n[5] eu-dir-2014-30, Art. 32(4): Article 32 Operational obligations of notified bodies. 4. Where, in the course of the monitoring of conformity following the issue of a certificate, a notified body finds that an apparatus no longer complies, it shall require the manufacturer to take appropriate corrective measures and shall suspend or withdraw the certificate if necessary.\n\n[6] eu-dir-2014-30, Art. 7(3): Article 7 Obligations of manufacturers. 3. Manufacturers shall keep the technical documentation and the EU declaration of conformity for 10 years after the apparatus has been placed on the market.\n\n[7] ur5e-manual, p. 225: 20. Declarations and Certifications China RoHS Management Methods for Controlling Pollution by Electronic Information Products Product Declaration Table For Toxic or Hazardous Substances 1 Product/Part Toxic and Hazardous Substances and Elements Copyright © 2009­2025 by Universal Robots A/S. All rights reserved. Name / Lead (Pb) Mercury Cadmium Hexavalent Polybrominated Polybrominated Chromium biphenyls (PBB) diphenyl ethers (Hg) (Cd) (Cr+6) (PBDE) UR Robots UR3 / UR5 / UR10 / X O X O X X UR3e / UR5e /UR7e UR10e/UR12e/ UR16e /UR15e/ UR20 / UR30 O: Indicates that this toxic or hazardous substance contained in all of the homogeneous materials for this part is below the limit requirement in SJ/T11363-2006. O: SJ/T 11363-2006 X: Indicates that this toxic or hazardous substance contained in at least one of the homogeneous materials used for this part is above the limit requirement in SJ/T11363-2006. X: SJ/T 11363-2006 \"X\" Items below are wear-out items and therefore can have useful lives less than environmental use period: ,: Drives, Gaskets, Probes, Filters, Pins, Cables, Stiffener, Interfaces , , , , , , , Refer to product manual for detailed conditions of use. . Universal Robots encourages that all Electronic Information Products be recycled but does not assume responsibility or liability. Universal Robots , Universal Robots To the maximum extent permitted by law, Customer shall be solely responsible for complying with, and shall otherwise assume all liabilities that may be imposed in connection with, any legal requirements adopted by any governmental authority related to the Management Methods for Controlling Pollution by Electronic Information Products (Ministry of Information Industry Order #39) of the Peoples Republic of China otherwise encouraging the recycle and use of electronic information products. Customer shall defend, indemnify and hold Universal Robots harmless from any damage, claim or liability relating thereto. At the time Customer desires to dispose of the Products, Customer shall refer to and comply with the specific waste management instructions and options set forth at www.universal-robots.com/about-universal-robots/social-responsibility and www.teradyne.com/company/corporate-social-responsibility, as the same may be amended by Teradyne or Universal Robots. User Manual 228 UR5e\n\n[8] REG, Annex III, 2.4.6: 2.4.6. Maintenance\n\n[9] REG, Art. 11(3): Article 11 Obligations of manufacturers of partly completed machinery. 3. Manufacturers shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities for at least 10 years after the partly completed machinery has been placed on the market. Where relevant, the source code or the programming logic included in the technical documentation shall, upon a reasoned request, be made available to the competent national authorities, if that source code or programming logic is necessary in order for them to be able to check compliance with the relevant essential health and safety requirements set out in Annex III."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\":\"unknown\",\"value\":null,\"text\":\"The passages do not say whether model CS-400 may stay with internal production control after 20 January 2027. None of them covers conformity assessment procedures, the use of internal production control, or the CS-400 model. They also give no transitional rule that sets 20 January 2027 as a relevant date.\",\"used\":[]}",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 116,
+   "prompt_tokens": 2711,
+   "total_tokens": 2827,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.006582,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.006582,
+   "gateway_cost": 0.006582
+  }
+ }
+}
