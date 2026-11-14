@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "After 20 January 2027, can a vehicle servicing lift built to harmonised standards covering all requirements be certified with internal production control alone?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Dopo il 20 gennaio 2027, un sollevatore per la manutenzione di veicoli costruito secondo le norme armonizzate che coprono tutti i requisiti può essere certificato con il solo controllo interno della produzione?",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 82,
+   "prompt_tokens": 98,
+   "total_tokens": 180,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 5.08e-05,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 5.08e-05,
+   "gateway_cost": 5.08e-05
+  }
+ }
+}

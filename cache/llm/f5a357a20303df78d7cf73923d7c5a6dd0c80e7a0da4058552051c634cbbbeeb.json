@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered passages given.\n\nRules:\n- Use only these passages. Do not use anything you know from elsewhere.\n- If the passages do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the passages.\n- If the question asks \"which\" or \"what\" and several passages answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [passage numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: For how long must the manufacturer keep the technical documentation and the EU declaration of conformity?\n\nPassages:\n[0] eu-dir-2014-34, Art. 6(3): Article 6 Obligations of manufacturers. 3. Manufacturers shall keep the technical documentation and the EU declaration of conformity or, where applicable, the attestation of conformity for 10 years after the product has been placed on the market.\n\n[1] eu-dir-2014-68, Art. 6(3): Article 6 Obligations of manufacturers. 3. Manufacturers shall keep the technical documentation and the EU declaration of conformity for 10 years after pressure equipment or assemblies have been placed on the market.\n\n[2] eu-dir-2014-30, Art. 7(3): Article 7 Obligations of manufacturers. 3. Manufacturers shall keep the technical documentation and the EU declaration of conformity for 10 years after the apparatus has been placed on the market.\n\n[3] eu-dir-2014-35, Art. 6(3): Article 6 Obligations of manufacturers. 3. Manufacturers shall keep the technical documentation referred to in Annex III and the EU declaration of conformity for 10 years after the electrical equipment has been placed on the market.\n\n[4] REG, Art. 10(3): Article 10 Obligations of manufacturers of machinery and related products. 3. Manufacturers shall keep the technical documentation and the EU declaration of conformity at the disposal of the market surveillance authorities for at least 10 years after the machinery or the related product has been placed on the market or put into service. Where relevant, the source code or the programming logic included in the technical documentation shall, upon a reasoned request, be made available to the competent national authorities, if that source code or programming logic is necessary in order for them to be able to check compliance with the essential health and safety requirements set out in Annex III.\n\n[5] eu-reg-2016-425, Art. 8(3): Article 8 Obligations of manufacturers. 3. Manufacturers shall keep the technical documentation and the EU declaration of conformity for 10 years after the PPE has been placed on the market.\n\n[6] REG, Art. 11(3): Article 11 Obligations of manufacturers of partly completed machinery. 3. Manufacturers shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities for at least 10 years after the partly completed machinery has been placed on the market. Where relevant, the source code or the programming logic included in the technical documentation shall, upon a reasoned request, be made available to the competent national authorities, if that source code or programming logic is necessary in order for them to be able to check compliance with the relevant essential health and safety requirements set out in Annex III.\n\n[7] REG, Art. 13(8): Article 13 Obligations of importers of machinery and related products. 8. Importers shall, for at least 10 years after the machinery or related product has been placed on the market, keep a copy of the EU declaration of conformity at the disposal of the market surveillance authorities and ensure that the technical documentation set out in Annex IV, Part A, can be made available to those authorities upon request. Where relevant, the source code or the programming logic included in the technical documentation shall, upon a reasoned request, be made available to the competent national authorities, if that source code or programming logic is necessary in order for them to be able to check compliance with the essential health and safety requirements set out in Annex III.\n\n[8] eu-dir-2014-34, Art. 8(8): Article 8 Obligations of importers. 8. Importers shall, for 10 years after the product has been placed on the market, keep a copy of the EU declaration of conformity or, where applicable, of the attestation of conformity at the disposal of the market surveillance authorities and ensure that the technical documentation can be made available to those authorities, upon request.\n\n[9] eu-dir-2014-34, Annex VII, 5: 5. CE marking, EU declaration of conformity and attestation of conformity 5.1. 5.2. A copy of the EU declaration of conformity shall accompany every product other than a component. 5.3. 6. The manufacturer shall, for a period ending 10 years after the product has been placed on the market, keep at the disposal of the national authorities: (a) the documentation referred to in point 3.1, (b) the information relating to the change referred to in point 3.5, as approved, (c) the decisions and reports of the notified body referred to in points 3.5, 4.3 and 4.4. 7. Each notified body shall inform its notifying authority of quality system approvals issued or withdrawn, and shall, periodically or upon request, make available to its notifying authority the list of quality system approvals refused, suspended or otherwise restricted. Each notified body shall inform the other notified bodies of quality system approvals which it has refused, suspended or withdrawn, and, upon request, of quality system approvals which it has issued."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P10Y\", \"text\": \"Manufacturers must keep the technical documentation and the EU declaration of conformity for 10 years after the product is placed on the market (Directive 2014/34/EU Art. 6(3), Directive 2014/68/EU Art. 6(3), Directive 2014/30/EU Art. 7(3), Directive 2014/35/EU Art. 6(3), Regulation (EU) 2016/425 Art. 8(3)). For machinery, Regulation Art. 10(3) requires keeping them for at least 10 years after the machinery is placed on the market or put into service.\", \"used\": [0, 1, 2, 3, 4, 5]}",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 539,
+   "prompt_tokens": 1939,
+   "total_tokens": 2478,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 306,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004634,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004634,
+   "gateway_cost": 0.0004634
+  }
+ }
+}

@@ -31,24 +31,24 @@
   "rag": {
    "design": {
     "n": 22,
-    "correct": 8,
-    "unknown": 7,
-    "wrong": 7,
-    "mean": 0.417
+    "correct": 10,
+    "unknown": 8,
+    "wrong": 4,
+    "mean": 0.485
    },
    "heldout": {
     "n": 12,
-    "correct": 4,
-    "unknown": 8,
-    "wrong": 0,
-    "mean": 0.333
+    "correct": 6,
+    "unknown": 5,
+    "wrong": 1,
+    "mean": 0.5
    },
    "covered_by_b": {
     "n": 31,
-    "correct": 12,
-    "unknown": 12,
-    "wrong": 7,
-    "mean": 0.425
+    "correct": 16,
+    "unknown": 10,
+    "wrong": 5,
+    "mean": 0.538
    },
    "answered": 34,
    "of": 34
@@ -56,24 +56,24 @@
   "B": {
    "design": {
     "n": 22,
-    "correct": 10,
-    "unknown": 6,
-    "wrong": 6,
-    "mean": 0.528
+    "correct": 14,
+    "unknown": 3,
+    "wrong": 5,
+    "mean": 0.729
    },
    "heldout": {
     "n": 12,
     "correct": 4,
-    "unknown": 7,
-    "wrong": 1,
-    "mean": 0.333
+    "unknown": 3,
+    "wrong": 5,
+    "mean": 0.361
    },
    "covered_by_b": {
     "n": 31,
-    "correct": 14,
-    "unknown": 11,
-    "wrong": 6,
-    "mean": 0.487
+    "correct": 18,
+    "unknown": 3,
+    "wrong": 10,
+    "mean": 0.657
    },
    "answered": 34,
    "of": 34
@@ -88,7 +88,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 0.545
   },
   {
    "id": "CQ02",
@@ -146,9 +146,9 @@
    "type": "T",
    "question": "What must accompany machinery when it is placed on the market?",
    "covered_by_b": true,
-   "rag": 0.5,
+   "rag": 1.0,
    "A": null,
-   "B": 0.444
+   "B": 0.333
   },
   {
    "id": "CQ08",
@@ -198,7 +198,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ13",
@@ -228,7 +228,7 @@
    "covered_by_b": false,
    "rag": 0.0,
    "A": null,
-   "B": 0.5
+   "B": 0.0
   },
   {
    "id": "CQ16",
@@ -238,7 +238,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 0.333
   },
   {
    "id": "CQ17",
@@ -256,7 +256,7 @@
    "type": "V",
    "question": "Which essential requirement on protection against corruption does the Regulation introduce that the Directive did not have?",
    "covered_by_b": true,
-   "rag": 0.0,
+   "rag": 1.0,
    "A": null,
    "B": 0.0
   },
@@ -288,7 +288,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ22",
@@ -296,9 +296,9 @@
    "type": "I",
    "question": "How often must the Effer truck-mounted hydraulic crane at position 7 of the IGEA list, built in 2017, be verified?",
    "covered_by_b": true,
-   "rag": 0.0,
+   "rag": 1.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ23",
@@ -308,7 +308,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 0.5
   },
   {
    "id": "CQ24",
@@ -348,7 +348,7 @@
    "covered_by_b": true,
    "rag": 1.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ28",
@@ -358,7 +358,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ29",
@@ -388,7 +388,7 @@
    "covered_by_b": true,
    "rag": 1.0,
    "A": null,
-   "B": 1.0
+   "B": 0.0
   },
   {
    "id": "CQ32",
@@ -396,7 +396,7 @@
    "type": "I",
    "question": "If the UR5e arm in the cell is replaced with a UR10e, by how many millimetres does the reach increase?",
    "covered_by_b": true,
-   "rag": 0.0,
+   "rag": 1.0,
    "A": null,
    "B": 1.0
   },
