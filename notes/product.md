@@ -1,8 +1,9 @@
 # Note di Prodotto
 
-_Aggiornato: 11:40_
+_Aggiornato: 11:50_
 
 ## Fatto
+- **Repo pubblico:** https://github.com/justweb-s/plant-atlas. Clona e lancia una volta `git config core.hooksPath .githooks`.
 - **15 competency questions** con risposte attese, citazioni e termini attesi: `data/cq/cqs.json`, committate alle 11:25. Prova: `python -m pytest -q tests/test_cqs.py` (ogni citazione viene cercata nel testo ufficiale).
 - **Testi di legge** in `data/law/`: Reg. 2023/1230, rettifica del 4/7/2023, D.Lgs. 81/08 artt. 69–73. Fonti in `data/law/SOURCES.md`.
 - **Repo organizzato per la track ontologia:** regole in `AGENTS.md`, decisioni in `docs/decisions/`, piano in `docs/PLAN.md`, contratto nuovo in `atlas/contracts.py` e `atlas/api.py`, unica porta ai modelli con cache in `atlas/llm.py`.
