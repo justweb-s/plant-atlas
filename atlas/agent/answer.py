@@ -477,7 +477,22 @@ SEQUENCE = re.compile(r",?\s+(followed by|seguit[oa] da)\s+", re.I)
 JOINED = re.compile(r"\b(or|o|oppure|ovvero)\b", re.I)
 
 
-def polish_set(items: list[str], used: list[Statement]) -> list[str]:
+HEADING = re.compile(r"^(risks?|hazards?|rischi\w*|pericol\w*)\s+(related to|due to|relativ\w+ a\w*|conness\w+ a\w*|dovut\w+ a\w*)\b", re.I)
+
+
+def _item_of(s: Statement) -> str:
+    """How a fact is named in a set: its subject for a member of a list, else its short normal form when it has
+    one that is not a date or a duration, else its value as written."""
+    if s.predicate == "listedIn":
+        return s.subject
+    short = (s.object_normalised or "").strip()
+    if short and len(short) <= 60 and not ISO_DATE.fullmatch(short) and not ISO_DURATION.fullmatch(short):
+        return short
+    return s.object_as_written
+
+
+def polish_set(items: list[str], used: list[Statement], pool: list[Statement] | None = None,
+               question: str = "") -> list[str]:
     """Set items in the facts' own words: no "Option (a):" prefix or numbering, no trailing bracket holding a
     locator or a condition (unless the bracket is written in a used fact), the fact's exact subject (listedIn)
     or value as written when the item matches one, the order of a "followed by" sequence as the fact writes
@@ -497,16 +512,36 @@ def polish_set(items: list[str], used: list[Statement]) -> list[str]:
         if len(parts) == 3 and f"{_key(parts[2])} {_key(parts[1])} {_key(parts[0])}" in written \
                 and f"{_key(parts[0])} {_key(parts[1])} {_key(parts[2])}" not in written:
             item = f"{parts[2]} {parts[1]} {parts[0]}"   # the order the fact writes
-        source, own, flat = None, _words(item), _key(item)
-        for s in used:
-            target = s.subject if s.predicate == "listedIn" else s.object_as_written
-            theirs, there = _words(target), _key(target)
-            close = (len(flat) >= 4 and len(there) >= 4 and (flat in there or there in flat)) or \
-                (bool(own) and bool(theirs) and len(own & theirs) >= 0.6 * max(len(own), len(theirs)))
-            if close and len(target) <= 200:
-                item, source = target.strip(), s
-                break
-        if item:
+        source, own, flat, best = None, _words(item), _key(item), 0.0
+        for s in used:   # the closest used fact gives the item its wording
+            for target in dict.fromkeys((s.subject,) if s.predicate == "listedIn" else (_item_of(s), s.object_as_written)):
+                theirs, there = _words(target), _key(target)
+                close = 2.0 if flat == there else 0.0
+                if not close and len(flat) >= 4 and len(there) >= 4 and (flat in there or there in flat):
+                    close = min(len(flat), len(there)) / max(len(flat), len(there))
+                if own and theirs:
+                    share = len(own & theirs) / max(len(own), len(theirs))
+                    close = max(close, share if share >= 0.6 else 0.0)
+                if close > best and len(_item_of(s)) <= 200:
+                    best, source = close, s
+        if source is not None and best >= 0.5:
+            item = _item_of(source).strip()
+        else:
+            source = None
+        members = []
+        if source is None or source.predicate != "listedIn":   # an item that names a place holding members
+            for found in PLACE.finditer(item if pool else ""):
+                place = _place(found.group(0))
+                group = [s for s in pool if s.predicate == "listedIn" and " " in place and _under(_place(s.anchor), place)]
+                if 2 <= len(group) <= FAMILY:
+                    members = group
+                    break
+        if members:
+            for s in members:
+                out.append((s.subject.strip(), s))
+                if all(s.id != u.id for u in used):
+                    used.append(s)
+        elif item:
             out.append((item, source))
     kept: list[tuple[str, Statement | None]] = []
     for item, source in out:
@@ -517,9 +552,26 @@ def polish_set(items: list[str], used: list[Statement]) -> list[str]:
             and _place(o.anchor).split(" ")[:2] == _place(source.anchor).split(" ")[:2] for _, o in out)
         if not twin:
             kept.append((item, source))
+    def same_point(a: Statement | None, b: Statement | None) -> bool:
+        return a is not None and b is not None and a.id != b.id and a.predicate == b.predicate \
+            and a.source_doc == b.source_doc and a.anchor == b.anchor
+
     keys = [f" {_key(item)} " for item, _ in kept]
-    return [item for i, (item, _) in enumerate(kept)
-            if not any(j != i and other != keys[i] and other in keys[i] for j, other in enumerate(keys))]
+    final: list[tuple[str, Statement | None]] = []
+    for i, (item, source) in enumerate(kept):
+        distinct = lambda other: source is not None and other is not None and other.id != source.id
+        if any(j != i and keys[j] != keys[i] and keys[j] in keys[i] and not distinct(kept[j][1]) for j in range(len(kept))):
+            continue   # only extends another item, and not from a fact of its own
+        if HEADING.search(item) and any(same_point(source, other) and not HEADING.search(o) for o, other in kept):
+            continue   # the heading of a point whose specific facts are present
+        head = _key(item).split()
+        if len(head) >= 4 and any(same_point(source, other) and _key(o).split()[:3] == head[:3] for o, other in final):
+            continue   # same head phrase as an item of the same point already kept
+        final.append((item, source))
+    asked = _words(question)
+    if asked and final and all(_words(item) and _words(item) <= asked for item, _ in final):
+        return []   # the question's own words are not an answer
+    return [item for item, _ in final]
 
 
 def all_bodies(value: str, used: list[Statement]) -> str:
@@ -645,7 +697,7 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         if value is None:
             text = f"{UNKNOWN.get(lang, UNKNOWN['en'])} ({missing})"
     if isinstance(value, list):   # set items in the facts' own words
-        value = polish_set(value, used) or None
+        value = polish_set(value, used, facts, question) or None
     elif isinstance(value, str) and re.match(r"\s*(who|chi)\b", question, re.I):
         value = all_bodies(value, used)
     if rule and frequency:   # the rule's facts are always cited and its assumptions always stated

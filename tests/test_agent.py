@@ -203,3 +203,31 @@ def test_set_items_are_put_in_the_facts_own_words():
                 quote="Le verifiche sono effettuate dalla ASL o da soggetti pubblici o privati abilitati.")
     assert agent.all_bodies("The ASL.", [body]) == "The ASL; ASL o da soggetti pubblici o privati abilitati"
     assert agent.all_bodies("INAIL", [body]) == "INAIL"
+
+
+def test_distinct_facts_stay_links_are_followed_and_headings_go():
+    def fact(i, subject, predicate, value, anchor, normal=""):
+        return Statement(id=f"x-{i}", subject=subject, predicate=predicate, object=value, object_as_written=value,
+                         object_normalised=normal, quote="q", source_doc="REG", anchor=anchor, status="current",
+                         asserted_by="test")
+
+    procedures = [fact(1, "Part A machinery", "requiresProcedure", "EU type-examination (module B), followed by "
+                       "conformity to type (module C)", "Art. 25(2)", "module B followed by module C"),
+                  fact(2, "Part A machinery", "requiresProcedure", "full quality assurance (module H)", "Art. 25(2)", "module H"),
+                  fact(3, "Part A machinery", "requiresProcedure", "unit verification (module G)", "Art. 25(2)", "module G")]
+    got = agent.polish_set(["EU type-examination (module B) followed by conformity to type (module C)",
+                            "full quality assurance (module H)", "unit verification (module G)"], procedures)
+    assert got == ["module B followed by module C", "module H", "module G"]   # three facts, three short items
+    members = [fact(4, "saws", "listedIn", "1.", "Annex I, Part A, point 1"),
+               fact(5, "lifts", "listedIn", "2.", "Annex I, Part A, point 2"),
+               fact(6, "presses", "listedIn", "1.", "Annex I, Part B, point 1")]
+    used = [procedures[1]]
+    got = agent.polish_set(["machinery in categories listed in Annex I, Part A"] * 2, used, members + procedures)
+    assert got == ["saws", "lifts"] and {s.id for s in used} == {"x-2", "x-4", "x-5"}   # the place is followed
+    assert agent.polish_set(["categories of machinery"], [], [], "Which categories of machinery need it?") == []
+    risks = [fact(7, "1.3.7", "addressesRisk", "Risks related to moving parts", "Annex III, 1.3.7"),
+             fact(8, "1.3.7", "addressesRisk", "contact with moving parts leading to accidents", "Annex III, 1.3.7"),
+             fact(9, "1.3.7", "addressesRisk", "contact with moving parts of the transmission", "Annex III, 1.3.7"),
+             fact(10, "1.3.7", "addressesRisk", "accidental blockage", "Annex III, 1.3.7")]
+    got = agent.polish_set([f.object_as_written for f in risks], risks)
+    assert got == ["contact with moving parts leading to accidents", "accidental blockage"]
