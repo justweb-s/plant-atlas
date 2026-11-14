@@ -1,3 +1,5 @@
+> **Superato** alle 11:35 dalla decisione `docs/decisions/1115-track-ontologia.md`. Resta qui come storia: le sue idee di memoria (citazioni, validità, ordine di autorità) vivono nel piano nuovo, `docs/PLAN.md`.
+
 # Plant Atlas v2 — piano per il 14 novembre 2026
 
 > Revisione del piano di Core. Adattata a regole, orari e criteri reali dell'evento, con la memoria visiva aggiunta.

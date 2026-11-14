@@ -1,0 +1,35 @@
+#!/bin/sh
+# Team pre-commit check (AGENTS.md §7). Enable it once per clone:
+#   git config core.hooksPath .githooks
+# It blocks: .env files, a team key written in clear, failing tests.
+
+staged=$(git diff --cached --name-only --diff-filter=ACM)
+
+for f in $staged; do
+  case "$f" in
+    .env.example|*/.env.example) ;;
+    .env|.env.*|*/.env|*/.env.*)
+      echo "pre-commit: $f is a .env file: it never goes in git" >&2
+      exit 1 ;;
+  esac
+done
+
+if git diff --cached -U0 --diff-filter=ACM | grep -E '^\+' \
+   | grep -E 'AI_GATEWAY_API_KEY[[:space:]]*[=:][[:space:]]*[^[:space:]]{20,}' >/dev/null; then
+  echo "pre-commit: a key value is staged (AI_GATEWAY_API_KEY=...). Remove it." >&2
+  echo "If it was ever pushed, tell the organisers: they revoke it." >&2
+  exit 1
+fi
+
+PY=""
+for p in .venv/Scripts/python.exe .venv/bin/python; do
+  if [ -x "$p" ]; then PY=$p; break; fi
+done
+if [ -z "$PY" ]; then
+  if command -v python3 >/dev/null 2>&1; then PY=python3; else PY=python; fi
+fi
+
+if ! ATLAS_FAKE=1 "$PY" -m pytest -q -x >/dev/null 2>&1; then
+  echo "pre-commit: tests fail. Run: $PY -m pytest -q" >&2
+  exit 1
+fi

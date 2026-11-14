@@ -1,72 +1,110 @@
-# Regole del repo (per persone e agenti)
+# Regole del repo: il cervello della squadra
 
-Siamo in due, abbiamo circa 5 ore di sviluppo e nessun tempo per i conflitti. Queste regole valgono per noi **e per i nostri agenti di coding**: `CLAUDE.md` importa questo file, e Codex, Cursor e OpenCode leggono `AGENTS.md`.
+Questo repo lo scrivono due persone, Core e Prodotto, e i loro agenti di coding. È una memoria condivisa con più scrittori: lo stesso problema che il nostro prodotto risolve. Usiamo quindi gli stessi principi.
 
-## 1. Chi possiede cosa
-
-Ognuno scrive **solo nelle sue cartelle**. Le cartelle dell'altro si leggono e basta.
-
-| Cartella / file | Proprietario | Contenuto |
-|---|---|---|
-| `atlas/core/`, `atlas/reader/`, `atlas/vision/` | **Core** | statement, `write_statement`, `as_of`, regole di stato, log eventi, lettura documenti e foto |
-| `app/`, `atlas/fake.py`, `data/`, `pitch/` | **Prodotto** | app Streamlit, dati finti per l'app, fabbrica/manuale/procedura/foto, slide e video |
-| `notes/core.md` | Core | stato di Core (§4) |
-| `notes/product.md` | Prodotto | stato di Prodotto (§4) |
-| `atlas/contracts.py`, `atlas/api.py` | **condiviso** | il contratto tra i due lati (§2) |
-| `requirements.txt`, `tests/`, `README.md`, `AI_TOOLS.md`, `docs/` | condiviso | solo aggiunte in fondo; niente riscritture dell'altro |
-
-Se serve una modifica nella cartella dell'altro: **non farla**. Scrivila in "Mi serve da te" nel tuo file di note (§4) e dillo a voce.
-
-## 2. Il contratto
-
-- `atlas/contracts.py` definisce i tipi (`Statement`, `Answer`, `Step`, `Card`, `Verdict`). `atlas/api.py` definisce le uniche funzioni che l'app può chiamare.
-- **L'app importa solo da `atlas.api` e `atlas.contracts`**, mai da `atlas.core` o da altri moduli interni.
-- Con `ATLAS_FAKE=1` le funzioni di `api.py` restituiscono i dati di `atlas/fake.py`, così l'app funziona prima che il core sia pronto. Quando una funzione reale è pronta, Core la collega in `api.py` e lo scrive nelle note.
-- **Cambiare il contratto** (nomi, campi, firme) richiede: 1) dirlo all'altro, 2) un commit dedicato con prefisso `contract:`, 3) aggiornare `atlas/fake.py` nello stesso commit, se il cambio lo rompe. Aggiungere un campo con valore di default è sempre permesso.
-
-## 3. Git
-
-- Si lavora **su `main`**, niente branch né PR: siamo in due e le cartelle sono separate.
-- Prima di ogni push: `git pull --rebase`, poi `python -m pytest -q`, poi `git push`.
-- **Commit piccoli e frequenti**, push almeno ogni 30–45 minuti. Il codice non pushato non esiste per l'altro.
-- Prefissi dei messaggi: `core:`, `vision:`, `app:`, `data:`, `pitch:`, `contract:`, `docs:`, `notes:`.
-- **Mai** `git push --force`, mai `git reset --hard` su commit già pushati, mai riscrivere la storia.
-- Conflitto su un file condiviso: tieni entrambe le versioni se sono aggiunte; altrimenti fermati e chiedi.
-
-## 4. Come ci passiamo le informazioni
-
-Ognuno tiene aggiornato **solo il proprio** file in `notes/` (una sola scrittura per file, quindi nessun conflitto). Va aggiornato a ogni push che cambia qualcosa per l'altro:
-
-```
-## Fatto            — cosa funziona davvero, e come provarlo (un comando)
-## In corso         — cosa sto facendo adesso
-## Mi serve da te   — richieste all'altro, una per riga, con l'orario
-## Bloccato         — cosa mi ferma
-```
-
-- Le cose urgenti si dicono **a voce**. Il file serve perché anche l'agente dell'altro le legga.
-- Prima di iniziare un nuovo pezzo, leggi il file di note dell'altro (`git pull` e poi aprilo).
-- **Gli agenti:** a inizio sessione leggono `notes/` e `docs/PLAN.md`; a fine lavoro aggiornano il file di note del proprio umano, mai quello dell'altro.
-
-## 5. Punti di sincronizzazione (ora di Roma)
-
-| Ora | Cosa decidiamo insieme |
+| Nel prodotto | Nel repo |
 |---|---|
-| 10:30 | track, idea, contratto in `atlas/contracts.py` congelato nella forma base |
-| 12:15 | test delle foto (almeno 4 date giuste su 5?) e cosa promettiamo nel video |
-| 15:00 | stato dei Must; alle 15:30 si decide cosa tagliare |
-| 16:00 | feature freeze: solo bug fix |
-| 16:15 | code freeze, tag `demo`, video di backup |
+| ogni fatto ha una fonte | ogni decisione ha il suo perché; ogni commit ha un prefisso che dice di cosa si tratta |
+| un fatto superato si chiude, non si cancella | una decisione superata resta dov'è, con «Stato: superata da …» |
+| due scrittori non si sovrascrivono | ogni file ha un solo scrittore; i file condivisi si cambiano solo aggiungendo |
+| i vincoli bloccano i dati sbagliati | il pre-commit blocca chiavi in chiaro e test rotti |
+| domande scritte prima misurano il risultato | `data/cq/cqs.json` è il gold, controllato dai test |
 
-## 6. Sicurezza e regole dell'evento
+Le regole valgono per le persone e per gli agenti. `CLAUDE.md` importa questo file; Codex, Cursor e OpenCode leggono `AGENTS.md`.
 
-- **Segreti:** la chiave sta solo in `.env`, che è in `.gitignore`. Mai in codice, note, log o screenshot. Se finisce in un commit: dirlo subito agli organizzatori, che la revocano. Riscrivere la storia non basta.
-- **La chiave del team è solo per il prodotto**, non per gli agenti di coding.
-- **Il repo è pubblico** (regole §11): niente nomi di persone (solo i ruoli Core e Prodotto), niente codice o schermate delle nostre aziende, niente manuali con copyright, niente foto di persone o di fabbriche reali.
-- **Tutto è costruito oggi** (regole §7). Ogni modello o strumento AI usato, anche per generare i dati, va aggiunto ad `AI_TOOLS.md`.
+## 1. Chi sei
 
-## 7. Qualità minima
+- Ogni sessione di un agente lavora per **un solo ruolo**, Core o Prodotto. Se non lo sai, chiedilo al tuo umano prima di scrivere qualsiasi file.
+- **Core** costruisce il cervello: corpus e chunking, strategie A e B, ontologia, vincoli, diff, agente che risponde.
+- **Prodotto** costruisce ciò che lo misura e lo mostra: domande e gold, dati, baseline RAG, valutazione, app, video, pitch, modello economico.
 
-- Python 3.11. Niente nuove dipendenze senza aggiungerle a `requirements.txt` e dirlo all'altro.
-- `tests/` contiene le 5 domande di test: devono girare in modalità finta da subito, e in modalità reale appena il core risponde.
-- Una funzione che non trova un dato restituisce `unknown`, mai `blocked` o `allowed` per default.
+## 2. Chi scrive dove
+
+| Percorso | Chi scrive | Note |
+|---|---|---|
+| `atlas/corpus/`, `atlas/strategies/`, `atlas/ontology/`, `atlas/agent/` | Core | |
+| `ontology/` | Core | file generati dalla pipeline (`.ttl`, shapes, `build.json`, modifiche): si committano |
+| `evaluation/`, `app/`, `atlas/fake.py`, `results/` | Prodotto | |
+| `data/` (`cq/`, `law/`, `plant/`), `pitch/` | Prodotto | `data/cq/cqs.json` è il gold (§5) |
+| `notes/core.md` | Core | |
+| `notes/product.md` | Prodotto | |
+| `atlas/contracts.py`, `atlas/api.py`, `atlas/llm.py` | condivisi | il contratto (§4) |
+| `docs/decisions/` | entrambi | solo file nuovi (§3) |
+| `cache/llm/` | entrambi | solo file nuovi; i nomi sono hash, quindi niente conflitti |
+| `docs/PLAN.md` | entrambi | si cambia solo insieme a una decisione |
+| `tests/`, `requirements.txt`, `README.md`, `AI_TOOLS.md` | entrambi | solo aggiunte |
+
+La cartella dell'altro si legge, non si scrive. Se serve una modifica lì, chiedila in «Mi serve da te» nelle tue note e dillo a voce.
+
+## 3. La memoria della squadra
+
+- **Note, la memoria di lavoro:** `notes/<ruolo>.md` con quattro sezioni (Fatto, In corso, Mi serve da te, Bloccato) e l'ora dell'ultimo aggiornamento. Le scrive solo il proprietario, quindi non entrano mai in conflitto.
+- **Decisioni, la memoria lunga:** un file per decisione in `docs/decisions/`, con nome `HHMM-argomento.md` e il modello di `TEMPLATE.md`.
+  - Una decisione accettata non si modifica. Se si cambia idea, si scrive una decisione nuova con «Sostituisce: …»; nella vecchia si cambia solo la riga «Stato».
+  - L'indice è l'elenco dei file (`ls docs/decisions`): non c'è un file indice da tenere aggiornato.
+  - Quando gli umani decidono qualcosa a voce, l'agente lo registra come decisione, con il perché.
+- **Registro, cioè `git log`:** prefissi `core:` · `ontology:` · `eval:` · `app:` · `data:` · `gold:` · `contract:` · `decision:` · `docs:` · `notes:` · `pitch:`.
+
+## 4. Il contratto
+
+- `atlas/contracts.py` (tipi), `atlas/api.py` (funzioni) e `atlas/llm.py` (unica porta ai modelli) sono l'unico punto di contatto tra Core e Prodotto. `evaluation/` e `app/` importano solo da questi tre file e dai file di Prodotto.
+- Con `ATLAS_FAKE=1`, `api.py` restituisce i dati di `atlas/fake.py`: Prodotto lavora prima che il cervello sia pronto. Quando una funzione reale funziona, Core la collega in `api.py` e lo scrive nelle sue note.
+- Per cambiare il contratto: un commit dedicato `contract:`, con `atlas/fake.py` aggiornato nello stesso commit se il cambio lo rompe, e l'altro avvisato. Aggiungere un campo con un valore di default è sempre permesso.
+
+## 5. Il gold e la misura
+
+- `data/cq/cqs.json` (15 domande, risposte attese, citazioni, fatti della fabbrica) è stato committato alle 11:25, prima di qualsiasi estrattore: è la prova che le domande sono venute prima.
+- Lo cambia solo Prodotto, con un commit nuovo `gold:` che dice perché. Mai `--amend`, mai riscrivere la storia.
+- `tests/test_cqs.py` deve passare: ogni citazione deve esistere nel testo ufficiale.
+- Nessuno ritocca il gold per far salire un punteggio. Se una risposta attesa è sbagliata, la si corregge con la sua fonte e si rifanno girare tutte le strategie.
+
+## 6. Modelli e credito
+
+- Ogni chiamata a un modello passa da `atlas/llm.py`. Usa la chiave del team e salva ogni risposta in `cache/llm/`, che si committa: chi rilancia la stessa chiamata non paga, e la demo funziona anche senza wifi (`ATLAS_OFFLINE=1`).
+- Il credito è di $25 per tutta la squadra. Prima di un run su tutto il corpus, stima quante chiamate fa e scrivilo nelle tue note. Mai cicli senza un limite.
+- La chiave del team serve solo al prodotto. Gli agenti di coding usano il proprio abbonamento.
+- I test non chiamano mai la rete: modalità finta o cache.
+
+## 7. Git
+
+- Tutti su `main`. Prima di ogni push: `git pull --rebase`, poi `python -m pytest -q`, poi `git push`.
+- Commit piccoli, push ogni 30–45 minuti: quello che non è pushato non esiste per l'altro.
+- Mai `push --force`. Mai `reset --hard` o `commit --amend` su commit già pushati.
+- Conflitto durante il rebase su un file che non è tuo: `git rebase --abort` e chiedi. Su un file condiviso dove si aggiunge soltanto: tieni entrambe le parti.
+- Una volta per ogni clone: `git config core.hooksPath .githooks`. Il pre-commit blocca i file `.env`, le chiavi in chiaro e i test rotti.
+
+## 8. Protocollo di sessione per gli agenti
+
+**All'inizio**
+1. `git pull --rebase`
+2. Leggi le note dell'altro ruolo e le decisioni più recenti (`ls docs/decisions`).
+3. `python -m pytest -q`
+4. Conferma con il tuo umano il ruolo e il compito.
+
+**Durante**
+- Scrivi solo nelle tue cartelle; un commit per ogni passo che funziona.
+- Nei documenti e nel pitch ogni fatto porta un marcatore: [verificato: fonte] · [dichiarato] · [non verificato].
+
+**Alla fine**
+1. Aggiorna le tue note, con l'ora.
+2. Registra le decisioni prese.
+3. Test, commit, `git pull --rebase`, `git push`.
+
+## 9. Sicurezza e regole dell'evento
+
+- `.env` non va mai in git. La chiave non va mai in codice, note, log, cache o screenshot. Se finisce in un commit, va detto subito agli organizzatori, che la revocano: riscrivere la storia non basta.
+- Il repo è pubblico (regole §11): niente nomi di persone (solo i ruoli Core e Prodotto), niente codice o schermate delle nostre aziende, niente testi coperti da copyright (le norme armonizzate si citano solo per codice), niente foto di persone.
+- Tutto è costruito oggi (regole §7). Ogni modello o strumento AI usato va in `AI_TOOLS.md`.
+
+## 10. Orari (Roma)
+
+| Ora | Cosa |
+|---|---|
+| 12:15 | la track si blocca |
+| 12:30 | video e abstract caricati (Control8 chiude alle 12:40) |
+| 13:30 | si sa chi continua |
+| 15:00 | tabellone completo; alle 15:30 si decide cosa tagliare |
+| 16:00 | feature freeze; aggiornare `8hack-check` |
+| 16:15 | code freeze; video di backup della demo |
+| 16:30 | validazione finanziaria |
+| 16:45 | pitch pubblicato (genere `pitch`) e repo registrato |

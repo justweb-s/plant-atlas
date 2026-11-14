@@ -1,14 +1,11 @@
 # Data
 
-Everything here is either public law text or written on 14 November 2026 for the demo. Declare the AI tool used for each generated file in `../AI_TOOLS.md`.
+Owner: Product. Everything here is either an official text or written on 14 November 2026 for the demo; every AI tool used to write data goes in `../AI_TOOLS.md`.
 
-| Folder | What | Source |
-|---|---|---|
-| `law/` | extracts of Reg. (EU) 2023/1230 Annex III and D.Lgs. 81/08 Title III | public (EUR-Lex, Gazzetta Ufficiale) |
-| `plant/` | fictional plant: machines, roles, register of inspections | written on the day |
-| `manuals/` | fictional manual of press P-3 (10–15 pages, text) | written on the day |
-| `procedures/` | internal procedure v1 (90 days) and v2 | written on the day |
-| `photos/` | photos of printed nameplate and inspection labels | taken on the day, no people |
-| `tests/` | the five test questions with answer, quote, page or photo | written on the day |
+| Folder | What |
+|---|---|
+| `law/` | official law texts: Reg. (EU) 2023/1230, its corrigendum, D.Lgs. 81/2008 artt. 69–73. Sources and download commands in `law/SOURCES.md` |
+| `cq/` | `cqs.json`: the 15 competency questions with gold answers, quotes and expected terms. Written before building; changed only with `gold:` commits |
+| `plant/` | the fictional plant documents (machine sheets, manuals, procedure PRO-07 v1 and v2, check register), written to match the `plant` block of `cq/cqs.json` |
 
 No manufacturers' manuals, no real plants, no people.
