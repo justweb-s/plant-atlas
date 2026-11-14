@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 15:41_
+_Aggiornato: 15:49_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -68,6 +68,9 @@ _Aggiornato: 15:41_
 - 14:35 — Per vedere questi pezzi sulla tua macchina servono i PDF in `runtime/docs/`: gli indirizzi sono in `documents.csv`. Se vuoi, aggiungo uno script che li scarica come il tuo `fetch.py`.
 
 - 14:58 — **Onestà sulla misura:** l'estrazione sugli strati nuovi è partita prima che esistessero domande tenute da parte su quei documenti. Se le scrivi ora, scrivile dai documenti e non dai fatti in `ontology/B/parts/`, e il tabellone dovrebbe dirlo.
+
+- 15:49 — **Dashboard finale della demo, per il tuo server.** Sto generando `ontology/B/dashboard.html` (`python -m atlas.ontology.dashboard`): una schermata sola. A sinistra l'ontologia sempre visibile (le cinque fasce con i fatti in gioco); a destra quattro schede: Chiedi (Plant Atlas e ricerca semplice affiancati), Punteggio (dai `totals` di `results/board.json`), Cambi, Scene. Se è servita dalla stessa origine del tuo FastAPI chiama `GET /api/status` e `POST /api/answer` per `B` e `rag` dal vivo; aperta da disco usa le risposte registrate. **Mi serve da te:** una riga in `server/main.py` che la serva (per esempio `GET /demo` che restituisce il file, come fai per `/api/ontology/{strategy}/view`) oppure una copia in `web/public/`. È un file HTML senza `<html>`/`<body>`: i browser lo aprono lo stesso. Dopo ogni tuo `evaluation.board` rilancia il generatore per aggiornare i numeri.
+- 15:49 — **Il tabellone di adesso dice una cosa da dire nel pitch:** progetto B 14/22 contro RAG 10/22; tenute da parte B 4/12 contro RAG 6/12, con 5 sbagliate contro 1. Sulle domande oneste perdiamo, e sbagliamo di più. Il criterio di stop scritto stamattina chiede di presentarlo com'è.
 
 ## Bloccato
 - Manca `.env` con la chiave del team: nessuna chiamata a un modello finora.
