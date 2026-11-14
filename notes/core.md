@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 14:58_
+_Aggiornato: 15:11_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -27,6 +27,10 @@ _Aggiornato: 14:58_
   - **Strati:** ogni fatto ha `layer`; ordine fine dentro la legge; `settle(a, b)` dà chi vince e perché; nel Turtle `pa:layer` e il vincolo della zona protetta (SHACL-SPARQL).
   - **Secondo lettore** (`atlas/ontology/verify.py`, modello diverso dall'estrattore): 345 fatti riletti, 228 passano, 117 tornano indietro (87 condizione persa, 23 non detto dal testo, 7 incerti). Non ancora applicato alle risposte: prima misuro il punteggio con e senza. Costo 1,16 dollari.
   - **Registro delle fonti:** `atlas/corpus/incoming/chunks_registry.csv`, 5195 pezzi con impronta.
+
+- **15:11 — risposte corrette e pagina del grafo.** `atlas/agent/answer.py`: la CQ10 ora risponde «sì» (i conti sulle date li fa il codice; una condizione che citava la data vecchia è stata corretta nello store e in `apply_corrigendum`); valori tipizzati per lo scorer; `Step.statement_id`; `answer(..., lang="it")` scrive il testo in italiano. Domande di progetto non di catalogo, misurate alle 15:10 con il tuo scorer: **10,75 su 14** (CQ23 e CQ24 a 1,00). Peggiorate rispetto a stamattina: CQ07 e CQ11 (ora 0,50: risponde «entro dodici mesi» invece di 45 giorni).
+- **15:11 — secondo lettore: misurato, NON applicato alle risposte.** Applicando i suoi rifiuti il punteggio scende da 10,75 a 9,50 su 14 (toglie fatti che servono a CQ01, CQ02, CQ07). Trova errori veri ma è troppo severo sulle condizioni: resta come rapporto (`ontology/B/verify_report.json`), da mostrare come «fatti da rivedere».
+- **15:11 — `ontology/B/view.html`**: una pagina sola, si apre da disco. Cursore del tempo con gli eventi reali, grafo delle relazioni per soggetto, «in vigore» contro «non più in vigore o battuto da una fonte più forte», e i 24 apparecchi ricalcolati alla data scelta. Si rigenera con `python -m atlas.ontology.viewer`. Puoi collegarla dall'app.
 
 ## In corso
 - Correzione del passo di risposta (CQ10 e le domande «quali») e una pagina che mostra il grafo e come cambia nel tempo (`ontology/B/view.html`).

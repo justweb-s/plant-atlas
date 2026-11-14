@@ -21306,7 +21306,7 @@ pa:st-1595 a pa:Statement ;
 pa:st-1596 a pa:Statement ;
     prov:wasAttributedTo "strategy_b:corrigendum" ;
     pa:about pa:Machinery_products_placed_on_the_market_in_conformity_with_Directive_2 ;
-    pa:condition "placed on the market in conformity with Directive 2006/42/EC before 14 January 2027" ;
+    pa:condition "placed on the market in conformity with Directive 2006/42/EC before 20 January 2027" ;
     pa:layer "law" ;
     pa:locator "Corrigendum, point 6" ;
     pa:quote "read: ‘ 20 January 2027 ’." ;

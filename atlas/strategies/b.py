@@ -117,7 +117,8 @@ def apply_corrigendum(store: Store, chunks: list[Chunk], in_force_from: date) ->
                      and (old in s.object_as_written or s.object_as_written in old)]:
             fact.status, fact.in_force_to = "closed", in_force_from
             fixed = store.write_statement(Statement(
-                subject=fact.subject, predicate=fact.predicate, condition=fact.condition,
+                subject=fact.subject, predicate=fact.predicate,
+                condition=fact.condition.replace(old, new),   # the correction applies to the whole sentence
                 object=_iso(new) or new, object_as_written=new, object_normalised=_iso(new) or new.lower(),
                 quote=read_span, source_doc=chunk.source, anchor=chunk.locator,
                 in_force_from=in_force_from, asserted_by="strategy_b:corrigendum"))
