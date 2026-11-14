@@ -1,4 +1,4 @@
-"""Owner: Product. Imports only from atlas.api and atlas.contracts (AGENTS.md §2)."""
+"""Owner: Product. Imports only atlas.api, atlas.contracts and Product's own modules (AGENTS.md §4)."""
 import sys
 from pathlib import Path
 
@@ -7,38 +7,114 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import streamlit as st  # noqa: E402
 
 from atlas import api  # noqa: E402
+from evaluation import rag  # noqa: E402
+from evaluation import score as ev  # noqa: E402
 
 st.set_page_config(page_title="Plant Atlas", layout="wide")
 st.title("Plant Atlas")
+st.caption("An ontology built from documents, measured on questions written before building it, "
+           "kept current when a document changes.")
+if api.fake_mode():
+    st.warning("Fake mode (ATLAS_FAKE=1): nothing on this page is a real result.")
 
-COLORS = {"green": "🟢", "orange": "🟠", "grey": "⚪", "red": "🔴"}
+CQS = ev.load_cqs()
+MODES = {
+    "RAG": lambda q: rag.answer(q),
+    "A · free": lambda q: api.answer(q, "A"),
+    "B · guided": lambda q: api.answer(q, "B"),
+}
 
-ask, atlas_tab, blackbox = st.tabs(["Ask", "Atlas", "Black box"])
+
+def mark(s: float) -> str:
+    return "✓" if s == 1.0 else ("~" if s > 0 else "✗")
+
+
+def safe(fn, *args):
+    """Run a contract function; if it is not built yet, say so instead of crashing the demo."""
+    try:
+        return fn(*args), None
+    except NotImplementedError as e:
+        return None, f"not built yet: {e}"
+
+
+board, ask, onto, changes = st.tabs(["Scoreboard", "Ask", "Ontology", "Changes"])
+
+with board:
+    st.write("The 15 competency questions, written before building, answered by each approach.")
+    if st.button("Compute the scoreboard"):
+        results, errors = {}, {}
+        for name, fn in MODES.items():
+            results[name], errors[name] = safe(ev.run, fn)
+        table = []
+        for i, cq in enumerate(CQS):
+            row = {"CQ": cq["id"], "type": cq["type"], "question": cq["question_en"]}
+            for name in MODES:
+                row[name] = mark(results[name][i]["score"]) if results[name] else "—"
+            table.append(row)
+        st.dataframe(table, hide_index=True)
+        for col, name in zip(st.columns(len(MODES)), MODES):
+            if results[name]:
+                s = ev.summary(results[name])
+                col.metric(name, f'{s["correct"]}/{s["n"]}', help=f'mean {s["mean"]} · by type {s["by_type"]}')
+            else:
+                col.metric(name, "—", help=errors[name])
 
 with ask:
-    q = st.text_input("Question", "Can a line operator run press P-3 today?")
-    photo = st.file_uploader("Photo from the floor (optional)", type=["jpg", "jpeg", "png"])
-    if st.button("Ask"):
-        if photo is not None:
-            st.caption(f"Read {len(api.ingest_photo(Path(photo.name)))} facts from the photo")
-        a = api.answer(q)
-        st.subheader(f"{a.label.upper()} — {a.text}")
-        for i, step in enumerate(a.steps, 1):
-            with st.expander(f"{i}. {step.text}"):
-                if step.source is not None:
-                    where = f"page {step.source.page}" if step.source.type == "page" else "photo"
-                    st.write(f"**{step.source.doc_id}**, {where}")
+    labels = [f'{c["id"]} · {c["question_en"]}' for c in CQS]
+    pick = st.selectbox("Question", labels, index=9)
+    cq = CQS[labels.index(pick)]
+    for col, name in zip(st.columns(2), ("RAG", "B · guided")):
+        a, err = safe(MODES[name], cq["question_en"])
+        if err:
+            col.subheader(name)
+            col.info(err)
+            continue
+        col.subheader(f"{name} {mark(ev.score(cq, a.value))}")
+        col.write(a.text)
+        for step in a.steps:
+            with col.expander(step.text):
+                if step.locator:
+                    st.write(f"**{step.locator}**")
                 if step.quote:
-                    st.code(step.quote)
+                    st.code(step.quote, language=None)
+                if step.sparql:
+                    st.code(step.sparql, language="sparql")
+    st.caption(f'Expected: {cq["answer_text"]}')
 
-with atlas_tab:
-    for card in api.atlas_cards():
-        st.markdown(f"### {COLORS[card.color]} {card.machine} — {card.headline}")
-        for r in card.reasons + card.changed_sources:
-            st.write(f"- {r}")
+with onto:
+    strategy = st.radio("Strategy", ["A", "B"], index=1, horizontal=True)
+    path = api.ontology_file(strategy)
+    if path.exists():
+        st.download_button("Download the Turtle file", path.read_bytes(), file_name=path.name)
+        st.code(path.read_text(encoding="utf-8")[:4000], language="turtle")
+    else:
+        st.info(f"{path.relative_to(api.ROOT).as_posix()} does not exist yet: Core's pipeline writes it.")
+    report, err = safe(api.validate, strategy)
+    if err:
+        st.info(err)
+    else:
+        st.write("SHACL:", "conforms" if report.conforms else f"{len(report.violations)} violations")
+        for v in report.violations:
+            st.write("-", v)
 
-with blackbox:
-    st.write("Chain intact" if api.verify_chain() else "Chain BROKEN")
-    for v in api.verdicts():
-        st.markdown(f"**{v.decided_at:%Y-%m-%d %H:%M}** · {v.question} → **{v.label}**")
-        st.caption(f"rules: {', '.join(v.rules)} · facts: {', '.join(v.statement_ids)} · model: {v.model}")
+with changes:
+    doc = st.text_input("New or changed document", "data/law/eu-reg-2023-1230-corrigendum-2023-07-04.en.xhtml")
+    if st.button("Propose the changes"):
+        cs, err = safe(api.propose_change, api.ROOT / doc)
+        st.session_state["changeset"] = cs
+        if err:
+            st.info(err)
+    cs = st.session_state.get("changeset")
+    if cs:
+        accepted = []
+        for ch in cs.changes:
+            if st.checkbox(f"{ch.kind} · {ch.target}: {ch.before} → {ch.after}", value=True, key=ch.id):
+                accepted.append(ch.id)
+            st.caption(f"{ch.locator}: “{ch.quote}”")
+        if st.button("Apply the accepted changes"):
+            result, err = safe(api.apply_change, cs, accepted)
+            if err:
+                st.info(err)
+            else:
+                st.success(f"New version of ontology {result.strategy}: {len(accepted)} changes accepted, "
+                           f"{result.human_decisions} human decisions.")

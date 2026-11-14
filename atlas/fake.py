@@ -1,65 +1,84 @@
-"""Fake data so the app works before the core. Owner: Product. Same signatures as atlas/api.py."""
+"""Fake data so the app and the evaluation run before the brain exists. Owner: Product.
+
+Same signatures as atlas/api.py (plus rag_answer for evaluation/rag.py). Everything here is
+FAKE: the app must show it as fake, and it never goes in the pitch as a result.
+"""
 from __future__ import annotations
 
-from datetime import date, datetime
+import json
+from datetime import date
 from pathlib import Path
 
-from atlas.contracts import Answer, Card, Source, Statement, Step, Verdict
+from atlas.contracts import Answer, BuildResult, Change, ChangeSet, Chunk, Step, ValidationReport
 
-_NOW = datetime(2026, 11, 14, 11, 0)
+ROOT = Path(__file__).resolve().parents[1]
+_CQS = json.loads((ROOT / "data/cq/cqs.json").read_text(encoding="utf-8"))["cqs"]
 
-_MANUAL = Source(type="page", doc_id="manual-P3", page=23, version="v1")
-_REGISTER = Source(type="page", doc_id="register", page=1, version="v1")
-_LABEL = Source(type="photo", doc_id="label-P3.jpg", taken_at=_NOW)
-
-_STATEMENTS = [
-    Statement("s1", "machine:P-3", "inspection_interval_days", "60",
-              "Inspect the guard interlocks every 60 days.", _MANUAL, "persistent", _NOW),
-    Statement("s2", "machine:P-3", "last_inspection", "2026-09-10",
-              "P-3 | 10/09/2026 | OK", _REGISTER, "dated", _NOW),
-    Statement("s3", "machine:P-3", "last_inspection", "2026-06-12",
-              "VERIFICA 12/06/2026", _LABEL, "observed", _NOW, status="conflict"),
-]
+_ART51 = "Directive 2006/42/EC is repealed with effect from 14 January 2027."
+_CORR5 = "On page 38, Article 51, paragraph 2, first subparagraph: for: '14 January 2027', read: '20 January 2027'"
+_CORR10 = "On page 39, Article 54, second paragraph: for: '14 January 2027', read: '20 January 2027'"
 
 
-def answer(question: str, as_of: date | None = None) -> Answer:
-    return Answer(
-        question=question,
-        label="blocked",
-        text="No. The label on P-3 shows its last inspection on 12 June, older than the register "
-             "says, and the manual requires one every 60 days.",
-        steps=[
-            Step("The manual requires an inspection every 60 days.", ["s1"], _STATEMENTS[0].quote, _MANUAL),
-            Step("The register says the last inspection was on 10 September.", ["s2"], _STATEMENTS[1].quote, _REGISTER),
-            Step("The photo of the label says 12 June: paper and floor disagree.", ["s3"], _STATEMENTS[2].quote, _LABEL),
-        ],
-        verdict_id="v1",
-    )
+def _cq_id(question: str) -> str | None:
+    q = question.strip().casefold()
+    for cq in _CQS:
+        if q in (cq["question_it"].casefold(), cq["question_en"].casefold()):
+            return cq["id"]
+    return None
 
 
-def ingest_document(path: Path, version: str | None = None) -> list[Statement]:
-    return _STATEMENTS[:2]
-
-
-def ingest_photo(path: Path, machine_hint: str | None = None) -> list[Statement]:
-    return _STATEMENTS[2:]
-
-
-def atlas_cards(as_of: date | None = None) -> list[Card]:
+def corpus() -> list[Chunk]:
     return [
-        Card("P-3", "red", "Blocked: inspection label older than the register",
-             ["label photo 12/06/2026 vs register 10/09/2026"]),
-        Card("L-1", "green", "In order"),
-        Card("S-2", "orange", "Re-read: procedure changed", changed_sources=["procedure v2"]),
-        Card("C-4", "grey", "Photo older than 30 days: take a new one"),
+        Chunk("REG:Art.54", "REG", "Art. 54", "It shall apply from 14 January 2027.", "OJ L 165, 29.6.2023"),
+        Chunk("REG:Art.51(2)", "REG", "Art. 51(2)", _ART51, "OJ L 165, 29.6.2023"),
+        Chunk("CORR:10", "CORR", "Corrigendum, point 10", _CORR10, "OJ L 169, 4.7.2023"),
     ]
 
 
-def history(subject: str) -> list[Statement]:
-    return [s for s in _STATEMENTS if s.subject == subject]
+def build_ontology(strategy) -> BuildResult:
+    shapes = ROOT / "ontology" / "B" / "shapes.ttl" if strategy == "B" else None
+    return BuildResult(strategy, ROOT / "ontology" / strategy / "ontology.ttl", shapes, 0, 0, 0)
 
 
-def verdicts(as_of: date | None = None) -> list[Verdict]:
-    return [Verdict("v1", "Can a line operator run press P-3 today?", "blocked",
-                    ["s1", "s2", "s3"], ["inspection_overdue", "paper_floor_conflict"],
-                    "fake", _NOW, prev_hash=None, hash="0000")]
+def answer(question: str, strategy="B", as_of: date | None = None) -> Answer:
+    if strategy == "B" and _cq_id(question) == "CQ10":
+        return Answer(
+            question, "B", True,
+            "(FAKE) Yes. The Directive is repealed with effect from 20 January 2027, as corrected by the corrigendum.",
+            [
+                Step("The published text says 14 January 2027", quote=_ART51, locator="Art. 51(2)"),
+                Step("The corrigendum replaces it with 20 January 2027", quote=_CORR5, locator="Corrigendum, point 5"),
+                Step("16 January 2027 is before 20 January 2027",
+                     sparql='ASK { :Directive_2006_42 :repealedWithEffectFrom ?d . FILTER (?d > "2027-01-16"^^xsd:date) }'),
+            ],
+        )
+    return Answer(question, strategy, None, "(FAKE) not implemented yet")
+
+
+def rag_answer(question: str, as_of: date | None = None) -> Answer:
+    if _cq_id(question) == "CQ10":
+        return Answer(
+            question, "rag", False,
+            "(FAKE) No: Directive 2006/42/EC is repealed with effect from 14 January 2027.",
+            [Step("Most similar passage", quote=_ART51, locator="Art. 51(2)")],
+        )
+    return Answer(question, "rag", None, "(FAKE) not implemented yet")
+
+
+def validate(strategy) -> ValidationReport:
+    return ValidationReport(strategy, True, [])
+
+
+def propose_change(document: Path) -> ChangeSet:
+    return ChangeSet("fake-corrigendum", str(document), [
+        Change("corr-10", "modify", "Regulation (EU) 2023/1230 · appliesFrom", "2027-01-14", "2027-01-20",
+               "Corrigendum, point 10", _CORR10),
+        Change("corr-5", "modify", "Directive 2006/42/EC · repealedWithEffectFrom", "2027-01-14", "2027-01-20",
+               "Corrigendum, point 5", _CORR5),
+    ])
+
+
+def apply_change(changeset: ChangeSet, accepted: list[str]) -> BuildResult:
+    result = build_ontology("B")
+    result.human_decisions = len(changeset.changes)
+    return result
