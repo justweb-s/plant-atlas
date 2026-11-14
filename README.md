@@ -25,7 +25,8 @@ pip install -r requirements.txt
 copy .env.example .env          # macOS/Linux: cp .env.example .env — then put the key in .env
 git config core.hooksPath .githooks
 python -m pytest -q
-streamlit run app/streamlit_app.py
+python -m uvicorn server.main:app --port 8000   # the brain behind the app (PYTHONUTF8=1 on Windows)
+cd web && npm install && npm run dev               # the app, on http://localhost:3000
 ```
 
 With `ATLAS_FAKE=1` (the default in `.env.example`) the app runs on fake data, clearly marked, without the brain or a model key.
@@ -41,7 +42,9 @@ With `ATLAS_FAKE=1` (the default in `.env.example`) the app runs on fake data, c
 | `atlas/corpus/`, `atlas/strategies/`, `atlas/ontology/`, `atlas/agent/` | the brain |
 | `ontology/` | the generated ontologies (Turtle, SHACL shapes, versions) |
 | `evaluation/` | scoring against the gold, and the RAG baseline |
-| `app/` | the Streamlit app: scoreboard, ask, ontology, changes |
+| `web/` | the Next.js app: ask, scoreboard, ontology |
+| `server/` | the small FastAPI server between the app and the brain |
+| `app/` | the old Streamlit app, kept only as a fake-mode fallback |
 
 ## How we work
 

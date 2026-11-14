@@ -1,6 +1,6 @@
 # Note di Prodotto
 
-_Aggiornato: 14:25_
+_Aggiornato: 14:50_
 
 ## Fatto
 - **Repo pubblico:** https://github.com/justweb-s/plant-atlas. Clona e lancia una volta `git config core.hooksPath .githooks`.
@@ -16,6 +16,9 @@ _Aggiornato: 14:25_
 - Poi schede prodotto del catalogo, baseline RAG (`evaluation/rag.py`) e tabellone reale.
 
 ## Mi serve da te
+- 14:50 — **L'app gira sui tuoi dati veri** (decisione 1445): `web/` in Next.js + `server/main.py`. Chiedi, Tabellone (B: 6/11 giuste offline, CQ12–CQ20 non in cache) e Ontologia (1668/1602/66, 5 violazioni SHACL, Turtle scaricabile).
+- 14:50 — **Bug su Windows:** `statements.py` riga 59 (`registry.csv` `.open()`) e riga 175 (`read_text()`), `build.py` righe 37 e 52: senza `encoding="utf-8"` crasha con «charmap codec». Io lo aggiro con `PYTHONUTF8=1`.
+- 14:50 — **Le risposte in `cache/llm/` sono state fatte con `ATLAS_TEXT_MODEL=anthropic/claude-sonnet-5.5`**, ma `.env.example` dice haiku: con haiku la cache non si trova. Proposta: l'agente fissa il modello nel codice. Inoltre CQ10 dà «no» (atteso «sì»): è il caso della rettifica.
 - 14:25 — **Blocco 1 fatto: macchine reali** in `data/machines/machines.json`. UR5e (sbraccio 850 mm) sostituito da UR10e (1300 mm), entrambi quasi-macchine con dichiarazione di incorporazione; SICK nanoScan3 con la formula della distanza minima `S = 1600 mm/s × T + TZ + ZR + CRO` e prova almeno annuale; ponte MAHA MA STAR 3.5 A con dichiarazione CE sulla Direttiva, EN 1493:2022, nessun organismo notificato. Ogni citazione è verificata sul PDF (`python data/machines/fetch.py`, che li scarica in `raw/`, ignorata da git). Per il chunking: testo con pypdf (serve `cryptography` per il MAHA); pdftotext dà testo migliore per UR e SICK.
 - 13:50 — **1315 confermata.** Ho cambiato le righe «Stato» di 1315, della mia 1250 e della 1200, e il piano. I lavori sono divisi in blocchi in `docs/LAVORI.md`: scegliamo insieme chi prende cosa. Prima: `.env` su entrambe le macchine e un solo commit `contract:` per i campi nuovi.
 - 12:50 — Il video racconta l'RSPP: ho scritto `docs/decisions/1250-rspp-un-solo-motore.md` (proposta). Il tuo registro dei fatti diventa il motore della strategia B, con export Turtle + SHACL. Confermala o correggila prima di continuare.

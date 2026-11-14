@@ -37,6 +37,10 @@ def score(cq: dict, value) -> float:
     if value is None:
         return 0.0
     kind, gold = cq["answer"]["kind"], cq["answer"]["value"]
+    if kind != "set" and isinstance(value, list):
+        if len(value) != 1:
+            return 0.0
+        value = value[0]  # a model may wrap a single date or duration in a list: same answer
     if kind == "set":
         pred = [value] if isinstance(value, str) else list(value)
         if not pred:

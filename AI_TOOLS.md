@@ -9,3 +9,4 @@ Required by the hackathon rules (§7). Add a line every time a new model or tool
 | Claude Code (Claude Opus 5.5, Claude Fable 5.2) | fact store, corpus registration and their tests; downloading the DM 11 April 2011 text through the browser | Core |
 | 8hack skill (Control8) | hackathon co-pilot: canvas, start page, abstract | Core |
 | Claude Code (Claude Opus 5.5) | finding the official manuals of the real machines, extracting and checking the quotes in `data/machines/` | Product |
+| Claude Code (Claude Opus 5.5) | the Next.js app (`web/`) and its FastAPI bridge (`server/`) | Product |
