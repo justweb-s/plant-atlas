@@ -1,6 +1,6 @@
 # 1250 — Un solo layout: il motore di Core dentro il prodotto di Prodotto
 
-- **Stato:** proposta di Core, in attesa di Prodotto <!-- diventa «in vigore» quando Prodotto è d'accordo -->
+- **Stato:** superata da 1315-caso-unico-cella-robotizzata
 - **Quando:** 2026-11-14 12:50
 - **Chi:** Core, da confermare con Prodotto
 - **Contesto:** la mattina sono nati due progetti. Quello di Prodotto ha il cliente, il caso reale, le 20 domande con il gold, il contratto e la valutazione, ma il motore è vuoto. Quello di Core ha la regola del motore (nessuna citazione, nessun fatto), il registro dei fatti con i test e un corpus più largo, ma non ha cliente, domande né valutazione. Serve un layout unico prima di scrivere altro codice.

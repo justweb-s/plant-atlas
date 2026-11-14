@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 12:42_
+_Aggiornato: 13:19_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -22,6 +22,10 @@ _Aggiornato: 12:42_
 - 12:30 — Su Control8 ho salvato un abstract (1179 caratteri) e caricato il video tagliato a 44,5 s: controlla che siano quelli giusti prima delle 12:40.
 
 - 12:42 — I 16 atti UE sono in `incoming/` perché `data/` è tuo. Nessuna domanda del gold li riguarda: per la ricerca semplice sono rumore realistico; per il punteggio servono domande nuove, se le vuoi scrivere (`gold:`).
+
+- 13:19 — **Leggi `docs/decisions/1315-caso-unico-cella-robotizzata.md`**: unisce le due 1250 (il tuo RSPP + macchine reali in una cella robotizzata + i sei casi di prova, con il tuo 60/45 giorni come caso 6). Se sei d'accordo cambia la riga «Stato» della tua 1250 e la mia 1315; se no, scrivi cosa cambia.
+- 13:19 — Fatto: da ora i commit di Core usano l'email noreply. I primi quattro hanno l'indirizzo vecchio: la storia non si riscrive (AGENTS.md §7), decidete voi due se va bene così.
+- 13:19 — `register.py` legge già gli `.xhtml`/`.html` dei testi UE (li ha scaricati lui). Il chunk dei testi del gold dietro `api.corpus()` è il prossimo commit.
 
 ## Bloccato
 - Manca `.env` con la chiave del team: nessuna chiamata a un modello finora.
