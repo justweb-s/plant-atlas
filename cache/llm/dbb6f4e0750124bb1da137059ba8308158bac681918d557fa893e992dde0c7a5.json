@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts, step by step: a repeal or a\n  limit \"from 20 January\" does not yet apply on 16 January.\n- If the question asks \"which\" or \"what\" and several facts answer it, list every one of them, in the words of the facts.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: How much notice must the verifier give IGEA when planning the checks?\n\nFacts:\n[0] IGEA device 6 — yearBuilt — 2004 (2004) [igea-equipment, p. 6]\n[1] IGEA device 3 — yearBuilt — 2009 (2009) [igea-equipment, p. 6]\n[2] richiesta di verifica periodica — verifiedBy — un soggetto pubblico o privato abilitato (un soggetto pubblico o privato abilitato) [condition: Laddove trascorrano inutilmente i 45 giorni dalla richiesta completa] [inail-guide, p. 38]\n[3] IGEA device 5 — yearBuilt — 2003 (2003) [igea-equipment, p. 6]\n[4] IGEA device 2 — yearBuilt — 2005 (2005) [igea-equipment, p. 6]\n[5] IGEA device 4 — yearBuilt — 2005 (2005) [igea-equipment, p. 6]\n[6] IGEA device 21 — yearBuilt — 2010 (2010) [igea-equipment, p. 7]\n[7] IGEA device 18 — yearBuilt — 2010 (2010) [igea-equipment, p. 7]\n[8] IGEA device 14 — yearBuilt — 2002 (2002) [igea-equipment, p. 7]\n[9] IGEA device 20 — yearBuilt — 2010 (2010) [igea-equipment, p. 7]\n[10] richiesta di prima verifica periodica — hasTimeLimit — Almeno 45 giorni prima della scadenza prescritta (P45D) [inail-guide, p. 29]\n[11] IGEA device 22 — yearBuilt — 1997 (1997) [igea-equipment, p. 7]\n[12] richiesta di prima verifica periodica — hasObligation — deve essere inoltrata anticipatamente (deve essere inoltrata anticipatamente) [inail-guide, p. 37]\n[13] first periodic verification — verifiedBy — INAIL (inail) [condition: della prima delle verifiche periodiche] [DM2011, art. 2, c. 1]\n[14] IGEA device 24 — yearBuilt — 2017 (2017) [igea-equipment, p. 7]\n[15] IGEA device 8 — yearBuilt — 1985 (1985) [igea-equipment, p. 6]\n[16] richiesta di prima verifica periodica — hasTimeLimit — 45 giorni (P45D) [inail-guide, p. 39]\n[17] IGEA device 1 — yearBuilt — 1991 (1991) [igea-equipment, p. 6]\n[18] IGEA device 23 — yearBuilt — 1989 (1989) [igea-equipment, p. 7]\n[19] IGEA device 15 — yearBuilt — 1997 (1997) [igea-equipment, p. 7]\n[20] IGEA device 23 — deviceKind — GRU A CAVALLETTO (GRU A CAVALLETTO) [igea-equipment, p. 7]\n[21] richiesta di prima verifica periodica — hasTimeLimit — Almeno 45 giorni (P45D) [inail-guide, p. 36]\n[22] IGEA device 16 — yearBuilt — 2000 (2000) [igea-equipment, p. 7]\n[23] IGEA device 11 — yearBuilt — 1978 (1978) [igea-equipment, p. 6]\n[24] IGEA device 12 — yearBuilt — 1980 (1980) [igea-equipment, p. 6]\n[25] IGEA device 7 — yearBuilt — 2017 (2017) [igea-equipment, p. 6]\n[26] modalità di effettuazione delle verifiche periodiche — hasTimeLimit — entro dodici mesi (P12M) [DLGS71, art. 71, c. 13]\n[27] manufacturer or his authorised representative — hasObligation — must use the appropriate verification methods (must use the appropriate verification methods) [DIR, Annex I, 4.1.2.1]\n[28] IGEA device 13 — yearBuilt — 2017 (2017) [igea-equipment, p. 6]\n[29] verifiche periodiche di cui all'articolo 71, comma 11 — verifiedBy — soggetti pubblici o privati (soggetti pubblici o privati) [condition: condizioni in presenza delle quali l'INAIL e le ASL possono avvalersi] [DM2011, art. 1, c. 1]\n[30] IGEA device 10 — yearBuilt — 1988 (1988) [igea-equipment, p. 6]\n[31] periodic verifications — verifiedBy — Istituto (istituto) [inail-guide, p. 7]\n[32] IGEA device 24 — capacityKg — 230 (230) [igea-equipment, p. 7]\n[33] IGEA device 21 — capacityKg — 7500 (7500) [igea-equipment, p. 7]\n[34] IGEA device 9 — yearBuilt — 1985 (1985) [igea-equipment, p. 6]\n[35] IGEA device 23 — capacityKg — 35000 (35000) [igea-equipment, p. 7]\n[36] prima verifica periodica — hasTimeLimit — entro 45 giorni (P45D) [condition: dalla data di ricevimento della richiesta completa] [inail-guide, p. 36]\n[37] Verifica di integrità, tubazioni gas, vapori e liquidi surriscaldati di III categoria — requiresPeriodicCheck — quinquennale (P5Y) [unict-guideline, p. 20]\n[38] periodic audits — verifiedBy — The notified body (the notified body) [DIR, Annex X]\n[39] datore di lavoro — hasObligation — il datore di lavoro metta a disposizione del verificatore la documentazione tecnica a corredo dell’impianto (il datore di lavoro metta a disposizione del verificatore la documentazione tecnica a corredo dell’impianto) [inail-guide, p. 16]\n[40] IGEA device 19 — yearBuilt — 2010 (2010) [igea-equipment, p. 7]\n[41] IGEA device 3 — capacityKg — 1500 (1500) [igea-equipment, p. 6]\n[42] regular inspection of machinery or related product — verifiedBy — designated bodies (designated bodies) [condition: may be subject to national requirements for regular inspection] [REG, Annex III, 2.4.10]\n[43] richiesta di verifica periodica successiva — verifiedBy — Azienda sanitaria nazionale (Asl) o Agenzia regionale protezione ambientale (Arpa) o soggetti pubblici o privati abilitati (VerifyingBody) [inail-guide, p. 39]\n[44] IGEA device 18 — capacityKg — 7500 (7500) [igea-equipment, p. 7]\n[45] prima verifica periodica — hasTimeLimit — entro 45 giorni dalla data di ricevimento della richiesta completa (P45D) [inail-guide, p. 29]\n[46] IGEA device 8 — capacityKg — 5000 (5000) [igea-equipment, p. 6]\n[47] IGEA device 22 — deviceKind — AUTOGRU' (AUTOGRU) [igea-equipment, p. 7]\n[48] verifica periodica — verifiedBy — soggetto pubblico o privato abilitato (soggetto pubblico o privato abilitato) [condition: Laddove trascorrano inutilmente i 45 giorni dalla richiesta completa] [inail-guide, p. 42]\n[49] verifiche periodiche successive impianti di riscaldamento — verifiedBy — Asl o Arpa o ai soggetti abilitati (Asl o Arpa o soggetti abilitati) [condition: per le verifiche successive] [inail-guide, p. 12]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\":\"unknown\",\"value\":null,\"text\":\"The facts do not say how much notice a verifier must give IGEA when planning checks. The 45-day periods only concern the request for the first periodic verification and the time allowed to carry it out. They are not a notice period from the verifier to IGEA.\",\"used\":[]}",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 193,
+   "prompt_tokens": 3141,
+   "total_tokens": 3334,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 91,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.008212,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.008212,
+   "gateway_cost": 0.008212
+  }
+ }
+}

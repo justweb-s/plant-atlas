@@ -14,7 +14,18 @@
   "DLGS71",
   "DLGS72",
   "DLGS73",
-  "REG"
+  "DLGSALLVII",
+  "DM2011",
+  "REG",
+  "igea-equipment",
+  "inail-guide",
+  "mastar-manual",
+  "nanoscan3-manual",
+  "robot-cell-sheet",
+  "unict-guideline",
+  "univpm-guideline",
+  "ur10e-manual",
+  "ur5e-manual"
  ],
  "totals": {
   "rag": {
@@ -33,11 +44,11 @@
     "mean": 0.333
    },
    "covered_by_b": {
-    "n": 18,
-    "correct": 6,
-    "unknown": 6,
-    "wrong": 6,
-    "mean": 0.398
+    "n": 31,
+    "correct": 12,
+    "unknown": 12,
+    "wrong": 7,
+    "mean": 0.425
    },
    "answered": 34,
    "of": 34
@@ -45,24 +56,24 @@
   "B": {
    "design": {
     "n": 22,
-    "correct": 8,
-    "unknown": 7,
-    "wrong": 7,
-    "mean": 0.414
+    "correct": 10,
+    "unknown": 6,
+    "wrong": 6,
+    "mean": 0.528
    },
    "heldout": {
     "n": 12,
-    "correct": 2,
-    "unknown": 9,
+    "correct": 4,
+    "unknown": 7,
     "wrong": 1,
-    "mean": 0.167
+    "mean": 0.333
    },
    "covered_by_b": {
-    "n": 18,
-    "correct": 8,
-    "unknown": 3,
-    "wrong": 7,
-    "mean": 0.506
+    "n": 31,
+    "correct": 14,
+    "unknown": 11,
+    "wrong": 6,
+    "mean": 0.487
    },
    "answered": 34,
    "of": 34
@@ -167,7 +178,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ11",
@@ -187,7 +198,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 1.0
+   "B": 0.0
   },
   {
    "id": "CQ13",
@@ -217,7 +228,7 @@
    "covered_by_b": false,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 0.5
   },
   {
    "id": "CQ16",
@@ -274,7 +285,7 @@
    "split": "design",
    "type": "I",
    "question": "How often must the DEMAG overhead travelling crane at position 8 of the IGEA lifting equipment list be verified?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 0.0,
    "A": null,
    "B": 0.0
@@ -284,7 +295,7 @@
    "split": "design",
    "type": "I",
    "question": "How often must the Effer truck-mounted hydraulic crane at position 7 of the IGEA list, built in 2017, be verified?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 0.0,
    "A": null,
    "B": 0.0
@@ -304,7 +315,7 @@
    "split": "design",
    "type": "V",
    "question": "The Ministerial Decree of 11 April 2011 says sixty days and Article 71 of Legislative Decree 81/2008 says forty-five: within how many days of the request must the first periodic verification be carried out today?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 1.0,
    "A": null,
    "B": 1.0
@@ -314,27 +325,27 @@
    "split": "design",
    "type": "I",
    "question": "Can the UR5e robot arm be put into service on its own, as delivered by the manufacturer?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ26",
    "split": "design",
    "type": "I",
    "question": "How often must the nanoScan3 safety laser scanner be tested?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 1.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ27",
    "split": "design",
    "type": "I",
    "question": "How much notice must the verifier give IGEA when planning the checks?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 1.0,
    "A": null,
    "B": 0.0
@@ -344,7 +355,7 @@
    "split": "heldout",
    "type": "I",
    "question": "How often must the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, be verified today?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 0.0,
    "A": null,
    "B": 0.0
@@ -354,7 +365,7 @@
    "split": "heldout",
    "type": "V",
    "question": "In November 2028, how often will the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, have to be verified?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 1.0,
    "A": null,
    "B": 0.0
@@ -364,7 +375,7 @@
    "split": "heldout",
    "type": "I",
    "question": "How often must the HINOWA elevating platform at position 24 of the IGEA list be verified?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 0.0,
    "A": null,
    "B": 0.0
@@ -374,7 +385,7 @@
    "split": "heldout",
    "type": "I",
    "question": "Is the periodic verification of the DEMAG overhead crane at position 8 of the IGEA list overdue today?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 1.0,
    "A": null,
    "B": 1.0
@@ -384,27 +395,27 @@
    "split": "heldout",
    "type": "I",
    "question": "If the UR5e arm in the cell is replaced with a UR10e, by how many millimetres does the reach increase?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 0.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ33",
    "split": "heldout",
    "type": "I",
    "question": "How often must the wear indicator of the load nut of the MA STAR 3.5 A vehicle lift be checked?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 1.0,
    "A": null,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ34",
    "split": "heldout",
    "type": "I",
    "question": "For the verification of the DEMAG overhead crane at position 8 of the IGEA list, is the structural verification certificate of the residual life cycles needed?",
-   "covered_by_b": false,
+   "covered_by_b": true,
    "rag": 0.0,
    "A": null,
    "B": 0.0

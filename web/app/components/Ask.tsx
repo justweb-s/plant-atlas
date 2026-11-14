@@ -58,7 +58,7 @@ export default function Ask({ today }: { today?: string }) {
     setOthers(null);
     setTimeout(() => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
     try {
-      setResult(await post<AnswerResponse>("/api/answer", { question, mode: "B", as_of, cq: a.cq }));
+      setResult(await post<AnswerResponse>("/api/answer", { question, mode: "B", as_of, cq: a.cq, lang: "it" }));
     } catch {
       setResult({ mode: "B", error: { state: "not_cached", detail: "errore" } });
     }

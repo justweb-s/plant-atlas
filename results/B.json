@@ -1,18 +1,18 @@
 {
  "summary": {
   "n": 34,
-  "correct": 10,
-  "unknown": 16,
-  "wrong": 8,
-  "mean": 0.327,
+  "correct": 14,
+  "unknown": 13,
+  "wrong": 7,
+  "mean": 0.459,
   "by_type": {
-   "I": 0.071,
-   "T": 0.646,
-   "V": 0.333
+   "I": 0.393,
+   "T": 0.556,
+   "V": 0.444
   },
   "by_split": {
-   "design": 0.414,
-   "heldout": 0.167
+   "design": 0.528,
+   "heldout": 0.333
   },
   "cost_usd": 0.0
  },
@@ -48,9 +48,9 @@
    "type": "T",
    "split": "design",
    "score": 1.0,
-   "value": "Annex I, Part A, point 5 — safety components with fully or partially self-evolving behaviour",
-   "text": "A safety component with fully or partially self-evolving behaviour is listed in Annex I, Part A, point 5 of the Regulation. The facts do not mention machine learning for this point. Point 6 separately covers machinery with embedded self-evolving ML systems ensuring safety functions, but only in respect of those systems.",
-   "tokens": 5050,
+   "value": "Annex I, Part A, point 5 (safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions)",
+   "text": "Safety components with fully or partially self-evolving behaviour are listed in Annex I, Part A, point 5 of the Regulation. Fact 1 adds that machinery with embedded self-evolving ML systems ensuring safety functions is listed at point 6, but only in respect of those systems.",
+   "tokens": 4931,
    "cost_usd": 0.0
   },
   {
@@ -80,9 +80,9 @@
    "type": "T",
    "split": "design",
    "score": 1.0,
-   "value": "Under Regulation Art. 18, the natural or legal person who carries out a substantial modification is subject to the manufacturer's obligations in Article 10, if the modification affects the safety of only machinery or a related product that is part of an assembly of machinery. A non-professional user modifying machinery for his or her own use is not considered a manufacturer.",
-   "text": "Under Article 18 of the Regulation, the person who carries out a substantial modification (one not foreseen or planned by the manufacturer, Art. 3(16)) is subject to the manufacturer's obligations in Article 10. This applies if the modification affects the safety of only machinery or a related product that is part of an assembly of machinery. A non-professional user modifying machinery for his or her own use is not considered a manufacturer and is not subject to the Article 10 obligations.",
-   "tokens": 5467,
+   "value": "The natural or legal person who carries out the substantial modification is subject to the manufacturer's obligations under Article 10, but only if the modification affects the safety of machinery or a related product that is part of an assembly of machinery. A non-professional user who modifies machinery for his or her own use is not considered a manufacturer.",
+   "text": "Under Article 18 of the Regulation, the person who carries out a substantial modification is subject to the manufacturer's obligations in Article 10, if the modification affects the safety of only machinery or a related product that is part of an assembly of machinery. A non-professional user modifying machinery for his or her own use is not considered a manufacturer and is not subject to those obligations. Article 3(16) defines a substantial modification as one not foreseen or planned by the manufacturer. Article 17 also makes an importer or distributor a manufacturer if it modifies a product already placed on the market in a way that might affect compliance.",
+   "tokens": 5465,
    "cost_usd": 0.0
   },
   {
@@ -109,8 +109,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P10Y",
-   "text": "The manufacturer must keep the technical documentation and the EU declaration of conformity for at least 10 years after the machinery or related product has been placed on the market or put into service (Art. 10(3); also Art. 12(2) for the product placed on the market).",
-   "tokens": 4719,
+   "text": "Under Art. 10(3) of the Regulation, the manufacturer keeps the technical documentation and the EU declaration of conformity for at least 10 years after the machinery or related product has been placed on the market or put into service. Art. 12(2) also gives at least 10 years after the product has been placed on the market.",
+   "tokens": 4756,
    "cost_usd": 0.0
   },
   {
@@ -121,18 +121,18 @@
    "value": [
     "2027-01-20"
    ],
-   "text": "Regulation (EU) 2023/1230 applies from 20 January 2027, according to the Corrigendum (point 10). Some Articles apply from other dates: Article 6(7) and Articles 48 and 52 from 19 July 2023, Articles 26 to 42 from 20 January 2024, Article 6(2) to (6), (8) and (11) and Articles 47 and 53(3) from 20 July 2024, and Article 50(1) from 20 October 2026.",
-   "tokens": 4376,
+   "text": "Regulation (EU) 2023/1230 applies from 20 January 2027. Some provisions apply earlier: Article 50(1) from 20 October 2026, Articles 26 to 42 from 20 January 2024, Article 6(2) to (6), (8) and (11) and Articles 47 and 53(3) from 20 July 2024, and Article 6(7) and Articles 48 and 52 from 19 July 2023.",
+   "tokens": 4412,
    "cost_usd": 0.0
   },
   {
    "id": "CQ10",
    "type": "V",
    "split": "design",
-   "score": 0.0,
-   "value": false,
-   "text": "Directive 2006/42/EC is repealed only from 20 January 2027 (Corrigendum, point 5), so it is still in force on 16 January 2027. The allowance to place products on the market until 20 January 2027 covers only products placed on the market in conformity with the Directive before 14 January 2027 (Corrigendum, point 6). Machinery first placed on the market on 16 January 2027 does not meet that condition, so it can no longer be placed on the market under the Directive. This is an inference from the facts, which do not say this outright.",
-   "tokens": 5685,
+   "score": 1.0,
+   "value": true,
+   "text": "Yes, with a condition. The corrigendum (point 6) allows placing on the market until 20 January 2027 for products placed on the market in conformity with Directive 2006/42/EC before 14 January 2027. The Directive is repealed only from 20 January 2027 (point 5), so 16 January 2027 is still within the period.",
+   "tokens": 5432,
    "cost_usd": 0.0
   },
   {
@@ -140,19 +140,19 @@
    "type": "T",
    "split": "design",
    "score": 1.0,
-   "value": "INAIL carries out the first periodic verification, within 45 days (P45D).",
-   "text": "Under Art. 71, c. 11, the first verification is done by INAIL within forty-five days. If that period passes without the verification, other qualified public or private bodies may carry it out. Art. 71, c. 13-bis adds that the Corpo nazionale dei vigili del fuoco carries out the verifications for Annex VII equipment that it owns or has on loan.",
-   "tokens": 5954,
+   "value": "INAIL carries out the first periodic verification, either with its own staff or through a qualified body named by the employer and delegated by INAIL. The facts give no direct time limit for the verification itself, only that if 45 days pass from a complete request, another qualified public or private body can be used.",
+   "text": "Under art. 2, c. 1 of DM 2011, the first periodic verification of Annex VII equipment is done by INAIL, directly or through a qualified body the employer names on INAIL's delegation (INAIL guide, pp. 29, 40-41). The only time reference is the 45 days from a complete request (INAIL guide, p. 38): once they pass without result, a qualified public or private body can carry out the verification. The 12-month limit in art. 71, c. 13 is stated for the manner of carrying out periodic verifications generally, not for the first verification specifically.",
+   "tokens": 6553,
    "cost_usd": 0.0
   },
   {
    "id": "CQ12",
    "type": "T",
    "split": "design",
-   "score": 1.0,
-   "value": "P3Y",
-   "text": "Under Art. 71, c. 9 of D.Lgs. 81/2008 (DLGS71), the employer must keep the results of the checks under comma 8 (initial check, check after each assembly, extraordinary checks) for at least the last three years.",
-   "tokens": 4996,
+   "score": 0.0,
+   "value": null,
+   "text": "The facts give no duration. Art. 71, c. 11 of DLGS 81 (DLGS71) only says the employer's check reports must be kept and made available to the supervisory body, with no time period stated.",
+   "tokens": 4662,
    "cost_usd": 0.0
   },
   {
@@ -160,11 +160,9 @@
    "type": "I",
    "split": "design",
    "score": 0.0,
-   "value": [
-    "Machinery and related products in the categories listed in Annex I, Part B (EU type-examination, module B, Art. 25(3))"
-   ],
-   "text": "Models whose category is listed in Annex I, Part B need EU type-examination (module B) under Art. 25(3) and Art. 6(1). The manufacturer applies to a single notified body (Annex VII, 3), so internal checks alone no longer suffice once Directive 2006/42/EC is repealed on 20 January 2027. Annex I, Part A categories also need the specific procedures of Art. 25(2), but the facts do not say what those procedures are. The facts also do not list the catalogue, so I cannot name individual models.",
-   "tokens": 5083,
+   "value": null,
+   "text": "The facts do not identify any catalogue models. They only say that Directive 2006/42/EC is repealed from 20 January 2027 and that Annex I, Part B machinery needs the specific procedures of Article 25(3) (Art. 6(1)). They do not say which self-certified models would need a notified body.",
+   "tokens": 4644,
    "cost_usd": 0.0
   },
   {
@@ -173,18 +171,18 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "The facts say nothing about model RC-5, including whether it is listed in Annex I, Part A or Part B, so its procedure cannot be determined. They show only that the Regulation applies from 20 January 2027 and that Directive 2006/42/EC is repealed from that date. They also show that the procedures in Article 25(2) (Part A) and Article 25(3) (Part B) depend on the category.",
-   "tokens": 4563,
+   "text": "The facts do not say whether model RC-5 is in Annex I, Part A, in Part B, or in neither, so they do not show which conformity assessment procedure it needs. They only give the procedures by category (Art. 6(1), Art. 25(2) and 25(3)).",
+   "tokens": 4511,
    "cost_usd": 0.0
   },
   {
    "id": "CQ15",
    "type": "I",
    "split": "design",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts do not say which category CS-400 belongs to, so the question cannot be answered. Under Art. 25(4), internal production control (module A) applies if the category is not listed in Annex I. Under Art. 25(3), it is also available if the category is in Annex I, Part B (alongside module C). The facts say nothing on Annex I, Part A categories beyond one listing (embedded self-evolving ML safety systems, Annex I, Part A, point 6). The Regulation applies from 20 January 2027 and Directive 2006/42/EC is repealed from that date.",
-   "tokens": 4742,
+   "score": 0.5,
+   "value": "Conditional: yes if CS-400 is in a machinery category listed in Annex I, Part B, or in a category not listed in Annex I. The facts do not say which category CS-400 belongs to.",
+   "text": "Under Art. 25(3) of the Regulation, internal production control (module A) applies to machinery in a category listed in Annex I, Part B. Under Art. 25(4), it applies to machinery in a category not listed in Annex I. The Regulation applies from 20 January 2027, so these rules govern after that date. The facts give no category for CS-400 and say nothing about Annex I, Part A, so I cannot confirm that CS-400 may stay with internal production control.",
+   "tokens": 4914,
    "cost_usd": 0.0
   },
   {
@@ -203,8 +201,8 @@
    "split": "heldout",
    "score": 1.0,
    "value": false,
-   "text": "No. Under the Regulation, vehicle servicing lifts are in Annex I, Part A, point 3, so Art. 6(1) and Art. 25(2) apply. Art. 25(2) requires EU type-examination followed by conformity to type based on internal production control (module B + C), full quality assurance (module H) or unit verification (module G). Internal production control alone (module A) is only provided for Part B categories (Art. 25(3)) and for categories not listed in Annex I (Art. 25(4)). The facts do not state when the Regulation applies or when the Directive is repealed, so I assumed the Regulation governs after 20 January 2027, as the question implies. The old Directive rule allowing internal checks for Annex IV machinery built to harmonised standards (Art. 12(3)) is then no longer the relevant route.",
-   "tokens": 5678,
+   "text": "Under the Regulation, vehicle servicing lifts are in Annex I, Part A, point 3. Art. 6(1) and Art. 25(2) then require either EU type-examination (module B) followed by conformity to type based on internal production control (module C), or full quality assurance (module H). Internal production control alone is not enough, even if harmonised standards cover all requirements. The old Directive allowed internal checks for Annex IV machinery built to such standards (Art. 12(3)). The facts do not state the date on which the Regulation replaces the Directive, so I am assuming it applies after 20 January 2027, as the question implies.",
+   "tokens": 5695,
    "cost_usd": 0.0
   },
   {
@@ -226,8 +224,8 @@
    "split": "heldout",
    "score": 0.0,
    "value": null,
-   "text": "The facts give no explicit correspondence for Article 12 of Directive 2006/42/EC. They only show that Article 12(3) and (4) procedures apply to Annex IV machinery (Directive), and that Article 25(2) and (3) procedures apply to Annex I Part A and Part B categories (Regulation). A stated correspondence exists only for Article 11 of the Directive, which is replaced by Chapter VI of the Regulation.",
-   "tokens": 5286,
+   "text": "The facts do not state which Article of the Regulation corresponds to Article 12 of Directive 2006/42/EC. They only show that the Regulation's conformity assessment procedures are in Article 25, and that Chapter VI replaces Article 11 of the Directive; no correspondence table is given.",
+   "tokens": 4905,
    "cost_usd": 0.0
   },
   {
@@ -246,8 +244,8 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "The facts do not say how often the DEMAG overhead travelling crane at position 8 of the IGEA lifting equipment list must be verified. Nothing in them mentions that list, that crane, or a verification interval. Fact 10 names the Corpo nazionale dei vigili del fuoco for periodic verifications of Annex VII equipment, but gives no frequency.",
-   "tokens": 4829,
+   "text": "The facts give IGEA device 8 a capacity of 5000 kg and a build year of 1985, so it is over 200 kg and older than 10 years. The interval in Allegato VII, rows 14, 15 and 17, also depends on whether it is fixed or mobile and on its sector or mode of use, and the facts do not say. Depending on that, it would be annual (rows 14 and 15) or biennial (row 17), so the question cannot be answered from these facts.",
+   "tokens": 5023,
    "cost_usd": 0.0
   },
   {
@@ -256,8 +254,8 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "The facts do not say how often the Effer truck-mounted hydraulic crane (IGEA list position 7, built 2017) must be verified. They give no verification interval and no IGEA list or Annex VII table. Fact 3 only says who carries out certain periodic verifications, not how often.",
-   "tokens": 4766,
+   "text": "The facts give device 7 as a truck-mounted hydraulic crane built in 2017 with a capacity of 790 kg, so it is over 200 kg and under 10 years old. The interval in Allegato VII depends on how it is used, which the facts do not say. Row 12 sets one year for mobile cranes used in construction, steel, port or mining sectors, while row 13 sets two years for regular use of equipment not older than 10 years. The facts also do not state that the crane is classed as mobile or transferable, so no single interval can be given.",
+   "tokens": 4931,
    "cost_usd": 0.0
   },
   {
@@ -265,9 +263,13 @@
    "type": "T",
    "split": "design",
    "score": 0.0,
-   "value": "Corpo nazionale dei vigili del fuoco, for the Annex VII equipment it owns or has on loan for use; ARPA for successive verifications where regional law provides for it",
-   "text": "Under DLGS71, art. 71, c. 13-bis, the periodic verifications of comma 11 on the Annex VII equipment are carried out by the Corpo nazionale dei vigili del fuoco. This applies only to the Annex VII equipment it holds as owner or on loan for use (comodato d'uso). Separately, art. 71, c. 11 names ARPA for the successive verifications where regional law so provides, but the facts do not link that to Annex VII equipment.",
-   "tokens": 5130,
+   "value": [
+    "Azienda sanitaria nazionale (Asl) o Agenzia regionale protezione ambientale (Arpa) o soggetti pubblici o privati abilitati",
+    "personale specializzato dell'ASP di competenza o Organismo privato riconosciuto (per particolari attrezzature con pericoli particolari riportate nell'Allegato VII)",
+    "Corpo nazionale dei vigili del fuoco (only for Annex VII equipment it owns or has on loan for use)"
+   ],
+   "text": "After the first periodic verification, the later verifications are carried out by the Asl or Arpa or by authorised public or private bodies. For the particular Annex VII equipment whose use involves special hazards, the facts name specialised ASP staff or a recognised private body. Under art. 71, c. 13-bis, the Corpo nazionale dei vigili del fuoco verifies Annex VII equipment that it owns or has on loan for use.",
+   "tokens": 6146,
    "cost_usd": 0.0
   },
   {
@@ -276,28 +278,28 @@
    "split": "design",
    "score": 1.0,
    "value": "P45D",
-   "text": "Under Article 71, comma 11 of Legislative Decree 81/2008, INAIL must carry out the first periodic verification within forty-five days. The facts do not mention the Ministerial Decree of 11 April 2011's sixty days, so the figure comes only from Article 71. After those 45 days pass without the verification, other qualified public or private bodies can carry it out.",
-   "tokens": 4436,
+   "text": "The first periodic verification must be carried out within 45 days of receipt of the complete request (Art. 71, c. 11, Legislative Decree 81/2008, and the INAIL guide). The sixty-day figure attributed to the Ministerial Decree of 11 April 2011 does not appear in the facts; DM 2011, art. 2, c. 1 gives only 30 days for later verifications, after the first one.",
+   "tokens": 4677,
    "cost_usd": 0.0
   },
   {
    "id": "CQ25",
    "type": "I",
    "split": "design",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts say nothing about the UR5e or about robot arms, so they do not show whether it is partly completed machinery. If it is, Annex II, 1 of the Directive says partly completed machinery must not be put into service until the final machinery it is incorporated into has been declared in conformity. I cannot confirm that classification from these facts.",
-   "tokens": 4825,
+   "score": 1.0,
+   "value": false,
+   "text": "No. The UR5e (like the other e-Series robots) is partly completed machinery and shall only be put into service once it has been integrated into a final complete machine (ur5e-manual p. 220; Declaration of Incorporation under 2006/42/EC Annex II B). A risk assessment is also required before the robot is put into operation (p. 144).",
+   "tokens": 4162,
    "cost_usd": 0.0
   },
   {
    "id": "CQ26",
    "type": "I",
    "split": "design",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts do not say how often a nanoScan3 safety laser scanner must be tested. They contain no test interval for this product or for safety laser scanners in general. The only intervals given concern other things, such as a full reassessment every three years (Annex X) and document retention periods.",
-   "tokens": 4776,
+   "score": 1.0,
+   "value": "P1Y",
+   "text": "Per the nanoScan3 manual, the regular tests of the protective device, the test of the detection capability (resolution) and the thorough check of the principal function must each be carried out at least once a year. Separately, a daily visual check is mentioned (in many cases it makes sense), and checks are also needed after changes and before commissioning.",
+   "tokens": 4195,
    "cost_usd": 0.0
   },
   {
@@ -306,8 +308,8 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "The facts do not say how much notice a verifier must give IGEA when planning checks. IGEA is not mentioned in any of the facts, and the twelve-month limit in art. 71, c. 13 concerns the arrangements for periodic verifications, not notice to IGEA.",
-   "tokens": 4420,
+   "text": "The facts do not say how much notice a verifier must give IGEA when planning checks. The 45-day periods only concern the request for the first periodic verification and the time allowed to carry it out. They are not a notice period from the verifier to IGEA.",
+   "tokens": 3334,
    "cost_usd": 0.0
   },
   {
@@ -316,8 +318,8 @@
    "split": "heldout",
    "score": 0.0,
    "value": null,
-   "text": "The facts give no verification frequency for an overhead travelling crane at position 13 of the IGEA list built in 2017. They mention only who performs the first and periodic verifications (art. 71, c. 11 and c. 13-bis of DLGS 71), not how often.",
-   "tokens": 4973,
+   "text": "Device 13 has a capacity of 5000 kg and was built in 2017, so it is not older than 10 years and exceeds 200 kg. Annex VII, rows 13, 16 and 18, gives different intervals for this age: 2 years for mobile/transferable, or fixed in the listed sectors, and 3 years for fixed with regular use. The facts do not say whether the crane is fixed or mobile, what sector it is used in, or whether its use is regular, so the interval cannot be fixed.",
+   "tokens": 4569,
    "cost_usd": 0.0
   },
   {
@@ -326,8 +328,8 @@
    "split": "heldout",
    "score": 0.0,
    "value": null,
-   "text": "The facts do not say how often this crane has to be verified. Nothing in them gives the IGEA list, position 13, or a verification interval for overhead travelling cranes. Fact 8 (D.Lgs. 81/2008 art. 71, c. 13, 'entro dodici mesi') concerns a time limit for the modalities of periodic verifications, not their frequency.",
-   "tokens": 4649,
+   "text": "The facts show that device 13 is a 'GRU A PONTE SCORREVOLE' built in 2017, so in November 2028 it will be 11 years old and its year of manufacture is 'antecedente 10 anni'. The interval in Allegato VII, righe 14–17, also depends on capacity (over 200 kg), fixed versus mobile type, and sector of use, and none of these is given for device 13. It would be annual for a fixed crane in construction, steel, port or mining use (riga 15), and biennial for a fixed crane in regular use (riga 17). The facts do not say which applies.",
+   "tokens": 4519,
    "cost_usd": 0.0
   },
   {
@@ -336,8 +338,8 @@
    "split": "heldout",
    "score": 0.0,
    "value": null,
-   "text": "The facts do not contain the IGEA list or the HINOWA platform at position 24, and they give no verification frequency for that equipment. The only time limit, 'entro dodici mesi' in art. 71, c. 13 of DLGS 81/2008 (DLGS71), concerns how periodic verifications are carried out. It is not tied to this platform, so I cannot state its frequency.",
-   "tokens": 4816,
+   "text": "The facts do not settle this. Device 24 is a 'piattaforma elevatrice' built in 2017 (under 10 years old) with a capacity of 230 kg, which is over 200 kg. The Allegato VII rows for material-lifting apparatus (rows 12–18) set the interval by whether the apparatus is fixed or mobile and by its mode of use (regular, or in sectors such as construction). Row 11 for building-site lifts has no such conditions. The facts do not say whether device 24 is fixed or mobile, how it is used, or that it falls under rows 3 or 11, so no single interval can be given.",
+   "tokens": 4711,
    "cost_usd": 0.0
   },
   {
@@ -346,28 +348,28 @@
    "split": "heldout",
    "score": 1.0,
    "value": null,
-   "text": "The facts do not say whether this verification is overdue. They contain nothing about the IGEA list, the DEMAG overhead crane at position 8, or the date of its last periodic verification, and no verification interval for the crane. Art. 71, c. 13 only sets a 12-month limit for the modalities of carrying out periodic verifications, which cannot be applied to this crane without those dates.",
-   "tokens": 4632,
+   "text": "The facts give no year of manufacture for IGEA device 8 and no date of its last periodic verification. They also do not say whether it is fixed or mobile, or in which sector it is used. The Allegato VII intervals therefore cannot be applied, and it cannot be determined whether the verification is overdue today.",
+   "tokens": 4498,
    "cost_usd": 0.0
   },
   {
    "id": "CQ32",
    "type": "I",
    "split": "heldout",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts do not give the reach of the UR5e or the UR10e, so the increase in reach in millimetres cannot be worked out from them. They only list safety requirements from the Directive and the Regulation.",
-   "tokens": 4394,
+   "score": 1.0,
+   "value": "450 mm",
+   "text": "The UR5e has a reach of 850 mm and the UR10e has a reach of 1300 mm, so replacing the UR5e with the UR10e increases the reach by 450 mm (ur5e-manual p. 15 and p. 46; ur10e-manual p. 15 and p. 47).",
+   "tokens": 3556,
    "cost_usd": 0.0
   },
   {
    "id": "CQ33",
    "type": "I",
    "split": "heldout",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts do not say how often the wear indicator of the load nut of the MA STAR 3.5 A vehicle lift must be checked. They mention vehicle servicing lifts only as a listed category and say nothing about load nuts, wear indicators or inspection intervals for this model.",
-   "tokens": 4501,
+   "score": 1.0,
+   "value": "P6M",
+   "text": "The wear indicator of the load nut must be checked every 6 months (MA STAR manual, p. 34). It must also be checked when the wear limit is reached.",
+   "tokens": 4285,
    "cost_usd": 0.0
   },
   {
@@ -376,8 +378,8 @@
    "split": "heldout",
    "score": 0.0,
    "value": null,
-   "text": "The facts say nothing about the DEMAG crane, the IGEA list or a structural verification certificate of residual life cycles, so the question cannot be answered from them.",
-   "tokens": 4718,
+   "text": "The facts do not say whether a structural verification certificate of the residual life cycles is needed. They only give IGEA device 8 as built in 1985 and list periodic-check intervals for lifting equipment, with nothing on such a certificate. They also do not identify device 8 as the DEMAG overhead crane.",
+   "tokens": 4841,
    "cost_usd": 0.0
   }
  ]

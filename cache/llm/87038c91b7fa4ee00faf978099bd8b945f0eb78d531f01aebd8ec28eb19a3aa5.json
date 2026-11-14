@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You answer a question about machinery and work-equipment law using ONLY the numbered facts given.\nEach fact has a subject, a relation, a value, sometimes a condition, and the place it comes from.\n\nRules:\n- Use only these facts. Do not use anything you know from elsewhere.\n- If the facts do not answer the question, the kind is \"unknown\" and the value is null.\n- A condition attached to a fact is part of the fact: carry it into the answer.\n- If the question asks about a day, compare that day with the dates in the facts, step by step: a repeal or a\n  limit \"from 20 January\" does not yet apply on 16 January.\n- If the question asks \"which\" or \"what\" and several facts answer it, list every one of them, in the words of the facts.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- Return JSON only:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the article or annex point\",\n   \"used\": [fact numbers you relied on]}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: How often must the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, be verified today?\n\nFacts:\n[0] IGEA device 13 — yearBuilt — 2017 (2017) [igea-equipment, p. 6]\n[1] Ascensori e montacarichi da cantieri con cabina/piattaforma guidata verticalmente — verificationInterval — Verifica annuale (P1Y) [DLGSALLVII, Allegato VII, riga 11]\n[2] Apparecchi di sollevamento materiali — verificationInterval — Verifica annuale (P1Y) [condition: con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo] [DLGSALLVII, Allegato VII, riga 12]\n[3] IGEA device 21 — yearBuilt — 2010 (2010) [igea-equipment, p. 7]\n[4] IGEA device 3 — yearBuilt — 2009 (2009) [igea-equipment, p. 6]\n[5] Apparecchi di sollevamento materiali — verificationInterval — Verifiche triennali (P3Y) [condition: con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni] [DLGSALLVII, Allegato VII, riga 18]\n[6] IGEA device 7 — yearBuilt — 2017 (2017) [igea-equipment, p. 6]\n[7] IGEA device 18 — yearBuilt — 2010 (2010) [igea-equipment, p. 7]\n[8] Apparecchi di sollevamento materiali — verificationInterval — Verifiche annuali (P1Y) [condition: con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni] [DLGSALLVII, Allegato VII, riga 14]\n[9] IGEA device 14 — yearBuilt — 2002 (2002) [igea-equipment, p. 7]\n[10] Apparecchi di sollevamento materiali — verificationInterval — Verifiche biennali (P2Y) [condition: con portata superiore a 200 Kg , non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni] [DLGSALLVII, Allegato VII, riga 16]\n[11] IGEA device 20 — yearBuilt — 2010 (2010) [igea-equipment, p. 7]\n[12] Apparecchi di sollevamento materiali — verificationInterval — Verifica biennale (P2Y) [condition: con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni] [DLGSALLVII, Allegato VII, riga 13]\n[13] Apparecchi di sollevamento materiali con portata superiore a 200 Kg — requiresPeriodicCheck — Verifica annuale (P1Y) [condition: non azionati a mano, di tipo mobile o trasferibile] [inail-guide, p. 34]\n[14] IGEA device 24 — yearBuilt — 2017 (2017) [igea-equipment, p. 7]\n[15] Apparecchi di sollevamento materiali con portata superiore a 200 Kg — requiresPeriodicCheck — Verifiche triennali (P3Y) [inail-guide, p. 34]\n[16] Apparecchi di sollevamento materiali — verificationInterval — Verifiche annuali (P1Y) [condition: con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni] [DLGSALLVII, Allegato VII, riga 15]\n[17] ascensori e montacarichi da cantieri — requiresPeriodicCheck — Verifica annuale (P1Y) [condition: con cabina/piattaforma guidata verticalmente] [inail-guide, p. 26]\n[18] Apparecchi di sollevamento materiali con portata superiore a 200 Kg — requiresPeriodicCheck — Verifiche annuali (P1Y) [inail-guide, p. 34]\n[19] Apparecchi di sollevamento materiali con portata superiore a 200 Kg — requiresPeriodicCheck — Verifiche annuali (P1Y) [inail-guide, p. 34]\n[20] Apparecchi di sollevamento materiali — verificationInterval — Verifiche biennali (P2Y) [condition: con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni] [DLGSALLVII, Allegato VII, riga 17]\n[21] Carrelli semoventi a braccio telescopico — verificationInterval — Verifica annuale (P1Y) [DLGSALLVII, Allegato VII, riga 9]\n[22] Apparecchi di sollevamento materiali con portata superiore a 200 Kg — requiresPeriodicCheck — Verifiche biennali (P2Y) [inail-guide, p. 34]\n[23] Apparecchi di sollevamento materiali con portata superiore a 200 Kg — requiresPeriodicCheck — Verifica biennale (P2Y) [condition: regolare e anno di fabbricazione non antecedente 10 anni] [inail-guide, p. 34]\n[24] IGEA device 19 — yearBuilt — 2010 (2010) [igea-equipment, p. 7]\n[25] IGEA device 5 — yearBuilt — 2003 (2003) [igea-equipment, p. 6]\n[26] IGEA device 15 — yearBuilt — 1997 (1997) [igea-equipment, p. 7]\n[27] IGEA device 2 — yearBuilt — 2005 (2005) [igea-equipment, p. 6]\n[28] IGEA device 6 — yearBuilt — 2004 (2004) [igea-equipment, p. 6]\n[29] IGEA device 22 — yearBuilt — 1997 (1997) [igea-equipment, p. 7]\n[30] IGEA device 23 — yearBuilt — 1989 (1989) [igea-equipment, p. 7]\n[31] Apparecchi di sollevamento fissi, particolari settori di impiego — requiresPeriodicCheck — Verifica annuale (P1Y) [condition: con anno di fabbricazione antecedente 10 anni] [unict-guideline, p. 19]\n[32] IGEA device 16 — yearBuilt — 2000 (2000) [igea-equipment, p. 7]\n[33] IGEA device 4 — yearBuilt — 2005 (2005) [igea-equipment, p. 6]\n[34] Apparecchi di sollevamento mobili o trasferibili, altri settori — requiresPeriodicCheck — Verifica annuale (P1Y) [condition: con anno di fabbricazione antecedente 10 anni] [unict-guideline, p. 19]\n[35] IGEA device 12 — yearBuilt — 1980 (1980) [igea-equipment, p. 6]\n[36] Apparecchi di sollevamento fissi, altri settori — requiresPeriodicCheck — Verifica biennale (P2Y) [condition: con anno di fabbricazione antecedente 10 anni] [unict-guideline, p. 19]\n[37] IGEA device 11 — yearBuilt — 1978 (1978) [igea-equipment, p. 6]\n[38] IGEA device 23 — capacityKg — 35000 (35000) [igea-equipment, p. 7]\n[39] Apparecchi di sollevamento fissi, particolari settori di impiego — requiresPeriodicCheck — Verifica biennale (P2Y) [condition: con anno di fabbricazione non antecedente 10 anni] [unict-guideline, p. 19]\n[40] IGEA device 15 — capacityKg — 10000 (10000) [condition: declass. (da 25000)] [igea-equipment, p. 7]\n[41] IGEA device 1 — yearBuilt — 1991 (1991) [igea-equipment, p. 6]\n[42] Piattaforme di lavoro mobili elevabili e piattaforme di lavoro fuori strada per operazioni in frutteto — verificationInterval — Verifica triennale (P3Y) [DLGSALLVII, Allegato VII, riga 3]\n[43] IGEA device 8 — yearBuilt — 1985 (1985) [igea-equipment, p. 6]\n[44] IGEA device 9 — yearBuilt — 1985 (1985) [igea-equipment, p. 6]\n[45] IGEA device 10 — yearBuilt — 1988 (1988) [igea-equipment, p. 6]\n[46] IGEA device 13 — capacityKg — 5000 (5000) [igea-equipment, p. 6]\n[47] IGEA device 14 — capacityKg — 10000 (10000) [igea-equipment, p. 7]\n[48] Apparecchi di sollevamento mobili o trasferibili, altri settori — requiresPeriodicCheck — Verifica biennale (P2Y) [condition: con anno di fabbricazione non antecedente 10 anni] [unict-guideline, p. 19]\n[49] IGEA device 21 — capacityKg — 7500 (7500) [igea-equipment, p. 7]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "{\"kind\":\"unknown\",\"value\":null,\"text\":\"Device 13 has a capacity of 5000 kg and was built in 2017, so it is not older than 10 years and exceeds 200 kg. Annex VII, rows 13, 16 and 18, gives different intervals for this age: 2 years for mobile/transferable, or fixed in the listed sectors, and 3 years for fixed with regular use. The facts do not say whether the crane is fixed or mobile, what sector it is used in, or whether its use is regular, so the interval cannot be fixed.\",\"used\":[0,46,5,10,12]}",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 675,
+   "prompt_tokens": 3894,
+   "total_tokens": 4569,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 478,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.014538,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.014538,
+   "gateway_cost": 0.014538
+  }
+ }
+}
