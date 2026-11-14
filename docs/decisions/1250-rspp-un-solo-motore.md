@@ -1,0 +1,21 @@
+# 1250 — La storia è quella dell'RSPP, il motore è uno solo
+
+- **Stato:** proposta, da confermare tra Core e Prodotto
+- **Quando:** 2026-11-14 12:50
+- **Chi:** Prodotto
+- **Contesto:** il video e l'abstract caricati alle 12:30 raccontano la storia dell'RSPP di uno stabilimento: «questa macchina si può usare oggi?». La decisione 1200 aveva spostato la storia sul costruttore. Al gate 2 la fedeltà alla proposta delle 12:30 pesa 10: la demo deve mantenere la promessa del video.
+- **Decisione:**
+  - **Cliente e domanda:** l'RSPP (o il consulente di sicurezza) di uno stabilimento. La domanda della demo è: «questa macchina si può usare oggi, e cosa devo fare entro quando?».
+  - **Il motore è il registro dei fatti di Core** (`atlas/ontology/statements.py`): citazione obbligatoria, validità da/a, autorità, niente si cancella. La strategia B scrive lì i fatti e li esporta in Turtle con vincoli SHACL, perché la track chiede l'ontologia come file.
+  - **Il corpus:** D.Lgs. 81/08 artt. 69–73, DM 11 aprile 2011 (verifiche periodiche), Regolamento 2023/1230 con la rettifica, Direttiva 2006/42/CE. Il DM passa da `atlas/corpus/incoming/` a `data/law/` (lo sposta Prodotto).
+  - **Il catalogo** resta, con un altro ruolo: i 5 modelli sono le macchine dello stabilimento, ognuna con data d'acquisto, ultima verifica e manuale. Le domande sul cambio di regime diventano domande da RSPP: quale documentazione deve avere una macchina comprata dopo il 20/1/2027.
+  - **La domanda trappola principale** (da aggiungere al gold con un commit `gold:`): «entro quanto l'INAIL deve fare la prima verifica periodica?». Il DM 11/4/2011, art. 2, c. 1 dice sessanta giorni [verificato: testo originario GU 29/4/2011]. Il D.Lgs. 81/08, art. 71, c. 11, testo vigente, dice quarantacinque [verificato: Normattiva, letto oggi]. Due testi in vigore che si contraddicono: la ricerca semplice può trovare il DM, il registro dei fatti sa quale testo prevale. È anche il caso di «documento che cambia» chiesto dalla track.
+  - **Le foto restano fuori.** Nel pitch sono il passo successivo.
+- **Perché:** mantiene la promessa del video, usa il motore già scritto e testato da Core, e il gold già verificato resta quasi tutto valido (le CQ sul D.Lgs. 81/08 e sulla rettifica valgono per l'RSPP così come sono).
+- **Da verificare prima del commit `gold:`:**
+  - quale atto ha portato il termine da 60 a 45 giorni, e da quando (la data serve alla domanda «chi aveva ragione il giorno X»);
+  - l'Allegato VII del D.Lgs. 81/08, modificato dalla L. 11 marzo 2026, n. 34 secondo le note di Core [verificato da Core su Normattiva, non ancora da Prodotto]: su Normattiva è un'immagine, quindi va trascritto a mano solo per le righe che servono.
+- **Alternative scartate:**
+  - tenere il costruttore come cliente: contraddice il video;
+  - due prodotti, uno per l'RSPP e uno per il costruttore: non ci stanno in 3 ore.
+- **Sostituisce:** in `1200-due-regimi-catalogo` il cliente e la domanda principale (dal costruttore all'RSPP). Restano in vigore: i due regimi nel corpus, le domande tenute da parte, il catalogo come dati.
