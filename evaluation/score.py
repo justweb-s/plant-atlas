@@ -32,11 +32,39 @@ def _same(a: str, b: str) -> bool:
     return SequenceMatcher(None, a, b).ratio() >= 0.85
 
 
+_WORDS = {"un": 1, "uno": 1, "una": 1, "one": 1, "a": 1, "due": 2, "two": 2, "tre": 3, "three": 3, "sei": 6, "six": 6,
+          "dieci": 10, "ten": 10, "quindici": 15, "fifteen": 15, "quarantacinque": 45, "forty-five": 45}
+_UNITS = (("Y", ("year", "anno", "anni")), ("M", ("month", "mese", "mesi")), ("D", ("day", "giorn")))
+_NAMED = (("P1Y", ("annual", "yearly", "once a year", "ogni anno")), ("P2Y", ("biennial", "biennal", "every two years")),
+          ("P3Y", ("triennial", "triennal")), ("P6M", ("semestral", "half-year", "twice a year")))
+
+
+def duration(value) -> str:
+    """An ISO 8601 duration from the ways a model may write one: 'P1Y', '12 months', 'annuale', 'every 6 months'."""
+    s = str(value).strip()
+    if re.fullmatch(r"P\d+[YMWD]", s.upper()):
+        s = s.upper()
+        return f"P{int(s[1:-1]) // 12}Y" if s.endswith("M") and int(s[1:-1]) % 12 == 0 else s
+    low = _norm(s)
+    for iso, names in _NAMED:
+        if any(n in low for n in names):
+            return iso
+    for unit, names in _UNITS:
+        m = re.search(r"([\w-]+)\s+(?:" + "|".join(names) + r")", low)
+        if m:
+            n = int(m.group(1)) if m.group(1).isdigit() else _WORDS.get(m.group(1))
+            if n:
+                return f"P{n // 12}Y" if unit == "M" and n % 12 == 0 else f"P{n}{unit}"
+    return s.upper()
+
+
 def score(cq: dict, value) -> float:
     """1.0 = right, 0.0 = wrong or no answer. Sets score F1; text scores the share of keyword groups found."""
+    kind, gold = cq["answer"]["kind"], cq["answer"]["value"]
+    if kind == "unknown":   # the documents do not hold the answer: "I do not know" is the right one
+        return float(value is None)
     if value is None:
         return 0.0
-    kind, gold = cq["answer"]["kind"], cq["answer"]["value"]
     if kind != "set" and isinstance(value, list):
         if len(value) != 1:
             return 0.0
@@ -50,7 +78,9 @@ def score(cq: dict, value) -> float:
         return 0.0 if precision + recall == 0 else round(2 * precision * recall / (precision + recall), 3)
     if kind == "boolean":
         return float(value is gold)
-    if kind in ("date", "duration"):
+    if kind == "duration":
+        return float(duration(value) == duration(gold))
+    if kind == "date":
         return float(str(value).strip().upper() == str(gold).upper())
     if kind == "text":
         text = _norm(value)

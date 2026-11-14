@@ -1,12 +1,12 @@
 {
   "about": {
     "title": "Competency questions for the machine-safety ontology",
-    "written": "CQ01-CQ12 at 11:25; CQ13-CQ20 and the catalogue at 12:00 (decision 1200). All before any extraction or ontology-building code: see git log",
+    "written": "CQ01-CQ12 at 11:25; CQ13-CQ20 and the catalogue at 12:00 (decision 1200). All before any extraction or ontology-building code: see git log; CQ21-CQ34 at 14:50 (decisions 1315 and 1450), before strategy B was run on the manuals and on the plant documents",
     "as_of_default": "2026-11-14",
     "types": {
       "T": "schema: answerable from classes, relations and axioms learned from the law texts",
       "V": "versions: the answer depends on which text is in force (Directive vs Regulation, original vs corrigendum)",
-      "I": "instances: answerable only with the catalogue of the fictional manufacturer"
+      "I": "instances: answerable only with a list of real things (the fictional catalogue for CQ13-CQ15; the real IGEA equipment list and the real machines of the cell for CQ21-CQ34)"
     },
     "splits": {
       "design": "strategies may read these questions to build their schema",
@@ -17,7 +17,8 @@
       "text": "free text; keywords is a list of groups of alternatives (any language): every group must appear",
       "date": "ISO date",
       "duration": "ISO 8601 duration (minimum)",
-      "boolean": "true or false"
+      "boolean": "true or false",
+      "unknown": "the documents do not contain the answer: the only right answer is 'I do not know' (value null)"
     },
     "evidence_roles": {
       "supports": "the passage states the answer",
@@ -25,14 +26,23 @@
       "corrects": "the passage that replaces a superseded one"
     },
     "terms": "CQ4OE style (oeg-upm/cq4oe-benchmark): explicit = named in the question, implicit = said with other words, derived = needed to answer but not named. English local names; Italian labels come later as skos:altLabel. terms.explicit is the CQ2Term gold.",
-    "rule": "every quote must appear in its source file after normalisation (quotes, dashes and spaces): checked by tests/test_cqs.py"
+    "rule": "every quote must appear in its source file after normalisation (quotes, dashes and spaces): checked by tests/test_cqs.py",
+    "sources_not_in_git": "The source keys and the locators are the ones of the corpus (api.corpus()). igea-equipment: the PDF is registered by link and sha256 in atlas/corpus/incoming/documents.csv; its quotes are checked when the file is on the machine. The four manuals: PDFs registered in data/machines/machines.json; every quote must be one of the quotes of that file, which data/machines/fetch.py verifies on the public manuals. 'where' says where on the page.",
+    "assumptions": "CQ21, CQ22, CQ28, CQ29: IGEA works in mining areas, so its lifting equipment falls under the Annex VII rows for the 'estrattivo' sector; bridge cranes are 'di tipo fisso', truck cranes 'di tipo mobile'. CQ30: the 'piattaforma elevatrice' (HINOWA, 230 kg) is a 'piattaforma di lavoro mobile elevabile'. An equipment is 'antecedente 10 anni' when the year asked minus the year of construction is more than 10."
   },
   "sources": {
     "REG": "data/law/eu-reg-2023-1230.en.xhtml",
     "CORR": "data/law/eu-reg-2023-1230-corrigendum-2023-07-04.en.xhtml",
     "DIR": "data/law/eu-dir-2006-42.en.xhtml",
     "DLGS71": "data/law/it-dlgs-81-2008-art71.txt",
-    "CATALOGUE": "the catalogue block of this file; the product sheets in data/catalogue/ must be written to match it"
+    "CATALOGUE": "the catalogue block of this file; the product sheets in data/catalogue/ must be written to match it",
+    "DLGSALLVII": "data/law/it-dlgs-81-2008-allegato-vii.txt",
+    "DM2011": "data/law/it-dm-2011-04-11.md",
+    "igea-equipment": "runtime/docs/igea-scheda-tecnica-apparecchi-sollevamento.pdf",
+    "ur5e-manual": "data/machines/raw/ur5e.pdf",
+    "ur10e-manual": "data/machines/raw/ur10e.pdf",
+    "nanoscan3-manual": "data/machines/raw/nanoscan3.pdf",
+    "mastar-manual": "data/machines/raw/mastar.pdf"
   },
   "catalogue": {
     "status": "spec: the fictional product sheets must contain exactly these facts",
@@ -486,6 +496,819 @@
         "explicit": {"classes": ["Annex", "Regulation", "Directive"], "properties": ["correspondsTo"]},
         "implicit": {"classes": ["AnnexIVCategory"], "properties": []},
         "derived": {"classes": ["CorrelationTable", "MachineryCategory"], "properties": []}
+      }
+    },
+    {
+      "id": "CQ21",
+      "type": "I",
+      "split": "design",
+      "question_it": "Ogni quanto va verificata la gru a ponte scorrevole DEMAG in posizione 8 dell'elenco degli apparecchi di sollevamento di IGEA?",
+      "question_en": "How often must the DEMAG overhead travelling crane at position 8 of the IGEA lifting equipment list be verified?",
+      "answer": {
+        "kind": "duration",
+        "value": "P1Y"
+      },
+      "answer_text": "Ogni anno. È un apparecchio di sollevamento di tipo fisso, portata 5000 kg, costruito nel 1985 (più di 10 anni fa), usato in aree minerarie: Allegato VII, riga 15, «Verifiche annuali».",
+      "rag_trap": "La riga 17 dell'Allegato VII (tipo fisso, utilizzo regolare, più di 10 anni) dice «biennali»: chi non tiene conto del settore estrattivo risponde due anni.",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 6",
+          "where": "tabella A2, pos. 8",
+          "role": "supports",
+          "quote": "DEMAG 5000 CA 127 / 86 1985"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.3",
+          "role": "supports",
+          "quote": "Per tutte e 24 le posizioni in oggetto, la verifica è da considerarsi secondo le cadenze previste dall'Allegato VII del D.Lgs. 81/08"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.2",
+          "role": "supports",
+          "quote": "L'ubicazione, Comune - area mineraria o settore di appartenenza"
+        },
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 15",
+          "role": "supports",
+          "quote": "Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "LiftingEquipment",
+            "PeriodicVerification"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "EquipmentItem"
+          ],
+          "properties": [
+            "verificationInterval"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "AnnexVIIRow",
+            "Sector",
+            "Site"
+          ],
+          "properties": [
+            "yearOfConstruction",
+            "installationType",
+            "usedInSector",
+            "matchesAnnexVIIRow"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ22",
+      "type": "I",
+      "split": "design",
+      "question_it": "Ogni quanto va verificata la gru idraulica per autocarro Effer in posizione 7 dell'elenco IGEA, costruita nel 2017?",
+      "question_en": "How often must the Effer truck-mounted hydraulic crane at position 7 of the IGEA list, built in 2017, be verified?",
+      "answer": {
+        "kind": "duration",
+        "value": "P1Y"
+      },
+      "answer_text": "Ogni anno. È di tipo mobile, portata 790 kg, usata in aree minerarie: Allegato VII, riga 12, «Verifica annuale». Per il tipo mobile nei settori estrattivo, costruzioni, siderurgico e portuale l'età non conta.",
+      "rag_trap": "La riga 13 (tipo mobile, utilizzo regolare, meno di 10 anni) dice «biennale»: una gru del 2017 sembra rientrarci.",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 6",
+          "where": "tabella A1, pos. 7",
+          "role": "supports",
+          "quote": "Effer 790"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.3",
+          "role": "supports",
+          "quote": "Per tutte e 24 le posizioni in oggetto, la verifica è da considerarsi secondo le cadenze previste dall'Allegato VII del D.Lgs. 81/08"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.2",
+          "role": "supports",
+          "quote": "L'ubicazione, Comune - area mineraria o settore di appartenenza"
+        },
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 12",
+          "role": "supports",
+          "quote": "Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "LiftingEquipment",
+            "PeriodicVerification"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "EquipmentItem"
+          ],
+          "properties": [
+            "verificationInterval"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "AnnexVIIRow",
+            "Sector",
+            "Site"
+          ],
+          "properties": [
+            "yearOfConstruction",
+            "installationType",
+            "usedInSector",
+            "matchesAnnexVIIRow"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ23",
+      "type": "T",
+      "split": "design",
+      "question_it": "Chi effettua le verifiche periodiche successive alla prima sulle attrezzature dell'Allegato VII?",
+      "question_en": "Who carries out the periodic verifications after the first one on the equipment listed in Annex VII?",
+      "answer": {
+        "kind": "text",
+        "value": "the ASL (or ARPA where regional law says so) or authorised public or private bodies, as the employer chooses",
+        "keywords": [
+          [
+            "asl"
+          ],
+          [
+            "abilitati",
+            "authorised",
+            "authorized",
+            "qualified",
+            "accredited",
+            "enabled"
+          ]
+        ]
+      },
+      "answer_text": "A scelta del datore di lavoro: le ASL (o l'ARPA, dove lo prevede una legge regionale) oppure soggetti pubblici o privati abilitati (art. 71, c. 11).",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 11",
+          "role": "supports",
+          "quote": "Le successive verifiche sono effettuate su libera scelta del datore di lavoro dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "PeriodicVerification",
+            "WorkEquipment"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "AnnexVIIEquipment"
+          ],
+          "properties": [
+            "verifiedBy"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "InspectionBody",
+            "Employer"
+          ],
+          "properties": [
+            "chosenBy"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ24",
+      "type": "V",
+      "split": "design",
+      "question_it": "Il DM 11 aprile 2011 parla di sessanta giorni e l'art. 71 del D.Lgs. 81/08 di quarantacinque: entro quanti giorni dalla richiesta va fatta oggi la prima verifica periodica?",
+      "question_en": "The Ministerial Decree of 11 April 2011 says sixty days and Article 71 of Legislative Decree 81/2008 says forty-five: within how many days of the request must the first periodic verification be carried out today?",
+      "answer": {
+        "kind": "duration",
+        "value": "P45D"
+      },
+      "answer_text": "Entro 45 giorni. Il decreto ministeriale riporta il termine di 60 giorni del testo del 2011; il testo vigente dell'art. 71, c. 11 del D.Lgs. 81/08, che è la fonte di rango più alto e più recente, dice quarantacinque.",
+      "rag_trap": "Il DM 11 aprile 2011 è il testo che disciplina le modalità delle verifiche e ripete «sessanta giorni» più volte.",
+      "evidence": [
+        {
+          "source": "DM2011",
+          "locator": "art. 2, c. 1",
+          "role": "superseded",
+          "quote": "nel termine di sessanta giorni"
+        },
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 11",
+          "role": "corrects",
+          "quote": "Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta."
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "PeriodicVerification",
+            "MinisterialDecree",
+            "LegislativeDecree"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [],
+          "properties": [
+            "verificationDeadlineDays"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "InspectionBody",
+            "SourceAuthority"
+          ],
+          "properties": [
+            "supersedes",
+            "hasAuthorityOver"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ25",
+      "type": "I",
+      "split": "design",
+      "question_it": "Il braccio robotico UR5e può essere messo in servizio da solo, così come arriva dal costruttore?",
+      "question_en": "Can the UR5e robot arm be put into service on its own, as delivered by the manufacturer?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. È una quasi-macchina, fornita con dichiarazione di incorporazione: può essere messa in servizio solo dopo l'integrazione in una macchina completa (applicazione o cella) conforme.",
+      "evidence": [
+        {
+          "source": "ur5e-manual",
+          "locator": "p. 17",
+          "where": "UR5e: legal_status",
+          "role": "supports",
+          "quote": "The robot is partly completed machinery, as such a Declaration of Incorporation is provided."
+        },
+        {
+          "source": "ur5e-manual",
+          "locator": "p. 220",
+          "where": "UR5e: put_into_service_only_when",
+          "role": "supports",
+          "quote": "shall only be put into service upon being integrated into a final complete machine (robot application or cell)"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "RobotArm"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "PuttingIntoService"
+          ],
+          "properties": []
+        },
+        "derived": {
+          "classes": [
+            "PartlyCompletedMachinery",
+            "DeclarationOfIncorporation",
+            "CompleteMachine"
+          ],
+          "properties": [
+            "hasLegalStatus",
+            "integratedInto"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ26",
+      "type": "I",
+      "split": "design",
+      "question_it": "Ogni quanto va provato il laser scanner di sicurezza nanoScan3?",
+      "question_en": "How often must the nanoScan3 safety laser scanner be tested?",
+      "answer": {
+        "kind": "duration",
+        "value": "P1Y"
+      },
+      "answer_text": "Almeno una volta all'anno, secondo il manuale del costruttore.",
+      "evidence": [
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 50",
+          "where": "nanoScan3: regular_check_interval",
+          "role": "supports",
+          "quote": "Carry out tests at least once a year."
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "SafetyLaserScanner"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "Test"
+          ],
+          "properties": [
+            "checkInterval"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "SafetyComponent",
+            "ManufacturerInstruction"
+          ],
+          "properties": []
+        }
+      }
+    },
+    {
+      "id": "CQ27",
+      "type": "I",
+      "split": "design",
+      "question_it": "Con quanto preavviso il verificatore deve comunicare a IGEA la pianificazione dei controlli?",
+      "question_en": "How much notice must the verifier give IGEA when planning the checks?",
+      "answer": {
+        "kind": "duration",
+        "value": "P15D"
+      },
+      "answer_text": "Almeno 15 giorni (scheda tecnica IGEA, impegni dell'aggiudicatario).",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 5",
+          "where": "impegni aggiudicatario",
+          "role": "supports",
+          "quote": "con un preavviso di almeno 15 giorni"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "Verifier",
+            "Check"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "Plant"
+          ],
+          "properties": [
+            "noticePeriod"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "PlantProcedure"
+          ],
+          "properties": []
+        }
+      }
+    },
+    {
+      "id": "CQ28",
+      "type": "I",
+      "split": "heldout",
+      "question_it": "Ogni quanto va verificata oggi la gru a ponte scorrevole IGEA-PRIM in posizione 13 dell'elenco IGEA, costruita nel 2017?",
+      "question_en": "How often must the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, be verified today?",
+      "answer": {
+        "kind": "duration",
+        "value": "P2Y"
+      },
+      "answer_text": "Ogni due anni. Tipo fisso, 5000 kg, aree minerarie, costruita nel 2017 (9 anni al 14/11/2026, quindi non più di 10): Allegato VII, riga 16, «Verifiche biennali».",
+      "rag_trap": "La riga 18 (tipo fisso, utilizzo regolare, meno di 10 anni) dice «triennali»; la riga 15 (più di 10 anni) dice «annuali».",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 6",
+          "where": "tabella A2, pos. 13",
+          "role": "supports",
+          "quote": "5000 2017"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.3",
+          "role": "supports",
+          "quote": "Per tutte e 24 le posizioni in oggetto, la verifica è da considerarsi secondo le cadenze previste dall'Allegato VII del D.Lgs. 81/08"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.2",
+          "role": "supports",
+          "quote": "L'ubicazione, Comune - area mineraria o settore di appartenenza"
+        },
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 16",
+          "role": "supports",
+          "quote": "Apparecchi di sollevamento materiali con portata superiore a 200 Kg , non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "LiftingEquipment",
+            "PeriodicVerification"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "EquipmentItem"
+          ],
+          "properties": [
+            "verificationInterval"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "AnnexVIIRow",
+            "Sector",
+            "Site"
+          ],
+          "properties": [
+            "yearOfConstruction",
+            "installationType",
+            "usedInSector",
+            "matchesAnnexVIIRow"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ29",
+      "type": "V",
+      "split": "heldout",
+      "question_it": "A novembre 2028, ogni quanto andrà verificata la gru a ponte scorrevole IGEA-PRIM in posizione 13 dell'elenco IGEA, costruita nel 2017?",
+      "question_en": "In November 2028, how often will the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, have to be verified?",
+      "answer": {
+        "kind": "duration",
+        "value": "P1Y"
+      },
+      "answer_text": "Ogni anno. Nel 2028 la gru avrà 11 anni: passa dalla riga 16 («biennali») alla riga 15 dell'Allegato VII («annuali»). La legge non cambia: cambia l'età dell'apparecchio.",
+      "rag_trap": "Oggi la risposta è due anni: chi non ricalcola l'età alla data chiesta ripete la cadenza biennale.",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 6",
+          "where": "tabella A2, pos. 13",
+          "role": "supports",
+          "quote": "5000 2017"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.2",
+          "role": "supports",
+          "quote": "L'ubicazione, Comune - area mineraria o settore di appartenenza"
+        },
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 16",
+          "role": "superseded",
+          "quote": "Apparecchi di sollevamento materiali con portata superiore a 200 Kg , non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni"
+        },
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 15",
+          "role": "corrects",
+          "quote": "Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "LiftingEquipment",
+            "PeriodicVerification"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "EquipmentItem"
+          ],
+          "properties": [
+            "verificationInterval"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "AnnexVIIRow",
+            "Sector",
+            "Site"
+          ],
+          "properties": [
+            "yearOfConstruction",
+            "installationType",
+            "usedInSector",
+            "matchesAnnexVIIRow"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ30",
+      "type": "I",
+      "split": "heldout",
+      "question_it": "Ogni quanto va verificata la piattaforma elevatrice HINOWA in posizione 24 dell'elenco IGEA?",
+      "question_en": "How often must the HINOWA elevating platform at position 24 of the IGEA list be verified?",
+      "answer": {
+        "kind": "duration",
+        "value": "P3Y"
+      },
+      "answer_text": "Ogni tre anni: è una piattaforma di lavoro mobile elevabile, Allegato VII, riga 3, «Verifica triennale».",
+      "rag_trap": "È nell'elenco degli «apparecchi di sollevamento» e ha portata superiore a 200 kg: sembra una delle righe 12-18, annuale o biennale.",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 7",
+          "where": "tabella A6, pos. 24",
+          "role": "supports",
+          "quote": "HINOWA 230"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.3",
+          "role": "supports",
+          "quote": "Per tutte e 24 le posizioni in oggetto, la verifica è da considerarsi secondo le cadenze previste dall'Allegato VII del D.Lgs. 81/08"
+        },
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 3",
+          "role": "supports",
+          "quote": "Piattaforme di lavoro mobili elevabili e piattaforme di lavoro fuori strada per operazioni in frutteto"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "LiftingEquipment",
+            "PeriodicVerification"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "EquipmentItem"
+          ],
+          "properties": [
+            "verificationInterval"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "AnnexVIIRow",
+            "Sector",
+            "Site"
+          ],
+          "properties": [
+            "yearOfConstruction",
+            "installationType",
+            "usedInSector",
+            "matchesAnnexVIIRow"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ31",
+      "type": "I",
+      "split": "heldout",
+      "question_it": "La verifica periodica della gru a ponte DEMAG in posizione 8 dell'elenco IGEA è scaduta oggi?",
+      "question_en": "Is the periodic verification of the DEMAG overhead crane at position 8 of the IGEA list overdue today?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "Non si può sapere dai documenti. La scheda dice che le date delle ultime verifiche sono nelle tabelle dell'Allegato A, ma le tabelle riportano solo marca, portata, matricola e anno: la data dell'ultima verifica non c'è.",
+      "rag_trap": "La scheda parla di annualità 2019, 2020 e 2021 e di cadenza annuale: è facile dedurne che nel 2026 la verifica sia scaduta.",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "where": "2.1",
+          "role": "supports",
+          "quote": "le relative date delle ultime verifiche, sono descritte nelle tabelle dell'Allegato A"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 6",
+          "where": "tabella A2, pos. 8",
+          "role": "supports",
+          "quote": "DEMAG 5000 CA 127 / 86 1985"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "PeriodicVerification",
+            "LiftingEquipment"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "Deadline"
+          ],
+          "properties": [
+            "isOverdue"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "VerificationRecord"
+          ],
+          "properties": [
+            "lastVerifiedOn",
+            "verificationInterval"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ32",
+      "type": "I",
+      "split": "heldout",
+      "question_it": "Se nella cella il braccio UR5e viene sostituito con un UR10e, di quanti millimetri aumenta lo sbraccio?",
+      "question_en": "If the UR5e arm in the cell is replaced with a UR10e, by how many millimetres does the reach increase?",
+      "answer": {
+        "kind": "text",
+        "value": "450 mm (from 850 mm to 1300 mm)",
+        "keywords": [
+          [
+            "450"
+          ]
+        ]
+      },
+      "answer_text": "Di 450 mm: da 850 mm (UR5e) a 1300 mm (UR10e). È il dato da cui dipende la zona da proteggere attorno al braccio.",
+      "evidence": [
+        {
+          "source": "ur5e-manual",
+          "locator": "p. 15",
+          "where": "UR5e: reach_mm",
+          "role": "supports",
+          "quote": "Reach 850 mm/33.5 in"
+        },
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 15",
+          "where": "UR10e: reach_mm",
+          "role": "supports",
+          "quote": "Reach 1300 mm/51.2 in"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "RobotArm",
+            "Cell"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "Replacement"
+          ],
+          "properties": [
+            "reach"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "HazardZone"
+          ],
+          "properties": [
+            "replaces"
+          ]
+        }
+      }
+    },
+    {
+      "id": "CQ33",
+      "type": "I",
+      "split": "heldout",
+      "question_it": "Ogni quanto va controllato l'indicatore di usura del dado portante del ponte sollevatore MA STAR 3.5 A?",
+      "question_en": "How often must the wear indicator of the load nut of the MA STAR 3.5 A vehicle lift be checked?",
+      "answer": {
+        "kind": "duration",
+        "value": "P6M"
+      },
+      "answer_text": "Ogni 6 mesi, secondo il manuale del costruttore.",
+      "evidence": [
+        {
+          "source": "mastar-manual",
+          "locator": "p. 34",
+          "where": "MA STAR 3.5 A: load_nut_check_interval",
+          "role": "supports",
+          "quote": "The load nut’s wear indicator must be checked every 6 months"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "VehicleLift",
+            "LoadNut"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [
+            "Check"
+          ],
+          "properties": [
+            "checkInterval"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "ManufacturerInstruction"
+          ],
+          "properties": []
+        }
+      }
+    },
+    {
+      "id": "CQ34",
+      "type": "I",
+      "split": "heldout",
+      "question_it": "Per la verifica della gru a ponte DEMAG in posizione 8 dell'elenco IGEA serve la certificazione di verifica strutturale dei cicli di vita residui?",
+      "question_en": "For the verification of the DEMAG overhead crane at position 8 of the IGEA list, is the structural verification certificate of the residual life cycles needed?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. La scheda IGEA la chiede per gli apparecchi con più di 20 anni, e la gru è del 1985.",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 5",
+          "where": "4.2.2",
+          "role": "supports",
+          "quote": "se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui"
+        },
+        {
+          "source": "igea-equipment",
+          "locator": "p. 6",
+          "where": "tabella A2, pos. 8",
+          "role": "supports",
+          "quote": "DEMAG 5000 CA 127 / 86 1985"
+        }
+      ],
+      "terms": {
+        "explicit": {
+          "classes": [
+            "LiftingEquipment",
+            "StructuralVerificationCertificate"
+          ],
+          "properties": []
+        },
+        "implicit": {
+          "classes": [],
+          "properties": [
+            "requiresDocument"
+          ]
+        },
+        "derived": {
+          "classes": [
+            "PlantProcedure"
+          ],
+          "properties": [
+            "yearOfConstruction"
+          ]
+        }
       }
     }
   ]
