@@ -83,7 +83,7 @@
     "correct": 14,
     "unknown": 3,
     "wrong": 5,
-    "mean": 0.733
+    "mean": 0.745
    },
    "heldout": {
     "n": 12,
@@ -97,7 +97,7 @@
     "correct": 18,
     "unknown": 5,
     "wrong": 8,
-    "mean": 0.66
+    "mean": 0.668
    },
    "answered": 34,
    "of": 34
@@ -112,7 +112,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": 0.6,
-   "B": 0.727
+   "B": 0.545
   },
   {
    "id": "CQ02",
@@ -122,7 +122,7 @@
    "covered_by_b": true,
    "rag": 0.667,
    "A": 0.667,
-   "B": 0.571
+   "B": 0.667
   },
   {
    "id": "CQ03",
@@ -172,7 +172,7 @@
    "covered_by_b": true,
    "rag": 1.0,
    "A": 0.0,
-   "B": 0.333
+   "B": 0.667
   },
   {
    "id": "CQ08",

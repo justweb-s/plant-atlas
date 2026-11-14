@@ -8,7 +8,7 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 |---|---|---|---|---|
 | RAG | 10/22 | 8 | 4 | 0.48 |
 | A (free extraction) | 7/22 | 8 | 7 | 0.41 |
-| B (checked facts) | 14/22 | 3 | 5 | 0.73 |
+| B (checked facts) | 14/22 | 3 | 5 | 0.74 |
 
 ## Domande tenute da parte (quelle oneste)
 
@@ -24,19 +24,19 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 |---|---|---|---|---|
 | RAG | 16/31 | 10 | 5 | 0.54 |
 | A (free extraction) | 11/31 | 10 | 10 | 0.42 |
-| B (checked facts) | 18/31 | 5 | 8 | 0.66 |
+| B (checked facts) | 18/31 | 5 | 8 | 0.67 |
 
 ## Domanda per domanda
 
 | CQ | Parte | B ha letto i documenti? | RAG | A (free extraction) | B (checked facts) |
 |---|---|---|---|---|---|
-| CQ01 | progetto | sì | ✗ | 0.60 | 0.73 |
-| CQ02 | progetto | sì | 0.67 | 0.67 | 0.57 |
+| CQ01 | progetto | sì | ✗ | 0.60 | 0.55 |
+| CQ02 | progetto | sì | 0.67 | 0.67 | 0.67 |
 | CQ03 | progetto | sì | ✓ | ✓ | ✓ |
 | CQ04 | progetto | sì | ✓ | ✓ | ✓ |
 | CQ05 | progetto | sì | ? | 0.22 | ✗ |
 | CQ06 | progetto | sì | ✓ | ✓ | ✓ |
-| CQ07 | progetto | sì | ✓ | ✗ | 0.33 |
+| CQ07 | progetto | sì | ✓ | ✗ | 0.67 |
 | CQ08 | progetto | sì | ✓ | ✓ | ✓ |
 | CQ09 | progetto | sì | ✗ | ✓ | ✓ |
 | CQ10 | progetto | sì | ✗ | ✗ | ✓ |

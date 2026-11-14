@@ -148,3 +148,32 @@ def test_the_verification_rule_decides_for_a_named_device(monkeypatch):
     assert a.value is None and agent.NO_DATES in seen["user"] and a.steps == []   # shown as context, never the value
     a, seen = _ask({"kind": "unknown", "value": None, "used": []}, monkeypatch, "What is at position 7?", facts)
     assert a.value is None and "Computed by rule" not in seen["user"]   # not a verification question: no rule
+
+
+def test_the_graph_is_queried_by_relation_and_one_regime_is_kept(monkeypatch):
+    def fact(i, source, subject, predicate, value, anchor="Art. 1"):
+        return Statement(id=f"g-{i}", subject=subject, predicate=predicate, object=value, object_as_written=value,
+                         quote=f"quote {value}", source_doc=source, anchor=anchor, status="current",
+                         asserted_by="test")
+
+    facts = [fact(1, "REG", "saws", "listedIn", "point 1", "Annex I, Part A, point 1"),
+             fact(2, "REG", "lifts", "listedIn", "point 2", "Annex I, Part A, point 2"),
+             fact(3, "REG", "presses", "listedIn", "point 1", "Annex I, Part B, point 1"),
+             fact(4, "REG", "machinery", "mustAccompany", "EU declaration"),
+             fact(5, "DIR", "machinery", "mustAccompany", "EC declaration"),
+             fact(6, "CORR", "Regulation", "appliesFrom", "2027-01-20"),
+             fact(7, "REG", "records", "retentionPeriod", "P10Y")]
+    query = {"relations": ["listedIn", "noSuchRelation"], "subject_terms": ["category"], "place": "Annex I, Part A",
+             "source_hint": None, "wants": "all"}
+    monkeypatch.setattr(llm, "chat", lambda messages, **params: {"text": json.dumps(query)})
+    matched, _ = agent.graph_query("Which categories are listed in Annex I, Part A?", facts)
+    assert [s.id for s in matched] == ["g-1", "g-2"]                 # every fact of the relation under the place
+    query = {"relations": ["mustAccompany"], "subject_terms": ["machinery", "macchina"], "place": None, "wants": "one"}
+    matched, _ = agent.graph_query("What accompanies machinery?", facts)
+    assert {s.id for s in matched} == {"g-4", "g-5"}
+    kept, line = agent.one_regime("What accompanies machinery?", matched, facts, [])
+    assert [s.id for s in kept] == ["g-4"] and "Regulation's" in line
+    kept, line = agent.one_regime("What accompanies machinery on 1 May 2026?", matched, facts, [date(2026, 5, 1)])
+    assert [s.id for s in kept] == ["g-5"] and "Directive's" in line
+    monkeypatch.setattr(llm, "chat", lambda messages, **params: {"text": "not json"})
+    assert agent.graph_query("Anything?", facts) == ([], {})

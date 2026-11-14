@@ -53,6 +53,10 @@ Rules:
   its relation: a measure is required against a risk, and its subject and condition name that risk.
 - Never return a list for a "text" answer: a question that one sentence answers (who, why, how, under which
   condition, which one thing and why) gets one short sentence. "Which / what / list all" of several things is "set".
+- Facts marked "matched by relation" were found by querying the facts by their relation, subject and place:
+  prefer them. When the question asks for all of something, the answer is the list of their subjects or values,
+  one item per fact, nothing merged and nothing dropped. If the matched facts answer the question, do not add
+  items from the other facts, which are context.
 - The kind follows the question: "from which date / when (a day)" is "date"; "for how long" alone is "duration";
   "can / may / is / does" is "boolean"; "which / what (several things)" is "set"; who, why, under which condition,
   or who does something and within what time is "text", and the text names every element asked for.
@@ -384,6 +388,86 @@ def grounded(kind: str, value, used: list[Statement], question: str) -> tuple[ob
     return text, used, "" if text else "the used facts do not carry the names or numbers of the answer"
 
 
+QUERY = """You turn a question into a query over a store of facts. Each fact has a subject, a relation and a value.
+Return JSON only:
+{"relations": [up to 3 relation names from the list below, the ones whose facts would answer the question],
+ "subject_terms": [2 to 5 words naming what the question is about, in English and in Italian],
+ "place": "an article, annex part or numbered point if the question names one, else null",
+ "source_hint": "a document or product the question names, else null",
+ "wants": "one" or "all"}
+
+Relations:
+"""
+MATCH_ALL, MATCH_ONE = 12, 5
+OLD_ACT, NEW_ACT = ("DIR",), ("REG", "CORR")
+
+
+def graph_query(question: str, facts: list[Statement]) -> tuple[list[Statement], dict]:
+    """Queries the facts by their structure. One cached model call names the relations, the subject words, the
+    place and the source the question is about; the code then filters the facts by relation and ranks them by
+    rare shared words, by place and by source. Returns the matches, best first, and the query."""
+    from atlas.strategies.schema_b import RELATIONS
+
+    present = {s.predicate for s in facts}
+    described = "\n".join(f"- {name}: {RELATIONS[name][2] if name in RELATIONS else ''}" for name in sorted(present))
+    out = llm.chat([{"role": "system", "content": QUERY + described}, {"role": "user", "content": question}],
+                   temperature=0, max_tokens=400)
+    found = re.search(r"\{.*\}", out.get("text") or "", re.DOTALL)
+    try:
+        query = json.loads(found.group(0)) if found else {}
+    except json.JSONDecodeError:
+        query = {}
+    if not isinstance(query, dict) or not isinstance(query.get("relations"), list):
+        return [], {}
+    relations = [r for r in query["relations"] if r in present][:3]
+    pool = [s for s in facts if s.predicate in relations]
+    if not pool:
+        return [], query
+    terms = query.get("subject_terms") if isinstance(query.get("subject_terms"), list) else []
+    wanted = _words(" ".join(str(term) for term in terms))
+    place = _place(str(query.get("place") or ""))
+    number = re.fullmatch(r"\d+(?: \d+)+", place)
+    hint = _words(str(query.get("source_hint") or ""))
+    bags = [_words(f"{s.subject} {s.object_as_written} {s.object} {s.condition}") for s in pool]
+    seen: dict[str, int] = {}
+    for bag in bags:
+        for w in bag & wanted:
+            seen[w] = seen.get(w, 0) + 1
+
+    def placed(s: Statement) -> bool:
+        anchor = _place(s.anchor)
+        return bool(place) and ((f" {place} " in f" {anchor} ") if number else _under(anchor, place))
+
+    everything = str(query.get("wants") or "") == "all"
+    under = [s for s in pool if placed(s)]
+    if everything and under and len(under) <= FAMILY:
+        return under, query   # all of a place: every fact of those relations filed there
+    scored = []
+    for i, (s, bag) in enumerate(zip(pool, bags)):
+        value = sum(math.log(1 + len(pool) / seen[w]) for w in bag & wanted)
+        value += 5.0 * placed(s) + 3.0 * bool(hint & (_words(s.source_doc) | _words(s.subject)))
+        if value > 0:
+            scored.append((value, -i))
+    return [pool[-i] for _, i in sorted(scored, reverse=True)[:MATCH_ALL if everything else MATCH_ONE]], query
+
+
+def one_regime(question: str, matched: list[Statement], facts: list[Statement], asked: list[date]) -> tuple[list[Statement], str]:
+    """When facts of one relation come from both the Directive and the Regulation, keeps one regime: the
+    Regulation, unless the question names the Directive or a day before the Regulation applies (a date read
+    from the store). Returns the facts kept and a line saying which regime was kept, or ''."""
+    both = {s.predicate for s in matched if s.source_doc in OLD_ACT} & {s.predicate for s in matched if s.source_doc in NEW_ACT}
+    if not both:
+        return matched, ""
+    start = next((_fact_day(s) for s in facts if s.predicate == "appliesFrom" and _fact_day(s) and s.source_doc in NEW_ACT
+                  and re.fullmatch(r"(this |the |il presente |il )?(regulation|regolamento)", _key(s.subject))), None)
+    old = (bool(re.search(r"directive|direttiva", question, re.I)) and not re.search(r"regulation|regolamento", question, re.I)) \
+        or bool(start and any(d < start for d in asked))
+    drop = NEW_ACT if old else OLD_ACT
+    kept = [s for s in matched if not (s.predicate in both and s.source_doc in drop)]
+    return kept, ("The matched facts come from both the Directive and the Regulation: use the "
+                  + ("Directive's" if old else "Regulation's") + " and name that act in the sentence.")
+
+
 def _duration(text: str) -> str | None:
     match = ISO_DURATION.search(text)
     if match and len(match.group(0)) > 1:
@@ -433,6 +517,13 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
                 chosen.append(s)
     else:
         named = set()
+    matched, regime = [], ""
+    if len(facts) > TOP:   # the graph is queried by relation first; the nearest facts follow as context
+        matched, _ = graph_query(question, ranked)
+        matched, regime = one_regime(question, matched, facts, asked)
+        ids = {s.id for s in matched}
+        chosen = matched + [s for s in chosen if s.id not in ids]
+    by_relation = {s.id for s in matched}
     rule = device_rule(question, facts, ranked[:TOP], asked[0] if asked else day)
     for result in rule:
         chosen += [s for s in result["facts"] if all(s.id != c.id for c in chosen)]
@@ -454,8 +545,14 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         if not dated:
             computed += f"\n- {NO_DATES}: a question about such a date, or about being overdue, is unknown."
     numbered = "\n".join(f"[{i}] {_line(s)}{_notes(s, asked, corrected)}"
+                         + (" [matched by relation]" if s.id in by_relation else "")
                          + (" [note: filed under a place the question names]" if s.id in named else "")
                          for i, s in enumerate(chosen))
+    if regime:
+        numbered += "\n\n" + regime
+    elif len(facts) > TOP and not matched and not rule:
+        numbered += ("\n\nNo fact matched the question by relation: answer only if a fact above is about the exact "
+                     "subject asked; otherwise the answer is unknown.")
     if computed:
         numbered += "\n\nComputed by rule (" + ASSUMPTIONS["en"] + "):" + computed
     out = llm.chat([{"role": "system", "content": SYSTEM + (ITALIAN if lang == "it" else "")},
