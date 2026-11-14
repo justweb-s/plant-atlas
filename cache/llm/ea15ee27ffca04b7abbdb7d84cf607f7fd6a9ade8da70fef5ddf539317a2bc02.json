@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 238\n\n[0] 21.\n[1] Safety Functions Table Description UR e-Series robots comply with ISO 10218-1:2011 and the applicable portions of ISO/TS 15066.\n[2] It is important to note that most of ISO/TS 15066 is directed towards the integrator and not the robot manufacturer.\n[3] ISO 10218-1:2011, clause 5.10 collaborative operation details 4 collaborative operation techniques as explained below.\n[4] It is very important to understand that collaborative operation is of the APPLICATION when in AUTOMATIC mode.\n[5] Collaborative Technique Explanation UR e-Series Operation Stop condition where position is held at a standstill and is UR robots’ safeguard stop is a 2011 edition, monitored as a safety function.\n[6] Category 2 stop is permitted safety-rated monitored stop, See clause 5.10.2 Safety-rated to auto reset.\n[7] In the case of resetting and restarting SF2 on page 1.\n[8] It is likely, in the monitored operation after a safety -rated monitored stop, see ISO future, that “safety-rated monitored stop 10218-2 and ISO/TS 15066 as resumption shall not cause stop” will not be called a form of hazardous conditions.\n[9] collaborative operation.\n[10] Collaborative Technique Explanation UR e-Series Operation This is essentially individual and direct Copyright © 2009–2025 by Universal Robots A/S.\n[11] All rights reserved.\n[12] 2011 edition, personal control while the robot is in clause 5.10.3 automatic mode.\n[13] Hand guiding equipment shall be located close to the end-effector UR robots do not provide hand-guiding for and shall have:\n[14] collaborative operation.\n[15] Hand-guided teach (free Hand-guiding • an Emergency Stop pushbutton drive) is provided with UR robots but this is for • a 3-position enabling device programming in manual mode and not for collaborative operation in automatic mode.\n[16] • a safety-rated monitored stop function • a settable safety-rated monitored speed function UR5e 241 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\nconformsToStandard | UR e-Series robots | ISO 10218-1:2011 | ISO 10218-1:2011 | | 1 | 1\nconformsToStandard | UR e-Series robots | ISO/TS 15066 | ISO/TS 15066 | applicable portions | 1 | 1\nintegratorResponsibleFor | integrator | most of ISO/TS 15066 is directed towards the integrator | most of ISO/TS 15066 is directed towards the integrator | | 2 | 2\nintegratorResponsibleFor | application | collaborative operation is of the APPLICATION when in AUTOMATIC mode | collaborative operation is of the APPLICATION when in AUTOMATIC mode | when in AUTOMATIC mode | 4 | 4\nhasSafetyFunction | UR e-Series robots | safeguard stop | safeguard stop | | 5 | 6\nhasSafetyFunction | UR e-Series robots | safety-rated monitored stop | safety-rated monitored stop | | 6 | 6\nOPEN | hand-guided teach is for programming only, not automatic collaborative operation | 15 | 15",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2525,
+   "prompt_tokens": 2422,
+   "total_tokens": 4947,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 2109,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0015047,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0015047,
+   "gateway_cost": 0.0015047
+  }
+ }
+}

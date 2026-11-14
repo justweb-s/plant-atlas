@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: inail-guide, p. 6\n\n[0] Guida ai servizi di verifica di attrezzature, macchine e impianti di più ampia pratica e interesse 1.\n[1] Impianti di riscaldamento Per “impianto di riscaldamento o impianto termico” deve intendersi un impianto tecnologico destinato al riscaldamento degli ambienti, con o senza produzione di acqua calda per usi igienici e sanitari, comprendente i sistemi di generazione, di- stribuzione e utilizzazione del calore,\n[2] nonché i dispositivi e accessori di sicurezza, regolazione e controllo.\n[3] Gli impianti di riscaldamento alimentati da combustibile solido, liquido o gassoso, utilizzanti acqua calda sotto pressione con temperatura dell’acqua non superiore alla temperatura di ebollizione a pressione atmosferica,\n[4] devono essere realizzati e installati in modo che ne sia garantita la sicurezza di funzionamento anche alla massima pressione di esercizio.\n[5] Il focolare, nel quale brucia il combustibile, caratterizza la potenza massima com- plessiva dell’impianto in termini prestazionali.\n[6] Gli impianti che sviluppano una potenza globale complessiva al focolare superio- re a 35 kW devono rispettare le prescrizioni del decreto ministeriale 1° dicembre 1975 oltre che della Raccolta R dell’Inail.\n[7] In particolare, per gli impianti denunciati all’Inail prima del 1° marzo 2011, le specifiche tecniche di riferimento sono quelle previste dalla Raccolta R ed.\n[8] 1982, mentre per quelli denunciati successivamente al 1° marzo 2011, le specifiche tecniche di riferimento sono quelle previste dalla Raccolta R ed.\n[9] 2009.\n[10] Per tali impianti l’Inail rilascia un libretto matricolare.\n[11] La denuncia e la richiesta di verifica si effettuano tramite l’apposita modulistica disponibile sul portale dell’Inail.\n[12] Di seguito un breve accenno sugli impianti di riscaldamento considerati attrez- zature di lavoro.\n[13] Tali impianti rientrano nella disciplina delle verifiche periodiche come attrezzature di lavoro (previste dal decreto ministeriale 11 aprile 2011) uni- camente quando sono asserviti ai cosiddetti “processi produttivi” secondo quan- to riportato nella definizione di attrezzatura di lavoro di cui al decreto legislativo\n[14] 9 aprile 2008, n.\n[15] 81 ovvero “qualsiasi macchina, apparecchio, utensile o impianto, inteso come il complesso di macchine, attrezzature e componenti necessari all’at- tuazione di un processo produttivo, destinato a essere usato durante il lavoro”.\n[16] Per gli impianti con potenzialità superiore a 116 kW, il datore di lavoro, ai sensi del decreto legislativo 9 aprile 2008, n.\n[17] 81 e successive modificazioni, in conformi- tà alla periodicità stabilita dall’allegato VII al medesimo decreto, deve provvedere a richiedere all’Inail la prima delle verifiche periodiche dell’impianto.\n[18] La richiesta di prima verifica periodica si effettua tramite l’apposita modulistica disponibile 6"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasObligation | datore di lavoro | deve provvedere a richiedere all’Inail | deve provvedere a richiedere all’Inail | Per gli impianti con potenzialità superiore a 116 kW | 16 | 17\nconformsToStandard | impianto di riscaldamento | decreto ministeriale 1° dicembre 1975 | decreto ministeriale 1° dicembre 1975 | Gli impianti che sviluppano una potenza globale complessiva al focolare superiore a 35 kW | 6 | 6\ndefinedAs | impianto di riscaldamento o impianto termico | un impianto tecnologico destinato al riscaldamento degli ambienti | un impianto tecnologico destinato al riscaldamento degli ambienti | | 1 | 1\ndefinedAs | attrezzatura di lavoro | qualsiasi macchina, apparecchio, utensile o impianto | qualsiasi macchina, apparecchio, utensile o impianto | | 15 | 15\nOPEN | Raccolta R edition depends on Inail filing date | 7 | 8",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2327,
+   "prompt_tokens": 2889,
+   "total_tokens": 5216,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1961,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0014524,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0014524,
+   "gateway_cost": 0.0014524
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: unict-guideline, p. 3\n\n[0] ELENCO DELLE ATTREZZATURE La costituzione e l’aggiornamento di tale documento costituiscono il primo passo nell’implementazione di un protocollo per la manutenzione delle attrezzature di lavoro.\n[1] Esso è costituito da una tabella in cui sono elencate le diverse attrezzature presenti nel Laboratorio/struttura, contenente le principali informazioni anagrafiche dell’attrezzatura (costruttore, modello, numero di matricola, anno di fabbricazione, marcatura CE, numero di inventario,\n[2] disponibilità del manuale d’uso e manutenzione), la sua collocazione, e il nominativo dell’unità di personale incaricata del controllo periodico.\n[3] Viene di seguito riportato un possibile formato di elenco (Mod.\n[4] A – Elenco attrezzature), che potrà essere modificato o personalizzato secondo le specificità del laboratorio/struttura.\n[5] Guida per la compilazione del Modello A:\n[6] Elenco Attrezzature N° (indicare numero progressivo dell'attrezzatura) Attrezzatura (indicare la tipologia) Costruttore (indicare Casa costruttrice, ovvero se trattasi di prototipo) Mod.\n[7] (indicare il modello/sigla commerciale dell’attrezzatura) Matricola (indicare numero di matricola o di serie) Anno (indicare anno di costruzione) CE (SI per indicare la presenza e leggibilità del marchio CE, NO se non visibile) Inventario (indicare numero di inventario Dipartimento)\n[8] Man (SI se presente e disponibile il Manuale d'uso e manutenzione del costruttore, NO se non presente) Collocazione (indicare elementi utili all’individuazione della collocazione dell'attrezzatura, es.\n[9] nome Laboratorio, numero locale, armadio) Incaricato (indicare Cognome e Nome dell'unità di personale tecnico o scientifico incaricato del controllo periodico dell'attrezzatura) L’elenco delle attrezzature, di cui si terrà copia stampata in laboratorio,\n[10] sarà periodicamente aggiornato a cura del Responsabile del laboratorio o suo delegato.\n[11] Nota:\n[12] se l’attrezzatura rientrasse tra quelle soggette a verifiche periodiche di cui all’Allegato VII, indicarlo nel campo Attrezzatura, magari con un asterisco e un rimando a piè pagina."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "mustKeepRegister | laboratorio | L’elenco delle attrezzature | elenco delle attrezzature | | 9 | 9\nOPEN | periodic update of equipment list by lab head or delegate; no interval | 10 | 10",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1153,
+   "prompt_tokens": 2583,
+   "total_tokens": 3736,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1071,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008348,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008348,
+   "gateway_cost": 0.0008348
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 84\n\n[0] 8.\n[1] Installation Control Box All safety outputs go low in the event of a safety system violation or fault.\n[2] This means the Outputs System Stop output initiates a stop even when an E-stop is not triggered.\n[3] You can use the following Safety functions output signals.\n[4] All signals return to low when the state which triggered the high signal has ended:\n[5] Signal is Low when the safety system has been triggered into a 1System stopped state including by the Robot Emergency Stop input or the Emergency Stop Button.\n[6] To avoid deadlocks, if the Emergency Stop Stopped state is triggered by the System Stop input, low signal will not be given.\n[7] Robot Signal is Low if the robot is moving, otherwise high.\n[8] Moving Signal is High when the robot is stopped or in the process of stopping Robot Not due to an emergency stop or safeguard stop.\n[9] Otherwise it will be logic Stopping low.\n[10] Signal is Low when reduced parameters are active or if the safety Reduced input is configured with a reduced input and the signal is currently low.\n[11] Copyright © 2009–2025 by Universal Robots A/S.\n[12] All rights reserved.\n[13] Otherwise the signal is high.\n[14] Not This is the inverse of Reduced, defined above.\n[15] Reduced Signal is High if the Robot Arm is stopped and is located in the Safe configured Safe Home Position.\n[16] Otherwise, the signal is Low.\n[17] This is Home often used when UR robots are integrated with mobile robots.\n[18] 3-Position Enabling Signal is low when a three position stop is active, high otherwise.\n[19] Stopped Not 3- Position Signal is low when a three position stop is inactive, high otherwise.\n[20] Enabling Stopped NOTICE Any external machinery receiving its Emergency Stop state from the robot through the System Stop output must comply with ISO 13850.\n[21] This is particularly necessary in setups where the Robot Emergency Stop input is connected to an external Emergency Stop device.\n[22] In such cases, the System Stop output becomes high when the external Emergency Stop device is released.\n[23] This implies that the emergency stop state at the external machinery will be reset with no manual action needed from the robot’s operator.\n[24] Hence, to comply with safety standards, the external machinery must require manual action in order to resume.\n[25] 1System Stop was previously known as \"System Emergency Stop\" for Universal Robots robots.\n[26] PolyScope can display \"System Emergency Stop\".\n[27] UR10e 87 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "conformsToStandard | external machinery receiving Emergency Stop state via System Stop output | ISO 13850 | ISO 13850 | receives its Emergency Stop state from the robot through the System Stop output | 20 | 20\nintegratorResponsibleFor | external machinery | must require manual action in order to resume | must require manual action in order to resume | to comply with safety standards | 24 | 24\nOPEN | External E-stop release resets external machinery without operator action | 22 | 23",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1200,
+   "prompt_tokens": 2574,
+   "total_tokens": 3774,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1040,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008574,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008574,
+   "gateway_cost": 0.0008574
+  }
+ }
+}

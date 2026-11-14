@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: unict-guideline, p. 13\n\n[0] Cappe chimiche (riferimento norma EN 14175) Manutenzione semestrale 1.\n[1] Smontaggio del meccanismo del telaio, verifica, pulizia e ingrassaggio.\n[2] 2.\n[3] Verifica del funzionamento dell’arresto del telaio e dell’eventuale meccanismo di allarme.\n[4] 3.\n[5] Verifica del sistema idraulico di distribuzione gas/acqua.\n[6] 4.\n[7] Verifica delle condizioni dei servizi elettrici della cappa, dei loro comandi e del loro funzionamento.\n[8] 5.\n[9] Controllo dello smorzatore di fuoco e del meccanismo di sblocco, se presente.\n[10] 6.\n[11] Controllo del sistema di aspirazione:\n[12] stato del ventilatore, stato motore, stato dei giunti flessibili, stato del condotto di estrazione (particolare attenzione ai raccordi), verifica dei diffusori e delle feritoie (non devono essere ostruiti).\n[13] 7.\n[14] Controllo della stabilità e delle condizioni del camino di scarico.\n[15] 8.\n[16] Verifica dell’interno della conduttura:\n[17] se si hanno ristagni di sostanze è necessaria una pulizia.\n[18] 9.\n[19] Verifica della posizione della valvola di bilanciamento aspirazione, se presente.\n[20] 10.\n[21] Mappatura della velocità frontale dell’aria aspirata, come indicato dalle norme, e calcolo della velocità media e della portata.\n[22] 11.\n[23] Misura della pressione dinamica sull’aspiratore.\n[24] Se si rileva una diminuzione superiore al 20% dei valori di collaudo della portata media o della pressione dinamica, significa che si ha un deterioramento delle prestazioni, in tal caso si deve individuarne la causa.\n[25] 12.\n[26] Rilievo del livello del rumore davanti alla cappa, raffrontandolo con il rumore di fondo.\n[27] 13.\n[28] Controllo e taratura del misuratore di flusso e del regolatore di aspirazione, se presente.\n[29] 14.\n[30] Misura del livello di illuminazione sul piano cappa e verifica della sua rispondenza al livello di norma.\n[31] 15.\n[32] Sostituzione filtri delle cappe che ne sono dotati (frequenza annuale).\n[33] Cappe filtrate a ricircolo Un sistema di cappe filtranti a ricircolo, poiché rimette l’aria filtrata nell’ambiente di lavoro, deve essere sottoposto ad un severo controllo di manutenzione periodico,\n[34] che garantisca la sicurezza all’operatore attraverso un’attenta verifica dello stato di utilizzo e dell’efficienza dei filtri.\n[35] Manutenzione semestrale 1.\n[36] Verifica della corretta tipologia del filtro utilizzato in funzione delle sostanze manipolate.\n[37] 2.\n[38] Verifica delle condizioni meccaniche della cappa.\n[39] 3.\n[40] Verifica dei comandi e degli allarmi.\n[41] 4.\n[42] Verifica del livello di efficienza dei filtri con fialetta Draeger o con misuratore di inquinanti in aria.\n[43] 5.\n[44] Rilascio di attestato della verifica dell’efficienza dei filtri.\n[45] 6.\n[46] Verifica dello stato generale del ventilatore.\n[47] 7.\n[48] Verifica dell’interno dell’alloggiamento dei filtri, pulizia ed eventuale sostituzione delle guarnizioni di tenuta.\n[49] 8.\n[50] Mappatura della velocità frontale dell’aria aspirata, come indicato dalle norme relative alle cappe chimiche, e calcolo della velocità media e della portata.\n[51] 9.\n[52] Misura della pressione dinamica sull’aspiratore.\n[53] 10.\n[54] Rilievo del livello del rumore davanti alla cappa, raffrontandolo con il rumore di fondo.\n[55] 11.\n[56] Controllo e taratura del misuratore di flusso e del regolatore di aspirazione, se presente.\n[57] 12.\n[58] Misura del livello di illuminazione sul piano cappa e verifica della sua rispondenza al livello di norma.\n[59] 13.\n[60] Verifica di contenimento con tubo fumogeno.\n[61] 14.\n[62] Sostituzione filtri (frequenza annuale)."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresPeriodicCheck | cappe chimiche | Manutenzione semestrale | P6M | | 0 | 0\nrequiresPeriodicCheck | cappe filtrate a ricircolo | Manutenzione semestrale | P6M | | 35 | 35\nrequiresPeriodicCheck | filtri delle cappe | frequenza annuale | P1Y | | 32 | 32\nrequiresCheckAfter | prestazioni del sistema di aspirazione delle cappe chimiche | diminuzione superiore al 20% dei valori di collaudo della portata media o della pressione dinamica | diminuzione superiore al 20% | Se si rileva | 24 | 24",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1908,
+   "prompt_tokens": 3301,
+   "total_tokens": 5209,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1676,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0012841,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0012841,
+   "gateway_cost": 0.0012841
+  }
+ }
+}

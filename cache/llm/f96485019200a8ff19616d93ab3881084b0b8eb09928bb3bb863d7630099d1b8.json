@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 89\n\n[0] 8.\n[1] Installation 8.7.\n[2] General Purpose Digital I/O Description The Startup screen contains settings for automatically loading and starting a default program, and for auto-initializing the Robot arm during power up.\n[3] General This section describes the general purpose 24V I/O (Gray terminals) and the configurable purpose I/O (Yellow terminals with black text) when not configured as safety I/O.\n[4] digital I/O The general purpose I/O can be used to drive equipment like pneumatic relays directly or for communication with other PLC systems.\n[5] All Digital Outputs can be disabled automatically when program execution is stopped.\n[6] In this mode, the output is always low when a program is not running.\n[7] Examples are shown in the following subsections.\n[8] These examples use regular Digital Outputs but any configurable outputs could also have be Copyright © 2009–2025 by Universal Robots A/S.\n[9] All rights reserved.\n[10] used if they are not configured to perform a safety function.\n[11] Digital Inputs Digital Outputs 24V 24V 0V 0V LOAD DI0 DI4 DO0 DO4 24V 24V 0V 0V DO1 DO5 DI1 DI5 0V 0V 24V 24V DO2 DO6 DI2 DI6 0V 0V 24V 24V DO3 DO7 DI3 DI7 In this example a load is controlled from a Digital In this example a simple button is Outputs when connected.\n[12] connected to a Digital Input.\n[13] Communication You can use the digital I/O to communicate with other equipment if a common GND with other (0V) is established and if the machine uses PNP technology, see below.\n[14] machines or PLCs Digital Inputs Digital Outputs Digital Inputs Digital Outputs 24V 24V 0V 0V 24V 24V 0V 0V DI0 24V DI4 24V DO0 0V DO4 0V A B DI0 24V DI4 24V DO0 0V DO4 0V DI1 DI5 DO1 DO5 DI1 DI5 DO1 DO5 24V 24V 0V 0V 24V 24V 0V 0V DI2 DI6 DO2 DO6 DI2 DI6 DO2 DO6 24V 24V 0V 0V 24V 24V 0V 0V DI3 DI7 DO3 DO7 DI3 DI7 DO3\n[15] DO7 NOTICE Use shielded cables to connect Digital I/Os.\n[16] User Manual 92 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "OPEN | Shielded cables required for Digital I/O connections | 15 | 15",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 387,
+   "prompt_tokens": 2562,
+   "total_tokens": 2949,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 357,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004497,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004497,
+   "gateway_cost": 0.0004497
+  }
+ }
+}

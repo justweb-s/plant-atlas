@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 229\n\n[0] 21.\n[1] Safety Functions Table 21.\n[2] Safety Functions Table Description Universal Robots safety functions and safety I/O are PLd Category 3 (ISO 13849-1), where each safety function has a PFH value less than 1.8E-07.\n[3] The PFH values are updated to include greater design flexibility for supply chain resilience.\n[4] For safety I/O the resulting safety function including the external device, or equipment, is determined by the overall architecture and the sum of all PFHs, including the UR robot safety function PFH.\n[5] If any safety function limit is exceeded or a fault is detected in a safety function or safety-related part of the control system, UR defines the safe state as a stop with removal of drive power (either a stop category 1 or 04 immediate removal of power).\n[6] NOTICE The Safety Functions tables presented in this chapter are simplified.\n[7] You can find the comprehensive versions of them here:\n[8] https://www.universal-robots.com/support Copyright © 2009–2025 by Universal Robots A/S.\n[9] All rights reserved.\n[10] SF1 What 1, 2, 3, 4 Description Tolerance Affects happens? Emergency Pressing the Estop PB on the pendant1 or the External Estop (if using Stop (ISO the Estop Safety Input) results in a Stop Cat 14 with power removed 13850) Robot, from the robot actuators and the tool I/O.\n[11] Controller I/O go “low”.\n[12] Stop robot tool Command1 all joints to stop and upon all joints coming to a monitored Category 1 -- I/O, and standstill state, power is removed.\n[13] (IEC 60204- controller See Stop Time & Stop Distance Safety Functions5.\n[14] 1) I/O ONLY USE FOR EMERGENCY PURPOSES, not to be used for safeguarding because it requires a manual action.\n[15] SF2 What 3, 5 Description Tolerance Affects happens? Safeguard Stop Stop This safety function is initiated by an external protective device using Category 2 (Protective Stop safety inputs which will initiate a Stop Cat 24.\n[16] The purpose is to protect (IEC 60204- according to ISO people from injury, as compared to protecting the robot, equipment, or 1) 10218-1*) products.\n[17] SS2 stop -- Robot *Prior to 2006, this The tool I/O are unaffected by the safeguard stop.\n[18] (as was called “safety If an enabling device is connected, it is possible to configure the described in stop” or “safeguard safeguard stop to function in automatic mode ONLY.\n[19] IEC 61800- stop” See the Stop Time and Stop Distance Safety Functions.5.\n[20] 5-2) Safeguard What Description Tolerance Affects Stop Reset happens? When configured for Safeguard Reset and the external reset connections Reset Input transition from low to high, safeguard stop resets.\n[21] Safety input to initiate a -- Robot to SF2 reset of SF2.\n[22] User Manual 232 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasSafetyFunction | UR5e safety functions and safety I/O | PLd Category 3 | PLd Category 3 | | 2 | 2\nOPEN | safe state is stop with drive power removed | 5 | 5",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1767,
+   "prompt_tokens": 2745,
+   "total_tokens": 4512,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1690,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001158,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001158,
+   "gateway_cost": 0.001158
+  }
+ }
+}

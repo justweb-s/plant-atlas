@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 239\n\n[0] 21.\n[1] Safety Functions Table Collaborative Technique Explanation UR e-Series Operation SSM is the robot maintaining a 2011 edition, separation distance from any clause 5.10.4 operator (human).\n[2] This is done by monitoring of the distance between the robot system and intrusions to ensure that the MINIMUM PROTECTIVE DISTANCE is assured.\n[3] Usually, this is accomplished using Sensitive Protective Equipment (SPE), where typically a safety laser scanner detects intrusion(s) towards the To facilitate SSM, UR robots have the capability of robot system.\n[4] switching between two sets of parameters for safety This SPE causes:\n[5] functions with configurable limits (normal and reduced).\n[6] Speed and 1.\n[7] dynamic changing of the Normal operation can be when no intrusion is detected.\n[8] It separation parameters for the limiting can also be caused by safety planes/ safety boundaries.\n[9] Copyright © 2009–2025 by Universal Robots A/S.\n[10] All rights reserved.\n[11] monitoring safety functions;\n[12] or Multiple safety zones can be readily used with UR robots.\n[13] (SSM) safety 2.\n[14] a safety-rated monitored For example, one safety zone can be used for “reduced functions stop condition.\n[15] settings” and another zone boundary is used as a safeguard stop input to the UR robot.\n[16] Reduced limits can Upon detection of the intrusion also include a reduced setting for the stop time and stop exiting the protective device’s distance limits – to reduce the work area and floorspace.\n[17] detection zone, the robot is permitted to:\n[18] 1.\n[19] resume the “higher” normal safety function limits in the case of 1) above 2.\n[20] resume operation in the case of 2) above In the case of 2) 2), restarting operation after a safety -rated monitored stop, see ISO 10218-2 and ISO/TS 15066 for requirements.\n[21] Collaborative Technique Explanation UR e-Series Operation 2011 How to accomplish PFL is left to the robot UR robots are power and force limiting edition, clause manufacturer.\n[22] The robot design and/or safety robots specifically designed to enable 5.10.5 functions will limit the energy transfer from the collaborative applications where the robot Power and robot to a person.\n[23] If any parameter limit is could contact a person and cause no injury.\n[24] force limiting exceeded, a robot stop happens.\n[25] PFL applications UR robots have safety functions that can be (PFL) by require considering the ROBOT APPLICATION used to limit motion, speed, momentum, inherent (including the end-effector and workpiece(s), so force, power and more of the robot.\n[26] These design or that any contact will not cause injury.\n[27] The study safety functions are used in the robot control performed evaluated pressures to the ONSET of application to thereby lessen pressures and pain, not injury.\n[28] See Annex A.\n[29] See ISO/TR 20218-1 forces caused by the end-effector and End-effectors.\n[30] workpiece(s).\n[31] User Manual 242 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasSafetyFunction | UR e-Series robot | (SSM) safety | ssm | | 13 | 13\nintegratorResponsibleFor | PFL application | require considering the ROBOT APPLICATION | require considering the robot application | | 25 | 25\nOPEN | Restart after safety-rated monitored stop cites ISO 10218-2 and ISO/TS 15066 | 20 | 20",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2377,
+   "prompt_tokens": 2775,
+   "total_tokens": 5152,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 2240,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001466,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001466,
+   "gateway_cost": 0.001466
+  }
+ }
+}

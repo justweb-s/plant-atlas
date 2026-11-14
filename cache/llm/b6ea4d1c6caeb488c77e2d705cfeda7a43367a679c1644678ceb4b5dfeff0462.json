@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: inail-guide, p. 14\n\n[0] Guida ai servizi di verifica di attrezzature, macchine e impianti di più ampia pratica e interesse 2.\n[1] Impianti di messa a terra e impianti di protezione contro le scari- che atmosferiche I procedimenti relativi alle installazioni e ai dispositivi di protezione contro le sca- riche atmosferiche,\n[2] agli impianti di messa a terra e agli impianti elettrici in luo- ghi con pericolo di esplosione sono disciplinati dal decreto del Presidente della Repubblica 22 ottobre 2001, n.\n[3] 462 “Regolamento di semplificazione del proce- dimento per la denuncia di installazioni e dispositivi di protezione contro le scari- che atmosferiche, di dispositivi di messa a terra di impianti elettrici e di impianti elettrici pericolosi”.\n[4] La regolamentazione si applica agli ambienti di lavoro nei quali sia individuabile la figura di almeno un “lavoratore” ovvero una persona che, indipendentemente dalla tipologia contrattuale, svolge un’attività lavorativa nell’ambito dell’organiz- zazione di un datore di lavoro pubblico o privato,\n[5] con o senza retribuzione, anche al solo fine di apprendere un mestiere, un’arte o una professione, esclusi gli ad- detti ai servizi domestici e familiari.\n[6] In base all’art.\n[7] 3 del citato decreto, è attribuito all’Inail il controllo a campione del- la “prima verifica sulla conformità alla normativa vigente degli impianti di prote- zione contro le scariche atmosferiche e i dispositivi di messa a terra degli impianti elettrici”.\n[8] Per impianto di messa a terra si intende l’insieme dei dispersori, conduttori di terra, conduttori equipotenziali, collettori di terra e conduttori di protezione destinati a realizzare la messa a terra di protezione.\n[9] Ai fini del medesimo decreto si intendono facenti parte dell’impianto di messa a terra anche i segnalatori di primo guasto (ove esistenti) e i dispositivi di protezione dalle sovracorrenti o dalle correnti di disper- sione predisposti per assicurare la protezione dai contatti indiretti.\n[10] Sono soggetti all’obbligo di denuncia di cui all’art.\n[11] 2, gli impianti di messa a terra realizzati per la protezione delle persone dai contatti indiretti mediante interruzione automa- tica dell’alimentazione.\n[12] Non rientrano in tale obbligo gli impianti di terra realizzati esclusivamente per ragioni funzionali, o per altri motivi, e i sistemi di protezione dai contatti indiretti che non si basano sull’interruzione automatica dell’alimentazione.\n[13] Per quanto riguarda gli impianti di protezione dalle scariche atmosferiche, inve- ce, sono soggetti all’obbligo di denuncia di cui all’art.\n[14] 2 del suddetto decreto solo le installazioni e i dispositivi di protezione quando, a seguito della valutazione del rischio fulminazione (diretta e indiretta) effettuata secondo la pertinente nor- mativa tecnica (CEI EN 62305-2),\n[15] risultino necessari ai fini del contenimento della componente di rischio R1 (perdita di vita umana).\n[16] 14"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "definedAs | impianto di messa a terra | l'insieme dei dispersori, conduttori di terra, conduttori equipotenziali, collettori di terra e conduttori di protezione | l'insieme dei dispersori, conduttori di terra, conduttori equipotenziali, collettori di terra e conduttori di protezione | | 8 | 8\nverifiedBy | prima verifica sulla conformità degli impianti di protezione contro le scariche atmosferiche | all’Inail | Inail | a campione | 7 | 7\nOPEN | denuncia applies to indirect-contact earthing; functional and other exclusions apply | 10 | 12",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1765,
+   "prompt_tokens": 2889,
+   "total_tokens": 4654,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1546,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0011714,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0011714,
+   "gateway_cost": 0.0011714
+  }
+ }
+}

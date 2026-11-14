@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: robot-cell-sheet, p. 6\n\n[0] 2.\n[1] Sicurezza | EBER | EBAM | INAIL | Reg.\n[2] Emilia Romagna | Reg.\n[3] Marche | 4.\n[4] Principali macchine • Le operazioni di programmazione devono sempre avere inizio prima di entrare nello spazio protetto.\n[5] • Durante la programmazione non deve essere possibile il funzionamento automatico.\n[6] • In fase di programmazione solo il programmatore può essere presente all’interno dello spazio protetto • L’isola robotizzata deve essere sotto l’esclusivo comando del programmatore quando questi è all’interno dello spazio protetto.\n[7] • Una volta completata la programmazione devono essere ripristinate tutte le protezioni eventualmente disattivate.\n[8] • Deve essere conservata una registrazione dei programmi eseguiti comprensiva di tutte le modifiche apportate.\n[9] • La verifica del programma deve avvenire senza persone presenti all’interno dello spazio protetto.\n[10] • Se ciò non è possibile, si applicano le procedure già descritte (velocità lenta, comando azione mantenuta, ecc.) Prima dell’utilizzo • Prendere visione delle Istruzioni per l’uso ed essere formati all’utilizzo in sicurezza della macchina.\n[11] • Verificare la presenza ed il corretto posizionamento dei ripari (vedi 2.2.3 “Ripari”) e dei dispositivi di sicu- rezza (vedi 2.2.5 “Dispositivi di sicurezza”).\n[12] • Verificare il funzionamento dei dispositivi di interblocco dei ripari (vedi 2.2.5.1 “Dispositivi di interblocco”).\n[13] • Verificare il funzionamento dei pulsanti di arresto di emergenza (vedi 2.2.6.4 “Arresto d’emergenza”).\n[14] • Indossare indumenti che non possano impigliarsi alle parti pericolose in movimento sulla macchina • Non indossare sciarpe, collane, braccialetti, orologi, anelli, raccogliere e legare i capelli lunghi.\n[15] • Indossare i dispositivi di protezione individuale (DPI) indicati in questa scheda.\n[16] Durante l’utilizzo • Mantenere correttamente posizionati i ripari sulla macchina.\n[17] • Non manomettere o eludere i dispositivi di sicurezza.\n[18] Se la loro disattivazione dovesse essere indispen- sabile ai fini di una specifica lavorazione, dovranno essere adottate immediatamente altre misure di sicurezza quali velocità di lavorazione molto lente, comandi ad azione mantenuta, ecc… • Effettuare i cambi pezzo solo a macchina ferma.\n[19] • Segnalare tempestivamente eventuali malfunzionamenti o guasti al proprio preposto Dopo l’utilizzo • Spegnere la macchina.\n[20] • Riporre le attrezzature e gli strumenti di misura negli appositi contenitori.\n[21] • Lasciare pulita (da trucioli, sfridi di lavorazione e fluidi lubrorefrigeranti) e in ordine la macchina e la zona circostante (in particolare il posto di lavoro).\n[22] • Ripristinare il funzionamento di ripari eventualmente disattivati.\n[23] Prodotto distribuito gratuitamente per diffondere la cultura della sicurezza all’interno delle imprese.\n[24] 181"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "safeguardedSpaceRule | isola robotizzata | devono sempre avere inizio prima di entrare nello spazio protetto | devono sempre avere inizio prima di entrare nello spazio protetto | | 4 | 4\nsafeguardedSpaceRule | isola robotizzata | solo il programmatore può essere presente all’interno dello spazio protetto | solo il programmatore può essere presente all’interno dello spazio protetto | In fase di programmazione | 6 | 6\nsafeguardedSpaceRule | verifica del programma | senza persone presenti all’interno dello spazio protetto | senza persone presenti all’interno dello spazio protetto | | 9 | 9\nmustKeepRegister | programmi eseguiti | registrazione dei programmi eseguiti comprensiva di tutte le modifiche apportate | registrazione dei programmi eseguiti comprensiva di tutte le modifiche apportate | | 8 | 8\nrequiresCheckAfter | ripristino delle protezioni disattivate | Una volta completata la programmazione | una volta completata la programmazione | | 7 | 7\nrequiresCheckAfter | presenza e posizionamento dei ripari e dei dispositivi di sicurezza | Prima dell’utilizzo | prima dell’utilizzo | | 10 | 11\nrequiresCheckAfter | funzionamento dei dispositivi di interblocco dei ripari | Prima dell’utilizzo | prima dell’utilizzo | | 10 | 12\nOPEN | automatic operation must be impossible during programming | 5 | 5",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 3936,
+   "prompt_tokens": 2936,
+   "total_tokens": 6872,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 3398,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0022616,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0022616,
+   "gateway_cost": 0.0022616
+  }
+ }
+}

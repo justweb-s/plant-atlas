@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 35\n\n[0] PROJECT PLANNING 5 S Figure 21:\n[1] Stationary application in vertical operation for access protection Important information DANGER Hazard due to lack of effectiveness of the protective device If there is a retroreflector in the protective field level (distance of the retroreflector from protective field ≤ 6 m),\n[2] it may not be possible detect people and parts of the body that are to be protected, or it may not be possible to detect them on time.\n[3] → Avoid retroreflectors in the protective field level if possible.\n[4] → With retroreflectors at the protective field level:\n[5] Increase overrun of the protective field over the opening to be protected by supplement ZR = 350 mm.\n[6] 5.3.9.1 Protective field In access protection, the minimum distance typically defines the position at which the safety laser scanner is mounted.\n[7] The protective field must cover a minimum area so that the safety laser scanner reliably detects a moving person:\n[8] O The lower edge of the protective field must not be more than 300 mm above the floor/ground according to ISO 13855:2010.\n[9] O Resolution < 150 mm:\n[10] The top edge of the protective field must be at least 900 mm above the floor/ground according to ISO 13855:2010.\n[11] O Resolution 150 mm:\n[12] The top edge of the protective field must be at least 1,100 mm above the floor/ground.\n[13] O Resolution 200 mm:\n[14] The top edge of the protective field must be at least 1,400 mm above the floor/ground.\n[15] The multiple sampling must be 2 or 3.\n[16] Otherwise, a person could possibly walk unde- tected through the protective field.\n[17] 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 35 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "protectiveFieldRange | nanoScan3 protective field top edge | 900 mm | 900 mm | Resolution < 150 mm | 9 | 10\nprotectiveFieldRange | nanoScan3 protective field top edge | 1,100 mm | 1,100 mm | Resolution 150 mm | 11 | 12\nprotectiveFieldRange | nanoScan3 protective field top edge | 1,400 mm | 1,400 mm | Resolution 200 mm | 13 | 14\nprotectiveFieldRange | nanoScan3 protective field lower edge | 300 mm | 300 mm | | 8 | 8\nminimumDistanceParameter | nanoScan3 protective field overrun | ZR = 350 mm | 350 mm | With retroreflectors at the protective field level | 4 | 5\nOPEN | multiple sampling must be 2 or 3 | 15 | 15",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1784,
+   "prompt_tokens": 2321,
+   "total_tokens": 4105,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1480,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0011241,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0011241,
+   "gateway_cost": 0.0011241
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 150\n\n[0] 19 ANNEX Does the protective device correspond to the required PL/SIL and PFH in accord- Yes ⃞ No ⃞ ance with ISO 13849-1/IEC 62061 and the required type in accordance with IEC 61496-1? Is access to the hazardous area or hazardous point only possible through the Yes ⃞ No ⃞ protective field of the ESPE? Have\n[1] appropriate measures been taken to protect (mechanical protection) or Yes ⃞ No ⃞ monitor (protective devices) any persons or objects in the hazardous area when protecting a hazardous area or hazardous point,\n[2] and have these devices been secured or locked to prevent their removal? Are additional mechanical protective measures fitted and secured against Yes ⃞ No ⃞ manipulation which prevent reaching below, above or around the ESPE? Has the maximum shutdown and/or stopping time of the machine been meas- Yes ⃞ No ⃞ ured,\n[3] specified and documented (at the machine and/or in the machine docu- mentation)? Has the ESPE been mounted such that the required separation distance from the Yes ⃞ No ⃞ nearest hazardous point has been achieved? Are the ESPE devices properly mounted and secured against manipulation after Yes ⃞ No ⃞ alignment? Are the\n[4] required protective measures against electric shock in effect (protection Yes ⃞ No ⃞ class)? Is the control switch for resetting the protective devices (ESPE) or restarting the Yes ⃞ No ⃞ machine present and correctly installed? Are the outputs of the ESPE (OSSDs or safety outputs via the network)\n[5] integrated Yes ⃞ No ⃞ according to the required PL/SIL in accordance with ISO 13849-1 / IEC 62061 and does the integration correspond to the circuit diagrams? Has the protective function been checked in compliance with the test notes of Yes ⃞ No ⃞ this documentation? Are the specified protective functions effective at\n[6] every operating mode that can Yes ⃞ No ⃞ be set? Are the switching elements activated by the ESPE, e.g.\n[7] contactors, valves, moni- Yes ⃞ No ⃞ tored? Is the ESPE effective over the entire period of the dangerous state? Yes ⃞ No ⃞ Once initiated, will a dangerous state be stopped when switching the ESPE on Yes ⃞ No ⃞ or off and when changing the operating mode,\n[8] or when switching to another protective device? 150 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresCheckAfter | ESPE devices mounting and securing | after alignment | after alignment | | 3 | 3\nOPEN | checklist questions state no numeric limits or distances | 0 | 8",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1205,
+   "prompt_tokens": 2633,
+   "total_tokens": 3838,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1135,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008658,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008658,
+   "gateway_cost": 0.0008658
+  }
+ }
+}

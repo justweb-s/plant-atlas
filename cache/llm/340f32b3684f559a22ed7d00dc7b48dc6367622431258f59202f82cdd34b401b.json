@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 240\n\n[0] 21.\n[1] Safety Functions Table “Reduced Description Affects Active” Input Reduced is not a mode.\n[2] It is a change of settings initiated:\n[3] SF parameter • internally by a safety plane/ boundary (starts when at 2cm of the plane and reduced settings are settings achieved within 2cm of the plane) or change • externally by use of an external input, which will achieve reduced settings within 500ms of the triggering input.\n[4] Robot When the external connections are Low, Reduced Mode is initiated.\n[5] “Reduced Active” means that all reduced limits are ACTIVE.\n[6] Reduced is not a safety function.\n[7] Reduced is a means of parameterization of safety functions.\n[8] Reduced is a state change affecting the settings of the following safety functions:\n[9] joint position, joint speed, TCP pose, TCP speed, TCP force, momentum, power, stopping time, & stopping distance.\n[10] Verify and validate all parameter settings for the robot application.\n[11] SF15 Description What happens? Tolerances Affects Stopping Will not allow the Time Limit Real time monitoring of conditions such that the stopping time Copyright © 2009–2025 by Universal Robots A/S.\n[12] All rights reserved.\n[13] actual stopping to limit will not be exceeded.\n[14] Robot speed is limited to ensure that 50 ms Robot exceed the limit the stop time limit is not exceeded.\n[15] 7 setting.\n[16] SF16 Description What happens? Tolerances Affects Stopping Causes decrease in Distance Real time monitoring of conditions such that the stopping speed or a robot stop so Limit distance limit will not be exceeded.\n[17] Robot speed is limited to 40 mm Robot as NOT to exceed the ensure that the stop distance limit will not be exceeded.\n[18] 7 limit.\n[19] SF17 Description What happens? Tolerances Affects Safe Home Safety function which monitors a safety-rated output, Position such that it ensures that the output can only be The “safe home output” is External \"monitored activated when the robot is in the configured and only activated when the connection to position\" 1.7\n[20] ° monitored “safe home position”.\n[21] robot is in the configured logic and/or A stop cat 0 is initiated if the output is activated when “safe home position” equipment the robot is not in the configured position.\n[22] Mode What Description Affects switch happens? INPUT When the external connections are Low, Automatic Mode (running) is active.\n[23] When High, mode is programming/ teach.\n[24] Recommendation:\n[25] Use with an enabling device, i.e.\n[26] UR Teach Pendant with an integrated 3- position enabling device.\n[27] Input to SF2 Robot When in teach/program, initially the TCP speed is limited to 250mm/s.\n[28] Speed can manually be increased using the TP “speed-slider”, but upon activation of the enabling device, the speed limitation will reset to 250mm/s.\n[29] UR10e 243 User Manual"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasStoppingLimit | SF15 stopping time limit | 50 ms | 50 ms | | 13 | 14\nhasStoppingLimit | SF16 stopping distance limit | 40 mm | 40 mm | | 16 | 17\nhasStoppingLimit | reduced state external input response | 500ms | 500 ms | externally by use of an external input | 3 | 3\nhasSafetyFunction | robot | SF15 | SF15 | | 11 | 11\nhasSafetyFunction | robot | SF16 | SF16 | | 16 | 16\nhasSafetyFunction | robot | SF17 | SF17 | | 19 | 19\nOPEN | verification of parameter settings for application, timing not stated | 10 | 10",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2157,
+   "prompt_tokens": 2731,
+   "total_tokens": 4888,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1906,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0013516,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0013516,
+   "gateway_cost": 0.0013516
+  }
+ }
+}

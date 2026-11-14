@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You check one claim against one passage of law. Use only the passage; do not use what you know of the law.\nYour whole answer is one line of JSON. The first character is { and nothing comes before or after it:\n{\"label\": \"<one of the labels>\", \"confidence\": <number between 0 and 1>, \"why\": \"<at most 15 words>\"}"
+   },
+   {
+    "role": "user",
+    "content": "Does the passage state the claim, and does the claim keep every condition the passage attaches to it?\n\nChoose one label:\n- stated: the passage says what the claim says, and every exception, condition or restriction of scope\n  that the passage attaches to it (except, unless, where, if, provided that, only for, an \"or\" list of\n  alternatives, salvo, qualora, a proviso in the sentence before or after) is present in the claim's condition.\n- stated_but_condition_dropped: the passage says it, but attaches an exception, condition, alternative or restriction\n  of scope that the claim leaves out, so the claim as written is broader than the passage.\n- not_stated: the passage does not say this: wrong subject, wrong value, wrong relation, or a value that\n  is only a fragment and does not carry the meaning (for example \"means:\" or \"the following\").\n- unclear: the passage is not enough to tell (for example the value depends on text that is not shown).\n\nThe value is a few words copied from the passage: a shortened but faithful excerpt is fine, do not ask for the\nwhole sentence. Words of manner or purpose (\"without risk to persons\", \"immediately\") are not conditions; only\nwhat changes when, where or to whom the claim applies counts. Judge only from the passage.\n\nLabels: stated, stated_but_condition_dropped, not_stated, unclear\n\nPASSAGE (REG, Annex III, 3.5.4)\nsentence before: 3.5.4.\nquoted sentences: Risk of contact with live overhead power lines Depending on their height, mobile machinery or related products shall, where relevant, be designed, constructed and equipped, so as to prevent the risk of contact with an energised overhead power line or the risk of creating an electric arc between any part of the machinery or an operator driving the machinery and an energised overhead power line.\nsentence after: When the risk to the persons operating machinery incurred by the contact with an energised overhead power line cannot be fully avoided, mobile machinery or related products shall be designed, constructed and equipped so as to prevent any electrical hazards.\n\nCLAIM\nrelation: addressesRisk (the risk a numbered essential requirement addresses)\nsubject: essential requirement 3.5.4\nvalue: Risk of contact with live overhead power lines\ncondition: where relevant"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 120
+ },
+ "response": {
+  "text": "The passage states the requirement addresses the risk of contact with live overhead power lines, and 3.5.4 is the heading. The conditions attached: \"Depending on their height\" and \"where relevant\". The claim keeps \"where relevant\" but omits \"depending on their height\". That is a restriction of scope (it applies depending on height). Is it a condition? \"Depending on their height... where relevant",
+  "model": "anthropic/claude-sonnet-5.5",
+  "usage": {
+   "completion_tokens": 120,
+   "prompt_tokens": 850,
+   "total_tokens": 970,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0029,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0029,
+   "gateway_cost": 0.0029
+  }
+ }
+}

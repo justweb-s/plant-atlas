@@ -45,10 +45,66 @@ RELATIONS = {
                      "the time limit or interval of a verification, check or request"),
 }
 
+# The relations of the law texts, as first written: describe() without arguments shows exactly these,
+# so the committed extraction of the law (and its cached model calls) stays reproducible.
+LAW_RELATIONS = dict(RELATIONS)
 
-def describe() -> str:
-    """The schema as the model sees it."""
+# Classes the manufacturer, guidance and company layers add.
+LAYER_CLASSES = {
+    "Machine": "A named machine or product of a manual: a robot arm, a safety laser scanner, a vehicle lift.",
+    "ProtectiveDevice": "A device that detects people or stops the hazard: safety laser scanner, light curtain, guard.",
+    "SafetyFunction": "A safety function of a machine or device (e.g. emergency stop, protective stop, joint speed limit).",
+    "Integrator": "Who builds the machine into a complete application or cell and answers for the result.",
+    "RoboticCell": "A robot with the machines it serves and the safeguarded space around them.",
+    "Standard": "A technical standard a document names (e.g. EN ISO 10218-1, ISO 13855, EN 1493).",
+    "Check": "A check, test, inspection or maintenance task that a document asks for.",
+    "Register": "A register or record of checks and maintenance that must be kept.",
+    "Quantity": "A value with its unit, as written (850 mm, 5 kg, 1,600 mm/s, 6 months).",
+}
+CLASSES.update(LAYER_CLASSES)
+
+# What the manuals, the guidance documents and the company guidelines state that the law relations cannot hold.
+LAYER_RELATIONS = {
+    "hasReach": ("Machine", "Quantity", "the reach or working radius of a machine, with its unit"),
+    "hasMaxPayload": ("Machine", "Quantity", "the maximum payload or rated load capacity of a machine, with its unit"),
+    "isPartlyCompletedMachinery": ("Machine", "text",
+                                   "that a machine is partly completed machinery (the words that say so)"),
+    "hasDeclaration": ("Machine", "Document",
+                       "the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows"),
+    "conformsToStandard": ("Machine", "Standard", "a standard or directive the machine is declared to conform to"),
+    "putIntoServiceOnlyWhen": ("Machine", "text",
+                               "the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)"),
+    "integratorResponsibleFor": ("Integrator", "text",
+                                 "what the integrator or the user is responsible for when the machine is built into an application"),
+    "hasSafetyFunction": ("Machine", "SafetyFunction", "a safety function of the machine, or how many it has and at which performance level"),
+    "hasStoppingLimit": ("Machine", "Quantity", "a stopping time, stopping distance, response time or safety limit with its unit"),
+    "minimumDistanceRule": ("ProtectiveDevice", "text",
+                            "the formula or rule for the minimum distance between a protective device and the hazard"),
+    "minimumDistanceParameter": ("ProtectiveDevice", "Quantity",
+                                 "the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)"),
+    "protectiveFieldRange": ("ProtectiveDevice", "Quantity", "the range or size of the protective field, with its unit"),
+    "requiresCheckAfter": ("Check", "text",
+                           "what must be checked or verified again, and the change or event after which (value = the change or event)"),
+    "requiresPeriodicCheck": ("Check", "duration",
+                              "what must be checked, tested or maintained regularly, and how often (value = the interval)"),
+    "safeguardedSpaceRule": ("RoboticCell", "text",
+                             "how the protected space around a robotic cell is bounded and when it may be entered"),
+    "mustKeepRegister": ("Employer", "Register", "a register or record that must be kept, and what goes into it"),
+    "maintenanceRule": ("Check", "text", "who may carry out maintenance, on what basis, or what maintenance must respect"),
+}
+# Law relations the other layers also state (who checks, how often, who must do what, how long to keep a record).
+SHARED_WITH_LAYERS = ("hasObligation", "verifiedBy", "hasTimeLimit", "retentionPeriod", "definedAs")
+RELATIONS.update(LAYER_RELATIONS)
+
+
+def describe(relations: dict | None = None) -> str:
+    """The schema as the model sees it. Without arguments: the relations of the law texts."""
     lines = ["Relations (predicate: subject class -> value; what to copy):"]
-    for name, (subject, value, what) in RELATIONS.items():
+    for name, (subject, value, what) in (LAW_RELATIONS if relations is None else relations).items():
         lines.append(f"- {name}: {subject} -> {value}; {what}")
     return "\n".join(lines)
+
+
+def describe_layers() -> str:
+    """The schema shown for manuals, guidance documents and company guidelines."""
+    return describe(LAYER_RELATIONS | {name: LAW_RELATIONS[name] for name in SHARED_WITH_LAYERS})

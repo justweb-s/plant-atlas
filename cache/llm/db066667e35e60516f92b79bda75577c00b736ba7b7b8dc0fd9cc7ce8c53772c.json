@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 241\n\n[0] 21.\n[1] Safety Functions Table SF18 Description What happens? Tolerance Affects (3-position A 3-position enabling device 9 has 3 switch positions:\n[2] enabling) off, on, off (in order of actuation when squeezing).\n[3] Safety When released completely, the device is off.\n[4] When Function 8 In manual mode, when pressed/squeezed to the centre position, it is on.\n[5] Inputs the SF18 Input is LOW, Completely pressing (squeezing) results in an off state.\n[6] Robot and SF2 is triggered When the 3P enabling device is “ON”, motion is external internally N/A enabled.\n[7] connection to Stop Category 2 (IEC When in Manual Mode and when an external Enabling SF19 & SF20 60204-1) SS2 (IEC Device connection is OFF, internally the safety system 61800-5-2) initiates SF2, which is a Stop Category 2.\n[8] Recommendation:\n[9] Use with a mode switch as a safety input.10 SF19 Description What happens? Tolerance Affects 3PE (3- In Automatic Mode (“running”), SF19’s outputs are position Copyright © 2009–2025 by Universal Robots A/S.\n[10] All rights reserved.\n[11] HIGH.\n[12] enabling) In Manual Mode and when any Enabling Device11 is in the Safety OFF state (not in the centre-ON position, meaning the Function8 enabling device is released or fully pressed), a SF2 is with Digital triggered causing a Stop Category 2 (SS2) and SF19’s Outputs In manual mode, when outputs are Low.\n[13] 8 the 3PE is in the Off In Manual mode, when Freedrive and the 3PE are used:\n[14] state, the outputs are External • If Freedrive is activated and LOW and SF2 is connection to N/A • ALL 3PE are in the OFF state, SF19’s triggered internally logic and/or outputs are HIGH.\n[15] Stop Category 2 (IEC equipment • Any 3PE is in the ON state, SF19’s 60204-1) SS2 (IEC outputs are LOW.\n[16] 61800-5-2) • If Freedrive is not activated, and • ALL 3PE are in the ON state, SF19’s outputs are HIGH.\n[17] • Any 3PE is in the OFF state, SF19’s outputs are LOW.\n[18] User Manual 244 UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasSafetyFunction | UR10e | SF18 | sf18 | | 1 | 1\nhasSafetyFunction | UR10e | SF19 | sf19 | In Manual Mode and when any Enabling Device11 is in the Safety OFF state | 9 | 12\nhasSafetyFunction | UR10e | SF2 | sf2 | | 6 | 6\nOPEN | recommendation to use a mode switch as safety input | 8 | 9",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1919,
+   "prompt_tokens": 2541,
+   "total_tokens": 4460,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1763,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0012136,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0012136,
+   "gateway_cost": 0.0012136
+  }
+ }
+}

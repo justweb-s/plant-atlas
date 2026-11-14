@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 116\n\n[0] 11 MAINTENANCE Changes introduced in an earlier firmware version are also included in later firm- ware versions.\n[1] You must therefore consider all release notes after the currently installed firmware version and up to the intended version.\n[2] 2.\n[3] Analyze the effects of the firmware update on the safety function.\n[4] 3.\n[5] Perform a risk assessment for the identified effects of the firmware update and determine any additional measures required, in particular tests that must be per- formed.\n[6] 4.\n[7] Implement the measures from step 3..\n[8] 5.\n[9] Analyze the effects of the firmware update on other functions.\n[10] 6.\n[11] Create and save a backup copy of the entire configuration of the device.\n[12] 7.\n[13] Make sure that the dangerous state of the machine is and remains switched off.\n[14] 8.\n[15] Ensure that there are no other communication connections to the device during installation, e.g., a connection to Safety Designer.\n[16] Installation 1.\n[17] When installing, observe any additional instructions in the firmware release notes.\n[18] 2.\n[19] Follow the operating instructions of the Sentio Creator.\n[20] 3.\n[21] In the Deployment Manager extension of Sentio Creator, use the Identify the device function to check whether the correct device is selected.\n[22] 4.\n[23] In the Deployment Manager extension of Sentio Creator, check whether the expected firmware is installed on the device.\n[24] 5.\n[25] Log in to the device with the Administrator user group and the corresponding password.\n[26] m The progress of the installation is displayed in Sentio Creator.\n[27] m During the installation of the firmware, the display shows Ready for firmware update.\n[28] The display may go dark for a certain period of time.\n[29] m The device is restarted at least once.\n[30] m Installing the firmware can take several minutes.\n[31] m The display shows the initial status again.\n[32] m The firmware installation is complete.\n[33] In the event of problems during installation → If Sentio Creator displays an error message, take this message into account and rectify the cause.\n[34] → If the device can no longer be reached via the network due to an error and the display shows a corresponding message, then connect the device via USB.\n[35] → For all other problems, restart the installation but do not restart the device.\n[36] After installation 1.\n[37] In the Deployment Manager extension of Sentio Creator, check whether the expected firmware is installed on the device.\n[38] 2.\n[39] Implement the measures from \"Before installation\", page 115, step 3.\n[40] and, if neces- sary, further necessary checks.\n[41] 3.\n[42] If additional checks are described in the firmware release notes, then carry out these additional checks.\n[43] 4.\n[44] Do not switch the dangerous state of the machine back on until the firmware has been successfully installed, all measures have been implemented, and all checks have been completed.\n[45] 116 nanoScan3 I/O 8024596/1W27/2026-05-26 | SICK SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresCheckAfter | release notes review | after the currently installed firmware version and up to the intended version | firmware update | | 1 | 1\nrequiresCheckAfter | measures from \"Before installation\", page 115, step 3 | After installation | installation | | 36 | 39\nputIntoServiceOnlyWhen | dangerous state of the machine | Do not switch the dangerous state of the machine back on until the firmware has been successfully installed, all measures have been implemented, and all checks have been completed | until the firmware has been successfully installed, all measures have been implemented, and all checks have been completed | | 44 | 44\nOPEN | error recovery during firmware installation not tied to a relation | 33 | 35",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2704,
+   "prompt_tokens": 2724,
+   "total_tokens": 5428,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 2472,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0016244,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0016244,
+   "gateway_cost": 0.0016244
+  }
+ }
+}

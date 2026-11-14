@@ -14,8 +14,8 @@ from datetime import date
 
 from atlas import llm
 from atlas.contracts import Chunk
-from atlas.ontology.statements import ChunkCorpus, Statement, Store
-from atlas.strategies.schema_b import RELATIONS, describe
+from atlas.ontology.statements import CONDITION_MARKERS, ChunkCorpus, Statement, Store, norm
+from atlas.strategies.schema_b import RELATIONS, describe, describe_layers
 
 MAX_SPANS = 60
 SYSTEM = """You fill a fixed schema from one passage of law. You never write a fact in your own words.
@@ -54,12 +54,15 @@ def _parse(text: str) -> dict:
     return {"facts": facts, "open_points": open_points}
 
 
-def extract(chunk: Chunk) -> tuple[list[Statement], dict]:
-    """One model call for one chunk. Returns the candidate statements and the usage."""
-    spans = spans_of(chunk.text)
+def extract(chunk: Chunk, system: str | None = None, spans: list[str] | None = None) -> tuple[list[Statement], dict]:
+    """One model call for one chunk. Returns the candidate statements and the usage.
+
+    Without `system` and `spans` this is the call used for the law texts, unchanged. The other layers pass
+    their own instructions (with their schema) and their own cut of the page."""
+    spans = spans_of(chunk.text) if spans is None else spans
     numbered = "\n".join(f"[{i}] {s}" for i, s in enumerate(spans))
     out = llm.chat(
-        [{"role": "system", "content": SYSTEM + "\n\n" + describe()},
+        [{"role": "system", "content": system or (SYSTEM + "\n\n" + describe())},
          {"role": "user", "content": f"Passage: {chunk.source}, {chunk.locator}\n\n{numbered}"}],
         temperature=0, max_tokens=4000)
     data = _parse(out["text"])
@@ -157,6 +160,132 @@ def build(chunks: list[Chunk], workers: int = 8, store: Store | None = None) -> 
     corrections = apply_corrigendum(store, [c for c in chunks if c.source == "CORR"], date(2023, 7, 4))
     counts = store.counts() | {"corrections_applied": corrections} | usage
     return store, counts
+
+
+# ---- the other layers: manufacturers' manuals, guidance documents, company guidelines ------------------
+
+LAYERS = ("manufacturer", "guidance", "company")
+MAX_SPAN_CHARS = 320
+SYSTEM_LAYERS = """You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's
+manual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal
+guideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.
+
+Rules:
+- Use only the relations of the schema. If the page states something important that no relation
+  can hold, report it under "open_points" instead of forcing it into a relation.
+- Point at the spans that state the fact: "first_span" and "last_span" are span numbers, at most 3 adjacent spans.
+- "value_as_written" must be copied character by character from those spans, in the language of the page
+  (a few words, not the whole span). A value with a unit keeps the unit as written ("850 mm", "5 kg / 11 lb").
+- "value_normalised": number and unit ("850 mm", "5 kg"), ISO duration for intervals (P1Y, P6M), ISO date,
+  or the same words in lower case. Never translate.
+- "subject": the machine, device, check or role the fact is about, in a few words; for a manual, name the
+  product as the page names it.
+- "condition": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,
+  se, salvo, qualora, tranne), copy it from the spans; otherwise "".
+- Pages of manuals are flattened tables: a label and its value stand next to each other ("Reach 850 mm / 33.5 in").
+  Take a value only when its label is in the same spans.
+- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.
+- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.
+- Answer with one line per fact, fields separated by " | ", nothing else, no header, no code fence:
+  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span
+- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.
+  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span
+- If the page states nothing the schema can hold, answer with the single word NONE."""
+
+# Pages of the manuals worth a model call: the ones that speak of the facts the schema holds.
+MANUAL_KEYWORDS = re.compile(
+    r"\breach\b|payload|rated load|load capacity|declaration of (incorporation|conformity)|partly completed|"
+    r"stopping (time|distance)|response time|minimum distance|protective field range|protective field (size|length)|"
+    r"scanning range|resolution|safety function|risk assessment|integrator|put into service|"
+    r"\b(every|once a|once per|at least once|annual|yearly|monthly|daily|weekly)\b.{0,80}"
+    r"\b(check|checked|inspect|inspection|test|tests|tested|maintenance|service)\b|"
+    r"\b(check|checked|inspect|inspection|test|tests|tested|thorough examination)\b.{0,80}"
+    r"\b(every|once a|once per|at least once|annual|annually|yearly|monthly|daily|weekly|interval|intervals|after)\b|"
+    r"maintenance (interval|schedule|plan)|regular (check|test|inspection)|harmoni[sz]ed standard",
+    re.IGNORECASE)
+DOT_LEADER = re.compile(r"\.{5,}|(?:\. ){5,}")   # a table of contents is mostly dots; a form has a few lines of them
+
+
+def spans_for_layer(text: str) -> list[str]:
+    """Sentences as in spans_of(); a long one (a flattened table, a list) is cut at word ends, so that a quote
+    stays short. Adjacent spans joined by one space give back the text, so the quote is still verbatim."""
+    spans: list[str] = []
+    for span in re.split(r"(?<=[.;:])\s+(?=[\(A-Z0-9‘'“a-z→•])", text):
+        span = span.strip()
+        while len(span) > MAX_SPAN_CHARS:
+            window = span[:MAX_SPAN_CHARS]
+            cut = max(window.rfind(" → "), window.rfind(" • "), window.rfind(", "), window.rfind(") "))
+            cut = cut + 1 if cut > MAX_SPAN_CHARS // 2 else window.rfind(" ")
+            if cut <= 0:
+                break
+            spans.append(span[:cut].strip())
+            span = span[cut:].strip()
+        if span:
+            spans.append(span)
+    return spans[:2 * MAX_SPANS]
+
+
+def select_pages(chunks: list[Chunk], layer: str) -> list[Chunk]:
+    """Manuals: only the pages that match the keywords, tables of contents left out. Other layers: every page."""
+    pages = [c for c in chunks if c.layer == layer]
+    if layer != "manufacturer":
+        return pages
+    return [c for c in pages if MANUAL_KEYWORDS.search(c.text)
+            and sum(len(m.group()) for m in DOT_LEADER.finditer(c.text)) < 0.4 * len(c.text)]
+
+
+def extract_page(chunk: Chunk) -> tuple[list[Statement], dict]:
+    """The pointing call of extract(), with the instructions and the schema of the other layers."""
+    return extract(chunk, system=SYSTEM_LAYERS + "\n\n" + describe_layers(), spans=spans_for_layer(chunk.text))
+
+
+def build_layer(chunks: list[Chunk], layer: str, workers: int = 8, store: Store | None = None) -> tuple[Store, dict]:
+    """Run the pointing extraction on one layer into its own store. No corrigendum step: these are not acts."""
+    store = store or Store(ChunkCorpus(chunks))
+    pages = select_pages(chunks, layer)
+    usage = {"calls": 0, "prompt_tokens": 0, "completion_tokens": 0}
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        results = list(pool.map(extract_page, pages))
+    for page, (statements, used) in zip(pages, results):
+        usage["calls"] += 1
+        usage["prompt_tokens"] += used.get("prompt_tokens", 0) or 0
+        usage["completion_tokens"] += used.get("completion_tokens", 0) or 0
+        for statement in statements:
+            statement.asserted_by = f"strategy_b:{layer}"
+            on_page = norm(statement.condition) in norm(page.text)
+            if statement.condition and not on_page and not CONDITION_MARKERS.search(statement.quote):
+                statement.condition = ""   # a condition in the model's own words, and the quote states none: dropped
+            statement.condition_quote = statement.condition   # the store then checks the condition is on the page
+            if statement.status != "open_point" and statement.predicate not in RELATIONS:
+                store._reject(statement, "not_in_schema")
+                continue
+            written = store.write_statement(statement)
+            if written and written.status == "proposed":
+                written.status = "current"
+    for n, statement in enumerate(store.statements, start=1):   # ids carry the layer: the parts share one store later
+        statement.id = f"{layer}-st-{n:04d}"
+    selected: dict[str, int] = {}
+    for page in pages:
+        selected[page.source] = selected.get(page.source, 0) + 1
+    return store, store.counts() | usage | {"pages_selected": selected}
+
+
+def main_layers(layers: tuple[str, ...] = LAYERS) -> dict:
+    """Writes ontology/B/parts/<layer>.json for each layer. Returns the counts per layer."""
+    from pathlib import Path
+
+    from atlas.corpus.chunker import load
+
+    chunks = list(load())
+    parts = Path(__file__).resolve().parents[2] / "ontology" / "B" / "parts"
+    parts.mkdir(parents=True, exist_ok=True)
+    report = {}
+    for layer in layers:
+        store, counts = build_layer(chunks, layer, store=Store(ChunkCorpus(chunks), parts / f"{layer}.json"))
+        store.save()
+        report[layer] = counts
+    print(json.dumps(report, indent=1))
+    return report
 
 
 def main() -> None:

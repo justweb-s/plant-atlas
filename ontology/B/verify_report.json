@@ -1,0 +1,2476 @@
+{
+ "model": "anthropic/claude-sonnet-5.5",
+ "checked": 345,
+ "passed": 228,
+ "not_stated": 23,
+ "unclear": 7,
+ "dropped_condition": 87,
+ "current_before": 1164,
+ "by_predicate": {
+  "becomesManufacturer": {
+   "checked": 5,
+   "passed": 5
+  },
+  "requiresProcedure": {
+   "checked": 25,
+   "passed": 8
+  },
+  "listedIn": {
+   "checked": 62,
+   "passed": 51
+  },
+  "retentionPeriod": {
+   "checked": 22,
+   "passed": 16
+  },
+  "mustAccompany": {
+   "checked": 40,
+   "passed": 33
+  },
+  "appliesFrom": {
+   "checked": 3,
+   "passed": 2
+  },
+  "verifiedBy": {
+   "checked": 9,
+   "passed": 8
+  },
+  "placingAllowedUntil": {
+   "checked": 1,
+   "passed": 1
+  },
+  "hasTimeLimit": {
+   "checked": 3,
+   "passed": 2
+  },
+  "definedAs": {
+   "checked": 37,
+   "passed": 15
+  },
+  "hasObligation": {
+   "checked": 138,
+   "passed": 87
+  }
+ },
+ "calls": 345,
+ "prompt_tokens": 353030,
+ "completion_tokens": 26244,
+ "cost_usd": 0.969,
+ "verdicts": {
+  "st-0002": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage defines the term as machinery, listed related products, and partly completed machinery; the claim omits partly completed machinery, so the definition is incomplete.",
+   "fingerprint": "90b6fabaab40"
+  },
+  "st-0005": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "The value \"means:\" is only a fragment that carries no definitional content; the actual definition (assemblies with drive system, etc.) is not given in the claim.",
+   "fingerprint": "feac2becbb6c"
+  },
+  "st-0006": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "The value 'means a device which' is only a fragment that omits the definition's substance (assembled after putting into service to change or add function), though the proviso is kept.",
+   "fingerprint": "bd1794c88ecd"
+  },
+  "st-0007": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage defines safety component as a physical or digital component, but adds conditions (product scope, safety function, independently placed on market, endangering safety) that the claim's condition",
+   "fingerprint": "2fb0a89027c2"
+  },
+  "st-0008": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage defines lifting accessory as component/equipment not attached to machinery, but adds further qualifiers (enables load holding, placement, independently placed on market) that the claim omits.",
+   "fingerprint": "04d5f7f3acc6"
+  },
+  "st-0009": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage defines 'chains' as chains designed and constructed for lifting purposes as part of lifting machinery or accessories; claim includes this condition.",
+   "fingerprint": "d8f5bb663da5"
+  },
+  "st-0010": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage defines ropes as designed and constructed for lifting purposes, but adds 'as part of lifting machinery or lifting accessories', which the claim omits.",
+   "fingerprint": "ac49ebcd4f61"
+  },
+  "st-0011": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage defines webbing as designed and constructed for lifting purposes 'as part of lifting machinery or lifting accessories'; claim omits this scope restriction.",
+   "fingerprint": "22d0cb866199"
+  },
+  "st-0012": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage defines the term as a removable component for transmitting power, but adds scope: between self-propelled machinery/tractor and other machinery, joined at first fixed bearing; claim omits this.",
+   "fingerprint": "d409996ab22a"
+  },
+  "st-0014": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage defines partly completed machinery as an assembly not yet machinery, but adds 'cannot in itself perform a specific application' and incorporation-only intent; claim omits these.",
+   "fingerprint": "ef87eec60aee"
+  },
+  "st-0015": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage defines the term as supply of a product within scope, for distribution or use on Union market, in commercial activity; claim omits 'for distribution or use on the Union market'.",
+   "fingerprint": "d2ab2b3bbc14"
+  },
+  "st-0016": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage defines placing on the market as first making available of a product, but restricts it to products within the Regulation's scope and on the Union market; claim omits these.",
+   "fingerprint": "60843df31dd9"
+  },
+  "st-0017": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage defines putting into service as first use, for intended purpose, in the Union, of machinery or related products; claim omits the 'of machinery or related products' scope.",
+   "fingerprint": "45f6ebd83132"
+  },
+  "st-0018": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "The passage defines the term as mandatory provisions in Annex III, but the claim omits the scope limits: design and construction of products within the Regulation's scope, to ensure protection.",
+   "fingerprint": "b7ccf660a605"
+  },
+  "st-0019": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage defines substantial modification as a modification of machinery, but also requires after placing on market, affecting safety, and requiring added guards; claim's condition keeps only the unfor",
+   "fingerprint": "1a1c3a18e8f8"
+  },
+  "st-0021": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage defines instructions for use as information provided by manufacturer, but only when machinery is placed on market or put into service; claim omits this timing condition.",
+   "fingerprint": "12dfc26423ea"
+  },
+  "st-0022": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "The passage defines 'manufacturer' as any natural or legal person who..., but the value is a fragment lacking the defining content in sentence after.",
+   "fingerprint": "857b795a7dd1"
+  },
+  "st-0023": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage (a) states manufacturer manufactures or has products designed/manufactured and markets under its name; the claim includes that condition, but omits alternative (b) 'or' limb, though claim is a",
+   "fingerprint": "d24e2931a9a6"
+  },
+  "st-0024": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage (b) says a manufacturer manufactures in-scope products and puts them into service for own use; claim's condition captures the manufacturing in-scope requirement, nothing omitted.",
+   "fingerprint": "c7a9c3353285"
+  },
+  "st-0025": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage defines authorised representative as a person established in the Union who has a written mandate from a manufacturer for specified tasks; claim omits the mandate condition.",
+   "fingerprint": "62be75c8e406"
+  },
+  "st-0026": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage defines importer as person established in the Union who places a third-country product on the market; claim omits that placing-on-market element, so it is only a fragment.",
+   "fingerprint": "ff5eccee720f"
+  },
+  "st-0027": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage defines distributor as person in supply chain other than manufacturer or importer; claim includes the exclusion, though omits 'makes product available on market' (the definition's core).",
+   "fingerprint": "0dc495412251"
+  },
+  "st-0028": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage defines economic operator as manufacturer, authorised representative, importer or distributor; claim omits importer and distributor, narrowing the list, so it's incomplete.",
+   "fingerprint": "9e95b1ceb086"
+  },
+  "st-0029": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage defines technical specifications as a document prescribing technical requirements, but limits to those to be fulfilled by products within the Regulation's scope; claim omits this.",
+   "fingerprint": "95c8b9ee5730"
+  },
+  "st-0030": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "The passage defines 'harmonised standard' as one defined in Article 2, point 1(c) of Regulation 1025/2012; the claim's value is a faithful excerpt, and the cut-off reference is not a condition.",
+   "fingerprint": "5da4fef13313"
+  },
+  "st-0031": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "The value is only a fragment ('a marking by which the manufacturer indicates') that omits what is indicated: conformity with applicable requirements; it doesn't carry the definition's meaning.",
+   "fingerprint": "64a8fa17a2d2"
+  },
+  "st-0032": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage defines 'accreditation' as accreditation as defined in Article 2, point (10), of Regulation 765/2008; no conditions attached, claim matches.",
+   "fingerprint": "400de1ab59f1"
+  },
+  "st-0033": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage defines the term as a national accreditation body as defined in Art. 2(11) of Reg 765/2008; claim omits the regulation name but no condition is attached.",
+   "fingerprint": "24a445563538"
+  },
+  "st-0034": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "The passage defines conformity assessment as 'the process for demonstrating whether...requirements...have been fulfilled'; the value is a truncated fragment lacking the object, though it still carries",
+   "fingerprint": "70939ded74ed"
+  },
+  "st-0035": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage defines conformity assessment body as a body performing conformity assessment activities; 'including' list is illustrative, not a restricting condition.",
+   "fingerprint": "768d79f4ab0e"
+  },
+  "st-0036": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.97,
+   "why": "Passage defines 'notified body' exactly as a conformity assessment body notified in accordance with this Regulation; no extra conditions attached.",
+   "fingerprint": "ba818fe6a7c4"
+  },
+  "st-0037": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage defines the term by reference to Article 3, point (4) of Regulation 2019/1020; no extra conditions attached, though the regulation name is omitted from the value.",
+   "fingerprint": "fee0298ebba4"
+  },
+  "st-0038": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage defines recall as measure aimed at return of a product within scope that was already made available to a user; claim's condition retains this scope and availability qualifier.",
+   "fingerprint": "d6476a468779"
+  },
+  "st-0039": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage defines withdrawal as a measure preventing an in-scope product in the supply chain from being made available; the claim's value and condition together carry this, with no omitted condition.",
+   "fingerprint": "26739171d03a"
+  },
+  "st-0040": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "The value is only a fragment ('the period from the moment that machinery') and does not carry the full meaning of the definition.",
+   "fingerprint": "8da9b31eaa53"
+  },
+  "st-0041": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage defines source code as currently installed software version of in-scope product; claim's condition includes the product-scope restriction. Programming-language clause is manner/description, no",
+   "fingerprint": "e7d49308e8f6"
+  },
+  "st-0042": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage defines professional user as natural person using or operating machinery or a related product in professional activity; claim keeps the professional condition, though omits 'related product' i",
+   "fingerprint": "63bf427ce1e5"
+  },
+  "st-0046": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage says Part A machinery is subject to Article 25(2) specific procedures; no exception or condition attached to that clause.",
+   "fingerprint": "f7d09771cbad"
+  },
+  "st-0047": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage says Part B machinery is subject to Article 25(3) procedures; no exception or condition attached to that clause.",
+   "fingerprint": "329fa9cb7c63"
+  },
+  "st-0050": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "The passage heading says categories of machinery and related products are listed in Annex I, subject to conformity assessment procedures; no exception restricts the listing itself.",
+   "fingerprint": "554bf76ffd8a"
+  },
+  "st-0054": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says category shall be included in Annex I Part A under these conditions; claim reproduces assessment, serious risk and one-or-more-conditions requirements, omitting only the data detail.",
+   "fingerprint": "4068647983a3"
+  },
+  "st-0055": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage says such categories go in Annex I, Part B; the claim keeps the condition of not fulfilling points (a)-(d), but omits 'presents a serious inherent potential risk'.",
+   "fingerprint": "3f08fba9caeb"
+  },
+  "st-0060": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says an indicative list of safety components is in Annex II; no exceptions or conditions attached, and claim matches.",
+   "fingerprint": "65e300ddcf0f"
+  },
+  "st-0061": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says the Commission may amend Annex II (the indicative list of safety components) by delegated act in light of technical progress or new evidence; claim keeps that condition.",
+   "fingerprint": "a9db40bbc274"
+  },
+  "st-0066": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage states manufacturers shall ensure design and construction, with the condition of placing on market or putting into service; the claim keeps that condition.",
+   "fingerprint": "e161db5a9e0d"
+  },
+  "st-0067": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage says manufacturers shall draw up Annex IV Part A technical documentation before placing on market or putting into service; the claim's condition matches and nothing is dropped.",
+   "fingerprint": "280a4180b911"
+  },
+  "st-0068": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage states manufacturers must carry out or have carried out the conformity assessment before placing on market or putting into service; claim's condition matches.",
+   "fingerprint": "96c93ef8e133"
+  },
+  "st-0069": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage states manufacturers shall draw up the EU declaration of conformity per Article 21, and the claim carries the same 'where compliance demonstrated' condition.",
+   "fingerprint": "224c4c1fb543"
+  },
+  "st-0070": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage states manufacturers shall affix CE marking per Article 24, and the claim retains the compliance-demonstrated condition.",
+   "fingerprint": "db66f7d91ddb"
+  },
+  "st-0071": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states manufacturers keep technical documentation and EU declaration for at least 10 years after placing on market or putting into service; claim includes that trigger condition.",
+   "fingerprint": "06d0614dd4e5"
+  },
+  "st-0072": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "The passage states the source code must be made available to authorities, and the claim's condition reproduces all three: where relevant, reasoned request, and necessity for Annex III compliance.",
+   "fingerprint": "fd424ed866fe"
+  },
+  "st-0073": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.82,
+   "why": "Passage states manufacturers shall ensure procedures are in place, but limits it to machinery or related products in series production; claim omits this scope.",
+   "fingerprint": "65a0e8a96c11"
+  },
+  "st-0074": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage states adequate account shall be taken of changes, but context limits it to series production procedures; claim omits that scope.",
+   "fingerprint": "407911921885"
+  },
+  "st-0075": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage says manufacturers shall carry out sample testing when deemed appropriate regarding risks; claim includes that condition.",
+   "fingerprint": "6b4f0a764a42"
+  },
+  "st-0076": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says manufacturers shall, if necessary, keep a register of complaints (plus non-conforming products and recalls); claim keeps 'If necessary' condition, value is faithful excerpt.",
+   "fingerprint": "4b7970d666b5"
+  },
+  "st-0077": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says manufacturers shall keep distributors informed of such monitoring, under 'If necessary'; the claim carries that condition, though 'of any such monitoring' is omitted from the value.",
+   "fingerprint": "10ed86ebdc66"
+  },
+  "st-0078": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage requires manufacturers to ensure marking, but allows packaging/document alternative where size or nature prevents it; claim omits that condition and the other required items.",
+   "fingerprint": "aa9f83b07c69"
+  },
+  "st-0079": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "The passage defines year of construction as 'the year in which the manufacturing process was completed' with no attached condition on the definition itself.",
+   "fingerprint": "b0cfe93d5150"
+  },
+  "st-0080": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage allows required information on packaging or accompanying document where size or nature prevents marking; the claim includes that condition, though it omits the packaging alternative.",
+   "fingerprint": "994ee7555397"
+  },
+  "st-0081": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage requires manufacturers to indicate their name; the claim's 'where not possible' fallback to packaging/document is carried, though the primary on-machinery location is omitted but not broadenin",
+   "fingerprint": "cfc26adffc56"
+  },
+  "st-0082": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states the address shall indicate a single point at which the manufacturer can be contacted; no condition attaches to that sentence, and the claim's value matches.",
+   "fingerprint": "9ecc19a35325"
+  },
+  "st-0083": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage says contact details shall be in a language easily understood by users and market surveillance authorities; claim omits the 'by users and authorities' scope restriction.",
+   "fingerprint": "107e401e9014"
+  },
+  "st-0084": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states manufacturers must ensure machinery accompanied by instructions and Annex III information; the digital-format sentence is permissive, not a restricting condition.",
+   "fingerprint": "44fb15b0fa55"
+  },
+  "st-0085": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage states manufacturers must ensure machinery is accompanied by instructions and Annex III information; no exception or condition attached, and the digital-format sentence is permissive, not a re",
+   "fingerprint": "38073a27e354"
+  },
+  "st-0086": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says instructions and information shall clearly describe the product model; no exception attached. The sentence-after context ('when provided in digital format') matches the claim's subject.",
+   "fingerprint": "154a99c464c5"
+  },
+  "st-0087": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires marking on the machinery or related product, with fallback to packaging or accompanying document; claim includes this fallback, but omits the condition 'when instructions are in digit",
+   "fingerprint": "60851100a950"
+  },
+  "st-0088": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage requires presenting digital instructions in printable/downloadable format, but claim omits 'save them on an electronic device so accessible at all times' and the extension; also the passage's ",
+   "fingerprint": "0fd8b697aac6"
+  },
+  "st-0089": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.55,
+   "why": "Passage requires online access during expected lifetime and at least 10 years after placing on market; claim's value is stated but drops the 10-year minimum; condition given is only a fragment.",
+   "fingerprint": "067a5e7521e8"
+  },
+  "st-0090": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires paper instructions free of charge on user request at purchase; the claim omits 'within one month', which is a time limit of manner, not a scope restriction.",
+   "fingerprint": "6ed3fd784345"
+  },
+  "st-0091": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage states the paper safety-information duty; the claim's condition covers intended or usable by non-professionals, and omitted \"safe use\" part is only a truncation, not a condition.",
+   "fingerprint": "a07ee6b62672"
+  },
+  "st-0092": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage states instructions, safety information and Annex III information must be in an easily understood language, as determined by the Member State; the claim includes that condition.",
+   "fingerprint": "c946820c0107"
+  },
+  "st-0093": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage states declaration accompanies product or alternatively internet address/code in instructions; claim includes the alternative, though omits 'and the information in Annex III', which is a separ",
+   "fingerprint": "43d6f3d62026"
+  },
+  "st-0094": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "The value 'Manufacturers shall ensure' is only a fragment that omits what must be ensured (accompaniment by the EU declaration), so it does not carry the obligation's meaning.",
+   "fingerprint": "192322faf697"
+  },
+  "st-0095": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says digital declarations accessible for expected lifetime and in any event at least 10 years after placing on market; claim's 'in any event' covers this, omitting nothing restrictive.",
+   "fingerprint": "91fef0c0b2f3"
+  },
+  "st-0096": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage states accessibility for expected lifetime 'and in any event for at least 10 years' after placing on market; claim omits this minimum 10-year floor.",
+   "fingerprint": "6bb616ce7d40"
+  },
+  "st-0097": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage states manufacturers must immediately take necessary corrective actions when they believe machinery is non-conforming; the claim's condition matches, and the placed-on-market/in-service qualif",
+   "fingerprint": "550283e6d656"
+  },
+  "st-0098": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage requires immediate informing of authorities where risk exists; claim omits added scope: authorities of Member States where made available/put into service, and risk to animals/property/environ",
+   "fingerprint": "385f4cbc1d88"
+  },
+  "st-0099": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage states manufacturers must provide the information on a reasoned request; the only trigger is kept. Format and language are manner, and the purpose clause is not a scope restriction.",
+   "fingerprint": "a42d018a084f"
+  },
+  "st-0100": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.55,
+   "why": "Passage says manufacturers shall cooperate with that authority at its request on actions to eliminate risks; the claim's condition matches, though it omits 'placed on market or put into service' quali",
+   "fingerprint": "eff2e70606b4"
+  },
+  "st-0101": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage requires design and construction 'in accordance with relevant essential requirements in Annex III'; the claim omits this standard, so its scope is broader than the passage.",
+   "fingerprint": "1f050612d3c5"
+  },
+  "st-0102": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "The passage states manufacturers shall draw up Annex IV Part B documentation before placing on the market; the claim keeps that timing condition; the 'where' clause concerns the declaration.",
+   "fingerprint": "2af780742ad2"
+  },
+  "st-0103": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage states manufacturers shall draw up the EU declaration of incorporation per Article 22, and the claim retains the full 'Where compliance...demonstrated' condition.",
+   "fingerprint": "f8c957c13a4f"
+  },
+  "st-0104": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states manufacturers keep both documents at least 10 years after placing on market; the claim includes that condition and no others apply.",
+   "fingerprint": "a81eba8f6054"
+  },
+  "st-0105": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage says manufacturers keep technical documentation available to authorities for at least 10 years after placing on market; claim omits that duration and authority-availability scope.",
+   "fingerprint": "485098bcb8ab"
+  },
+  "st-0106": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires source code/programming logic be made available to authorities; claim retains all three conditions: where relevant, reasoned request, necessity for checking compliance.",
+   "fingerprint": "31cf257c0372"
+  },
+  "st-0107": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.82,
+   "why": "Passage states manufacturers must ensure procedures for series-production partly completed machinery; claim's condition covers series production, though omits 'to remain in conformity' (purpose, not c",
+   "fingerprint": "78d631230acf"
+  },
+  "st-0108": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.4,
+   "why": "Passage requires account of production-process changes, but claim's condition limits it to standards/specification changes, a different trigger; the actual obligation's scope is mismatched.",
+   "fingerprint": "d4bddaf32ecc"
+  },
+  "st-0109": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage requires marking with designation, but allows packaging/document where size or nature prevents marking; claim omits this alternative condition.",
+   "fingerprint": "00576de26df1"
+  },
+  "st-0110": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says required information goes on packaging or in an accompanying document where size or nature does not allow marking; claim includes that condition.",
+   "fingerprint": "9aa57095fcdc"
+  },
+  "st-0111": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage requires name on the machinery itself, with packaging/document only where impossible; claim states the fallback but omits the primary placement and other contact details, though the condition ",
+   "fingerprint": "9f5d4c645914"
+  },
+  "st-0112": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states the address shall indicate a single point of contact, with no exception or condition attached to that sentence; neighbouring sentences don't restrict it.",
+   "fingerprint": "9ecc19a35325"
+  },
+  "st-0113": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage requires a language easily understood by the incorporator and market surveillance authorities; claim omits this audience qualifier, making it broader.",
+   "fingerprint": "4023ad83da62"
+  },
+  "st-0114": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage says manufacturers must ensure partly completed machinery is accompanied by assembly instructions; the digital-format sentence is permission, not a restriction on the claim.",
+   "fingerprint": "4670d2281215"
+  },
+  "st-0115": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.62,
+   "why": "Passage requires marking on the machinery, with fallback to packaging or accompanying document if not possible; the claim's value and condition match, but also the digital-format trigger is omitted.",
+   "fingerprint": "572b53c0049b"
+  },
+  "st-0116": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires manufacturer, when instructions are digital, to present them in a format enabling printing/download; claim's condition matches. Value is a faithful fragment carrying the obligation.",
+   "fingerprint": "26e546506c64"
+  },
+  "st-0117": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says this requirement also applies where instructions are embedded in software; claim matches with the same condition. No extra condition dropped.",
+   "fingerprint": "f043d92d716b"
+  },
+  "st-0118": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage requires online accessibility for at least 10 years after placing on market; the claim keeps this timing condition and omits no restriction on scope.",
+   "fingerprint": "d9f2ab2c3966"
+  },
+  "st-0119": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage states manufacturer must provide paper assembly instructions free within one month on request of the incorporator at purchase; claim's condition matches exactly.",
+   "fingerprint": "6dfdd110db0a"
+  },
+  "st-0120": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says instructions must be in an easily understood language, as determined by Member State; claim includes that condition, though omits 'by the person who incorporates', which is part of the va",
+   "fingerprint": "98ae46a8284b"
+  },
+  "st-0121": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says machinery must be accompanied by the Annex V Part B declaration, with the alternative of an internet address or code; the claim includes that alternative.",
+   "fingerprint": "7f7f9a9b24a6"
+  },
+  "st-0122": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage gives the alternative of providing the internet address or code in the assembly instructions; the claim keeps the alternative and the Annex XI condition.",
+   "fingerprint": "dede703720e4"
+  },
+  "st-0123": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage requires digital declarations accessible online at least 10 years after placing on market; claim's condition matches, no omitted restriction.",
+   "fingerprint": "cfa2ab3ae61a"
+  },
+  "st-0124": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage states manufacturers must immediately take necessary corrective actions when they believe machinery non-conforming; claim's condition reproduces that trigger, omitting nothing material.",
+   "fingerprint": "ac6568bb9cd4"
+  },
+  "st-0125": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires manufacturers to immediately inform competent national authorities where machinery presents a risk; claim includes that condition. Member-State scope is manner/detail, not dropped con",
+   "fingerprint": "99132f6d928f"
+  },
+  "st-0126": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.55,
+   "why": "Passage requires manufacturers to provide all information on reasoned request from competent authority; claim's value omits only 'necessary to demonstrate conformity' and format/language, which are sc",
+   "fingerprint": "10df6824cc58"
+  },
+  "st-0127": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.7,
+   "why": "Passage states manufacturers shall cooperate with authority at its request on actions to eliminate risks; claim keeps that condition, though omits 'which they have placed on market' scope.",
+   "fingerprint": "0c4e4eb0dcae"
+  },
+  "st-0129": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires keeping technical documentation and declaration at authorities' disposal for at least 10 years after placing on market; claim carries that timing condition.",
+   "fingerprint": "25e702f61493"
+  },
+  "st-0130": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage states authorised representative shall perform tasks specified in mandate received from manufacturer; no exception or condition attached beyond the mandate itself.",
+   "fingerprint": "ef73db7ee899"
+  },
+  "st-0131": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage (b) states authorised representative provides information and documentation upon reasoned request from competent national authority; the claim's condition matches, and the purpose and format w",
+   "fingerprint": "fa98196536b5"
+  },
+  "st-0132": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage states cooperation at authorities' request on actions to eliminate risks; claim omits the restriction to products covered by the mandate and within the Regulation's scope.",
+   "fingerprint": "39a30af870fe"
+  },
+  "st-0133": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says importers shall place only compliant machinery or related products on the market; claim matches, with no exceptions or conditions attached.",
+   "fingerprint": "d0a0ab55b0bc"
+  },
+  "st-0134": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states importers must ensure conformity assessment procedures were carried out, before placing on market; the claim's condition matches and no other condition is attached.",
+   "fingerprint": "d56dfd9511c5"
+  },
+  "st-0135": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage requires importers to ensure the manufacturer drew up Annex IV Part A documentation, and the sentence before adds the condition 'before placing on the market', which the claim omits.",
+   "fingerprint": "e15fb8e19fa0"
+  },
+  "st-0136": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage says importers ensure machinery bears CE marking and is accompanied by required documents; no condition attaches to that element, and the sentence after concerns a separate nonconformity case.",
+   "fingerprint": "1285a5aa6821"
+  },
+  "st-0137": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage states importer shall not place non-conforming machinery on market until conformity, and the claim's condition reproduces the 'where' clause fully.",
+   "fingerprint": "b1bca6a74a48"
+  },
+  "st-0138": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage states importer informs manufacturer and authorities when risk to health and safety; claim omits the 'and, where appropriate, domestic animals and property, and ... environment' scope extensio",
+   "fingerprint": "d54cd327fb54"
+  },
+  "st-0139": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage requires importers to indicate name/trade name/mark, but the claim omits the location condition (on the product, or if not possible, packaging/document) and postal address and contact details.",
+   "fingerprint": "3a3fcdfe7c11"
+  },
+  "st-0140": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires importers to indicate postal address and website/email/digital contact; the fallback to packaging or accompanying document when not possible is in the claim's condition.",
+   "fingerprint": "5ede98546546"
+  },
+  "st-0141": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage requires language easily understood by users and market surveillance authorities; claim omits the authorities, narrowing the audience, so scope is restricted differently.",
+   "fingerprint": "fba49c95f98d"
+  },
+  "st-0142": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires importers to ensure machinery is accompanied by instructions for use and Art. 10(7) information; no conditions attached, claim states instructions part.",
+   "fingerprint": "40408e3fe835"
+  },
+  "st-0143": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage requires importers to ensure machinery is accompanied by instructions and Article 10(7) information; no exceptions or conditions attached, claim matches.",
+   "fingerprint": "9caf4a54e2bf"
+  },
+  "st-0144": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.55,
+   "why": "Passage states importers shall ensure the product is accompanied by instructions; claim's value is a truncated fragment omitting what must be ensured, though no condition exists.",
+   "fingerprint": "3b8f9872f85d"
+  },
+  "st-0145": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states importers must ensure storage/transport conditions don't jeopardise conformity while under their responsibility; claim keeps that condition.",
+   "fingerprint": "4a1cceaf9556"
+  },
+  "st-0146": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage says importers carry out sample testing when deemed appropriate re risks; claim includes that condition. Purpose clauses are not conditions.",
+   "fingerprint": "2aee9a2b0c74"
+  },
+  "st-0147": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage says importers keep a register of complaints 'if necessary'; but also conditioned on 'when deemed appropriate with regard to risks', which the claim omits.",
+   "fingerprint": "694f743b7e92"
+  },
+  "st-0148": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage states importers shall immediately take necessary corrective actions when they believe non-conformity; claim's condition captures this trigger fully, with no omitted restriction.",
+   "fingerprint": "51f27f380e74"
+  },
+  "st-0149": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage requires importers to immediately inform authorities where product presents a risk; claim omits the additional risk scope (animals, property, environment) and the Member States where made avai",
+   "fingerprint": "77bcc5843a5a"
+  },
+  "st-0150": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says importers keep a copy of the EU declaration of conformity for at least 10 years after placing on market; the claim carries that condition.",
+   "fingerprint": "c5093874dbf6"
+  },
+  "st-0151": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.88,
+   "why": "Passage requires importers to keep the copy available for at least 10 years after placing on market; the claim omits this time condition.",
+   "fingerprint": "cdd4831a0b73"
+  },
+  "st-0152": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage states importers must ensure technical documentation can be made available upon request; the 10-year period attaches to both duties, and the claim omits it.",
+   "fingerprint": "bdccf1fcd952"
+  },
+  "st-0153": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage states source code must be made available to competent national authorities, and the claim carries all three conditions: where relevant, reasoned request, necessity for checking Annex III comp",
+   "fingerprint": "c4dc35b49103"
+  },
+  "st-0154": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.82,
+   "why": "Passage states importers must provide all information and documentation upon reasoned request; the claim keeps that condition. The format and language terms are manner details, not conditions.",
+   "fingerprint": "12e025a6ec66"
+  },
+  "st-0155": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage requires importers to provide information in an easily understood language, but only on a reasoned request from a competent national authority; claim omits that condition.",
+   "fingerprint": "3d19cc26be00"
+  },
+  "st-0156": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage states importers cooperate at authority's request on action to eliminate risks, but claim omits the additional risks (domestic animals, property, environment) and 'which they have placed on th",
+   "fingerprint": "8227f390cd24"
+  },
+  "st-0157": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage says importers shall place only compliant partly completed machinery on the market; no exceptions or conditions attached, claim matches.",
+   "fingerprint": "de537ecd57bf"
+  },
+  "st-0158": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage says importers, before placing partly completed machinery on market, shall ensure manufacturer has drawn up technical documentation; the claim keeps the 'before placing' condition and adds no ",
+   "fingerprint": "8ab0eee459b9"
+  },
+  "st-0159": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says importers must ensure partly completed machinery is accompanied by required documents before placing on market; claim's condition matches the timing, no other condition omitted.",
+   "fingerprint": "00ede0932c46"
+  },
+  "st-0160": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage states importer shall not place non-conforming partly completed machinery on market until conformity, and the claim carries the 'considers or has reason to believe' condition.",
+   "fingerprint": "d1bc29f14a24"
+  },
+  "st-0161": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage states importer shall inform manufacturer and authorities where machinery presents a risk re essential health and safety requirements; claim includes that condition.",
+   "fingerprint": "f41e4cb5135b"
+  },
+  "st-0163": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says importers shall indicate name (with other details) on the machinery, or where not possible, on packaging or accompanying document; claim keeps that fallback condition.",
+   "fingerprint": "63aadebe8c52"
+  },
+  "st-0164": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage requires contact details in an easily understood language, but only by the incorporating person and market surveillance authorities; claim omits this audience restriction.",
+   "fingerprint": "1a7268fc9642"
+  },
+  "st-0165": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states importers must ensure partly completed machinery is accompanied by assembly instructions; no exceptions or conditions attached in passage.",
+   "fingerprint": "b48f218f8086"
+  },
+  "st-0166": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states importers must ensure partly completed machinery is accompanied by assembly instructions; no exception or condition attached beyond the Article 11(7) reference, which merely identifies ",
+   "fingerprint": "de237bb555fa"
+  },
+  "st-0167": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage obliges importers to ensure storage/transport conditions do not jeopardise conformity while machinery is under their responsibility; claim keeps that condition.",
+   "fingerprint": "3fcf97d3b938"
+  },
+  "st-0168": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states importers must immediately take necessary corrective actions when they believe machinery is non-conforming; the claim's condition reproduces that trigger fully.",
+   "fingerprint": "cefc1630fe6d"
+  },
+  "st-0169": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage requires importers with reason to believe non-conformity to take corrective action, withdraw or recall, as appropriate; claim omits the belief-of-non-conformity trigger.",
+   "fingerprint": "cf8045a500c6"
+  },
+  "st-0170": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage requires importers to immediately inform competent authorities where partly completed machinery presents a risk; the claim includes that condition. Member State scope is a minor detail.",
+   "fingerprint": "a253cdafdd56"
+  },
+  "st-0171": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.82,
+   "why": "Passage requires importers to inform authorities, giving details of non-conformity and corrective actions, where machinery presents a risk; the claim carries that condition.",
+   "fingerprint": "91be299c9620"
+  },
+  "st-0172": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says importers keep a copy of the declaration of incorporation at least 10 years after the machinery is placed on the market; the claim states this with its timing condition.",
+   "fingerprint": "7c56d700f73f"
+  },
+  "st-0173": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says importers must ensure technical documentation can be made available to authorities upon request; the claim's condition 'upon request' matches, with no other condition omitted.",
+   "fingerprint": "b9757bb51ccc"
+  },
+  "st-0174": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage states importers must provide all information and documentation upon a reasoned request from a competent national authority; claim keeps this condition, and format/language are manner, not sco",
+   "fingerprint": "fe8bb4786bd5"
+  },
+  "st-0175": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage states importers shall cooperate with that authority at its request on action to eliminate risks; claim keeps request and action conditions, though omits 'partly completed machinery they place",
+   "fingerprint": "87dfae423983"
+  },
+  "st-0176": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage states distributors must act with due care regarding the Regulation's requirements when making machinery or related product available; claim keeps that condition.",
+   "fingerprint": "1d092a978c7a"
+  },
+  "st-0177": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage states distributors shall verify, before making machinery or related product available; claim repeats this condition; value is a lead-in fragment but with condition carries meaning.",
+   "fingerprint": "6f7fe9d41256"
+  },
+  "st-0178": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage requires distributors, before making machinery available, to verify it bears the CE marking; the claim keeps that timing condition.",
+   "fingerprint": "966dfb1cf0fd"
+  },
+  "st-0179": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage (b) requires accompaniment by the EU declaration of conformity; the claim's condition matches the context, and the passage adds no further restriction on (b).",
+   "fingerprint": "efc13fdfb832"
+  },
+  "st-0180": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires accompaniment by instructions for use with language condition; claim reproduces the language condition and Member State determination in full.",
+   "fingerprint": "ce77ff1a78d4"
+  },
+  "st-0181": {
+   "states": "unclear",
+   "dropped_condition": "no",
+   "confidence": 0.45,
+   "why": "Passage (d) requires verification that manufacturer and importer complied with Art 10(5),(6) and 13(3); claim omits the article references but they only specify which requirements; distributor subject",
+   "fingerprint": "5ea5176a3f73"
+  },
+  "st-0182": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage states the distributor's obligation and its triggering condition (considers or has reason to believe non-conformity); the claim carries that condition fully.",
+   "fingerprint": "14cbe5a5373d"
+  },
+  "st-0183": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage's obligation is stated, but it also covers domestic animals, property (where appropriate) and environment (where applicable); claim's condition narrows risk to persons only, omitting these alt",
+   "fingerprint": "bf929f516472"
+  },
+  "st-0184": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says distributors shall ensure, while under their responsibility; but the value 'shall ensure that' is a fragment lacking the content (storage/transport conditions not jeopardising conformity)",
+   "fingerprint": "1711a4b50bed"
+  },
+  "st-0185": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.55,
+   "why": "Passage states distributors must ensure corrective actions when they believe machinery is non-conforming; the claim's condition omits 'not in conformity' but value and trigger are largely present.",
+   "fingerprint": "236af9223ea0"
+  },
+  "st-0186": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage requires distributors to immediately inform authorities where risk exists; claim's condition omits the 'and, where appropriate, domestic animals and property... environment' extensions, but th",
+   "fingerprint": "c5b7ced5b37a"
+  },
+  "st-0187": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage states distributors must provide all information and documentation on reasoned request; the claim omits only manner/purpose (format, necessary to demonstrate conformity, language), not conditi",
+   "fingerprint": "c056ad7439cc"
+  },
+  "st-0188": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says distributors cooperate with authority at its request on actions to eliminate risks; claim's condition keeps the request and action scope, though omits 'machinery which they made available",
+   "fingerprint": "822e02db0af1"
+  },
+  "st-0189": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage says distributors, when making partly completed machinery available on the market, shall act with due care; claim matches subject, value and condition.",
+   "fingerprint": "a1eb5f99386c"
+  },
+  "st-0190": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage states distributors shall verify, before making partly completed machinery available; but 'verify that' is only a fragment lacking the content (items a...), so value doesn't carry meaning.",
+   "fingerprint": "ba2ad234df40"
+  },
+  "st-0191": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says distributors must verify partly completed machinery is accompanied by the EU declaration of incorporation; no exception attaches to (a), and the claim has none.",
+   "fingerprint": "3426f59e767f"
+  },
+  "st-0192": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says partly completed machinery must be accompanied by assembly instructions, in an easily understood language as determined by the Member State; claim keeps this condition.",
+   "fingerprint": "61d39e54533d"
+  },
+  "st-0193": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage says manufacturer and importer must have complied with requirements, but the claim omits the specific references (Art 11(5),(6) and 14(3) respectively) and the surrounding Art 16(2) context.",
+   "fingerprint": "6e3842cf468c"
+  },
+  "st-0194": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.4,
+   "why": "Passage states the prohibition with the same triggering condition; the 'until brought into conformity' limit is a temporal end, not dropped condition of scope... though not in claim.",
+   "fingerprint": "f9e726878676"
+  },
+  "st-0195": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage states the distributor must inform manufacturer or importer and market surveillance authorities where machinery presents a risk; the claim keeps that condition.",
+   "fingerprint": "9dcadec007d8"
+  },
+  "st-0196": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Value 'Distributors shall ensure that' is only a fragment; it omits the content (storage/transport not jeopardising conformity), so it doesn't carry the obligation's meaning.",
+   "fingerprint": "c3fc4267b327"
+  },
+  "st-0197": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states distributors must make sure corrective actions are taken, under the same trigger condition the claim includes; the risk-notification duty is a separate obligation.",
+   "fingerprint": "cd0210701adf"
+  },
+  "st-0198": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage requires distributors to immediately inform competent national authorities where machinery presents a risk; the claim includes that condition, omitting only the Member State detail, which is n",
+   "fingerprint": "59138f36f1a5"
+  },
+  "st-0199": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states distributors must provide all information and documentation upon a reasoned request from a competent national authority; the claim keeps that condition, and the rest is purpose.",
+   "fingerprint": "e22e56b79f2b"
+  },
+  "st-0200": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage says distributors cooperate with that authority at its request on actions to eliminate risks; claim omits the scope limit (action to eliminate risks of partly completed machinery they made ava",
+   "fingerprint": "595e49fb1b7f"
+  },
+  "st-0201": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage states importer/distributor is considered manufacturer where it places product under its name/trademark or modifies it affecting compliance; claim carries that full condition.",
+   "fingerprint": "115f8bcd5925"
+  },
+  "st-0202": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage states importer/distributor is subject to manufacturer obligations in Arts 10 and 11, and the claim's condition reproduces both alternatives fully.",
+   "fingerprint": "d77057d17be2"
+  },
+  "st-0203": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage says modifier is subject to Article 10 obligations; the 'if only part of assembly' clause just narrows scope to the affected machinery, and the claim adopts it as the condition for the whole o",
+   "fingerprint": "99bfda40ca77"
+  },
+  "st-0204": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage states the modifier must ensure and declare on sole responsibility conformity, but the following sentence exempts non-professional users modifying for own use; claim omits this.",
+   "fingerprint": "ea6936f20700"
+  },
+  "st-0205": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage says the modifier applies the conformity assessment procedure per Art. 25(2)-(4); the claim omits the exclusion for non-professional users modifying for own use.",
+   "fingerprint": "217374569f83"
+  },
+  "st-0206": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage says a non-professional user substantially modifying machinery for own use is not considered a manufacturer; claim keeps the own-use condition and subject.",
+   "fingerprint": "1c2f0b41cbcc"
+  },
+  "st-0207": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says non-professional user modifying for own use is not subject to Article 10 manufacturer obligations; claim keeps the own-use condition and non-professional scope.",
+   "fingerprint": "753933db5c95"
+  },
+  "st-0208": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says economic operators shall, on request, identify the listed operators to market surveillance authorities; the claim includes the 'on request' condition.",
+   "fingerprint": "0832d2f52e68"
+  },
+  "st-0209": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.4,
+   "why": "Passage states economic operators retain information for at least 10 years after supply; the 'after supplied/were supplied' trigger is timing, not a restriction the claim omits materially... but it is",
+   "fingerprint": "1978319425c0"
+  },
+  "st-0222": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage states manufacturer assumes responsibility for compliance by drawing up the EU declaration of conformity; claim keeps that condition, with no other restrictions.",
+   "fingerprint": "81d1ab811fd4"
+  },
+  "st-0225": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states the declaration must include a conformity sentence, and the claim keeps the 'more than one Union legal act' condition.",
+   "fingerprint": "dd88c39ca746"
+  },
+  "st-0226": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage says the declaration shall contain identification of the Union legal acts concerned, and the claim carries the 'more than one Union legal act' condition; no further condition omitted.",
+   "fingerprint": "845d6202318b"
+  },
+  "st-0228": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says manufacturer shall assume responsibility for compliance by drawing up the declaration; claim includes that condition, and no other restrictions appear.",
+   "fingerprint": "788de49ab33a"
+  },
+  "st-0232": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage allows affixing by body or, under instructions, manufacturer or authorised representative; claim omits representative and the specific procedure references (Art. 25(2),(3) points).",
+   "fingerprint": "a9881a26bbee"
+  },
+  "st-0236": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage says the subject shall apply one of the procedures in paragraphs 2, 3 and 4; the claim's value omits this scope limit, but it is a reference, not an exception.",
+   "fingerprint": "7e9fafdc10eb"
+  },
+  "st-0237": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage lists module B (followed by module C) as one of alternative procedures for Annex I Part A; claim keeps Part A condition but omits 'one of' alternatives and the module C follow-up.",
+   "fingerprint": "3ecd118331a4"
+  },
+  "st-0238": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.55,
+   "why": "Passage lists module C following module B as option (a) for Annex I Part A machinery; claim keeps the B-then-C and option (a) conditions, though omits Annex I Part A and alternative (b).",
+   "fingerprint": "9d6b05d5ce89"
+  },
+  "st-0239": {
+   "states": "unclear",
+   "dropped_condition": "no",
+   "confidence": 0.4,
+   "why": "Passage lists module H as one option among alternatives (a), (b), (c); it shows no Annex I Part A condition, and the claim's condition isn't in the passage.",
+   "fingerprint": "85ccb972b9c2"
+  },
+  "st-0240": {
+   "states": "unclear",
+   "dropped_condition": "no",
+   "confidence": 0.5,
+   "why": "Passage lists only 'conformity based on unit verification (module G) set out in Annex X' as an option; it contains no Annex I Part A condition or any subject.",
+   "fingerprint": "c20466dc9852"
+  },
+  "st-0241": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.82,
+   "why": "Passage states manufacturer (or Art. 18 person) shall apply one of the procedures where category is in Annex I Part A; claim keeps that condition.",
+   "fingerprint": "fed3ab9d710b"
+  },
+  "st-0242": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says 'Where the category of machinery or related product is listed in Annex I, Part A' - claim matches; the condition is the listing itself, nothing dropped.",
+   "fingerprint": "b7ddca04555d"
+  },
+  "st-0243": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage lists module A as one of several alternatives ('one of the following procedures'); claim presents it as the required procedure, omitting alternatives like module B+C.",
+   "fingerprint": "ad9a1ad0436c"
+  },
+  "st-0244": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage lists module B (followed by module C) as one of alternative procedures (a),(b),(c); claim omits that it is only one option and must be followed by module C.",
+   "fingerprint": "b820599fd4cf"
+  },
+  "st-0245": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage lists module B followed by module C as one option among alternatives (a, b, c); claim presents module C alone, omitting the module B combination and the alternative options.",
+   "fingerprint": "58b0137b7e62"
+  },
+  "st-0246": {
+   "states": "unclear",
+   "dropped_condition": "no",
+   "confidence": 0.4,
+   "why": "Passage lists module H as one option among (b),(c),(d) alternatives; claim presents it as the procedure without the 'or' alternatives, and the Annex I Part B scope isn't shown in passage.",
+   "fingerprint": "ef563ed03ba6"
+  },
+  "st-0247": {
+   "states": "unclear",
+   "dropped_condition": "no",
+   "confidence": 0.55,
+   "why": "Passage lists (d) unit verification (module G) as an option, but the shown text doesn't state it applies to Annex I Part B categories; the lead-in is missing.",
+   "fingerprint": "42fd2933382c"
+  },
+  "st-0248": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says 'Where the category ... is listed in Annex I, Part B' as its trigger; the claim restates this listing with no dropped condition.",
+   "fingerprint": "802081ab8efc"
+  },
+  "st-0249": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says manufacturer applying internal production control shall design and construct machinery per harmonised standards; claim's value omits the standards requirement but states the obligation, c",
+   "fingerprint": "8381c4790fb3"
+  },
+  "st-0250": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.88,
+   "why": "Passage requires procedures (b), (c) or (d) only where category is in Annex I, Part B and not built to standards; claim omits the Annex I, Part B condition.",
+   "fingerprint": "1f50ec483456"
+  },
+  "st-0251": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage requires module A for machinery not listed in Annex I; the claim's condition mirrors this, with no additional restrictions omitted.",
+   "fingerprint": "cfb0bc2db1cb"
+  },
+  "st-0252": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage states manufacturer shall apply internal production control procedure where category not listed in Annex I; claim keeps that condition; module A/Annex VI detail is omitted but not a condition.",
+   "fingerprint": "587f14e27452"
+  },
+  "st-0269": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage states the prohibition on being designer, manufacturer, supplier of assessed machinery; the claim's condition keeps the scope and the 'shall not preclude' exception for necessary use.",
+   "fingerprint": "2df5d2f2cf8e"
+  },
+  "st-0270": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage states the body shall not be directly involved in design, but the preceding sentence excepts necessary assessed machinery use and personal use; the claim omits this.",
+   "fingerprint": "608f2e177e50"
+  },
+  "st-0271": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "The passage states this prohibition; the claim's value truncates \"or integrity\" but its condition keeps the \"for which they are notified\" scope, so nothing is dropped.",
+   "fingerprint": "d7987397d5f5"
+  },
+  "st-0272": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage covers subsidiaries or subcontractors; claim's value omits subcontractors and the effect on confidentiality, objectivity, impartiality, so it is broader/truncated; also relation mislabels subj",
+   "fingerprint": "d112e7ec7c2f"
+  },
+  "st-0276": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage states CAB must take out liability insurance with both unless-alternatives, which the claim's condition retains in full; the relation's parenthetical is only a label.",
+   "fingerprint": "56a47cab9cb9"
+  },
+  "st-0277": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states personnel must observe professional secrecy, with the exception for competent authorities of the Member State, which the claim includes.",
+   "fingerprint": "29461865dcc2"
+  },
+  "st-0279": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.55,
+   "why": "Passage states the body must participate in, or ensure personnel informed of, standardisation activities; the claim's value is a truncated fragment that omits what is participated in, though no condit",
+   "fingerprint": "0e705c92d567"
+  },
+  "st-0280": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage says the body shall apply as general guidance the group's administrative decisions and documents; no exception or condition attaches, though the claim's value is truncated but faithful.",
+   "fingerprint": "9e8005bd0a96"
+  },
+  "st-0294": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says only such a body is considered a notified body for this Regulation's purposes; the claim keeps that scope, though 'such a body' refers to the preceding no-objection requirement.",
+   "fingerprint": "051ef2491b27"
+  },
+  "st-0307": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says notified body requires manufacturer to take appropriate corrective actions where it finds requirements unmet; claim's condition reproduces that trigger fully.",
+   "fingerprint": "254b111f2ded"
+  },
+  "st-0309": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires manufacturer to take corrective actions when notified body finds non-compliance during monitoring; claim includes this condition, though omits 'following approval decision' (minor, sa",
+   "fingerprint": "3536afdba483"
+  },
+  "st-0311": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage states notified body shall ensure transparent, accessible appeals procedure against its decisions; no conditions attached, and the claim adds none.",
+   "fingerprint": "b45664fc3562"
+  },
+  "st-0312": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage says a notified body shall inform the notifying authority of listed matters; claim omits that the duty covers only the listed items (refusal, restriction, etc.).",
+   "fingerprint": "c87cbb9feb88"
+  },
+  "st-0313": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage requires notified body to inform notifying authority of any refusal, restriction, suspension or withdrawal, but of specific certificates/approvals; claim omits that scope and the recipient.",
+   "fingerprint": "82af560b1569"
+  },
+  "st-0314": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.55,
+   "why": "Passage lists (b) circumstances affecting scope of, or conditions for, notification, but claim's value is truncated and omits the 'or conditions' alternative and the obligation context.",
+   "fingerprint": "c32492784fd6"
+  },
+  "st-0315": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage lists (c) any request for information received from market surveillance authorities regarding conformity assessment; claim omits the source (market surveillance authorities) and scope, and the",
+   "fingerprint": "ce031ad66be1"
+  },
+  "st-0316": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage requires notified body to inform on request of conformity assessment activities, but limits them to those performed within the scope of its notification; claim omits this scope limit.",
+   "fingerprint": "0fb1e2ca7fdc"
+  },
+  "st-0319": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage says relevant economic operators shall cooperate as necessary with authorities for that purpose; claim's condition 'for that purpose' captures the scope.",
+   "fingerprint": "8a347052901a"
+  },
+  "st-0345": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says revocation takes effect the day after publication or at a later specified date; the claim includes the 'later date' alternative, so nothing is dropped.",
+   "fingerprint": "b6033d9c03ca"
+  },
+  "st-0368": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage links the conformity assessment procedure to machinery or related products listed in Annex I; claim states listing in Annex I, with no conditions attached to that listing.",
+   "fingerprint": "9546f34ccd43"
+  },
+  "st-0377": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says these categories are those to which a procedure referred to in Article 25(2) shall be applied; no exceptions or conditions attached.",
+   "fingerprint": "b67d93d4e58e"
+  },
+  "st-0379": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage point 1 of Annex I Part A lists removable mechanical transmission devices including their guards; no conditions attached.",
+   "fingerprint": "0a0c2732459b"
+  },
+  "st-0382": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage point 3 of Annex I, Part A lists 'Vehicle servicing lifts'; no conditions attached, and the claim adds none.",
+   "fingerprint": "57726c9ec2bc"
+  },
+  "st-0383": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage lists 'Portable cartridge-operated fixing and other impact machinery' as point 4 in Annex I, Part A, with no conditions attached.",
+   "fingerprint": "04c7b18712bc"
+  },
+  "st-0384": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "The passage lists these safety components at Annex I, Part A, point 5, but only those using machine learning approaches ensuring safety functions; the claim omits that qualifier.",
+   "fingerprint": "b43d28e041b2"
+  },
+  "st-0385": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists this machinery at point 6 of Annex I Part A, and the claim keeps the restriction 'in respect only of those systems'.",
+   "fingerprint": "3d0d8fc782a4"
+  },
+  "st-0386": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage says Part B categories are those to which one of the Article 25(3) procedures shall be applied; claim matches, no unstated conditions.",
+   "fingerprint": "534118b3ae8c"
+  },
+  "st-0388": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage lists circular saws with the wood/meat condition, but ends 'of the following types', a restriction the claim omits.",
+   "fingerprint": "2c8bb859027e"
+  },
+  "st-0389": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage lists this sawing machinery at Annex I Part B point 1; claim's condition keeps fixed bed/support and manual or demountable power feed, though 'or support' is slightly shortened.",
+   "fingerprint": "9eab7ddc6c42"
+  },
+  "st-0390": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists sawing machinery with fixed blade(s) during cutting, with manually operated reciprocating saw-bench or carriage; the claim keeps that condition.",
+   "fingerprint": "22f58ed1cb3d"
+  },
+  "st-0391": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage lists this sawing machinery in point 1; the claim's condition repeats the built-in feed device and manual loading and/or unloading restriction in full.",
+   "fingerprint": "749b27ad61b2"
+  },
+  "st-0392": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage lists this machinery category; claim's value and condition reproduce the mechanical blade movement and manual loading/unloading qualifiers fully.",
+   "fingerprint": "71aa2e959661"
+  },
+  "st-0394": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage lists point 2 as hand-fed surface planing machinery for woodworking in Annex I, Part B; no conditions attached, and claim has none.",
+   "fingerprint": "d5278e999cfa"
+  },
+  "st-0395": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage lists thicknessers at point 3 with feed device and manual loading/unloading; claim omits the 'for woodworking' scope restriction.",
+   "fingerprint": "fa53bb412722"
+  },
+  "st-0396": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage lists band-saws under point 4 for wood/similar material or meat/similar material; claim omits 'similar physical characteristics' material and 'of the following types' restriction.",
+   "fingerprint": "aa8e3f5e5f17"
+  },
+  "st-0397": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage lists point 4.1 as sawing machinery with fixed blades, but only as a type of band-saws with manual loading/unloading for wood or meat; claim omits this scope.",
+   "fingerprint": "14916314c5ce"
+  },
+  "st-0398": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage lists 'sawing machinery with blade(s) assembled on a carriage with reciprocating motion' at 4.2; claim drops 'with reciprocating motion' restriction.",
+   "fingerprint": "c1e0c7a64065"
+  },
+  "st-0399": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage point 5 lists combined machinery for working wood and similar material; claim matches, and the restriction to types in points 1-4 and 7 is omitted.",
+   "fingerprint": "0e33870ca5b3"
+  },
+  "st-0400": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage point 6 lists hand-fed tenoning machinery with several tool holders for woodworking; the claim matches and no conditions are attached.",
+   "fingerprint": "02e9c24103a3"
+  },
+  "st-0401": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage point 7 lists hand-fed vertical spindle moulding machinery; the 'for working with wood...' qualifier is part of the description, not a condition on listing.",
+   "fingerprint": "c45c4825fcef"
+  },
+  "st-0402": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage lists these presses at point 9 with manual loading/unloading and travel >6 mm and speed >30 mm/s; the claim retains all conditions.",
+   "fingerprint": "af419ee92bc4"
+  },
+  "st-0403": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists this machinery as point 10 of Annex I, Part B; no exceptions or conditions attach beyond the subject's own wording.",
+   "fingerprint": "b5a1888eb2d2"
+  },
+  "st-0404": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage lists injection or compression rubber-moulding machinery with manual loading or unloading at point 11; claim includes that condition.",
+   "fingerprint": "ae7ee8d9b966"
+  },
+  "st-0405": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage lists locomotives and brake-vans at point 12.1 under machinery for underground working; the claim carries that qualifying condition.",
+   "fingerprint": "5dc130ebcdf6"
+  },
+  "st-0406": {
+   "states": "unclear",
+   "dropped_condition": "no",
+   "confidence": 0.45,
+   "why": "Passage lists hydraulic-powered roof supports at point 12.2; the claim's condition 'underground working machinery' is not in the passage, but it adds no omitted restriction.",
+   "fingerprint": "b13544d5283d"
+  },
+  "st-0407": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.45,
+   "why": "Passage lists trucks only if they incorporate a compression mechanism; the claim's value omits this, though the subject includes it. Value is a fragment lacking that qualifier.",
+   "fingerprint": "af94c114d8c3"
+  },
+  "st-0408": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists these devices at point 14 with the 3 m fall hazard restriction, which the claim's condition retains.",
+   "fingerprint": "de704f2178f3"
+  },
+  "st-0410": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage is point 15 of Annex I, Part B, listing exactly 'Protective devices designed to detect the presence of persons'; no conditions attached.",
+   "fingerprint": "ec14dc7e4d24"
+  },
+  "st-0411": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage lists power-operated interlocking movable guards at point 16, with the same 'designed as safeguards in machinery of points 9, 10, 11' condition retained in the claim.",
+   "fingerprint": "504b7b841024"
+  },
+  "st-0412": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage lists point 18 in Annex I, Part B as 'Roll-over protective structures (ROPS)'; no conditions attached.",
+   "fingerprint": "3de07a7805ba"
+  },
+  "st-0413": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists 'Falling-object protective structures (FOPS)' as point 19 in Annex I, Part B, with no conditions attached.",
+   "fingerprint": "2f68069c9dd9"
+  },
+  "st-0414": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage lists only (a) devices for locking landing doors under point 17 and (b); no (a) to (g) range shown, so claim's subject isn't supported.",
+   "fingerprint": "46a71453339e"
+  },
+  "st-0465": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage states five years after upload for the tracing log, and the claim keeps the exclusive-purpose and reasoned-request condition.",
+   "fingerprint": "71a446202007"
+  },
+  "st-0466": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says data retained for one year after collection, exclusively to demonstrate conformity on a competent authority's reasoned request; claim carries that condition.",
+   "fingerprint": "6724283b1598"
+  },
+  "st-0500": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.55,
+   "why": "Passage requires anchorage means be incorporated and indicated in instructions for use when shape/installation lacks stability; claim's condition matches, but 'accompany' relation is loosely supported",
+   "fingerprint": "b043a21cd02c"
+  },
+  "st-0632": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage only gives heading 'Contents of the instructions for use' and a manufacturer-address item; it never states that instructions must accompany machinery.",
+   "fingerprint": "946516bf4edc"
+  },
+  "st-0638": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage point 2.1 in Annex III lists machinery and related products for foodstuffs, alongside cosmetics/pharmaceutical products; no exception or condition attached to foodstuffs.",
+   "fingerprint": "5194d5f24981"
+  },
+  "st-0647": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage is heading '2.2. Portable hand-held or hand-guided machinery or related products' in Annex III; claim matches with no conditions attached.",
+   "fingerprint": "f7dddbf0cb94"
+  },
+  "st-0653": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage says instructions for use must give vibration info for portable handheld/hand-guided machinery; claim's condition restates that scope, nothing dropped.",
+   "fingerprint": "cda3e1e9c418"
+  },
+  "st-0654": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "The passage is the point heading 2.2.2 'Portable fixing and other impact machinery or related products'; the claim's category appears as the listed heading, with no conditions attached.",
+   "fingerprint": "612aa42ebb54"
+  },
+  "st-0685": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says machinery may be subject to national requirements for regular inspection by designated bodies; claim keeps that 'may be subject to national requirements' condition. The Directive referenc",
+   "fingerprint": "1b566a92a3ef"
+  },
+  "st-0785": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says instructions for use shall give vibration information about machinery; claim says instructions must accompany machinery, with no stated condition, which is not what passage says.",
+   "fingerprint": "f3e243cf7969"
+  },
+  "st-0787": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says instructions for multi-use machinery must contain information for safe assembly and use; it says nothing about accompanying the machinery or product, so the relation is wrong.",
+   "fingerprint": "3bdc10c0fec5"
+  },
+  "st-0789": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage only says instructions for use must specify travel, working areas and danger zones; it does not say they must accompany the machinery.",
+   "fingerprint": "98d40b646a15"
+  },
+  "st-0845": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says each lifting accessory or indivisible batch shall be accompanied by instructions with at least the particulars; claim includes this condition.",
+   "fingerprint": "594112035811"
+  },
+  "st-0846": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.96,
+   "why": "Passage says lifting machinery or related products shall be accompanied by instructions for use; no exception or condition attached.",
+   "fingerprint": "7819770b3e8e"
+  },
+  "st-0847": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage lists logbook contents as required item, conditioned on logbook not being supplied with the machinery; claim includes that condition.",
+   "fingerprint": "28d5c0eea195"
+  },
+  "st-0848": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage lists maximum working load and, where appropriate, a copy of load plate or load table; claim keeps 'where appropriate'.",
+   "fingerprint": "d30002409752"
+  },
+  "st-0849": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage item (d) states a test report on static and dynamic tests, 'where appropriate'; the claim keeps that condition.",
+   "fingerprint": "db67cc1f3767"
+  },
+  "st-0850": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage requires necessary instructions for measures for non-assembled lifting machinery; claim keeps that condition but omits 'before first put into service' timing, which is not a scope condition.",
+   "fingerprint": "22f9620b43b1"
+  },
+  "st-0883": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "The passage lists 'Machinery or related products serving fixed landings' at point 6.4 of Annex III, with no conditions attached.",
+   "fingerprint": "44129daffe5d"
+  },
+  "st-0915": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.95,
+   "why": "Passage says machinery is subject to Module A internal production control 'where applicable'; the claim carries that same condition.",
+   "fingerprint": "a02b6d924d8e"
+  },
+  "st-0938": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage says notified body keeps copies for five years after certificate validity expires; claim omits the 'after expiry of validity' starting point, which changes the scope of the period.",
+   "fingerprint": "0d30922cac56"
+  },
+  "st-0939": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage states manufacturer keeps these documents at least 10 years after placing on market or putting into service; claim includes that condition.",
+   "fingerprint": "c6c8f0a48540"
+  },
+  "st-0950": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says an indicative list of safety components is in Annex V; 'indicative' and updatability are not scope conditions on listing, so claim matches.",
+   "fingerprint": "5abfa6853462"
+  },
+  "st-0951": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says such a person is considered a manufacturer in the absence of a defined manufacturer; claim keeps that condition, though 'partly completed machinery' wording is trimmed.",
+   "fingerprint": "9dae488cefa8"
+  },
+  "st-0966": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage (e) requires drawing up the EC declaration of conformity and ensuring it accompanies the machinery; no exceptions or conditions attached beyond Annex reference.",
+   "fingerprint": "2fca0350852a"
+  },
+  "st-0974": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.6,
+   "why": "Passage says CE-marked machinery accompanied by EC declaration is regarded as compliant; it does not state a requirement that machinery must be accompanied; relation differs.",
+   "fingerprint": "c04fdb272b52"
+  },
+  "st-0979": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage refers to the \"indicative list of safety components in Annex V\"; no condition attaches to that listing relation.",
+   "fingerprint": "ac135d275670"
+  },
+  "st-0993": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage states machinery not in Annex IV requires internal checks on manufacture (Annex VIII); the claim's condition mirrors the passage's sole condition.",
+   "fingerprint": "03548acc6b13"
+  },
+  "st-0996": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage lists internal checks as one alternative, conditioned on manufacture per harmonised standards (Art 7(2)) and coverage; claim omits the manufacture-in-accordance condition and the 'one of' alte",
+   "fingerprint": "6d41810eb628"
+  },
+  "st-0997": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.4,
+   "why": "Passage lists EC type-examination plus Annex VIII point 3 checks as option (b); the claim omits the 'plus internal checks' and the stated condition is not in the passage.",
+   "fingerprint": "7bf206bbbcc3"
+  },
+  "st-0998": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.35,
+   "why": "Passage lists full quality assurance (Annex X) as one alternative among (a)-(c) for Annex IV machinery; the claim states it as a procedure but adds a condition not in the passage.",
+   "fingerprint": "54aee91717e0"
+  },
+  "st-1000": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.8,
+   "why": "Passage's condition also covers partial compliance, standards not covering all requirements, or no standards; also requires plus Annex VIII checks and is alternative to (b). Claim omits these.",
+   "fingerprint": "d57b26019b48"
+  },
+  "st-1001": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.6,
+   "why": "Passage lists Annex X full quality assurance as an option (b) alongside (a) EC type-examination plus internal checks; the claim presents it as the sole requirement, omitting the alternative.",
+   "fingerprint": "df7aa56ee316"
+  },
+  "st-1006": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage says assembly instructions and declaration of incorporation accompany partly completed machinery until incorporated into final machinery; claim matches including the 'until' condition.",
+   "fingerprint": "1777525063f6"
+  },
+  "st-1009": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says Member States ensure notified bodies are monitored regularly to check compliance; no exception or condition is attached beyond the claim's content.",
+   "fingerprint": "7d7ceb21685e"
+  },
+  "st-1041": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says Member States apply those provisions with effect from 29 December 2009; no exception or condition attached to the date.",
+   "fingerprint": "61cda00ef1e6"
+  },
+  "st-1044": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states Member States may allow placing on market until 29 June 2011 for machinery conforming to national provisions in force upon adoption; claim includes that condition.",
+   "fingerprint": "2028e0e7f87b"
+  },
+  "st-1045": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.55,
+   "why": "Passage says the Directive enters into force on the 20th day after publication; the claim says 'appliesFrom', a different relation than entry into force, with no conditions attached.",
+   "fingerprint": "945fa12f4399"
+  },
+  "st-1246": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage says all machinery must be accompanied by instructions in the official language(s) of the Member State of placing on market/service; claim retains that condition.",
+   "fingerprint": "5b27484e872e"
+  },
+  "st-1247": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says instructions must be either 'Original instructions' or a translation accompanied by the original; claim includes the alternative and the translation condition. The later exception covers ",
+   "fingerprint": "e3d79650acca"
+  },
+  "st-1255": {
+   "states": "no",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage only specifies contents of an instruction manual; it does not state that machinery must be accompanied by one.",
+   "fingerprint": "9f6458998dca"
+  },
+  "st-1266": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage is the heading of point 2.2 in Annex I, naming this machinery category; no exceptions or conditions attached.",
+   "fingerprint": "52131f2f5d73"
+  },
+  "st-1421": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage states each lifting accessory or indivisible batch must be accompanied by instructions; no exception or condition attached beyond content of instructions.",
+   "fingerprint": "3627c31c17a2"
+  },
+  "st-1422": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says lifting machinery must be accompanied by instructions; the following information list is content, not a condition on the accompaniment duty.",
+   "fingerprint": "403736755d50"
+  },
+  "st-1423": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage item (b) requires instructions to include logbook contents if the logbook is not supplied with the machinery; the claim keeps that condition.",
+   "fingerprint": "fe9dd0c83b8c"
+  },
+  "st-1424": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage item (d) requires a test report on static and dynamic tests 'where appropriate'; the claim keeps that condition. Accompaniment is implied by instructions context.",
+   "fingerprint": "92a07713473a"
+  },
+  "st-1425": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage requires instructions for machinery not assembled on premises in use form; claim includes that condition. Omitted 'before first put into service' timing is manner, not scope; fits.",
+   "fingerprint": "0897544b74d2"
+  },
+  "st-1460": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "The passage is the heading '6.4. MACHINERY SERVING FIXED LANDINGS', matching the subject and point 6.4 with no conditions attached.",
+   "fingerprint": "1952c3b95f6b"
+  },
+  "st-1482": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says manufacturer must keep original EC declaration of conformity at least 10 years from last manufacture date; the claim's value matches, and the 'from last date of manufacture' start point i",
+   "fingerprint": "fb97455b89f6"
+  },
+  "st-1483": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says manufacturer must keep original declaration of incorporation at least 10 years from last manufacture date; claim states period, no exceptions attached.",
+   "fingerprint": "dfd4cd9f0f47"
+  },
+  "st-1488": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Annex IV heading says categories of machinery must apply one of the Article 12(3) and (4) procedures; claim matches with no extra conditions.",
+   "fingerprint": "ef30121180c2"
+  },
+  "st-1489": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage lists presses incl. press-brakes for cold working of metals with the stated loading and travel/speed conditions; claim carries all conditions, value is a faithful shortened excerpt.",
+   "fingerprint": "ace4cd350be8"
+  },
+  "st-1490": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists injection or compression plastics-moulding machinery with manual loading or unloading as item 10 in Annex IV; claim keeps that condition.",
+   "fingerprint": "dc53677f79dc"
+  },
+  "st-1491": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage item 8 in Annex IV lists 'Portable chainsaws for woodworking'; no exceptions or conditions attached, claim has none.",
+   "fingerprint": "3a0315ea2233"
+  },
+  "st-1492": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists these trucks in Annex IV, point 13, and the claim retains the condition 'incorporating a compression mechanism'.",
+   "fingerprint": "186bbec10a36"
+  },
+  "st-1493": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage item 16 in Annex IV lists 'Vehicle servicing lifts'; no exception or condition attached; claim has none.",
+   "fingerprint": "6fd579a39110"
+  },
+  "st-1494": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists these lifting devices in Annex IV point 17 with the fall-hazard condition over three metres, which the claim retains.",
+   "fingerprint": "8105cd7e3205"
+  },
+  "st-1495": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage lists 'Protective devices designed to detect the presence of persons' as item in Annex IV, with no conditions attached; claim matches.",
+   "fingerprint": "c2f925f0083f"
+  },
+  "st-1496": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.82,
+   "why": "Passage lists 'Logic units to ensure safety functions' as item 21 in Annex IV, with no conditions attached; claim matches, though part/point isn't specified.",
+   "fingerprint": "5f468c6da8bb"
+  },
+  "st-1497": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage lists 'Roll-over protective structures (ROPS)' as item 22 in Annex IV, with no exception or condition attached.",
+   "fingerprint": "c1b64fc48294"
+  },
+  "st-1498": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage item 23 in Annex IV lists FOPS, with no exception or condition attached; the claim matches.",
+   "fingerprint": "3b7ca923f7e6"
+  },
+  "st-1499": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage lists point 16 'Two-hand control devices' in Annex V, between FOPS and point 17; no conditions attached; claim has none.",
+   "fingerprint": "0d67519bd45d"
+  },
+  "st-1500": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.82,
+   "why": "Passage lists item 10 'Emergency stop devices' in Annex V, matching the claim; no conditions attached in the passage.",
+   "fingerprint": "fea74e1bc347"
+  },
+  "st-1501": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage lists item 2 in Annex V as 'Protective devices designed to detect the presence of persons', with no conditions attached; claim matches.",
+   "fingerprint": "b91e6e402bfc"
+  },
+  "st-1502": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists point 14 'Roll-over protective structures (ROPS)' in Annex V, with no exception or condition attached.",
+   "fingerprint": "2574afeecf2d"
+  },
+  "st-1503": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Annex V passage lists item 15 as 'Falling-object protective structures (FOPS)'; no conditions attached, and claim has none.",
+   "fingerprint": "9b186f4e1395"
+  },
+  "st-1504": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage lists power-operated interlocking movable guards at point 3 of Annex V, restricted to machinery in items 9, 10, 11 of Annex IV; claim keeps that condition.",
+   "fingerprint": "87146c1730bf"
+  },
+  "st-1507": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.62,
+   "why": "Passage states at least 10 years, but measured from date of manufacture or last unit in series manufacture; claim omits this starting-point condition.",
+   "fingerprint": "918c488ebbf1"
+  },
+  "st-1519": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.85,
+   "why": "Passage states retention of certificate copy, technical file and relevant documents for 15 years from issue date; no exception or condition attached beyond the start date, which is not a restriction.",
+   "fingerprint": "a874e60d506d"
+  },
+  "st-1520": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.72,
+   "why": "Passage states retention for 15 years from date of issue; claim omits the 'from the date of issue' start point, but that is not a restriction of scope, and the retainers are not part of the claim.",
+   "fingerprint": "1d8af1c59956"
+  },
+  "st-1523": {
+   "states": "unclear",
+   "dropped_condition": "no",
+   "confidence": 0.4,
+   "why": "Passage says Annex X describes conformity assessment of Annex IV machinery manufactured using full quality assurance; it is not stated as a requirement, and it is one option.",
+   "fingerprint": "67d60ebc2233"
+  },
+  "st-1526": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says the notified body conducts periodic audits; no exception or condition attached to that duty.",
+   "fingerprint": "e54cff08bc87"
+  },
+  "st-1527": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage states full reassessment carried out every three years; no exception or condition attached to that sentence.",
+   "fingerprint": "44d635d0890e"
+  },
+  "st-1551": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says equipment must be accompanied, ove necessario, by instructions for use and maintenance booklet; claim keeps 'ove necessario'.",
+   "fingerprint": "596c4bb24c5b"
+  },
+  "st-1563": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.93,
+   "why": "Passage says controls under letters a) and b) must be carried out by a competent person; no exceptions or conditions attached.",
+   "fingerprint": "6bd8938e36c6"
+  },
+  "st-1565": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says results of checks must be kept, at least those of the last three years; the claim's condition reproduces this scope, with no omitted exceptions.",
+   "fingerprint": "23e50ff055d1"
+  },
+  "st-1566": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.9,
+   "why": "Passage says work equipment under comma 8 used outside the site must be accompanied by a document attesting last positive check; claim keeps the condition.",
+   "fingerprint": "a370934bdd90"
+  },
+  "st-1567": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage says employer uses INAIL for first verification, but the following sentence allows other bodies if 45 days lapse without action; claim omits this.",
+   "fingerprint": "5efb4c3b9532"
+  },
+  "st-1568": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says INAIL performs the first verification within forty-five days of the request; the claim has no extra conditions omitted beyond that.",
+   "fingerprint": "e5bdd6fa7582"
+  },
+  "st-1569": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.82,
+   "why": "Passage says after the 45 days lapse unused, employer may choose other qualified public or private bodies; the claim keeps the lapse condition, and the comma 13 procedure is manner, not scope.",
+   "fingerprint": "a6714e34635c"
+  },
+  "st-1570": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says successive verifiche are done by ASL on employer's free choice; the claim's condition matches, and the other alternatives don't negate ASL.",
+   "fingerprint": "a63257cd52fe"
+  },
+  "st-1571": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.88,
+   "why": "Passage says successive verifiche are carried out by ARPA where regional law provides; claim includes that condition. The employer's free choice is not a restriction.",
+   "fingerprint": "7badaad8fdd6"
+  },
+  "st-1576": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.5,
+   "why": "Passage says the decree setting the modalities is to be adopted within twelve months of the decree's entry into force; the claim omits the starting-point condition and concerns decree adoption, not a ",
+   "fingerprint": "b5bf23d34f6d"
+  },
+  "st-1578": {
+   "states": "yes",
+   "dropped_condition": "no",
+   "confidence": 0.8,
+   "why": "Passage says the Fire Brigade may directly perform comma 11 periodic checks on Annex VII equipment it owns or has on loan; the claim's condition reproduces this scope.",
+   "fingerprint": "222d5d1f0f04"
+  },
+  "st-1583": {
+   "states": "yes",
+   "dropped_condition": "yes",
+   "confidence": 0.72,
+   "why": "Passage requires keeping the self-certification for the whole rental or concession; claim says rental only, omitting 'o della concessione' alternative.",
+   "fingerprint": "741eb59ee92d"
+  }
+ }
+}

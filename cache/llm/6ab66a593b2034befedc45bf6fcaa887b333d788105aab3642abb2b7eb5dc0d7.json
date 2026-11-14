@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 27\n\n[0] PROJECT PLANNING 5 o tI = processing time for the selected switching type in milliseconds (ms) O Local control input:\n[1] tI = 12 ms 2.\n[2] Calculate how much time is available in the response time for switching between monitoring cases:\n[3] tCSA = (n – nCS) × tS where:\n[4] o tCSA = time available for switching between monitoring cases in milliseconds (ms) o n = Multiple sampling setting (default:\n[5] n = 2) o nCS = multiple sampling after switching between monitoring cases (with set- ting Fast (presetting):\n[6] nCS = 1, with setting Reliable:\n[7] nCS = n – 1, with setting User-defined:\n[8] nCS ≤ n – 1) o tS = scan cycle time in milliseconds (ms) 3.\n[9] Compare whether there is enough time available for switching between monitoring cases:\n[10] o If tCSA ≥ tCSR:\n[11] earlier start is not necessary.\n[12] o If tCSA < tCSR:\n[13] switching between monitoring cases must start earlier.\n[14] Required time advance tCSP:\n[15] tCSP = tCSR – tCSA Complementary information O In some cases, it is not possible to define when to switch (for example because processing times of the machine vary) or the time advance means that the moni- toring of an area finishes too early.\n[16] Remedial measures:\n[17] o Allow both protective fields to partially overlap.\n[18] o Temporarily monitor both hazardous areas simultaneously.\n[19] Further topics O \"Input delay\", page 89 5.3.5 Minimum distance for stationary applications Overview The protective field must be designed to recognize a person, at the latest,\n[20] when he or she reaches the minimum distance from the hazardous point The minimum distance means that the dangerous state can be ended in good time before the person reaches the hazardous point.\n[21] Minimum distance for stationary applications The calculation of the minimum distance is based on international or national standards and statutory requirements applicable at the place of installation of the machine.\n[22] If the minimum distance is calculated according to ISO 13855:2010, then it depends on the following points:\n[23] O Machine stopping time (time interval between triggering the sensor function and the end of the machine’s dangerous state, if necessary including signal propaga- tion times in the network and processing time in the control)\n[24] O Response time of the protective device O Reach or approach speed of the person O Resolution (detection capability) of the safety laser scanner O Type of approach:\n[25] parallel for hazardous area protection, orthogonal for hazardous area protection and access protection O Switching time between monitoring cases 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 27 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "minimumDistanceRule | nanoScan3 safety laser scanner, stationary applications | then it depends on the following points | then it depends on the following points | If the minimum distance is calculated according to ISO 13855:2010 | 22 | 22\nminimumDistanceRule | nanoScan3 safety laser scanner, protective field placement | must be designed to recognize a person, at the latest, when he or she reaches the minimum distance from the hazardous point | must be designed to recognize a person, at the latest, when he or she reaches the minimum distance from the hazardous point | | 19 | 20\nOPEN | required time advance for switching between monitoring cases, formula only | 14 | 15",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1373,
+   "prompt_tokens": 2654,
+   "total_tokens": 4027,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1148,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009519,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009519,
+   "gateway_cost": 0.0009519
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 37\n\n[0] Original-EG-Konformitätserklärung Original EC Declaration of Conformity CE364501-de-en MAHA SE & Co.\n[1] KG erklärt hiermit als Hersteller in alleiniger Verantwor- herewith declares as a manufacturer its sole respon- tung, dass nachstehend bezeichnetes Produkt in sibility to ensure that the product named hereafter Konzeption und Bauart den grundlegenden Sicher- meets the safety and health regulations both in de- heits-\n[2] und Gesundheitsanforderungen der hier ge- sign and construction required by the directives nannten Richtlinien entspricht.\n[3] stated below.\n[4] Bei Änderungen am Produkt, die nicht von oben ge- This declaration becomes void if any change is nannter Firma genehmigt wurden, verliert diese Er- made to the product that was not approved by klärung ihre Gültigkeit.\n[5] named company beforehand.\n[6] Typ | Model Serialnummer | Serial Number MA STAR 3.5 A STOCK .........................\n[7] VP 251230 MA STAR 3.5 S STOCK .........................\n[8] VP 251231 MA STAR 3.5 A.........................................\n[9] VP 251232 MA STAR 3.5 S .........................................\n[10] VP 251233 MA STAR 3.5 A BMW ............................\n[11] VP 251234 MA STAR 3.5 A MB.................................\n[12] VP 251235 VAS 771 043 (MA STAR 3.5 A) ..........\n[13] VP 251236 MA STAR 5.5 STOCK .............................\n[14] VP 451186 MA STAR 5.5 .............................................\n[15] VP 451187 MA STAR 5.5 MB .....................................\n[16] VP 451188 VAS 771 045 (MA STAR 5.5) ..............\n[17] VP 451192 MA STAR 6.5 STOCK .............................\n[18] VP 451189 MA STAR 6.5 .............................................\n[19] VP 451190 MA STAR 6.5 MB .....................................\n[20] VP 451194 Bezeichnung | Designation Zwei-Säulen-Hebebühne Two Post Lift Richtlinien | Directives 2006/42/EG 2006/42/EC 2014/53/EU 2014/53/EU Normen | Standards EN 1493:2022 EN 60204-1:2018 EN ISO 13849-1:2023 Bevollmächtigter für die Zusammenstellung der technischen Unterlagen Person Authorised to Compile the\n[21] Technical File Ralf Kerkmeier • MAHA SE & Co.\n[22] KG • Hoyen 20 • 87490 Haldenwang • Germany Haldenwang, 2025-11-17 Dr.\n[23] Peter Geigle Geschäftsführer | Managing Director MAHA SE & Co.\n[24] KG · Hoyen 20 · 87490 Haldenwang · Germany ☎ +49 8374 585-0 ·  maha@maha.de ·  maha.de"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasDeclaration | MA STAR two-post lift | Original EC Declaration of Conformity | declaration of conformity | | 0 | 0\nconformsToStandard | MA STAR two-post lift | 2006/42/EG | 2006/42/EG | | 20 | 20\nconformsToStandard | MA STAR two-post lift | 2014/53/EU | 2014/53/EU | | 20 | 20\nconformsToStandard | MA STAR two-post lift | EN 1493:2022 | EN 1493:2022 | | 20 | 20\nconformsToStandard | MA STAR two-post lift | EN 60204-1:2018 | EN 60204-1:2018 | | 20 | 20\nconformsToStandard | MA STAR two-post lift | EN ISO 13849-1:2023 | EN ISO 13849-1:2023 | | 20 | 20\nOPEN | declaration void after unapproved product change | 4 | 5",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1440,
+   "prompt_tokens": 2762,
+   "total_tokens": 4202,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1121,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009962,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009962,
+   "gateway_cost": 0.0009962
+  }
+ }
+}

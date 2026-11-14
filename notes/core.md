@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 14:35_
+_Aggiornato: 14:58_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -19,7 +19,17 @@ _Aggiornato: 14:35_
 
 - **14:35 — cinque strati, tutti con documenti reali**: 5195 pezzi. Legge 4415 (ora anche l'Allegato VII, una riga per pezzo, 29 righe con le condizioni di tipo, settore ed età, e il DM in `data/law/`). Indicazioni di enti pubblici 58 (`inail-guide`, `robot-cell-sheet`: la scheda «Isola robotizzata» dice che l'area va delimitata tenendo conto della massima estensione delle macchine: è la regola della zona). Costruttore 681. Azienda 32 (`unict-guideline`, `univpm-guideline`: linee guida reali sulla gestione delle attrezzature). Stabilimento 9 (`igea-equipment`: l'elenco reale dei 24 apparecchi di sollevamento di IGEA S.p.A., area mineraria di Monteponi, con tipo, portata, matricola INAIL e anno di costruzione; **senza** date di ultima verifica). Registro in `atlas/corpus/incoming/documents.csv` (link, impronta, strato); i PDF stanno in `runtime/docs/`, fuori da git.
 
+- **14:58 — sei lavori in parallelo, cinque finiti e pushati:**
+  - **Fatti dagli altri strati** (`ontology/B/parts/`): costruttore 481 fatti correnti (i tuoi 4 manuali; 15 delle tue 17 citazioni ritrovate: mancano la dichiarazione CE del MA STAR e la sua data), indicazioni 144, azienda 111, stabilimento 73 (i 24 apparecchi reali di IGEA), più Allegato VII (39 fatti, per codice) e DM 11/4/2011. Costo circa 0,30 dollari.
+  - **La domanda guida ha risposta:** `atlas/ontology/rules.py` → `verification_interval(device, annex_facts, on)` sceglie la riga dell'Allegato VII per tipo, portata, settore ed età: 23 apparecchi su 24 decisi (quasi tutti annuali; il carroponte del 2017 biennale), il 24 «non lo so». Ipotesi dichiarate: gru su autocarro e autogru = mobili; carroponte, cavalletto e paranchi = fissi; settore estrattivo per tutti.
+  - **60 contro 45 giorni:** il fatto del DM è `conflict` verso quello dell'art. 71 c. 11.
+  - **Documento che cambia:** `api.propose_change(Path(rettifica))` dà 9 modifiche con citazione; `api.apply_change(cs, accepted)`; per il prima/dopo `atlas.ontology.change.store_before(cs)` / `store_after(cs, accepted)` e `change.reopen(cs)` per partire dal «prima».
+  - **Strati:** ogni fatto ha `layer`; ordine fine dentro la legge; `settle(a, b)` dà chi vince e perché; nel Turtle `pa:layer` e il vincolo della zona protetta (SHACL-SPARQL).
+  - **Secondo lettore** (`atlas/ontology/verify.py`, modello diverso dall'estrattore): 345 fatti riletti, 228 passano, 117 tornano indietro (87 condizione persa, 23 non detto dal testo, 7 incerti). Non ancora applicato alle risposte: prima misuro il punteggio con e senza. Costo 1,16 dollari.
+  - **Registro delle fonti:** `atlas/corpus/incoming/chunks_registry.csv`, 5195 pezzi con impronta.
+
 ## In corso
+- Correzione del passo di risposta (CQ10 e le domande «quali») e una pagina che mostra il grafo e come cambia nel tempo (`ontology/B/view.html`).
 - **13:41 — run completo della strategia B** su Regolamento, Direttiva e D.Lgs. 81/08 (773 passaggi, senza i considerando). Stima scritta prima di lanciare: 773 chiamate a `anthropic/claude-haiku-5.5`, circa 0,65 M token in ingresso e 0,85 M in uscita, cioè meno di 1 dollaro ai prezzi del gateway (0,10 e 0,50 dollari per milione). La pilota su 12 passaggi: 39 fatti proposti, 37 ancorati, 2 rifiutati; la rettifica chiude 8 fatti e ne apre 8 corretti (es. abrogazione della Direttiva dal 14 al 20/1/2027).
 - Strategia B sul registro dei fatti, export Turtle, agente su CQ09–CQ10 (la rettifica).
 
@@ -43,6 +53,8 @@ _Aggiornato: 14:35_
 
 - 14:35 — **Proposta per il gold: il caso IGEA come caso principale.** «Per ciascuno dei 24 apparecchi di IGEA: ogni quanto va verificato, da chi, ed entro quanti giorni dalla richiesta?» La risposta incrocia la riga giusta dell'Allegato VII (tipo fisso o mobile, settore estrattivo, più o meno di 10 anni) con tipo e anno dell'elenco IGEA. «È scaduto oggi?» resta «non lo so»: le date non ci sono. La cella robotizzata resta la seconda scena. La scheda IGEA cita l'art. 71 c. 11 «modificato dalla Legge 98 del 9 agosto 2013»: probabile risposta alla tua domanda su chi ha portato il termine da 60 a 45 giorni [non verificato sul testo della legge].
 - 14:35 — Per vedere questi pezzi sulla tua macchina servono i PDF in `runtime/docs/`: gli indirizzi sono in `documents.csv`. Se vuoi, aggiungo uno script che li scarica come il tuo `fetch.py`.
+
+- 14:58 — **Onestà sulla misura:** l'estrazione sugli strati nuovi è partita prima che esistessero domande tenute da parte su quei documenti. Se le scrivi ora, scrivile dai documenti e non dai fatti in `ontology/B/parts/`, e il tabellone dovrebbe dirlo.
 
 ## Bloccato
 - Manca `.env` con la chiave del team: nessuna chiamata a un modello finora.

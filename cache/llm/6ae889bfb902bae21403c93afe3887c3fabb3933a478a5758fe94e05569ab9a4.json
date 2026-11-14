@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: mastar-manual, p. 14\n\n[0] 3.5 Storage The packages must be stored in a covered location and protected from direct sunlight.\n[1] They must be stored at low humidity and at a temperature between 0 °C and +40 °C.\n[2] The lifts may only be stacked in the original transport racks, the max.\n[3] stacking height is two transport racks (see also section “Transport and handling”).\n[4] Packaging waste must be disposed of in accordance with applicable environmental regulations.\n[5] 4 Operation 4.1 Safety Instructions WARNING • Observe the detailed operating instructions.\n[6] • Comply with legal accident prevention regulations.\n[7] • Wear personal protective equipment.\n[8] • Perform a visual and functional check before starting work each day.\n[9] • Defects must be corrected immediately in a competent manner.\n[10] • The permissible load capacity according to the type plate must not be ex- ceeded.\n[11] • Only vehicles suitable for the lifting equipment due to their shape and the positioning of their pick-up points may be lifted.\n[12] • Operation of the lift is only permissible with mounted and intact protective covers and safety devices.\n[13] • Never touch moving parts.\n[14] • Never use additional lifting gear for an already raised load.\n[15] • Before driving a vehicle onto the lift, the support arms must be in their low- ered starting position and moved backwards completely.\n[16] Otherwise dama- ge to the equipment may occur.\n[17] • Driving onto the lift should be at walking pace only and as close to the cen- tre of the columns as possible.\n[18] • Vehicles may only be lifted with support arm locks intact and undamaged support discs.\n[19] Risk of vehicle falling and causing personal injury.\n[20] • Support disc raisers may only be used in their single form.\n[21] A combination of support plate elevations per support plate/arm is not permitted.\n[22] • Maintain a safe distance from the vehicle and lift in all directions.\n[23] • Keep the movement range of the load and lift free from obstacles.\n[24] Use a guide if visibility is restricted.\n[25] • The vehicle doors must be closed during lifting and lowering.\n[26] 14 BA364501-en"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "requiresPeriodicCheck | visual and functional check | each day | P1D | before starting work | 8 | 8\nmaintenanceRule | defects | must be corrected immediately in a competent manner | must be corrected immediately in a competent manner | | 9 | 9\nputIntoServiceOnlyWhen | the lift | only permissible with mounted and intact protective covers and safety devices | only permissible with mounted and intact protective covers and safety devices | | 12 | 12\nOPEN | load limit refers to type plate, no numeric value | 10 | 10",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1731,
+   "prompt_tokens": 2435,
+   "total_tokens": 4166,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1546,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001109,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001109,
+   "gateway_cost": 0.001109
+  }
+ }
+}

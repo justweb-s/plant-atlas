@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur10e-manual, p. 9\n\n[0] 10.2.\n[1] Safety-related Functions and Interfaces 113 10.2.1.\n[2] Passwords 113 10.2.2.\n[3] Setting a Software Safety Password 117 10.2.3.\n[4] Configurable Safety Functions 118 10.2.4.\n[5] Safety Functions 120 10.2.5.\n[6] Safety Parameter Set 121 10.3.\n[7] Software Safety Configuration 123 10.3.1.\n[8] Changing the Software Safety Configuration 125 10.3.2.\n[9] Applying a New Software Safety Configuration 125 10.3.3.\n[10] Safety Configuration without Teach Pendant 126 10.3.4.\n[11] Software Safety Modes 127 10.3.5.\n[12] Software Safety Limits 127 10.3.6.\n[13] Safe Home Position 133 10.4.\n[14] Software Safety Restrictions 135 Copyright © 2009–2025 by Universal Robots A/S.\n[15] All rights reserved.\n[16] 10.4.1.\n[17] Tool Direction Restriction 142 10.4.2.\n[18] Tool Position Restriction 144 11.\n[19] The First Program 148 11.1.\n[20] Run Tab 150 11.2.\n[21] Move Robot into Position 152 11.3.\n[22] Using the Program Tab 154 11.4.\n[23] Program Tree Toolbar 156 11.5.\n[24] Using Selected Program Nodes 157 11.6.\n[25] Using Basic Program Nodes 158 11.7.\n[26] Basic Program Nodes:\n[27] Move 158 11.8.\n[28] Basic Program Nodes:\n[29] Waypoints 164 11.9.\n[30] Using the Move Tab 165 11.10.\n[31] Pose Editor 168 12.\n[32] Cybersecurity Threat Assessment 170 12.1.\n[33] General Cybersecurity 170 12.2.\n[34] Cybersecurity Requirements 170 12.3.\n[35] Cybersecurity Hardening Guidelines 172 13.\n[36] Communication Networks 173 13.1.\n[37] MODBUS 174 13.2.\n[38] EtherNet/IP 178 13.3.\n[39] PROFINET 178 13.4.\n[40] PROFIsafe 179 13.5.\n[41] UR Connect 185 14.\n[42] Risk Assessment 186 14.1.\n[43] Pinch Hazard 189 User Manual UR10e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "NONE",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 41,
+   "prompt_tokens": 2563,
+   "total_tokens": 2604,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 36,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0002768,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0002768,
+   "gateway_cost": 0.0002768
+  }
+ }
+}

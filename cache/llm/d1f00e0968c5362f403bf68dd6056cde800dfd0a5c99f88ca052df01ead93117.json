@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one passage of law. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the passage states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans (a few words, not the whole span).\n- \"value_normalised\": ISO date (2027-01-20), ISO duration (P10Y, P45D), or the same words in lower case.\n- \"subject\": the thing the fact is about, in a few words taken from the passage.\n- \"condition\": if the spans state a condition, exception or scope (if, where, unless, except, provided that,\n  only for, salvo, qualora), copy it from the spans; otherwise \"\".\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Dates, time limits and who must do what come first. At most 12 facts. At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the passage states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- requiresProcedure: MachineryCategory -> ConformityProcedure; the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- listedIn: MachineryCategory -> Provision; a category of machinery or safety component and the annex, part and point that lists it\n- appliesFrom: Act -> date; the date from which an act or a provision applies\n- repealedFrom: Act -> date; an act that is repealed and the date from which the repeal has effect\n- placingAllowedUntil: Machinery -> date; until when products conforming to an earlier act may still be placed on the market\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition\n- mustAccompany: Machinery -> Document; what must accompany the machinery or product\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- becomesManufacturer: EconomicOperator -> text; who is considered the manufacturer, and in which case\n- addressesRisk: EssentialRequirement -> Risk; the risk a numbered essential requirement addresses\n- requiresMeasure: EssentialRequirement -> ProtectiveMeasure; the guard, protective device or measure a requirement asks for\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request"
+   },
+   {
+    "role": "user",
+    "content": "Passage: DM2011, art. 2, c. 2\n\n[0] 2.\n[1] All'atto della richiesta di verifica, il datore di lavoro indica il nominativo del soggetto abilitato, pubblico o privato, del quale il soggetto titolare della funzione si avvale laddove non sia in grado di provvedere direttamente con la propria struttura o a seguito degli accordi di cui al comma 3 nei termini temporali di cui al comma 1.\n[2] 3.\n[3] L'INAIL e le ASL o le Agenzie Regionali Protezione Ambiente (di seguito, ARPA), nelle regioni ove sono state attribuite loro le funzioni in virtu' di provvedimenti locali emanati ai sensi del decreto-legge 4 dicembre 1993, n.\n[4] 496, convertito in legge, con modificazioni, dalla legge 21 gennaio 1994, n.\n[5] 61, possono provvedere direttamente alle verifiche di cui all'articolo 71, comma 11, del decreto legislativo n.\n[6] 81/2008, anche mediante accordi tra di loro o con le Direzioni Provinciali del Ministero del lavoro e delle politiche sociali (di seguito, DPL), nel rispetto dei principi di economicita' previsti per la pubblica amministrazione oppure possono avvalersi di soggetti pubblici o privati abilitati e iscritti nell'elenco di cui al comma 4.\n[7] 4.\n[8] Per le finalita' di cui all'articolo 71, comma 12, del decreto legislativo n.\n[9] 81/2008, presso l'INAIL e presso le ASL e' inoltre istituito un elenco di soggetti abilitati, pubblici o privati, di cui i titolari della funzione si possono avvalere ai sensi dell'articolo 1.\n[10] Ove previsto da apposito provvedimento regionale, l'elenco di cui al periodo precedente puo' essere istituito, anziche' presso le singole ASL, su base regionale.\n[11] 5.\n[12] Qualunque soggetto abilitato e' iscritto a domanda nell'elenco.\n[13] Il soggetto titolare della funzione ha faco1ta' di segnalare alla Commissione di cui all'allegato III, che e' parte integrante del presente decreto, per i successivi ed eventuali adempimenti, la sussistenza di motivi di possibile esclusione.\n[14] Con l'iscrizione all'elenco, il soggetto abilitato si impegna al rispetto dei termini temporali di cui al comma l.\n[15] 6.\n[16] L'elenco di cui al comma precedente e' messo a disposizione dei datori di lavoro, a cura del titolare della funzione, per l'individuazione del soggetto di cui avvalersi.\n[17] 7.\n[18] I soggetti abilitati, pubblici o privati, presenti nell'elenco di cui al comma 4, devono far parte dell'elenco previsto nell'allegato III.\n[19] 8.\n[20] Decorsi i termini temporali di cui al comma l, il datore di lavoro puo' avvalersi dei soggetti abilitati, pubblici o privati, di cui all'elenco previsto nell'allegato III.\n[21] 9.\n[22] I soggetti abilitati, pubblici o privati, devono essere in possesso dei requisiti riportati nell'allegato I, che e' parte integrante del presente decreto."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "hasObligation | datore di lavoro | il datore di lavoro indica il nominativo | il datore di lavoro indica il nominativo | laddove non sia in grado di provvedere direttamente con la propria struttura | 1 | 1\nhasObligation | soggetto abilitato | si impegna al rispetto dei termini temporali | si impegna al rispetto dei termini temporali | | 14 | 14\nhasObligation | soggetti abilitati | devono essere in possesso dei requisiti | devono essere in possesso dei requisiti | | 22 | 22\nhasObligation | titolare della funzione | messo a disposizione dei datori di lavoro | messo a disposizione dei datori di lavoro | | 16 | 16\nhasObligation | datore di lavoro | puo' avvalersi dei soggetti abilitati | puo' avvalersi dei soggetti abilitati | Decorsi i termini temporali di cui al comma l | 20 | 20\nOPEN | time limits of comma 1 not stated in this passage | 1 | 1",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1857,
+   "prompt_tokens": 2173,
+   "total_tokens": 4030,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1504,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0011458,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0011458,
+   "gateway_cost": 0.0011458
+  }
+ }
+}

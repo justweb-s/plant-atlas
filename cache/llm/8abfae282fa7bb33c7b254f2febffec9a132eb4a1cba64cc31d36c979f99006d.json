@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: robot-cell-sheet, p. 5\n\n[0] 2.\n[1] Sicurezza | EBER | EBAM | INAIL | Reg.\n[2] Emilia Romagna | Reg.\n[3] Marche | 4.\n[4] Principali macchine 2.4.16.4 IGIENE DEL LAVORO Emissioni A seconda del tipo di lavorazione eseguita deve essere effettuata una attenta valutazione del rischio al fine di definire la necessità di dotare o meno la macchina di un idoneo impianto di aspirazione localizzata (vedi 3.6 “Impianti di ventilazione e aspirazione\n[5] localizzata”).\n[6] Rumore Informarsi sul livello di esposizione personale relativo all’utilizzo della macchina e attenersi alle indicazioni del datore di lavoro.\n[7] 2.4.16.5 DISPOSITIVI DI PROTEZIONE INDIVIDUALE Deve essere fatta una attenta valutazione sulle lavorazioni per poi definire la necessità e le modalità di uti- lizzo dei DPI nelle varie fasi di programmazione, manutenzione, utilizzo, ecc.:\n[8] Guanti (vedi 5.6.4 “Guanti di protezione contro rischi meccanici”) contro il rischio meccanico.\n[9] Scarpe antinfortunistiche (vedi 5.7 “Dispositivi di protezione dei piedi”) con puntale di protezione (S1) (vedi 5.7.2.1 “Identificazione dele caratteristiche delle calzature di sicurezza”).\n[10] Protettori per l’udito (vedi 5.3 “Dispositivi di protezione dell’udito”).\n[11] 2.4.16.6 ISTRUZIONI PER L’USO La macchina deve essere corredata di manuale, in lingua italiana per il corretto uso e la manutenzione, com- prendente un programma d’ispezioni periodiche.\n[12] 2.4.16.7 AZIONI PER LA SICUREZZA E L’IGIENE DEL LAVORO Programmazione • La programmazione deve essere affidata solo a personale qualificato e specificatamente addestrato.\n[13] • Durante la programmazione si deve verificare visivamente l’isola robotizzata e lo spazio protetto per garantire che non sussistano condizioni di pericolo.\n[14] • Prima di utilizzare l’unità portatile questa deve essere provata per accertarne il corretto funzionamento.\n[15] • Ogni guasto o inconveniente deve essere rimosso prima di iniziare la programmazione.\n[16] • La programmazione deve avvenire senza che nessuno si trovi all’interno dello spazio protetto.\n[17] • Se ciò fosse impossibile, possono essere sospese provvisoriamente alcune protezioni a condizione che vengano automaticamente adottati altri criteri di sicurezza (unità portatile, ecc.) • Prima di entrare nello spazio protetto il programmatore deve verificare che tutte le protezioni siano presenti e funzionanti.\n[18] Prodotto distribuito gratuitamente per diffondere la cultura della sicurezza all’interno delle imprese.\n[19] 180"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "safeguardedSpaceRule | isola robotizzata | nessuno si trovi all’interno dello spazio protetto | nessuno si trovi all’interno dello spazio protetto | | 16 | 16\nsafeguardedSpaceRule | isola robotizzata | sospese provvisoriamente alcune protezioni | sospese provvisoriamente alcune protezioni | a condizione che vengano automaticamente adottati altri criteri di sicurezza | 17 | 17\nrequiresCheckAfter | protezioni dello spazio protetto | Prima di entrare nello spazio protetto | prima di entrare nello spazio protetto | | 17 | 17\nrequiresCheckAfter | unità portatile | Prima di utilizzare l’unità portatile | prima di utilizzare l’unità portatile | | 14 | 14\nrequiresCheckAfter | isola robotizzata e spazio protetto | Durante la programmazione | durante la programmazione | | 13 | 13\nhasObligation | macchina | deve essere corredata di manuale, in lingua italiana | deve essere corredata di manuale, in lingua italiana | | 11 | 11\nOPEN | interval of periodic inspection programme not stated | 11 | 11",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2971,
+   "prompt_tokens": 2815,
+   "total_tokens": 5786,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 2555,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001767,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001767,
+   "gateway_cost": 0.001767
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You fill a fixed schema from one page of a technical document about machines at work: a manufacturer's\nmanual (robot arm, safety laser scanner, vehicle lift), a guidance document, or an organisation's internal\nguideline on work equipment. The page is in English or in Italian. You never write a fact in your own words.\n\nRules:\n- Use only the relations of the schema. If the page states something important that no relation\n  can hold, report it under \"open_points\" instead of forcing it into a relation.\n- Point at the spans that state the fact: \"first_span\" and \"last_span\" are span numbers, at most 3 adjacent spans.\n- \"value_as_written\" must be copied character by character from those spans, in the language of the page\n  (a few words, not the whole span). A value with a unit keeps the unit as written (\"850 mm\", \"5 kg / 11 lb\").\n- \"value_normalised\": number and unit (\"850 mm\", \"5 kg\"), ISO duration for intervals (P1Y, P6M), ISO date,\n  or the same words in lower case. Never translate.\n- \"subject\": the machine, device, check or role the fact is about, in a few words; for a manual, name the\n  product as the page names it.\n- \"condition\": if the spans state a condition, exception or scope (if, unless, except, provided that, only for,\n  se, salvo, qualora, tranne), copy it from the spans; otherwise \"\".\n- Pages of manuals are flattened tables: a label and its value stand next to each other (\"Reach 850 mm / 33.5 in\").\n  Take a value only when its label is in the same spans.\n- Never extract names of persons, signatures, addresses, phone numbers, part numbers, page headers or footers.\n- Skip tables of contents, lists of figures, pure operating steps of the software and marketing text.\n- Answer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\n  predicate | subject | value_as_written | value_normalised | condition | first_span | last_span\n- Technical limits, who is responsible, what must be checked, when and by whom come first. At most 12 facts.\n  At most one open point, as: OPEN | a note of at most 12 words | first_span | last_span\n- If the page states nothing the schema can hold, answer with the single word NONE.\n\nRelations (predicate: subject class -> value; what to copy):\n- hasReach: Machine -> Quantity; the reach or working radius of a machine, with its unit\n- hasMaxPayload: Machine -> Quantity; the maximum payload or rated load capacity of a machine, with its unit\n- isPartlyCompletedMachinery: Machine -> text; that a machine is partly completed machinery (the words that say so)\n- hasDeclaration: Machine -> Document; the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- conformsToStandard: Machine -> Standard; a standard or directive the machine is declared to conform to\n- putIntoServiceOnlyWhen: Machine -> text; the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- integratorResponsibleFor: Integrator -> text; what the integrator or the user is responsible for when the machine is built into an application\n- hasSafetyFunction: Machine -> SafetyFunction; a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: Machine -> Quantity; a stopping time, stopping distance, response time or safety limit with its unit\n- minimumDistanceRule: ProtectiveDevice -> text; the formula or rule for the minimum distance between a protective device and the hazard\n- minimumDistanceParameter: ProtectiveDevice -> Quantity; the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- protectiveFieldRange: ProtectiveDevice -> Quantity; the range or size of the protective field, with its unit\n- requiresCheckAfter: Check -> text; what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresPeriodicCheck: Check -> duration; what must be checked, tested or maintained regularly, and how often (value = the interval)\n- safeguardedSpaceRule: RoboticCell -> text; how the protected space around a robotic cell is bounded and when it may be entered\n- mustKeepRegister: Employer -> Register; a register or record that must be kept, and what goes into it\n- maintenanceRule: Check -> text; who may carry out maintenance, on what basis, or what maintenance must respect\n- hasObligation: EconomicOperator -> text; an obligation of a manufacturer, importer, distributor or employer\n- verifiedBy: PeriodicVerification -> VerifyingBody; who carries out a verification or check\n- hasTimeLimit: PeriodicVerification -> duration; the time limit or interval of a verification, check or request\n- retentionPeriod: Document -> duration; for how long a document or record must be kept, and by whom\n- definedAs: Provision -> text; a defined term and its definition"
+   },
+   {
+    "role": "user",
+    "content": "Passage: nanoscan3-manual, p. 45\n\n[0] PROJECT PLANNING 5 Complementary information O When the input signal is changed, the previous monitoring case remains active for the duration of the set switch-on delay.\n[1] If no valid input signal is present after the switch-on delay has elapsed, the behavior depends on the sequence monitoring:\n[2] o If monitoring of the switching sequence (sequence monitoring) is not acti- vated, the OSSDs switch to the OFF state after the switch-on delay has elapsed.\n[3] If a valid input signal is present within another second, the safety laser scanner activates the new monitoring case.\n[4] If no valid input signal is present within this time, the OSSDs remain in the OFF state and the safety laser scanner displays an error and must be restarted.\n[5] o If monitoring of the switching sequence (sequence monitoring) is activated, the OSSDs switch to the OFF state after the switch-on delay has elapsed and the safety laser scanner displays an error and must be restarted.\n[6] O A short-circuit or cross-circuit on one or more channels of the static control inputs can cause the wrong monitoring case to be activated.\n[7] o Some safety controllers detect the short-circuit or cross-circuit and switch off the outputs concerned or all their outputs.\n[8] o Due to the short-circuit or cross-circuit, one or more input channels of the safety laser scanner can still deliver the HIGH signal level.\n[9] This may result in a valid input signal so that a monitoring case is activated.\n[10] o For this reason, laying the cables for the input signals in a protected manner is recommended.\n[11] Otherwise, setting the switch-on delay to 0 s and activating sequence monitoring is recommended.\n[12] Carrying out regular thorough check at short intervals is also recommended.\n[13] Further topics O \"Settings for monitoring case tables\", page 88 O \"Configure switching sequence\", page 89 5.4.5.2 Dynamic control inputs Overview A dynamic control input receives speed information from an incremental encoder.\n[14] Important information WARNING Failure of both encoders due to a common cause If both encoders fail at the same time, the device will receive no speed information.\n[15] Therefore, the device switches to the monitoring case defined for standstill, although the vehicle may be moving.\n[16] → Exclude errors with a common cause in the encoders.\n[17] Prerequisites O Defects of an incremental encoder are detected.\n[18] Therefore, 2 incremental encod- ers are used which function independently of one another and transmit their sig- nals on separate pathways.\n[19] O Only a single safety laser scanner is connected to each incremental encoder.\n[20] O Each incremental encoder (with one wire each for 0° and 90°) is connected to only one control input.\n[21] O Each incremental encoder is supplied with voltage via its own supply line.\n[22] 8024596/1W27/2026-05-26 | SICK nanoScan3 I/O 45 SUBJECT TO CHANGE WITHOUT NOTICE"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 4000
+ },
+ "response": {
+  "text": "OPEN | regular thorough check recommended at short intervals, no interval given | 12 | 12",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1024,
+   "prompt_tokens": 2709,
+   "total_tokens": 3733,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 991,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007829,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007829,
+   "gateway_cost": 0.0007829
+  }
+ }
+}
