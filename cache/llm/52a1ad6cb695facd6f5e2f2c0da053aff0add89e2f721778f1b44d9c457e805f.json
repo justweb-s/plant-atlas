@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 18\n\nArticle 18 Other cases in which obligations of manufacturers apply A natural or legal person that carries out a substantial modification of machinery or a related product shall be considered to be a manufacturer for the purposes of this Regulation and shall be subject to the obligations of the manufacturer set out in Article 10 for that machinery or related product or, if the substantial modification has an impact on the safety of only machinery or a related product that is part of an assembly of machinery, for that affected machinery or related product, as demonstrated in the risk assessment. The person who carries out the substantial modification shall in particular, but without prejudice to other obligations set out in Article 10, ensure and declare on its sole responsibility that the machinery or related product concerned is in conformity with the applicable requirements of this Regulation and shall apply the relevant conformity assessment procedure as provided in Article 25 (2), (3) and (4) of this Regulation. A non-professional user who carries out a substantial modification to his or her machinery or related product, for his or her own use, shall not be considered to be a manufacturer for the purposes of this Regulation and shall not be subject to the obligations on the manufacturer set out in Article 10."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "A natural or legal person | carries out substantial modification | considered a manufacturer for purposes of this Regulation | | \"shall be considered to be a manufacturer for the purposes of this Regulation\"\nPerson carrying out substantial modification | is subject to | Article 10 manufacturer obligations for the modified machinery or related product | | \"shall be subject to the obligations of the manufacturer set out in Article 10 for that machinery or related product\"\nPerson carrying out substantial modification | is subject to | Article 10 manufacturer obligations for only the affected part of an assembly | substantial modification has an impact on the safety of only a machinery or related product that is part of an assembly, as demonstrated in the risk assessment | \"for that affected machinery or related product, as demonstrated in the risk assessment\"\nPerson carrying out substantial modification | must ensure and declare | machinery or related product is in conformity with applicable requirements of this Regulation | on its sole responsibility | \"ensure and declare on its sole responsibility that the machinery or related product concerned is in conformity with the applicable requirements of this Regulation\"\nPerson carrying out substantial modification | must apply | relevant conformity assessment procedure under Article 25(2), (3) and (4) | | \"shall apply the relevant conformity assessment procedure as provided in Article 25 (2), (3) and (4)\"\nPerson carrying out substantial modification | must comply with | Article 10 obligations in addition to conformity declaration duties | | \"but without prejudice to other obligations set out in Article 10\"\nNon-professional user | is not considered | a manufacturer for purposes of this Regulation | substantially modifies own machinery or related product for own use | \"shall not be considered to be a manufacturer for the purposes of this Regulation\"\nNon-professional user | is not subject to | Article 10 manufacturer obligations | substantially modifies own machinery or related product for own use | \"shall not be subject to the obligations on the manufacturer set out in Article 10\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1354,
+   "prompt_tokens": 581,
+   "total_tokens": 1935,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 706,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007351,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007351,
+   "gateway_cost": 0.0007351
+  }
+ }
+}

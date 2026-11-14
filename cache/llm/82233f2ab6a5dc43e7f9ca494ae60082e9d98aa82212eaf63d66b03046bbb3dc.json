@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 3.3.2\n\n3.3.2. Starting/moving All travel movements of self-propelled machinery with a ride-on driver must be possible only if the driver is at the controls. Where, for operating purposes, machinery is fitted with devices which exceed its normal clearance zone (e.g. stabilisers, jib, etc.), the driver must be provided with the means of checking easily, before moving the machinery, that such devices are in a particular position which allows safe movement. This also applies to all other parts which, to allow safe movement, have to be in particular positions, locked if necessary. Where it does not give rise to other risks, movement of the machinery must depend on safe positioning of the aforementioned parts. It must not be possible for unintentional movement of the machinery to occur while the engine is being started."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Self-propelled machinery with ride-on driver | travel movements must be possible | only if the driver is at the controls | | All travel movements of self-propelled machinery with a ride-on driver must be possible only if the driver is at the controls.\nMachinery with devices exceeding normal clearance zone | driver must be provided with | means of checking easily, before moving, that such devices are in a position allowing safe movement | devices are fitted for operating purposes and exceed the normal clearance zone (e.g. stabilisers, jib) | Where, for operating purposes, machinery is fitted with devices which exceed its normal clearance zone (e.g. stabilisers, jib, etc.), the driver must be provided with the means of checking easily, before moving the machinery, that such devices are in a particular position which allows safe movement.\nOther parts required to be in particular positions for safe movement | driver must be provided with | means of checking easily, before moving, that such parts are in a position allowing safe movement | parts have to be in particular positions for safe movement, locked if necessary | This also applies to all other parts which, to allow safe movement, have to be in particular positions, locked if necessary.\nMovement of machinery | must depend on | safe positioning of the parts referred to above | where it does not give rise to other risks | Where it does not give rise to other risks, movement of the machinery must depend on safe positioning of the aforementioned parts.\nUnintentional movement of machinery | must not be possible | while the engine is being started | | It must not be possible for unintentional movement of the machinery to occur while the engine is being started.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 920,
+   "prompt_tokens": 452,
+   "total_tokens": 1372,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 409,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005052,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005052,
+   "gateway_cost": 0.0005052
+  }
+ }
+}

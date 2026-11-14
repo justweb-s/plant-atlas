@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.3.7\n\n1.3.7. Risks related to moving parts The moving parts of the machinery or related product shall be designed and constructed in such a way as to prevent risks of contact which could lead to accidents or shall, where risks persist, be fitted with guards or protective devices. All necessary steps shall be taken to prevent accidental blockage of moving parts. In cases where, despite the precautions taken, a blockage is likely to occur, the necessary specific protective devices and tools shall, when appropriate, be provided to enable the equipment to be safely unblocked. The instructions for use and, where possible, a sign on the machinery or related product shall identify these specific protective devices and how they are to be used. The prevention of risks of contact leading to hazardous situations and the psychological stress that may be caused by the interaction with the machinery shall be adapted to: (a) human-machine coexistence in a shared space without direct collaboration; (b) human-machine interaction."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "moving parts of the machinery or related product | shall be designed and constructed | to prevent risks of contact which could lead to accidents | | shall be designed and constructed in such a way as to prevent risks of contact which could lead to accidents\nmoving parts where risks persist | shall be fitted with | guards or protective devices | where risks persist | where risks persist, be fitted with guards or protective devices\nall necessary steps | shall be taken to prevent | accidental blockage of moving parts | | All necessary steps shall be taken to prevent accidental blockage of moving parts\nnecessary specific protective devices and tools | shall be provided | to enable the equipment to be safely unblocked | a blockage is likely to occur despite the precautions taken, and when appropriate | the necessary specific protective devices and tools shall, when appropriate, be provided to enable the equipment to be safely unblocked\ninstructions for use | shall identify | specific protective devices and how they are to be used | | The instructions for use and, where possible, a sign on the machinery or related product shall identify these specific protective devices and how they are to be used\nsign on the machinery or related product | shall identify | specific protective devices and how they are to be used | where possible | where possible, a sign on the machinery or related product shall identify these specific protective devices and how they are to be used\nprevention of risks of contact and psychological stress | shall be adapted to | human-machine coexistence in a shared space without direct collaboration | | (a) human-machine coexistence in a shared space without direct collaboration\nprevention of risks of contact and psychological stress | shall be adapted to | human-machine interaction | | (b) human-machine interaction",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1034,
+   "prompt_tokens": 508,
+   "total_tokens": 1542,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 499,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005678,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005678,
+   "gateway_cost": 0.0005678
+  }
+ }
+}

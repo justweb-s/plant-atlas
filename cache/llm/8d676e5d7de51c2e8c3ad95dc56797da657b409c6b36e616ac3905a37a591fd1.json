@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 3.4.3\n\n3.4.3. Roll-over and tip-over Where, in the case of self-propelled machinery with a ride-on driver, operator(s) or other person(s), there is a risk of rolling or tipping over, the machinery must be fitted with an appropriate protective structure, unless this increases the risk. This structure must be such that in the event of rolling or tipping over it affords the ride-on person(s) an adequate deflection-limiting volume. In order to verify that the structure complies with the requirement laid down in the second paragraph, the manufacturer or his authorised representative must, for each type of structure concerned, perform appropriate tests or have such tests performed."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "self-propelled machinery with ride-on driver, operator(s) or other person(s) | must be fitted with | appropriate protective structure | where there is a risk of rolling or tipping over; unless this increases the risk | \"the machinery must be fitted with an appropriate protective structure, unless this increases the risk\"\nprotective structure | affords | adequate deflection-limiting volume to ride-on person(s) | in the event of rolling or tipping over | \"it affords the ride-on person(s) an adequate deflection-limiting volume\"\nmanufacturer or his authorised representative | must perform or have performed | appropriate tests verifying compliance of the structure | for each type of structure concerned | \"must, for each type of structure concerned, perform appropriate tests or have such tests performed\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 587,
+   "prompt_tokens": 416,
+   "total_tokens": 1003,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 337,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003351,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003351,
+   "gateway_cost": 0.0003351
+  }
+ }
+}

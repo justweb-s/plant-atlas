@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.2.4.1\n\n1.2.4.1. Normal stop The machinery or related product shall be fitted with a control device whereby the machinery can be brought safely to a complete stop. Each workstation shall be fitted with a control device to stop some or all of the functions of the machinery or related product, depending on the existing hazards, so that the machinery or related product is rendered safe. The machinery or related product’s stop control shall have priority over the start controls. Once the machinery or related product or its hazardous functions have stopped, the energy supply to the actuators concerned shall be cut off."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related product | shall be fitted with | a control device whereby the machinery can be brought safely to a complete stop | | The machinery or related product shall be fitted with a control device whereby the machinery can be brought safely to a complete stop.\nEach workstation | shall be fitted with | a control device to stop some or all functions of the machinery or related product | depending on the existing hazards, so that the machinery is rendered safe | Each workstation shall be fitted with a control device to stop some or all of the functions of the machinery or related product, depending on the existing hazards, so that the machinery or related product is rendered safe.\nMachinery or related product's stop control | shall have priority over | start controls | | The machinery or related product's stop control shall have priority over the start controls.\nEnergy supply to the actuators concerned | shall be cut off | energy supply to actuators | once the machinery or related product or its hazardous functions have stopped | Once the machinery or related product or its hazardous functions have stopped, the energy supply to the actuators concerned shall be cut off.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 756,
+   "prompt_tokens": 384,
+   "total_tokens": 1140,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 418,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004164,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004164,
+   "gateway_cost": 0.0004164
+  }
+ }
+}

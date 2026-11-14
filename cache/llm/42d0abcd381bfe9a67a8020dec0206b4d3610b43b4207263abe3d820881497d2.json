@@ -15,12 +15,12 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"The question asks how often the wear indicator of the load nut of the MA STAR 3.5 A vehicle lift must be checked. Fact [0] states the load nut's wear indicator requires a periodic check every 6 months (P6M), sourced from the MA STAR manual p. 34. Fact [1] adds a check when the wear limit is reached, which is a condition-based check rather than the periodic interval asked for. No fact is conditioned on the 3.5 A model specifically, but the MA STAR manual covers this lift and the load nut wear indicator fact is the exact subject asked about. Today's date does not change the answer since no date-dependent condition applies.\", \"kind\": \"duration\", \"value\": \"P6M\", \"text\": \"The wear indicator of the load nut must be checked every 6 months (P6M), according to the MA STAR manual p. 34; it must also be checked when the wear limit is reached.\", \"used\": [0, 1]}",
+  "text": "{\"reasoning\": \"The question asks how often the wear indicator of the load nut of the MA STAR 3.5 A vehicle lift must be checked. Fact [0] gives a periodic check of the load nut's wear indicator every 6 months (P6M), from the MA STAR manual p. 34. Fact [1] gives a check when the wear limit is reached, which is an event-based trigger rather than the periodic interval asked for. The other periodic-check facts concern different components or general lifting equipment and do not answer the question. The question asks for a single interval, so the answer is the 6-month periodic check.\",\"kind\": \"text\",\"value\": \"Every 6 months (P6M), and also when the wear limit is reached.\",\"text\": \"The load nut's wear indicator must be checked every 6 months (per the MA STAR manual, p. 34), and additionally when the wear limit is reached.\",\"used\": [0, 1]}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 310,
+   "completion_tokens": 291,
    "prompt_tokens": 8513,
-   "total_tokens": 8823,
+   "total_tokens": 8804,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.0010063,
+   "cost": 0.0009968,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.0010063,
-   "gateway_cost": 0.0010063
+   "market_cost": 0.0009968,
+   "gateway_cost": 0.0009968
   }
  }
 }

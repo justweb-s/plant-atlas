@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"The only facts on protection against corruption are REG Annex III 1.1.9 facts. Fact 0 requires software and data critical for compliance to be adequately protected against accidental or intentional corruption, under the condition that they are critical for compliance with the relevant essential health and safety requirements. Fact 21 requires a hardware component transmitting signal or data to be adequately protected in the same way, where it is relevant for connection or access to such critical software. No DIR (Directive) fact addresses corruption, so both REG facts are new relative to the Directive. Facts 50-52 concern evidence collection and information provision, not protection against corruption, so they are excluded.\", \"kind\": \"set\", \"value\": [\"software and data critical for compliance (1.1.9): adequately protected against accidental or intentional corruption\", \"hardware component transmitting signal or data (1.1.9): adequately protected against accidental or intentional corruption\"], \"text\": \"The Regulation's Annex III, point 1.1.9 introduces the requirement that software and data critical for compliance be adequately protected against accidental or intentional corruption, and that a hardware component transmitting signal or data be similarly protected where it is relevant for connection or access to such software. The Directive has no corresponding requirement.\", \"used\": [0, 21]}",
+  "text": "{\"reasoning\": \"The question asks for an essential requirement on protection against corruption that appears in the Regulation but not the Directive. The corruption-protection facts are all filed under REG, Annex III, point 1.1.9: fact [0] (software and data critical for compliance must be adequately protected against accidental or intentional corruption) and fact [21] (a hardware component transmitting signals or data must be adequately protected in the same way). Facts [50], [51] and [52] are also under 1.1.9 and concern evidence of interventions and information on installed software. No Directive (DIR) fact covers corruption or software integrity, so point 1.1.9 is absent from the Directive. Today's date does not affect this answer.\", \"kind\": \"text\", \"value\": \"Annex III, point 1.1.9 of the Regulation (software, data and hardware components must be adequately protected against accidental or intentional corruption), which has no counterpart in the Directive.\", \"text\": \"The Regulation introduces the essential requirement in Annex III, point 1.1.9, which requires software and data critical for compliance, and hardware components transmitting signals or data relevant to that software, to be adequately protected against accidental or intentional corruption. The Directive has no such requirement.\", \"used\": [0, 21, 50, 51, 52]}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 845,
+   "completion_tokens": 1080,
    "prompt_tokens": 8801,
-   "total_tokens": 9646,
+   "total_tokens": 9881,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 421,
+    "reasoning_tokens": 660,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.0013026,
+   "cost": 0.0014201,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.0013026,
-   "gateway_cost": 0.0013026
+   "market_cost": 0.0014201,
+   "gateway_cost": 0.0014201
   }
  }
 }

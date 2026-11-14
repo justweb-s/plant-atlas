@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 63\n\n8. Installation 8. Installation Description Installing the robot can require the configuration and use of input and output signals (I/Os). These different types of I/Os and their uses are described in the following sections. 8.1. Electrical Warnings and Cautions Warnings Observe the following warnings for all the interface groups, including when you design and install an application. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. WARNING Failure to follow any of the below can result in serious injury or death, as the safety functions could be overridden. • Never connect safety signals to a PLC that is not a safety PLC with the correct safety level. It is important to keep safety interface signals separated from the normal I/O interface signals. • All safety-related signals shall be constructed redundantly (two independent channels). • Keep the two independent channels separate so a single fault cannot lead to loss of the safety function. WARNING: ELECTRICITY Failure to follow any of the below can result in serious injury or death due to electrical hazards. • Make sure all equipment not rated for water exposure remain dry. If water is allowed to enter the product, lockout-tagout all power and then contact your local Universal Robots service provider for assistance. • Only use the original cables supplied with the robot only. Do not use the robot for applications where the cables are subject to flexing. • Use caution when installing interface cables to the robot I/O. The metal plate in the bottom is intended for interface cables and connectors. Remove the plate before drilling holes. Make sure that all shavings are removed before reinstalling the plate. Remember to use correct gland sizes. User Manual 66 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Safety signals | shouldNotBeConnectedTo | a PLC that is not a safety PLC with the correct safety level | \"\" | \"Never connect safety signals to a PLC that is not a safety PLC with the correct safety level.\"\nSafety interface signals | shouldBeKeptSeparateFrom | normal I/O interface signals | \"\" | \"It is important to keep safety interface signals separated from the normal I/O interface signals.\"\nSafety-related signals | shouldBeConstructedAs | redundant two independent channels | \"\" | \"All safety-related signals shall be constructed redundantly (two independent channels).\"\nTwo independent channels | shouldBeKeptSeparate | so that a single fault cannot lead to loss of the safety function | \"\" | \"Keep the two independent channels separate so a single fault cannot lead to loss of the safety function.\"\nSafety functions | canBeOverriddenBy | failure to follow the warnings | \"\" | \"Failure to follow any of the below can result in serious injury or death, as the safety functions could be overridden.\"\nEquipment not rated for water exposure | shouldRemainDry | \"\" | \"\" | \"Make sure all equipment not rated for water exposure remain dry.\"\nWater entering the product | requires | lockout-tagout of all power and contacting the local Universal Robots service provider | if water is allowed to enter the product | \"If water is allowed to enter the product, lockout-tagout all power and then contact your local Universal Robots service provider for assistance.\"\nRobot cables | shouldBe | the original cables supplied with the robot only | \"\" | \"Only use the original cables supplied with the robot only.\"\nRobot | shouldNotBeUsedFor | applications where the cables are subject to flexing | \"\" | \"Do not use the robot for applications where the cables are subject to flexing.\"\nMetal plate in the bottom | shouldBeRemovedBefore | drilling holes | when drilling holes for interface cables | \"Remove the plate before drilling holes.\"\nShavings | shouldBeRemovedBefore | reinstalling the plate | \"\" | \"Make sure that all shavings are removed before reinstalling the plate.\"\nCable gland | shouldBeSizedCorrectly | \"\" | \"\" | \"Remember to use correct gland sizes.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1594,
+   "prompt_tokens": 735,
+   "total_tokens": 2329,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 856,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008705,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008705,
+   "gateway_cost": 0.0008705
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS71, art. 71, c. 14\n\n14. Con decreto del Ministro del lavoro, della salute e delle politiche sociali, di concerto con il Ministro dello sviluppo economico, d'intesa con la Conferenza permanente per i rapporti tra Stato, Regioni e province autonome di Trento e di Bolzano e sentita la Commissione consultiva di cui all'articolo 6, vengono apportate le modifiche all'allegato VII relativamente all'elenco delle attrezzature di lavoro da sottoporre alle verifiche di cui al comma 11."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Ministro del lavoro, della salute e delle politiche sociali | adotta decreto che modifica allegato VII | elenco delle attrezzature di lavoro da sottoporre alle verifiche di cui al comma 11 | decreto adottato di concerto con il Ministro dello sviluppo economico | \"Con decreto del Ministro del lavoro, della salute e delle politiche sociali, di concerto con il Ministro dello sviluppo economico\"\nModifiche all'allegato VII | richiedono intesa | Conferenza permanente per i rapporti tra Stato, Regioni e province autonome di Trento e di Bolzano | | \"d'intesa con la Conferenza permanente per i rapporti tra Stato, Regioni e province autonome di Trento e di Bolzano\"\nModifiche all'allegato VII | richiedono parere consultivo | Commissione consultiva di cui all'articolo 6 | sentita la Commissione | \"e sentita la Commissione consultiva di cui all'articolo 6\"\nModifiche all'allegato VII | riguardano | elenco delle attrezzature di lavoro da sottoporre alle verifiche di cui al comma 11 | | \"vengono apportate le modifiche all'allegato VII relativamente all'elenco delle attrezzature di lavoro da sottoporre alle verifiche di cui al comma 11\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 896,
+   "prompt_tokens": 390,
+   "total_tokens": 1286,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 432,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000487,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000487,
+   "gateway_cost": 0.000487
+  }
+ }
+}

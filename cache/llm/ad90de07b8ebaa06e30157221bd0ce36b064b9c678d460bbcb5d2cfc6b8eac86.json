@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 38(2)\n\nArticle 38 Operational obligations of notified bodies. 2. A notified body shall perform its activities in a proportionate manner, avoiding unnecessary burdens for economic operators, and taking due account of the size of an undertaking, the sector in which the undertaking operates, the structure of the undertaking, the degree of complexity of the technology in question and the mass or serial nature of the production process. In so doing, the notified body shall nevertheless respect the degree of rigour and the level of protection required for the compliance of the machinery or related product with the requirements of this Regulation."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "notified body | shall perform activities | in a proportionate manner | | A notified body shall perform its activities in a proportionate manner\nnotified body | shall avoid | unnecessary burdens for economic operators | | avoiding unnecessary burdens for economic operators\nnotified body | shall take due account of | size of an undertaking | | taking due account of the size of an undertaking\nnotified body | shall take due account of | sector in which the undertaking operates | | the sector in which the undertaking operates\nnotified body | shall take due account of | structure of the undertaking | | the structure of the undertaking\nnotified body | shall take due account of | degree of complexity of the technology in question | | the degree of complexity of the technology in question\nnotified body | shall take due account of | mass or serial nature of the production process | | the mass or serial nature of the production process\nnotified body | shall respect | degree of rigour and level of protection required for compliance | while applying proportionality | the notified body shall nevertheless respect the degree of rigour and the level of protection required for the compliance of the machinery or related product",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 785,
+   "prompt_tokens": 385,
+   "total_tokens": 1170,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 447,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000431,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000431,
+   "gateway_cost": 0.000431
+  }
+ }
+}

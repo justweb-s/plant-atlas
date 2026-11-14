@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"Device 24 is recorded as a PIATTAFORMA (PIATTAFORMA ELEVATRICE), capacity 230 kg, built 2017, in the estrattivo (mining) sector (facts 16, 52, 46, 69). The lifting-equipment verification rules in the facts are split by fixed or mobile type, use sector and build year, but no fact maps the 'PIATTAFORMA ELEVATRICE' kind to either fixed or mobile lifting equipment. The computed rule therefore gives no interval for 2026-11-14. The mobile elevating work platform rule (fact 7, triennial) is a different category and cannot be applied from the kind name alone.\", \"kind\": \"unknown\", \"value\": null, \"text\": \"The facts do not establish a verification interval for IGEA device 24: its kind (PIATTAFORMA ELEVATRICE) is not mapped to either the fixed or the mobile lifting-equipment category of Allegato VII, so the applicable interval cannot be determined from the given facts.\", \"used\": [16, 52, 46, 69]}",
+  "text": "{\"reasoning\": \"The device is IGEA device 24, kind PIATTAFORMA ELEVATRICE, capacity 230 kg (above the 200 kg threshold), built in 2017, at a mining (estrattivo) site. The lifting-equipment intervals in the facts depend on whether the device is fixed or mobile, and the elevating-platform kind is not mapped to either. The only platform-specific interval (Allegato VII riga 3, triennial) is limited to orchard operations, and the scissor-like and column-type platform intervals concern other subjects. The rule computed from the facts returns unknown, so no interval can be given for this device on 2026-11-14.\", \"kind\": \"unknown\", \"value\": null, \"text\": \"The facts do not establish a verification interval for IGEA device 24, a PIATTAFORMA ELEVATRICE, because its kind is not classed as fixed or mobile lifting equipment in Allegato VII of the D.lgs. 81/2008 intervals listed.\", \"used\": [16, 52, 46, 69]}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 736,
+   "completion_tokens": 634,
    "prompt_tokens": 7660,
-   "total_tokens": 8396,
+   "total_tokens": 8294,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 372,
+    "reasoning_tokens": 288,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.001134,
+   "cost": 0.001083,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.001134,
-   "gateway_cost": 0.001134
+   "market_cost": 0.001083,
+   "gateway_cost": 0.001083
   }
  }
 }

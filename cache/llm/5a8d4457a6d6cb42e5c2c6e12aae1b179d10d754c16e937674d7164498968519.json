@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 31\n\n4. Safety 4.4. Integration and Responsibility Description The information in this manual does not cover designing, installing, integrating and operating a robot application, nor does it cover all peripheral equipment that can influence the safety of the robot application. The robot application must be designed and installed in accordance with the safety requirements set forth in the relevant standards and regulations of the country where the robot is installed. The person/s integrating the UR robot are responsible for ensuring that the applicable regulations in the country concerned are observed and that any risks in the robot application are adequately reduced. This includes, but is not limited to: • Performing a risk assessment for the complete robot system • Interfacing other machines and additional safeguarding if required by the risk assessment • Setting the correct safety settings in the software Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. • Ensuring safety measures are not modified • Validating the robot application is designed, and installed and integrated • Specifying instructions for use • Marking the robot installation with relevant signs and contact information of the integrator • Retaining all documentation; including the application risk assessment, this manual and additional relevant documentation. 4.5. Stop Categories Description Depending on the circumstances, the robot can initiate three types of stop categories defined according to IEC 60204-1. These categories are defined in the following table. Stop Description Category 0 Stop the robot by immediate removal of power. Stop the robot in an orderly, controlled manner. Power is removed once 1 the robot is stopped. *Stop the robot with power available to the drives, while maintaining the 2 trajectory. Drive power is maintained after the robot is stopped. *Universal Robots robots’ Category 2 stops are further described as SS1 or as SS2 type stops according to IEC 61800-5-2. User Manual 34 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Robot application | mustBeDesignedAndInstalledPer | safety requirements in relevant standards and regulations of the country where the robot is installed | | The robot application must be designed and installed in accordance with the safety requirements set forth in the relevant standards and regulations of the country where the robot is installed.\nManual | doesNotCover | designing, installing, integrating and operating a robot application | | The information in this manual does not cover designing, installing, integrating and operating a robot application\nIntegrator | isResponsibleFor | ensuring applicable regulations are observed and risks are adequately reduced | | The person/s integrating the UR robot are responsible for ensuring that the applicable regulations in the country concerned are observed and that any risks in the robot application are adequately reduced.\nIntegrator | mustPerform | risk assessment for the complete robot system | | Performing a risk assessment for the complete robot system\nIntegrator | mustInterfaceAndSafeguard | other machines and additional safeguarding | if required by the risk assessment | Interfacing other machines and additional safeguarding if required by the risk assessment\nIntegrator | mustSet | correct safety settings in the software | | Setting the correct safety settings in the software\nIntegrator | mustEnsure | safety measures are not modified | | Ensuring safety measures are not modified\nIntegrator | mustSpecify | instructions for use | | Specifying instructions for use\nIntegrator | mustMark | robot installation with relevant signs and contact information of the integrator | | Marking the robot installation with relevant signs and contact information of the integrator\nIntegrator | mustRetain | all documentation, including the application risk assessment, this manual and additional relevant documentation | | Retaining all documentation; including the application risk assessment, this manual and additional relevant documentation.\nRobot | canInitiate | three types of stop categories defined according to IEC 60204-1 | depending on the circumstances | Depending on the circumstances, the robot can initiate three types of stop categories defined according to IEC 60204-1.\nStop Category 0 | stopsRobotBy | immediate removal of power | | Stop the robot by immediate removal of power.\nStop Category 1 | stopsRobotBy | orderly, controlled stop with power removed once the robot is stopped | | Stop the robot in an orderly, controlled manner. Power is removed once the robot is stopped.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1232,
+   "prompt_tokens": 806,
+   "total_tokens": 2038,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 451,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006966,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006966,
+   "gateway_cost": 0.0006966
+  }
+ }
+}

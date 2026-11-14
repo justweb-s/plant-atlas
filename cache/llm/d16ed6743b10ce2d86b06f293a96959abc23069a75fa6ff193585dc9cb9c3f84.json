@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 47(6)\n\nArticle 47 Exercise of the delegation. 6. A delegated act adopted pursuant to Articles 6(2), 6(11) or 7(2) shall enter into force only if no objection has been expressed either by the European Parliament or by the Council within a period of two months of notification of that act to the European Parliament and the Council or if, before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object. That period shall be extended by two months at the initiative of the European Parliament or of the Council."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "A delegated act adopted under Articles 6(2), 6(11) or 7(2) | entersIntoForce | only after the objection period passes without objection | no objection expressed by the European Parliament or Council within two months of notification | \"shall enter into force only if no objection has been expressed either by the European Parliament or by the Council within a period of two months of notification of that act\"\nObjection period | hasLength | two months | runs from notification of the act to the European Parliament and the Council | \"within a period of two months of notification of that act to the European Parliament and the Council\"\nEuropean Parliament and Council both informing the Commission | allowsEarlyEntryIntoForce | delegated act | both inform the Commission before the period expires that they will not object | \"if, before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object\"\nObjection period | isExtended | by two months | at the initiative of the European Parliament or of the Council | \"That period shall be extended by two months at the initiative of the European Parliament or of the Council.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 798,
+   "prompt_tokens": 370,
+   "total_tokens": 1168,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 468,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000436,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000436,
+   "gateway_cost": 0.000436
+  }
+ }
+}

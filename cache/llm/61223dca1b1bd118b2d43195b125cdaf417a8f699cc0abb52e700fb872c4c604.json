@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS71, art. 71, c. 6\n\n6. Il datore di lavoro prende le misure necessarie affinchè il posto di lavoro e la posizione dei lavoratori durante l'uso delle attrezzature presentino requisiti di sicurezza e rispondano ai principi dell'ergonomia."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "datore di lavoro | prendeMisure | misure necessarie affinché posto di lavoro e posizione dei lavoratori presentino requisiti di sicurezza | durante l'uso delle attrezzature | \"Il datore di lavoro prende le misure necessarie affinchè il posto di lavoro e la posizione dei lavoratori durante l'uso delle attrezzature presentino requisiti di sicurezza\"\nposto di lavoro e posizione dei lavoratori | rispondonoA | principi dell'ergonomia | durante l'uso delle attrezzature | \"rispondano ai principi dell'ergonomia\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 579,
+   "prompt_tokens": 296,
+   "total_tokens": 875,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 367,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003191,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003191,
+   "gateway_cost": 0.0003191
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGSALLVII, Allegato VII, riga 19\n\nAttrezzature/insiemi contenenti fluidi del gruppo 1 (D.lgs. 93/2000 art. 3) Recipienti/insiemi classificati in III e IV categoria, recipienti contenenti gas instabili appartenenti alla categoria dalla I alla IV, forni per le industrie chimiche e affini, generatori e recipienti per liquidi surriscaldati diversi dall'acqua. | Verifica di funzionamento: biennale Verifica di integrità: decennale"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Attrezzature/insiemi contenenti fluidi del gruppo 1 | includono | recipienti classificati in III e IV categoria | | Recipienti/insiemi classificati in III e IV categoria\nAttrezzature/insiemi contenenti fluidi del gruppo 1 | includono | recipienti contenenti gas instabili appartenenti alla categoria dalla I alla IV | | recipienti contenenti gas instabili appartenenti alla categoria dalla I alla IV\nAttrezzature/insiemi contenenti fluidi del gruppo 1 | includono | forni per le industrie chimiche e affini | | forni per le industrie chimiche e affini\nAttrezzature/insiemi contenenti fluidi del gruppo 1 | includono | generatori e recipienti per liquidi surriscaldati diversi dall'acqua | | generatori e recipienti per liquidi surriscaldati diversi dall'acqua\nAttrezzature/insiemi contenenti fluidi del gruppo 1 | richiedono | verifica di funzionamento ogni due anni | | Verifica di funzionamento: biennale\nAttrezzature/insiemi contenenti fluidi del gruppo 1 | richiedono | verifica di integrità ogni dieci anni | | Verifica di integrità: decennale",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1101,
+   "prompt_tokens": 383,
+   "total_tokens": 1484,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 654,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005888,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005888,
+   "gateway_cost": 0.0005888
+  }
+ }
+}

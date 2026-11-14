@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.1.2.8.3\n\n4.1.2.8.3. Risks due to contact with the moving carrier Where necessary in order to fulfil the requirement expressed in the second paragraph of section 4.1.2.7, the travel zone shall be rendered inaccessible during normal operation. When, during inspection or maintenance, there is a risk that persons situated under or above the carrier may be crushed between the carrier and any fixed parts, sufficient free space shall be provided either by means of physical refuges or by means of mechanical devices blocking the movement of the carrier."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "travel zone | mustBeRenderedInaccessible | travel zone during normal operation | where necessary to fulfil the requirement in the second paragraph of section 4.1.2.7 | \"the travel zone shall be rendered inaccessible during normal operation\"\npersons under or above the carrier | mayBeCrushed | between the carrier and any fixed parts | during inspection or maintenance | \"there is a risk that persons situated under or above the carrier may be crushed between the carrier and any fixed parts\"\nsufficient free space | mustBeProvided | for persons under or above the carrier | when there is a risk of crushing between the carrier and fixed parts during inspection or maintenance | \"sufficient free space shall be provided\"\nfree space | mayBeProvidedBy | physical refuges | as an alternative to mechanical devices blocking the carrier | \"by means of physical refuges\"\nfree space | mayBeProvidedBy | mechanical devices blocking the movement of the carrier | as an alternative to physical refuges | \"by means of mechanical devices blocking the movement of the carrier\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 888,
+   "prompt_tokens": 383,
+   "total_tokens": 1271,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 534,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004823,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004823,
+   "gateway_cost": 0.0004823
+  }
+ }
+}

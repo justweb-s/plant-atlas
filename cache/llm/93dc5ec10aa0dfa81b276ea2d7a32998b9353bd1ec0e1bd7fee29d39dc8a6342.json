@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 3(14)\n\n(14) ‘essential health and safety requirements’ means the mandatory provisions, set out in Annex III, relating to the design and construction of products within the scope of this Regulation to ensure a high level of protection of the health and safety of persons, and, where appropriate, domestic animals and property, and, where applicable, of the environment;"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "essential health and safety requirements | are | mandatory provisions set out in Annex III | | the mandatory provisions, set out in Annex III, relating to the design and construction of products\nessential health and safety requirements | relateTo | design and construction of products within the scope of this Regulation | | relating to the design and construction of products within the scope of this Regulation\nessential health and safety requirements | aimTo | ensure a high level of protection of the health and safety of persons | | to ensure a high level of protection of the health and safety of persons\nessential health and safety requirements | extendProtectionTo | domestic animals and property | where appropriate | and, where appropriate, domestic animals and property\nessential health and safety requirements | extendProtectionTo | the environment | where applicable | and, where applicable, of the environment",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 673,
+   "prompt_tokens": 307,
+   "total_tokens": 980,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 418,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003672,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003672,
+   "gateway_cost": 0.0003672
+  }
+ }
+}

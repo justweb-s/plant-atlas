@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.2.1\n\n1.2.1. Safety and reliability of control systems Control systems must be designed and constructed in such a way as to prevent hazardous situations from arising. Above all, they must be designed and constructed in such a way that: — they can withstand the intended operating stresses and external influences, — a fault in the hardware or the software of the control system does not lead to hazardous situations, — errors in the control system logic do not lead to hazardous situations, — reasonably foreseeable human error during operation does not lead to hazardous situations. Particular attention must be given to the following points: — the machinery must not start unexpectedly, — the parameters of the machinery must not change in an uncontrolled way, where such change may lead to hazardous situations, — the machinery must not be prevented from stopping if the stop command has already been given, — no moving part of the machinery or piece held by the machinery must fall or be ejected, — automatic or manual stopping of the moving parts, whatever they may be, must be unimpeded, — the protective devices must remain fully effective or give a stop command, — the safety-related parts of the control system must apply in a coherent way to the whole of an assembly of machinery and/or partly completed machinery. For cable-less control, an automatic stop must be activated when correct control signals are not received, including loss of communication."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Control systems | mustBeDesignedToPreventHazards | hazardous situations from arising | | Control systems must be designed and constructed in such a way as to prevent hazardous situations from arising.\nControl system | mustWithstandIntendedStresses | intended operating stresses and external influences | | they can withstand the intended operating stresses and external influences\nFault in control system hardware or software | mustNotLeadTo | hazardous situations | | a fault in the hardware or the software of the control system does not lead to hazardous situations\nErrors in control system logic | mustNotLeadTo | hazardous situations | | errors in the control system logic do not lead to hazardous situations\nReasonably foreseeable human error during operation | mustNotLeadTo | hazardous situations | | reasonably foreseeable human error during operation does not lead to hazardous situations\nMachinery | mustNotStartUnexpectedly | | | the machinery must not start unexpectedly\nMachinery parameters | mustNotChangeUncontrollably | | where such change may lead to hazardous situations | the parameters of the machinery must not change in an uncontrolled way, where such change may lead to hazardous situations\nMachinery | mustNotBePreventedFromStopping | | if the stop command has already been given | the machinery must not be prevented from stopping if the stop command has already been given\nMoving part or piece held by machinery | mustNotFallOrBeEjected | | | no moving part of the machinery or piece held by the machinery must fall or be ejected\nProtective devices | mustRemainFullyEffectiveOrGiveStopCommand | | | the protective devices must remain fully effective or give a stop command\nSafety-related parts of control system | mustApplyCoherentlyToWholeAssembly | whole of an assembly of machinery and/or partly completed machinery | | the safety-related parts of the control system must apply in a coherent way to the whole of an assembly of machinery and/or partly completed machinery\nCable-less control | mustActivateAutomaticStop | | when correct control signals are not received, including loss of communication | For cable-less control, an automatic stop must be activated when correct control signals are not received, including loss of communication",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1455,
+   "prompt_tokens": 619,
+   "total_tokens": 2074,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 737,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007894,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007894,
+   "gateway_cost": 0.0007894
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 15(2)\n\nArticle 15 Obligations of distributors of machinery and related products. 2. Before making machinery or a related product available on the market, distributors shall verify that: (a) the machinery or related product bears the CE marking; (b) the machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8); (c) the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7), and that they are in a language which can be easily understood by users, as determined by the Member State in which the machinery or related product is to be made available on the market; (d) the manufacturer and the importer have complied with the requirements referred to in Article 10(5) and (6) and Article 13(3) respectively."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "distributors | verifyBeforeMarketing | machinery or related product bears the CE marking | before making the machinery or related product available on the market | \"(a) the machinery or related product bears the CE marking\"\ndistributors | verifyBeforeMarketing | machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8) | before making the machinery or related product available on the market | \"(b) the machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8)\"\ndistributors | verifyBeforeMarketing | machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7), in a language which can be easily understood by users | before making available on the market; language as determined by the Member State where it is to be made available | \"(c) the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7), and that they are in a language which can be easily understood by users, as determined by the Member State in which the machinery or related product is to be made available on the market\"\ndistributors | verifyBeforeMarketing | manufacturer has complied with Article 10(5) and (6) and importer has complied with Article 13(3) | before making machinery or a related product available on the market | \"(d) the manufacturer and the importer have complied with the requirements referred to in Article 10(5) and (6) and Article 13(3) respectively\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 861,
+   "prompt_tokens": 434,
+   "total_tokens": 1295,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 411,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004739,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004739,
+   "gateway_cost": 0.0004739
+  }
+ }
+}

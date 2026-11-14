@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex IX\n\nANNEX IX EC type-examination EC type-examination is the procedure whereby a notified body ascertains and certifies that a representative model of machinery referred to in Annex IV (hereafter named the type) satisfies the provisions of this Directive. 1. The manufacturer or his authorised representative must, for each type, draw up the technical file referred to in Annex VII, part A. 2. The application shall include: — the name and address of the manufacturer and, where appropriate, his authorised representative, — a written declaration that the application has not been submitted to another notified body, — the technical file. Moreover, the applicant shall place at the disposal of the notified body a sample of the type. The notified body may ask for further samples if the test programme so requires. 3. 3.1. examine the technical file, check that the type was manufactured in accordance with it and establish which elements have been designed in accordance with the relevant provisions of the standards referred to in Article 7(2), and those elements whose design is not based on the relevant provisions of those standards; 3.2. carry out or have carried out appropriate inspections, measurements and tests to ascertain whether the solutions adopted satisfy the essential health and safety requirements of this Directive, where the standards referred to in Article 7(2) were not applied; 3.3. where harmonised standards referred to in Article 7(2) were used, carry out or have carried out appropriate inspections, measurements and tests to verify that those standards were actually applied; 3.4. agree with the applicant as to the place where the check that the type was manufactured in accordance with the examined technical file and the necessary inspections, measurements and tests will be carried out. 4. The manufacturer and the notified body shall retain a copy of this certificate, the technical file and all relevant documents for a period of 15 years from the date of issue of the certificate. 5. If the type does not satisfy the provisions of this Directive, the notified body shall refuse to issue the applicant with an EC type-examination certificate, giving detailed reasons for its refusal. It shall inform the applicant, the other notified bodies and the Member State which notified it. An appeal procedure must be available. 6. The applicant shall inform the notified body which retains the technical file relating to the EC type-examination certificate of all modifications to the approved type. The notified body shall examine these modifications and shall then either confirm the validity of the existing EC type-examination certificate or issue a new one if the modifications are liable to compromise conformity with the essential health and safety requirements or the intended working conditions of the type. 7. The Commission, the Member States and the other notified bodies may, on request, obtain a copy of the EC type-examination certificates. On reasoned request, the Commission and the Member States may obtain a copy of the technical file and the results of the examinations carried out by the notified body. 8. Files and correspondence referring to the EC type-examination procedures shall be written in the official Community language(s) of the Member State where the notified body is established or in any other official Community language acceptable to the notified body. 9. Validity of the EC type-examination certificate 9.1. The notified body has the ongoing responsibility of ensuring that the EC type-examination certificate remains valid. It shall inform the manufacturer of any major changes which would have an implication on the validity of the certificate. The notified body shall withdraw certificates which are no longer valid. 9.2. The manufacturer of the machinery concerned has the ongoing responsibility of ensuring that the said machinery meets the corresponding state of the art. 9.3. If the notified body finds that the certificate remains valid, taking into account the state of the art, it shall renew the certificate for a further five years. The manufacturer and the notified body shall retain a copy of this certificate, of the technical file and of all the relevant documents for a period of 15 years from the date of issue of the certificate. 9.4. In the event that the validity of the EC-type examination certificate is not renewed, the manufacturer shall cease the placing on the market of the machinery concerned."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "manufacturer or authorised representative | drawUpTechnicalFile | technical file referred to in Annex VII, part A | for each type | The manufacturer or his authorised representative must, for each type, draw up the technical file referred to in Annex VII, part A.\napplicant | placeSampleAtDisposal | sample of the type at the disposal of the notified body | | Moreover, the applicant shall place at the disposal of the notified body a sample of the type.\nnotified body | examineTechnicalFile | technical file | | examine the technical file, check that the type was manufactured in accordance with it\nnotified body | carryOutTestsWhereStandardsNotApplied | inspections, measurements and tests verifying essential health and safety requirements | where the standards referred to in Article 7(2) were not applied | carry out or have carried out appropriate inspections, measurements and tests to ascertain whether the solutions adopted satisfy the essential health and safety requirements of this Directive, where the standards referred to in Article 7(2) were not applied\nnotified body | refuseCertificate | EC type-examination certificate | type does not satisfy the provisions of this Directive | If the type does not satisfy the provisions of this Directive, the notified body shall refuse to issue the applicant with an EC type-examination certificate, giving detailed reasons for its refusal.\nmanufacturer and notified body | retainCopyOfCertificateAndFile | certificate, technical file and relevant documents | for 15 years from the date of issue of the certificate | The manufacturer and the notified body shall retain a copy of this certificate, the technical file and all relevant documents for a period of 15 years from the date of issue of the certificate.\napplicant | informNotifiedBodyOfModifications | modifications to the approved type | | The applicant shall inform the notified body which retains the technical file relating to the EC type-examination certificate of all modifications to the approved type.\nnotified body | issueNewCertificate | new EC type-examination certificate | modifications are liable to compromise conformity with the essential health and safety requirements or the intended working conditions of the type | issue a new one if the modifications are liable to compromise conformity with the essential health and safety requirements or the intended working conditions of the type\nnotified body | withdrawInvalidCertificates | certificates which are no longer valid | | The notified body shall withdraw certificates which are no longer valid.\nnotified body | renewCertificate | EC type-examination certificate for a further five years | notified body finds the certificate remains valid, taking into account the state of the art | If the notified body finds that the certificate remains valid, taking into account the state of the art, it shall renew the certificate for a further five years.\nmanufacturer | ensureStateOfArt | machinery meets the corresponding state of the art | ongoing | The manufacturer of the machinery concerned has the ongoing responsibility of ensuring that the said machinery meets the corresponding state of the art.\nmanufacturer | ceasePlacingOnMarket | machinery concerned | validity of the EC-type examination certificate is not renewed | In the event that the validity of the EC-type examination certificate is not renewed, the manufacturer shall cease the placing on the market of the machinery concerned.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1507,
+   "prompt_tokens": 1488,
+   "total_tokens": 2995,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 460,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009023,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009023,
+   "gateway_cost": 0.0009023
+  }
+ }
+}

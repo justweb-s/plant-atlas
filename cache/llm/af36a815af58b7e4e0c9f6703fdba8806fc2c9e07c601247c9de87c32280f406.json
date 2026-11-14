@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"The question asks which annex of the Regulation corresponds to Annex IV of Directive 2006/42/EC. No fact states a correspondence or correlation between the two annexes. The Directive's Annex IV facts only list machinery categories and the procedures that apply to them (facts 1, 4, 5, 12, 15, 17, 27). The Regulation's Annex IV facts concern technical documentation (facts 20, 32, 50 to 70). Those describe content, not a mapping to the Directive's Annex IV, so the answer cannot be drawn from the facts.\", \"kind\": \"unknown\", \"value\": null, \"text\": \"The provided facts do not state which annex of the Regulation corresponds to Annex IV of Directive 2006/42/EC, so this cannot be determined from them.\", \"used\": [1, 4, 5, 12, 15, 17, 27, 20, 32]}",
+  "text": "{\"reasoning\": \"The question asks for a correspondence between Annex IV of Directive 2006/42/EC and an annex of the Regulation. The facts list Directive Annex IV members (for example [1], [29], [54]) and Regulation annex contents (for example [20], [32], [50]), but none states that Directive Annex IV corresponds to a named Regulation annex. Facts about the Regulation's Annex IV describe technical documentation and do not link it to the Directive's Annex IV. The facts do not answer the question, so the kind is unknown.\", \"kind\": \"unknown\", \"value\": null, \"text\": \"The provided facts do not state which annex of the Regulation corresponds to Annex IV of Directive 2006/42/EC.\", \"used\": []}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 506,
+   "completion_tokens": 404,
    "prompt_tokens": 10657,
-   "total_tokens": 11163,
+   "total_tokens": 11061,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 210,
+    "reasoning_tokens": 158,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.0013187,
+   "cost": 0.0012677,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.0013187,
-   "gateway_cost": 0.0013187
+   "market_cost": 0.0012677,
+   "gateway_cost": 0.0012677
   }
  }
 }

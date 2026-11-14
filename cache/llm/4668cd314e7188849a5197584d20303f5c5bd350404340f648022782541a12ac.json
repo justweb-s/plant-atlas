@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.1.8\n\n1.1.8. Seating Where appropriate and where the working conditions so permit, work stations constituting an integral part of the machinery or related product shall be designed for the installation of seats. If the operator is intended to sit during operation and the operating position is an integral part of the machinery or related product, the seat shall be provided with the machinery or related product. The operator’s seat shall enable him or her to maintain a stable position. Furthermore, the seat and its distance from the control devices shall be capable of being adapted to the operator. If the machinery or related product is subject to vibrations, the seat shall be designed and constructed in such a way as to reduce the vibrations transmitted to the operator to the lowest level that is reasonably possible. The seat mountings shall withstand all stresses to which they can be subjected. Where there is no floor beneath the feet of the operator, footrests covered with a slip-resistant material shall be provided."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Work stations integral to machinery | shall be designed for | installation of seats | where appropriate and where the working conditions so permit | Where appropriate and where the working conditions so permit, work stations constituting an integral part of the machinery or related product shall be designed for the installation of seats\nOperator seat | shall be provided with | machinery or related product | operator is intended to sit during operation and the operating position is an integral part of the machinery | If the operator is intended to sit during operation and the operating position is an integral part of the machinery or related product, the seat shall be provided with the machinery or related product\nOperator seat | shall enable | operator to maintain a stable position | | The operator's seat shall enable him or her to maintain a stable position\nSeat and its distance from control devices | shall be capable of being adapted | to the operator | | the seat and its distance from the control devices shall be capable of being adapted to the operator\nSeat | shall be designed and constructed to reduce | vibrations transmitted to operator to the lowest reasonably possible level | machinery or related product is subject to vibrations | If the machinery or related product is subject to vibrations, the seat shall be designed and constructed in such a way as to reduce the vibrations transmitted to the operator to the lowest level that is reasonably possible\nSeat mountings | shall withstand | all stresses to which they can be subjected | | The seat mountings shall withstand all stresses to which they can be subjected\nFootrests | shall be provided | covered with a slip-resistant material | no floor beneath the feet of the operator | Where there is no floor beneath the feet of the operator, footrests covered with a slip-resistant material shall be provided",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1019,
+   "prompt_tokens": 497,
+   "total_tokens": 1516,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 484,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005592,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005592,
+   "gateway_cost": 0.0005592
+  }
+ }
+}

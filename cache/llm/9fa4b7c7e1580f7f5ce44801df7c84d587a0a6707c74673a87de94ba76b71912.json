@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 34(5)\n\nArticle 34 Notification procedure. 5. The conformity assessment body concerned may perform the activities of a notified body only where no objections are raised by the Commission or the other Member States within two weeks of the validation of the notification where it includes an accreditation certificate referred to in Article 33(2), or within two months of the notification where it includes documentary evidence referred to in paragraph 4 of this Article. Only such a body shall be considered a notified body for the purposes of this Regulation."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "conformity assessment body concerned | mayPerformNotifiedBodyActivities | activities of a notified body | no objections raised by the Commission or other Member States within two weeks of validation of the notification, where it includes an accreditation certificate referred to in Article 33(2) | \"may perform the activities of a notified body only where no objections are raised by the Commission or the other Member States within two weeks of the validation of the notification where it includes an accreditation certificate referred to in Article 33(2)\"\nconformity assessment body concerned | mayPerformNotifiedBodyActivities | activities of a notified body | no objections raised by the Commission or other Member States within two months of notification, where it includes documentary evidence referred to in Article 34(4) | \"within two months of the notification where it includes documentary evidence referred to in paragraph 4 of this Article\"\nCommission or other Member States | mayRaiseObjections | notification of a conformity assessment body | within two weeks of validation (accreditation certificate case) or two months of notification (documentary evidence case) | \"no objections are raised by the Commission or the other Member States within two weeks of the validation of the notification\"\nonly such a body | isConsideredNotifiedBody | notified body for the purposes of this Regulation | | \"Only such a body shall be considered a notified body for the purposes of this Regulation.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 864,
+   "prompt_tokens": 356,
+   "total_tokens": 1220,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 431,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004676,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004676,
+   "gateway_cost": 0.0004676
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.5.7\n\n1.5.7. Explosion Machinery or related products shall be designed and constructed in such a way as to avoid any risk of explosion presented by the machinery or related product itself or by gases, liquids, dust, vapours or other substances produced or used by the machinery or related product. Machinery or related products shall comply, as far as the risk of explosion due to its use in a potentially explosive atmosphere is concerned, with the provisions of the specific Union harmonisation legislation."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related products | shallBeDesignedAndConstructedToAvoid | any risk of explosion presented by the machinery or related product itself or by gases, liquids, dust, vapours or other substances produced or used by it | | \"shall be designed and constructed in such a way as to avoid any risk of explosion presented by the machinery or related product itself or by gases, liquids, dust, vapours or other substances produced or used by the machinery or related product\"\nMachinery or related products | shallComplyWithUnionLegislation | provisions of the specific Union harmonisation legislation | as far as the risk of explosion due to its use in a potentially explosive atmosphere is concerned | \"shall comply, as far as the risk of explosion due to its use in a potentially explosive atmosphere is concerned, with the provisions of the specific Union harmonisation legislation\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 659,
+   "prompt_tokens": 357,
+   "total_tokens": 1016,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 381,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003652,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003652,
+   "gateway_cost": 0.0003652
+  }
+ }
+}

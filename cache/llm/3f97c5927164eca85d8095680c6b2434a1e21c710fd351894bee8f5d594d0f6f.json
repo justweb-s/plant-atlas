@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex VII, 6\n\n6. EU type-examination certificate 6.1. The period of validity of a newly issued certificate and, where appropriate, of a renewed certificate shall not exceed five years. 6.2. (a) the name and identification number of the notified body; (b) the name and address of the manufacturer and, if the application is lodged by an authorised representative, the name and address of that authorised representative; (c) an identification of the machinery or related product covered by the certificate (type number); (d) a statement that the machinery or related product type complies with the applicable essential health and safety requirements; (e) where harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) have been fully or partially applied, the references of those standards or common specifications or parts thereof; (f) where other technical specifications have been applied, the references of those technical specifications; (g) the date of issue, the date of expiry and, where appropriate, the date(s) of renewal; (h) any conditions attached to the issuing of the certificate. 6.3. 6.4."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "EU type-examination certificate | hasValidityPeriod | not exceeding five years | applies to a newly issued certificate and, where appropriate, a renewed certificate | The period of validity of a newly issued certificate and, where appropriate, of a renewed certificate shall not exceed five years.\nCertificate | mustStateNotifiedBody | name and identification number of the notified body | | (a) the name and identification number of the notified body\nCertificate | mustStateManufacturer | name and address of the manufacturer | | (b) the name and address of the manufacturer\nCertificate | mustStateAuthorisedRepresentative | name and address of the authorised representative | application lodged by an authorised representative | if the application is lodged by an authorised representative, the name and address of that authorised representative\nCertificate | mustIdentifyProduct | machinery or related product covered (type number) | | (c) an identification of the machinery or related product covered by the certificate (type number)\nCertificate | mustStateConformity | machinery or related product type complies with applicable essential health and safety requirements | | (d) a statement that the machinery or related product type complies with the applicable essential health and safety requirements\nCertificate | mustListStandards | references of harmonised standards or common specifications (or parts thereof) | harmonised standards or common specifications have been fully or partially applied | (e) where harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) have been fully or partially applied, the references of those standards or common specifications or parts thereof\nCertificate | mustListTechnicalSpecifications | references of other technical specifications | other technical specifications have been applied | (f) where other technical specifications have been applied, the references of those technical specifications\nCertificate | mustStateDates | date of issue, date of expiry, and date(s) of renewal | renewal dates where appropriate | (g) the date of issue, the date of expiry and, where appropriate, the date(s) of renewal\nCertificate | mustStateConditions | any conditions attached to the issuing of the certificate | | (h) any conditions attached to the issuing of the certificate",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1437,
+   "prompt_tokens": 530,
+   "total_tokens": 1967,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 749,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007715,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007715,
+   "gateway_cost": 0.0007715
+  }
+ }
+}

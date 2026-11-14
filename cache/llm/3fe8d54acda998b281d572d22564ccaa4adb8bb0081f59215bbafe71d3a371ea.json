@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.7.4.1\n\n1.7.4.1. General principles for the drafting of instructions (a) The instructions must be drafted in one or more official Community languages. The words ‘Original instructions’ must appear on the language version(s) verified by the manufacturer or his authorised representative. (b) Where no ‘Original instructions’ exist in the official language(s) of the country where the machinery is to be used, a translation into that/those language(s) must be provided by the manufacturer or his authorised representative or by the person bringing the machinery into the language area in question. The translations must bear the words ‘Translation of the original instructions’. (c) The contents of the instructions must cover not only the intended use of the machinery but also take into account any reasonably foreseeable misuse thereof. (d) In the case of machinery intended for use by non-professional operators, the wording and layout of the instructions for use must take into account the level of general education and acumen that can reasonably be expected from such operators."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Instructions | mustBeDraftedIn | one or more official Community languages | | The instructions must be drafted in one or more official Community languages.\nLanguage version verified by manufacturer | mustBear | the words 'Original instructions' | | The words ‘Original instructions’ must appear on the language version(s) verified by the manufacturer or his authorised representative.\nTranslation of instructions | mustBear | the words 'Translation of the original instructions' | | The translations must bear the words ‘Translation of the original instructions’.\nTranslation into country language | mustBeProvidedBy | manufacturer, authorised representative, or person bringing machinery into the language area | no 'Original instructions' exist in the official language(s) of the country where the machinery is to be used | Where no ‘Original instructions’ exist in the official language(s) of the country where the machinery is to be used, a translation into that/those language(s) must be provided by the manufacturer or his authorised representative or by the person bringing the machinery into the language area in question.\nContents of instructions | mustCover | intended use of the machinery | | The contents of the instructions must cover not only the intended use of the machinery\nContents of instructions | mustCover | reasonably foreseeable misuse | | but also take into account any reasonably foreseeable misuse thereof.\nWording and layout of instructions for use | mustTakeIntoAccount | level of general education and acumen reasonably expected from operators | machinery intended for use by non-professional operators | In the case of machinery intended for use by non-professional operators, the wording and layout of the instructions for use must take into account the level of general education and acumen that can reasonably be expected from such operators.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1045,
+   "prompt_tokens": 507,
+   "total_tokens": 1552,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 506,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005732,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005732,
+   "gateway_cost": 0.0005732
+  }
+ }
+}

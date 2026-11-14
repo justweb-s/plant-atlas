@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 2.1.1\n\n2.1.1. General Machinery or related products intended for use with foodstuffs or with cosmetics or pharmaceutical products shall be designed and constructed in such a way as to avoid any risk of infection, sickness or contagion. The following requirements shall be observed: (a) materials in contact with, or intended to come into contact with, foodstuffs or water intended for human consumption or cosmetics or pharmaceutical products shall satisfy the conditions laid down in the relevant Union legal acts; the machinery or related product shall be designed and constructed in such a way that these materials can be cleaned before each use and where this is not possible, disposable parts shall be used; (b) all surfaces in contact with foodstuffs or water intended for human consumption or cosmetics or pharmaceutical products, other than surfaces of disposable parts, shall: (i) be smooth and have neither ridges nor crevices, which could harbour organic materials, and the same applies to their joinings; (ii) be designed and constructed in such a way as to reduce the projections, edges and recesses of assemblies to a minimum; (iii) be easily cleaned and disinfected, where necessary after removing easily dismantled parts; the inside surfaces shall have curves with a radius sufficient to allow thorough cleaning; (c) it shall be possible for liquids, gases and aerosols deriving from foodstuffs, cosmetics or pharmaceutical products as well as from cleaning, disinfecting and rinsing fluids to be completely discharged from the machinery or related product (if possible, in a ‘cleaning’ position); (d) machinery or related products shall be designed and constructed in such a way as to prevent any substances or living creatures, in particular insects, from entering, or any organic matter from accumulating in, areas that cannot be cleaned; (e) machinery or related products shall be designed and constructed in such a way that no ancillary substances hazardous to health, including the lubricants used, can come into contact with foodstuffs or water intended for human consumption, cosmetics or pharmaceutical products; where necessary, machinery or related products shall be designed and constructed in such a way that continuing compliance with this requirement can be checked."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery for foodstuffs, cosmetics or pharmaceutical products | shall be designed and constructed to avoid | any risk of infection, sickness or contagion | | shall be designed and constructed in such a way as to avoid any risk of infection, sickness or contagion\nMaterials in contact with foodstuffs, drinking water, cosmetics or pharmaceutical products | shall satisfy | conditions laid down in the relevant Union legal acts | | shall satisfy the conditions laid down in the relevant Union legal acts\nMaterials in contact with foodstuffs, drinking water, cosmetics or pharmaceutical products | can be cleaned | before each use | where cleaning is not possible, disposable parts shall be used | the machinery or related product shall be designed and constructed in such a way that these materials can be cleaned before each use and where this is not possible, disposable parts shall be used\nNon-disposable surfaces in contact with foodstuffs, drinking water, cosmetics or pharmaceutical products | shall be | smooth, with neither ridges nor crevices that could harbour organic materials | | be smooth and have neither ridges nor crevices, which could harbour organic materials, and the same applies to their joinings\nNon-disposable surfaces in contact with product | shall reduce | projections, edges and recesses of assemblies | to a minimum | reduce the projections, edges and recesses of assemblies to a minimum\nNon-disposable surfaces in contact with product | shall be | easily cleaned and disinfected | where necessary, after removing easily dismantled parts | be easily cleaned and disinfected, where necessary after removing easily dismantled parts\nInside surfaces in contact with product | shall have | curves with a radius sufficient to allow thorough cleaning | | the inside surfaces shall have curves with a radius sufficient to allow thorough cleaning\nLiquids, gases and aerosols from products or cleaning, disinfecting and rinsing fluids | can be completely discharged | from the machinery | if possible, in a cleaning position | be completely discharged from the machinery or related product (if possible, in a 'cleaning' position)\nMachinery or related products | shall prevent | entry of substances or living creatures, in particular insects, and accumulation of organic matter | in areas that cannot be cleaned | prevent any substances or living creatures, in particular insects, from entering, or any organic matter from accumulating in, areas that cannot be cleaned\nAncillary substances hazardous to health, including lubricants | cannot come into contact | with foodstuffs, drinking water, cosmetics or pharmaceutical products | | no ancillary substances hazardous to health, including the lubricants used, can come into contact with foodstuffs or water intended for human consumption, cosmetics or pharmaceutical products\nContinuing compliance with the no-contact requirement | can be checked | | where necessary | designed and constructed in such a way that continuing compliance with this requirement can be checked",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1587,
+   "prompt_tokens": 918,
+   "total_tokens": 2505,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 607,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008853,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008853,
+   "gateway_cost": 0.0008853
+  }
+ }
+}

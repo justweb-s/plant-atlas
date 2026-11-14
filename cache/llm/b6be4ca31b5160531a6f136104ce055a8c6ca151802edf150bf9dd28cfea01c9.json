@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.1.5\n\n1.1.5. Design of machinery to facilitate its handling Machinery, or each component part thereof, must: — be capable of being handled and transported safely, — be packaged or designed so that it can be stored safely and without damage. During the transportation of the machinery and/or its component parts, there must be no possibility of sudden movements or of hazards due to instability as long as the machinery and/or its component parts are handled in accordance with the instructions. Where the weight, size or shape of machinery or its various component parts prevents them from being moved by hand, the machinery or each component part must: — either be fitted with attachments for lifting gear, or — be designed so that it can be fitted with such attachments, or — be shaped in such a way that standard lifting gear can easily be attached. Where machinery or one of its component parts is to be moved by hand, it must: — either be easily moveable, or — be equipped for picking up and moving safely. Special arrangements must be made for the handling of tools and/or machinery parts which, even if lightweight, could be hazardous."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or each component part | must be capable of being handled and transported safely | | \"must: — be capable of being handled and transported safely\"\nMachinery or each component part | must be packaged or designed so it can be stored safely and without damage | | \"be packaged or designed so that it can be stored safely and without damage\"\nMachinery and/or its component parts during transportation | must have no possibility of sudden movements or hazards due to instability | as long as they are handled in accordance with the instructions | \"there must be no possibility of sudden movements or of hazards due to instability as long as the machinery and/or its component parts are handled in accordance with the instructions\"\nMachinery or each component part whose weight, size or shape prevents manual movement | must be fitted with lifting attachments, be designed to accept them, or be shaped so standard lifting gear can easily be attached | weight, size or shape prevents being moved by hand | \"the machinery or each component part must: — either be fitted with attachments for lifting gear, or — be designed so that it can be fitted with such attachments, or — be shaped in such a way that standard lifting gear can easily be attached\"\nMachinery or one of its component parts to be moved by hand | must be easily moveable or equipped for picking up and moving safely | machinery is to be moved by hand | \"it must: — either be easily moveable, or — be equipped for picking up and moving safely\"\nTools and/or machinery parts that could be hazardous | require special arrangements for their handling | even if lightweight | \"Special arrangements must be made for the handling of tools and/or machinery parts which, even if lightweight, could be hazardous.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 914,
+   "prompt_tokens": 538,
+   "total_tokens": 1452,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 395,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005108,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005108,
+   "gateway_cost": 0.0005108
+  }
+ }
+}

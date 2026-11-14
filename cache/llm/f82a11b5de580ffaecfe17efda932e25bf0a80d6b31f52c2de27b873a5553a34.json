@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 103\n\n9. End Effector Integration 9.4. Set Payload Description The Set Payload command allows you to configure the payload for the robot. Payload is the combined weight of everything attached to the robot tool flange. When to use: • When adjusting the payload weight to prevent the robot from triggering a robot stop. A correctly configured payload weight ensures optimal robot movement. Setting the payload correctly ensures optimal motion performance and avoids robot stops. • When setting up the payload for use in a pick and place program, using a gripper. Set Payload Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. Use the Set 1. In your robot program, select the place or node where you wish to add a Set Payload command. command 2. Under Basic, tap Set Payload. 3. Use the drop-down, under Select Payload. a. Select one of the payloads already configured. b. Or, use the drop-down to configure a new payload by selecting Custom Payload and completing the mass and CoG fields. Tip You can also use the Set Now button to set the values on the node as the active payload. Use tip Remember to always update your payload when making any changes to the configuration of the robot program. Example: Set In a pick and place program, you would create a default payload in the installation. Then Payload you add a Set Payload when picking up an object. You would update the payload after the gripper closes, but before starting to move. Additionally, you would use the Set Payload after the object has been released. User Manual 106 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "9.4 Set Payload command | allows configuring | payload for the robot | | The Set Payload command allows you to configure the payload for the robot.\nPayload | is defined as | combined weight of everything attached to the robot tool flange | | Payload is the combined weight of everything attached to the robot tool flange.\nCorrectly configured payload | ensures | optimal robot movement | | A correctly configured payload weight ensures optimal robot movement.\nCorrect payload setting | avoids | robot stops | | Setting the payload correctly ensures optimal motion performance and avoids robot stops.\nPayload weight adjustment | prevents | robot from triggering a robot stop | when adjusting the payload weight | When adjusting the payload weight to prevent the robot from triggering a robot stop.\nCustom Payload | requires completing | mass and CoG fields | when configuring a new payload | configure a new payload by selecting Custom Payload and completing the mass and CoG fields\nSet Now button | sets | values on the node as the active payload | | You can also use the Set Now button to set the values on the node as the active payload.\nPayload | must be updated | when making any changes to the configuration of the robot program | | Remember to always update your payload when making any changes to the configuration of the robot program.\nPayload | is updated | after the gripper closes, before starting to move | when picking up an object in a pick and place program | You would update the payload after the gripper closes, but before starting to move.\nSet Payload | is used | after the object has been released | in a pick and place program | Additionally, you would use the Set Payload after the object has been released.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1142,
+   "prompt_tokens": 687,
+   "total_tokens": 1829,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 627,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006397,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006397,
+   "gateway_cost": 0.0006397
+  }
+ }
+}

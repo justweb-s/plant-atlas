@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex VII, 3\n\n3. Application for EU type-examination The manufacturer shall lodge an application for EU type-examination with a single notified body of its choice. The application shall include: (a) the name and address of the manufacturer and, if the application is lodged by an authorised representative, the name and address of that authorised representative; (b) a written declaration that the same application has not been lodged with any other notified body; (c) the technical documentation described in Annex IV, Part A; (d) the access to the specimen(s) of the machinery or related product representative of the production envisaged. The notified body may request further specimens if needed for carrying out the test programme. For machinery or related products produced in series where each item is adapted to fit an individual user, specimens shall be provided that are representative of the range of different users, while for machinery or related products produced as a single unit to accommodate the special needs of an individual user, a basic model shall be provided."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "manufacturer | shall lodge | application for EU type-examination with a single notified body of its choice | | The manufacturer shall lodge an application for EU type-examination with a single notified body of its choice.\napplication | shall include | name and address of the manufacturer | | the name and address of the manufacturer\napplication | shall include | name and address of the authorised representative | application is lodged by an authorised representative | the name and address of that authorised representative\napplication | shall include | written declaration that the same application has not been lodged with any other notified body | | a written declaration that the same application has not been lodged with any other notified body\napplication | shall include | technical documentation described in Annex IV, Part A | | the technical documentation described in Annex IV, Part A\napplication | shall include | access to specimens representative of the production envisaged | | the access to the specimen(s) of the machinery or related product representative of the production envisaged\nnotified body | may request | further specimens | needed for carrying out the test programme | The notified body may request further specimens if needed for carrying out the test programme.\nspecimens for series-produced machinery | shall be | representative of the range of different users | each item is adapted to fit an individual user | specimens shall be provided that are representative of the range of different users\nspecimens for single-unit machinery | shall be | a basic model | machinery produced as a single unit to accommodate the special needs of an individual user | a basic model shall be provided",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 886,
+   "prompt_tokens": 480,
+   "total_tokens": 1366,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 445,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000491,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000491,
+   "gateway_cost": 0.000491
+  }
+ }
+}

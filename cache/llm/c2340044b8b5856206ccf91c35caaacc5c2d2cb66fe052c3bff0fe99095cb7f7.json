@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 43(5)\n\nArticle 43 Procedure at national level for dealing with products within the scope of this Regulation presenting a risk. 5. The information referred to in paragraph 4 shall include all available details, in particular the data necessary for the identification of the non-compliant product within the scope of this Regulation, the origin of that product, the nature of the non-compliance alleged and the risk involved, the nature and duration of the national measures taken and the arguments put forward by the relevant economic operator. In particular, the market surveillance authorities shall indicate whether the non-compliance is due to any of the following: (a) the failure of the product to meet the requirements relating to the essential health and safety requirements set out in Annex III; (b) shortcomings in the harmonised standards referred to in Article 20(1); (c) shortcomings in the common specifications referred to in Article 20(6)."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "The information referred to in paragraph 4 | mustInclude | all available details | | The information referred to in paragraph 4 shall include all available details\nThe information referred to in paragraph 4 | mustInclude | data necessary for identifying the non-compliant product | | the data necessary for the identification of the non-compliant product within the scope of this Regulation\nThe information referred to in paragraph 4 | mustInclude | origin of the product | | the origin of that product\nThe information referred to in paragraph 4 | mustInclude | nature of the alleged non-compliance and the risk involved | | the nature of the non-compliance alleged and the risk involved\nThe information referred to in paragraph 4 | mustInclude | nature and duration of the national measures taken | | the nature and duration of the national measures taken\nThe information referred to in paragraph 4 | mustInclude | arguments put forward by the relevant economic operator | | the arguments put forward by the relevant economic operator\nmarket surveillance authorities | mustIndicate | whether non-compliance is due to failure to meet essential health and safety requirements in Annex III | | whether the non-compliance is due to any of the following: (a) the failure of the product to meet the requirements relating to the essential health and safety requirements set out in Annex III\nmarket surveillance authorities | mustIndicate | whether non-compliance is due to shortcomings in harmonised standards referred to in Article 20(1) | | (b) shortcomings in the harmonised standards referred to in Article 20(1)\nmarket surveillance authorities | mustIndicate | whether non-compliance is due to shortcomings in common specifications referred to in Article 20(6) | | (c) shortcomings in the common specifications referred to in Article 20(6)",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1061,
+   "prompt_tokens": 474,
+   "total_tokens": 1535,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 500,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005779,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005779,
+   "gateway_cost": 0.0005779
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 13(6)\n\nArticle 13 Obligations of importers of machinery and related products. 6. When deemed appropriate with regard to the risks presented by machinery or a related product, importers shall, in order to protect the health and safety of persons, and where appropriate, domestic animals and property, and, where applicable, the environment carry out sample testing of machinery or related products made available on the market, investigate, and, if necessary, keep a register of complaints, of non-conforming machinery or related products and machinery or related product recalls, and shall keep distributors informed of any such monitoring."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "importers | shall carry out sampleTesting of machinery or related products made available on the market | when deemed appropriate with regard to the risks presented by the machinery or related product | When deemed appropriate with regard to the risks presented by machinery or a related product, importers shall, in order to protect the health and safety of persons... carry out sample testing of machinery or related products made available on the market\nimporters | shall investigate machinery or related products made available on the market | when deemed appropriate with regard to the risks presented by the machinery or related product | carry out sample testing of machinery or related products made available on the market, investigate, and, if necessary, keep a register\nimporters | shall keep a register of complaints, of non-conforming machinery or related products, and of machinery or related product recalls | if necessary | investigate, and, if necessary, keep a register of complaints, of non-conforming machinery or related products and machinery or related product recalls\nimporters | shall keep distributors informed of any such monitoring | | and shall keep distributors informed of any such monitoring\nimporters' measures | aim to protect health and safety of persons | where appropriate for domestic animals and property, and where applicable for the environment | in order to protect the health and safety of persons, and where appropriate, domestic animals and property, and, where applicable, the environment",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 770,
+   "prompt_tokens": 378,
+   "total_tokens": 1148,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 360,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004228,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004228,
+   "gateway_cost": 0.0004228
+  }
+ }
+}

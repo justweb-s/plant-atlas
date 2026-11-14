@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.1.5\n\n1.1.5. Design of machinery or a related product to facilitate its handling Machinery or a related product or each component part thereof, shall: (a) be capable of being handled and transported safely; (b) be packaged or designed so that it can be stored safely and without damage. During the transportation of the machinery or related product or its component parts, there shall be no possibility of sudden movements or of hazards due to instability as long as the machinery or related product or its component parts are handled in accordance with the instructions. Where the weight, size or shape of machinery or a related product or its various component parts prevents it or them from being moved by hand, the machinery or related product or each component part shall: (a) either be fitted with attachments for lifting gear; or (b) be designed so that it can be fitted with such attachments; or (c) be shaped in such a way that standard lifting gear can easily be attached. Where machinery or a related product or one of its component parts is to be moved by hand, it shall either: (a) be easily moveable; or (b) be equipped for picking up and moving safely. Special arrangements shall be made for the handling of tools and/or machinery or related product parts, which, even if lightweight, could be hazardous."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related product or each component part | shall be capable of | being handled and transported safely | | \"be capable of being handled and transported safely\"\nMachinery or related product or its component parts | shall be packaged or designed so that it can be | stored safely and without damage | | \"be packaged or designed so that it can be stored safely and without damage\"\nMachinery or related product or its component parts during transportation | shall have no possibility of | sudden movements or hazards due to instability | as long as handled in accordance with the instructions | \"there shall be no possibility of sudden movements or of hazards due to instability as long as the machinery or related product or its component parts are handled in accordance with the instructions\"\nMachinery or related product or each component part | shall be fitted with, designed to take, or shaped to take | attachments for lifting gear or standard lifting gear | weight, size or shape prevents it from being moved by hand | \"either be fitted with attachments for lifting gear; or (b) be designed so that it can be fitted with such attachments; or (c) be shaped in such a way that standard lifting gear can easily be attached\"\nMachinery or related product or one of its component parts | shall either be | easily moveable or equipped for picking up and moving safely | is to be moved by hand | \"it shall either: (a) be easily moveable; or (b) be equipped for picking up and moving safely\"\nTools and/or machinery or related product parts | shall have | special arrangements made for their handling | could be hazardous, even if lightweight | \"Special arrangements shall be made for the handling of tools and/or machinery or related product parts, which, even if lightweight, could be hazardous\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1028,
+   "prompt_tokens": 582,
+   "total_tokens": 1610,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 505,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005722,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005722,
+   "gateway_cost": 0.0005722
+  }
+ }
+}

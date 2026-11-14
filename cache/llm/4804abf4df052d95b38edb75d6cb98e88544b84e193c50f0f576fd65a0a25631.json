@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 15(6)\n\nArticle 15 Obligations of distributors of machinery and related products. 6. Distributors shall, further to a reasoned request from a competent national authority, provide that authority with all the information and documentation, in paper or digital format, necessary to demonstrate the conformity of the machinery or related product with this Regulation in a language that can be easily understood by that authority. They shall cooperate with that authority, at its request, on any action taken to eliminate the risks to the health and safety of persons and, where appropriate, domestic animals and property, and, where applicable, to the environment presented by machinery or a related product which they have made available on the market."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Distributors | shall provide | all information and documentation necessary to demonstrate conformity with the Regulation, in paper or digital format | further to a reasoned request from a competent national authority | \"provide that authority with all the information and documentation, in paper or digital format, necessary to demonstrate the conformity of the machinery or related product with this Regulation\"\nDistributors' documentation to authority | shall be in | a language that can be easily understood by that authority | | \"in a language that can be easily understood by that authority\"\nDistributors | shall cooperate with | competent national authority on actions taken to eliminate risks | at the authority's request | \"They shall cooperate with that authority, at its request, on any action taken to eliminate the risks to the health and safety of persons\"\nCooperation scope | covers risks to | health and safety of persons, and where appropriate domestic animals and property, and where applicable the environment | the machinery or related product was made available on the market by the distributor | \"where appropriate, domestic animals and property, and, where applicable, to the environment presented by machinery or a related product which they have made available on the market\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 678,
+   "prompt_tokens": 399,
+   "total_tokens": 1077,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 328,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003789,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003789,
+   "gateway_cost": 0.0003789
+  }
+ }
+}

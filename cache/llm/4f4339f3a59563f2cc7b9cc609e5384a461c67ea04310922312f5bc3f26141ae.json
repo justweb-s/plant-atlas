@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 17(3)\n\nArticle 17 Non-conformity of marking. 3. Where non-conformity persists, the Member State shall take all appropriate measures to restrict or prohibit the placing on the market of the product in question or to ensure that it is withdrawn from the market in accordance with the procedure laid down in Article 11."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Member State | shall take appropriate measures to restrict or prohibit placing on the market | the product in question | Where non-conformity persists | Where non-conformity persists, the Member State shall take all appropriate measures to restrict or prohibit the placing on the market of the product in question\nMember State | shall ensure withdrawal of the product from the market | the product in question | Where non-conformity persists, and in accordance with the procedure laid down in Article 11 | to ensure that it is withdrawn from the market in accordance with the procedure laid down in Article 11",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 328,
+   "prompt_tokens": 301,
+   "total_tokens": 629,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 150,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0001941,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0001941,
+   "gateway_cost": 0.0001941
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.2.4.3\n\n1.2.4.3. Emergency stop Machinery must be fitted with one or more emergency stop devices to enable actual or impending danger to be averted. The following exceptions apply: — machinery in which an emergency stop device would not lessen the risk, either because it would not reduce the stopping time or because it would not enable the special measures required to deal with the risk to be taken, — portable hand-held and/or hand-guided machinery. The device must: — have clearly identifiable, clearly visible and quickly accessible control devices, — stop the hazardous process as quickly as possible, without creating additional risks, — where necessary, trigger or permit the triggering of certain safeguard movements. Once active operation of the emergency stop device has ceased following a stop command, that command must be sustained by engagement of the emergency stop device until that engagement is specifically overridden; it must not be possible to engage the device without triggering a stop command; it must be possible to disengage the device only by an appropriate operation, and disengaging the device must not restart the machinery but only permit restarting. The emergency stop function must be available and operational at all times, regardless of the operating mode. Emergency stop devices must be a back-up to other safeguarding measures and not a substitute for them."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery | mustBeFittedWith | one or more emergency stop devices | to enable actual or impending danger to be averted | Machinery must be fitted with one or more emergency stop devices to enable actual or impending danger to be averted.\nMachinery in which an emergency stop device would not lessen the risk | isExemptFrom | emergency stop device requirement | would not reduce the stopping time or would not enable the special measures required to deal with the risk to be taken | machinery in which an emergency stop device would not lessen the risk, either because it would not reduce the stopping time or because it would not enable the special measures required to deal with the risk to be taken\nPortable hand-held and/or hand-guided machinery | isExemptFrom | emergency stop device requirement | \"\" | portable hand-held and/or hand-guided machinery\nEmergency stop device | mustHave | clearly identifiable, clearly visible and quickly accessible control devices | \"\" | The device must: — have clearly identifiable, clearly visible and quickly accessible control devices\nEmergency stop device | mustStop | the hazardous process as quickly as possible, without creating additional risks | \"\" | stop the hazardous process as quickly as possible, without creating additional risks\nEmergency stop device | mustTriggerOrPermitTriggeringOf | certain safeguard movements | where necessary | where necessary, trigger or permit the triggering of certain safeguard movements\nStop command | mustBeSustainedBy | engagement of the emergency stop device | until that engagement is specifically overridden | that command must be sustained by engagement of the emergency stop device until that engagement is specifically overridden\nEmergency stop device | mustNotBeEngageableWithout | triggering a stop command | \"\" | it must not be possible to engage the device without triggering a stop command\nEmergency stop device | mustBeDisengagedOnlyBy | an appropriate operation | \"\" | it must be possible to disengage the device only by an appropriate operation\nDisengaging emergency stop device | mustNotRestart | the machinery | disengagement only permits restarting | disengaging the device must not restart the machinery but only permit restarting\nEmergency stop function | mustBeAvailableAndOperational | at all times | regardless of the operating mode | The emergency stop function must be available and operational at all times, regardless of the operating mode.\nEmergency stop devices | mustBeBackUpToNotSubstituteFor | other safeguarding measures | \"\" | Emergency stop devices must be a back-up to other safeguarding measures and not a substitute for them.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1509,
+   "prompt_tokens": 605,
+   "total_tokens": 2114,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 668,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000815,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000815,
+   "gateway_cost": 0.000815
+  }
+ }
+}

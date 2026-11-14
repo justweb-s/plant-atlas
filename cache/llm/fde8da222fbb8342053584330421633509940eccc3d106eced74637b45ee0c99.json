@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 9\n\nArticle 9 Specific Union harmonisation legislation Where, for a certain product within the scope of this Regulation, the risks addressed by the essential health and safety requirements set out in Annex III are wholly or partly covered by Union harmonisation legislation that is more specific than this Regulation, this Regulation shall not apply to that product to the extent that that specific Union legislation covers such risks."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "This Regulation | shall not apply to that product | certain product within its scope | to the extent that the more specific Union legislation covers such risks | \"this Regulation shall not apply to that product to the extent that that specific Union legislation covers such risks\"\nSpecific Union harmonisation legislation | wholly or partly covers | risks addressed by the essential health and safety requirements in Annex III | where that legislation is more specific than this Regulation and the product is within scope | \"the risks addressed by the essential health and safety requirements set out in Annex III are wholly or partly covered by Union harmonisation legislation that is more specific than this Regulation\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 683,
+   "prompt_tokens": 326,
+   "total_tokens": 1009,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 479,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003741,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003741,
+   "gateway_cost": 0.0003741
+  }
+ }
+}

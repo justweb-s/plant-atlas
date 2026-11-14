@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 44(1)\n\nArticle 44 Union safeguard procedure. 1. Where, on completion of the procedure set out in Article 43(4), (6) and (7) objections are raised against a measure taken by a Member State, or where the Commission considers a national measure to be contrary to Union legal acts, the Commission shall without delay enter into consultation with the Member States and the relevant economic operator or operators and shall evaluate the national measure. On the basis of the results of that evaluation, the Commission shall adopt an implementing act in the form of a decision determining whether the national measure is justified or not. The Commission shall address its decision to all Member States and shall without delay communicate it to them and to the relevant economic operator or operators."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Commission | shallEnterConsultation | Member States and the relevant economic operator or operators | where objections are raised against a national measure after the procedure in Article 43(4), (6) and (7), or the Commission considers a national measure contrary to Union legal acts | \"the Commission shall without delay enter into consultation with the Member States and the relevant economic operator or operators\"\nCommission | shallEvaluateNationalMeasure | national measure | where objections are raised after Article 43(4), (6) and (7), or the Commission considers the national measure contrary to Union legal acts | \"shall evaluate the national measure\"\nCommission | shallAdoptDecision | implementing act in the form of a decision determining whether the national measure is justified or not | on the basis of the results of the evaluation | \"the Commission shall adopt an implementing act in the form of a decision determining whether the national measure is justified or not\"\nCommission | shallAddressDecisionTo | all Member States | \"\" | \"The Commission shall address its decision to all Member States\"\nCommission | shallCommunicateDecision | Member States and the relevant economic operator or operators | \"\" | \"shall without delay communicate it to them and to the relevant economic operator or operators\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 802,
+   "prompt_tokens": 426,
+   "total_tokens": 1228,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 411,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004436,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004436,
+   "gateway_cost": 0.0004436
+  }
+ }
+}

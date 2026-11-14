@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 2.1.1\n\n2.1.1. General Machinery intended for use with foodstuffs or with cosmetics or pharmaceutical products must be designed and constructed in such a way as to avoid any risk of infection, sickness or contagion. The following requirements must be observed: (a) materials in contact with, or intended to come into contact with, foodstuffs or cosmetics or pharmaceutical products must satisfy the conditions set down in the relevant Directives. The machinery must be designed and constructed in such a way that these materials can be cleaned before each use. Where this is not possible disposable parts must be used; (b) all surfaces in contact with foodstuffs or cosmetics or pharmaceutical products, other than surfaces of disposable parts, must: — be smooth and have neither ridges nor crevices which could harbour organic materials. The same applies to their joinings, — be designed and constructed in such a way as to reduce the projections, edges and recesses of assemblies to a minimum, — be easily cleaned and disinfected, where necessary after removing easily dismantled parts; the inside surfaces must have curves with a radius sufficient to allow thorough cleaning; (c) it must be possible for liquids, gases and aerosols deriving from foodstuffs, cosmetics or pharmaceutical products as well as from cleaning, disinfecting and rinsing fluids to be completely discharged from the machinery (if possible, in a ‘cleaning’ position); (d) machinery must be designed and constructed in such a way as to prevent any substances or living creatures, in particular insects, from entering, or any organic matter from accumulating in, areas that cannot be cleaned; (e) machinery must be designed and constructed in such a way that no ancillary substances hazardous to health, including the lubricants used, can come into contact with foodstuffs, cosmetics or pharmaceutical products. Where necessary, machinery must be designed and constructed in such a way that continuing compliance with this requirement can be checked."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery for foodstuffs, cosmetics or pharmaceutical products | mustBeDesignedToAvoid | any risk of infection, sickness or contagion | \"\" | \"must be designed and constructed in such a way as to avoid any risk of infection, sickness or contagion\"\nMaterials in contact with such products | mustSatisfy | the conditions set down in the relevant Directives | \"\" | \"must satisfy the conditions set down in the relevant Directives\"\nMaterials in contact with such products | mustBeCleanableBeforeEachUse | cleaning before each use | \"\" | \"designed and constructed in such a way that these materials can be cleaned before each use\"\nMaterials in contact with such products | mustBeReplacedBy | disposable parts | where cleaning before each use is not possible | \"Where this is not possible disposable parts must be used\"\nProduct-contact surfaces (other than disposable parts) | mustBeSmoothWithoutCrevices | no ridges or crevices that could harbour organic materials | \"\" | \"be smooth and have neither ridges nor crevices which could harbour organic materials\"\nJoinings of product-contact surfaces | mustMeetSameRequirement | smoothness with no ridges or crevices | \"\" | \"The same applies to their joinings\"\nProduct-contact surfaces | mustBeEasilyCleanedAndDisinfected | cleaning and disinfection | where necessary after removing easily dismantled parts | \"be easily cleaned and disinfected, where necessary after removing easily dismantled parts\"\nInside product-contact surfaces | mustHaveCurves | radius sufficient to allow thorough cleaning | \"\" | \"the inside surfaces must have curves with a radius sufficient to allow thorough cleaning\"\nLiquids, gases and aerosols from products or cleaning fluids | mustBeCompletelyDischargeable | from the machinery | if possible, in a 'cleaning' position | \"it must be possible for liquids, gases and aerosols ... to be completely discharged from the machinery (if possible, in a 'cleaning' position)\"\nMachinery | mustPreventEntry | substances or living creatures, in particular insects, entering areas that cannot be cleaned, and organic matter accumulating there | \"\" | \"must be designed and constructed in such a way as to prevent any substances or living creatures, in particular insects, from entering, or any organic matter from accumulating in, areas that cannot be cleaned\"\nMachinery | mustPreventContact | hazardous ancillary substances, including lubricants, with foodstuffs, cosmetics or pharmaceutical products | \"\" | \"no ancillary substances hazardous to health, including the lubricants used, can come into contact with foodstuffs, cosmetics or pharmaceutical products\"\nMachinery | mustAllowCheckOfCompliance | continuing compliance with the no-contact requirement can be checked | where necessary | \"Where necessary, machinery must be designed and constructed in such a way that continuing compliance with this requirement can be checked\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1721,
+   "prompt_tokens": 850,
+   "total_tokens": 2571,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 726,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009455,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009455,
+   "gateway_cost": 0.0009455
+  }
+ }
+}

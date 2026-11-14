@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 24(3)\n\nArticle 24 Rules for affixing the CE marking to machinery and related products. 3. Where the conformity of machinery or a related product is assessed in accordance with the conformity assessment procedure referred to in Article 25(2), points (a), (b) and (c) and in Article 25(3), points (b), (c) and (d), the CE marking shall be followed by the identification number of the notified body involved in that procedure. The identification number of that notified body shall be affixed by the body itself or, under its instructions, by the manufacturer or the manufacturer’s authorised representative."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "CE marking | shall be followed by | identification number of the notified body involved in that procedure | conformity assessed under Article 25(2), points (a), (b) and (c), or Article 25(3), points (b), (c) and (d) | Where the conformity of machinery or a related product is assessed in accordance with the conformity assessment procedure referred to in Article 25(2), points (a), (b) and (c) and in Article 25(3), points (b), (c) and (d), the CE marking shall be followed by the identification number of the notified body involved in that procedure.\nidentification number of the notified body | shall be affixed by | the notified body itself | | The identification number of that notified body shall be affixed by the body itself\nidentification number of the notified body | may be affixed by | the manufacturer or the manufacturer's authorised representative | under the instructions of the notified body | or, under its instructions, by the manufacturer or the manufacturer's authorised representative",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 635,
+   "prompt_tokens": 385,
+   "total_tokens": 1020,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 335,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000356,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000356,
+   "gateway_cost": 0.000356
+  }
+ }
+}

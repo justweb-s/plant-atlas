@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 4.3.1\n\n4.3.1. Chains, ropes and webbing Each length of lifting chain, rope or webbing not forming part of an assembly must bear a mark or, where this is not possible, a plate or irremovable ring bearing the name and address of the manufacturer or his authorised representative and the identifying reference of the relevant certificate. The certificate mentioned above must show at least the following information: (a) the name and address of the manufacturer and, if appropriate, his authorised representative; (b) a description of the chain or rope which includes: — its nominal size, — its construction, — the material from which it is made, and — any special metallurgical treatment applied to the material; (c) the test method used; (d) the maximum load to which the chain or rope should be subjected in service. A range of values may be given on the basis of the intended applications."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Lifting chain, rope or webbing not forming part of an assembly | must bear | a mark (or plate or irremovable ring) with the manufacturer's name and address and the certificate reference | where marking is not possible, a plate or irremovable ring is used | Each length of lifting chain, rope or webbing not forming part of an assembly must bear a mark or, where this is not possible, a plate or irremovable ring bearing the name and address of the manufacturer or his authorised representative and the identifying reference of the relevant certificate.\nCertificate | must show | name and address of the manufacturer and, if appropriate, his authorised representative | | (a) the name and address of the manufacturer and, if appropriate, his authorised representative\nCertificate description | must include | nominal size of the chain or rope | | (b) a description of the chain or rope which includes: — its nominal size\nCertificate description | must include | construction of the chain or rope | | its construction\nCertificate description | must include | material from which the chain or rope is made | | the material from which it is made\nCertificate description | must include | any special metallurgical treatment applied to the material | | any special metallurgical treatment applied to the material\nCertificate | must show | test method used | | (c) the test method used\nCertificate | must show | maximum load to which the chain or rope should be subjected in service | a range of values may be given on the basis of the intended applications | (d) the maximum load to which the chain or rope should be subjected in service. A range of values may be given on the basis of the intended applications.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1297,
+   "prompt_tokens": 463,
+   "total_tokens": 1760,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 812,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006948,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006948,
+   "gateway_cost": 0.0006948
+  }
+ }
+}

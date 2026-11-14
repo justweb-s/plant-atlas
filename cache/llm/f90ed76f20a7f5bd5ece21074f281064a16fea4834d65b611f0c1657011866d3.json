@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.1.2\n\n1.1.2. Principles of safety integration (a) Machinery or related products shall be designed and constructed so that they are fit for their function, and can be operated, adjusted and maintained without putting persons at risk when these operations are carried out under the conditions foreseen but also taking into account any reasonably foreseeable misuse thereof. The aim of protective measures shall be to eliminate any risk throughout the foreseeable lifetime of the machinery or related product including the phases of transport, assembly, dismantling, disabling and scrapping. (b) In selecting the most appropriate methods, the manufacturer shall apply the following principles, in the order given: (i) eliminate hazards or, if that is not possible, minimise risks (inherently safe machinery or related product design and construction); (ii) take the necessary protective measures in relation to risks that cannot be eliminated; (iii) inform users of the residual risks due to any shortcomings of the protective measures adopted, indicate whether any particular training is required and specify any need to provide personal protective equipment. (c) When designing and constructing machinery or a related product and when drafting the instructions for use, the manufacturer shall envisage not only the intended use of the machinery or related product but also any reasonably foreseeable misuse thereof. The machinery or related product shall be designed and constructed in such a way as to prevent abnormal use if such use would engender a risk. Where appropriate, the instructions for use shall draw the user’s attention to ways – which experience has shown might occur – in which the machinery or related product should not be used. (d) Machinery or related products shall be designed and constructed to take account of the constraints to which the operator is subject as a result of the necessary or foreseeable use of personal protective equipment. (e) Machinery or related products shall be designed and constructed in such a way that it is possible for the user, where applicable, to test the safety functions. The machinery or related product shall be supplied with all the special equipment and accessories, and where appropriate, with the description of specific functional test procedures, essential to enable it to be tested, adjusted, maintained and used safely."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related products | shallBeFitForFunction | their function | | \"Machinery or related products shall be designed and constructed so that they are fit for their function\"\nMachinery or related products | shallBeOperableWithoutRiskToPersons | adjustment and maintenance without putting persons at risk | when carried out under the conditions foreseen, also taking into account reasonably foreseeable misuse | \"can be operated, adjusted and maintained without putting persons at risk when these operations are carried out under the conditions foreseen\"\nProtective measures | shallEliminateRisk | any risk throughout the foreseeable lifetime | includes transport, assembly, dismantling, disabling and scrapping | \"The aim of protective measures shall be to eliminate any risk throughout the foreseeable lifetime of the machinery\"\nManufacturer | shallEliminateHazardsOrMinimiseRisks | hazards or risks | only if elimination of hazards is not possible; applied in the order given | \"(i) eliminate hazards or, if that is not possible, minimise risks\"\nManufacturer | shallTakeProtectiveMeasures | risks that cannot be eliminated | | \"(ii) take the necessary protective measures in relation to risks that cannot be eliminated\"\nManufacturer | shallInformUsersOfResidualRisks | residual risks due to shortcomings of adopted protective measures | | \"(iii) inform users of the residual risks due to any shortcomings of the protective measures adopted\"\nManufacturer | shallIndicateTrainingAndPpeNeeds | whether particular training is required and any need for personal protective equipment | | \"indicate whether any particular training is required and specify any need to provide personal protective equipment\"\nManufacturer | shallEnvisageReasonablyForeseeableMisuse | reasonably foreseeable misuse | when designing, constructing and drafting instructions for use | \"the manufacturer shall envisage not only the intended use of the machinery or related product but also any reasonably foreseeable misuse thereof\"\nMachinery or related products | shallPreventAbnormalUse | abnormal use | only if such use would engender a risk | \"The machinery or related product shall be designed and constructed in such a way as to prevent abnormal use if such use would engender a risk\"\nInstructions for use | shallWarnAgainstUnsafeUse | ways in which the machinery should not be used | where appropriate | \"the instructions for use shall draw the user's attention to ways ... in which the machinery or related product should not be used\"\nMachinery or related products | shallAccountForPpeConstraints | constraints on the operator from necessary or foreseeable use of personal protective equipment | | \"take account of the constraints to which the operator is subject as a result of the necessary or foreseeable use of personal protective equipment\"\nMachinery or related products | shallAllowTestingOfSafetyFunctions | user testing of safety functions | where applicable | \"it is possible for the user, where applicable, to test the safety functions\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2238,
+   "prompt_tokens": 879,
+   "total_tokens": 3117,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1251,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0012069,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0012069,
+   "gateway_cost": 0.0012069
+  }
+ }
+}

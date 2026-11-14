@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 10(10)\n\nArticle 10 Obligations of manufacturers of machinery and related products. 10. Manufacturers shall, further to a reasoned request from a competent national authority, provide that authority with all the information and documentation, in paper or digital format, necessary to demonstrate the conformity of the machinery or related products with this Regulation, in a language which can be easily understood by that authority. They shall cooperate with that authority, at its request, on any actions taken to eliminate the risks presented by the machinery or related products, which they have placed on the market or put into service."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturers | provideInformationTo | competent national authority | further to a reasoned request from that authority | Manufacturers shall, further to a reasoned request from a competent national authority, provide that authority with all the information and documentation\nInformation and documentation | format | paper or digital format | | in paper or digital format\nInformation and documentation | language | a language which can be easily understood by that authority | | in a language which can be easily understood by that authority\nInformation and documentation | purpose | demonstrating conformity of machinery or related products with this Regulation | | necessary to demonstrate the conformity of the machinery or related products with this Regulation\nManufacturers | cooperateWith | competent national authority | at that authority's request | They shall cooperate with that authority, at its request\nManufacturers' cooperation | scope | actions taken to eliminate risks presented by machinery or related products | machinery or related products have been placed on the market or put into service by the manufacturer | on any actions taken to eliminate the risks presented by the machinery or related products, which they have placed on the market or put into service",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 752,
+   "prompt_tokens": 374,
+   "total_tokens": 1126,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 410,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004134,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004134,
+   "gateway_cost": 0.0004134
+  }
+ }
+}

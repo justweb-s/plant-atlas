@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 11(3)\n\nArticle 11 Obligations of manufacturers of partly completed machinery. 3. Manufacturers shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities for at least 10 years after the partly completed machinery has been placed on the market. Where relevant, the source code or the programming logic included in the technical documentation shall, upon a reasoned request, be made available to the competent national authorities, if that source code or programming logic is necessary in order for them to be able to check compliance with the relevant essential health and safety requirements set out in Annex III."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturers of partly completed machinery | keepAtDisposal | technical documentation and EU declaration of incorporation | for at least 10 years after the partly completed machinery has been placed on the market; made available to market surveillance authorities | Manufacturers shall keep the technical documentation and the EU declaration of incorporation at the disposal of the market surveillance authorities for at least 10 years after the partly completed machinery has been placed on the market.\nSource code or programming logic in the technical documentation | madeAvailable | to competent national authorities | where relevant, upon a reasoned request, and only if necessary for them to check compliance with the relevant essential health and safety requirements in Annex III | Where relevant, the source code or the programming logic included in the technical documentation shall, upon a reasoned request, be made available to the competent national authorities, if that source code or programming logic is necessary in order for them to be able to check compliance with the relevant essential health and safety requirements set out in Annex III.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 837,
+   "prompt_tokens": 392,
+   "total_tokens": 1229,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 518,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004577,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004577,
+   "gateway_cost": 0.0004577
+  }
+ }
+}

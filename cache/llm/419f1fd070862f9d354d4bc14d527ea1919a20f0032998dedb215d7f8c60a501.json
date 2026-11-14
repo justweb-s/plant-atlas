@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.6.3\n\n1.6.3. Isolation of energy sources Machinery or related products shall be fitted with means to isolate it from all energy sources. Such isolators shall be clearly identified. They shall be capable of being locked if reconnection could endanger persons. Isolators shall also be capable of being locked where an operator is unable, from any of the points to which he or she has access, to check that the energy is still cut off. In the case of machinery or related products capable of being plugged into an electricity supply, removal of the plug is sufficient, if the operator can check from any of the points to which he or she has access that the plug remains removed. After the energy is cut off, it shall be possible to dissipate normally any energy remaining or stored in the circuits of the machinery or related product without risk to persons. As an exception to the requirement laid down in the previous paragraphs, certain circuits may remain connected to their energy sources in order, for example, to hold parts, to protect information, to light interiors, etc. In this case, special steps shall be taken to ensure operator safety."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related products | shall be fitted with | means to isolate it from all energy sources | | Machinery or related products shall be fitted with means to isolate it from all energy sources.\nIsolators | shall be | clearly identified | | Such isolators shall be clearly identified.\nIsolators | shall be | capable of being locked | if reconnection could endanger persons | They shall be capable of being locked if reconnection could endanger persons.\nIsolators | shall be | capable of being locked | where an operator cannot, from any access point, check that the energy is still cut off | Isolators shall also be capable of being locked where an operator is unable, from any of the points to which he or she has access, to check that the energy is still cut off.\nRemoval of the plug | is sufficient | for machinery capable of being plugged into an electricity supply | if the operator can check from any access point that the plug remains removed | In the case of machinery or related products capable of being plugged into an electricity supply, removal of the plug is sufficient, if the operator can check from any of the points to which he or she has access that the plug remains removed.\nEnergy remaining or stored in circuits | shall be possible to dissipate normally | after the energy is cut off | without risk to persons | After the energy is cut off, it shall be possible to dissipate normally any energy remaining or stored in the circuits of the machinery or related product without risk to persons.\nCertain circuits | may remain connected to their energy sources | to hold parts, protect information, or light interiors | as an exception to the isolation requirement | certain circuits may remain connected to their energy sources in order, for example, to hold parts, to protect information, to light interiors, etc.\nSpecial steps | shall be taken | to ensure operator safety | where certain circuits remain connected to their energy sources | In this case, special steps shall be taken to ensure operator safety.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1257,
+   "prompt_tokens": 532,
+   "total_tokens": 1789,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 666,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006817,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006817,
+   "gateway_cost": 0.0006817
+  }
+ }
+}

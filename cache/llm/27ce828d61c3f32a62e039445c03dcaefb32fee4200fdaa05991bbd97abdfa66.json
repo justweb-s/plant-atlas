@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Art. 5(1)\n\nArticle 5 Placing on the market and putting into service. 1. Before placing machinery on the market and/or putting it into service, the manufacturer or his authorised representative shall: (a) ensure that it satisfies the relevant essential health and safety requirements set out in Annex I; (b) ensure that the technical file referred to in Annex VII, part A is available; (c) provide, in particular, the necessary information, such as instructions; (d) carry out the appropriate procedures for assessing conformity in accordance with Article 12; (e) draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery; (f) affix the CE marking in accordance with Article 16."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "manufacturer or authorised representative | ensureSatisfiesEssentialRequirements | machinery satisfies the relevant essential health and safety requirements in Annex I | before placing machinery on the market and/or putting it into service | \"ensure that it satisfies the relevant essential health and safety requirements set out in Annex I\"\nmanufacturer or authorised representative | ensureAvailable | technical file referred to in Annex VII, part A | before placing machinery on the market and/or putting it into service | \"ensure that the technical file referred to in Annex VII, part A is available\"\nmanufacturer or authorised representative | provideInformation | necessary information, such as instructions | before placing machinery on the market and/or putting it into service | \"provide, in particular, the necessary information, such as instructions\"\nmanufacturer or authorised representative | carryOutConformityAssessment | appropriate conformity assessment procedures under Article 12 | before placing machinery on the market and/or putting it into service | \"carry out the appropriate procedures for assessing conformity in accordance with Article 12\"\nmanufacturer or authorised representative | drawUpDeclarationOfConformity | EC declaration of conformity in accordance with Annex II, part 1, Section A | before placing machinery on the market and/or putting it into service | \"draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A\"\nmanufacturer or authorised representative | ensureDeclarationAccompanies | EC declaration of conformity accompanies the machinery | before placing machinery on the market and/or putting it into service | \"ensure that it accompanies the machinery\"\nmanufacturer or authorised representative | affixCEMarking | CE marking on the machinery | before placing machinery on the market and/or putting it into service | \"affix the CE marking in accordance with Article 16\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1209,
+   "prompt_tokens": 440,
+   "total_tokens": 1649,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 613,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006485,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006485,
+   "gateway_cost": 0.0006485
+  }
+ }
+}

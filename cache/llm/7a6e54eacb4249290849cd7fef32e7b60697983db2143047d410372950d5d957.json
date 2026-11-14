@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 12(1)\n\nArticle 12 Authorised representatives. 1. A manufacturer of a product within the scope of this Regulation may, by a written mandate, appoint an authorised representative. The obligations laid down in Article 10(1) and Article 11(1) and the obligation to draw up the technical documentation set out in Annex IV shall not form part of the authorised representative’s mandate."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "manufacturer of a product within the scope of this Regulation | mayAppointBy | authorised representative | by a written mandate | \"A manufacturer of a product within the scope of this Regulation may, by a written mandate, appoint an authorised representative.\"\nobligations laid down in Article 10(1) | shallNotFormPartOf | authorised representative's mandate | | \"The obligations laid down in Article 10(1) and Article 11(1) and the obligation to draw up the technical documentation set out in Annex IV shall not form part of the authorised representative's mandate.\"\nobligations laid down in Article 11(1) | shallNotFormPartOf | authorised representative's mandate | | \"The obligations laid down in Article 10(1) and Article 11(1) and the obligation to draw up the technical documentation set out in Annex IV shall not form part of the authorised representative's mandate.\"\nobligation to draw up the technical documentation set out in Annex IV | shallNotFormPartOf | authorised representative's mandate | | \"the obligation to draw up the technical documentation set out in Annex IV shall not form part of the authorised representative's mandate.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 732,
+   "prompt_tokens": 322,
+   "total_tokens": 1054,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 362,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003982,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003982,
+   "gateway_cost": 0.0003982
+  }
+ }
+}

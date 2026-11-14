@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 4.3.3\n\n4.3.3. Lifting machinery The maximum working load must be prominently marked on the machinery. This marking must be legible, indelible and in an un-coded form. Where the maximum working load depends on the configuration of the machinery, each operating position must be provided with a load plate indicating, preferably in diagrammatic form or by means of tables, the working load permitted for each configuration. Machinery intended for lifting goods only, equipped with a carrier which allows access to persons, must bear a clear and indelible warning prohibiting the lifting of persons. This warning must be visible at each place where access is possible."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Maximum working load | must be prominently marked on | the machinery | | The maximum working load must be prominently marked on the machinery.\nMaximum working load marking | must be | legible, indelible and in an un-coded form | | This marking must be legible, indelible and in an un-coded form.\nOperating position | must be provided with | a load plate | where the maximum working load depends on the configuration of the machinery | each operating position must be provided with a load plate\nLoad plate | must indicate | the working load permitted for each configuration | preferably in diagrammatic form or by means of tables | indicating, preferably in diagrammatic form or by means of tables, the working load permitted for each configuration\nLifting machinery intended for lifting goods only, equipped with a carrier allowing access to persons | must bear | a clear and indelible warning prohibiting the lifting of persons | lifting goods only and equipped with a carrier allowing access to persons | Machinery intended for lifting goods only, equipped with a carrier which allows access to persons, must bear a clear and indelible warning prohibiting the lifting of persons.\nWarning prohibiting the lifting of persons | must be visible | at each place where access is possible | applies to goods-only lifting machinery with access-allowing carrier | This warning must be visible at each place where access is possible.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 777,
+   "prompt_tokens": 399,
+   "total_tokens": 1176,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 353,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004284,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004284,
+   "gateway_cost": 0.0004284
+  }
+ }
+}

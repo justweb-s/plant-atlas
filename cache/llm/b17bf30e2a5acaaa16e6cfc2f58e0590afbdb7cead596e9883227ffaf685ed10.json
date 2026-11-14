@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 3(1)\n\n(1) ‘machinery’ means: (a) an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application; (b) an assembly referred to in point (a), missing only the components to connect it on site or to sources of energy and motion; (c) an assembly referred to points (a) and (b), ready to be installed and able to function as it stands only if mounted on a means of transport, or installed in a building or a structure; (d) assemblies of machinery referred to in points (a), (b) and (c), or of partly completed machinery, which, in order to achieve the same end, are arranged and controlled so that they function as an integral whole; (e) an assembly of linked parts or components, at least one of which moves, and which are joined together, intended for lifting loads and whose only power source is directly applied human effort; (f) an assembly as referred to in points (a) to (e) missing only the uploading of the software intended for the specific application foreseen by the manufacturer;"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "machinery | is defined as | an assembly fitted with or intended to be fitted with a drive system, consisting of linked parts or components, at least one of which moves, joined together for a specific application | condition: drive system other than directly applied human or animal effort | quote: \"an assembly, fitted with or intended to be fitted with a drive system other than directly applied human or animal effort, consisting of linked parts or components, at least one of which moves, and which are joined together for a specific application\"\nassembly missing only components to connect on site | counts as | machinery | condition: missing only the components to connect it on site or to sources of energy and motion | quote: \"an assembly referred to in point (a), missing only the components to connect it on site or to sources of energy and motion\"\nassembly ready to be installed | counts as | machinery | condition: able to function as it stands only if mounted on a means of transport, or installed in a building or a structure | quote: \"ready to be installed and able to function as it stands only if mounted on a means of transport, or installed in a building or a structure\"\nassemblies of machinery or partly completed machinery arranged and controlled to function as an integral whole | count as | machinery | condition: arranged and controlled so that they function as an integral whole in order to achieve the same end | quote: \"assemblies of machinery referred to in points (a), (b) and (c), or of partly completed machinery, which, in order to achieve the same end, are arranged and controlled so that they function as an integral whole\"\nlifting assembly powered only by directly applied human effort | counts as | machinery | condition: intended for lifting loads and whose only power source is directly applied human effort | quote: \"an assembly of linked parts or components, at least one of which moves, and which are joined together, intended for lifting loads and whose only power source is directly applied human effort\"\nassembly missing only intended software upload | counts as | machinery | condition: missing only the uploading of the software intended for the specific application foreseen by the manufacturer | quote: \"an assembly as referred to in points (a) to (e) missing only the uploading of the software intended for the specific application foreseen by the manufacturer\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1191,
+   "prompt_tokens": 547,
+   "total_tokens": 1738,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 515,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006502,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006502,
+   "gateway_cost": 0.0006502
+  }
+ }
+}

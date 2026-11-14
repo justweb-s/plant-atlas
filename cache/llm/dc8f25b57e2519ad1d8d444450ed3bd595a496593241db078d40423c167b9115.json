@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 3.3\n\n3.3. CONTROL SYSTEMS If necessary, steps must be taken to prevent unauthorised use of controls. In the case of remote controls, each control unit must clearly identify the machinery to be controlled from that unit. The remote control system must be designed and constructed in such a way as to affect only: — the machinery in question, — the functions in question. Remote controlled machinery must be designed and constructed in such a way that it will respond only to signals from the intended control units."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Steps | mustBeTaken | prevent unauthorised use of controls | If necessary | If necessary, steps must be taken to prevent unauthorised use of controls.\nEach control unit | mustClearlyIdentify | the machinery to be controlled from that unit | In the case of remote controls | In the case of remote controls, each control unit must clearly identify the machinery to be controlled from that unit.\nRemote control system | mustAffectOnly | the machinery in question | \"\" | The remote control system must be designed and constructed in such a way as to affect only: — the machinery in question,\nRemote control system | mustAffectOnly | the functions in question | \"\" | — the functions in question.\nRemote controlled machinery | mustRespondOnlyTo | signals from the intended control units | \"\" | Remote controlled machinery must be designed and constructed in such a way that it will respond only to signals from the intended control units.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 613,
+   "prompt_tokens": 355,
+   "total_tokens": 968,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 321,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000342,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000342,
+   "gateway_cost": 0.000342
+  }
+ }
+}

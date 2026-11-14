@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex II\n\nANNEX II INDICATIVE LIST OF SAFETY COMPONENTS 1. 2. 3. 4. 5. 6. 7. 8. 9. 10. 11. 12. 13. 14. 15. 16. 17. (a) devices for locking landing doors; (b) devices to prevent the load-carrying unit from falling or unchecked upwards movement; (c) overspeed limitation devices; (d) energy-accumulating shock absorbers, non-linear or with damping of the return movement; (e) energy-dissipating shock absorbers; (f) safety devices fitted to jacks of hydraulic power circuits and used to prevent falls; (g) safety switches containing electronic components. 18. 19. 20."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Annex II | lists | safety components | indicative list | ANNEX II INDICATIVE LIST OF SAFETY COMPONENTS\ndevices for locking landing doors | isSafetyComponent | safety component | | (a) devices for locking landing doors;\ndevices to prevent the load-carrying unit from falling or unchecked upwards movement | isSafetyComponent | safety component | | (b) devices to prevent the load-carrying unit from falling or unchecked upwards movement;\noverspeed limitation devices | isSafetyComponent | safety component | | (c) overspeed limitation devices;\nshock absorbers | isSafetyComponent | safety component | energy-accumulating, non-linear or with damping of the return movement | (d) energy-accumulating shock absorbers, non-linear or with damping of the return movement;\nenergy-dissipating shock absorbers | isSafetyComponent | safety component | | (e) energy-dissipating shock absorbers;\nsafety devices fitted to jacks of hydraulic power circuits | isSafetyComponent | safety component | used to prevent falls | (f) safety devices fitted to jacks of hydraulic power circuits and used to prevent falls;\nsafety switches | isSafetyComponent | safety component | containing electronic components | (g) safety switches containing electronic components.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1089,
+   "prompt_tokens": 442,
+   "total_tokens": 1531,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 653,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005887,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005887,
+   "gateway_cost": 0.0005887
+  }
+ }
+}

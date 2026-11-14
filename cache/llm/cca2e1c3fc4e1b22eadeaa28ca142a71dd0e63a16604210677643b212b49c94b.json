@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DM2011, art. 1, c. 1\n\n1. Il presente decreto disciplina le modalita' di effettuazione delle verifiche periodiche cui sono sottoposte le attrezzature di lavoro di cui all'allegato VII del decreto legislativo n. 81/2008, nonche' i criteri per l'abilitazione dei soggetti pubblici o privati e individua le condizioni in presenza delle quali l'INAIL e le ASL possono avvalersi del supporto di soggetti pubblici o privati, ai sensi dell'articolo 71, comma 12, del decreto legislativo n. 81/2008, per l'effettuazione delle verifiche periodiche di cui all'articolo 71, comma 11."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Il presente decreto | disciplina | le modalita' di effettuazione delle verifiche periodiche delle attrezzature di lavoro di cui all'allegato VII del d.lgs. 81/2008 | | Il presente decreto disciplina le modalita' di effettuazione delle verifiche periodiche cui sono sottoposte le attrezzature di lavoro di cui all'allegato VII del decreto legislativo n. 81/2008\nIl presente decreto | stabilisce | i criteri per l'abilitazione dei soggetti pubblici o privati | | nonche' i criteri per l'abilitazione dei soggetti pubblici o privati\nIl presente decreto | individua | le condizioni in presenza delle quali l'INAIL e le ASL possono avvalersi del supporto di soggetti pubblici o privati | | individua le condizioni in presenza delle quali l'INAIL e le ASL possono avvalersi del supporto di soggetti pubblici o privati\nINAIL e ASL | possono avvalersi | del supporto di soggetti pubblici o privati per l'effettuazione delle verifiche periodiche | in presenza delle condizioni individuate dal presente decreto, ai sensi dell'articolo 71, comma 12, del d.lgs. 81/2008 | ai sensi dell'articolo 71, comma 12, del decreto legislativo n. 81/2008, per l'effettuazione delle verifiche periodiche di cui all'articolo 71, comma 11",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 935,
+   "prompt_tokens": 436,
+   "total_tokens": 1371,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 429,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005111,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005111,
+   "gateway_cost": 0.0005111
+  }
+ }
+}

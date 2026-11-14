@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS70, art. 70, c. 2\n\n2. Le attrezzature di lavoro costruite in assenza di disposizioni legislative e regolamentari di cui al comma 1, e quelle messe a disposizione dei lavoratori antecedentemente all'emanazione di norme legislative e regolamentari di recepimento delle direttive comunitarie di prodotto, devono essere conformi ai requisiti generali di sicurezza di cui all'allegato V."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "attrezzature di lavoro costruite in assenza di disposizioni di cui al comma 1 | devono essere conformi a | requisiti generali di sicurezza di cui all'allegato V | costruite in assenza di disposizioni legislative e regolamentari di cui al comma 1 | \"Le attrezzature di lavoro costruite in assenza di disposizioni legislative e regolamentari di cui al comma 1, ... devono essere conformi ai requisiti generali di sicurezza di cui all'allegato V\"\nattrezzature di lavoro messe a disposizione dei lavoratori prima dell'emanazione di norme di recepimento delle direttive comunitarie di prodotto | devono essere conformi a | requisiti generali di sicurezza di cui all'allegato V | messe a disposizione prima dell'emanazione di norme legislative e regolamentari di recepimento delle direttive comunitarie di prodotto | \"quelle messe a disposizione dei lavoratori antecedentemente all'emanazione di norme legislative e regolamentari di recepimento delle direttive comunitarie di prodotto, devono essere conformi ai requisiti generali di sicurezza di cui all'allegato V\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 714,
+   "prompt_tokens": 347,
+   "total_tokens": 1061,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 307,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003917,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003917,
+   "gateway_cost": 0.0003917
+  }
+ }
+}

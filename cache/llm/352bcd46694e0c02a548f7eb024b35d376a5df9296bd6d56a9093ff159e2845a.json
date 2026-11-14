@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 47(2)\n\nArticle 47 Exercise of the delegation. 2. The power to adopt delegated acts referred to in Articles 6(2), 6(11) and 7(2) shall be conferred on the Commission for a period of five years from 13 July 2023. The Commission shall draw up a report in respect of the delegation of power not later than nine months before the end of the five-year period. The delegation of power shall be tacitly extended for periods of an identical duration, unless the European Parliament or the Council opposes such extension not later than three months before the end of each period."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "The Commission | be conferred | power to adopt delegated acts referred to in Articles 6(2), 6(11) and 7(2) | for a period of five years from 13 July 2023 | The power to adopt delegated acts referred to in Articles 6(2), 6(11) and 7(2) shall be conferred on the Commission for a period of five years from 13 July 2023.\nThe Commission | draw up | report in respect of the delegation of power | not later than nine months before the end of the five-year period | The Commission shall draw up a report in respect of the delegation of power not later than nine months before the end of the five-year period.\nThe delegation of power | be tacitly extended | for periods of an identical duration | unless the European Parliament or the Council opposes such extension | The delegation of power shall be tacitly extended for periods of an identical duration, unless the European Parliament or the Council opposes such extension not later than three months before the end of each period.\nThe European Parliament or the Council | oppose | extension of the delegation of power | not later than three months before the end of each period | unless the European Parliament or the Council opposes such extension not later than three months before the end of each period.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 732,
+   "prompt_tokens": 374,
+   "total_tokens": 1106,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 367,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004034,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004034,
+   "gateway_cost": 0.0004034
+  }
+ }
+}

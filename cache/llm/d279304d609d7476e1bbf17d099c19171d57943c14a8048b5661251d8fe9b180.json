@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.5.4\n\n1.5.4. Errors of fitting Errors likely to be made when fitting or refitting certain parts which could be a source of risk must be made impossible by the design and construction of such parts or, failing this, by information given on the parts themselves and/or their housings. The same information must be given on moving parts and/or their housings where the direction of movement needs to be known in order to avoid a risk. Where necessary, the instructions must give further information on these risks. Where a faulty connection can be the source of risk, incorrect connections must be made impossible by design or, failing this, by information given on the elements to be connected and, where appropriate, on the means of connection."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Errors of fitting or refitting parts that could be a source of risk | must be made impossible | by the design and construction of such parts | | Errors likely to be made when fitting or refitting certain parts which could be a source of risk must be made impossible by the design and construction of such parts\nErrors of fitting or refitting parts | must be addressed by | information given on the parts themselves and/or their housings | failing design and construction measures | failing this, by information given on the parts themselves and/or their housings\nMoving parts and/or their housings | must carry | the same information as fitting parts, showing the direction of movement | where the direction of movement needs to be known to avoid a risk | The same information must be given on moving parts and/or their housings where the direction of movement needs to be known in order to avoid a risk\nInstructions | must give | further information on the risks of fitting errors | where necessary | Where necessary, the instructions must give further information on these risks\nIncorrect connections | must be made impossible | by design | where a faulty connection can be the source of risk | Where a faulty connection can be the source of risk, incorrect connections must be made impossible by design\nIncorrect connections | must be addressed by | information given on the elements to be connected and, where appropriate, on the means of connection | failing design measures | failing this, by information given on the elements to be connected and, where appropriate, on the means of connection",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1071,
+   "prompt_tokens": 408,
+   "total_tokens": 1479,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 638,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005763,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005763,
+   "gateway_cost": 0.0005763
+  }
+ }
+}

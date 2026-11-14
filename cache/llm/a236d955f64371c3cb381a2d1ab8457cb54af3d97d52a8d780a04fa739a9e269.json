@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 3.6.1\n\n3.6.1. Signs, signals and warnings All machinery or related products shall have signs and/or instruction plates concerning use, adjustment and maintenance, wherever necessary, so as to ensure the health and safety of persons. They shall be chosen, designed and constructed in such a way as to be clearly visible and indelible. Without prejudice to the provisions of road traffic regulations, machinery or related products with a ride-on driver shall have the following equipment: (a) an acoustic warning device to alert persons; (b) a system of light signals relevant to the intended conditions of use; the latter requirement does not apply to machinery or related products intended solely for underground working and having no electrical power; (c) where necessary, there shall be an appropriate connection between a trailer and the machinery or a related product for the operation of signals. Remote-controlled machinery or related products which, under normal conditions of use, exposes persons to the risk of impact or crushing shall be fitted with appropriate means to signal its movements or with means to protect persons against such risks. The same shall apply to machinery or related products, which involves, when in use, the constant repetition of a forward and backward movement on a single axis where the area to the rear of the machinery is not directly visible to the driver. Machinery or related products shall be constructed in such a way that the warning and signalling devices cannot be disabled unintentionally. Where it is essential for safety, such devices shall be provided with the means to check that they are in good working order and their failure shall be made apparent to the operator. Where the movement of machinery or its tools is particularly hazardous, signs on the machinery shall be provided to warn against approaching the machinery while it is working; the signs shall be legible at a sufficient distance to ensure the safety of persons who have to be in the vicinity."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "All machinery or related products | shall have | signs and/or instruction plates concerning use, adjustment and maintenance | wherever necessary, so as to ensure the health and safety of persons | All machinery or related products shall have signs and/or instruction plates concerning use, adjustment and maintenance, wherever necessary, so as to ensure the health and safety of persons.\nSigns and instruction plates | shall be | clearly visible and indelible | | They shall be chosen, designed and constructed in such a way as to be clearly visible and indelible.\nMachinery or related products with a ride-on driver | shall have | an acoustic warning device to alert persons | without prejudice to the provisions of road traffic regulations | (a) an acoustic warning device to alert persons\nMachinery or related products with a ride-on driver | shall have | a system of light signals relevant to the intended conditions of use | not required for machinery intended solely for underground working and having no electrical power | (b) a system of light signals relevant to the intended conditions of use\nMachinery or related products with a ride-on driver and a trailer | shall have | an appropriate connection between the trailer and the machinery for the operation of signals | where necessary | (c) where necessary, there shall be an appropriate connection between a trailer and the machinery or a related product for the operation of signals\nRemote-controlled machinery or related products | shall be fitted with | appropriate means to signal its movements or means to protect persons against such risks | under normal conditions of use it exposes persons to the risk of impact or crushing | Remote-controlled machinery or related products which, under normal conditions of use, exposes persons to the risk of impact or crushing shall be fitted with appropriate means to signal its movements or with means to protect persons against such risks.\nMachinery or related products with constant forward and backward movement on a single axis | shall be fitted with | appropriate means to signal its movements or means to protect persons against such risks | the area to the rear is not directly visible to the driver | The same shall apply to machinery or related products, which involves, when in use, the constant repetition of a forward and backward movement on a single axis where the area to the rear of the machinery is not directly visible to the driver.\nMachinery or related products | shall be constructed so that warning and signalling devices | cannot be disabled unintentionally | | Machinery or related products shall be constructed in such a way that the warning and signalling devices cannot be disabled unintentionally.\nWarning and signalling devices | shall be provided with | means to check that they are in good working order, with failure made apparent to the operator | where it is essential for safety | Where it is essential for safety, such devices shall be provided with the means to check that they are in good working order and their failure shall be made apparent to the operator.\nMachinery with particularly hazardous movement of machinery or its tools | shall have | signs warning against approaching the machinery while it is working | where the movement is particularly hazardous | Where the movement of machinery or its tools is particularly hazardous, signs on the machinery shall be provided to warn against approaching the machinery while it is working.\nWarning signs on machinery | shall be | legible at a sufficient distance to ensure the safety of persons who have to be in the vicinity | | the signs shall be legible at a sufficient distance to ensure the safety of persons who have to be in the vicinity.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 2011,
+   "prompt_tokens": 776,
+   "total_tokens": 2787,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 939,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010831,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010831,
+   "gateway_cost": 0.0010831
+  }
+ }
+}

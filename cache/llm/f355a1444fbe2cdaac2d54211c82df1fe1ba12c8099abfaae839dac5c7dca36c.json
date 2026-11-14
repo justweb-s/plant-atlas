@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"Device 13 is a GRU A PONTE SCORREVOLE (fact 0), built in 2017 (fact 6), with capacity 5000 kg (fact 59). On 2026-11-14 it is about 9 years old, so not more than 10 years. The IGEA site is in the estrattivo sector (fact 67). The Annex VII row for fixed lifting equipment over 200 kg, used in sectors such as estrattivo, with age not more than 10 years, gives biennial verification, P2Y (fact 17). The computed rule gives the same result.\", \"kind\": \"duration\", \"value\": \"P2Y\", \"text\": \"The overhead travelling crane at position 13 must be verified every two years (P2Y), under Allegato VII, riga 16 of the D.Lgs. list for fixed lifting equipment over 200 kg used in the estrattivo sector and not more than 10 years old.\", \"used\": [0, 6, 59, 67, 17]}",
+  "text": "{\"reasoning\": \"Device 13 is a GRU A PONTE SCORREVOLE (fact 0), an overhead travelling crane, treated as fixed. Its capacity is 5000 kg (fact 59), above 200 kg. The site sector is Area mineraria (estrattivo) (fact 67). It was built in 2017 (fact 6), so on 2026-11-14 it is 9 years old, not more than 10 years old. Annex VII row 16 (fact 17) covers fixed lifting equipment above 200 kg used in the estrattivo sector with age not more than 10 years, which requires a biennial check (P2Y). The computed rule gives the same result.\",\"kind\": \"duration\",\"value\": \"P2Y\",\"text\": \"The overhead travelling crane at position 13 must be verified every two years, under Allegato VII, riga 16 of D.Lgs. 81/2008 (fixed lifting equipment above 200 kg in the estrattivo sector, built within the last 10 years).\",\"used\": [0, 59, 67, 6, 17]}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 520,
+   "completion_tokens": 526,
    "prompt_tokens": 6100,
-   "total_tokens": 6620,
+   "total_tokens": 6626,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 200,
+    "reasoning_tokens": 181,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.00087,
+   "cost": 0.000873,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.00087,
-   "gateway_cost": 0.00087
+   "market_cost": 0.000873,
+   "gateway_cost": 0.000873
   }
  }
 }

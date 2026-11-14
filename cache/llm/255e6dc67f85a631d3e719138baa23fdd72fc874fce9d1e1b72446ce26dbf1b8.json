@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 6(4)\n\nArticle 6 Categories of machinery and related products listed in Annex I subject to relevant conformity assessment procedures. 4. The Commission shall assess the seriousness of the inherent potential risk presented by a category of machinery or related product for the purpose of determining whether to add that category of machinery or related product to Annex I or to withdraw that category of machinery or related product from Annex I. That assessment shall be established based on the combination of the probability of occurrence of harm and the severity of that harm. In determining the probability and severity of harm, the following criteria shall, where relevant, be taken into account: (a) the nature of the hazard inherent to the function of the category of machinery or related product, taking into account the intended use and any reasonably foreseeable misuse; (b) the severity of harm which a person would suffer, including the degree of reversibility of that harm; (c) the number of persons potentially affected by the harm; (d) the frequency and the duration of the exposure to the hazard that a person would be exposed to in the course of the intended use or any reasonably foreseeable misuse of the category of machinery or related product; (e) the possibilities of avoiding or limiting harm; (f) in the case of safety components, the likelihood of serious consequences for the safety of the persons exposed to harm in the event of their failure."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Commission | assessesSeriousnessOfInherentRisk | category of machinery or related product | for determining whether to add it to or withdraw it from Annex I | The Commission shall assess the seriousness of the inherent potential risk presented by a category of machinery or related product for the purpose of determining whether to add that category of machinery or related product to Annex I or to withdraw that category of machinery or related product from Annex I.\nseriousness assessment | isBasedOn | combination of probability of occurrence of harm and severity of that harm | | That assessment shall be established based on the combination of the probability of occurrence of harm and the severity of that harm.\nprobability and severity determination | considersCriteria | criteria (a) to (f) | where relevant | In determining the probability and severity of harm, the following criteria shall, where relevant, be taken into account\ncriterion (a) | considersHazardNature | nature of hazard inherent to the function, taking into account intended use and reasonably foreseeable misuse | where relevant | the nature of the hazard inherent to the function of the category of machinery or related product, taking into account the intended use and any reasonably foreseeable misuse\ncriterion (b) | considersSeverityOfHarm | severity of harm to a person, including degree of reversibility | where relevant | the severity of harm which a person would suffer, including the degree of reversibility of that harm\ncriterion (c) | considersNumberAffected | number of persons potentially affected by the harm | where relevant | the number of persons potentially affected by the harm\ncriterion (d) | considersExposure | frequency and duration of exposure to the hazard in intended use or reasonably foreseeable misuse | where relevant | the frequency and the duration of the exposure to the hazard that a person would be exposed to in the course of the intended use or any reasonably foreseeable misuse\ncriterion (e) | considersAvoidability | possibilities of avoiding or limiting harm | where relevant | the possibilities of avoiding or limiting harm\ncriterion (f) | considersLikelihoodOfSeriousConsequences | likelihood of serious consequences for persons exposed if a safety component fails | in the case of safety components | in the case of safety components, the likelihood of serious consequences for the safety of the persons exposed to harm in the event of their failure",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1239,
+   "prompt_tokens": 619,
+   "total_tokens": 1858,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 494,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006814,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006814,
+   "gateway_cost": 0.0006814
+  }
+ }
+}

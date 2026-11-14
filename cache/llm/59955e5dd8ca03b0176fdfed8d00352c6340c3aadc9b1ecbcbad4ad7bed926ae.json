@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.7.1.2\n\n1.7.1.2. Warning devices Where the health and safety of persons may be endangered by a fault in the operation of unsupervised machinery, the machinery must be equipped in such a way as to give an appropriate acoustic or light signal as a warning. Where machinery is equipped with warning devices these must be unambiguous and easily perceived. The operator must have facilities to check the operation of such warning devices at all times. The requirements of the specific Community Directives concerning colours and safety signals must be complied with."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Unsupervised machinery | must be equipped with | appropriate acoustic or light warning signal | where health and safety of persons may be endangered by a fault in its operation | \"must be equipped in such a way as to give an appropriate acoustic or light signal as a warning\"\nWarning devices | must be | unambiguous and easily perceived | where machinery is equipped with warning devices | \"these must be unambiguous and easily perceived\"\nOperator | must have | facilities to check operation of warning devices | at all times | \"The operator must have facilities to check the operation of such warning devices at all times\"\nWarning devices colours and safety signals | must comply with | requirements of specific Community Directives | | \"The requirements of the specific Community Directives concerning colours and safety signals must be complied with\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 550,
+   "prompt_tokens": 371,
+   "total_tokens": 921,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 300,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003121,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003121,
+   "gateway_cost": 0.0003121
+  }
+ }
+}

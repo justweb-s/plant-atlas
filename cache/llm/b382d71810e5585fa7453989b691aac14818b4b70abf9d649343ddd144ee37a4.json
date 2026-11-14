@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 4.1.2.6\n\n4.1.2.6. Control of movements Devices for controlling movements must act in such a way that the machinery on which they are installed is kept safe. (a) Machinery must be designed and constructed or fitted with devices in such a way that the amplitude of movement of its components is kept within the specified limits. The operation of such devices must, where appropriate, be preceded by a warning. (b) Where several fixed or rail-mounted machines can be manoeuvred simultaneously in the same place, with risks of collision, such machinery must be designed and constructed in such a way as to make it possible to fit systems enabling these risks to be avoided. (c) Machinery must be designed and constructed in such a way that the loads cannot creep dangerously or fall freely and unexpectedly, even in the event of partial or total failure of the power supply or when the operator stops operating the machine. (d) It must not be possible, under normal operating conditions, to lower the load solely by friction brake, except in the case of machinery whose function requires it to operate in that way. (e) Holding devices must be designed and constructed in such a way that inadvertent dropping of the loads is avoided."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Devices for controlling movements | must act so that the machinery on which they are installed is kept safe | | | \"Devices for controlling movements must act in such a way that the machinery on which they are installed is kept safe.\"\nMachinery | must keep the amplitude of movement of its components within | specified limits | | \"the amplitude of movement of its components is kept within the specified limits\"\nOperation of movement-control devices | must be preceded by | a warning | where appropriate | \"The operation of such devices must, where appropriate, be preceded by a warning.\"\nFixed or rail-mounted machines manoeuvred simultaneously in the same place | must be designed so that systems can be fitted to avoid collision risks | collision systems | where several such machines can be manoeuvred simultaneously with collision risks | \"such machinery must be designed and constructed in such a way as to make it possible to fit systems enabling these risks to be avoided\"\nLoads | must not creep dangerously or fall freely and unexpectedly | | even in the event of partial or total power supply failure, or when the operator stops operating the machine | \"the loads cannot creep dangerously or fall freely and unexpectedly, even in the event of partial or total failure of the power supply or when the operator stops operating the machine\"\nLowering a load solely by friction brake | must not be possible under normal operating conditions | machinery whose function requires it | except machinery whose function requires operation in that way | \"It must not be possible, under normal operating conditions, to lower the load solely by friction brake, except in the case of machinery whose function requires it to operate in that way.\"\nHolding devices | must be designed so that inadvertent dropping of loads is avoided | | | \"Holding devices must be designed and constructed in such a way that inadvertent dropping of the loads is avoided.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1036,
+   "prompt_tokens": 574,
+   "total_tokens": 1610,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 462,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005754,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005754,
+   "gateway_cost": 0.0005754
+  }
+ }
+}

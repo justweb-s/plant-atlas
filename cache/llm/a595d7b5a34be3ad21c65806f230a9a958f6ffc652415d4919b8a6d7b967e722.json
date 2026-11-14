@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 6.4.1\n\n6.4.1. Risks to persons in or on the carrier The carrier must be designed and constructed in such a way as to prevent risks due to contact between persons and/or objects in or on the carrier with any fixed or moving elements. Where necessary in order to fulfil this requirement, the carrier itself must be completely enclosed with doors fitted with an interlocking device that prevents hazardous movements of the carrier unless the doors are closed. The doors must remain closed if the carrier stops between landings where there is a risk of falling from the carrier. The machinery must be designed, constructed and, where necessary, equipped with devices in such a way as to prevent uncontrolled upward or downward movement of the carrier. These devices must be able to stop the carrier at its maximum working load and at the foreseeable maximum speed. The stopping action must not cause deceleration harmful to the occupants, whatever the load conditions."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "carrier | mustBeDesignedToPreventContactRisk | risks due to contact between persons and/or objects in or on the carrier and any fixed or moving elements | | The carrier must be designed and constructed in such a way as to prevent risks due to contact between persons and/or objects in or on the carrier with any fixed or moving elements.\ncarrier | mustBeCompletelyEnclosed | the carrier itself | where necessary to fulfil the contact-risk requirement | Where necessary in order to fulfil this requirement, the carrier itself must be completely enclosed with doors\ncarrier doors | mustBeFittedWithInterlock | interlocking device preventing hazardous movements of the carrier | unless the doors are closed | doors fitted with an interlocking device that prevents hazardous movements of the carrier unless the doors are closed\ncarrier doors | mustRemainClosed | carrier stopped between landings | where there is a risk of falling from the carrier | The doors must remain closed if the carrier stops between landings where there is a risk of falling from the carrier.\nmachinery | mustPreventUncontrolledMovement | uncontrolled upward or downward movement of the carrier | where necessary, equipped with devices | The machinery must be designed, constructed and, where necessary, equipped with devices in such a way as to prevent uncontrolled upward or downward movement of the carrier.\ndevices | mustStopCarrier | carrier at maximum working load and foreseeable maximum speed | | These devices must be able to stop the carrier at its maximum working load and at the foreseeable maximum speed.\nstopping action | mustNotCauseHarmfulDeceleration | deceleration harmful to the occupants | whatever the load conditions | The stopping action must not cause deceleration harmful to the occupants, whatever the load conditions.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1073,
+   "prompt_tokens": 499,
+   "total_tokens": 1572,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 474,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005864,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005864,
+   "gateway_cost": 0.0005864
+  }
+ }
+}

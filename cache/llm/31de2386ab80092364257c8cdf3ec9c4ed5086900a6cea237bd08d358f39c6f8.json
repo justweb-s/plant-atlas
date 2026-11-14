@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.7.4.2\n\n1.7.4.2. Contents of the instructions Each instruction manual must contain, where applicable, at least the following information: (a) the business name and full address of the manufacturer and of his authorised representative; (b) the designation of the machinery as marked on the machinery itself, except for the serial number (see section 1.7.3); (c) the EC declaration of conformity, or a document setting out the contents of the EC declaration of conformity, showing the particulars of the machinery, not necessarily including the serial number and the signature; (d) a general description of the machinery; (e) the drawings, diagrams, descriptions and explanations necessary for the use, maintenance and repair of the machinery and for checking its correct functioning; (f) a description of the workstation(s) likely to be occupied by operators; (g) a description of the intended use of the machinery; (h) warnings concerning ways in which the machinery must not be used that experience has shown might occur; (i) assembly, installation and connection instructions, including drawings, diagrams and the means of attachment and the designation of the chassis or installation on which the machinery is to be mounted; (j) instructions relating to installation and assembly for reducing noise or vibration; (k) instructions for the putting into service and use of the machinery and, if necessary, instructions for the training of operators; (l) information about the residual risks that remain despite the inherent safe design measures, safeguarding and complementary protective measures adopted; (m) instructions on the protective measures to be taken by the user, including, where appropriate, the personal protective equipment to be provided; (n) the essential characteristics of tools which may be fitted to the machinery; (o) the conditions in which the machinery meets the requirement of stability during use, transportation, assembly, dismantling when out of service, testing or foreseeable breakdowns; (p) instructions with a view to ensuring that transport, handling and storage operations can be made safely, giving the mass of the machinery and of its various parts where these are regularly to be transported separately; (q) the operating method to be followed in the event of accident or breakdown; if a blockage is likely to occur, the operating method to be followed so as to enable the equipment to be safely unblocked; (r) the description of the adjustment and maintenance operations that should be carried out by the user and the preventive maintenance measures that should be observed; (s) instructions designed to enable adjustment and maintenance to be carried out safely, including the protective measures that should be taken during these operations; (t) the specifications of the spare parts to be used, when these affect the health and safety of operators; (u) the following information on airborne noise emissions: — the A-weighted emission sound pressure level at workstations, where this exceeds 70 dB(A); where this level does not exceed 70 dB(A), this fact must be indicated, — the peak C-weighted instantaneous sound pressure value at workstations, where this exceeds 63 Pa (130 dB in relation to 20 μPa), — the A-weighted sound power level emitted by the machinery, where the A-weighted emission sound pressure level at workstations exceeds 80 dB(A). These values must be either those actually measured for the machinery in question or those established on the basis of measurements taken for technically comparable machinery which is representative of the machinery to be produced. In the case of very large machinery, instead of the A-weighted sound power level, the A-weighted emission sound pressure levels at specified positions around the machinery may be indicated. Where the harmonised standards are not applied, sound levels must be measured using the most appropriate method for the machinery. Whenever sound emission values are indicated the uncertainties surrounding these values must be specified. The operating conditions of the machinery during measurement and the measuring methods used must be described. Where the workstation(s) are undefined or cannot be defined, A-weighted sound pressure levels must be measured at a distance of 1 metre from the surface of the machinery and at a height of 1,6 metres from the floor or access platform. The position and value of the maximum sound pressure must be indicated. Where specific Community Directives lay down other requirements for the measurement of sound pressure levels or sound power levels, those Directives must be applied and the corresponding provisions of this section shall not apply; (v) where machinery is likely to emit non-ionising radiation which may cause harm to persons, in particular persons with active or non-active implantable medical devices, information concerning the radiation emitted for the operator and exposed persons."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "(a) business name and full address | each instruction manual must contain | business name and full address of the manufacturer and of his authorised representative | where applicable | (a) the business name and full address of the manufacturer and of his authorised representative\neach instruction manual | mustContain | EC declaration of conformity or a document setting out its contents | not necessarily including the serial number and the signature | the EC declaration of conformity, or a document setting out the contents of the EC declaration of conformity\neach instruction manual | mustContain | warnings concerning ways in which the machinery must not be used | that experience has shown might occur | warnings concerning ways in which the machinery must not be used that experience has shown might occur\neach instruction manual | mustContain | information about residual risks | residual risks that remain despite inherent safe design, safeguarding and complementary protective measures | information about the residual risks that remain despite the inherent safe design measures, safeguarding and complementary protective measures adopted\neach instruction manual | mustContain | operating method to be followed in the event of accident or breakdown | \"\" | the operating method to be followed in the event of accident or breakdown\nA-weighted emission sound pressure level at workstations | mustBeIndicated | the level itself | where this exceeds 70 dB(A); where it does not exceed 70 dB(A), this fact must be indicated | the A-weighted emission sound pressure level at workstations, where this exceeds 70 dB(A)\nA-weighted sound power level emitted by the machinery | mustBeIndicated | the sound power level | where the A-weighted emission sound pressure level at workstations exceeds 80 dB(A) | the A-weighted sound power level emitted by the machinery, where the A-weighted emission sound pressure level at workstations exceeds 80 dB(A)\nwhenever sound emission values are indicated | uncertainties surrounding these values must be specified | \"\" | \"\" | Whenever sound emission values are indicated the uncertainties surrounding these values must be specified\nsound levels where workstations are undefined or cannot be defined | must be measured at 1 metre from the machinery surface and 1,6 metres above the floor or access platform | workstations are undefined or cannot be defined | Where the workstation(s) are undefined or cannot be defined, A-weighted sound pressure levels must be measured at a distance of 1 metre from the surface of the machinery and at a height of 1,6 metres from the floor or access platform\neach instruction manual | mustDescribe | adjustment and maintenance operations to be carried out by the user and preventive maintenance measures | \"\" | the description of the adjustment and maintenance operations that should be carried out by the user and the preventive maintenance measures that should be observed\nspecifications of spare parts | mustBeProvided | spare parts specifications | when these affect the health and safety of operators | the specifications of the spare parts to be used, when these affect the health and safety of operators\ninformation on non-ionising radiation emitted | mustBeProvided | radiation information for operators and exposed persons | where machinery is likely to emit non-ionising radiation which may cause harm to persons | where machinery is likely to emit non-ionising radiation which may cause harm to persons, information concerning the radiation emitted for the operator and exposed persons",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1902,
+   "prompt_tokens": 1640,
+   "total_tokens": 3542,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 844,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.001115,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.001115,
+   "gateway_cost": 0.001115
+  }
+ }
+}

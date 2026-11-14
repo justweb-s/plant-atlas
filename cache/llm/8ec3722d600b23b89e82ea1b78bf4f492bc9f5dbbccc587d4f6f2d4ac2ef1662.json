@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 14(2)\n\nArticle 14 Obligations of importers of partly completed machinery. 2. Before placing partly completed machinery on the market, importers shall ensure that the manufacturer has drawn up the technical documentation set out in Annex IV, Part B, that the partly completed machinery is accompanied by the required documents and that the manufacturer has complied with the requirements set out in Article 11(5), (6) and (8). Where an importer considers or has reason to believe that partly completed machinery is not in conformity with this Regulation, the importer shall not place it on the market until it has been brought into conformity. Furthermore, where the partly completed machinery presents a risk as regards the relevant essential health and safety requirements, the importer shall inform the manufacturer and the market surveillance authorities to that effect."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "importers | mustEnsureBeforeMarketing | manufacturer has drawn up technical documentation set out in Annex IV, Part B | before placing partly completed machinery on the market | \"importers shall ensure that the manufacturer has drawn up the technical documentation set out in Annex IV, Part B\"\npartly completed machinery | mustBeAccompaniedBy | required documents | before placing on the market | \"the partly completed machinery is accompanied by the required documents\"\nimporters | mustEnsureManufacturerComplies | requirements set out in Article 11(5), (6) and (8) | before placing partly completed machinery on the market | \"the manufacturer has complied with the requirements set out in Article 11(5), (6) and (8)\"\nimporter | mustNotPlaceOnMarket | partly completed machinery | importer considers or has reason to believe it is not in conformity with the Regulation | \"the importer shall not place it on the market until it has been brought into conformity\"\nimporter | mustInform | manufacturer and market surveillance authorities | partly completed machinery presents a risk as regards the relevant essential health and safety requirements | \"the importer shall inform the manufacturer and the market surveillance authorities to that effect\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 801,
+   "prompt_tokens": 455,
+   "total_tokens": 1256,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 404,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000446,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000446,
+   "gateway_cost": 0.000446
+  }
+ }
+}

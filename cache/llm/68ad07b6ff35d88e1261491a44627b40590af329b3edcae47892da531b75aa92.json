@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 4.3.3\n\n4.3.3. Lifting machinery or related products The maximum working load shall be prominently marked on the lifting machinery or related product. This marking shall be legible, indelible and in an un-coded form. Where the maximum working load depends on the configuration of the lifting machinery or related product, each operating position shall be provided with a load plate indicating, preferably in diagrammatic form or by means of tables, the working load permitted for each configuration. Machinery or related products intended for lifting goods only, equipped with a carrier, which allows access to persons, shall bear a clear and indelible warning prohibiting the lifting of persons. This warning shall be visible at each place where access is possible."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Lifting machinery or related product | bears | prominent marking of maximum working load | \"\" | \"The maximum working load shall be prominently marked on the lifting machinery or related product.\"\nMaximum working load marking | is | legible, indelible and in an un-coded form | \"\" | \"This marking shall be legible, indelible and in an un-coded form.\"\nEach operating position | is provided with | a load plate | where the maximum working load depends on the configuration of the machinery or product | \"Where the maximum working load depends on the configuration of the lifting machinery or related product, each operating position shall be provided with a load plate\"\nLoad plate | indicates | the working load permitted for each configuration | \"\" | \"indicating, preferably in diagrammatic form or by means of tables, the working load permitted for each configuration\"\nLoad plate | is presented in | diagrammatic form or tables | preferred, not mandatory | \"preferably in diagrammatic form or by means of tables\"\nMachinery intended for lifting goods only, equipped with a carrier allowing access to persons | bears | a clear and indelible warning prohibiting the lifting of persons | \"\" | \"Machinery or related products intended for lifting goods only, equipped with a carrier, which allows access to persons, shall bear a clear and indelible warning prohibiting the lifting of persons.\"\nWarning prohibiting the lifting of persons | is visible at | each place where access is possible | \"\" | \"This warning shall be visible at each place where access is possible.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 922,
+   "prompt_tokens": 422,
+   "total_tokens": 1344,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 448,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005032,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005032,
+   "gateway_cost": 0.0005032
+  }
+ }
+}

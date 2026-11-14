@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.2.5\n\n1.2.5. Selection of control or operating modes The control or operating mode selected must override all other control or operating modes, with the exception of the emergency stop. If machinery has been designed and constructed to allow its use in several control or operating modes requiring different protective measures and/or work procedures, it must be fitted with a mode selector which can be locked in each position. Each position of the selector must be clearly identifiable and must correspond to a single operating or control mode. The selector may be replaced by another selection method which restricts the use of certain functions of the machinery to certain categories of operator. If, for certain operations, the machinery must be able to operate with a guard displaced or removed and/or a protective device disabled, the control or operating mode selector must simultaneously: — disable all other control or operating modes, — permit operation of hazardous functions only by control devices requiring sustained action, — permit the operation of hazardous functions only in reduced risk conditions while preventing hazards from linked sequences, — prevent any operation of hazardous functions by voluntary or involuntary action on the machine's sensors. If these four conditions cannot be fulfilled simultaneously, the control or operating mode selector must activate other protective measures designed and constructed to ensure a safe intervention zone. In addition, the operator must be able to control operation of the parts he is working on from the adjustment point."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "control or operating mode selected | must override | all other control or operating modes | except the emergency stop | \"The control or operating mode selected must override all other control or operating modes, with the exception of the emergency stop.\"\nmachinery designed for several modes requiring different protective measures or work procedures | must be fitted with | a mode selector that can be locked in each position | \"\" | \"If machinery has been designed and constructed to allow its use in several control or operating modes requiring different protective measures and/or work procedures, it must be fitted with a mode selector which can be locked in each position.\"\neach position of the selector | must correspond to | a single operating or control mode | \"\" | \"Each position of the selector must be clearly identifiable and must correspond to a single operating or control mode.\"\nmode selector | may be replaced by | another selection method that restricts certain machine functions to certain categories of operator | \"\" | \"The selector may be replaced by another selection method which restricts the use of certain functions of the machinery to certain categories of operator.\"\ncontrol or operating mode selector | must disable | all other control or operating modes | machinery must operate with a guard displaced or removed and/or a protective device disabled for certain operations | \"the control or operating mode selector must simultaneously: — disable all other control or operating modes\"\ncontrol or operating mode selector | must permit operation of hazardous functions only by | control devices requiring sustained action | machinery must operate with a guard displaced or removed and/or a protective device disabled for certain operations | \"— permit operation of hazardous functions only by control devices requiring sustained action\"\ncontrol or operating mode selector | must permit hazardous functions only in | reduced risk conditions, while preventing hazards from linked sequences | machinery must operate with a guard displaced or removed and/or a protective device disabled for certain operations | \"— permit the operation of hazardous functions only in reduced risk conditions while preventing hazards from linked sequences\"\ncontrol or operating mode selector | must prevent | any operation of hazardous functions by voluntary or involuntary action on the machine's sensors | machinery must operate with a guard displaced or removed and/or a protective device disabled for certain operations | \"— prevent any operation of hazardous functions by voluntary or involuntary action on the machine's sensors\"\ncontrol or operating mode selector | must activate | other protective measures designed and constructed to ensure a safe intervention zone | the four conditions cannot be fulfilled simultaneously | \"If these four conditions cannot be fulfilled simultaneously, the control or operating mode selector must activate other protective measures designed and constructed to ensure a safe intervention zone.\"\noperator | must be able to control | operation of the parts he is working on | \"\" | \"In addition, the operator must be able to control operation of the parts he is working on from the adjustment point.\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1415,
+   "prompt_tokens": 637,
+   "total_tokens": 2052,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 528,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007712,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007712,
+   "gateway_cost": 0.0007712
+  }
+ }
+}

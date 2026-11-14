@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"Device 13 is a GRU A PONTE SCORREVOLE (fact 45), a fixed overhead crane with capacity 5000 kg (fact 58), built in 2017 (fact 0), in the extractive sector (fact 69). The computed rule gives P2Y for today (2026-11-14), when the crane is under 10 years old. In November 2028 it will be 11 years old, so the 'non antecedente 10 anni' condition of fact 8 no longer holds. The 'antecedente 10 anni' condition of fact 15 applies instead: fixed equipment over 200 kg, sector-type use in construction, steel, port or extractive settings, built more than 10 years earlier, giving an annual verification (P1Y). The question asks how often, so the answer is a duration.\", \"kind\": \"duration\", \"value\": \"P1Y\", \"text\": \"In November 2028 the crane (built 2017, over 10 years old, fixed, extractive sector) falls under Allegato VII row 15 of D.Lgs. 81/2008, which requires an annual verification (P1Y).\", \"used\": [0, 45, 58, 69, 8, 15]}",
+  "text": "{\"reasoning\": \"Device 13 is a GRU A PONTE SCORREVOLE (fact 45), a fixed overhead crane with capacity 5000 kg (fact 58) at an estrattivo site (fact 69), built in 2017 (fact 0). Today it is 10 years or less from build, which gives P2Y (fact 8, per the computed rule). In November 2028 the crane is 11 years old, so the 'anno di fabbricazione antecedente 10 anni' condition applies. Fact 15 covers fixed equipment over 200 kg in the construction, steel, port or mining sectors that is older than 10 years, with a verification every year (P1Y). The two-year interval no longer applies in 2028.\",\n\"kind\": \"duration\",\n\"value\": \"P1Y\",\n\"text\": \"In November 2028 the crane will have to be verified annually (P1Y), under Allegato VII riga 15 of the D.Lgs. 81/2008 table, because by then it is more than 10 years old (built 2017) and the two-year interval for newer fixed equipment no longer applies.\",\n\"used\": [0, 8, 15, 45, 58, 69]}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 1016,
+   "completion_tokens": 891,
    "prompt_tokens": 6750,
-   "total_tokens": 7766,
+   "total_tokens": 7641,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 633,
+    "reasoning_tokens": 511,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.001183,
+   "cost": 0.0011205,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.001183,
-   "gateway_cost": 0.001183
+   "market_cost": 0.0011205,
+   "gateway_cost": 0.0011205
   }
  }
 }

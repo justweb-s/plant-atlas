@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 4.1.2.5\n\n4.1.2.5. Lifting accessories and their components Lifting accessories and their components must be sized with due regard to fatigue and ageing processes for a number of operating cycles consistent with their expected life-span as specified in the operating conditions for a given application. Moreover: (a) the working coefficient of wire-rope/rope-end combinations must be chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 5. Ropes must not comprise any splices or loops other than at their ends; (b) where chains with welded links are used, they must be of the short-link type. The working coefficient of chains must be chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 4; (c) the working coefficient for textile ropes or slings is dependent on the material, method of manufacture, dimensions and use. This coefficient must be chosen in such a way as to guarantee an adequate level of safety; it is, as a general rule, equal to 7, provided the materials used are shown to be of very good quality and the method of manufacture is appropriate to the intended use. Should this not be the case, the coefficient is, as a general rule, set at a higher level in order to secure an equivalent level of safety. Textile ropes and slings must not include any knots, connections or splicing other than at the ends of the sling, except in the case of an endless sling; (d) all metallic components making up, or used with, a sling must have a working coefficient chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 4; (e) the maximum working load of a multilegged sling is determined on the basis of the working coefficient of the weakest leg, the number of legs and a reduction factor which depends on the slinging configuration; (f) in order to verify that an adequate working coefficient has been attained, the manufacturer or his authorised representative must, for each type of component referred to in (a), (b), (c) and (d), perform the appropriate tests or have such tests performed."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Lifting accessories and components | must be sized for | fatigue and ageing over a number of operating cycles consistent with their expected life-span | as specified in the operating conditions for a given application | \"must be sized with due regard to fatigue and ageing processes for a number of operating cycles consistent with their expected life-span\"\nWire-rope working coefficient | isGeneralRuleOf | 5 | as a general rule | \"this coefficient is, as a general rule, equal to 5\"\nRopes | mustNotComprise | splices or loops other than at their ends | | \"Ropes must not comprise any splices or loops other than at their ends\"\nChains with welded links | mustBe | short-link type | where chains with welded links are used | \"they must be of the short-link type\"\nChain working coefficient | isGeneralRuleOf | 4 | as a general rule | \"this coefficient is, as a general rule, equal to 4\"\nTextile ropes or slings working coefficient | isGeneralRuleOf | 7 | provided the materials are shown to be of very good quality and the manufacturing method is appropriate to the intended use | \"it is, as a general rule, equal to 7, provided the materials used are shown to be of very good quality and the method of manufacture is appropriate to the intended use\"\nTextile coefficient where quality or manufacture is not shown adequate | mustBeSetAt | a higher level securing an equivalent level of safety | where the conditions for the value of 7 are not met | \"Should this not be the case, the coefficient is, as a general rule, set at a higher level in order to secure an equivalent level of safety\"\nTextile ropes and slings | mustNotInclude | knots, connections or splicing other than at the ends of the sling | except in the case of an endless sling | \"Textile ropes and slings must not include any knots, connections or splicing other than at the ends of the sling, except in the case of an endless sling\"\nMetallic components of or used with a sling | isGeneralRuleOf | working coefficient of 4 | as a general rule | \"all metallic components making up, or used with, a sling must have a working coefficient chosen in such a way as to guarantee an adequate level of safety; this coefficient is, as a general rule, equal to 4\"\nMaximum working load of a multilegged sling | isDeterminedBy | working coefficient of the weakest leg, number of legs, and a reduction factor depending on slinging configuration | | \"the maximum working load of a multilegged sling is determined on the basis of the working coefficient of the weakest leg, the number of legs and a reduction factor which depends on the slinging configuration\"\nManufacturer or authorised representative | mustPerform | appropriate tests, or have them performed, to verify adequate working coefficient for each component type in (a) to (d) | | \"the manufacturer or his authorised representative must, for each type of component referred to in (a), (b), (c) and (d), perform the appropriate tests or have such tests performed\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1766,
+   "prompt_tokens": 871,
+   "total_tokens": 2637,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 810,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009701,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009701,
+   "gateway_cost": 0.0009701
+  }
+ }
+}

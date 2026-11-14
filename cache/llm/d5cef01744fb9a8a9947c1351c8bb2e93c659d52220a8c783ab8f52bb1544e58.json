@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex V, Part B, point 9\n\n9. Additional information: Signed for and on behalf of: … (place and date of issue): (name, function) (signature): ( 1 ) It is optional for the manufacturer to assign a number to the declaration of conformity. ( 2 ) It is optional to assign a number to the declaration of conformity. ( 3 ) Regulation (EU) 2023/1230 of the European Parliament and of the Council of 14 June 2023 on machinery and repealing Directive 2006/42/EC of the European Parliament and of the Council and Council Directive 73/361/EEC ( OJ L 165, 29.6.2023, p. 1 )."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Declaration of conformity | requiresSignatory | name, function, signature, place and date of issue | \"\" | \"Signed for and on behalf of: … (place and date of issue): (name, function) (signature):\"\nManufacturer | mayAssignNumber | number to the declaration of conformity | optional | \"It is optional for the manufacturer to assign a number to the declaration of conformity.\"\nAssigning a number to the declaration of conformity | isOptional | true | \"\" | \"It is optional to assign a number to the declaration of conformity.\"\nRegulation (EU) 2023/1230 | repeals | Directive 2006/42/EC and Council Directive 73/361/EEC | \"\" | \"Regulation (EU) 2023/1230 of the European Parliament and of the Council of 14 June 2023 on machinery and repealing Directive 2006/42/EC of the European Parliament and of the Council and Council Directive 73/361/EEC\"\nRegulation (EU) 2023/1230 | isPublishedIn | OJ L 165, 29.6.2023, p. 1 | \"\" | \"OJ L 165, 29.6.2023, p. 1\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 839,
+   "prompt_tokens": 415,
+   "total_tokens": 1254,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 464,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000461,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000461,
+   "gateway_cost": 0.000461
+  }
+ }
+}

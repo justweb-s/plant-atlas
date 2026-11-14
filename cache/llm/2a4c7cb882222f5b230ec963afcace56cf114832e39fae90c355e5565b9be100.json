@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 7(2)\n\nArticle 7 Safety components. 2. The Commission is empowered to adopt delegated acts in accordance with Article 47 to amend Annex II in the light of technical progress and knowledge or new scientific evidence by including a new safety component in the indicative list of safety components or withdrawing an existing safety component from that list."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "The Commission | isEmpoweredToAdoptDelegatedActs | amend Annex II | in the light of technical progress and knowledge or new scientific evidence | The Commission is empowered to adopt delegated acts in accordance with Article 47 to amend Annex II in the light of technical progress and knowledge or new scientific evidence\nThe Commission | canIncludeSafetyComponentInList | a new safety component in the indicative list of safety components | in the light of technical progress and knowledge or new scientific evidence | by including a new safety component in the indicative list of safety components\nThe Commission | canWithdrawSafetyComponentFromList | an existing safety component from the indicative list | in the light of technical progress and knowledge or new scientific evidence | withdrawing an existing safety component from that list\ndelegated acts | adoptedInAccordanceWith | Article 47 | | in accordance with Article 47",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 811,
+   "prompt_tokens": 305,
+   "total_tokens": 1116,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 516,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000436,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000436,
+   "gateway_cost": 0.000436
+  }
+ }
+}

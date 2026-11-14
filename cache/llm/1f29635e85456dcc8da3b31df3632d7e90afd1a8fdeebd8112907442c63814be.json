@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"Annex I, Part A of the Regulation lists five categories: point 1 (removable mechanical transmission devices, fact 51), point 3 (vehicle servicing lifts, fact 52), point 4 (portable cartridge-operated fixing and other impact machinery, fact 32), point 5 (safety components with self-evolving behaviour, fact 53), and point 6 (machinery with embedded self-evolving ML systems, fact 54, condition: only in respect of those systems). Directive 2006/42/EC Annex IV lists vehicle servicing lifts at point 16 (fact 59), so that category was in Annex IV. No Annex IV fact covers the other four, so they were not in Annex IV.\", \"kind\": \"set\", \"value\": [\"Removable mechanical transmission devices including their guards\", \"Portable cartridge-operated fixing and other impact machinery\", \"Safety components with fully or partially self-evolving behaviour\", \"Machinery with embedded self-evolving ML systems ensuring safety functions (in respect only of those systems)\"], \"text\": \"Four Annex I, Part A categories (points 1, 4, 5 and 6) do not appear in Annex IV of Directive 2006/42/EC; vehicle servicing lifts (point 3) do, under Annex IV point 16.\", \"used\": [32, 51, 53, 54, 59, 52]}",
+  "text": "{\"reasoning\": \"Annex I, Part A categories in the facts are: removable mechanical transmission devices including their guards (point 1, fact 51), vehicle servicing lifts (point 3, fact 52), portable cartridge-operated fixing and other impact machinery (point 4, fact 32), safety components with fully or partially self-evolving behaviour (point 5, fact 53), and machinery with embedded self-evolving ML systems ensuring safety functions (point 6, fact 54). Vehicle servicing lifts appear in Directive 2006/42/EC Annex IV point 16 (fact 59), so they are excluded. No Directive Annex IV fact covers the other four, so they are included. Fact 50 concerns a requirement, not a category, so it is not used. The Directive's repeal date (2027-01-20) does not affect this comparison of contents.\",\n\"kind\": \"set\",\n\"value\": [\n\"removable mechanical transmission devices including their guards\",\n\"portable cartridge-operated fixing and other impact machinery\",\n\"safety components with fully or partially self-evolving behaviour\",\n\"machinery with embedded self-evolving ML systems ensuring safety functions\"\n],\n\"text\": \"Four Annex I, Part A categories (points 1, 4, 5 and 6) are not in Annex IV of Directive 2006/42/EC; vehicle servicing lifts (point 3) are excluded because they appear there as Annex IV point 16.\",\n\"used\": [51, 32, 53, 54, 52, 59]}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 1128,
+   "completion_tokens": 1257,
    "prompt_tokens": 10958,
-   "total_tokens": 12086,
+   "total_tokens": 12215,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 671,
+    "reasoning_tokens": 757,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.0016598,
+   "cost": 0.0017243,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.0016598,
-   "gateway_cost": 0.0016598
+   "market_cost": 0.0017243,
+   "gateway_cost": 0.0017243
   }
  }
 }

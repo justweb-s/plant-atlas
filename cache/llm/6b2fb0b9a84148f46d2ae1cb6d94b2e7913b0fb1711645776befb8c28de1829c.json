@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"The UR5e reach is 850 mm (fact 0, also fact 1). The UR10e reach is 1300 mm (fact 2, also fact 3). Replacing the UR5e with the UR10e increases reach by 1300 − 850 = 450 mm. No conditions attach to these reach facts, and the question is not date-dependent.\", \"kind\": \"text\", \"value\": \"450 mm (reach rises from 850 mm to 1300 mm)\", \"text\": \"Replacing the UR5e (reach 850 mm, fact 0) with the UR10e (reach 1300 mm, fact 2) increases the reach by 450 mm.\", \"used\": [0, 2]}",
+  "text": "{\"reasoning\": \"The UR5e reach is 850 mm (facts 0 and 1, both from the UR5e manual). The UR10e reach is 1300 mm (facts 2 and 3, both from the UR10e manual). No conditions attach to these reach facts. The increase is 1300 − 850 = 450 mm. The date is not relevant to this question.\", \"kind\": \"text\", \"value\": \"450 mm\", \"text\": \"Replacing the UR5e (reach 850 mm, manual p. 15) with the UR10e (reach 1300 mm, manual p. 15) increases the reach by 450 mm.\", \"used\": [0, 1, 2, 3]}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 405,
+   "completion_tokens": 429,
    "prompt_tokens": 6037,
-   "total_tokens": 6442,
+   "total_tokens": 6466,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 178,
+    "reasoning_tokens": 211,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.0008062,
+   "cost": 0.0008182,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.0008062,
-   "gateway_cost": 0.0008062
+   "market_cost": 0.0008182,
+   "gateway_cost": 0.0008182
   }
  }
 }

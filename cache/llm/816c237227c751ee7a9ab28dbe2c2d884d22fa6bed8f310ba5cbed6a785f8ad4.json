@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 22(3)\n\nArticle 22 EU declaration of incorporation of partly completed machinery. 3. Where partly completed machinery is subject to more than one Union legal act requiring an EU declaration of conformity, the EU declaration of incorporation shall include a sentence declaring the conformity with such acts. That declaration shall contain the identification of the Union legal acts concerned, including their publication references."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "partly completed machinery subject to more than one Union legal act | requires | EU declaration of incorporation with a sentence declaring conformity with such acts | more than one Union legal act requires an EU declaration of conformity | \"the EU declaration of incorporation shall include a sentence declaring the conformity with such acts\"\nEU declaration of incorporation | shall contain | identification of the Union legal acts concerned | partly completed machinery is subject to more than one Union legal act requiring an EU declaration of conformity | \"That declaration shall contain the identification of the Union legal acts concerned\"\nidentification of the Union legal acts concerned | shall include | their publication references | partly completed machinery is subject to more than one Union legal act requiring an EU declaration of conformity | \"including their publication references\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 553,
+   "prompt_tokens": 325,
+   "total_tokens": 878,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 299,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000309,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000309,
+   "gateway_cost": 0.000309
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 20(3)\n\nArticle 20 Presumption of conformity of products within the scope of this Regulation. 3. The Commission may adopt implementing acts establishing common specifications covering technical requirements that provide a means to comply with the essential health and safety requirements set out in Annex III for products within the scope of this Regulation. Those implementing acts shall only be adopted where the following conditions are fulfilled: (a) the Commission has requested, pursuant to Article 10(1) of Regulation (EU) No 1025/2012, one or more European standardisation organisations to draft a harmonised standard for the essential health and safety requirements set out in Annex III and: (i) the request has not been accepted; or (ii) the harmonised standards addressing that request are not delivered within the deadline set in accordance with Article 10(1) of Regulation (EU) No 1025/2012; or (iii) the harmonised standards do not comply with the request; and (b) no reference to harmonised standards covering the relevant essential health and safety requirements set out in Annex III has been published in the Official Journal of the European Union in accordance with Regulation (EU) No 1025/2012 and no such reference is expected to be published within a reasonable period. Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 48(3)."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "implementing acts establishing common specifications | mayBeAdopted | technical requirements providing a means to comply with Annex III essential health and safety requirements | products within the scope of this Regulation | The Commission may adopt implementing acts establishing common specifications covering technical requirements that provide a means to comply with the essential health and safety requirements set out in Annex III for products within the scope of this Regulation\nimplementing acts on common specifications | shallBeAdoptedOnlyWhen | conditions in points (a) and (b) are fulfilled | \"\" | Those implementing acts shall only be adopted where the following conditions are fulfilled\nCommission | hasRequestedDraftingOf | harmonised standard for Annex III requirements from European standardisation organisations | pursuant to Article 10(1) of Regulation (EU) No 1025/2012 | the Commission has requested, pursuant to Article 10(1) of Regulation (EU) No 1025/2012, one or more European standardisation organisations to draft a harmonised standard for the essential health and safety requirements set out in Annex III\ncommon specifications | mayBeAdopted | request to draft harmonised standard has not been accepted | (a)(i) applies | the request has not been accepted\ncommon specifications | mayBeAdopted | harmonised standards addressing the request are not delivered within the deadline | (a)(ii) applies | the harmonised standards addressing that request are not delivered within the deadline set in accordance with Article 10(1) of Regulation (EU) No 1025/2012\ncommon specifications | mayBeAdopted | harmonised standards do not comply with the request | (a)(iii) applies | the harmonised standards do not comply with the request\nimplementing acts on common specifications | requiresAbsenceOf | reference to harmonised standards covering Annex III requirements published in the Official Journal | \"\" | no reference to harmonised standards covering the relevant essential health and safety requirements set out in Annex III has been published in the Official Journal of the European Union\nimplementing acts on common specifications | requiresAbsenceOf | expected publication of such reference within a reasonable period | \"\" | no such reference is expected to be published within a reasonable period\nimplementing acts on common specifications | adoptedUnder | examination procedure referred to in Article 48(3) | \"\" | Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 48(3)",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1417,
+   "prompt_tokens": 622,
+   "total_tokens": 2039,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 630,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007707,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007707,
+   "gateway_cost": 0.0007707
+  }
+ }
+}

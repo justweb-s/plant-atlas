@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 2.2.1.1\n\n2.2.1.1. Instructions for use The instructions for use shall give the following information concerning vibrations, expressed as acceleration (m/s 2 ), and transmitted by portable handheld or hand-guided machinery or related products: (a) the vibration total value from continuous vibrations to which the hand-arm system is subjected; (b) the mean value of the peak amplitude of the acceleration from repeated shock vibrations, to which the hand-arm system is subjected; (c) the uncertainty of both measurements. The values referred to in the first subparagraph shall either be those actually measured for the machinery or related product in question or those established on the basis of measurements in respect of a technically comparable machinery or related product, which is representative of the state of the art. If harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) cannot be applied, the vibration data shall be measured using the most appropriate measurement code for the machinery or related product. The operating conditions during measurement and the methods used for measurement, or the reference of the harmonised standard applied, shall be specified."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Instructions for use | shall give | vibration total value from continuous vibrations to which the hand-arm system is subjected | machinery is portable handheld or hand-guided, or a related product | \"(a) the vibration total value from continuous vibrations to which the hand-arm system is subjected\"\nInstructions for use | shall give | mean value of the peak amplitude of the acceleration from repeated shock vibrations | machinery is portable handheld or hand-guided, or a related product | \"(b) the mean value of the peak amplitude of the acceleration from repeated shock vibrations\"\nInstructions for use | shall give | uncertainty of both measurements | machinery is portable handheld or hand-guided, or a related product | \"(c) the uncertainty of both measurements\"\nVibration values | are expressed as | acceleration in m/s² | \"\" | \"expressed as acceleration (m/s 2 )\"\nVibration values | shall be | those actually measured for the machinery or related product in question | \"\" | \"shall either be those actually measured for the machinery or related product in question\"\nVibration values | may be | established on the basis of measurements of a technically comparable machinery or related product | the comparable product is representative of the state of the art | \"or those established on the basis of measurements in respect of a technically comparable machinery or related product, which is representative of the state of the art\"\nVibration data | shall be measured using | the most appropriate measurement code for the machinery or related product | harmonised standards or common specifications adopted under Article 20(3) cannot be applied | \"If harmonised standards or common specifications adopted by the Commission in accordance with Article 20(3) cannot be applied, the vibration data shall be measured using the most appropriate measurement code\"\nOperating conditions during measurement and measurement methods, or the reference of the harmonised standard applied | shall be specified | \"\" | \"\" | \"The operating conditions during measurement and the methods used for measurement, or the reference of the harmonised standard applied, shall be specified\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1128,
+   "prompt_tokens": 557,
+   "total_tokens": 1685,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 487,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006197,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006197,
+   "gateway_cost": 0.0006197
+  }
+ }
+}

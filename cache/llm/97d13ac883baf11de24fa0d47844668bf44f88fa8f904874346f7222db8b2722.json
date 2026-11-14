@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.2.6\n\n1.2.6. Failure of the power supply The interruption, the re-establishment after an interruption or the fluctuation in whatever manner of the power supply to the machinery must not lead to dangerous situations. Particular attention must be given to the following points: — the machinery must not start unexpectedly, — the parameters of the machinery must not change in an uncontrolled way when such change can lead to hazardous situations, — the machinery must not be prevented from stopping if the command has already been given, — no moving part of the machinery or piece held by the machinery must fall or be ejected, — automatic or manual stopping of the moving parts, whatever they may be, must be unimpeded, — the protective devices must remain fully effective or give a stop command."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "machinery | mustNotLeadTo | dangerous situations | interruption, re-establishment after interruption, or fluctuation of the power supply | The interruption, the re-establishment after an interruption or the fluctuation in whatever manner of the power supply to the machinery must not lead to dangerous situations.\nmachinery | mustNotStartUnexpectedly | unexpectedly | power supply interruption, re-establishment or fluctuation | the machinery must not start unexpectedly\nparameters of the machinery | mustNotChangeInUncontrolledWay | uncontrolled change | such change can lead to hazardous situations | the parameters of the machinery must not change in an uncontrolled way when such change can lead to hazardous situations\nmachinery | mustNotBePreventedFromStopping | stopping | the command has already been given | the machinery must not be prevented from stopping if the command has already been given\nmoving part of the machinery or piece held by the machinery | mustNotFallOrBeEjected | fall or ejection | \"\" | no moving part of the machinery or piece held by the machinery must fall or be ejected\nautomatic or manual stopping of moving parts | mustBeUnimpeded | stopping | \"\" | automatic or manual stopping of the moving parts, whatever they may be, must be unimpeded\nprotective devices | mustRemainFullyEffectiveOrGiveStopCommand | full effectiveness or stop command | \"\" | the protective devices must remain fully effective or give a stop command",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1092,
+   "prompt_tokens": 440,
+   "total_tokens": 1532,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 605,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.00059,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.00059,
+   "gateway_cost": 0.00059
+  }
+ }
+}

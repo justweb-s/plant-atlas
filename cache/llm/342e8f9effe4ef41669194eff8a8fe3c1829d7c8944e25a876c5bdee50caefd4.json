@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"The question asks for the Regulation article that corresponds to Article 12 of Directive 2006/42/EC. The facts include many Directive Article 12 provisions (procedures for Annex IV machinery, non-Annex IV machinery) and Regulation provisions labelled 'REG, Art. 12(2)' (authorised representative duties, technical documentation retention), but none of these states a correspondence or concordance between the two. The Regulation's own Article 12 is a different subject from a correspondence statement, so it cannot be used to answer this question.\", \"kind\": \"unknown\", \"value\": null, \"text\": \"The facts do not state which article of the Regulation corresponds to Article 12 of Directive 2006/42/EC; no correspondence between the two is given.\", \"used\": [12, 26, 50, 51, 52, 53, 55, 56, 57, 58, 59, 60, 61]}",
+  "text": "{\"reasoning\": \"The facts give obligations and procedures for Article 12 of Directive 2006/42/EC (e.g. facts 26, 50-52, 55, 58, 60, which cite DIR Art. 12) and separately cite the Regulation's own Article 12 (e.g. facts 53, 57, 59, 61, which cite REG Art. 12(2)). None of the facts states that Article 12 of the Directive corresponds to a particular Article of the Regulation, so no correspondence can be read from them. Citing the Regulation's Article 12 for its own content does not answer the question.\", \"kind\": \"unknown\", \"value\": null, \"text\": \"The facts do not state which Article of the Regulation corresponds to Article 12 of Directive 2006/42/EC, so the question cannot be answered from them.\", \"used\": []}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 578,
+   "completion_tokens": 479,
    "prompt_tokens": 8730,
-   "total_tokens": 9308,
+   "total_tokens": 9209,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 282,
+    "reasoning_tokens": 208,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.001162,
+   "cost": 0.0011125,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.001162,
-   "gateway_cost": 0.001162
+   "market_cost": 0.0011125,
+   "gateway_cost": 0.0011125
   }
  }
 }

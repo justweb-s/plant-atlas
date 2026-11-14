@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 3.3.4\n\n3.3.4. Movement of pedestrian-controlled machinery Movement of pedestrian-controlled self-propelled machinery shall be possible only through sustained action on the relevant control device by the driver. In particular, it shall not be possible for movement to occur while the engine is being started. The control systems for pedestrian-controlled machinery shall be designed in such a way as to minimise the risks arising from inadvertent movement of the machinery towards the driver, in particular: (a) crushing; (b) injury from rotating tools. The speed of travel of the machinery shall be compatible with the pace of a driver on foot. In the case of machinery on which a rotary tool may be fitted, it shall not be possible to actuate the tool when the reverse control is engaged, except where the movement of the machinery results from movement of the tool. In the latter case, the reversing speed shall be such that it does not endanger the driver."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Pedestrian-controlled self-propelled machinery | movement requires | sustained action on the relevant control device by the driver | | Movement of pedestrian-controlled self-propelled machinery shall be possible only through sustained action on the relevant control device by the driver.\nMovement | cannotOccurWhile | engine is being started | | it shall not be possible for movement to occur while the engine is being started\nControl systems for pedestrian-controlled machinery | minimiseRisk | crushing of driver from inadvertent movement towards driver | | The control systems for pedestrian-controlled machinery shall be designed in such a way as to minimise the risks arising from inadvertent movement of the machinery towards the driver, in particular: (a) crushing\nControl systems for pedestrian-controlled machinery | minimiseRisk | injury from rotating tools due to inadvertent movement towards driver | | in particular: (a) crushing; (b) injury from rotating tools\nSpeed of travel of pedestrian-controlled machinery | compatibleWith | pace of a driver on foot | | The speed of travel of the machinery shall be compatible with the pace of a driver on foot.\nRotary tool on machinery | cannotBeActuatedWhen | reverse control is engaged | except where movement of the machinery results from movement of the tool | it shall not be possible to actuate the tool when the reverse control is engaged, except where the movement of the machinery results from movement of the tool\nReversing speed | doesNotEndanger | driver | where machinery movement results from movement of the tool | the reversing speed shall be such that it does not endanger the driver",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1066,
+   "prompt_tokens": 497,
+   "total_tokens": 1563,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 535,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0005827,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0005827,
+   "gateway_cost": 0.0005827
+  }
+ }
+}

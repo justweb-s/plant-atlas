@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 25(2)\n\nArticle 25 Conformity assessment procedures for machinery and related products. 2. Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturer or Art. 18 person | shall apply | one of the procedures (a), (b) or (c) | where the machinery or related product category is listed in Annex I, Part A | Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures\nProcedure (a) | comprises | EU type-examination (module B) in Annex VII followed by conformity to type based on internal production control (module C) in Annex VIII | one of the alternative procedures | (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII\nProcedure (b) | is | conformity based on full quality assurance (module H) in Annex IX | one of the alternative procedures | (b) conformity based on full quality assurance (module H) set out in Annex IX\nProcedure (c) | is | conformity based on unit verification (module G) in Annex X | one of the alternative procedures | (c) conformity based on unit verification (module G) set out in Annex X",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 768,
+   "prompt_tokens": 390,
+   "total_tokens": 1158,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 403,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000423,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000423,
+   "gateway_cost": 0.000423
+  }
+ }
+}

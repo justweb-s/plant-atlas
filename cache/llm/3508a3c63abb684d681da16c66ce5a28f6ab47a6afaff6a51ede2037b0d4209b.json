@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 15\n\n3. Your Robot 3. Your Robot 3.1. Technical Specifications UR5e General Maximum payload 5 kg / 11 lb specification Reach 850 mm / 33.5 in Degrees of freedom 6 rotating joints PolyScope 5 GUI on 12\" touchscreen Programming or PolyScope X GUI on 12\" touchscreen 570 W (max.) Power consumption (average) Approx. 200 W using a typical program 0-50 °C. At ambient temperatures above 35°C, the Ambient temperature range robot may operate at reduced speed and performance. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. 21 configurable safety functions. PLd Category 3 in Safety functions accordance with: EN ISO 13849-1. Performance Force Torque sensor accuracy 4N Movement Joints: Max 180 °/s . Speed Maximum TCP speed: Approx. 4 m/s / Approx. 157.5 in/s. Pose repeatability ± 0.03 mm / ± 0.0011 in (1.1 mils) per ISO 9283 Joint ranges ± 360 ° for all joints except Elbow ± 160 ° Features IP classification IP54 Robot Arm: Less than 60 dB(A) Noise Control Box: Less than 50 dB(A) Tool I/O ports 2 digital in, 2 digital out, 2 analog in Tool I/O power supply & voltage 1.5 A (Dual pin) 1 A (Single pin) & 12 V/24 V Physical Footprint Ø151 mm / 5.9 in Materials Aluminium, PC/ASA plastic Robot arm weight 20.7 kg / 45.7 lb User Manual 18 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "UR5e | hasMaximumPayload | 5 kg / 11 lb | | Maximum payload 5 kg / 11 lb\nUR5e | hasReach | 850 mm / 33.5 in | | Reach 850 mm / 33.5 in\nUR5e | hasAmbientTemperatureRange | 0-50 °C | | Ambient temperature range 0-50 °C\nUR5e | operatesAtReducedSpeed | reduced speed and performance | ambient temperature above 35°C | At ambient temperatures above 35°C, the robot may operate at reduced speed and performance.\nUR5e | hasConfigurableSafetyFunctions | 21 | | 21 configurable safety functions\nSafety functions | conformToPerformanceLevel | PLd Category 3 | in accordance with EN ISO 13849-1 | PLd Category 3 in accordance with: EN ISO 13849-1\nUR5e | hasMaximumJointSpeed | 180 °/s | | Joints: Max 180 °/s\nUR5e | hasMaximumTcpSpeed | approx. 4 m/s | | Maximum TCP speed: Approx. 4 m/s / Approx. 157.5 in/s\nUR5e | hasPoseRepeatability | ± 0.03 mm / ± 0.0011 in | per ISO 9283 | Pose repeatability ± 0.03 mm / ± 0.0011 in (1.1 mils) per ISO 9283\nUR5e | hasJointRange | ± 360 ° for all joints | except Elbow | ± 360 ° for all joints except Elbow ± 160 °\nElbow | hasJointRange | ± 160 ° | | except Elbow ± 160 °\nUR5e | hasIpClassification | IP54 | | IP classification IP54\nUR5e | hasArmWeight | 20.7 kg / 45.7 lb | | Robot arm weight 20.7 kg / 45.7 lb",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1555,
+   "prompt_tokens": 809,
+   "total_tokens": 2364,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 892,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008584,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008584,
+   "gateway_cost": 0.0008584
+  }
+ }
+}

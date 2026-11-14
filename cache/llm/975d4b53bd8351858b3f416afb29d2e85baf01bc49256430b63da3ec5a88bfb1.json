@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 27\n\n4. Safety 4. Safety Description Read the safety information here to understand key safety guidelines, important safety messages and your responsibilities when working with the robot. System design and installation are not covered here. 4.1. General Description Read the general safety information and the instructions and guidance pertaining to risk assessment and the intended use. Subsequent sections describe and define safety- related functions particularly relevant for collaborative applications. Read and understand the specific engineering data relevant to mounting and installation, Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. in order to understand the integration of UR robots before the robot is powered on for the first time. It is essential to observe and follow all assembly instructions in the following sections of this manual. NOTICE Universal Robots disclaims any and all liability if the robot (arm Control Box with or without Teach Pendant) is damaged, changed or modified in any way. Universal Robots cannot be held responsible for any damages caused to the robot or any other equipment due to programming errors, unauthorized access to the UR robot and its contents, or malfunctioning of the robot. User Manual 30 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "System design and installation | notCoveredBy | this safety section | | System design and installation are not covered here.\nReader | shouldRead | safety information in this section | | Read the safety information here to understand key safety guidelines, important safety messages and your responsibilities when working with the robot.\nMounting and installation engineering data | shouldBeReadBefore | robot is powered on for the first time | before first power-on | Read and understand the specific engineering data relevant to mounting and installation ... before the robot is powered on for the first time.\nAssembly instructions in following sections | mustBeFollowed | during assembly | | It is essential to observe and follow all assembly instructions in the following sections of this manual.\nUniversal Robots | disclaimsLiability | damage to robot arm, Control Box or Teach Pendant from being damaged, changed or modified | robot is damaged, changed or modified in any way | NOTICE Universal Robots disclaims any and all liability if the robot (arm Control Box with or without Teach Pendant) is damaged, changed or modified in any way.\nUniversal Robots | notResponsibleFor | damages to robot or other equipment from programming errors | | Universal Robots cannot be held responsible for any damages caused to the robot or any other equipment due to programming errors\nUniversal Robots | notResponsibleFor | damages to robot or other equipment from unauthorized access to the UR robot and its contents | | Universal Robots cannot be held responsible for any damages caused to the robot or any other equipment due to ... unauthorized access to the UR robot and its contents\nUniversal Robots | notResponsibleFor | damages to robot or other equipment from malfunctioning of the robot | | Universal Robots cannot be held responsible for any damages caused to the robot or any other equipment due to ... malfunctioning of the robot.\nSafety-related functions for collaborative applications | describedIn | subsequent sections of the manual | | Subsequent sections describe and define safety-related functions particularly relevant for collaborative applications.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1280,
+   "prompt_tokens": 576,
+   "total_tokens": 1856,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 622,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006976,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006976,
+   "gateway_cost": 0.0006976
+  }
+ }
+}

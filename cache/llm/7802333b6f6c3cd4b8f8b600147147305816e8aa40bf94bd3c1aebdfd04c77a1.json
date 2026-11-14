@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 3.3.3\n\n3.3.3. Travelling function Without prejudice to road traffic regulations, self-propelled machinery and its trailers shall meet the requirements for slowing down, stopping, braking and immobilisation so as to ensure safety under all the operating, load, speed, ground and gradient conditions allowed for. The driver shall be able to slow down and stop self-propelled machinery by means of a main device. Where safety so requires, in the event of a failure of the main device, or in the absence of the energy supply needed to actuate the main device, an emergency device with a fully independent and easily accessible control device shall be provided for slowing down and stopping. Where safety so requires, a parking device shall be provided to render stationary machinery immobile. This device may be combined with one of the devices referred to in the second paragraph, if it is purely mechanical. Remote-controlled machinery shall be equipped with devices for stopping operation automatically and immediately and for preventing potentially dangerous operation in the following situations: (a) if the driver loses control; (b) if it receives a stop signal; (c) if a fault is detected in a safety-related part of the system; (d) if no validation signal is detected within a specified time. Section 1.2.4 does not apply to the travelling function. Autonomous mobile machinery or related products shall comply, with one or both where necessary according to the risk assessment, of the following conditions: (i) it shall move and operate in an enclosed zone fitted with a peripheral protection system comprising guards or protective devices; (ii) it shall be equipped with devices intended to detect any human, domestic animal or any other obstacle in its vicinity, where those obstacles could give rise to a risk to the health and safety of persons or domestic animals or to the safe operation of the machinery or related product. The movements of mobile machinery or a related product connected with one or more trailers or towed equipment, including autonomous mobile machinery or a related product connected with one or more trailers or towed equipment, shall not give rise to risks for persons, domestic animals or to any other obstacle in the danger zone of such machinery or related product and trailers or towed equipment."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "self-propelled machinery and its trailers | shallMeetBrakingRequirements | requirements for slowing down, stopping, braking and immobilisation | so as to ensure safety under all the operating, load, speed, ground and gradient conditions allowed for; without prejudice to road traffic regulations | \"self-propelled machinery and its trailers shall meet the requirements for slowing down, stopping, braking and immobilisation so as to ensure safety under all the operating, load, speed, ground and gradient conditions allowed for\"\ndriver | canSlowAndStopByMainDevice | self-propelled machinery | \"\" | \"The driver shall be able to slow down and stop self-propelled machinery by means of a main device.\"\nemergency device | shallBeProvided | fully independent, easily accessible control device for slowing down and stopping | where safety so requires, on main device failure or absence of energy supply to it | \"an emergency device with a fully independent and easily accessible control device shall be provided for slowing down and stopping\"\nparking device | shallBeProvided | rendering stationary machinery immobile | where safety so requires | \"Where safety so requires, a parking device shall be provided to render stationary machinery immobile.\"\nparking device | mayBeCombinedWith | an emergency device | only if purely mechanical | \"This device may be combined with one of the devices referred to in the second paragraph, if it is purely mechanical.\"\nremote-controlled machinery | shallStopAutomatically | operation, and prevent potentially dangerous operation | if the driver loses control; if it receives a stop signal; if a fault is detected in a safety-related part; if no validation signal is detected within a specified time | \"Remote-controlled machinery shall be equipped with devices for stopping operation automatically and immediately and for preventing potentially dangerous operation in the following situations\"\nSection 1.2.4 | doesNotApply | to the travelling function | \"\" | \"Section 1.2.4 does not apply to the travelling function.\"\nautonomous mobile machinery | shallOperateInEnclosedZone | enclosed zone with peripheral protection system (guards or protective devices) | where necessary according to the risk assessment, one or both of the listed conditions | \"it shall move and operate in an enclosed zone fitted with a peripheral protection system comprising guards or protective devices\"\nautonomous mobile machinery | shallBeEquippedWithDetectionDevices | devices detecting humans, domestic animals or other obstacles in its vicinity | where those obstacles could give rise to a risk to health and safety of persons or domestic animals, or to safe operation | \"it shall be equipped with devices intended to detect any human, domestic animal or any other obstacle in its vicinity, where those obstacles could give rise to a risk to the health and safety of persons or domestic animals or to the safe operation of the machinery or related product\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1846,
+   "prompt_tokens": 888,
+   "total_tokens": 2734,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 915,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010118,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010118,
+   "gateway_cost": 0.0010118
+  }
+ }
+}

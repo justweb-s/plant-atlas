@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex IV\n\nANNEX IV Categories of machinery to which one of the procedures referred to in Article 12(3) and (4) must be applied 1. 1.1. sawing machinery with fixed blade(s) during cutting, having a fixed bed or support with manual feed of the workpiece or with a demountable power feed; 1.2. sawing machinery with fixed blade(s) during cutting, having a manually operated reciprocating saw-bench or carriage; 1.3 sawing machinery with fixed blade(s) during cutting, having a built-in mechanical feed device for the workpieces, with manual loading and/or unloading; 1.4. sawing machinery with movable blade(s) during cutting, having mechanical movement of the blade, with manual loading and/or unloading. 2. Hand-fed surface planing machinery for woodworking. 3. Thicknessers for one-side dressing having a built-in mechanical feed device, with manual loading and/or unloading for woodworking. 4. 4.1. sawing machinery with fixed blade(s) during cutting, having a fixed or reciprocating-movement bed or support for the workpiece; 4.2. sawing machinery with blade(s) assembled on a carriage with reciprocating motion. 5. Combined machinery of the types referred to in points 1 to 4 and in point 7 for working with wood and material with similar physical characteristics. 6. Hand-fed tenoning machinery with several tool holders for woodworking. 7. Hand-fed vertical spindle moulding machinery for working with wood and material with similar physical characteristics. 8. Portable chainsaws for woodworking. 9. Presses, including press-brakes, for the cold working of metals, with manual loading and/or unloading, whose movable working parts may have a travel exceeding 6 mm and a speed exceeding 30 mm/s. 10. Injection or compression plastics-moulding machinery with manual loading or unloading. 11. Injection or compression rubber-moulding machinery with manual loading or unloading. 12. 12.1. locomotives and brake-vans; 12.2. hydraulic-powered roof supports. 13. Manually loaded trucks for the collection of household refuse incorporating a compression mechanism. 14. Removable mechanical transmission devices including their guards. 15. Guards for removable mechanical transmission devices. 16. Vehicle servicing lifts. 17. Devices for the lifting of persons or of persons and goods involving a hazard of falling from a vertical height of more than three metres. 18. Portable cartridge-operated fixing and other impact machinery. 19. Protective devices designed to detect the presence of persons. 20. Power-operated interlocking movable guards designed to be used as safeguards in machinery referred to in points 9, 10 and 11. 21. Logic units to ensure safety functions. 22. Roll-over protective structures (ROPS). 23. Falling-object protective structures (FOPS)."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Annex IV categories of machinery | requiresProcedureFrom | Article 12(3) and (4) procedures | | Categories of machinery to which one of the procedures referred to in Article 12(3) and (4) must be applied\nHand-fed surface planing machinery for woodworking | isListedIn | Annex IV point 2 | | Hand-fed surface planing machinery for woodworking.\nThicknessers for one-side dressing with built-in mechanical feed and manual loading/unloading | isListedIn | Annex IV point 3 | built-in mechanical feed device with manual loading and/or unloading | Thicknessers for one-side dressing having a built-in mechanical feed device, with manual loading and/or unloading for woodworking.\nPortable chainsaws for woodworking | isListedIn | Annex IV point 8 | | Portable chainsaws for woodworking.\nPresses, including press-brakes, for cold working of metals | isListedIn | Annex IV point 9 | manual loading and/or unloading, with movable working parts that may have travel exceeding 6 mm and speed exceeding 30 mm/s | Presses, including press-brakes, for the cold working of metals, with manual loading and/or unloading, whose movable working parts may have a travel exceeding 6 mm and a speed exceeding 30 mm/s.\nInjection or compression plastics-moulding machinery | isListedIn | Annex IV point 10 | manual loading or unloading | Injection or compression plastics-moulding machinery with manual loading or unloading.\nInjection or compression rubber-moulding machinery | isListedIn | Annex IV point 11 | manual loading or unloading | Injection or compression rubber-moulding machinery with manual loading or unloading.\nLocomotives and brake-vans | isListedIn | Annex IV point 12.1 | | locomotives and brake-vans\nHydraulic-powered roof supports | isListedIn | Annex IV point 12.2 | | hydraulic-powered roof supports\nManually loaded trucks for household refuse collection with compression mechanism | isListedIn | Annex IV point 13 | manually loaded | Manually loaded trucks for the collection of household refuse incorporating a compression mechanism.\nRemovable mechanical transmission devices including their guards | isListedIn | Annex IV point 14 | | Removable mechanical transmission devices including their guards.\nDevices for lifting persons involving a hazard of falling from more than three metres | isListedIn | Annex IV point 17 | hazard of falling from a vertical height of more than three metres | Devices for the lifting of persons or of persons and goods involving a hazard of falling from a vertical height of more than three metres.\nProtective devices designed to detect the presence of persons | isListedIn | Annex IV point 19 | | Protective devices designed to detect the presence of persons.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1887,
+   "prompt_tokens": 1174,
+   "total_tokens": 3061,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 936,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0010609,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0010609,
+   "gateway_cost": 0.0010609
+  }
+ }
+}

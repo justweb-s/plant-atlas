@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 2(2)\n\nArticle 2 Scope. 2. This Regulation does not apply to: (a) safety components that are intended to be used as spare parts to replace identical components and are supplied by the manufacturer of the original machinery, related product or partly completed machinery; (b) specific equipment for use in fairgrounds or amusement parks; (c) machinery and related products specially designed for use within or used in a nuclear installation and whose conformity with this Regulation may undermine the nuclear safety of that installation; (d) weapons, including firearms; (e) means of transport by air, on water and on rail networks except for machinery mounted on those means of transport; (f) aeronautical products, parts and equipment that fall within the scope of Regulation (EU) 2018/1139 of the European Parliament and of the Council ( 21 ) and the definition of machinery under this Regulation, insofar as Regulation (EU) 2018/1139 covers the relevant essential health and safety requirements set out in this Regulation; (g) motor vehicles and their trailers, as well as systems, components, separate technical units, parts and equipment designed and constructed for such vehicles, which fall within the scope of Regulation (EU) 2018/858, except for machinery mounted on those vehicles; (h) two- or three-wheel vehicles and quadricycles, as well as systems, components, separate technical units, parts and equipment designed and constructed for such vehicles, that fall within the scope of Regulation (EU) No 168/2013, except for machinery mounted on those vehicles; (i) agricultural and forestry tractors, as well as systems, components, separate technical units, parts and equipment designed and constructed for such tractors, that fall within the scope of Regulation (EU) No 167/2013, except for machinery mounted on those tractors; (j) motor vehicles exclusively intended for competition; (k) seagoing vessels and mobile offshore units and machinery installed on board such vessels or units; (l) machinery or related products specially designed and constructed for military or police purposes; (m) machinery or related products specially designed and constructed for research purposes for temporary use in laboratories; (n) mine winding gear; (o) machinery or related products intended to move performers during artistic performances; (p) the following electrical and electronic products, insofar as they fall within the scope of Directive 2014/35/EU or of Directive 2014/53/EU: (i) household appliances intended for domestic use which are not electrically operated furniture; (ii) audio and video equipment; (iii) information technology equipment; (iv) ordinary office machinery, except additive printing machinery for producing three-dimensional products; (v) low-voltage switchgear and control gear; (vi) electric motors; (q) the following high-voltage electrical products: (i) switchgear and control gear; (ii) transformers."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "safety components used as spare parts | areExcluded | from this Regulation | intended to replace identical components and supplied by the manufacturer of the original machinery, related product or partly completed machinery | \"safety components that are intended to be used as spare parts to replace identical components and are supplied by the manufacturer of the original machinery, related product or partly completed machinery\"\nspecific equipment for fairgrounds or amusement parks | isExcluded | from this Regulation | \"\" | \"specific equipment for use in fairgrounds or amusement parks\"\nmachinery specially designed for use in a nuclear installation | isExcluded | from this Regulation | conformity with this Regulation may undermine the nuclear safety of that installation | \"machinery and related products specially designed for use within or used in a nuclear installation and whose conformity with this Regulation may undermine the nuclear safety of that installation\"\nweapons, including firearms | isExcluded | from this Regulation | \"\" | \"weapons, including firearms\"\nmeans of transport by air, on water and on rail networks | isExcluded | from this Regulation | except machinery mounted on those means of transport | \"means of transport by air, on water and on rail networks except for machinery mounted on those means of transport\"\naeronautical products within Regulation (EU) 2018/1139 | isExcluded | from this Regulation | insofar as Regulation (EU) 2018/1139 covers the relevant essential health and safety requirements | \"insofar as Regulation (EU) 2018/1139 covers the relevant essential health and safety requirements set out in this Regulation\"\nmotor vehicles and their trailers within Regulation (EU) 2018/858 | isExcluded | from this Regulation | except machinery mounted on those vehicles | \"motor vehicles and their trailers, as well as systems, components, separate technical units, parts and equipment designed and constructed for such vehicles, which fall within the scope of Regulation (EU) 2018/858, except for machinery mounted on those vehicles\"\ntwo- or three-wheel vehicles and quadricycles within Regulation (EU) No 168/2013 | isExcluded | from this Regulation | except machinery mounted on those vehicles | \"two- or three-wheel vehicles and quadricycles ... that fall within the scope of Regulation (EU) No 168/2013, except for machinery mounted on those vehicles\"\nagricultural and forestry tractors within Regulation (EU) No 167/2013 | isExcluded | from this Regulation | except machinery mounted on those tractors | \"agricultural and forestry tractors ... that fall within the scope of Regulation (EU) No 167/2013, except for machinery mounted on those tractors\"\nseagoing vessels and mobile offshore units, and machinery installed on them | isExcluded | from this Regulation | \"\" | \"seagoing vessels and mobile offshore units and machinery installed on board such vessels or units\"\nmachinery specially designed for military or police purposes | isExcluded | from this Regulation | specially designed and constructed for military or police purposes | \"machinery or related products specially designed and constructed for military or police purposes\"\nhigh-voltage switchgear, control gear and transformers | isExcluded | from this Regulation | \"\" | \"the following high-voltage electrical products: (i) switchgear and control gear; (ii) transformers\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1711,
+   "prompt_tokens": 1117,
+   "total_tokens": 2828,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 628,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009672,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009672,
+   "gateway_cost": 0.0009672
+  }
+ }
+}

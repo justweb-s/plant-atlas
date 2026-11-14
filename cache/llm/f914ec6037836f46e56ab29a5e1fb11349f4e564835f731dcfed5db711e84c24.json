@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.4.2.2\n\n1.4.2.2. Interlocking movable guards Interlocking movable guards must: — as far as possible remain attached to the machinery when open, — be designed and constructed in such a way that they can be adjusted only by means of an intentional action. Interlocking movable guards must be associated with an interlocking device that: — prevents the start of hazardous machinery functions until they are closed and — gives a stop command whenever they are no longer closed. Where it is possible for an operator to reach the danger zone before the risk due to the hazardous machinery functions has ceased, movable guards must be associated with a guard locking device in addition to an interlocking device that: — prevents the start of hazardous machinery functions until the guard is closed and locked, and — keeps the guard closed and locked until the risk of injury from the hazardous machinery functions has ceased. Interlocking movable guards must be designed in such a way that the absence or failure of one of their components prevents starting or stops the hazardous machinery functions."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Interlocking movable guards | mustRemainAttachedWhenOpen | machinery | as far as possible | as far as possible remain attached to the machinery when open\nInterlocking movable guards | mustBeAdjustableOnlyIntentionally | guard adjustment | \"\" | be designed and constructed in such a way that they can be adjusted only by means of an intentional action\nInterlocking device | preventsStartUntilClosed | hazardous machinery functions | \"\" | prevents the start of hazardous machinery functions until they are closed\nInterlocking device | givesStopCommand | machinery | whenever guards are no longer closed | gives a stop command whenever they are no longer closed\nMovable guards | mustHaveGuardLockingDevice | operator access to danger zone | where operator can reach danger zone before risk has ceased | movable guards must be associated with a guard locking device in addition to an interlocking device\nGuard locking device | preventsStartUntilLocked | hazardous machinery functions | until guard is closed and locked | prevents the start of hazardous machinery functions until the guard is closed and locked\nGuard locking device | keepsGuardClosedAndLocked | guard | until risk of injury from hazardous machinery functions has ceased | keeps the guard closed and locked until the risk of injury from the hazardous machinery functions has ceased\nInterlocking movable guards | mustFailSafe | starting or stopping of hazardous machinery functions | absence or failure of one component | designed in such a way that the absence or failure of one of their components prevents starting or stops the hazardous machinery functions",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 993,
+   "prompt_tokens": 525,
+   "total_tokens": 1518,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 470,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000549,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000549,
+   "gateway_cost": 0.000549
+  }
+ }
+}

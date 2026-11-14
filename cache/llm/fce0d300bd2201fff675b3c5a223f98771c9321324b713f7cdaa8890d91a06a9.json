@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 10(6)\n\nArticle 10 Obligations of manufacturers of machinery and related products. 6. Manufacturers shall indicate their name, registered trade name or registered trade mark, and the postal address and website, e-mail address or other digital contact at which they can be contacted, on the machinery or related product or, where that is not possible, on its packaging or in a document accompanying the machinery or related product. The address shall indicate a single point at which the manufacturer can be contacted. The contact details shall be in a language easily understood by users and market surveillance authorities."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturers | mustIndicate | their name, registered trade name or registered trade mark | | Manufacturers shall indicate their name, registered trade name or registered trade mark\nManufacturers | mustIndicate | postal address and website, e-mail address or other digital contact | | the postal address and website, e-mail address or other digital contact at which they can be contacted\nManufacturers | mustPlaceContactDetails | on the machinery or related product | where that is not possible, on its packaging or in an accompanying document | on the machinery or related product or, where that is not possible, on its packaging or in a document accompanying the machinery or related product\nContact address | mustIndicate | a single point at which the manufacturer can be contacted | | The address shall indicate a single point at which the manufacturer can be contacted\nContact details | mustBeInLanguage | a language easily understood by users and market surveillance authorities | | The contact details shall be in a language easily understood by users and market surveillance authorities",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 711,
+   "prompt_tokens": 373,
+   "total_tokens": 1084,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 391,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003928,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003928,
+   "gateway_cost": 0.0003928
+  }
+ }
+}

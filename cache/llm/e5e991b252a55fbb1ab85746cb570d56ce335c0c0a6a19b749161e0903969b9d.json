@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 13\n\n2. Liability and Intended Use WARNING Using UR robots or UR products outside of the intended uses can result in injuries, death and/or property damage. Do not use the UR robot or products for any of the below unintended uses and applications: • Medical use, i.e. uses relating to disease, injury or disability in humans including the following purposes: • Rehabilitation • Assessment • Compensation or alleviation • Diagnostic • Treatment • Surgical • Healthcare • Prosthetics and other aids for the physically impaired Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. • Any use in proximity to patient/s • Handling, lifting, or transporting people • Any application requiring compliance with specific hygienic and/or sanitation standards, such as proximity or direct contact with food, beverage, pharmaceutical, and /or cosmetic products. • UR joint grease leaks, and can also be released as vapor into the air. • UR joint grease is not “food grade”. • UR robots do not meet any food, National Sanitization Foundation (NSF), Food and Drug Administration (FDA), or hygienic design standards. Hygienic standards, for example ISO 14159 and EN 1672-2, require a hygiene risk assessment be conducted. • Any use, or any application, deviating from the intended use, specifications, and certifications of UR robots or UR products. • Misuse is prohibited as the result could be death, personal injury, and /or property damage UNIVERSAL ROBOTS EXPRESSLY DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY OF FITNESS FOR ANY PARTICULAR USE. WARNING Failure to consider the added risks due to the reach, payloads, operating torques and speeds associated with robot application, can result in injury or death. • Your application risk assessment shall include the risks associated with the application's reach, motion, payload and speed of the robot, end effector and workpiece. User Manual 16 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "UR robots | must not be used for | medical uses, including rehabilitation, assessment, diagnosis, treatment, surgery, healthcare, and prosthetics | \"\" | Medical use, i.e. uses relating to disease, injury or disability in humans\nUR robots | must not be used | in proximity to patients | \"\" | Any use in proximity to patient/s\nUR robots | must not be used | for handling, lifting, or transporting people | \"\" | Handling, lifting, or transporting people\nUR robots | must not be used | in applications requiring hygienic and/or sanitation standards | \"\" | Any application requiring compliance with specific hygienic and/or sanitation standards\nUR joint grease | isNotFoodGrade | true | \"\" | UR joint grease is not \"food grade\"\nUR robots | meetStandards | false for food, NSF, FDA, or hygienic design standards | \"\" | UR robots do not meet any food, National Sanitization Foundation (NSF), Food and Drug Administration (FDA), or hygienic design standards\nHygienic standards ISO 14159 and EN 1672-2 | require | a hygiene risk assessment be conducted | \"\" | Hygienic standards, for example ISO 14159 and EN 1672-2, require a hygiene risk assessment be conducted\nAny use or application deviating from intended use, specifications, or certifications | isProhibited | true | \"\" | Any use, or any application, deviating from the intended use, specifications, and certifications of UR robots or UR products\nMisuse | isProhibited | true | misuse could result in death, personal injury, and/or property damage | Misuse is prohibited as the result could be death, personal injury, and /or property damage\nUniversal Robots | disclaims | any express or implied warranty of fitness for any particular use | \"\" | UNIVERSAL ROBOTS EXPRESSLY DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY OF FITNESS FOR ANY PARTICULAR USE\nApplication risk assessment | shall include | risks associated with the application's reach, motion, payload, and speed of the robot, end effector, and workpiece | \"\" | Your application risk assessment shall include the risks associated with the application's reach, motion, payload and speed of the robot, end effector and workpiece\nFailure to consider added risks from reach, payloads, operating torques, and speeds | canResultIn | injury or death | \"\" | Failure to consider the added risks due to the reach, payloads, operating torques and speeds associated with robot application, can result in injury or death",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1605,
+   "prompt_tokens": 869,
+   "total_tokens": 2474,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 764,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008894,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008894,
+   "gateway_cost": 0.0008894
+  }
+ }
+}

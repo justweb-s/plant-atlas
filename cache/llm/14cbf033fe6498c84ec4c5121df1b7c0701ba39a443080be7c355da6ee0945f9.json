@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 3.4.7\n\n3.4.7. Transmission of power between self-propelled machinery (or tractor) and recipient machinery Removable mechanical transmission devices linking self-propelled machinery (or a tractor) to the first fixed bearing of recipient machinery must be designed and constructed in such a way that any part that moves during operation is protected over its whole length. On the side of the self-propelled machinery (or tractor), the power take-off to which the removable mechanical transmission device is attached must be protected either by a guard fixed and linked to the self-propelled machinery (or tractor) or by any other device offering equivalent protection. It must be possible to open this guard for access to the removable transmission device. Once it is in place, there must be enough room to prevent the drive shaft damaging the guard when the machinery (or the tractor) is moving. On the recipient machinery side, the input shaft must be enclosed in a protective casing fixed to the machinery. Torque limiters or freewheels may be fitted to universal joint transmissions only on the side adjoining the driven machinery. The removable mechanical transmission device must be marked accordingly. All recipient machinery, the operation of which requires a removable mechanical transmission device to connect it to self-propelled machinery (or a tractor), must have a system for attaching the removable mechanical transmission device so that, when the machinery is uncoupled, the removable mechanical transmission device and its guard are not damaged by contact with the ground or part of the machinery. The outside parts of the guard must be so designed, constructed and arranged that they cannot turn with the removable mechanical transmission device. The guard must cover the transmission to the ends of the inner jaws in the case of simple universal joints and at least to the centre of the outer joint or joints in the case of wide-angle universal joints. If means of access to working positions are provided near to the removable mechanical transmission device, they must be designed and constructed in such a way that the shaft guards cannot be used as steps, unless designed and constructed for that purpose."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Removable mechanical transmission devices | must be designed so | any moving part is protected over its whole length | | \"must be designed and constructed in such a way that any part that moves during operation is protected over its whole length\"\nPower take-off on self-propelled machinery or tractor | must be protected by | a guard fixed and linked to the machinery, or an equivalent device | | \"must be protected either by a guard fixed and linked to the self-propelled machinery (or tractor) or by any other device offering equivalent protection\"\nGuard on power take-off | must be openable | for access to the removable transmission device | | \"It must be possible to open this guard for access to the removable transmission device.\"\nGuard on power take-off | must leave enough room | to prevent the drive shaft damaging the guard | when the machinery or tractor is moving, once the guard is in place | \"Once it is in place, there must be enough room to prevent the drive shaft damaging the guard when the machinery (or the tractor) is moving.\"\nInput shaft on recipient machinery | must be enclosed | in a protective casing fixed to the machinery | | \"the input shaft must be enclosed in a protective casing fixed to the machinery\"\nTorque limiters or freewheels | may be fitted | only on the side adjoining the driven machinery | universal joint transmissions | \"Torque limiters or freewheels may be fitted to universal joint transmissions only on the side adjoining the driven machinery.\"\nRemovable mechanical transmission device | must be marked | accordingly | | \"The removable mechanical transmission device must be marked accordingly.\"\nRecipient machinery needing a removable transmission device | must have an attaching system | preventing damage to the device and guard from ground or machinery contact | when the machinery is uncoupled | \"must have a system for attaching the removable mechanical transmission device so that, when the machinery is uncoupled, the removable mechanical transmission device and its guard are not damaged by contact with the ground or part of the machinery\"\nOutside parts of the guard | must be arranged so they cannot turn | with the removable mechanical transmission device | | \"The outside parts of the guard must be so designed, constructed and arranged that they cannot turn with the removable mechanical transmission device.\"\nGuard | must cover the transmission | to the ends of the inner jaws | simple universal joints | \"The guard must cover the transmission to the ends of the inner jaws in the case of simple universal joints\"\nGuard | must cover the transmission | at least to the centre of the outer joint or joints | wide-angle universal joints | \"at least to the centre of the outer joint or joints in the case of wide-angle universal joints\"\nShaft guards | must not be usable as steps | unless designed and constructed for that purpose | access means provided near the removable transmission device | \"the shaft guards cannot be used as steps, unless designed and constructed for that purpose\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1669,
+   "prompt_tokens": 850,
+   "total_tokens": 2519,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 746,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009195,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009195,
+   "gateway_cost": 0.0009195
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 2.2.1\n\n2.2.1. General Portable hand-held or hand-guided machinery or related products shall: (a) depending on the type of machinery or related product, have a supporting surface of sufficient size and have a sufficient number of handles and supports of an appropriate size, arranged in such a way as to ensure the stability of the machinery or related product under the intended operating conditions; (b) except where technically impossible, or where there is an independent control device, in the case of handles which cannot be released in complete safety, be fitted with manual start and stop control devices arranged in such a way that the operator can operate them without releasing the handles; (c) present no risks of accidental starting or continued operation after the operator has released the handles; equivalent steps shall be taken if this requirement is not technically feasible; (d) permit, where necessary, visual observation of the danger zone and of the action of the tool with the material being processed; (e) have a device or a connected exhaust system, with an extraction connection outlet or equivalent system to capture or reduce emissions of hazardous substances; this requirement does not apply if it leads to a new hazard or where the main function of the machinery or related product is the application of hazardous substances and to emissions of internal combustion engines; (f) be designed and constructed in such a way that the handles of portable machinery or related products make starting and stopping straightforward."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "portable hand-held or hand-guided machinery or related products | shall have | supporting surface of sufficient size and sufficient number of handles and supports of appropriate size | depending on the type of machinery or related product | \"depending on the type of machinery or related product, have a supporting surface of sufficient size and have a sufficient number of handles and supports of an appropriate size\"\nhandles and supports of portable machinery | areArrangedToEnsure | stability of the machinery under intended operating conditions | \"\" | \"arranged in such a way as to ensure the stability of the machinery or related product under the intended operating conditions\"\nhandles that cannot be released in complete safety | befittedWith | manual start and stop control devices operable without releasing the handles | except where technically impossible or where there is an independent control device | \"except where technically impossible, or where there is an independent control device, in the case of handles which cannot be released in complete safety, be fitted with manual start and stop control devices arranged in such a way that the operator can operate them without releasing the handles\"\nportable machinery | presentNoRiskOf | accidental starting or continued operation after the operator has released the handles | equivalent steps shall be taken if this is not technically feasible | \"present no risks of accidental starting or continued operation after the operator has released the handles; equivalent steps shall be taken if this requirement is not technically feasible\"\nportable machinery | permitsWhereNecessary | visual observation of the danger zone and of the action of the tool with the material being processed | where necessary | \"permit, where necessary, visual observation of the danger zone and of the action of the tool with the material being processed\"\nportable machinery | haveDeviceOrExhaustSystem | extraction connection outlet or equivalent system to capture or reduce emissions of hazardous substances | not required if it leads to a new hazard, or the main function is applying hazardous substances, or for emissions of internal combustion engines | \"have a device or a connected exhaust system, with an extraction connection outlet or equivalent system to capture or reduce emissions of hazardous substances; this requirement does not apply if it leads to a new hazard or where the main function of the machinery or related product is the application of hazardous substances and to emissions of internal combustion engines\"\nhandles of portable machinery | makeStartingAndStoppingStraightforward | starting and stopping | \"\" | \"be designed and constructed in such a way that the handles of portable machinery or related products make starting and stopping straightforward\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1608,
+   "prompt_tokens": 628,
+   "total_tokens": 2236,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 820,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008668,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008668,
+   "gateway_cost": 0.0008668
+  }
+ }
+}

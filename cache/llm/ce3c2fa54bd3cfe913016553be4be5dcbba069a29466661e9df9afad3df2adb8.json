@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Art. 10(4)\n\nArticle 10 Obligations of manufacturers of machinery and related products. 4. Manufacturers shall ensure that procedures are in place in order that machinery or related products that are part of a series production remain in conformity with this Regulation. Adequate account shall be taken of changes in the production process or in the design or characteristics of the machinery or related product, and changes in the harmonised standards, in other technical specifications, or in the common specifications referred to in Article 20 by reference to which the conformity of the machinery or related product is declared. When deemed appropriate with regard to the risks presented by machinery or related products, manufacturers shall, in order to protect the health and safety of users, carry out sample testing of machinery or related products made available on the market and investigate their results. If necessary, manufacturers shall keep a register of complaints, of non-conforming machinery or related products and machinery or related product recalls, and shall keep distributors informed of any such monitoring."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Manufacturers | shall ensure | procedures are in place so that series-production machinery or related products remain in conformity with this Regulation | part of a series production | Manufacturers shall ensure that procedures are in place in order that machinery or related products that are part of a series production remain in conformity with this Regulation.\nManufacturers | shall take account of | changes in the production process, in the design or characteristics of the machinery, and in the harmonised standards, other technical specifications, or common specifications used to declare conformity | by reference to which the conformity of the machinery is declared | Adequate account shall be taken of changes in the production process or in the design or characteristics of the machinery or related product, and changes in the harmonised standards, in other technical specifications, or in the common specifications referred to in Article 20 by reference to which the conformity of the machinery or related product is declared.\nManufacturers | shall carry out | sample testing of machinery made available on the market, and investigate the results, to protect the health and safety of users | when deemed appropriate with regard to the risks presented | When deemed appropriate with regard to the risks presented by machinery or related products, manufacturers shall, in order to protect the health and safety of users, carry out sample testing of machinery or related products made available on the market and investigate their results.\nManufacturers | shall keep | a register of complaints, of non-conforming machinery or related products, and of machinery or related product recalls | if necessary | If necessary, manufacturers shall keep a register of complaints, of non-conforming machinery or related products and machinery or related product recalls.\nManufacturers | shall keep informed | distributors of any such monitoring | if necessary | If necessary, manufacturers shall keep a register of complaints, of non-conforming machinery or related products and machinery or related product recalls, and shall keep distributors informed of any such monitoring.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1118,
+   "prompt_tokens": 503,
+   "total_tokens": 1621,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 522,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006093,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006093,
+   "gateway_cost": 0.0006093
+  }
+ }
+}

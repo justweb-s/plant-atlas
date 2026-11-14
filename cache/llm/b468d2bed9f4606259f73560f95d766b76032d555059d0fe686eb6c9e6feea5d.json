@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.1.1\n\n1.1.1. Definitions For the purpose of this Annex: (a) ‘hazard’ means a potential source of injury or damage to health; (b) ‘danger zone’ means any zone within and/or around machinery in which a person is subject to a risk to his health or safety; (c) ‘exposed person’ means any person wholly or partially in a danger zone; (d) ‘operator’ means the person or persons installing, operating, adjusting, maintaining, cleaning, repairing or moving machinery; (e) ‘risk’ means a combination of the probability and the degree of an injury or damage to health that can arise in a hazardous situation; (f) ‘guard’ means a part of the machinery used specifically to provide protection by means of a physical barrier; (g) ‘protective device’ means a device (other than a guard) which reduces the risk, either alone or in conjunction with a guard; (h) ‘intended use’ means the use of machinery in accordance with the information provided in the instructions for use; (i) ‘reasonably foreseeable misuse’ means the use of machinery in a way not intended in the instructions for use, but which may result from readily predictable human behaviour."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "hazard | ispotentialSourceOfInjury | potential source of injury or damage to health | - | 'hazard' means a potential source of injury or damage to health\ndanger zone | isZoneWherePersonFacesRisk | any zone within and/or around machinery in which a person is subject to a risk to his health or safety | - | 'danger zone' means any zone within and/or around machinery in which a person is subject to a risk to his health or safety\nexposed person | isPersonWhollyOrPartiallyInDangerZone | any person wholly or partially in a danger zone | - | 'exposed person' means any person wholly or partially in a danger zone\noperator | isPersonInstallingOperatingOrMaintainingMachinery | the person or persons installing, operating, adjusting, maintaining, cleaning, repairing or moving machinery | - | 'operator' means the person or persons installing, operating, adjusting, maintaining, cleaning, repairing or moving machinery\nrisk | isCombinationOfProbabilityAndSeverityOfHarm | a combination of the probability and the degree of an injury or damage to health that can arise in a hazardous situation | - | 'risk' means a combination of the probability and the degree of an injury or damage to health that can arise in a hazardous situation\nguard | isPartProvidingProtectionByPhysicalBarrier | a part of the machinery used specifically to provide protection by means of a physical barrier | - | 'guard' means a part of the machinery used specifically to provide protection by means of a physical barrier\nprotective device | isDeviceOtherThanGuardReducingRisk | a device (other than a guard) which reduces the risk, either alone or in conjunction with a guard | - | 'protective device' means a device (other than a guard) which reduces the risk, either alone or in conjunction with a guard\nintended use | isUseInAccordanceWithInstructionsForUse | the use of machinery in accordance with the information provided in the instructions for use | - | 'intended use' means the use of machinery in accordance with the information provided in the instructions for use\nreasonably foreseeable misuse | isUseNotIntendedButPredictableHumanBehaviour | the use of machinery in a way not intended in the instructions for use, but which may result from readily predictable human behaviour | - | 'reasonably foreseeable misuse' means the use of machinery in a way not intended in the instructions for use, but which may result from readily predictable human behaviour",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 802,
+   "prompt_tokens": 587,
+   "total_tokens": 1389,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004597,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004597,
+   "gateway_cost": 0.0004597
+  }
+ }
+}

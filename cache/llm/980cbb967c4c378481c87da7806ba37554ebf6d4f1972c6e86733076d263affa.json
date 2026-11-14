@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 2.2.2.1\n\n2.2.2.1. General Portable fixing and other impact machinery or related products shall be designed and constructed in such a way that: (a) energy is transmitted to the impacted element by the intermediary component that does not leave the device; (b) an enabling device prevents impact unless the machinery or related product is positioned correctly with adequate pressure on the base material; (c) involuntary triggering is prevented; where necessary, an appropriate sequence of actions on the enabling device and the control device shall be required to trigger an impact; (d) accidental triggering is prevented during handling or in case of shock; (e) loading and unloading operations can be carried out easily and safely. Where necessary, it shall be possible to fit the device with splinter guard(s) and the appropriate guard(s) shall be provided by the manufacturer of the machinery or related product."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Portable fixing and other impact machinery or related products | transmitEnergyVia | energy transmitted to the impacted element by an intermediary component that does not leave the device | | energy is transmitted to the impacted element by the intermediary component that does not leave the device\nPortable fixing and other impact machinery or related products | preventImpactUnless | impact is prevented unless the machinery is positioned correctly with adequate pressure on the base material | enabling device fitted | an enabling device prevents impact unless the machinery or related product is positioned correctly with adequate pressure on the base material\nPortable fixing and other impact machinery or related products | preventInvoluntaryTriggering | involuntary triggering is prevented | | involuntary triggering is prevented\nPortable fixing and other impact machinery or related products | requireTriggerSequence | an appropriate sequence of actions on the enabling device and the control device is required to trigger an impact | where necessary | an appropriate sequence of actions on the enabling device and the control device shall be required to trigger an impact\nPortable fixing and other impact machinery or related products | preventAccidentalTriggering | accidental triggering is prevented during handling or in case of shock | | accidental triggering is prevented during handling or in case of shock\nPortable fixing and other impact machinery or related products | allowEasyAndSafeLoading | loading and unloading operations can be carried out easily and safely | | loading and unloading operations can be carried out easily and safely\nPortable fixing and other impact machinery or related products | acceptSplinterGuards | it is possible to fit the device with splinter guard(s) | where necessary | it shall be possible to fit the device with splinter guard(s)\nManufacturer of the machinery or related product | provideGuards | the appropriate guard(s) are provided by the manufacturer | where splinter guards are fitted | the appropriate guard(s) shall be provided by the manufacturer of the machinery or related product",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1190,
+   "prompt_tokens": 477,
+   "total_tokens": 1667,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 554,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0006427,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0006427,
+   "gateway_cost": 0.0006427
+  }
+ }
+}

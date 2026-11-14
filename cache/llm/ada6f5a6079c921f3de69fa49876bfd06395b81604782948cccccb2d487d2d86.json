@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DLGS70, art. 70, c. 4\n\n4. Qualora gli organi di vigilanza, nell'espletamento delle loro funzioni ispettive in materia di salute e sicurezza sul lavoro, constatino che un'attrezzatura di lavoro, messa a disposizione dei lavoratori dopo essere stata immessa sul mercato o messa in servizio conformemente alla legislazione nazionale di recepimento delle direttive comunitarie ad essa applicabili ed utilizzata conformemente alle indicazioni del fabbricante, presenti una situazione di rischio riconducibile al mancato rispetto di uno o più requisiti essenziali di sicurezza previsti dalle disposizioni legislative e regolamentari di cui al comma 1, ne informano immediatamente l'autorità nazionale di sorveglianza del mercato competente per tipo di prodotto. In tale caso le procedure previste dagli articoli 20 e 21 del decreto legislativo 19 dicembre 1994, n. 758 , vengono espletate: a) dall'organo di vigilanza che ha accertato in sede di utilizzo la situazione di rischio, nei confronti del datore di lavoro utilizzatore dell'esemplare di attrezzatura, mediante apposita prescrizione a rimuovere tale situazione nel caso in cui sia stata accertata una contravvenzione, oppure mediante idonea disposizione in ordine alle modalità di uso in sicurezza dell'attrezzatura di lavoro ove non sia stata accertata una contravvenzione; b) dall'organo di vigilanza territorialmente competente rispettivamente, nei confronti del fabbricante ovvero dei soggetti della catena della distribuzione, qualora, alla conclusione dell'accertamento tecnico effettuato dall'autorità nazionale per la sorveglianza del mercato, risulti la non conformità dell'attrezzatura ad uno o più requisiti essenziali di sicurezza previsti dalle disposizioni legislative e regolamentari di cui al comma 1 dell'articolo 70. ))"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Organi di vigilanza | informano | autorità nazionale di sorveglianza del mercato competente per tipo di prodotto | constatano nell'espletamento delle funzioni ispettive una situazione di rischio riconducibile al mancato rispetto di requisiti essenziali di sicurezza | \"ne informano immediatamente l'autorità nazionale di sorveglianza del mercato competente per tipo di prodotto\"\nOrgano di vigilanza che ha accertato la situazione di rischio | emette | prescrizione a rimuovere la situazione di rischio nei confronti del datore di lavoro utilizzatore | è stata accertata una contravvenzione | \"mediante apposita prescrizione a rimuovere tale situazione nel caso in cui sia stata accertata una contravvenzione\"\nOrgano di vigilanza che ha accertato la situazione di rischio | emette | disposizione sulle modalità di uso in sicurezza dell'attrezzatura di lavoro nei confronti del datore di lavoro utilizzatore | non è stata accertata una contravvenzione | \"mediante idonea disposizione in ordine alle modalità di uso in sicurezza dell'attrezzatura di lavoro ove non sia stata accertata una contravvenzione\"\nAutorità nazionale per la sorveglianza del mercato | effettua | accertamento tecnico sull'attrezzatura | \"\" | \"accertamento tecnico effettuato dall'autorità nazionale per la sorveglianza del mercato\"\nOrgano di vigilanza territorialmente competente | espleta procedure nei confronti di | fabbricante ovvero soggetti della catena della distribuzione | alla conclusione dell'accertamento tecnico risulta la non conformità dell'attrezzatura ad uno o più requisiti essenziali di sicurezza | \"risulti la non conformità dell'attrezzatura ad uno o più requisiti essenziali di sicurezza\"\nProcedure previste dagli articoli 20 e 21 del D.Lgs. 758/1994 | vengono espletate | da parte dell'organo di vigilanza competente secondo le lettere a) e b) | \"\" | \"In tale caso le procedure previste dagli articoli 20 e 21 del decreto legislativo 19 dicembre 1994, n. 758 , vengono espletate\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1480,
+   "prompt_tokens": 909,
+   "total_tokens": 2389,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 691,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0008309,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0008309,
+   "gateway_cost": 0.0008309
+  }
+ }
+}

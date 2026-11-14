@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: ur5e-manual, p. 29\n\n4. Safety 4.3. General Warnings and Cautions Description The following warnings messages can be repeated, explained or detailed in subsequent sections. WARNING Failure to adhere to the general safety practices, listed below, can result in injury or death. • Verify the robot arm and tool/end effector are properly and securely bolted in place. • Verify the robot application has ample space to operate freely. • Verify the personnel are protected during the lifetime of the robot application including transport, installation, commissioning, programming/ teaching, operation and use, dismantling and disposing. Copyright © 2009–2025 by Universal Robots A/S. All rights reserved. • Verify robot safety configuration parameters are set to protect personnel, including those who can be within reach of the robot application. • Avoid using the robot if it is damaged. • Avoid wearing loose clothing or jewelry when working with the robot. Tie back long hair. • Avoid placing any fingers behind the internal cover of the Control Box. • Inform users of any hazardous situations and the protection that is provided, explain any limitations of the protection and the residual risks. • Inform users of the location of the emergency stop button(s) and how to activate the emergency stop in case of an emergency or an abnormal situation. • Warn people to keep outside the reach of the robot, including when the robot application is about to start-up. • Be aware of robot orientation to understand the direction of movement when using the Teach Pendant. • Adhere to the requirements in ISO 10218-2. WARNING Handling tools/end effectors with sharp edges and/or pinch points can result in injury. • Make sure tools/end effectors have no sharp edges or pinch points. • Protective gloves and/or protective eyeglasses could be required. User Manual 32 UR5e"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "robot arm and tool/end effector | mustBeBoltedIn | properly and securely bolted in place | \"\" | Verify the robot arm and tool/end effector are properly and securely bolted in place.\nrobot application | mustHaveSpace | ample space to operate freely | \"\" | Verify the robot application has ample space to operate freely.\npersonnel | mustBeProtected | during the lifetime of the robot application | \"\" | Verify the personnel are protected during the lifetime of the robot application including transport, installation, commissioning, programming/ teaching, operation and use, dismantling and disposing.\nrobot safety configuration parameters | mustBeSet | to protect personnel | \"\" | Verify robot safety configuration parameters are set to protect personnel, including those who can be within reach of the robot application.\nrobot | shouldNotBeUsed | when damaged | the robot is damaged | Avoid using the robot if it is damaged.\nusers | mustBeInformed | of the location of the emergency stop button(s) and how to activate it | \"\" | Inform users of the location of the emergency stop button(s) and how to activate the emergency stop in case of an emergency or an abnormal situation.\nusers | mustBeInformed | of hazardous situations, the protection provided, its limitations, and residual risks | \"\" | Inform users of any hazardous situations and the protection that is provided, explain any limitations of the protection and the residual risks.\npeople | mustBeWarnedToStayOutside | the reach of the robot | \"\" | Warn people to keep outside the reach of the robot, including when the robot application is about to start-up.\nrobot application | mustAdhereTo | ISO 10218-2 | \"\" | Adhere to the requirements in ISO 10218-2.\nhandling tools/end effectors with sharp edges and/or pinch points | canResultIn | injury | \"\" | Handling tools/end effectors with sharp edges and/or pinch points can result in injury.\ntools/end effectors | mustHaveNo | sharp edges or pinch points | \"\" | Make sure tools/end effectors have no sharp edges or pinch points.\nfailure to adhere to the general safety practices | canResultIn | injury or death | \"\" | Failure to adhere to the general safety practices, listed below, can result in injury or death.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1667,
+   "prompt_tokens": 786,
+   "total_tokens": 2453,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 929,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009121,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009121,
+   "gateway_cost": 0.0009121
+  }
+ }
+}

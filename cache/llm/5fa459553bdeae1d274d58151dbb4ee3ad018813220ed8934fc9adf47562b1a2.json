@@ -15,16 +15,16 @@
   "max_tokens": 3000
  },
  "response": {
-  "text": "{\"reasoning\": \"Fact 54 says the Regulation applies from 20 January 2027, so the question's post-20-January-2027 period is covered. Fact 23 lists vehicle servicing lifts in Annex I, Part A, point 3 of the Regulation. Fact 47 says that for a category in that Annex, conformity is based on internal production control (module C) only when followed by EU type-examination (module B). Fact 69 allows internal production control alone only where the category is not listed in Annex I. Harmonised-standard compliance (fact 39) changes the procedure only for machinery not designed to those standards, so it does not allow internal production control alone here. The answer is therefore no.\", \"kind\": \"boolean\", \"value\": false, \"text\": \"No. From 20 January 2027, vehicle servicing lifts are listed in Annex I, Part A, point 3 of the Machinery Regulation, so internal production control alone (module A) is not enough: Article 25(2) requires internal production control (module C) followed by EU type-examination (module B). Internal production control alone under Article 25(4) applies only to categories not listed in Annex I.\", \"used\": [23, 47, 54, 69]}",
+  "text": "{\"reasoning\": \"On 20 January 2027 the Machinery Regulation applies (fact 54) and Directive 2006/42/EC is repealed (fact 53). Vehicle servicing lifts are listed in Annex I, Part A, point 3 (fact 23). For a listed category, the internal production control route (module C) is only available followed by EU type-examination (module B) under option (a) (fact 47). The alternative of internal production control alone applies only to categories not listed in Annex I (fact 69). The lift is built to harmonised standards, so the non-harmonised procedure of fact 39 does not apply. Internal production control alone is therefore not sufficient.\", \"kind\": \"boolean\", \"value\": false, \"text\": \"No. Under Article 25(2) of Regulation (EU) 2023/1230, which applies from 20 January 2027, vehicle servicing lifts are listed in Annex I Part A point 3, so module C (internal production control) must be followed by EU type-examination (module B) under option (a); internal production control alone is only for categories not listed in Annex I under Article 25(4).\", \"used\": [23, 47, 54, 69]}",
   "model": "anthropic/claude-haiku-5.5",
   "usage": {
-   "completion_tokens": 1265,
+   "completion_tokens": 1449,
    "prompt_tokens": 8344,
-   "total_tokens": 9609,
+   "total_tokens": 9793,
    "completion_tokens_details": {
     "accepted_prediction_tokens": null,
     "audio_tokens": null,
-    "reasoning_tokens": 881,
+    "reasoning_tokens": 1075,
     "rejected_prediction_tokens": null,
     "text_tokens": null,
     "image_tokens": 0
@@ -37,7 +37,7 @@
     "text_tokens": null,
     "video_tokens": 0
    },
-   "cost": 0.0014669,
+   "cost": 0.0015589,
    "is_byok": false,
    "cost_details": {
     "upstream_inference_cost": null,
@@ -45,8 +45,8 @@
     "upstream_inference_completions_cost": 0
    },
    "cache_creation_input_tokens": 0,
-   "market_cost": 0.0014669,
-   "gateway_cost": 0.0014669
+   "market_cost": 0.0015589,
+   "gateway_cost": 0.0015589
   }
  }
 }

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 3.1\n\n3.1. General 3.1.1. For the purposes of this section, the following definitions apply: (a) ‘Machinery or related products presenting risks due to their mobility’ means: (i) machinery or related products, the operation of which requires either mobility while working, or continuous or semi continuous movement between a succession of fixed working locations; or (ii) machinery or related products which are operatedwithout being moved, but which may be equipped in such a way as to enable it to be moved more easily from one place to another; (b) ‘Driver’ means an operator responsible for the movement of machinery or a related product, who may be transported by the machinery or may be on foot, accompanying the machinery, or may guide the machinery by remote control; (c) ‘Autonomous mobile machinery’ means mobile machinery which has an autonomous mode, in which all the essential safety functions of the mobile machinery are ensured in its travel and working operations area without permanent interaction of an operator; (d) ‘Supervisor’ means a person responsible for the supervision of autonomous mobile machinery; (e) ‘Supervisory function’ means remote non permanent surveillance of autonomous mobile machinery by a device allowing to receive information or alerts and to give limited orders to this machinery."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery or related products presenting risks due to their mobility | are defined as | machinery or related products whose operation requires mobility while working, or continuous or semi continuous movement between a succession of fixed working locations | | \"machinery or related products, the operation of which requires either mobility while working, or continuous or semi continuous movement between a succession of fixed working locations\"\nMachinery or related products presenting risks due to their mobility | include | machinery or related products operated without being moved but equipped to be moved more easily from one place to another | operated without being moved and equipped to enable easier moving | \"machinery or related products which are operatedwithout being moved, but which may be equipped in such a way as to enable it to be moved more easily from one place to another\"\nDriver | is defined as | an operator responsible for the movement of machinery or a related product | may be transported by the machinery, on foot accompanying it, or guiding it by remote control | \"an operator responsible for the movement of machinery or a related product, who may be transported by the machinery or may be on foot, accompanying the machinery, or may guide the machinery by remote control\"\nAutonomous mobile machinery | is defined as | mobile machinery which has an autonomous mode | all essential safety functions are ensured in its travel and working operations area without permanent interaction of an operator | \"mobile machinery which has an autonomous mode, in which all the essential safety functions of the mobile machinery are ensured in its travel and working operations area without permanent interaction of an operator\"\nSupervisor | is defined as | a person responsible for the supervision of autonomous mobile machinery | | \"a person responsible for the supervision of autonomous mobile machinery\"\nSupervisory function | is defined as | remote non permanent surveillance of autonomous mobile machinery by a device allowing to receive information or alerts and to give limited orders to this machinery | | \"remote non permanent surveillance of autonomous mobile machinery by a device allowing to receive information or alerts and to give limited orders to this machinery\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1230,
+   "prompt_tokens": 610,
+   "total_tokens": 1840,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 586,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.000676,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.000676,
+   "gateway_cost": 0.000676
+  }
+ }
+}

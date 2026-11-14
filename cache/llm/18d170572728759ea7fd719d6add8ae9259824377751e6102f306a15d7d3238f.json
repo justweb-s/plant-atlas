@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 1.5.13\n\n1.5.13. Emissions of hazardous materials and substances Machinery must be designed and constructed in such a way that risks of inhalation, ingestion, contact with the skin, eyes and mucous membranes and penetration through the skin of hazardous materials and substances which it produces can be avoided. Where a hazard cannot be eliminated, the machinery must be so equipped that hazardous materials and substances can be contained, evacuated, precipitated by water spraying, filtered or treated by another equally effective method. Where the process is not totally enclosed during normal operation of the machinery, the devices for containment and/or evacuation must be situated in such a way as to have the maximum effect."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Machinery | mustBeDesignedToAvoid | risks of inhalation, ingestion, skin/eye/mucous contact and skin penetration from hazardous materials and substances it produces | | Machinery must be designed and constructed in such a way that risks of inhalation, ingestion, contact with the skin, eyes and mucous membranes and penetration through the skin of hazardous materials and substances which it produces can be avoided.\nMachinery | mustBeEquippedToContain | hazardous materials and substances by containment, evacuation, water-spray precipitation, filtration or another equally effective method | where a hazard cannot be eliminated | Where a hazard cannot be eliminated, the machinery must be so equipped that hazardous materials and substances can be contained, evacuated, precipitated by water spraying, filtered or treated by another equally effective method.\nContainment and/or evacuation devices | mustBeSituatedTo | have the maximum effect | where the process is not totally enclosed during normal operation | Where the process is not totally enclosed during normal operation of the machinery, the devices for containment and/or evacuation must be situated in such a way as to have the maximum effect.",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 842,
+   "prompt_tokens": 426,
+   "total_tokens": 1268,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 458,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004636,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004636,
+   "gateway_cost": 0.0004636
+  }
+ }
+}

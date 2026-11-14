@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: DIR, Annex I, 4.1.2.8.5\n\n4.1.2.8.5. Landings Risks due to contact of persons at landings with the moving carrier or other moving parts must be prevented. Where there is a risk due to persons falling into the travel zone when the carrier is not present at the landings, guards must be fitted in order to prevent this risk. Such guards must not open in the direction of the travel zone. They must be fitted with an interlocking device controlled by the position of the carrier that prevents: — hazardous movements of the carrier until the guards are closed and locked, — hazardous opening of a guard until the carrier has stopped at the corresponding landing."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Persons at landings | must be protected from | contact with the moving carrier or other moving parts | | Risks due to contact of persons at landings with the moving carrier or other moving parts must be prevented.\nGuards | must be fitted | at landings to prevent persons falling into the travel zone | where there is a risk of persons falling into the travel zone when the carrier is not present at the landings | Where there is a risk due to persons falling into the travel zone when the carrier is not present at the landings, guards must be fitted in order to prevent this risk.\nGuards | must not open | in the direction of the travel zone | | Such guards must not open in the direction of the travel zone.\nGuards | must be fitted with | an interlocking device controlled by the position of the carrier | | They must be fitted with an interlocking device controlled by the position of the carrier\nInterlocking device | prevents | hazardous movements of the carrier | until the guards are closed and locked | prevents: — hazardous movements of the carrier until the guards are closed and locked\nInterlocking device | prevents | hazardous opening of a guard | until the carrier has stopped at the corresponding landing | — hazardous opening of a guard until the carrier has stopped at the corresponding landing",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 828,
+   "prompt_tokens": 405,
+   "total_tokens": 1233,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 432,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0004545,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0004545,
+   "gateway_cost": 0.0004545
+  }
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Read one passage of a document about machines at work (law, manual, guidance, internal guideline,\nplant record) and write down the important facts it states.\n\nAnswer with one line per fact, fields separated by \" | \", nothing else, no header, no code fence:\nsubject | predicate | object | condition | quote\n- predicate: a short camelCase verb phrase of your choice.\n- condition: any condition or exception, or \"\" if none.\n- quote: the words of the passage the fact comes from.\nAt most 12 facts. If the passage states nothing important, answer with the single word NONE."
+   },
+   {
+    "role": "user",
+    "content": "Passage: REG, Annex III, 1.2.2\n\n1.2.2. Control devices Control devices shall be: (a) clearly visible and identifiable, using pictograms where appropriate; (b) positioned in such a way as to be safely operated without hesitation or loss of time and without ambiguity; (c) designed in such a way that the movement of the control device is consistent with its effect; (d) located outside the danger zones, except where necessary for certain control devices such as an emergency stop or a teach pendant; (e) positioned in such a way that their operation cannot cause additional risk; (f) designed or protected in such a way that the desired effect, where a hazard is involved, can only be achieved by a deliberate action; (g) made in such a way as to withstand foreseeable forces, paying particular attention to emergency stop devices liable to be subjected to considerable forces. Where a control device is designed and constructed to perform several different actions, namely, where there is no one-to-one correspondence, the action to be performed shall be clearly displayed and subject to confirmation, where necessary. Control devices shall be so arranged that their layout, travel and resistance to operation are compatible with the action to be performed, taking account of ergonomic principles. Machinery or related products shall be fitted with indicators as required for safe operation. The operator shall be able to read them from the control position. From each control position, the operator shall be able to ensure that no one is in the danger zones, or the control system shall be designed and constructed in such a way that starting is prevented while someone is in the danger zone. If neither of these possibilities is applicable, before the machinery or related product starts, an acoustic and/or visual warning signal shall be given. The exposed persons shall have time to leave the danger zone or prevent the machinery starting up. If necessary, means shall be provided to ensure that the machinery or related product can be controlled only from control positions located in one or more predetermined zones or locations. Where there is more than one control position, the control system shall be designed in such a way that the use of one of them precludes the use of the others, except for stop controls and emergency stops. When the machinery or related product has two or more operating positions, each position shall be provided with all the required control devices without the operators hindering or putting each other into a hazardous situation."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 3000
+ },
+ "response": {
+  "text": "Control devices | areClearlyVisibleAndIdentifiable | clearly visible and identifiable | where appropriate, using pictograms | \"clearly visible and identifiable, using pictograms where appropriate\"\nControl devices | arePositionedForSafeOperation | operable safely without hesitation, loss of time or ambiguity | \"\" | \"positioned in such a way as to be safely operated without hesitation or loss of time and without ambiguity\"\nControl devices | areLocatedOutsideDangerZones | outside the danger zones | except where necessary for devices such as an emergency stop or teach pendant | \"located outside the danger zones, except where necessary for certain control devices such as an emergency stop or a teach pendant\"\nControl devices | areDesignedSoMovementMatchesEffect | movement consistent with its effect | \"\" | \"designed in such a way that the movement of the control device is consistent with its effect\"\nControl devices | areDesignedOrProtectedAgainstUnintendedHazard | hazardous effect achieved only by a deliberate action | where a hazard is involved | \"designed or protected in such a way that the desired effect, where a hazard is involved, can only be achieved by a deliberate action\"\nControl devices | mustWithstandForeseeableForces | foreseeable forces, with particular attention to emergency stop devices | \"\" | \"made in such a way as to withstand foreseeable forces, paying particular attention to emergency stop devices liable to be subjected to considerable forces\"\nControl device with several actions | mustDisplayActionAndRequireConfirmation | action clearly displayed and subject to confirmation | where there is no one-to-one correspondence and where necessary | \"the action to be performed shall be clearly displayed and subject to confirmation, where necessary\"\nMachinery or related product | mustBeFittedWithIndicators | indicators required for safe operation | \"\" | \"Machinery or related products shall be fitted with indicators as required for safe operation\"\nOperator | mustBeAbleToReadIndicators | indicators readable from the control position | \"\" | \"The operator shall be able to read them from the control position\"\nOperator at each control position | mustEnsureNoOneInDangerZones | no one is in the danger zones, or starting is prevented while someone is in the danger zone | where the operator can verify this or the control system prevents starting | \"From each control position, the operator shall be able to ensure that no one is in the danger zones, or the control system shall be designed and constructed in such a way that starting is prevented while someone is in the danger zone\"\nMachinery | mustGiveAcousticOrVisualWarningBeforeStart | acoustic and/or visual warning signal before starting | where neither of the other two possibilities is applicable | \"If neither of these possibilities is applicable, before the machinery or related product starts, an acoustic and/or visual warning signal shall be given\"\nControl system with more than one control position | mustPrecludeOtherPositionsWhenInUse | use of one control position precludes use of the others | except stop controls and emergency stops | \"Where there is more than one control position, the control system shall be designed in such a way that the use of one of them precludes the use of the others, except for stop controls and emergency stops\"",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1661,
+   "prompt_tokens": 907,
+   "total_tokens": 2568,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 619,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0009212,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0009212,
+   "gateway_cost": 0.0009212
+  }
+ }
+}
