@@ -1,0 +1,87 @@
+ANNEX V
+FINAL INSPECTION FOR LIFTS
+1. Final inspection is the part of a conformity assessment procedure whereby a notified body ascertains and certifies that a lift subject to an EU-type examination certificate or designed and manufactured according to an approved quality system satisfies the essential health and safety requirements set out in Annex I.
+2. Obligations of the installer
+The installer shall take all measures necessary to ensure that the lift being installed complies with the applicable essential health and safety requirements set out in Annex I and with one of the following:
+|
+(a)
+|
+an approved type described in an EU-type examination certificate;
+|
+(b)
+|
+a lift designed and manufactured in accordance with a quality system pursuant to Annex XI and the EU design examination certificate if the design is not wholly in accordance with the harmonised standards.
+3. Final inspection
+A notified body chosen by the installer shall carry out the final inspection of the lift about to be placed on the market in order to check the conformity of the lift with the applicable essential health and safety requirements set out in Annex I.
+|
+|
+3.1.
+|
+The installer shall lodge an application for final inspection with a single notified body of his choice and shall provide to the notified body the following documents:
+|
+(a)
+|
+the plan of the complete lift;
+|
+(b)
+|
+the plans and diagrams necessary for final inspection, in particular control circuit diagrams;
+|
+(c)
+|
+a copy of the instructions referred to in Annex I, point 6.2;
+|
+(d)
+|
+a written declaration that the same application has not been lodged with any other notified body.
+The notified body may not require detailed plans or precise information not necessary for verifying the conformity of the lift.
+The appropriate examinations and tests set out in the relevant harmonised standard(s) or equivalent tests shall be carried out in order to check the conformity of the lift with the applicable essential health and safety requirements set out in Annex I.
+|
+|
+3.2.
+|
+The examinations shall include at least one of the following:
+|
+(a)
+|
+examination of the documents referred to in point 3.1 to check that the lift conforms with the approved type described in the EU-type examination certificate pursuant to Annex IV, Part B;
+|
+(b)
+|
+examination of the documents referred to in point 3.1 to check that the lift conforms with the lift designed and manufactured in accordance with an approved quality system pursuant to Annex XI and if the design is not wholly in accordance with the harmonised standards, with the EU design examination certificate.
+|
+|
+3.3.
+|
+The tests of the lift shall include at least the following:
+|
+(a)
+|
+operation of the lift both empty and at maximum load to ensure correct installation and operation of the safety devices (end stops, locking devices, etc.);
+|
+(b)
+|
+operation of the lift at both maximum load and empty to ensure the correct functioning of the safety devices in the event of loss of power;
+|
+(c)
+|
+static test with a load equal to 1,25 times the rated load.
+The rated load shall be that referred to in Annex I, point 5.
+After these tests, the notified body shall check that no distortion or deterioration which could impair the use of the lift has occurred.
+4. If the lift satisfies the essential health and safety requirements set out in Annex I, the notified body shall affix or have affixed its identification number adjacent to the CE marking in accordance with Articles 18 and 19 and shall issue a final inspection certificate which mentions the examinations and tests carried out.
+The notified body shall fill in the corresponding pages in the logbook referred to in Annex I, point 6.2.
+If the notified body refuses to issue the final inspection certificate, it shall state the detailed reasons for refusal and indicate the necessary corrective measures to be taken. Where the installer again applies for final inspection, he shall apply to the same notified body.
+5. CE marking and EU declaration of conformity
+|
+|
+5.1.
+|
+The installer shall affix the CE marking in the car of each lift which satisfies the essential health and safety requirements of this Directive, and, under the responsibility of the notified body referred to in point 3.1, the latter’s identification number adjacent to the CE marking in the car of each lift.
+|
+|
+5.2.
+|
+The installer shall draw up a written EU declaration of conformity for each lift and keep a copy of the EU declaration of conformity and the final inspection certificate at the disposal of the national authorities for 10 years after the placing on the market of the lift. A copy of the EU declaration of conformity shall be made available to the relevant authorities upon request.
+6. The Commission and the Member States may obtain a copy of the final inspection certificate on request.
+7. Authorised representative
+The installer’s obligations set out in points 3.1 and 5 may be fulfilled by his authorised representative, on his behalf and under his responsibility, provided that they are specified in the mandate.

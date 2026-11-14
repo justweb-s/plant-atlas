@@ -1,0 +1,104 @@
+ANNEX VIII
+CONFORMITY TO TYPE BASED ON QUALITY ASSURANCE OF THE PRODUCTION PROCESS
+(Module D)
+1. Conformity to type based on quality assurance of the production process is the part of a conformity assessment procedure whereby the manufacturer fulfils the obligations laid down in points 2, 5 and 6, and ensures and declares on his sole responsibility that the PPE concerned is in conformity with the type described in the EU type-examination certificate and satisfies the applicable requirements of this Regulation.
+2. Manufacturing
+The manufacturer shall operate an approved quality system for production, final product inspection and testing of the PPE concerned as specified in point 3, and shall be subject to surveillance as specified in point 4.
+3. Quality system
+3.1. The manufacturer shall lodge an application for assessment of his quality system with a single notified body of his choice.
+The application shall include:
+|
+(a)
+|
+the name and address of the manufacturer and, if the application is lodged by the authorised representative, his name and address as well;
+|
+(b)
+|
+the address of the manufacturer's premises where the audits can be carried out;
+|
+(c)
+|
+a written declaration that the same application has not been lodged with any other notified body;
+|
+(d)
+|
+the identification of the PPE concerned;
+|
+(e)
+|
+the documentation concerning the quality system.
+Where the chosen body is not the body that has carried out the EU type-examination, the application shall also include the following:
+|
+(a)
+|
+the technical documentation of the PPE described in Annex III;
+|
+(b)
+|
+a copy of the EU type-examination certificate.
+3.2. The quality system shall ensure that the PPE is in conformity with the type described in the EU type-examination certificate and complies with the applicable requirements of this Regulation.
+All the elements, requirements and provisions adopted by the manufacturer shall be documented in a systematic and orderly manner in the form of written policies, procedures and instructions. The quality system documentation shall permit a consistent interpretation of the quality programmes, plans, manuals and records.
+The quality system documentation shall, in particular, contain an adequate description of:
+|
+(a)
+|
+the quality objectives and the organisational structure, responsibilities and powers of the management with regard to product quality;
+|
+(b)
+|
+the corresponding manufacturing, quality control and quality assurance techniques, processes and systematic actions that will be used;
+|
+(c)
+|
+the examinations and tests that will be carried out before, during and after manufacture, and the frequency with which they will be carried out;
+|
+(d)
+|
+the quality records, such as inspection reports and test data, calibration data and qualification reports on the personnel concerned; and
+|
+(e)
+|
+the means of monitoring the achievement of the required product quality and the effective operation of the quality system.
+3.3. The notified body shall assess the quality system to determine whether it satisfies the requirements referred to in point 3.2.
+It shall presume conformity with those requirements in respect of the elements of the quality system that comply with the corresponding specifications of the relevant harmonised standard.
+In addition to experience in quality management systems, the auditing team shall have at least one member with experience of evaluation in the field of PPE and technology concerned, and knowledge of the applicable essential health and safety requirements. The audit shall include an assessment visit to the manufacturer's premises. The auditing team shall review the technical documentation of the PPE referred to in point 3.1 to verify the manufacturer's ability to identify the applicable essential health and safety requirements and to carry out the necessary examinations with a view to ensuring conformity of the PPE with those requirements.
+The result of that assessment shall be notified to the manufacturer. The notification shall contain the conclusions of the audit and the reasoned assessment decision.
+3.4. The manufacturer shall undertake to fulfil the obligations arising out of the quality system as approved and to maintain it so that it remains adequate and efficient.
+3.5. The manufacturer shall keep the notified body that has approved the quality system informed of any intended change to the quality system.
+The notified body shall evaluate any proposed changes and decide whether the modified quality system will continue to satisfy the requirements referred to in point 3.2 or whether a reassessment is necessary.
+It shall notify the manufacturer of its decision. The notification shall contain the conclusions of the examination and the reasoned assessment decision.
+3.6. The notified body shall authorise the manufacturer to affix the notified body's identification number to each individual item of PPE that is in conformity with the type described in the EU type-examination certificate and satisfies the applicable requirements of this Regulation.
+4. Surveillance under the responsibility of the notified body
+4.1. The purpose of surveillance is to make sure that the manufacturer duly fulfils the obligations arising out of the approved quality system.
+4.2. The manufacturer shall, for assessment purposes, allow the notified body access to the manufacture, inspection, testing and storage sites and shall provide it with all necessary information, in particular:
+|
+(a)
+|
+the quality system documentation;
+|
+(b)
+|
+the quality records, such as inspection reports and test data, calibration data and qualification reports on the personnel concerned.
+4.3. The notified body shall carry out periodic audits, at least once a year, to make sure that the manufacturer maintains and applies the quality system and shall provide the manufacturer with an audit report.
+4.4. In addition, the notified body may pay unexpected visits to the manufacturer. During such visits the notified body may, if necessary, carry out examinations or tests of the PPE, or have them carried out, in order to verify that the quality system is functioning correctly. The notified body shall provide the manufacturer with a visit report and, if tests have been carried out, with a test report.
+5. CE marking and EU declaration of conformity
+5.1. The manufacturer shall affix the CE marking and, under the responsibility of the notified body referred to in point 3.1, the latter's identification number to each individual item of PPE that is in conformity with the type described in the EU type-examination certificate and satisfies the applicable requirements of this Regulation.
+5.2. The manufacturer shall draw up a written EU declaration of conformity for each PPE model and keep it at the disposal of the national authorities for 10 years after the PPE has been placed on the market. The EU declaration of conformity shall identify the PPE model for which it has been drawn up.
+A copy of the EU declaration of conformity shall be made available to the relevant authorities upon request.
+6. The manufacturer shall, for 10 years after the PPE has been placed on the market, keep at the disposal of the national authorities:
+|
+(a)
+|
+the documentation referred to in point 3.1;
+|
+(b)
+|
+the information related to the change referred to in point 3.5, as approved;
+|
+(c)
+|
+the decisions and reports of the notified body referred to in points 3.5, 4.3 and 4.4.
+7. The notified body shall inform its notifying authority of quality system approvals issued or withdrawn, and shall, periodically or upon request, make available to its notifying authority the list of such quality system approvals refused, suspended or otherwise restricted.
+The notified body shall inform the other notified bodies of quality system approvals which it has refused, suspended, withdrawn or otherwise restricted, and, upon request, of such quality system approvals which it has issued.
+8. Authorised representative
+The manufacturer's obligations set out in points 3.1, 3.5, 5 and 6 may be fulfilled by his authorised representative, on his behalf and under his responsibility, provided that they are specified in the mandate.

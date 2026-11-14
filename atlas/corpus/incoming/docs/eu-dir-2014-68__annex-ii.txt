@@ -1,0 +1,84 @@
+ANNEX II
+CONFORMITY ASSESSMENT TABLES
+|
+|
+1.
+|
+The references in the tables to categories of modules are the following:
+|
+I
+|
+=
+|
+Module A
+|
+II
+|
+=
+|
+Modules A2, D1, E1
+|
+III
+|
+=
+|
+Modules B (design type) + D, B (design type) + F, B (production type) + E, B (production type) + C2, H
+|
+IV
+|
+=
+|
+Modules B (production type) + D, B (production type) + F, G, H1
+|
+|
+2.
+|
+The safety accessories defined in point 4 of Article 2, and referred to in Article 4(1)(d), are classified in category IV. However, by way of exception, safety accessories manufactured for specific equipment may be classified in the same category as the equipment they protect.
+|
+|
+3.
+|
+The pressure accessories defined in point 5 of Article 2, and referred to in Article 4(1)(d), are classified on the basis of:
+|
+—
+|
+their maximum allowable pressure PS,
+|
+—
+|
+their volume V or their nominal size DN, as appropriate,
+|
+—
+|
+the group of fluids for which they are intended.
+The appropriate table for vessels or piping is to be used to determine the conformity assessment category.
+Where both the volume and the nominal size are considered appropriate in the second indent of the first subparagraph, the pressure accessory shall be classified in the highest category.
+|
+|
+4.
+|
+The demarcation lines in the following conformity assessment tables indicate the upper limit for each category.
+Table 1 Vessels referred to in Article 4(1)(a)(i), first indent
+Article 4, paragraph 3
+Exceptionally, vessels intended to contain an unstable gas and falling within categories I or II on the basis of table 1 shall be classified in category III.
+Table 2 Vessels referred to in Article 4(1)(a)(i), second indent
+Article 4, paragraph 3
+Exceptionally, portable extinguishers and bottles for breathing equipment shall be classified at least in category III.
+Table 3 Vessels referred to in Article 4(1)(a)(ii), first indent
+Article 4, paragraph 3
+Table 4 Vessels referred to in Article 4(1)(a)(ii), second indent
+Article 4, paragraph 3
+Exceptionally, assemblies intended for generating warm water as referred to in the second subparagraph of Article 4(2), shall be subject either to an EU-type examination (Module B — design type) with respect to their conformity with the essential requirements referred to in points 2.10, 2.11, 3.4, 5(a) and 5(d) of Annex I, or to full quality assurance (Module H).
+Table 5 Pressure equipment referred to in Article 4(1)(b)
+Article 4, paragraph 3
+Exceptionally, the design of pressure-cookers shall be subject to a conformity assessment procedure equivalent to at least one of the category III modules.
+Table 6 Piping referred to in Article 4(1)(c)(i), first indent
+Article 4, paragraph 3
+Exceptionally, piping intended for unstable gases and falling within categories I or II on the basis of Table 6 shall be classified in category III.
+Table 7 Piping referred to in Article 4(1)(c)(i), second indent
+Article 4, paragraph 3
+Exceptionally, all piping containing fluids at a temperature greater than 350 °C and falling within category II on the basis of Table 7 shall be classified in category III.
+Table 8 Piping referred to in Article 4(1)(c)(ii), first indent
+Article 4, paragraph 3
+Table 9 Piping referred to in Article 4(1)(c)(ii), second indent
+Article 4, paragraph 3

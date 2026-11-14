@@ -30,7 +30,7 @@ FIELDS = ["id", "doc_id", "anchor", "kind", "version", "in_force_from", "fiction
           "source", "retrieved", "sha256", "path", "heading"]
 
 HEADING = re.compile(
-    r"^(#{1,4}\s+\S.*|Article\s+\d+[a-z]*\b.*|Art\.\s*\d+.*|Articolo\s+\d+.*|"
+    r"^(#{1,4}\s+\S.*|Article\s+\d+[a-z]*|Art\.\s*\d+.*|Articolo\s+\d+.*|"   # "Article 5" alone: not a table row citing it
     r"ANNEX\s+[IVXLC]+\b.*|ALLEGATO\s+[IVXLC]+\b.*|Allegato\s+[IVXLC]+\b.*)$"
 )
 BLOCK_TAGS = {"p", "div", "br", "tr", "li", "table", "h1", "h2", "h3", "h4", "h5", "h6"}
@@ -113,7 +113,10 @@ def find_raw(doc_id: str) -> Path | None:
 
 
 def download(doc_id: str, url: str) -> Path | None:
-    request = urllib.request.Request(url, headers={"User-Agent": "plant-atlas hackathon corpus fetch"})
+    request = urllib.request.Request(url, headers={
+        "User-Agent": "plant-atlas hackathon corpus fetch",
+        "Accept": "application/xhtml+xml",   # the EU Publications Office picks the format from these two
+        "Accept-Language": "eng"})
     try:
         with urllib.request.urlopen(request, timeout=60) as response:
             content = response.read()

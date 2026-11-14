@@ -1,0 +1,27 @@
+ANNEX VI
+MODULE C1: CONFORMITY TO TYPE BASED ON INTERNAL PRODUCTION CONTROL PLUS SUPERVISED PRODUCT TESTING
+1. Conformity to type based on internal production control plus supervised product testing is the part of a conformity assessment procedure whereby the manufacturer fulfils the obligations laid down in points 2, 3 and 4, and ensures and declares on his sole responsibility that the products concerned are in conformity with the type described in the EU-type examination certificate and satisfy the requirements of this Directive that apply to them.
+2. Manufacturing
+The manufacturer shall take all measures necessary so that the manufacturing process and its monitoring ensure conformity of the manufactured products with the type described in the EU-type examination certificate and with the requirements of this Directive that apply to them.
+3. Product checks
+For each individual product manufactured one or more tests on one or more specific aspects of the product shall be carried out by the manufacturer or on his behalf, in order to verify conformity with the type described in the EU-type examination certificate and with the corresponding requirements of this Directive. The tests shall be carried out under the responsibility of a notified body, chosen by the manufacturer.
+The manufacturer shall, under the responsibility of the notified body, affix the notified body’s identification number during the manufacturing process.
+4. CE marking, EU declaration of conformity and attestation of conformity
+|
+|
+4.1.
+|
+The manufacturer shall affix the CE marking to each individual product other than a component that is in conformity with the type described in the EU-type examination certificate and satisfies the applicable requirements of this Directive.
+|
+|
+4.2.
+|
+The manufacturer shall draw up a written EU declaration of conformity for a product model other than a component and keep it at the disposal of the national authorities for 10 years after the product, other than a component has been placed on the market. The EU declaration of conformity shall identify such product model for which it has been drawn up.
+A copy of the EU declaration of conformity shall accompany every product, other than a component.
+|
+|
+4.3.
+|
+The manufacturer shall draw up a written attestation of conformity for each component model and keep it at the disposal of the national authorities for 10 years after the component has been placed on the market. The attestation of conformity shall identify the component model for which it has been drawn up. A copy of the attestation of conformity shall accompany every component.
+5. Authorised representative
+The manufacturer’s obligations set out in point 4 may be fulfilled by his authorised representative, on his behalf and under his responsibility, provided that they are specified in the mandate.

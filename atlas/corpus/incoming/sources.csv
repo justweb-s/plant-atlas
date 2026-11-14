@@ -1,2 +1,23 @@
 doc_id,title,kind,version,in_force_from,fictional,url
 dm-2011-04-11,"DM 11 aprile 2011 - verifiche periodiche (testo originario, GU n.98 del 29-04-2011)",law,originario,2011-04-29,no,https://www.gazzettaufficiale.it/eli/id/2011/04/29/11A05462/sg
+eu-dir-1989-391,"Directive 89/391/EEC - framework directive on safety and health of workers at work (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/31989L0391
+eu-dir-2009-104,"Directive 2009/104/EC - use of work equipment by workers at work (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32009L0104
+eu-dir-1989-654,"Directive 89/654/EEC - minimum safety and health requirements for the workplace (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/31989L0654
+eu-dir-1989-656,"Directive 89/656/EEC - use by workers of personal protective equipment (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/31989L0656
+eu-reg-2016-425,"Regulation (EU) 2016/425 - personal protective equipment (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32016R0425
+eu-dir-1990-269,"Directive 90/269/EEC - manual handling of loads (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/31990L0269
+eu-dir-1992-58,"Directive 92/58/EEC - safety and health signs at work (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/31992L0058
+eu-dir-2003-10,"Directive 2003/10/EC - exposure of workers to noise (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32003L0010
+eu-dir-2002-44,"Directive 2002/44/EC - exposure of workers to vibration (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32002L0044
+eu-dir-1999-92,"Directive 1999/92/EC - workers at risk from explosive atmospheres (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/31999L0092
+eu-dir-2014-34,"Directive 2014/34/EU - equipment for potentially explosive atmospheres (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32014L0034
+eu-dir-2014-35,"Directive 2014/35/EU - electrical equipment within certain voltage limits (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32014L0035
+eu-dir-2014-30,"Directive 2014/30/EU - electromagnetic compatibility (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32014L0030
+eu-dir-2014-68,"Directive 2014/68/EU - pressure equipment (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32014L0068
+eu-dir-2014-33,"Directive 2014/33/EU - lifts and safety components for lifts (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32014L0033
+eu-dir-1998-24,"Directive 98/24/EC - chemical agents at work (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/31998L0024
+eu-dir-2004-37,"Directive 2004/37/EC - carcinogens, mutagens or reprotoxic substances at work (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32004L0037
+eu-dir-2012-18,"Directive 2012/18/EU - major-accident hazards involving dangerous substances (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32012L0018
+eu-dir-2010-75,"Directive 2010/75/EU - industrial emissions (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32010L0075
+eu-reg-2023-988,"Regulation (EU) 2023/988 - general product safety (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32023R0988
+eu-reg-2024-1689,"Regulation (EU) 2024/1689 - artificial intelligence (as published in the Official Journal, English)",law,OJ-as-published,,no,https://publications.europa.eu/resource/celex/32024R1689

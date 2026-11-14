@@ -1,0 +1,73 @@
+ANNEX III
+Limit values and other directly related provisions
+(Article 16)
+A. LIMIT VALUES FOR OCCUPATIONAL EXPOSURE
+|
+Name of agent
+|
+EINECS (1)
+|
+CAS (2)
+|
+Limit values
+|
+Notation
+|
+Transitional measures
+|
+mg/m3
+(3)
+|
+ppm (4)
+|
+Benzene
+|
+200-753-7
+|
+71-43-2
+|
+3,25 (5)
+|
+1 (5)
+|
+Skin (6)
+|
+Limit value: 3 ppm (=9,75 mg/m3) (until 27 June 2003)
+|
+Vinyl chloride monomer
+|
+200-831
+|
+75-01-4
+|
+7,77 (5)
+|
+3 (5)
+|
+—
+|
+—
+|
+Hardwood dusts
+|
+—
+|
+—
+|
+5,0 (5)
+(7)
+|
+—
+|
+—
+|
+—
+B. OTHER DIRECTLY RELATED PROVISIONS
+p.m.
+(1) EINECS: European Inventory of Existing Chemical Substances.
+(2) CAS: Chemical Abstract Service Number.
+(3) mg/m3 = milligrams per cubic metre of air at 20oC and 101,3 kPa (760 mm mercury pressure)
+(4) ppm = parts per million by volume in air (ml/m3).
+(5) Measured or calculated in relation to a reference period of eight hours.
+(6) Substantial contribution to the total body burden via dermal exposure possible.
+(7) Inhalable fraction: if hardwood dusts are mixed with other wood dusts, the limit value shall apply to all wood dusts present in that mixture.

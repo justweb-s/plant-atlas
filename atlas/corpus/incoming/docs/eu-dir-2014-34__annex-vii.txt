@@ -1,0 +1,138 @@
+ANNEX VII
+MODULE E: CONFORMITY TO TYPE BASED ON PRODUCT QUALITY ASSURANCE
+1. Conformity to type based on product quality assurance is that part of a conformity assessment procedure whereby the manufacturer fulfils the obligations laid down in points 2 and 5, and ensures and declares on his sole responsibility that the products concerned are in conformity with the type described in the EU-type examination certificate and satisfy the requirements of this Directive that apply to them.
+2. Manufacturing
+The manufacturer shall operate an approved quality system for final product inspection and testing of the products concerned as specified in point 3 and shall be subject to surveillance as specified in point 4.
+3. Quality system
+|
+|
+3.1.
+|
+The manufacturer shall lodge an application for assessment of his quality system with the notified body of his choice, for the products concerned.
+The application shall include:
+|
+(a)
+|
+the name and address of the manufacturer and, if the application is lodged by the authorised representative, his name and address as well,
+|
+(b)
+|
+a written declaration that the same application has not been lodged with any other notified body,
+|
+(c)
+|
+all relevant information for the product category envisaged,
+|
+(d)
+|
+the documentation concerning the quality system, and
+|
+(e)
+|
+the technical documentation of the approved type and a copy of the EU-type examination certificate.
+|
+|
+3.2.
+|
+The quality system shall ensure compliance of the products with the type described in the EU-type examination certificate and with the applicable requirements of this Directive.
+All the elements, requirements and provisions adopted by the manufacturer shall be documented in a systematic and orderly manner in the form of written policies, procedures and instructions. The quality system documentation shall permit a consistent interpretation of the quality programmes, plans, manuals and records.
+It shall, in particular, contain an adequate description of:
+|
+(a)
+|
+the quality objectives and the organisational structure, responsibilities and powers of the management with regard to product quality,
+|
+(b)
+|
+the examinations and tests that will be carried out after manufacture,
+|
+(c)
+|
+the quality records, such as inspection reports and test data, calibration data, qualification reports on the personnel concerned, etc.,
+|
+(d)
+|
+the means of monitoring the effective operation of the quality system.
+|
+|
+3.3.
+|
+The notified body shall assess the quality system to determine whether it satisfies the requirements referred to in point 3.2.
+It shall presume conformity with those requirements in respect of the elements of the quality system that comply with the corresponding specifications of the relevant harmonised standard.
+In addition to experience in quality management systems, the auditing team shall have at least one member with experience of evaluation in the relevant product field and product technology concerned, and knowledge of the applicable requirements of this Directive. The audit shall include an assessment visit to the manufacturer’s premises. The auditing team shall review the technical documentation referred to in point 3.1(e) in order to verify the manufacturer’s ability to identify the relevant requirements of this Directive and to carry out the necessary examinations with a view to ensuring compliance of the product with those requirements.
+The decision shall be notified to the manufacturer. The notification shall contain the conclusions of the audit and the reasoned assessment decision.
+|
+|
+3.4.
+|
+The manufacturer shall undertake to fulfil the obligations arising out of the quality system as approved and to maintain it so that it remains adequate and efficient.
+|
+|
+3.5.
+|
+The manufacturer shall keep the notified body that has approved the quality system informed of any intended change to the quality system.
+The notified body shall evaluate any proposed changes and decide whether the modified quality system will continue to satisfy the requirements referred to in point 3.2 or whether a reassessment is necessary.
+It shall notify the manufacturer of its decision. The notification shall contain the conclusions of the examination and the reasoned assessment decision.
+4. Surveillance under the responsibility of the notified body
+|
+|
+4.1.
+|
+The purpose of surveillance is to make sure that the manufacturer duly fulfils the obligations arising out of the approved quality system.
+|
+|
+4.2.
+|
+The manufacturer shall, for assessment purposes, allow the notified body access to the manufacture, inspection, testing and storage sites and shall provide it with all necessary information, in particular:
+|
+(a)
+|
+the quality system documentation,
+|
+(b)
+|
+the quality records, such as inspection reports and test data, calibration data, qualification reports on the personnel concerned, etc.
+|
+|
+4.3.
+|
+The notified body shall carry out periodic audits to make sure that the manufacturer maintains and applies the quality system and shall provide the manufacturer with an audit report.
+|
+|
+4.4.
+|
+In addition, the notified body may pay unexpected visits to the manufacturer. During such visits the notified body may, if necessary, carry out product tests, or have them carried out, in order to verify that the quality system is functioning correctly. The notified body shall provide the manufacturer with a visit report and, if tests have been carried out, with a test report.
+5. CE marking, EU declaration of conformity and attestation of conformity
+|
+|
+5.1.
+|
+The manufacturer shall affix the CE marking and, under the responsibility of the notified body referred to in point 3.1, the latter’s identification number to each individual product other than a component that is in conformity with the type described in the EU-type examination certificate and satisfies the applicable requirements of this Directive.
+|
+|
+5.2.
+|
+The manufacturer shall draw up a written EU declaration of conformity for each product model, other than a component and keep it at the disposal of the national authorities for 10 years after the product other than a component has been placed on the market. The EU declaration of conformity shall identify such product model for which it has been drawn up.
+A copy of the EU declaration of conformity shall accompany every product other than a component.
+|
+|
+5.3.
+|
+The manufacturer shall draw up a written attestation of conformity for each component model and keep it at the disposal of the national authorities for 10 years after the component has been placed on the market. The attestation of conformity shall identify the component model for which it has been drawn up. A copy of the attestation of conformity shall accompany every component.
+6. The manufacturer shall, for a period ending 10 years after the product has been placed on the market, keep at the disposal of the national authorities:
+|
+(a)
+|
+the documentation referred to in point 3.1,
+|
+(b)
+|
+the information relating to the change referred to in point 3.5, as approved,
+|
+(c)
+|
+the decisions and reports of the notified body referred to in points 3.5, 4.3 and 4.4.
+7. Each notified body shall inform its notifying authority of quality system approvals issued or withdrawn, and shall, periodically or upon request, make available to its notifying authority the list of quality system approvals refused, suspended or otherwise restricted.
+Each notified body shall inform the other notified bodies of quality system approvals which it has refused, suspended or withdrawn, and, upon request, of quality system approvals which it has issued.
+8. Authorised representative
+The manufacturer’s obligations set out in points 3.1, 3.5, 5 and 6 may be fulfilled by his authorised representative, on his behalf and under his responsibility, provided that they are specified in the mandate.

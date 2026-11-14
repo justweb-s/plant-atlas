@@ -1,0 +1,26 @@
+Article 19
+Conformity assessment procedures
+The conformity assessment procedures to be followed for each of the risk categories set out in Annex I are as follows:
+|
+(a)
+|
+Category I: internal production control (module A) set out in Annex IV;
+|
+(b)
+|
+Category II: EU type-examination (module B) set out in Annex V, followed by conformity to type based on internal production control (module C) set out in Annex VI;
+|
+(c)
+|
+Category III: EU type-examination (module B) set out in Annex V, and either of the following:
+|
+(i)
+|
+conformity to type based on internal production control plus supervised product checks at random intervals (module C2) set out in Annex VII;
+|
+(ii)
+|
+conformity to type based on quality assurance of the production process (module D) set out in Annex VIII.
+By way of derogation, for PPE produced as a single unit to fit an individual user and classified according to Category III, the procedure referred to in point (b) may be followed.
+CHAPTER V
+NOTIFICATION OF CONFORMITY ASSESSMENT BODIES

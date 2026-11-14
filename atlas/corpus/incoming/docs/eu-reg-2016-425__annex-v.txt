@@ -1,0 +1,196 @@
+ANNEX V
+EU TYPE-EXAMINATION
+(Module B)
+1. EU type-examination is the part of a conformity assessment procedure in which a notified body examines the technical design of PPE and verifies and attests that the technical design of the PPE meets the requirements of this Regulation that apply to it.
+2. EU type-examination shall be carried out by assessment of the adequacy of the technical design of the PPE through examination of the technical documentation, plus examination of a specimen, representative of the production envisaged, of the complete PPE (production type).
+3. Application for EU type-examination
+The manufacturer shall lodge an application for EU type-examination with a single notified body of his choice.
+The application shall include:
+|
+(a)
+|
+the name and address of the manufacturer and, if the application is lodged by the authorised representative, his name and address as well;
+|
+(b)
+|
+a written declaration that the same application has not been lodged with any other notified body;
+|
+(c)
+|
+the technical documentation described in Annex III;
+|
+(d)
+|
+the specimen(s) of the PPE representative of the production envisaged. The notified body may request further specimens if needed for carrying out the test programme. For PPE produced in series where each item is adapted to fit an individual user, specimens shall be provided that are representative of the range of different users, and for PPE produced as a single unit to accommodate the special needs of an individual user, a basic model shall be provided.
+4. EU type-examination
+The notified body shall:
+|
+(a)
+|
+examine the technical documentation to assess the adequacy of the technical design of the PPE. In conducting such an examination, point (j) of Annex III need not be taken into account;
+|
+(b)
+|
+for PPE produced in series where each item is adapted to fit an individual user, examine the description of the measures to assess their adequacy;
+|
+(c)
+|
+for PPE produced as a single unit to fit an individual user, examine the instructions for manufacturing such PPE on the basis of the approved basic model to assess their adequacy;
+|
+(d)
+|
+verify that the specimen(s) have been manufactured in conformity with the technical documentation, and identify the elements which have been designed in accordance with the applicable provisions of the relevant harmonised standards as well as the elements which have been designed in accordance with other technical specifications;
+|
+(e)
+|
+carry out appropriate examinations and tests, or have them carried out, to check whether, where the manufacturer has chosen to apply the solutions in the relevant harmonised standards, these have been applied correctly;
+|
+(f)
+|
+carry out appropriate examinations and tests, or have them carried out, to check whether, where the solutions in the relevant harmonised standards have not been applied, the solutions adopted by the manufacturer, including those in other technical specifications applied, meet the corresponding essential health and safety requirements and have been applied correctly.
+5. Evaluation report
+The notified body shall draw up an evaluation report that records the activities undertaken in accordance with point 4 and their outcomes. Without prejudice to its obligations vis-à-vis the notifying authorities, the notified body shall release the content of that report, in full or in part, only with the agreement of the manufacturer.
+6. EU type-examination certificate
+|
+|
+6.1.
+|
+Where the type meets the applicable essential health and safety requirements, the notified body shall issue an EU type-examination certificate to the manufacturer.
+The period of validity of a newly issued certificate and, where appropriate, of a renewed certificate shall not exceed five years.
+|
+|
+6.2.
+|
+The EU type-examination certificate shall contain at least the following information:
+|
+(a)
+|
+the name and identification number of the notified body;
+|
+(b)
+|
+the name and address of the manufacturer and, if the application is lodged by the authorised representative, the latter's name and address;
+|
+(c)
+|
+identification of the PPE covered by the certificate (type number);
+|
+(d)
+|
+a statement that the PPE type complies with the applicable essential health and safety requirements;
+|
+(e)
+|
+where harmonised standards have been fully or partially applied, the references of those standards or parts thereof;
+|
+(f)
+|
+where other technical specifications have been applied, their references;
+|
+(g)
+|
+where applicable, the performance level(s) or protection class of the PPE;
+|
+(h)
+|
+for PPE produced as a single unit to fit an individual user, the range of permissible variations of relevant parameters based on the approved basic model;
+|
+(i)
+|
+the date of issue, the date of expiry and, where appropriate, the date(s) of renewal;
+|
+(j)
+|
+any conditions attached to the issue of the certificate;
+|
+(k)
+|
+for category III PPE, a statement that the certificate shall only be used in conjunction with one of the conformity assessment procedures referred to in point (c) of Article 19.
+|
+|
+6.3.
+|
+The EU type-examination certificate may have one or more annexes attached.
+|
+|
+6.4.
+|
+Where the type does not satisfy the applicable essential health and safety requirements, the notified body shall refuse to issue an EU type-examination certificate and shall inform the applicant accordingly, giving detailed reasons for its refusal.
+7. Review of the EU type-examination certificate
+|
+|
+7.1.
+|
+The notified body shall keep itself apprised of any changes in the generally acknowledged state of the art which indicate that the approved type may no longer comply with the applicable essential health and safety requirements, and shall determine whether such changes require further investigation. If so, the notified body shall inform the manufacturer accordingly.
+|
+|
+7.2.
+|
+The manufacturer shall inform the notified body that holds the technical documentation relating to the EU type-examination certificate of all modifications to the approved type and of all modifications of the technical documentation that may affect the conformity of the PPE with the applicable essential health and safety requirements or the conditions for validity of that certificate. Such modifications shall require additional approval in the form of an addition to the original EU type-examination certificate.
+|
+|
+7.3.
+|
+The manufacturer shall ensure that the PPE continues to fulfil the applicable essential health and safety requirements in light of the state of the art.
+|
+|
+7.4.
+|
+The manufacturer shall ask the notified body to review the EU type-examination certificate either:
+|
+(a)
+|
+in the case of a modification to the approved type referred to in point 7.2;
+|
+(b)
+|
+in the case of a change in the state of the art referred to in point 7.3;
+|
+(c)
+|
+at the latest, before the date of expiry of the certificate.
+In order to allow the notified body to fulfil its tasks, the manufacturer shall submit his application at the earliest 12 months and at the latest 6 months prior to the expiry date of the EU type-examination certificate.
+|
+|
+7.5.
+|
+The notified body shall examine the PPE type and, where necessary in the light of the changes made, carry out the relevant tests to ensure that the approved type continues to fulfil the applicable essential health and safety requirements. If the notified body is satisfied that the approved type continues to fulfil the applicable health and safety requirements, it shall renew the EU type-examination certificate. The notified body shall ensure that the review procedure is finalised before the expiry date of the EU type-examination certificate.
+|
+|
+7.6.
+|
+Where the conditions referred to in points (a) and (b) of point 7.4 are not met, a simplified review procedure shall apply. The manufacturer shall supply the notified body with the following:
+|
+(a)
+|
+his name and address and data identifying the EU type-examination certificate concerned;
+|
+(b)
+|
+confirmation that there has been no modification to the approved type as referred to in point 7.2, including materials, sub-components or sub-assemblies, nor to the relevant harmonised standards or other technical specifications applied;
+|
+(c)
+|
+confirmation that there has been no change in the state of the art as referred to in point 7.3;
+|
+(d)
+|
+where not already supplied, copies of current product drawings and photographs, product marking and information supplied by the manufacturer; and
+|
+(e)
+|
+for category III products, where not already available to the notified body, information on the results of the supervised product checks at random intervals carried out in accordance with Annex VII, or on the results of audits of his quality system carried out in accordance with Annex VIII.
+Where the notified body has confirmed that no modification to the approved type referred to in point 7.2 and no change in the state of the art referred to in point 7.3 has occurred, the simplified review procedure shall be applied and the examinations and tests referred to in point 7.5 shall not be carried out. In such cases, the notified body shall renew the EU type-examination certificate.
+The costs associated with that renewal shall be proportionate to the administrative burden of the simplified procedure.
+If the notified body finds that a change in the state of the art referred to in point 7.3 has occurred, the procedure set out in point 7.5 shall apply.
+|
+|
+7.7.
+|
+If, following the review, the notified body concludes that the EU type-examination certificate is no longer valid, the body shall withdraw it and the manufacturer shall cease the placing on the market of the PPE concerned.
+8. Each notified body shall inform its notifying authority concerning the EU type-examination certificates and/or any additions thereto which it has issued or withdrawn, and shall, periodically or upon request, make available to its notifying authority the list of such certificates and/or any additions thereto refused, suspended or otherwise restricted.
+Each notified body shall inform the other notified bodies concerning the EU type-examination certificates and/or any additions thereto which it has refused, withdrawn, suspended or otherwise restricted, and, upon request, concerning such certificates and/or additions thereto which it has issued.
+The Commission, the Member States and the other notified bodies may, on request, obtain a copy of the EU type-examination certificates and/or additions thereto. On a reasoned request, the Commission and the Member States may obtain a copy of the technical documentation and the results of the examinations carried out by the notified body.
+The notified body shall keep a copy of the EU type-examination certificate, its annexes and additions, as well as the technical file including the documentation submitted by the manufacturer, for a period of five years after the expiry of the validity of that certificate.
+9. The manufacturer shall keep a copy of the EU type-examination certificate, its annexes and additions, together with the technical documentation at the disposal of the national authorities, for 10 years after the PPE has been placed on the market.
+10. The manufacturer's authorised representative may lodge the application referred to in point 3 and fulfil the obligations set out in points 7.2, 7.4 and 9, provided that they are specified in the mandate.

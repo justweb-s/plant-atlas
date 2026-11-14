@@ -1,0 +1,192 @@
+ANNEX II
+MINIMUM HEALTH AND SAFETY REQUIREMENTS FOR WORKPLACES ALREADY IN USE, AS REFERRED TO IN ARTICLE 4 OF THE DIRECTIVE
+1. Preliminary note
+The obligations laid down in this Annex apply wherever required by the features of the workplace, the activity, the circumstances or a hazard.
+2. Stability and solidity
+Buildings which have workplaces must have a structure and solidity appropriate to the nature of their use.
+3. Electrical installations
+Electrical installations must be designed and constructed so as not to present a fire or explosion hazard; persons must be adequately protected against the risk of accidents caused by direct or indirect contact.
+Electrical installations and protection devices must be appropriate to the voltage, external conditions and the competence of persons with access to parts of the installation.
+4. Emergency routes and exits
+|
+|
+4.1.
+|
+Emergency routes and exits must remain clear and lead as directly as possible to the open air or to a safe area.
+|
+|
+4.2.
+|
+In the event of danger, it must be possible for workers to evacuate all workstations quickly and as safely as possible.
+|
+|
+4.3.
+|
+There must be an adequate number of escape routes and emergency exits.
+|
+|
+4.4.
+|
+Emergency exit doors must open outwards.
+Sliding or revolving doors are not permitted if they are specifically intended as emergency exits.
+Emergency doors should not be so locked or fastened that they cannot be easily and immediately opened by any person who may require to use them in an emergency.
+|
+|
+4.5.
+|
+Specific emergency routes and exits must be indicated by signs in accordance with the national regulations transposing Directive 77/576/EEC into law.
+Such signs must be placed at appropriate points and be made to last.
+|
+|
+4.6.
+|
+Emergency doors must not be locked.
+The emergency routes and exits, and the traffic routes and doors giving access to them, must be free from obstruction so that they can be used at any time without hindrance.
+|
+|
+4.7.
+|
+Emergency routes and exits requiring illumination must be provided with emergency lighting of adequate intensity in case the lighting fails.
+5. Fire detection and fire fighting
+|
+|
+5.1.
+|
+Depending on the dimensions and use of the buildings, the equipment they contain, the physical and chemical characteristics of the substances present and the maximum potential number of people present, workplaces must be equipped with appropriate fire-fighting equipment, and, as necessary, fire detectors and an alarm system.
+|
+|
+5.2.
+|
+Non-automatic fire-fighting equipment must be easily accessible and simple to use.
+It must be indicated by signs in accordance with the national regulations transposing Directive 77/576/EEC into law.
+Such signs must be placed at appropriate points and be made to last.
+6. Ventilation of enclosed workplaces
+Steps shall be taken to see to it that there is sufficient fresh air in enclosed workplaces, having regard to the working methods used and the physical demands placed on the workers.
+If a forced ventilation system is used, it shall be maintained in working order.
+Any breakdown must be indicated by a control system where this is necessary for the workers' health.
+7. Room temperature
+|
+|
+7.1.
+|
+During working hours, the temperature in rooms containing workplaces must be adequate for human beings, having regard to the working methods being used and the physical demands placed on the workers.
+|
+|
+7.2.
+|
+The temperature in rest areas, rooms for duty staff, sanitary facilities, canteens and first aid rooms must be appropriate to the particular purpose of such areas.
+8. Natural and artificial room lighting
+|
+|
+8.1.
+|
+Workplaces must as far as possible receive sufficient natural light and be equipped with artificial lighting adequate for workers' safety and health.
+|
+|
+8.2.
+|
+Workplaces in which workers are especially exposed to risks in the event of failure of artificial lighting must be provided with emergency lighting of adequate intensity.
+9. Doors and gates
+|
+|
+9.1.
+|
+Transparent doors must be appropriately marked at a conspicuous level.
+|
+|
+9.2.
+|
+Swing doors and gates must be transparent or have see-through panels.
+10. Danger areas
+If the workplaces contain danger areas in which, owing to the nature of the work, there is a risk of the worker or objects falling, the places must be equipped, as far as possible, with devices preventing unauthorized workers from entering those areas.
+Appropriate measures must be taken to protect workers authorized to enter danger areas.
+Danger areas must be clearly indicated.
+11. Rest rooms and rest areas
+|
+|
+11.1.
+|
+Where the safety or health of workers, in particular because of the type of activity carried out or the presence of more than a certain number of employees, so require, workers must be provided with an easily accessible rest room or appropriate rest area.
+This provision does not apply if the workers are employed in offices or similar workrooms providing equivalent relaxation during breaks.
+|
+|
+11.2.
+|
+Rest rooms and rest areas must be equipped with tables and seats with backs.
+|
+|
+11.3.
+|
+In rest rooms and rest areas appropriate measures must be introduced for the protection of non-smokers against discomfort caused by tobacco smoke.
+12. Pregnant women and nursing mothers
+Pregnant women and nursing mothers must be able to lie down to rest in appropriate conditions.
+13. Sanitary equipment
+13.1. Changing rooms and lockers
+|
+|
+13.1.1.
+|
+Appropriate changing rooms must be provided for workers if they have to wear special work clothes and where, for reasons of health or propriety, they cannot be expected to change in another room.
+Changing rooms must be easily accessible and of sufficient capacity.
+|
+|
+13.1.2.
+|
+Changing rooms must have facilities to enable each worker to lock away his clothes during working hours.
+If circumstances so require (e.g. dangerous substances, humidity, dirt), lockers for work clothes must be separate from those for ordinary clothes.
+|
+|
+13.1.3.
+|
+Provision must be made for separate changing rooms or separate use of changing rooms for men and women.
+13.2. Showers, lavatories and washbasins
+|
+|
+13.2.1.
+|
+Workplaces must be fitted out in such a way that workers have in the vicinity:
+|
+—
+|
+showers, if required by the nature of their work,
+|
+—
+|
+special facilities equipped with an adequate number of lavatories and washbasins.
+|
+|
+13.2.2.
+|
+The showers and washbasins must be equipped with running water (hot water if necessary).
+|
+|
+13.2.3.
+|
+Provision must be made for separate showers or separate use of showers for men and women.
+Provision must be made for separate lavatories or separate use of lavatories for men and women.
+14. First aid equipment
+Workplaces must be fitted with first aid equipment.
+The equipment must be suitably marked and easily accessible.
+15. Handicapped workers
+Workplaces must be organized to take account of handicapped workers, if necessary.
+This provision applies in particular to the doors, passageways, staircases, showers, washbasins, lavatories and workstations used or occupied directly by handicapped persons.
+16. Movement of pedestrians and vehicles
+Outdoor and indoor workplaces must be organized in such a way that pedestrians and vehicles can circulate in a safe manner.
+17. Outdoor workplaces (special provisions)
+When workers are employed at workstations outdoors, such workstations must as far as possible be organized so that workers:
+|
+(a)
+|
+are protected against inclement weather conditions and if necessay against falling objects;
+|
+(b)
+|
+are not exposed to harmful noise levels nor to harmful external influences such as gases, vapours or dust;
+|
+(c)
+|
+are able to leave their workstations swiftly in the event of danger or are able to be rapidly assisted;
+|
+(d)
+|
+cannot slip or fall.

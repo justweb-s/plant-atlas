@@ -1,0 +1,47 @@
+Article 2
+Definitions
+For the purposes of this Directive,
+|
+a)
+|
+"carcinogen" means:
+|
+i)
+|
+a substance which meets the criteria for classification as a category 1 or 2 carcinogen set out in Annex VI to Directive 67/548/EEC;
+|
+ii)
+|
+a preparation composed of one or more substances referred to in point (i) where the concentration of one or more of the individual substances meets the requirements for concentration limits for the classification of a preparation as a category 1 or 2 carcinogen set out either:
+|
+|
+in Annex I to Directive 67/548/EEC; or
+|
+|
+in Part B of Annex II to Directive 1999/45/EC where the substance or substances do not appear in Annex I to Directive 67/548/EEC or appear in it without concentration limits;
+|
+iii)
+|
+a substance, preparation or process referred to in Annex I to this Directive as well as a substance or preparation released by a process referred to in that Annex;
+|
+b)
+|
+"mutagen" means:
+|
+i)
+|
+a substance which meets the criteria for classification as a category 1 or 2 mutagen set out in Annex VI to Directive 67/548/EEC;
+|
+ii)
+|
+a preparation composed of one or more substances referred to in point (i) where the concentration of one or more of the individual substances meets the requirements for concentration limits for the classification of a preparation as a category 1 or 2 mutagen set out in either:
+|
+|
+Annex I to Directive 67/548/EEC; or
+|
+|
+Part B of Annex II to Directive 1999/45/EC where the substance or substances do not appear in Annex I to Directive 67/548/EEC or appear in it without concentration limits;
+|
+c)
+|
+"limit value" means, unless otherwise specified, the limit of the time-weighted average of the concentration for a "carcinogen or mutagen" in the air within the breathing zone of a worker in relation to a specified reference period as set out in Annex III to this Directive.

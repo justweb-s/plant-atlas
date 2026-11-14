@@ -1,0 +1,91 @@
+ANNEX VII
+CONFORMITY TO TYPE BASED ON INTERNAL PRODUCTION CONTROL PLUS SUPERVISED PRODUCT CHECKS AT RANDOM INTERVALS
+(Module C2)
+1. Conformity to type based on internal production control plus supervised product checks at random intervals is the part of a conformity assessment procedure whereby the manufacturer fulfils the obligations laid down in points 2, 3, 5.2 and 6, and ensures and declares on his sole responsibility that the PPE, which has been subject to the provisions of point 4, is in conformity with the type described in the EU type-examination certificate and satisfies the applicable requirements of this Regulation.
+2. Manufacturing
+The manufacturer shall take all measures necessary so that the manufacturing process and its monitoring ensure the homogeneity of production and conformity of the manufactured PPE with the type described in the EU type-examination certificate and with the applicable requirements of this Regulation.
+3. Application for supervised product checks at random intervals
+Before placing PPE on the market, the manufacturer shall lodge an application for supervised product checks at random intervals with a single notified body of his choice.
+The application shall include the following:
+|
+(a)
+|
+the name and address of the manufacturer and, if the application is lodged by the authorised representative, his name and address;
+|
+(b)
+|
+a written declaration that the same application has not been lodged with any other notified body;
+|
+(c)
+|
+the identification of the PPE concerned.
+Where the chosen body is not the body that has carried out the EU type-examination, the application shall also include the following:
+|
+(a)
+|
+the technical documentation described in Annex III;
+|
+(b)
+|
+a copy of the EU type-examination certificate.
+4. Product checks
+|
+|
+4.1.
+|
+The notified body shall carry out product checks in order to verify the homogeneity of production and the conformity of the PPE with the type described in the EU type-examination certificate and with the applicable essential health and safety requirements.
+|
+|
+4.2.
+|
+The product checks shall be carried out at least once a year, at random intervals determined by the notified body. The first product checks shall be carried out no more than one year after the date of issue of the EU type-examination certificate.
+|
+|
+4.3.
+|
+An adequate statistical sample of the manufactured PPE shall be selected by the notified body at a place agreed between the body and the manufacturer. All items of PPE of the sample shall be examined, and appropriate tests set out in the relevant harmonised standard(s) and/or equivalent tests set out in other relevant technical specifications shall be carried out in order to verify the conformity of the PPE with the type described in the EU type-examination certificate and with the applicable essential health and safety requirements.
+|
+|
+4.4.
+|
+Where the notified body referred to in point 3 is not the body that issued the relevant EU type-examination certificate, it shall contact that body in the event of difficulties in connection with the assessment of the conformity of the sample.
+|
+|
+4.5.
+|
+The acceptance sampling procedure to be applied is intended to determine whether the manufacturing process ensures the homogeneity of production and performs within acceptable limits, with a view to ensuring conformity of the PPE.
+|
+|
+4.6.
+|
+If the examination and testing reveal that the production is not homogeneous, or that the PPE does not comply with the type described in the EU type-examination certificate or with the applicable essential health and safety requirements, the notified body shall take measures appropriate to the fault(s) recorded and inform the notifying authority thereof.
+5. Test report
+|
+|
+5.1.
+|
+The notified body shall provide the manufacturer with a test report.
+|
+|
+5.2.
+|
+The manufacturer shall keep the test report at the disposal of the national authorities for 10 years after the PPE has been placed on the market.
+|
+|
+5.3.
+|
+The manufacturer shall, under the responsibility of the notified body, affix the notified body's identification number during the manufacturing process.
+6. CE marking and EU declaration of conformity
+|
+|
+6.1.
+|
+The manufacturer shall affix the CE marking and, under the responsibility of the notified body referred to in point 3, the latter's identification number to each individual item of PPE that is in conformity with the type described in the EU type-examination certificate and satisfies the applicable requirements of this Regulation.
+|
+|
+6.2.
+|
+The manufacturer shall draw up a written EU declaration of conformity for each PPE model and keep it at the disposal of the national authorities for 10 years after the PPE has been placed on the market. The EU declaration of conformity shall identify the PPE model for which it has been drawn up.
+A copy of the EU declaration of conformity shall be made available to the relevant authorities upon request.
+7. Authorised representative
+The manufacturer's obligations may be fulfilled by his authorised representative, on his behalf and under his responsibility, provided that they are specified in the mandate. An authorised representative may not fulfil the manufacturer's obligations set out in point 2.

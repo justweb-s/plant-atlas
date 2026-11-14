@@ -1,0 +1,47 @@
+ANNEX III
+LIST OF SAFETY COMPONENTS FOR LIFTS
+|
+|
+1.
+|
+Devices for locking landing doors.
+|
+|
+2.
+|
+Devices to prevent falls referred to in point 3.2 of Annex I to prevent the car from falling or uncontrolled movements.
+|
+|
+3.
+|
+Overspeed limitation devices.
+|
+|
+4.
+|
+|
+(a)
+|
+Energy-accumulating buffers:
+|
+(i)
+|
+non-linear, or
+|
+(ii)
+|
+with damping of the return movement.
+|
+(b)
+|
+Energy-dissipating buffers.
+|
+|
+5.
+|
+Safety devices fitted to jacks of hydraulic power circuits where these are used as devices to prevent falls.
+|
+|
+6.
+|
+Electric safety devices in the form of safety circuits containing electronic components.

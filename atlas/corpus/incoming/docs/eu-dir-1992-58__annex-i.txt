@@ -1,0 +1,171 @@
+ANNEX I
+GENERAL MINIMUM REQUIREMENTS CONCERNING SAFETY AND/OR HEALTH SIGNS AT WORK
+1. Preliminary remarks
+|
+|
+1.1.
+|
+Where health and/or safety signs are required by the general rule in Article 3 of the Directive, they must conform to the specific requirements in Annexes II to IX.
+|
+|
+1.2.
+|
+This Annex introduces those requirements, describes the different uses of safety and/or health signs, and gives general rules on the interchanging and combining of signs.
+|
+|
+1.3.
+|
+Health and/or safety signs must be used only to convey the message or information specified in the Directive.
+2. Types of signs
+2.1. Permanent signs
+|
+|
+2.1.1.
+|
+Permanent signboards must be used for signs relating to prohibitions, warnings and mandatory requirements and the location and identification of emergency escape routes and first-aid facilities.
+Signboards and/or a safety colour must be used to mark permanently the location and identification of fire-fighting equipment.
+|
+|
+2.1.2.
+|
+Signboards on containers and pipes must be placed as laid down in Annex III.
+|
+|
+2.1.3.
+|
+Places where there is a risk of colliding with obstacles or of falling must be permanently marked with a safety colour and/or with signboards.
+|
+|
+2.1.4.
+|
+Traffic routes must be permanently marked with a safety colour.
+2.2. Occasional signs
+|
+|
+2.2.1.
+|
+Illuminated signs, acoustic signals and/or verbal communication must be used where the occasion requires, taking into account the possibilities for interchanging and combining signs set out in Section 3, to signal danger, to call persons to take a specific course of action and for the emergency evacuation of persons.
+|
+|
+2.2.2.
+|
+Hand signals and/or verbal communication must be used where the occasion requires, to guide persons carrying out hazardous or dangerous manoeuvres.
+3. Interchanging and combining signs
+|
+|
+3.1.
+|
+Any one of the following may be used if equally effective:
+|
+—
+|
+a safety colour or a signboard to mark places where there is an obstacle or a drop,
+|
+—
+|
+illuminated signs, acoustic signals or verbal communication,
+|
+—
+|
+hand signals or verbal communication.
+|
+|
+3.2.
+|
+Some types of signs may be used together:
+|
+—
+|
+illuminated signs and acoustic signals,
+|
+—
+|
+illuminated signs and verbal communication,
+|
+—
+|
+hand signals and verbal communication.
+4. The instructions in the table below apply to all signs incorporating a safety colour:
+|
+Colour
+|
+Meaning or purpose
+|
+Instructions and information
+|
+Red
+|
+Prohibition sign
+|
+Dangerous behaviour
+|
+Danger alarm
+|
+Stop, shutdown, emergency cutout devices Evacuate
+|
+Fire-fighting equipment
+|
+Identification and location
+|
+Yellow or Amber
+|
+Warning sign
+|
+Be careful, take precautions
+Examine
+|
+Blue
+|
+Mandatory sign
+|
+Specific behaviour or action
+Wear personal protective equipment
+|
+Green
+|
+Emergency escape, first aid sign
+|
+Doors, exits, routes, equipment, facilities
+|
+No danger
+|
+Return to normal
+5. The effectiveness of a sign must not be adversely affected by:
+|
+|
+5.1.
+|
+the presence of another emission source of the same type which interferes with visibility or audibility; therefore, in particular,
+|
+5.1.1.
+|
+the placing of too many signs too close together should be avoided;
+|
+5.1.2.
+|
+two illuminated signs which are likely to be confused are not to be used at the same time;
+|
+5.1.3.
+|
+an illuminated sign is not to be used in the proximity of another similar illuminated source;
+|
+5.1.4.
+|
+two acoustic signals are not to be used at the same time;
+|
+5.1.5.
+|
+an acoustic signal is not be used if there is too much ambient noise;
+|
+|
+5.2.
+|
+poor design, insufficient number, incorrect positioning, poor state of repair or incorrect functioning of the signs or signalling devices.
+6. Depending on requirements, signs and signalling devices must be cleaned, maintained, checked, repaired, and if necessary replaced on a regular basis to ensure that they retain their intrinsic and/or functional qualitities.
+7. The number and positioning of signs or signalling devices to be installed will depend on the extent of the hazards or dangers or on the zone to be covered.
+8. Signs requiring some form of power must be provided with a guaranteed emergency supply in the event of a power cut, unless the hazard has thereby been eliminated.
+9. The triggering of an illuminated sign and/or acoustic signal indicates when the required action should start, the sign or signal must be activated for as long as the action requires.
+Illuminated signs and acoustic signals must be reactivated immediately after use.
+10. Illuminated signs and acoustic signals must be checked to ensure that they function correctly and that they are effective before they are put into service and subsequently at sufficiently frequent intervals.
+11. If the hearing or the sight of the workers concerned is impaired, including impairment caused by the wearing of personal protective equipment, measures must be taken to supplement or replace the signs concerned.
+12. Areas, rooms or enclosures used for the storage of significant quantities of dangerous substances or preparations must be indicated by a suitable warning sign taken from section 3.2. of Annex II, or marked as provided in section 1 of Annex III, unless the labelling of the individual packages or containers is adequate for this purpose.

@@ -1,0 +1,87 @@
+Article 3
+Definitions
+For the purposes of this Regulation, the following definitions apply:
+|
+(1)
+|
+‘personal protective equipment’ (PPE) means:
+|
+(a)
+|
+equipment designed and manufactured to be worn or held by a person for protection against one or more risks to that person's health or safety;
+|
+(b)
+|
+interchangeable components for equipment referred to in point (a) which are essential for its protective function;
+|
+(c)
+|
+connexion systems for equipment referred to in point (a) that are not held or worn by a person, that are designed to connect that equipment to an external device or to a reliable anchorage point, that are not designed to be permanently fixed and that do not require fastening works before use;
+|
+(2)
+|
+‘making available on the market’ means any supply of PPE for distribution or use on the Union market in the course of a commercial activity, whether in return for payment or free of charge;
+|
+(3)
+|
+‘placing on the market’ means the first making available of PPE on the Union market;
+|
+(4)
+|
+‘manufacturer’ means any natural or legal person who manufactures PPE or has it designed or manufactured, and markets it under his name or trademark;
+|
+(5)
+|
+‘authorised representative’ means any natural or legal person established within the Union who has received a written mandate from a manufacturer to act on his behalf in relation to specified tasks;
+|
+(6)
+|
+‘importer’ means any natural or legal person established within the Union who places PPE from a third country on the Union market;
+|
+(7)
+|
+‘distributor’ means any natural or legal person in the supply chain, other than the manufacturer or the importer, who makes PPE available on the market;
+|
+(8)
+|
+‘economic operators’ means the manufacturer, the authorised representative, the importer and the distributor;
+|
+(9)
+|
+‘technical specification’ means a document that prescribes technical requirements to be fulfilled by PPE;
+|
+(10)
+|
+‘harmonised standard’ means a harmonised standard as defined in point (c) of point 1 of Article 2 of Regulation (EU) No 1025/2012;
+|
+(11)
+|
+‘accreditation’ means accreditation as defined in point 10 of Article 2 of Regulation (EC) No 765/2008;
+|
+(12)
+|
+‘national accreditation body’ means a national accreditation body as defined in point 11 of Article 2 of Regulation (EC) No 765/2008;
+|
+(13)
+|
+‘conformity assessment’ means the process demonstrating whether the essential health and safety requirements of this Regulation relating to PPE have been fulfilled;
+|
+(14)
+|
+‘conformity assessment body’ means a body that performs conformity assessment activities including calibration, testing, certification and inspection;
+|
+(15)
+|
+‘recall’ means any measure aimed at achieving the return of PPE that has already been made available to the end-user;
+|
+(16)
+|
+‘withdrawal’ means any measure aimed at preventing PPE in the supply chain from being made available on the market;
+|
+(17)
+|
+‘Union harmonisation legislation’ means any Union legislation harmonising the conditions for the marketing of products;
+|
+(18)
+|
+‘CE marking’ means a marking by which the manufacturer indicates that PPE is in conformity with the applicable requirements set out in Union harmonisation legislation providing for its affixing.

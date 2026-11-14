@@ -1,0 +1,96 @@
+L_2004158EN.01005001.xml
+|
+30.4.2004
+|
+EN
+|
+Official Journal of the European Communities
+|
+L 158/50
+DIRECTIVE 2004/37/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
+of 29 April 2004
+on the protection of workers from the risks related to exposure to carcinogens or mutagens at work (Sixth individual Directive within the meaning of Article 16(1) of Council Directive 89/391/EEC)
+(codified version)
+(Text with EEA relevance)
+THE EUROPEAN PARLIAMENT AND THE COUNCIL OF THE EUROPEAN UNION,
+Having regard to the Treaty establishing the European Community, and in particular Article 137(2) thereof,
+Having regard to the proposal from the Commission,
+Having regard to the Opinion of the European Economic and Social Committee (1),
+Having consulted the Committee of the Regions,
+Acting in accordance with the procedure laid down in Article 251 of the Treaty (2),
+Whereas:
+|
+(1)
+|
+Council Directive 90/394/EEC of 28 June 1990 on the protection of workers from the risks related to exposure to carcinogens at work (Sixth individual Directive within the meaning of Article 16(1) of Directive 89/391/EEC) (3) has been substantially amended several times (4). In the interests of clarity and rationality, the said Directive should therefore be codified.
+|
+(2)
+|
+Compliance with the minimum requirements designed to guarantee a better standard of health and safety as regards the protection of workers from the risks related to exposure to carcinogens or mutagens at work is essential to ensure the health and safety of workers and is also intended to provide a level of minimum protection for all workers in the Community.
+|
+(3)
+|
+This Directive is an individual Directive within the meaning of Article 16(1) of Council Directive 89/391/EEC of 12 June 1989 on the introduction of measures to encourage improvements in the safety and health of workers at work (5). Therefore the provisions of that Directive are fully applicable to the exposure of workers to carcinogens or mutagens, without prejudice to more stringent and/or specific provisions contained in this Directive.
+|
+(4)
+|
+A consistent level of protection from the risks related to carcinogens or mutagens has to be established for the Community as a whole and that level of protection has to be set not by detailed prescriptive requirements but by a framework of general principles to enable Member States to apply the minimum requirements consistently.
+|
+(5)
+|
+Germ cell mutagens are substances that can cause a permanent change in the amount or structure of the genetic material of a cell resulting in a change in the phenotypic characteristics of that cell, which may be transferred to descendent daughter cells.
+|
+(6)
+|
+Because of their mechanism of action, germ cell mutagens are likely to have carcinogenic effects.
+|
+(7)
+|
+Annex VI to Council Directive 67/548/EEC of 27 June 1967 on the approximation of laws, regulations and administrative provisions relating to the classification, packaging and labelling of dangerous substances (6) contains the classification criteria and labelling procedures in respect of each substance.
+|
+(8)
+|
+Directive 1999/45/EC of the European Parliament and of the Council of 31 May 1999 on the approximation of the laws, regulations and administrative provisions of the Member States relating to the classification, packaging and labelling of dangerous preparations (7) contains particulars on the classification criteria and labelling procedures in respect of such preparations.
+|
+(9)
+|
+In all work situations workers must be protected in respect of preparations containing one or more carcinogens or mutagens and from carcinogenic or mutagenic compounds arising at work.
+|
+(10)
+|
+For some agents it is necessary to consider all absorption pathways, including the possibility of penetration through the skin, in order to ensure the best possible level of protection.
+|
+(11)
+|
+Although current scientific knowledge is not such that a level can be established below which risks to health cease to exist, a reduction in exposure to carcinogens or mutagens will nonetheless reduce those risks.
+|
+(12)
+|
+In order to contribute to a reduction in these risks, limit values and other directly related provisions should be established for all those carcinogens or mutagens for which the available information, including scientific and technical data, make this possible.
+|
+(13)
+|
+Occupational exposure limit values must be regarded as an important component of the general arrangements for the protection of workers. Such limit values must be revised whenever this becomes necessary in the light of more recent scientific data.
+|
+(14)
+|
+The precautionary principle should be applied in the protection of workers' health.
+|
+(15)
+|
+Preventive measures must be taken for the protection of the health and safety of workers exposed to carcinogens or mutagens.
+|
+(16)
+|
+This Directive constitutes a practical aspect of the realisation of the social dimension of the internal market.
+|
+(17)
+|
+Pursuant to Council Decision 74/325/EEC (8), the Commission consulted the Advisory Committee on Safety and Health at Work with a view to drawing up proposals for the Directives taken over in this Directive.
+|
+(18)
+|
+This Directive is without prejudice to the obligations of the Member States concerning the time limits for transposition set out in Part B of Annex IV,
+HAVE ADOPTED THIS DIRECTIVE:
+CHAPTER I
+GENERAL PROVISIONS

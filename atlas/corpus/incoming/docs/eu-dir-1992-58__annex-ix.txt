@@ -1,0 +1,135 @@
+ANNEX IX
+MINIMUM REQUIREMENTS FOR HAND SIGNALS
+1. Features
+Hand signals must be precise, simple, expansive, easy to make and to understand, and clearly distinct from other such signals.
+Where both arms are used at the same time, they must be moved symmetrically and for giving one sign only.
+Provided that they fulfil the conditions given above, the signals used may vary slightly from or be more detailed than those shown in section 3; they must, however, be equally meaningful and comprehensible.
+2. Specific rules governing use
+|
+|
+2.1.
+|
+The person giving the signs, hereinafter referred to as the ‘signalman’, will use arm/hand movements to give manoeuvring instructions to the person receiving the signs, hereinafter referred to as the (operator).
+|
+|
+2.2.
+|
+The signalman must be able to monitor all manoeuvres visually without being endangered thereby.
+|
+|
+2.3.
+|
+The signalman's duties must consist exclusively of directing manoeuvres and ensuring the safety of workers in the vicinity.
+|
+|
+2.4.
+|
+If the conditions described in point 2.2 are not fulfilled, one or more extra singnalmen should be deployed.
+|
+|
+2.5.
+|
+The operator must interrupt the ongoing manoeuvre in order to request new instructions when he is unable to carry out the orders he has received with the necessary safety guarantees.
+|
+|
+2.6.
+|
+Accessories:
+The operator must be able to recognize the signalman without difficulty.
+The signalman is to wear one or more appropriate distinctive items, e.g. a jacket, helmet, sleeves or armbandds, or carry bats.
+The distinctive items are to be brightly coloured, preferably all of the same colour and for the exclusive use of signalmen.
+3. Coded signals to be used
+Preliminary remark:
+The following set of coded signals are without prejudice to other co4es applicable at Community level, used for the same manoeuvres in certain sectors:
+|
+Meaning
+|
+Description
+|
+Illustration
+|
+A. General signals
+|
+START
+Attention
+Start of command
+|
+both arms are extended horizontally with the palms facing forward
+|
+|
+STOP
+Interruption
+End of movement
+|
+the right arm points upwards with the palm facing forwards
+|
+|
+END
+of the operation
+|
+both hands are clasped at chest height
+|
+|
+B. Vertical movements
+|
+RAISE
+|
+the right arm points upwards with the palm facing forward and slowly makes a circle
+|
+|
+LOWER
+|
+the right arm points downwards with the palm facing inwards and slowly makes a circle
+|
+|
+VERTICAL DISTANCE
+|
+the hands indicate the relevant distance
+|
+|
+C. Horizontal Movements
+|
+MOVE FORWARDS
+|
+both arms are bent with the palms facing upwards, and the forearms make slow movements towards the body
+|
+|
+MOVE BACKWARDS
+|
+both arms are bent with the palms facing downwards, and the forearms make slow movements away from the body
+|
+|
+RIGHT
+to the signalman's
+|
+the right arm is extended more or less horizontally with the palm facing downwards and slowly makes small movements to the right
+|
+|
+LEFT
+to the signalman's
+|
+the left arm is extended more or less horizontally with the palm facing downwards and slowly makes small movements to the left
+|
+|
+HORIZONTAL DISTANCE
+|
+the hands indicate the relevant distance
+|
+|
+D. Danger
+|
+DANGER
+Emergency stop
+|
+both arms point upwards with the palms facing forwards
+|
+|
+QUICK
+|
+all movements faster
+|
+|
+SLOW
+|
+all movements slower
+|

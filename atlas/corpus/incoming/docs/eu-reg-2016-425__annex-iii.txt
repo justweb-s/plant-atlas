@@ -1,0 +1,56 @@
+ANNEX III
+TECHNICAL DOCUMENTATION FOR PPE
+The technical documentation shall specify the means used by the manufacturer to ensure the conformity of the PPE with the applicable essential health and safety requirements referred to in Article 5 and set out in Annex II.
+The technical documentation shall include at least the following elements:
+|
+(a)
+|
+a complete description of the PPE and of its intended use;
+|
+(b)
+|
+an assessment of the risks against which the PPE is intended to protect;
+|
+(c)
+|
+a list of the essential health and safety requirements that are applicable to the PPE;
+|
+(d)
+|
+design and manufacturing drawings and schemes of the PPE and of its components, sub-assemblies and circuits;
+|
+(e)
+|
+the descriptions and explanations necessary for the understanding of the drawings and schemes referred to in point (d) and of the operation of the PPE;
+|
+(f)
+|
+the references of the harmonised standards referred to in Article 14 that have been applied for the design and manufacture of the PPE. In the event of partial application of harmonised standards, the documentation shall specify the parts which have been applied;
+|
+(g)
+|
+where harmonised standards have not been applied or have been only partially applied, descriptions of the other technical specifications that have been applied in order to satisfy the applicable essential health and safety requirements;
+|
+(h)
+|
+the results of the design calculations, inspections and examinations carried out to verify the conformity of the PPE with the applicable essential health and safety requirements;
+|
+(i)
+|
+reports on the tests carried out to verify the conformity of the PPE with the applicable essential health and safety requirements and, where appropriate, to establish the relevant protection class;
+|
+(j)
+|
+a description of the means used by the manufacturer during the production of the PPE to ensure the conformity of the PPE produced with the design specifications;
+|
+(k)
+|
+a copy of the manufacturer's instructions and information set out in point 1.4 of Annex II;
+|
+(l)
+|
+for PPE produced as a single unit to fit an individual user, all the necessary instructions for manufacturing such PPE on the basis of the approved basic model;
+|
+(m)
+|
+for PPE produced in series where each item is adapted to fit an individual user, a description of the measures to be taken by the manufacturer during the fitting and production process to ensure that each item of PPE complies with the approved type and with the applicable essential health and safety requirements.

@@ -1,0 +1,63 @@
+ANNEX IX
+MODULE G: CONFORMITY BASED ON UNIT VERIFICATION
+1. Conformity based on unit verification is the conformity assessment procedure whereby the manufacturer fulfils the obligations laid down in points 2, 3 and 5, and ensures and declares on his sole responsibility that the product concerned, which has been subject to the provisions of point 4, is in conformity with the requirements of this Directive that apply to it.
+2. Technical documentation
+|
+|
+2.1.
+|
+The manufacturer shall establish the technical documentation and make it available to the notified body referred to in point 4. The documentation shall make it possible to assess the product’s conformity with the relevant requirements, and shall include an adequate analysis and assessment of the risk(s). The technical documentation shall specify the applicable requirements and cover, as far as relevant for the assessment, the design, manufacture and operation of the product. The technical documentation shall contain at least the following elements:
+|
+(a)
+|
+a general description of the product,
+|
+(b)
+|
+conceptual design and manufacturing drawings and schemes of components, sub-assemblies, circuits, etc.,
+|
+(c)
+|
+descriptions and explanations necessary for the understanding of those drawings and schemes and the operation of the product,
+|
+(d)
+|
+a list of the harmonised standards applied in full or in part the references of which have been published in the Official Journal of the European Union and, where those harmonised standards have not been applied, descriptions of the solutions adopted to meet the essential health and safety requirements of this Directive, including a list of other relevant technical specifications applied. In the event of partly applied harmonised standards, the technical documentation shall specify the parts which have been applied,
+|
+(e)
+|
+results of design calculations made, examinations carried out, etc., and
+|
+(f)
+|
+test reports.
+|
+|
+2.2.
+|
+The manufacturer shall keep the technical documentation at the disposal of the relevant national authorities for 10 years after the product has been placed on the market.
+3. Manufacturing
+The manufacturer shall take all measures necessary so that the manufacturing process and its monitoring ensure conformity of the manufactured product with the applicable requirements of this Directive.
+4. Verification
+A notified body chosen by the manufacturer shall carry out appropriate examinations and tests, set out in the relevant harmonised standards and/or equivalent tests set out in other relevant technical specifications, to check the conformity of the product with the applicable requirements of this Directive, or have them carried out. In the absence of such a harmonised standard the notified body concerned shall decide on the appropriate tests to be carried out.
+The notified body shall issue a certificate of conformity in respect of the examinations and tests carried out and shall affix its identification number to the approved product, or have it affixed under its responsibility.
+The manufacturer shall keep the certificates of conformity at the disposal of the national authorities for 10 years after the product has been placed on the market.
+5. CE marking, EU declaration of conformity and attestation of conformity
+|
+|
+5.1.
+|
+The manufacturer shall affix the CE marking and, under the responsibility of the notified body referred to in point 4, the latter’s identification number to each product other than a component that satisfies the applicable requirements of this Directive.
+|
+|
+5.2.
+|
+The manufacturer shall draw up a written EU declaration of conformity and keep it at the disposal of the national authorities for 10 years after the product, other than a component has been placed on the market. The EU declaration of conformity shall identify such product for which it has been drawn up.
+A copy of the EU declaration of conformity shall accompany every product, other than a component.
+|
+|
+5.3.
+|
+The manufacturer shall draw up a written attestation of conformity and keep it at the disposal of the national authorities for 10 years after the component has been placed on the market. The attestation of conformity shall identify the component for which it has been drawn up. A copy of the attestation of conformity shall accompany every component.
+6. Authorised representative
+The manufacturer’s obligations set out in points 2.2 and 5 may be fulfilled by his authorised representative, on his behalf and under his responsibility, provided that they are specified in the mandate.

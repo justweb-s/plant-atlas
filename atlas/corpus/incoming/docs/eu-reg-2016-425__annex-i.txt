@@ -1,0 +1,81 @@
+ANNEX I
+RISK CATEGORIES OF PPE
+This Annex lays down the categories of risk against which PPE is intended to protect users.
+Category I
+Category I includes exclusively the following minimal risks:
+|
+(a)
+|
+superficial mechanical injury;
+|
+(b)
+|
+contact with cleaning materials of weak action or prolonged contact with water;
+|
+(c)
+|
+contact with hot surfaces not exceeding 50 °C;
+|
+(d)
+|
+damage to the eyes due to exposure to sunlight (other than during observation of the sun);
+|
+(e)
+|
+atmospheric conditions that are not of an extreme nature.
+Category II
+Category II includes risks other than those listed in Categories I and III;
+Category III
+Category III includes exclusively the risks that may cause very serious consequences such as death or irreversible damage to health relating to the following:
+|
+(a)
+|
+substances and mixtures which are hazardous to health;
+|
+(b)
+|
+atmospheres with oxygen deficiency;
+|
+(c)
+|
+harmful biological agents;
+|
+(d)
+|
+ionising radiation;
+|
+(e)
+|
+high-temperature environments the effects of which are comparable to those of an air temperature of at least 100 °C;
+|
+(f)
+|
+low-temperature environments the effects of which are comparable to those of an air temperature of – 50 °C or less;
+|
+(g)
+|
+falling from a height;
+|
+(h)
+|
+electric shock and live working;
+|
+(i)
+|
+drowning;
+|
+(j)
+|
+cuts by hand-held chainsaws;
+|
+(k)
+|
+high-pressure jets;
+|
+(l)
+|
+bullet wounds or knife stabs;
+|
+(m)
+|
+harmful noise.

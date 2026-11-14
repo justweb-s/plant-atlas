@@ -1,0 +1,117 @@
+ANNEX II
+A. CONTENT OF THE EU DECLARATION OF CONFORMITY FOR SAFETY COMPONENTS FOR LIFTS
+The EU declaration of conformity for safety components for lifts shall contain the following information:
+|
+(a)
+|
+business name and address of the manufacturer;
+|
+(b)
+|
+where appropriate, business name and address of the authorised representative;
+|
+(c)
+|
+description of the safety component for lifts, details of type or series and serial number (if any); it may, where necessary for the identification of the safety component for lifts, include an image;
+|
+(d)
+|
+safety function of the safety component for lifts, if not obvious from the description;
+|
+(e)
+|
+year of manufacture of the safety component for lifts;
+|
+(f)
+|
+all relevant provisions with which the safety component for lifts complies;
+|
+(g)
+|
+a statement that the safety component for lifts is in conformity with the relevant Union harmonisation legislation;
+|
+(h)
+|
+where appropriate, reference(s) to harmonised standard(s) used;
+|
+(i)
+|
+where appropriate, the name, address and identification number of the notified body which carried out the EU-type examination of safety components for lifts set out in Annex IV, Part A and Annex VI, and the reference of the EU-type examination certificate issued by that notified body;
+|
+(j)
+|
+where appropriate, the name, address and identification number of the notified body which carried out the conformity to type with random checking for safety components for lifts set out in Annex IX;
+|
+(k)
+|
+where appropriate, the name, address and identification number of the notified body which approved the quality system operated by the manufacturer in accordance with the conformity assessment procedure set out in Annex VI or VII;
+|
+(l)
+|
+the name and function of the person empowered to sign the declaration on behalf of the manufacturer or his authorised representative;
+|
+(m)
+|
+place and date of signature;
+|
+(n)
+|
+signature.
+B. CONTENT OF THE EU DECLARATION OF CONFORMITY FOR LIFTS
+The EU declaration of conformity for lifts shall be drafted in the same language as the instructions referred to in Annex I, point 6.2 and contain the following information:
+|
+(a)
+|
+business name and address of the installer;
+|
+(b)
+|
+where appropriate, business name and address of the authorised representative;
+|
+(c)
+|
+description of the lift, details of the type or series, serial number and address where the lift is installed;
+|
+(d)
+|
+year of installation of the lift;
+|
+(e)
+|
+all relevant provisions to which the lift conforms;
+|
+(f)
+|
+a statement that the lift is in conformity with the relevant Union harmonisation legislation;
+|
+(g)
+|
+where appropriate, reference(s) to harmonised standard(s) used;
+|
+(h)
+|
+where appropriate, the name, address and identification number of the notified body which carried out the EU-type examination of lifts set out in Annex IV, Part B and the reference of the EU-type examination certificate issued by that notified body;
+|
+(i)
+|
+where appropriate, the name, address and identification number of the notified body which carried out the unit verification for lifts set out in Annex VIII;
+|
+(j)
+|
+where appropriate, the name, address and identification number of the notified body which carried out the final inspection for lifts set out in Annex V;
+|
+(k)
+|
+where appropriate, the name, address, and identification number of the notified body which approved the quality assurance system operated by the installer in accordance with the conformity assessment procedure set out in Annex X, XI or XII;
+|
+(l)
+|
+the name and function of the person empowered to sign the declaration on behalf of the installer or his authorised representative;
+|
+(m)
+|
+place and date of signature;
+|
+(n)
+|
+signature.
