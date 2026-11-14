@@ -1,12 +1,16 @@
 {
   "about": {
     "title": "Competency questions for the machine-safety ontology",
-    "written": "2026-11-14, before any extraction or ontology-building code (the git commit is the proof)",
+    "written": "CQ01-CQ12 at 11:25; CQ13-CQ20 and the catalogue at 12:00 (decision 1200). All before any extraction or ontology-building code: see git log",
     "as_of_default": "2026-11-14",
     "types": {
       "T": "schema: answerable from classes, relations and axioms learned from the law texts",
-      "V": "versions: the answer depends on which text is in force (original vs corrigendum)",
-      "I": "instances: answerable only with the fictional plant documents"
+      "V": "versions: the answer depends on which text is in force (Directive vs Regulation, original vs corrigendum)",
+      "I": "instances: answerable only with the catalogue of the fictional manufacturer"
+    },
+    "splits": {
+      "design": "strategies may read these questions to build their schema",
+      "heldout": "only evaluation/ reads these: the code in atlas/ never sees them (checked by tests/test_cqs.py)"
     },
     "answer_kinds": {
       "set": "list of items; score with set precision/recall/F1",
@@ -17,7 +21,7 @@
     },
     "evidence_roles": {
       "supports": "the passage states the answer",
-      "superseded": "the passage is in the published text but a later document corrects it",
+      "superseded": "the passage is in a text that a later text replaces (old regime, or published text before a corrigendum)",
       "corrects": "the passage that replaces a superseded one"
     },
     "terms": "CQ4OE style (oeg-upm/cq4oe-benchmark): explicit = named in the question, implicit = said with other words, derived = needed to answer but not named. English local names; Italian labels come later as skos:altLabel. terms.explicit is the CQ2Term gold.",
@@ -26,82 +30,76 @@
   "sources": {
     "REG": "data/law/eu-reg-2023-1230.en.xhtml",
     "CORR": "data/law/eu-reg-2023-1230-corrigendum-2023-07-04.en.xhtml",
+    "DIR": "data/law/eu-dir-2006-42.en.xhtml",
     "DLGS71": "data/law/it-dlgs-81-2008-art71.txt",
-    "PLANT": "the plant block of this file; the documents in data/plant/ must be written to match it"
+    "CATALOGUE": "the catalogue block of this file; the product sheets in data/catalogue/ must be written to match it"
   },
-  "plant": {
-    "status": "spec: the fictional documents (machine sheets, manuals, PRO-07 v1 and v2, check register) must contain exactly these facts",
-    "name": "Stabilimento Demo (fictional)",
+  "catalogue": {
+    "status": "spec: the fictional product sheets must contain exactly these facts",
+    "manufacturer": "Costruttore Demo S.r.l. (fictional)",
     "as_of": "2026-11-14",
-    "machines": [
+    "procedure_codes": {
+      "internal_checks": "Directive 2006/42/EC, Annex VIII (internal checks on the manufacture of machinery)",
+      "ec_type_examination": "Directive 2006/42/EC, Annex IX (EC type-examination by a notified body)"
+    },
+    "models": [
       {
-        "id": "P-3",
-        "type_it": "pressa idraulica per la lavorazione a freddo dei metalli, carico e scarico manuali, corsa 120 mm, velocità 80 mm/s",
-        "type_en": "hydraulic press for the cold working of metals, manual loading and unloading, travel 120 mm, speed 80 mm/s",
-        "annex_i": "B.9",
-        "manual": "MAN-P3",
-        "check": "controllo periodico degli interblocchi dei ripari mobili",
-        "check_interval_days": 60,
-        "last_check": "2026-09-10"
+        "id": "SL-30",
+        "type_it": "ponte sollevatore per veicoli a due colonne",
+        "type_en": "two-post vehicle servicing lift",
+        "directive_annex_iv": true,
+        "harmonised_standards_full": true,
+        "procedure_today": "internal_checks",
+        "procedure_basis": "Directive, Art. 12(3)(a)",
+        "regulation_annex_i": "A.3"
       },
       {
-        "id": "L-1",
-        "type_it": "tornio CNC",
-        "type_en": "CNC lathe",
-        "annex_i": null,
-        "manual": "MAN-L1",
-        "check": "controllo periodico dei dispositivi di protezione",
-        "check_interval_days": 90,
-        "last_check": "2026-10-01"
-      },
-      {
-        "id": "S-2",
+        "id": "CS-400",
         "type_it": "sega circolare per legno a lama fissa, con banco fisso e avanzamento manuale del pezzo",
         "type_en": "circular saw for wood with fixed blade, fixed bed and manual feed of the workpiece",
-        "annex_i": "B.1",
-        "manual": "MAN-S2",
-        "check": "controllo periodico della cuffia di protezione della lama",
-        "check_interval_days": 30,
-        "last_check": "2026-10-20"
+        "directive_annex_iv": true,
+        "harmonised_standards_full": true,
+        "procedure_today": "internal_checks",
+        "procedure_basis": "Directive, Art. 12(3)(a)",
+        "regulation_annex_i": "B.1"
       },
       {
-        "id": "C-4",
-        "type_it": "ponte sollevatore per veicoli dell'officina interna",
-        "type_en": "vehicle servicing lift in the in-house workshop",
-        "annex_i": "A.3",
-        "manual": "MAN-C4",
-        "check": "controllo periodico dei dispositivi anticaduta",
-        "check_interval_days": 365,
-        "last_check": "2025-11-01"
+        "id": "PR-80",
+        "type_it": "pressa idraulica per la lavorazione a freddo dei metalli, carico e scarico manuali, corsa 120 mm, velocità 80 mm/s",
+        "type_en": "hydraulic press for the cold working of metals, manual loading and unloading, travel 120 mm, speed 80 mm/s",
+        "directive_annex_iv": true,
+        "harmonised_standards_full": false,
+        "procedure_today": "ec_type_examination",
+        "procedure_basis": "Directive, Art. 12(4)",
+        "regulation_annex_i": "B.9"
       },
       {
-        "id": "R-5",
-        "type_it": "cella robotizzata con sistema di visione di sicurezza a comportamento auto-evolutivo (machine learning)",
-        "type_en": "robot cell with a safety vision system with self-evolving behaviour (machine learning)",
-        "annex_i": "A.6",
-        "manual": "MAN-R5",
-        "check": "controllo periodico del sistema di visione di sicurezza",
-        "check_interval_days": 180,
-        "last_check": "2026-06-01"
-      }
-    ],
-    "procedures": [
+        "id": "RC-5",
+        "type_it": "cella robotizzata con sistema di visione di sicurezza a comportamento auto-evolutivo (machine learning), integrato e non immesso separatamente sul mercato",
+        "type_en": "robot cell with an embedded safety vision system with self-evolving behaviour (machine learning), not placed on the market separately",
+        "directive_annex_iv": false,
+        "harmonised_standards_full": false,
+        "procedure_today": "internal_checks",
+        "procedure_basis": "Directive, Art. 12(2)",
+        "regulation_annex_i": "A.6"
+      },
       {
-        "id": "PRO-07",
-        "title_it": "Controllo periodico degli interblocchi dei ripari mobili della pressa P-3",
-        "machine": "P-3",
-        "versions": {
-          "v1": {"check_interval_days": 90},
-          "v2": {"check_interval_days": 60}
-        }
+        "id": "TC-200",
+        "type_it": "tornio CNC",
+        "type_en": "CNC lathe",
+        "directive_annex_iv": false,
+        "harmonised_standards_full": true,
+        "procedure_today": "internal_checks",
+        "procedure_basis": "Directive, Art. 12(2)",
+        "regulation_annex_i": null
       }
-    ],
-    "authority": "For check intervals the manufacturer's manual prevails over internal procedures (D.Lgs. 81/08, art. 71, c. 8)."
+    ]
   },
   "cqs": [
     {
       "id": "CQ01",
       "type": "T",
+      "split": "design",
       "question_it": "Quali categorie di macchine richiedono sempre una procedura di valutazione della conformità con un organismo notificato?",
       "question_en": "Which categories of machinery always require a conformity assessment procedure involving a notified body?",
       "answer": {
@@ -131,6 +129,7 @@
     {
       "id": "CQ02",
       "type": "T",
+      "split": "design",
       "question_it": "Quali procedure di valutazione della conformità può scegliere il fabbricante per una macchina dell'Allegato I, parte A?",
       "question_en": "Which conformity assessment procedures can the manufacturer choose for machinery listed in Annex I, Part A?",
       "answer": {"kind": "set", "value": ["Module B followed by Module C", "Module H", "Module G"]},
@@ -147,6 +146,7 @@
     {
       "id": "CQ03",
       "type": "T",
+      "split": "design",
       "question_it": "In quale categoria rientra un componente di sicurezza con comportamento auto-evolutivo basato sul machine learning?",
       "question_en": "Which category does a safety component with self-evolving behaviour based on machine learning fall under?",
       "answer": {"kind": "set", "value": ["Annex I, Part A, point 5"]},
@@ -163,6 +163,7 @@
     {
       "id": "CQ04",
       "type": "T",
+      "split": "design",
       "question_it": "Quando i ripari degli elementi mobili di trasmissione devono essere ripari mobili interbloccati invece che fissi?",
       "question_en": "When must guards for moving transmission parts be interlocking movable guards instead of fixed guards?",
       "answer": {"kind": "text", "value": "where frequent access is envisaged", "keywords": [["frequent access", "accesso frequente"]]},
@@ -179,6 +180,7 @@
     {
       "id": "CQ05",
       "type": "T",
+      "split": "design",
       "question_it": "Quali rischi affronta il requisito essenziale 1.3.7 dell'Allegato III?",
       "question_en": "Which risks does essential health and safety requirement 1.3.7 of Annex III address?",
       "answer": {
@@ -204,6 +206,7 @@
     {
       "id": "CQ06",
       "type": "T",
+      "split": "design",
       "question_it": "Chi è considerato fabbricante dopo una modifica sostanziale di una macchina?",
       "question_en": "Who is considered the manufacturer after a substantial modification of machinery?",
       "answer": {"kind": "text", "value": "the natural or legal person that carries out the substantial modification", "keywords": [["carries out", "esegue", "performs"], ["substantial modification", "modifica sostanziale"]]},
@@ -221,6 +224,7 @@
     {
       "id": "CQ07",
       "type": "T",
+      "split": "design",
       "question_it": "Che cosa deve accompagnare una macchina quando viene immessa sul mercato?",
       "question_en": "What must accompany machinery when it is placed on the market?",
       "answer": {"kind": "set", "value": ["instructions for use and the information set out in Annex III", "EU declaration of conformity"]},
@@ -238,6 +242,7 @@
     {
       "id": "CQ08",
       "type": "T",
+      "split": "design",
       "question_it": "Per quanto tempo il fabbricante deve conservare la documentazione tecnica e la dichiarazione UE di conformità?",
       "question_en": "For how long must the manufacturer keep the technical documentation and the EU declaration of conformity?",
       "answer": {"kind": "duration", "value": "P10Y", "qualifier": "at least, after placing on the market or putting into service"},
@@ -254,6 +259,7 @@
     {
       "id": "CQ09",
       "type": "V",
+      "split": "design",
       "question_it": "Da quale data si applica il Regolamento (UE) 2023/1230?",
       "question_en": "From which date does Regulation (EU) 2023/1230 apply?",
       "answer": {"kind": "date", "value": "2027-01-20"},
@@ -272,6 +278,7 @@
     {
       "id": "CQ10",
       "type": "V",
+      "split": "design",
       "question_it": "Il 16 gennaio 2027 si può ancora immettere sul mercato una macchina conforme alla Direttiva 2006/42/CE?",
       "question_en": "On 16 January 2027, can machinery conforming to Directive 2006/42/EC still be placed on the market?",
       "answer": {"kind": "boolean", "value": true},
@@ -292,6 +299,7 @@
     {
       "id": "CQ11",
       "type": "T",
+      "split": "design",
       "question_it": "Per le attrezzature dell'Allegato VII del D.Lgs. 81/08, chi effettua la prima verifica periodica e entro quanto tempo?",
       "question_en": "For the work equipment listed in Annex VII of Legislative Decree 81/2008, who carries out the first periodic verification, and within what time?",
       "answer": {"kind": "text", "value": "INAIL, within 45 days of the request", "keywords": [["inail"], ["45", "quarantacinque"]]},
@@ -309,6 +317,7 @@
     {
       "id": "CQ12",
       "type": "T",
+      "split": "design",
       "question_it": "Per quanto tempo il datore di lavoro deve conservare i risultati dei controlli sulle attrezzature di lavoro?",
       "question_en": "For how long must the employer keep the results of the checks on work equipment?",
       "answer": {"kind": "duration", "value": "P3Y", "qualifier": "at least the results of the last three years"},
@@ -325,56 +334,158 @@
     {
       "id": "CQ13",
       "type": "I",
-      "question_it": "Quali macchine dello stabilimento hanno il controllo periodico scaduto al 14 novembre 2026?",
-      "question_en": "Which machines in the plant are overdue for their periodic check as of 14 November 2026?",
-      "answer": {"kind": "set", "value": ["P-3", "C-4"]},
-      "answer_text": "P-3 (ultimo controllo 10/09/2026, intervallo di 60 giorni dal manuale: scaduto il 09/11/2026) e C-4 (ultimo controllo 01/11/2025, intervallo di 365 giorni: scaduto il 01/11/2026). Con i 90 giorni della procedura PRO-07 v1, P-3 sembrerebbe in regola: vale il manuale.",
-      "rag_trap": "Bisogna considerare tutte le macchine e risolvere il conflitto tra manuale e procedura: una ricerca per passaggi ne vede solo alcune.",
+      "split": "design",
+      "question_it": "Quali modelli del catalogo, oggi autocertificati con il controllo interno, dal 20 gennaio 2027 dovranno passare da un organismo notificato?",
+      "question_en": "Which models in the catalogue, self-certified today with internal checks, will need a notified body from 20 January 2027?",
+      "answer": {"kind": "set", "value": ["SL-30", "RC-5"]},
+      "answer_text": "SL-30, ponte sollevatore per veicoli: oggi si autocertifica perché applica tutte le norme armonizzate (Direttiva, Art. 12(3)(a)), dal 20/1/2027 è nell'Allegato I parte A punto 3 e serve B+C, H o G. RC-5, cella con visione di sicurezza a machine learning: oggi non è nell'Allegato IV (Art. 12(2)), dal 20/1/2027 è nella parte A punto 6, per il sistema di sicurezza. CS-400 e TC-200 possono restare con il controllo interno; PR-80 usa già un organismo notificato.",
+      "rag_trap": "La Direttiva (Art. 12(3)(a)) dice che le macchine dell'Allegato IV costruite con norme armonizzate complete si autocertificano: chi trova quel passaggio risponde che per il ponte sollevatore non cambia nulla.",
       "evidence": [
-        {"source": "DLGS71", "locator": "art. 71, c. 8", "role": "supports", "quote": "il datore di lavoro, secondo le indicazioni fornite dai fabbricanti ovvero, in assenza di queste, dalle pertinenti norme tecniche o dalle buone prassi o da linee guida, provvede"},
-        {"source": "PLANT", "locator": "plant.machines, plant.procedures", "role": "supports", "quote": null}
+        {"source": "DIR", "locator": "Directive, Art. 12(3)(a)", "role": "superseded", "quote": "Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII"},
+        {"source": "DIR", "locator": "Directive, Art. 12(2)", "role": "superseded", "quote": "Where the machinery is not referred to in Annex IV, the manufacturer or his authorised representative shall apply the procedure for assessment of conformity with internal checks on the manufacture of machinery provided for in Annex VIII."},
+        {"source": "REG", "locator": "Art. 25(2)", "role": "corrects", "quote": "Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures"},
+        {"source": "REG", "locator": "Annex I, Part A, point 3", "role": "supports", "quote": "3. Vehicle servicing lifts."},
+        {"source": "REG", "locator": "Annex I, Part A, point 6", "role": "supports", "quote": "6. Machinery that has embedded systems with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions that have not been placed independently on the market, in respect only of those systems."},
+        {"source": "CATALOGUE", "locator": "catalogue.models", "role": "supports", "quote": null}
       ],
       "terms": {
-        "explicit": {"classes": ["Machinery", "Plant", "PeriodicCheck"], "properties": []},
-        "implicit": {"classes": [], "properties": ["isOverdue"]},
-        "derived": {"classes": ["Manual", "InternalProcedure"], "properties": ["lastCheckDate", "hasCheckInterval", "intervalSetBy", "dueDate"]}
+        "explicit": {"classes": ["MachineModel", "NotifiedBody", "ConformityAssessmentProcedure"], "properties": []},
+        "implicit": {"classes": ["InternalProductionControl"], "properties": ["currentProcedure"]},
+        "derived": {"classes": ["AnnexIPartACategory", "Directive", "Regulation"], "properties": ["belongsToCategory", "requiresProcedure", "appliesFrom"]}
       }
     },
     {
       "id": "CQ14",
       "type": "I",
-      "question_it": "Quali macchine dello stabilimento rientrano nell'Allegato I, parte A del Regolamento?",
-      "question_en": "Which machines in the plant fall under Annex I, Part A of the Regulation?",
-      "answer": {"kind": "set", "value": ["C-4", "R-5"]},
-      "answer_text": "C-4, ponte sollevatore per veicoli (parte A, punto 3), e R-5, cella robotizzata con sistema di sicurezza a comportamento auto-evolutivo (parte A, punto 6). P-3 e S-2 sono nella parte B (punti 9 e 1), L-1 non è in elenco.",
+      "split": "design",
+      "question_it": "Quale procedura di valutazione della conformità servirà al modello RC-5 dal 20 gennaio 2027, e perché?",
+      "question_en": "Which conformity assessment procedure will model RC-5 need from 20 January 2027, and why?",
+      "answer": {"kind": "text", "value": "Module B followed by C, or module H, or module G, for its machine-learning safety system, because it falls under Annex I, Part A, point 6", "keywords": [["module b", "modulo b"], ["module h", "modulo h"], ["module g", "modulo g"], ["part a", "parte a"]]},
+      "answer_text": "Per il sistema di visione di sicurezza a machine learning: modulo B seguito da C, oppure H, oppure G (Art. 25(2)), perché RC-5 rientra nell'Allegato I, parte A, punto 6, che riguarda solo quei sistemi.",
       "evidence": [
-        {"source": "REG", "locator": "Annex I, Part A, points 1-4", "role": "supports", "quote": "3. Vehicle servicing lifts."},
         {"source": "REG", "locator": "Annex I, Part A, point 6", "role": "supports", "quote": "6. Machinery that has embedded systems with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions that have not been placed independently on the market, in respect only of those systems."},
-        {"source": "REG", "locator": "Annex I, Part B, point 9", "role": "supports", "quote": "9. Presses, including press-brakes, for the cold working of metals, with manual loading and/or unloading, whose movable working parts may have a travel exceeding 6 mm and a speed exceeding 30 mm/s."},
-        {"source": "REG", "locator": "Annex I, Part B, point 1.1", "role": "supports", "quote": "1. Circular saws (single- or multi-blade) for working with wood and material with similar physical characteristics"},
-        {"source": "PLANT", "locator": "plant.machines", "role": "supports", "quote": null}
+        {"source": "REG", "locator": "Art. 25(2)", "role": "supports", "quote": "(a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X."},
+        {"source": "CATALOGUE", "locator": "catalogue.models[RC-5]", "role": "supports", "quote": null}
       ],
       "terms": {
-        "explicit": {"classes": ["Machinery", "Plant", "AnnexIPartACategory"], "properties": ["belongsToCategory"]},
-        "implicit": {"classes": [], "properties": ["locatedIn"]},
-        "derived": {"classes": ["MachineType"], "properties": ["hasMachineType", "typeInCategory"]}
+        "explicit": {"classes": ["MachineModel", "ConformityAssessmentProcedure"], "properties": ["requiresProcedure"]},
+        "implicit": {"classes": ["SelfEvolvingBehaviour"], "properties": []},
+        "derived": {"classes": ["AnnexIPartACategory", "ConformityAssessmentModule", "SafetyFunction"], "properties": ["belongsToCategory", "appliesOnlyTo"]}
       }
     },
     {
       "id": "CQ15",
       "type": "I",
-      "question_it": "Quale procedura interna contraddice il manuale del fabbricante, su quale intervallo, e quale dei due vale?",
-      "question_en": "Which internal procedure contradicts the manufacturer's manual, on which interval, and which one prevails?",
-      "answer": {"kind": "text", "value": "PRO-07 v1 (90 days) contradicts the P-3 manual (60 days) on the guard interlock check; the manual prevails", "keywords": [["pro-07"], ["p-3"], ["90"], ["60"], ["prevail", "prevale", "vale il manuale"]]},
-      "answer_text": "La procedura PRO-07 v1 prevede 90 giorni per il controllo degli interblocchi dei ripari mobili della pressa P-3; il manuale del fabbricante ne prevede 60. Vale il manuale: l'art. 71, c. 8 lega i controlli alle indicazioni fornite dai fabbricanti. La PRO-07 v2 passa a 60 giorni: dopo il suo caricamento la contraddizione sparisce.",
+      "split": "design",
+      "question_it": "Il modello CS-400 potrà restare con il controllo interno della produzione dopo il 20 gennaio 2027?",
+      "question_en": "Can model CS-400 stay with internal production control after 20 January 2027?",
+      "answer": {"kind": "text", "value": "Yes, if it is designed and built to the harmonised standards or common specifications covering all the relevant essential requirements: it falls under Annex I, Part B, point 1", "keywords": [["yes", "sì"], ["harmonised standards", "norme armonizzate"]]},
+      "answer_text": "Sì, a condizione che sia progettata e costruita secondo le norme armonizzate o le specifiche comuni che coprono tutti i requisiti essenziali pertinenti: è nell'Allegato I, parte B, punto 1, e l'Art. 25(3)(a) ammette il modulo A solo a questa condizione.",
       "evidence": [
-        {"source": "DLGS71", "locator": "art. 71, c. 8", "role": "supports", "quote": "il datore di lavoro, secondo le indicazioni fornite dai fabbricanti ovvero, in assenza di queste, dalle pertinenti norme tecniche o dalle buone prassi o da linee guida, provvede"},
-        {"source": "PLANT", "locator": "plant.procedures, plant.machines", "role": "supports", "quote": null}
+        {"source": "REG", "locator": "Annex I, Part B, point 1", "role": "supports", "quote": "1. Circular saws (single- or multi-blade) for working with wood and material with similar physical characteristics"},
+        {"source": "REG", "locator": "Art. 25(3)", "role": "supports", "quote": "If a manufacturer applies the internal production control procedure referred to in point (a), it shall design and construct the machinery or related product in accordance with the harmonised standards or common specifications specific to that category of machinery or related product covering all the relevant essential health and safety requirements."},
+        {"source": "CATALOGUE", "locator": "catalogue.models[CS-400]", "role": "supports", "quote": null}
       ],
       "terms": {
-        "explicit": {"classes": ["InternalProcedure", "Manual", "Manufacturer"], "properties": ["contradicts", "prevailsOver"]},
-        "implicit": {"classes": ["CheckInterval"], "properties": []},
-        "derived": {"classes": ["Machinery", "PeriodicCheck", "InterlockingMovableGuard"], "properties": ["hasCheckInterval", "intervalSetBy", "hasVersion"]}
+        "explicit": {"classes": ["MachineModel", "InternalProductionControl"], "properties": []},
+        "implicit": {"classes": [], "properties": ["allowsProcedure"]},
+        "derived": {"classes": ["AnnexIPartBCategory", "HarmonisedStandard"], "properties": ["conformsToStandard", "coversAllRequirements"]}
+      }
+    },
+    {
+      "id": "CQ16",
+      "type": "V",
+      "split": "heldout",
+      "question_it": "Quali categorie dell'Allegato I, parte A del Regolamento non c'erano nell'Allegato IV della Direttiva 2006/42/CE?",
+      "question_en": "Which categories of Annex I, Part A of the Regulation were not in Annex IV of Directive 2006/42/EC?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions",
+          "Machinery that has embedded systems with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions"
+        ]
+      },
+      "answer_text": "Le due categorie legate al machine learning (parte A, punti 5 e 6). Le altre quattro (dispositivi amovibili di trasmissione meccanica e loro ripari, ponti sollevatori per veicoli, apparecchi portatili a carica esplosiva) erano già nell'Allegato IV della Direttiva.",
+      "evidence": [
+        {"source": "REG", "locator": "Annex I, Part A, points 5-6", "role": "supports", "quote": "5. Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions. 6. Machinery that has embedded systems with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions"},
+        {"source": "DIR", "locator": "Directive, Annex IV", "role": "supports", "quote": "Vehicle servicing lifts."},
+        {"source": "DIR", "locator": "Directive, Annex IV, point 14", "role": "supports", "quote": "Removable mechanical transmission devices including their guards"}
+      ],
+      "terms": {
+        "explicit": {"classes": ["AnnexIPartACategory", "Directive"], "properties": []},
+        "implicit": {"classes": ["AnnexIVCategory"], "properties": []},
+        "derived": {"classes": ["Regulation"], "properties": ["correspondsTo"]}
+      }
+    },
+    {
+      "id": "CQ17",
+      "type": "V",
+      "split": "heldout",
+      "question_it": "Dopo il 20 gennaio 2027, un ponte sollevatore per veicoli costruito secondo norme armonizzate che coprono tutti i requisiti potrà essere certificato con il solo controllo interno della produzione?",
+      "question_en": "After 20 January 2027, can a vehicle servicing lift built to harmonised standards covering all requirements be certified with internal production control alone?",
+      "answer": {"kind": "boolean", "value": false},
+      "answer_text": "No. Con la Direttiva sì (Art. 12(3)(a)); con il Regolamento i ponti sollevatori sono nell'Allegato I, parte A, e l'Art. 25(2) ammette solo B+C, H o G, anche con norme armonizzate complete.",
+      "rag_trap": "La Direttiva dice esplicitamente che con norme armonizzate complete basta il controllo interno.",
+      "evidence": [
+        {"source": "DIR", "locator": "Directive, Art. 12(3)(a)", "role": "superseded", "quote": "Where the machinery is referred to in Annex IV and manufactured in accordance with the harmonised standards referred to in Article 7(2), and provided that those standards cover all of the relevant essential health and safety requirements, the manufacturer or his authorised representative shall apply one of the following procedures: (a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII"},
+        {"source": "REG", "locator": "Art. 25(2)", "role": "corrects", "quote": "Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures"},
+        {"source": "REG", "locator": "Annex I, Part A, point 3", "role": "supports", "quote": "3. Vehicle servicing lifts."}
+      ],
+      "terms": {
+        "explicit": {"classes": ["MachineType", "HarmonisedStandard", "InternalProductionControl"], "properties": []},
+        "implicit": {"classes": [], "properties": ["allowsProcedure"]},
+        "derived": {"classes": ["AnnexIPartACategory", "Regulation", "Directive"], "properties": ["appliesFrom", "requiresProcedure"]}
+      }
+    },
+    {
+      "id": "CQ18",
+      "type": "V",
+      "split": "heldout",
+      "question_it": "Quale requisito essenziale sulla protezione contro la corruzione introduce il Regolamento, che nella Direttiva non c'era?",
+      "question_en": "Which essential requirement on protection against corruption does the Regulation introduce that the Directive did not have?",
+      "answer": {"kind": "text", "value": "Annex III, 1.1.9 Protection against corruption", "keywords": [["1.1.9"], ["corruption", "corruzione"]]},
+      "answer_text": "Il punto 1.1.9 dell'Allegato III, «Protection against corruption»: la macchina deve essere progettata in modo che collegarle un altro dispositivo non crei situazioni pericolose. Nell'Allegato I della Direttiva il punto 1.1.9 non esiste.",
+      "evidence": [
+        {"source": "REG", "locator": "Annex III, 1.1.9", "role": "supports", "quote": "1.1.9. Protection against corruption The machinery or related product shall be designed and constructed so that the connection to it of another device"}
+      ],
+      "terms": {
+        "explicit": {"classes": ["EssentialHealthAndSafetyRequirement", "Regulation", "Directive"], "properties": []},
+        "implicit": {"classes": ["ProtectionAgainstCorruption"], "properties": []},
+        "derived": {"classes": ["ControlSystem"], "properties": ["introducedBy"]}
+      }
+    },
+    {
+      "id": "CQ19",
+      "type": "V",
+      "split": "heldout",
+      "question_it": "A quale articolo del Regolamento corrisponde l'articolo 12 della Direttiva 2006/42/CE?",
+      "question_en": "Which article of the Regulation corresponds to Article 12 of Directive 2006/42/EC?",
+      "answer": {"kind": "set", "value": ["Article 25"]},
+      "answer_text": "All'articolo 25, secondo la tavola di concordanza dell'Allegato XII del Regolamento.",
+      "evidence": [
+        {"source": "REG", "locator": "Annex XII (correlation table)", "role": "supports", "quote": "Article 12 Article 25"}
+      ],
+      "terms": {
+        "explicit": {"classes": ["Provision", "Directive", "Regulation"], "properties": ["correspondsTo"]},
+        "implicit": {"classes": [], "properties": []},
+        "derived": {"classes": ["CorrelationTable"], "properties": []}
+      }
+    },
+    {
+      "id": "CQ20",
+      "type": "V",
+      "split": "heldout",
+      "question_it": "In quale allegato del Regolamento è confluito l'Allegato IV della Direttiva 2006/42/CE?",
+      "question_en": "Which annex of the Regulation does Annex IV of Directive 2006/42/EC correspond to?",
+      "answer": {"kind": "set", "value": ["Annex I"]},
+      "answer_text": "All'Allegato I, secondo la tavola di concordanza dell'Allegato XII del Regolamento.",
+      "evidence": [
+        {"source": "REG", "locator": "Annex XII (correlation table)", "role": "supports", "quote": "Annex IV Annex I"}
+      ],
+      "terms": {
+        "explicit": {"classes": ["Annex", "Regulation", "Directive"], "properties": ["correspondsTo"]},
+        "implicit": {"classes": ["AnnexIVCategory"], "properties": []},
+        "derived": {"classes": ["CorrelationTable", "MachineryCategory"], "properties": []}
       }
     }
   ]
