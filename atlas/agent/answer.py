@@ -468,6 +468,75 @@ def one_regime(question: str, matched: list[Statement], facts: list[Statement], 
                   + ("Directive's" if old else "Regulation's") + " and name that act in the sentence.")
 
 
+LEAD = re.compile(r"^\s*(?:(?:option|opzione)\s*\(?[a-z0-9]{1,2}\)?\s*[:.\-]|\(?[a-z0-9]{1,2}\)|\d{1,2}\.)\s+", re.I)
+TAIL = re.compile(r"\s*\(([^()]*)\)\s*$")
+LOCATOR = re.compile(r"\b(annex|allegato|art|article|articolo|point|punto|part|parte|riga|comma)\b|\b[pc]\.", re.I)
+CLAUSE = re.compile(r"^\s*(before|where|if|in a language|as determined|or alternatively)\b", re.I)
+ALTERNATIVE = re.compile(r"alternativ|does not allow|non consent", re.I)
+SEQUENCE = re.compile(r",?\s+(followed by|seguit[oa] da)\s+", re.I)
+JOINED = re.compile(r"\b(or|o|oppure|ovvero)\b", re.I)
+
+
+def polish_set(items: list[str], used: list[Statement]) -> list[str]:
+    """Set items in the facts' own words: no "Option (a):" prefix or numbering, no trailing bracket holding a
+    locator or a condition (unless the bracket is written in a used fact), the fact's exact subject (listedIn)
+    or value as written when the item matches one, the order of a "followed by" sequence as the fact writes
+    it, no repeats, no item that merely extends another, no alternative of an item already there."""
+    names = _key(" ".join(f"{s.subject} {s.object_as_written}" for s in used))
+    written = _key(" ".join(f"{s.subject} {s.object_as_written} {s.quote}" for s in used))
+    out: list[tuple[str, Statement | None]] = []
+    for item in items:
+        item = LEAD.sub("", str(item)).strip()
+        while True:
+            tail = TAIL.search(item)
+            if not tail or not (LOCATOR.search(tail.group(1)) or CLAUSE.search(tail.group(1))) \
+                    or (_key(tail.group(1)) and _key(tail.group(1)) in names) or not item[:tail.start()].strip():
+                break
+            item = item[:tail.start()].strip()
+        parts = SEQUENCE.split(item, maxsplit=1)
+        if len(parts) == 3 and f"{_key(parts[2])} {_key(parts[1])} {_key(parts[0])}" in written \
+                and f"{_key(parts[0])} {_key(parts[1])} {_key(parts[2])}" not in written:
+            item = f"{parts[2]} {parts[1]} {parts[0]}"   # the order the fact writes
+        source, own, flat = None, _words(item), _key(item)
+        for s in used:
+            target = s.subject if s.predicate == "listedIn" else s.object_as_written
+            theirs, there = _words(target), _key(target)
+            close = (len(flat) >= 4 and len(there) >= 4 and (flat in there or there in flat)) or \
+                (bool(own) and bool(theirs) and len(own & theirs) >= 0.6 * max(len(own), len(theirs)))
+            if close and len(target) <= 200:
+                item, source = target.strip(), s
+                break
+        if item:
+            out.append((item, source))
+    kept: list[tuple[str, Statement | None]] = []
+    for item, source in out:
+        if any(_key(item) == _key(other) for other, _ in kept):
+            continue
+        twin = source is not None and ALTERNATIVE.search(source.condition or "") and any(
+            o is not None and o.id != source.id and o.predicate == source.predicate and o.source_doc == source.source_doc
+            and _place(o.anchor).split(" ")[:2] == _place(source.anchor).split(" ")[:2] for _, o in out)
+        if not twin:
+            kept.append((item, source))
+    keys = [f" {_key(item)} " for item, _ in kept]
+    return [item for i, (item, _) in enumerate(kept)
+            if not any(j != i and other != keys[i] and other in keys[i] for j, other in enumerate(keys))]
+
+
+def all_bodies(value: str, used: list[Statement]) -> str:
+    """For a "who" answer: when the sentence of a used fact's quote that names the answer goes on to name other
+    bodies joined by "or", the rest of that sentence is added, so that no body is lost to a shortening."""
+    for s in used:
+        name = (s.object_as_written or "").strip()
+        if len(name) < 3 or _key(name) not in _key(value):
+            continue
+        for sentence in re.split(r"(?<=[.;])\s+", s.quote or ""):
+            at = sentence.lower().find(name.lower())
+            rest = sentence[at + len(name):].strip(" .;") if at >= 0 else ""
+            if rest and JOINED.search(rest) and _key(rest) not in _key(value):
+                return f"{value.rstrip(' .')}; {name} {rest}"
+    return value
+
+
 def _duration(text: str) -> str | None:
     match = ISO_DURATION.search(text)
     if match and len(match.group(0)) > 1:
@@ -575,6 +644,10 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         value, used, missing = grounded(str(data.get("kind") or ""), value, used, question)
         if value is None:
             text = f"{UNKNOWN.get(lang, UNKNOWN['en'])} ({missing})"
+    if isinstance(value, list):   # set items in the facts' own words
+        value = polish_set(value, used) or None
+    elif isinstance(value, str) and re.match(r"\s*(who|chi)\b", question, re.I):
+        value = all_bodies(value, used)
     if rule and frequency:   # the rule's facts are always cited and its assumptions always stated
         if len(rule) == 1 and str(data.get("kind") or "") in ("duration", "unknown", ""):
             only = rule[0]   # one device asked about: the rule decides, the model only words it

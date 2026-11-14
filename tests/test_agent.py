@@ -177,3 +177,29 @@ def test_the_graph_is_queried_by_relation_and_one_regime_is_kept(monkeypatch):
     assert [s.id for s in kept] == ["g-5"] and "Directive's" in line
     monkeypatch.setattr(llm, "chat", lambda messages, **params: {"text": "not json"})
     assert agent.graph_query("Anything?", facts) == ([], {})
+
+
+def test_set_items_are_put_in_the_facts_own_words():
+    def fact(i, subject, predicate, value, condition="", quote="q", anchor="Art. 25(2)"):
+        return Statement(id=f"p-{i}", subject=subject, predicate=predicate, object=value, object_as_written=value,
+                         condition=condition, quote=quote, source_doc="REG", anchor=anchor, status="current",
+                         asserted_by="test")
+
+    used = [fact(1, "Vehicle servicing lifts", "listedIn", "4.", anchor="Annex I, Part A, point 4"),
+            fact(2, "machinery", "requiresProcedure", "full quality assurance (module H)"),
+            fact(3, "machinery", "requiresProcedure", "module B followed by module C",
+                 quote="EU type-examination (module B) followed by module C"),
+            fact(4, "machinery", "mustAccompany", "instructions for use"),
+            fact(5, "machinery", "mustAccompany", "digital instructions", condition="or alternatively, on request")]
+    polish = agent.polish_set
+    assert polish(["Option (a): vehicle servicing lifts (Annex I, Part A, point 4)"], used) == ["Vehicle servicing lifts"]
+    assert polish(["Full quality assurance (module H)"], used) == ["full quality assurance (module H)"]   # a name
+    assert polish(["EU declaration (before making it available)"], used) == ["EU declaration"]
+    assert polish(["module C followed by module B"], used) == ["module B followed by module C"]           # fact order
+    assert polish(["Instructions for use", "instructions for use (Art. 10)", "digital instructions"], used) == \
+        ["instructions for use"]                                    # no repeat, no alternative
+    assert polish(["presses", "presses and saws"], used) == ["presses"]   # the item that only extends another goes
+    body = fact(6, "subsequent verifications", "verifiedBy", "ASL",
+                quote="Le verifiche sono effettuate dalla ASL o da soggetti pubblici o privati abilitati.")
+    assert agent.all_bodies("The ASL.", [body]) == "The ASL; ASL o da soggetti pubblici o privati abilitati"
+    assert agent.all_bodies("INAIL", [body]) == "INAIL"
