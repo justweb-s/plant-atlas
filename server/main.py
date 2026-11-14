@@ -34,10 +34,10 @@ def _call(fn, *args):
         return None, {"state": "not_cached", "detail": str(e)}
 
 
-def _answer(mode: str, question: str, day: date | None):
+def _answer(mode: str, question: str, day: date | None, lang: str = "en"):
     if mode == "rag":
         return _call(rag.answer, question)
-    return _call(api.answer, question, mode, day)
+    return _call(api.answer, question, mode, day, lang)
 
 
 @app.get("/api/status")
@@ -66,13 +66,14 @@ class Ask(BaseModel):
     mode: str = "B"               # "B", "A" or "rag"
     as_of: date | None = None
     cq: str | None = None         # a gold question id, to score the answer
+    lang: str = "en"              # "it": the text of the answer in Italian
 
 
 @app.post("/api/answer")
 def answer(body: Ask):
     if body.mode not in ("A", "B", "rag"):
         raise HTTPException(400, "mode must be A, B or rag")
-    a, err = _answer(body.mode, body.question, body.as_of)
+    a, err = _answer(body.mode, body.question, body.as_of, body.lang if body.lang in ("en", "it") else "en")
     if err:
         return {"mode": body.mode, "error": err}
     out = {"mode": body.mode, "answer": asdict(a)}
@@ -115,6 +116,15 @@ def ontology(strategy: str):
         "counts": json.loads(counts_file.read_text(encoding="utf-8")) if counts_file.exists() and not api.fake_mode() else None,
         "turtle_available": api.ontology_file(strategy).exists(),
     }
+
+
+@app.get("/api/ontology/{strategy}/view")
+def view(strategy: str):
+    """Core's page that draws the ontology over time (one self-contained HTML file)."""
+    path = api.ROOT / "ontology" / strategy / "view.html" if strategy in ("A", "B") else None
+    if path is None or not path.exists():
+        raise HTTPException(404, "no view for this strategy yet")
+    return FileResponse(path, media_type="text/html")
 
 
 @app.get("/api/ontology/{strategy}/turtle")

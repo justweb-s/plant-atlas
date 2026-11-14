@@ -225,6 +225,22 @@ export default function Trust() {
           </ul>
         </details>
       )}
+      {onto?.build && (
+        <a
+          href="/api/ontology/B/view"
+          target="_blank"
+          rel="noreferrer"
+          className="card lift mt-4 flex items-center justify-between gap-4 p-5"
+        >
+          <span>
+            <span className="block font-semibold">Guarda l&apos;ontologia nel tempo</span>
+            <span className="block text-sm text-muted">
+              Sposta la data e vedi quali fatti sono in vigore, quali sono stati chiusi e come cambiano i 24 apparecchi.
+            </span>
+          </span>
+          <span className="text-2xl text-accent">→</span>
+        </a>
+      )}
       {onto?.turtle_available && (
         <a
           href="/api/ontology/B/turtle"
