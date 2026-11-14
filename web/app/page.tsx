@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Ask from "./components/Ask";
 import CellView from "./components/CellView";
@@ -49,6 +50,12 @@ export default function Home() {
                 {label}
               </button>
             ))}
+            <Link
+              href="/atlas"
+              className="rounded-lg px-3 py-1.5 text-sm font-medium text-muted transition hover:text-foreground sm:px-4"
+            >
+              Ontologia
+            </Link>
           </nav>
         </div>
       </header>
