@@ -3,6 +3,10 @@
 In vigore dal 14/11/2026, ore 11:35. È nato come visione di Prodotto (11:15) a partire dal piano di Core, che ora sta in `docs/archive/PLAN-plant-atlas-v2.md`. Le decisioni, con il loro perché, sono in `docs/decisions/`; le regole di lavoro in `AGENTS.md`.
 Marcatori: **[verificato: fonte]** · **[dichiarato]** · **[non verificato]**. Le decisioni da prendere insieme sono al §1.
 
+## Proposta delle 13:00 (decisione `1250-rspp-un-solo-motore`, da confermare)
+
+Il video delle 12:30 racconta la storia dell'RSPP: «questa macchina si può usare oggi?». La proposta unisce i pezzi: cliente e motore (registro dei fatti) di Core, misura e gold di Prodotto, cambio di regime visto dall'RSPP. Visione unita, casi reali, struttura della demo e domande aperte sono in `docs/INSIEME.md`. Finché la 1250 non è confermata, vale l'aggiornamento delle 12:00 qui sotto.
+
 ## Aggiornamento delle 12:00 (decisione `1200-due-regimi-catalogo`): vale questo, dove il resto dice altro
 
 - **Il problema:** dal 20 gennaio 2027 alcune macchine che oggi si autocertificano avranno bisogno di un organismo notificato, e il costruttore deve scoprire quali, in documenti che mescolano le regole vecchie e quelle nuove. Esempio verificato: un ponte sollevatore per veicoli con norme armonizzate complete oggi usa il controllo interno (Direttiva, Art. 12(3)(a)); dal 20/1/2027 è nell'Allegato I, parte A, e serve B+C, H o G (Regolamento, Art. 25(2)).

@@ -49,6 +49,7 @@ With `ATLAS_FAKE=1` (the default in `.env.example`) the app runs on fake data, c
 - [docs/decisions/](docs/decisions/): what we decided, and why.
 - [notes/](notes/): who is doing what right now.
 - [docs/PLAN.md](docs/PLAN.md): the plan.
+- [docs/INSIEME.md](docs/INSIEME.md): how the two halves fit together, real cases, the demo and the open questions (proposal, in Italian).
 - [AI_TOOLS.md](AI_TOOLS.md): the models and AI tools we used.
 
 ## Licence
