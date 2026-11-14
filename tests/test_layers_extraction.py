@@ -22,7 +22,8 @@ def _payload(layer: str) -> dict:
 
 
 def test_schema_keeps_the_law_relations_and_adds_the_layers():
-    assert set(LAW_RELATIONS) | set(LAYER_RELATIONS) == set(RELATIONS)
+    from atlas.strategies.schema_b import PLANT_RELATIONS   # written by code, added on top
+    assert set(LAW_RELATIONS) | set(LAYER_RELATIONS) | set(PLANT_RELATIONS) == set(RELATIONS)
     assert not set(LAW_RELATIONS) & set(LAYER_RELATIONS)
     assert all(len(spec) == 3 and spec[2] for spec in RELATIONS.values())   # every relation has its description
     assert "hasReach" not in describe()   # the prompt of the law texts is the one the committed run used

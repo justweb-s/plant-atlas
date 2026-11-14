@@ -11,7 +11,39 @@ pa:StatementShape a sh:NodeShape ;
                   sh:message "A statement must come from exactly one document." ] ;
     sh:property [ sh:path pa:locator ; sh:minCount 1 ; sh:maxCount 1 ;
                   sh:message "A statement must name the article or annex point it comes from." ] ;
-    sh:property [ sh:path pa:relation ; sh:minCount 1 ; sh:maxCount 1 ] .
+    sh:property [ sh:path pa:relation ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path pa:layer ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( "law" "guidance" "manufacturer" "company" "plant" ) ;
+                  sh:message "A statement must belong to exactly one layer: law, guidance, manufacturer, company or plant." ] .
+
+# The five layers, from the general (1, the law) to the specific (5, this plant).
+pa:LayerShape a sh:NodeShape ;
+    sh:targetClass pa:Layer ;
+    sh:property [ sh:path pa:order ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ;
+                  sh:minInclusive 1 ; sh:maxInclusive 5 ;
+                  sh:message "A layer must have one order number from 1 (law) to 5 (plant)." ] .
+
+# A rule that crosses layers: the fenced area around a robotic cell (a plant fact) must cover the maximum
+# extension of every machine in it (a manufacturer fact). Swapping the arm can make the same fence too small.
+pa:ProtectedZoneShape a sh:NodeShape ;
+    sh:targetSubjectsOf pa:protectedZoneRadiusMm ;
+    sh:sparql [
+        sh:message "The protected zone of {?cellName} has a radius of {?zone} mm, but {?machineName} located in it reaches {?reach} mm: the fence does not cover the machine's maximum extension." ;
+        sh:select '''
+            SELECT $this ?cellName ?machineName ?zone ?reach WHERE {
+                $this <https://github.com/justweb-s/plant-atlas/ontology#protectedZoneRadiusMm> ?zoneRaw .
+                ?machine <https://github.com/justweb-s/plant-atlas/ontology#locatedIn> $this ;
+                         <https://github.com/justweb-s/plant-atlas/ontology#reachMm> ?reachRaw .
+                BIND(REPLACE(STR(?zoneRaw), "[^0-9.]", "") AS ?zone)
+                BIND(REPLACE(STR(?reachRaw), "[^0-9.]", "") AS ?reach)
+                FILTER(<http://www.w3.org/2001/XMLSchema#decimal>(?zone) < <http://www.w3.org/2001/XMLSchema#decimal>(?reach))
+                OPTIONAL { $this <http://www.w3.org/2000/01/rdf-schema#label> ?cellLabel }
+                OPTIONAL { ?machine <http://www.w3.org/2000/01/rdf-schema#label> ?machineLabel }
+                BIND(COALESCE(STR(?cellLabel), REPLACE(STR($this), "^.*[#/]", "")) AS ?cellName)
+                BIND(COALESCE(STR(?machineLabel), REPLACE(STR(?machine), "^.*[#/]", "")) AS ?machineName)
+            }
+        ''' ;
+    ] .
 
 # An act is repealed from one date only: an uncorrected and a corrected date cannot both be in force.
 pa:RepealShape a sh:NodeShape ;

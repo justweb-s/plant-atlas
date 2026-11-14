@@ -108,3 +108,20 @@ def describe(relations: dict | None = None) -> str:
 def describe_layers() -> str:
     """The schema shown for manuals, guidance documents and company guidelines."""
     return describe(LAYER_RELATIONS | {name: LAW_RELATIONS[name] for name in SHARED_WITH_LAYERS})
+
+
+# The plant layer and the row-by-row annex: facts written by code (atlas/strategies/plant.py), not by the model.
+PLANT_CLASSES = {
+    "LiftingDevice": "A lifting device of the plant's equipment list.",
+    "Site": "A site of the organisation, with the sector it works in.",
+    "EquipmentCategory": "A category of work equipment in Annex VII of D.Lgs. 81/2008.",
+}
+PLANT_RELATIONS = {
+    "verificationInterval": ("EquipmentCategory", "duration", "how often a category of equipment must be verified, with its conditions"),
+    "deviceKind": ("LiftingDevice", "text", "the kind of a device, as the equipment list names it"),
+    "capacityKg": ("LiftingDevice", "text", "the capacity of a device in kg, as listed"),
+    "yearBuilt": ("LiftingDevice", "text", "the year a device was built, as listed"),
+    "siteSector": ("Site", "text", "the sector a site works in"),
+}
+CLASSES.update(PLANT_CLASSES)
+RELATIONS.update(PLANT_RELATIONS)
