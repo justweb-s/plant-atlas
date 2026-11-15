@@ -21,8 +21,8 @@ from evaluation.score import load_cqs, run, summary
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
-MODES = ("rag", "A", "B")
-LABELS = {"rag": "RAG", "A": "A (free extraction)", "B": "B (checked facts)"}
+MODES = ("free", "rag", "A", "B")
+LABELS = {"free": "Free search (model + folder)", "rag": "RAG", "A": "A (free extraction)", "B": "B (checked facts)"}
 
 
 def run_mode(mode: str) -> dict:
@@ -105,7 +105,7 @@ def board() -> dict:
 
 
 def markdown(b: dict) -> str:
-    out = ["# Tabellone RAG / A / B", "",
+    out = ["# Tabellone ricerca libera / RAG / A / B", "",
            "Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · ✗ sbagliata · "
            "? «non lo so» · un numero = giusta in parte · — non lanciata.", ""]
     sections = (("design", "Domande di progetto"), ("heldout", "Domande tenute da parte (quelle oneste)"),

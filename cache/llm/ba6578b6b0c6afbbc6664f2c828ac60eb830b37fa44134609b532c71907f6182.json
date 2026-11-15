@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "Given that the company works in mining areas (extractive sector), how often must the IGEA-PRIM 5t overhead travelling crane at position 13 be verified on 1 June 2027?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P1Y\", \"text\": \"The IGEA-PRIM 5t overhead travelling crane (position 13, manufactured January 2017, per the IGEA technical sheet Allegato A, table A2) must be verified annually. Under Allegato VII of D.Lgs. 81/08, lines 12 and 15, lifting equipment over 200 kg used in the extractive sector is verified annually, and the fixed-equipment line applies to units more than 10 years old, which this crane is by 1 June 2027.\", \"sources\": [{\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 15\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifica annuale\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 12\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 6, ALLEGATO A, Tabella A2\", \"quote\": \"GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 3, sezione 2.2\", \"quote\": \"Qtà COMUNE Area mineraria Monteponi 19 Iglesias Campo Pisano Masua - Acquaresi 2 Gadoni Miniera Funtana Raminosa 2 Lula Miniera Sos Enattos 1 Furtei Miniera Furtei\"}]}",
+  "turns": 11,
+  "usage": {
+   "prompt_tokens": 144606,
+   "completion_tokens": 4375
+  }
+ }
+}

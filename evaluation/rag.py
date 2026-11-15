@@ -57,6 +57,25 @@ def _cosine(a: list[float], b: list[float]) -> float:
     return dot / (math.sqrt(sum(x * x for x in a)) * math.sqrt(sum(y * y for y in b)) or 1.0)
 
 
+def api_corpus() -> list[Chunk]:
+    from atlas import api
+    return api.corpus()
+
+
+def _local() -> bool:
+    """ATLAS_RAG_EMBED=local (the default): vectors computed on this machine, no key. "gateway": the event's
+    embedding model through the team gateway (needs a working key, or the cache for texts already embedded)."""
+    import os
+    return os.getenv("ATLAS_RAG_EMBED", "local") != "gateway"
+
+
+@lru_cache(maxsize=1)
+def _local_index():
+    from evaluation import local_embed
+    chunks = api_corpus()
+    return chunks, local_embed.corpus_vectors([_passage(c) for c in chunks])
+
+
 @lru_cache(maxsize=1)
 def _index() -> tuple[list[Chunk], list[list[float]]]:
     from atlas import api, llm
@@ -70,6 +89,11 @@ def _index() -> tuple[list[Chunk], list[list[float]]]:
 
 def retrieve(question: str, top: int = TOP) -> list[Chunk]:
     from atlas import llm
+    if _local():
+        from evaluation import local_embed
+        chunks, matrix = _local_index()
+        scores = matrix @ local_embed.embed([question])[0]
+        return [chunks[i] for i in scores.argsort()[::-1][:top]]
     chunks, vectors = _index()
     q = llm.embed([question], dimensions=DIMENSIONS)[0]
     ranked = sorted(range(len(chunks)), key=lambda i: _cosine(q, vectors[i]), reverse=True)

@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "The technical sheet requires IGEA to make available to the verifier, for devices more than 20 years old, the certification of structural verification of the residual life cycles. As of 14 November 2026, for which of the seven truck-mounted cranes (positions 1-7) does this apply?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"position 1 (HIAB, 1991)\", \"position 2 (FASSI on Ford Transit, 2005)\", \"position 4 (IVECO/FIAT, 2005)\", \"position 5 (FASSI on IVECO/FIAT, 2003)\", \"position 6 (FASSI on IVECO/FIAT, 2004)\"], \"text\": \"Under section 4.2.2 of the IGEA technical sheet (Scheda tecnica, pages 4-5), IGEA must give the verifier the structural residual-life certification for equipment over 20 years old. As of 14 November 2026, that covers truck-mounted cranes at positions 1, 2, 4, 5 and 6, built in 1991, 2005, 2005, 2003 and 2004 (Allegato A, Tabella A1, page 6). Positions 3 (2009) and 7 (2017) are under 20 years old.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"4. IMPEGNI APPALTATORE, 4.2.2 (pages 4-5)\", \"quote\": \"5. se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui;\"}, {\"file\": \"igea-equipment.md\", \"place\": \"ALLEGATO A, TABELLA A1 (page 6)\", \"quote\": \"HIAB - GRU IDRAULICA ... PER AUTOCARRO ... 1 3870 CA 57 / 92 1991 ... GRU IDRAULICA FASSI ... 2 995 CA 200084/06 2005 ... GRU IDRAULICA FASSI ... 3 1500 CA 200043/ 10 2009 ... GRU IDRAULICA IVECO ... 4 AMCO VEBA 520 CA 200241/06 2005 ... GRU IDRAULICA FASSI ... 5 995 CA 200085 / 03 2003 ... GRU IDRAULICA FASSI ... 6 995 CA 200081/04 2004 ... GRU IDRAULICA IVECO ... 7 Effer 790 2018/200045/CA 2017\"}]}",
+  "turns": 4,
+  "usage": {
+   "prompt_tokens": 25997,
+   "completion_tokens": 1711
+  }
+ }
+}

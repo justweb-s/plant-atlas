@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "According to Annex B, which positions of the list have Monteponi as their location (sector/service)?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"13\", \"14\"], \"text\": \"In Allegato B (Tabella B1, p. 8 of igea-equipment.md), the word \\\"Monteponi\\\" appears in the location column for positions 13 (IGEA PRIM 5t gru a ponte scorrevole) and 14 (Palair/J.D. Neuhaus paranco pneumatico, Iglesias). The OCR text is garbled, so the sector labels next to these rows (\\\"Pozzo Vittorio\\\" and \\\"Livello Vesme\\\") are not fully clear. Section 2.2 (p. 3) also summarises 19 units in Iglesias under \\\"Area mineraria Monteponi\\\", which would cover more positions than these two.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 8 – ALLEGATO B, TABELLA B1\", \"quote\": \"IGEA – 2017- Pozzo Vittorio 13 5000 2017 gen-17 Iglesias SCORREVOLE PRIM 5t 200086/CA Monteponi J.D.NEUHA PARANCO US CA Livello Vesme 14 10000 2002 801453 Iglesias PNEUMATICO SIS PROFI 200100/06 Monteponi\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 3 – 2.2\", \"quote\": \"Qtà COMUNE Area mineraria Monteponi 19 Iglesias Campo Pisano Masua - Acquaresi 2 Gadoni Miniera Funtana Raminosa 2 Lula Miniera Sos Enattos 1 Furtei Miniera Furtei\"}]}",
+  "turns": 4,
+  "usage": {
+   "prompt_tokens": 19855,
+   "completion_tokens": 3444
+  }
+ }
+}

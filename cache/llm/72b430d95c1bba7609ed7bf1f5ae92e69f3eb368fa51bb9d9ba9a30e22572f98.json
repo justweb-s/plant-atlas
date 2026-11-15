@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "What must accompany machinery when it is placed on the market?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"Instructions (operating instructions, in the official language(s) of the Member State where it is placed on the market, as 'Original instructions' or a translation accompanied by the originals)\", \"EC declaration of conformity\"], \"text\": \"Under Directive 2006/42/EC (Machinery Directive), Article 5(1)(c) and (e) require the manufacturer to provide instructions and to draw up the EC declaration of conformity, which must accompany the machinery; Annex I, section 1.7.4 requires all machinery to be accompanied by instructions in the official language(s) of the Member State where it is placed on the market.\", \"sources\": [{\"file\": \"DIR.md\", \"place\": \"Art. 5(1) — Article 5 Placing on the market and putting into service\", \"quote\": \"(c) provide, in particular, the necessary information, such as instructions; (e) draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery\"}, {\"file\": \"DIR.md\", \"place\": \"Annex I, 1.7.4 Instructions\", \"quote\": \"All machinery must be accompanied by instructions in the official Community language or languages of the Member State in which it is placed on the market and/or put into service.\"}]}",
+  "turns": 9,
+  "usage": {
+   "prompt_tokens": 45020,
+   "completion_tokens": 1992
+  }
+ }
+}

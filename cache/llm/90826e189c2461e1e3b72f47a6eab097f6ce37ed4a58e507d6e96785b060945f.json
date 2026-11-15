@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "From which date do Articles 26 to 42 of Regulation (EU) 2023/1230 (notification of conformity assessment bodies) apply?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"date\", \"value\": \"2024-01-20\", \"text\": \"Under Article 54, point (a), of Regulation (EU) 2023/1230, Articles 26 to 42 (including the notification of conformity assessment bodies) apply from 14 January 2024. The corrigendum (CORR.md, point 11) corrects that date to 20 January 2024.\", \"sources\": [{\"file\": \"REG.md\", \"place\": \"Art. 54\", \"quote\": \"It shall apply from 14 January 2027. However, the following Articles shall apply from the following dates: (a) Articles 26 to 42 from 14 January 2024;\"}, {\"file\": \"CORR.md\", \"place\": \"Corrigendum, point 11\", \"quote\": \"On page 39, Article 54, third paragraph, point (a): for: ‘ 14 January 2024 ’, read: ‘ 20 January 2024 ’.\"}]}",
+  "turns": 11,
+  "usage": {
+   "prompt_tokens": 68062,
+   "completion_tokens": 2358
+  }
+ }
+}

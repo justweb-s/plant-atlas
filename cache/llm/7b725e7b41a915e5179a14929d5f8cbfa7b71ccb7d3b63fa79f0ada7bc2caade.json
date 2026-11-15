@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "What amount in euro is paid to the verifier for the periodic verification of the 35,000 kg gantry crane at position 23?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"unknown\", \"value\": null, \"text\": \"The files do not give a euro amount. Position 23 is the 35,000 kg 'gru a cavalletto' (gantry crane) in IGEA's Allegato A, Tabella A5 (igea-equipment.md, p. 5-6). IGEA's schedule says the fee is calculated from the tariff in the Decreto Dirigenziale of 23/11/2012, with ISTAT indices and the contractor's discount, but that tariff itself is not in the files. INAIL's guide (inail-guide.md, pp. 37-38) likewise refers to that tariff without stating an amount.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 3 (2. Specifiche tecniche generali, 2.7) and p. 4 (2.6)\", \"quote\": \"2.6 Per le prestazioni di cui al punto 2.5, come base d'asta di riferimento verrà utilizzato il tariffario, con gli indici ISTAT aggiornati, emanato dal Ministero del Lavoro e delle Politiche Sociali ... attraverso il Decreto Dirigenziale del 23/11/2012 ... 2.7 Per ciascun apparecchio di sollevamento in elenco ... verrà corrisposto l'importo calcolato sulla base di quanto disposto al punto 2.6 e col ribasso proposto dall' Aggiudicatario\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 6, Tabella A5 (and p. 9, Tabella B3)\", \"quote\": \"23 GRU A CAVALLETTO 35000 NU 16/95 1989 459 GCB 35 X 12/21 Classe: matr.459\"}, {\"file\": \"inail-guide.md\", \"place\": \"Section 5.1, Prima verifica periodica di apparecchi di sollevamento (p. 37-38)\", \"quote\": \"l'importo dovuto all'Inail sarà pari al 100% di quanto previsto dal tariffario di cui al decreto dirigenziale 23 novembre 2012 ... ovvero pari al 15% (se la prima verifica periodica viene eseguita dal soggetto abilitato indicato dal datore di lavoro nella richiesta e delegato dall'Inail).\"}]}",
+  "turns": 10,
+  "usage": {
+   "prompt_tokens": 268674,
+   "completion_tokens": 2917
+  }
+ }
+}

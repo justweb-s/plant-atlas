@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "Is the periodic verification of the DEMAG overhead crane at position 8 of the IGEA list overdue today?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"unknown\", \"value\": null, \"text\": \"The IGEA plant sheet lists position 8 as a DEMAG 5000 bridge crane (built 1985, matricola 503291), but it gives no date for that crane's last periodic verification, so overdue status cannot be determined. The sheet says the last-verification dates are in Allegato A, yet the tables show no such column. For a crane over 10 years old, Allegato VII of D.Lgs. 81/2008 sets an annual verification for the relevant categories (rows 14 and 15), but the due date still needs the missing last-verification date.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 3, section 2.1\", \"quote\": \"Le caratteristiche tecniche degli apparecchi in oggetto e le relative date delle ultime verifiche, sono descritte nelle tabelle dell’Allegato A (A1, A2, A3, A4, A5, A6).\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 6, Allegato A, Tabella A2\", \"quote\": \"GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 SCORREVOLE\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 15\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali\"}]}",
+  "turns": 8,
+  "usage": {
+   "prompt_tokens": 60488,
+   "completion_tokens": 3387
+  }
+ }
+}

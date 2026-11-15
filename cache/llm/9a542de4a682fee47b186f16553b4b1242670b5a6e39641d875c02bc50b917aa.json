@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "How often must the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, be verified today?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P2Y\", \"text\": \"The IGEA-PRIM bridge crane (position 13, Allegato A, table A2, manufactured 2017) falls under Allegato VII of D.Lgs. 81/2008 as lifting equipment over 200 kg that is not younger than 10 years... more precisely, not older than 10 years, so it needs a biennial (every two years) periodic verification. The same biennial cadence applies whether it is classed as mobile (row 13) or fixed (row 16).\", \"sources\": [{\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 16\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg , non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 13\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni | Verifica biennale\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 6 (Allegato A, Tabella A2)\", \"quote\": \"GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA\"}]}",
+  "turns": 7,
+  "usage": {
+   "prompt_tokens": 58682,
+   "completion_tokens": 2249
+  }
+ }
+}

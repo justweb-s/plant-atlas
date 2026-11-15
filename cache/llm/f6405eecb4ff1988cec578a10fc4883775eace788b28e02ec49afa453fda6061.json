@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "If the UR5e arm in the cell is replaced with a UR10e, by how many millimetres does the reach increase?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P450M\", \"text\": \"The UR10e reach is 1300 mm and the UR5e reach is 850 mm, so replacing the UR5e with a UR10e increases reach by 450 mm. Both figures come from the Technical Specifications tables (section 3.1) of the manufacturer manuals. The files contain no cell-specific record confirming that the cell's arm is a UR5e.\", \"sources\": [{\"file\": \"ur5e-manual.md\", \"place\": \"3. Your Robot, 3.1. Technical Specifications\", \"quote\": \"UR5e General Maximum payload 5 kg / 11 lb specification Reach 850 mm / 33.5 in\"}, {\"file\": \"ur10e-manual.md\", \"place\": \"3. Your Robot, 3.1. Technical Specifications\", \"quote\": \"UR10e General Maximum payload 10 kg / 22 lb or 12.5 kg / 27.5 lb specification Reach 1300 mm / 51.2 in\"}]}",
+  "turns": 13,
+  "usage": {
+   "prompt_tokens": 111944,
+   "completion_tokens": 2801
+  }
+ }
+}

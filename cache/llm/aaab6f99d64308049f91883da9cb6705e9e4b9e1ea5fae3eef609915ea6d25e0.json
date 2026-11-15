@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "According to the nanoScan3 manual, in which situations (apart from the regular check) must the protective device and its application be thoroughly checked?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"during commissioning\", \"after each change to the machine\", \"after a change to the integration of the safety laser scanner\", \"after a change to the operating or boundary conditions of the safety laser scanner\"], \"text\": \"Apart from the regular thorough check (section 10.2), the nanoScan3 manual requires a thorough check during commissioning and after modifications (section 9.5, p. 105). Section 9.1 (p. 104) specifies that the effectiveness of the protective measure must be checked after each change to the machine, the integration, or the operating and boundary conditions of the scanner.\", \"sources\": [{\"file\": \"nanoscan3-manual.md\", \"place\": \"9.1 Safety (p. 104)\", \"quote\": \"Check the effectiveness of the protective measure after each change to the machine, the integration or the operating and boundary conditions of the safety laser scanner. Perform commissioning again.\"}, {\"file\": \"nanoscan3-manual.md\", \"place\": \"9.5 Check during commissioning and modifications (p. 105)\", \"quote\": \"9.5 Check during commissioning and modifications The thorough check is intended to ensure that the safety functions are fulfilling their planned purpose and whether persons are being adequately protected.\"}, {\"file\": \"nanoscan3-manual.md\", \"place\": \"10.2 Regular thorough check (p. 106)\", \"quote\": \"10.2 Regular thorough check The thorough check is intended to ensure that the safety functions are fulfilling their planned purpose and whether persons are being adequately protected.\"}]}",
+  "turns": 7,
+  "usage": {
+   "prompt_tokens": 35009,
+   "completion_tokens": 1895
+  }
+ }
+}

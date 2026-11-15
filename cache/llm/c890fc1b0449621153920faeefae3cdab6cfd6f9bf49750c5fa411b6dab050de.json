@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "Which positions of the list are devices whose year of construction is earlier than 1990?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"8\", \"9\", \"10\", \"11\", \"12\", \"17\", \"23\"], \"text\": \"According to the IGEA equipment list (Allegato A, Tabelle A2, A4 and A5), positions 8, 9, 10, 11, 12, 17 and 23 have a year of construction before 1990 (1985, 1985, 1988, 1978, 1980, 1977 and 1989). Position 15's record reads \\\"declass. 1997\\\" and position 1 is 1991, so neither qualifies.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 6, ALLEGATO A – Tabella A2 (gru a ponte scorrevole)\", \"quote\": \"GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 SCORREVOLE GRU A PONTE 9 DEMAG 5000 CA 128 / 86 1985 503292 SCORREVOLE GRU A PONTE 10 GUTTER 3000 CA 197 / 88 1988 24984 SCORREVOLE GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 SCORREVOLE TITANO GRU A PONTE 12 PRIM 5000 NU 41/85 1980 160 SCORREVOLE\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 6, ALLEGATO A – Tabella A4 (autogru)\", \"quote\": \"17 AUTOGRU' P&H R200 18760 RM - I - 22027 1977 70761\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 7, ALLEGATO A – Tabella A5 (gru a cavalletto)\", \"quote\": \"23 GRU A CAVALLETTO 35000 NU 16/95 1989 459 GCB 35 X 12/21 Classe: matr.459\"}]}",
+  "turns": 4,
+  "usage": {
+   "prompt_tokens": 24372,
+   "completion_tokens": 1772
+  }
+ }
+}

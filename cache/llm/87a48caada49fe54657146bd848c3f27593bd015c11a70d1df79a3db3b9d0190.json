@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "How often must the AMCO VEBA hydraulic truck-mounted crane at position 4, whose capacity is only 520 kg, be verified?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P1Y\", \"text\": \"The AMCO VEBA crane at position 4 (Tabella A1 of the IGEA record, 520 kg, built 2005, mobile truck-mounted, mining-area use) falls under Allegato VII of D.Lgs. 81/2008 rows 12 and 14, which both require annual verification (verifica annuale). The IGEA record also states that the verifications follow the Allegato VII schedule.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 6, ALLEGATO A, TABELLA A1, position 4\", \"quote\": \"GRU IDRAULICA IVECO 4 AMCO VEBA 520 CA 200241/06 2005 18825 DF 019 FJ PER AUTOCARRO FIAT\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 12\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 14\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali\"}]}",
+  "turns": 7,
+  "usage": {
+   "prompt_tokens": 58978,
+   "completion_tokens": 2127
+  }
+ }
+}

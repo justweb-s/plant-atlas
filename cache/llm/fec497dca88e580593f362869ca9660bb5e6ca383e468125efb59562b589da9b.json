@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "After 20 January 2027, can a vehicle servicing lift built to harmonised standards covering all requirements be certified with internal production control alone?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"boolean\", \"value\": false, \"text\": \"No. Under Regulation (EU) 2023/1230, which applies from 20 January 2027 as corrected by the Corrigendum, vehicle servicing lifts are listed in Annex I, Part A, point 3. For Part A machinery, Article 25(2) allows only EU type-examination (module B) followed by module C, full quality assurance (module H), or unit verification (module G). Internal production control (module A) is not an option for these lifts, even when harmonised standards are applied; Article 25(3)(a) allows module A only for Part B categories.\", \"sources\": [{\"file\": \"REG.md\", \"place\": \"Art. 25(2)\", \"quote\": \"Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X.\"}, {\"file\": \"REG.md\", \"place\": \"Annex I, Part A, point 3\", \"quote\": \"3. Vehicle servicing lifts.\"}, {\"file\": \"REG.md\", \"place\": \"Art. 25(3)\", \"quote\": \"If a manufacturer applies the internal production control procedure referred to in point (a), it shall design and construct the machinery or related product in accordance with the harmonised standards or common specifications specific to that category of machinery or related product covering all the relevant essential health and safety requirements.\"}, {\"file\": \"CORR.md\", \"place\": \"Corrigendum, point 10\", \"quote\": \"On page 39, Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’.\"}]}",
+  "turns": 12,
+  "usage": {
+   "prompt_tokens": 103221,
+   "completion_tokens": 4077
+  }
+ }
+}

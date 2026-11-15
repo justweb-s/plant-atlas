@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "Given that the company works in mining areas (extractive sector), how often must the KITO KR50L electric hoist at position 16 be verified?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P1Y\", \"text\": \"The KITO KR50L electric hoist at position 16 (built 2000, capacity 5000 kg) must be verified every year. Allegato VII of D.Lgs. 81/2008 (DLGSALLVII.md, rows 14 and 15) sets annual verification for non-hand-operated lifting appliances over 200 kg that are more than 10 years old, and for fixed ones used in the extractive sector; the IGEA plant record lists it as a 'paranco elettrico' with year 2000 in Tabella A3.\", \"sources\": [{\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 15\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 14\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 7, TABELLA A3\", \"quote\": \"PARANCO KITO CA 200121/ 16 5000 2000 55781 ELETTRICO KR50L 09\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 8, TABELLA B1\", \"quote\": \"Meccanizzazione 16 5000 2000 55781 Iglesias ELETTRICO KR50L 09 Campo Pisano\"}]}",
+  "turns": 9,
+  "usage": {
+   "prompt_tokens": 73954,
+   "completion_tokens": 2920
+  }
+ }
+}

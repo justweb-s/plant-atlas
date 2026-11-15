@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "As of 14 November 2026, is the periodic verification of the P&H R200 mobile crane at position 17 overdue?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"unknown\", \"value\": null, \"text\": \"The files do not record when position 17 (P&H R200, built 1977) was last verified, so they cannot show whether the 14 November 2026 check is overdue. Under Allegato VII of D.Lgs. 81/08 (DLGSALLVII.md, rows 12 and 14), a mobile lifting appliance over 200 kg built more than 10 years earlier needs annual verification. The IGEA technical sheet (igea-equipment.md, p. 6, Tabella A4) lists the crane but gives no verification date, and its scope covers only 2019–2021.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 6 – ALLEGATO A, TABELLA A4\", \"quote\": \"17 AUTOGRU' P&H R200 18760 RM - I - 22027 1977 70761\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 8 – ALLEGATO B, TABELLA B1\", \"quote\": \"Meccanizzazione 17 AUTOGRU' 18760 1977 70761 Iglesias R200 22027 Campo Pisano\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 14\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali\"}]}",
+  "turns": 8,
+  "usage": {
+   "prompt_tokens": 56140,
+   "completion_tokens": 3067
+  }
+ }
+}

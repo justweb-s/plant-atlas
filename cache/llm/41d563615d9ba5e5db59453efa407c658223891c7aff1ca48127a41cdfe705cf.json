@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "Who carries out the periodic verifications after the first one on the equipment listed in Annex VII?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"ASL (Aziende sanitarie locali)\", \"ARPA, where regional law provides for it\", \"public or private bodies authorised under art. 71(13), chosen freely by the employer\"], \"text\": \"Under art. 71(11) of D.Lgs. 81/2008, the periodic checks after the first one on the Annex VII equipment are carried out by the ASL, or by ARPA where regional law so provides, or by authorised public or private bodies that the employer chooses freely. DM 2011, art. 2(1), likewise gives the ASL responsibility for the verifications after the first.\", \"sources\": [{\"file\": \"DLGS71.md\", \"place\": \"Art. 71, comma 11\", \"quote\": \"Le successive verifiche sono effettuate su libera scelta del datore di lavoro dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati che vi provvedono secondo le modalità di cui al comma 13.\"}, {\"file\": \"DM2011.md\", \"place\": \"art. 2, c. 1\", \"quote\": \"mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta.\"}]}",
+  "turns": 10,
+  "usage": {
+   "prompt_tokens": 113451,
+   "completion_tokens": 2815
+  }
+ }
+}

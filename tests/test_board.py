@@ -13,7 +13,7 @@ def test_board_from_results_files(tmp_path, monkeypatch):
     (tmp_path / "rag.json").write_text(json.dumps({"rows": rows}), encoding="utf-8")
     monkeypatch.setattr(board, "RESULTS", tmp_path)
     b = board.board()
-    assert b["modes"] == ["rag"] and b["not_run"] == ["A", "B"]
+    assert b["modes"] == ["rag"] and b["not_run"] == ["free", "A", "B"]
     t = b["totals"]["rag"]
     assert t["design"]["n"] + t["heldout"]["n"] == len(cqs)
     assert t["design"]["correct"] == 1 and t["design"]["wrong"] == 1

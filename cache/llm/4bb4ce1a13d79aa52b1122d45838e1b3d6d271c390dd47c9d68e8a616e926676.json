@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "For the periodic verifications after the first one of Annex VII equipment, is the employer obliged to apply to the ASL (local health authority), being allowed to use an authorised body only once thirty days from the request have elapsed?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"boolean\", \"value\": true, \"text\": \"Yes. Under DM 2011 art. 2, c. 1, the ASL holds the periodic verifications after the first, due within 30 days of the request. Under Allegato II, punto 5.2.1, the employer must request that ASL at least 30 days before the deadline. Art. 2, c. 8 allows the employer to use an authorised body only after the c. 1 terms have elapsed.\", \"sources\": [{\"file\": \"DM2011.md\", \"place\": \"art. 2, c. 1\", \"quote\": \"le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta.\"}, {\"file\": \"DM2011.md\", \"place\": \"Allegato II, 5.2 Verifiche periodiche successive alla prima\", \"quote\": \"il datore di lavoro deve richiedere alla ASL competente per territorio l'esecuzione delle verifiche periodiche successive alla prima\"}, {\"file\": \"DM2011.md\", \"place\": \"art. 2, c. 2 (comma 8)\", \"quote\": \"Decorsi i termini temporali di cui al comma l, il datore di lavoro puo' avvalersi dei soggetti abilitati, pubblici o privati, di cui all'elenco previsto nell'allegato III.\"}]}",
+  "turns": 9,
+  "usage": {
+   "prompt_tokens": 69938,
+   "completion_tokens": 2583
+  }
+ }
+}

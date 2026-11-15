@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "On 16 January 2027, can machinery conforming to Directive 2006/42/EC still be placed on the market?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"boolean\", \"value\": true, \"text\": \"Yes. Under Article 51(2) of Regulation (EU) 2023/1230, Directive 2006/42/EC is repealed with effect from 14 January 2027, but Corrigendum point 5 (CORR.md, OJ L 169, 4.7.2023) changes that date to 20 January 2027. Since 16 January 2027 falls before the corrected repeal date, the Directive is still in force that day, so conforming machinery can still be placed on the market.\", \"sources\": [{\"file\": \"REG.md\", \"place\": \"Art. 51(2)\", \"quote\": \"Article 51 Repeals. 2. Directive 2006/42/EC is repealed with effect from 14 January 2027.\"}, {\"file\": \"CORR.md\", \"place\": \"Corrigendum, point 5\", \"quote\": \"On page 38, Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’.\"}]}",
+  "turns": 7,
+  "usage": {
+   "prompt_tokens": 43858,
+   "completion_tokens": 1858
+  }
+ }
+}

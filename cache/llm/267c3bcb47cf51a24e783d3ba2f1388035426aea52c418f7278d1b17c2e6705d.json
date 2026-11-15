@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "If the 1500 kg FASSI F 28 B22 hydraulic truck-mounted crane at position 3 had been used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often did it have to be verified in 2024?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P1Y\", \"text\": \"Under regular use, a mobile lifting appliance over 200 kg that was built more than 10 years earlier (the FASSI F 28 B22, built 2009, position 3 in IGEA's plant record) must be verified annually, so once in 2024. This comes from Allegato VII of D.Lgs. 81/2008, row 14, as reproduced in DLGSALLVII.md.\", \"sources\": [{\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 14\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 6\", \"quote\": \"GRU IDRAULICA FASSI 3 1500 CA 200043/ 10 2009 Mitsubishi 0206-5071 DV 431 BA PER AUTOCARRO F 28 B22\"}]}",
+  "turns": 8,
+  "usage": {
+   "prompt_tokens": 61563,
+   "completion_tokens": 2034
+  }
+ }
+}
