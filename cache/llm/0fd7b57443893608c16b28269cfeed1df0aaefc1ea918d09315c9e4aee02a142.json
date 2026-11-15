@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: A machine is placed on the Union market for the first time exactly on 20 January 2027. May it be placed on the market in conformity with Directive 2006/42/EC alone, instead of Regulation (EU) 2023/1230?\n\nAnswer A: true\nYes: 2027-01-20 is the same day as 2027-01-20. products placed on the market in conformity with Directive 2006/42/EC may be placed on the market until 2027-01-20, on the condition: placed on the market in conformity with Directive 2006/42/EC before 20 January 2027 (source: CORR, Corrigendum, point 6).\nEvidence of A:\n- [skill value_on_date: dated_facts > in_force > compare > answer] products placed on the market in conformity with Directive 2006/42/EC: placingAllowedUntil = 20 January 2027 (condition: placed on the market in conformity with Directive 2006/42/EC before 20 January 2027) | sentence: \"read: ‘ 20 January 2027 ’.\" [CORR, Corrigendum, point 6]\n\nAnswer B: false\nNo. Under Article 52(1) of Regulation (EU) 2023/1230, the transitional protection covers only products placed on the market under Directive 2006/42/EC before 20 January 2027, and Article 51(2) repeals that Directive with effect from 20 January 2027, so a machine first placed on the market on that date must comply with the Regulation.\nEvidence of B:\n- Read on demand: REG, Art. 52(1) (corrected by the corrigendum (Corrigendum, point 6: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 7: '13 July 2023' now reads '19 July 2023')) | sentence: \"Member States shall not impede the making available on the market of products which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027.\" [REG, Art. 52(1)]\n- Read on demand: REG, Art. 51(2) (corrected by the corrigendum (Corrigendum, point 5: '14 January 2027' now reads '20 January 2027')) | sentence: \"Directive 2006/42/EC is repealed with effect from 20 January 2027.\" [REG, Art. 51(2)]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Art. 52(1) protects only products placed on the market in conformity with Directive 2006/42/EC before 20 January 2027, and Art. 51(2) repeals the Directive with effect from 20 January 2027. A machine first placed on the market exactly on 20 January 2027 is not 'before' that date, so the Directive alone does not suffice. A's evidence says 'until 20 January 2027' but its own stated condition is 'before 20 January 2027', so A's conclusion does not follow. B is supported by the Regulation itself.\", \"choice\": \"B\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1790,
+   "completion_tokens": 193,
+   "total_tokens": 1983
+  }
+ }
+}

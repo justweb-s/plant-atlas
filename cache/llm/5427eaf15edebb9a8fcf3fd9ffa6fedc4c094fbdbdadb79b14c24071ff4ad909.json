@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "IGEA decides to move the GUTTER overhead travelling crane at position 10 from Masua to another site: under the Ministerial Decree of 11 April 2011, must the employer notify the move to the territorially competent INAIL office?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "IGEA decide di spostare il carroponte GUTTER in posizione 10 da Masua verso un altro sito: ai sensi del Decreto Ministeriale dell'11 aprile 2011, il datore di lavoro deve comunicare lo spostamento alla sede INAIL territorialmente competente?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 735,
+   "completion_tokens": 369,
+   "total_tokens": 1104
+  }
+ }
+}

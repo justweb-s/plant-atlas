@@ -1,0 +1,695 @@
+{
+ "about": "Blind test set (slice plant): 24 domande di tipo I per un responsabile della sicurezza di stabilimento, con risposte gold scritte solo dai documenti sorgente (scheda igea-equipment, Allegato VII e art. 71 del D.Lgs. 81/2008, D.M. 11 aprile 2011, manuali UR5e, UR10e, nanoScan3 e MA STAR); data di riferimento 2026-11-14. Non usare per la messa a punto del sistema.",
+ "cqs": [
+  {
+   "id": "BLIND-PLANT-01",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), ogni quanto deve essere verificata oggi l'autogru JCB 3CX-4TPC da 5000 kg in posizione 19, costruita nel 2010?",
+   "question_en": "Given that the company works in mining areas (extractive sector), how often must the JCB 3CX-4TPC mobile crane at position 19 (5000 kg, built in 2010) be verified today?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe dell'Allegato VII per il settore estrattivo. L'autogru in posizione 19 (tabella A4) è un apparecchio di sollevamento materiali di tipo mobile (convenzione: autogru e gru per autocarro sono mobili), portata 5000 kg (> 200 kg). Si applica l'Allegato VII riga 12 (tipo mobile o trasferibile, settori costruzioni/siderurgico/portuale/estrattivo), che non distingue per anno di fabbricazione: verifica annuale. L'anno 2010 è quindi irrilevante.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "19 AUTOGRU' JCB - 3CX-4TPC 5000 2010 CA gommata 707884"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 12",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-02",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Se la gru idraulica per autocarro Effer da 790 kg in posizione 7 fosse impiegata con modalità di utilizzo regolare, cioè fuori dai settori costruzioni, siderurgico, portuale ed estrattivo, ogni quanto dovrebbe essere verificata il 31 dicembre 2027?",
+   "question_en": "If the Effer hydraulic truck-mounted crane at position 7 (790 kg) were used with regular use, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified on 31 December 2027?",
+   "answer": {
+    "kind": "duration",
+    "value": "P2Y"
+   },
+   "answer_text": "La domanda fissa un impiego diverso da quello estrattivo (utilizzo regolare). Convenzione: l'Allegato VII confronta gli ANNI (un apparecchio costruito nell'anno Y è «antecedente 10 anni» in un giorno dell'anno N quando Y < N − 10); data odierna 14/11/2026. La gru per autocarro in posizione 7 è di tipo mobile, portata 790 kg (> 200 kg), anno di costruzione 2017. Il 31/12/2027: 2017 < 2027 − 10 = 2017 è falso, quindi l'anno di fabbricazione è «non antecedente 10 anni». Si applica l'Allegato VII riga 13 (tipo mobile o trasferibile, utilizzo regolare, non antecedente 10 anni): verifica biennale. Dal 1° gennaio 2028 passerebbe alla riga 14 (annuale).",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA IVECO 7 Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 13",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni | Verifica biennale"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 14",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-03",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), a partire da quale giorno la gru a ponte scorrevole IGEA-PRIM 5t in posizione 13 passa dalla verifica biennale alla verifica annuale?",
+   "question_en": "Given that the company works in mining areas (extractive sector), from which day does the IGEA-PRIM 5t overhead travelling crane at position 13 move from two-yearly to yearly verification?",
+   "answer": {
+    "kind": "date",
+    "value": "2028-01-01"
+   },
+   "answer_text": "Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe dell'Allegato VII per il settore estrattivo. Convenzione: l'Allegato VII confronta gli ANNI (un apparecchio costruito nell'anno Y è «antecedente 10 anni» in un giorno dell'anno N quando Y < N − 10); data odierna 14/11/2026. La gru a ponte in posizione 13 è di tipo fisso, portata 5000 kg, anno di costruzione 2017. Finché 2017 < N − 10 è falso (cioè fino a tutto il 2027) vale la riga 16 (fisso, settore estrattivo, non antecedente 10 anni): biennale. La condizione 2017 < N − 10 diventa vera per N = 2028: dal 1° gennaio 2028 si applica la riga 15 (fisso, settore estrattivo, antecedente 10 anni): annuale.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 16",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 15",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-04",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), oggi la gru a cavalletto in posizione 23 e la gru a ponte scorrevole IGEA-PRIM 5t in posizione 13 hanno la stessa periodicità di verifica?",
+   "question_en": "Given that the company works in mining areas (extractive sector), do the gantry crane at position 23 and the IGEA-PRIM 5t overhead travelling crane at position 13 have the same verification interval today?",
+   "answer": {
+    "kind": "boolean",
+    "value": false
+   },
+   "answer_text": "No. Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe dell'Allegato VII per il settore estrattivo. Convenzione: l'Allegato VII confronta gli ANNI (un apparecchio costruito nell'anno Y è «antecedente 10 anni» in un giorno dell'anno N quando Y < N − 10); data odierna 14/11/2026. Entrambe sono di tipo fisso (convenzione: gru a ponte e gru a cavalletto sono fisse) con portata > 200 kg. Posizione 23: anno 1989, 1989 < 2026 − 10 = 2016, quindi antecedente 10 anni: riga 15, verifica annuale. Posizione 13: anno 2017, non antecedente 10 anni: riga 16, verifica biennale. Le periodicità sono diverse.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "23 GRU A CAVALLETTO 35000 NU 16/95 1989 459"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 15",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 16",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-05",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), per quali posizioni, tra gli apparecchi di tipo fisso dell'elenco (gru a ponte scorrevole e gru a cavalletto), la verifica è oggi annuale?",
+   "question_en": "Given that the company works in mining areas (extractive sector), for which positions among the fixed devices in the list (overhead travelling cranes and the gantry crane) is the verification yearly today?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "23"
+    ]
+   },
+   "answer_text": "Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe dell'Allegato VII per il settore estrattivo. Convenzione: l'Allegato VII confronta gli ANNI (un apparecchio costruito nell'anno Y è «antecedente 10 anni» in un giorno dell'anno N quando Y < N − 10); data odierna 14/11/2026. Apparecchi fissi: gru a ponte (posizioni 8-13, tabella A2) e gru a cavalletto (posizione 23, tabella A5), tutti con portata > 200 kg. È annuale (riga 15) chi ha anno di costruzione < 2026 − 10 = 2016: posizione 8 (1985), 9 (1985), 10 (1988), 11 (1978), 12 (1980), 23 (1989). La posizione 13 (2017) non è antecedente 10 anni e ricade nella riga 16 (biennale).",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 SCORREVOLE GRU A PONTE 9 DEMAG 5000 CA 128 / 86 1985 503292 SCORREVOLE GRU A PONTE 10 GUTTER 3000 CA 197 / 88 1988 24984 SCORREVOLE GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 SCORREVOLE TITANO GRU A PONTE 12 PRIM 5000 NU 41/85 1980 160 SCORREVOLE GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "23 GRU A CAVALLETTO 35000 NU 16/95 1989 459"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 15",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 16",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-06",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Quali posizioni della tabella A4 dell'elenco (autogru) hanno una portata superiore a 5000 kg?",
+   "question_en": "Which positions in table A4 of the list (mobile cranes, 'autogru') have a capacity greater than 5000 kg?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "17",
+     "18",
+     "21"
+    ]
+   },
+   "answer_text": "Tabella A4 (autogru, posizioni 17-22), colonna portata: posizione 17 = 18760 kg, 18 = 7500 kg, 19 = 5000 kg, 20 = 5000 kg, 21 = 7500 kg, 22 = 2095 kg. Superano 5000 kg solo le posizioni 17, 18 e 21; le posizioni 19 e 20 hanno esattamente 5000 kg e quindi non sono «superiori».",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "17 AUTOGRU' P&H R200 18760 RM - I - 22027 1977 70761 2011-200121- Escavatore JCBJS19CJ01 18 AUTOGRU' JCB - JS190NLC 7500 2010 CA cingolato 314198 2011-200122- Pala terna JCB3CXPCJ01 19 AUTOGRU' JCB - 3CX-4TPC 5000 2010 CA gommata 707884 2011-200123- Pala terna JCB3CXPCJ01 20 AUTOGRU' JCB - 3CX-4TPC 5000 2010 CA gommata 707453 2011-200120- Escavatore JCBJS19CJ01 21 AUTOGRU' JCB - JS190NLC 7500 2010 CA cingolato 314197 CATERPILLAR - 2018- Pala terna 22 AUTOGRU' 2095 1997 9AR00182 IT28 200029/CA gommata"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-07",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Tra le gru per autocarro dell'elenco (tabella A1, posizioni 1-7), quali posizioni hanno portata inferiore a 1000 kg e anno di costruzione anteriore al 2005?",
+   "question_en": "Among the truck-mounted cranes in the list (table A1, positions 1-7), which positions have a capacity below 1000 kg and a year of construction earlier than 2005?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "5",
+     "6"
+    ]
+   },
+   "answer_text": "Tabella A1 (portata / anno): pos. 1 = 3870 kg / 1991; pos. 2 = 995 kg / 2005; pos. 3 = 1500 kg / 2009; pos. 4 = 520 kg / 2005; pos. 5 = 995 kg / 2003; pos. 6 = 995 kg / 2004; pos. 7 = 790 kg / 2017. Portata < 1000 kg: posizioni 2, 4, 5, 6, 7. Di queste, anno anteriore al 2005: solo 5 (2003) e 6 (2004); le posizioni 2 e 4 sono del 2005 e la 7 del 2017.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "HIAB - GRU IDRAULICA HIDROCOM DAF AE 62 1 3870 CA 57 / 92 1991 32203 CA 707668 PER AUTOCARRO SAS MOD. NT-520 071 AWCH GRU IDRAULICA FASSI FORD 2 995 CA 200084/06 2005 3090 CX 921 ZK PER AUTOCARRO F 28 B22 TRANSIT GRU IDRAULICA FASSI 3 1500 CA 200043/ 10 2009 Mitsubishi 0206-5071 DV 431 BA PER AUTOCARRO F 28 B22 GRU IDRAULICA IVECO 4 AMCO VEBA 520 CA 200241/06 2005 18825 DF 019 FJ PER AUTOCARRO FIAT GRU IDRAULICA FASSI IVECO 5 995 CA 200085 / 03 2003 6249 AT 336397 PER AUTOCARRO F28A. 22 FIAT GRU IDRAULICA FASSI IVECO 6 995 CA 200081/04 2004 6344 AP 337 RY PER AUTOCARRO F 28A. 22 FIAT GRU IDRAULICA IVECO 7 Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-08",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Secondo il D.M. 11 aprile 2011, con quale anticipo minimo rispetto alla scadenza del termine il datore di lavoro deve richiedere l'esecuzione di una verifica periodica successiva alla prima, come quelle degli apparecchi di sollevamento IGEA?",
+   "question_en": "Under the Ministerial Decree of 11 April 2011, how long at least before the deadline must the employer request a periodic verification subsequent to the first one, such as those of the IGEA lifting devices?",
+   "answer": {
+    "kind": "duration",
+    "value": "P30D"
+   },
+   "answer_text": "La scheda tecnica IGEA riguarda verifiche periodiche successive alla prima, da eseguire con le modalità del D.M. 11 aprile 2011. L'Allegato II, punto 5.2.1, del decreto stabilisce che la richiesta va fatta con la periodicità dell'Allegato VII e almeno 30 giorni prima della scadenza del relativo termine. (I 60 giorni del punto 5.1.2 riguardano invece la prima verifica.)",
+   "evidence": [
+    {
+     "source": "DM2011",
+     "locator": "Allegato II",
+     "role": "supports",
+     "quote": "5.2.1. Con la periodicita' prevista dall'allegato VII del decreto legislativo n. 81/2008 e almeno 30 giorni prima della scadenza del relativo termine, il datore di lavoro deve richiedere alla ASL competente per territorio l'esecuzione delle verifiche periodiche successive alla prima"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "la verifica periodica (successiva alla prima) degli apparecchi di sollevamento di Igea S.p.A."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-09",
+   "type": "I",
+   "split": "blind",
+   "question_it": "IGEA decide di spostare la gru a ponte scorrevole GUTTER in posizione 10 da Masua a un altro sito: secondo il D.M. 11 aprile 2011 il datore di lavoro deve comunicare lo spostamento alla sede INAIL competente per territorio?",
+   "question_en": "IGEA decides to move the GUTTER overhead travelling crane at position 10 from Masua to another site: under the Ministerial Decree of 11 April 2011, must the employer notify the move to the territorially competent INAIL office?",
+   "answer": {
+    "kind": "boolean",
+    "value": true
+   },
+   "answer_text": "Sì. Il D.M. 11 aprile 2011, Allegato II, punto 5.3.3, impone al datore di lavoro di comunicare alla sede INAIL competente per territorio la cessazione dell'esercizio, l'eventuale trasferimento di proprietà e lo spostamento delle attrezzature, per l'inserimento in banca dati. La gru in posizione 10 è un'attrezzatura dell'Allegato VII soggetta a tali verifiche (scheda IGEA, punto 2.3); in più, la scheda (punto 4.1) impegna IGEA a notificare al verificatore le variazioni di ubicazione.",
+   "evidence": [
+    {
+     "source": "DM2011",
+     "locator": "Allegato II",
+     "role": "supports",
+     "quote": "5.3.3. Il datore di lavoro deve comunicare alla sede INAIL competente per territorio la cessazione dell'esercizio, l'eventuale trasferimento di proprieta' dell'attrezzatura di lavoro e lo spostamento delle attrezzature"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 8",
+     "role": "supports",
+     "quote": "GRU A PONTE Meccanizzazione 10 GUTTER 3000 CA 197 / 88 1988 24984 Iglesias SCORREVOLE Masua"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 4",
+     "role": "supports",
+     "quote": "4.1 Igea si impegna a notificare per tempo all’Appaltante eventuali variazioni rispetto agli elenchi degli allegati A e B (indisponibilità, dismissioni, nuovi acquisti o variazioni di ubicazione)"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-10",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Secondo l'articolo 71 del D.Lgs. 81/2008, a carico di chi sono le spese per l'effettuazione delle verifiche periodiche degli apparecchi di sollevamento dell'elenco IGEA?",
+   "question_en": "Under Article 71 of Legislative Decree 81/2008, who bears the cost of carrying out the periodic verifications of the lifting devices in the IGEA list?",
+   "answer": {
+    "kind": "text",
+    "value": "Il datore di lavoro (cioè IGEA): le verifiche sono a titolo oneroso e le spese sono a suo carico",
+    "keywords": [
+     [
+      "datore di lavoro",
+      "employer",
+      "IGEA"
+     ]
+    ]
+   },
+   "answer_text": "L'art. 71, comma 11, del D.Lgs. 81/2008 (richiamato dalla scheda tecnica come base delle verifiche) stabilisce che le verifiche periodiche sono effettuate a titolo oneroso e che le spese per la loro effettuazione sono poste a carico del datore di lavoro. Per gli apparecchi dell'elenco il datore di lavoro è IGEA, che infatti corrisponde al verificatore l'importo per ciascun apparecchio verificato (scheda, punto 2.7).",
+   "evidence": [
+    {
+     "source": "DLGS71",
+     "locator": "art. 71, c. 11",
+     "role": "supports",
+     "quote": "Le verifiche di cui al presente comma sono effettuate a titolo oneroso e le spese per la loro effettuazione sono poste a carico del datore di lavoro."
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "secondo quanto previsto dall’ art.71 c. 11"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-11",
+   "type": "I",
+   "split": "blind",
+   "question_it": "La gru a ponte scorrevole DEMAG in posizione 8 è del 1985 e non è a marchio CE. Secondo il punto 4.2.2 della scheda tecnica, quale documentazione IGEA deve mettere oggi a disposizione del verificatore per questo apparecchio?",
+   "question_en": "The DEMAG overhead travelling crane at position 8 dates from 1985 and is not CE-marked. Under point 4.2.2 of the technical sheet, which documentation must IGEA make available to the verifier for this device today?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "Libretto delle verifiche rilasciato da INAIL/ISPESL",
+     "Verbali delle verifiche periodiche precedenti",
+     "Registro di controllo",
+     "Certificazione di verifica strutturale dei cicli di vita residui"
+    ]
+   },
+   "answer_text": "Il punto 4.2.2 della scheda elenca cinque voci: (1) libretto delle verifiche INAIL/ISPESL, oppure copia della dichiarazione di conformità con denuncia all'ISPESL per gli apparecchi a marchio CE; (2) verbali delle verifiche periodiche precedenti; (3) registro di controllo; (4) manuale di installazione, uso e manutenzione, solo per apparecchi a marchio CE; (5) se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui. La gru in posizione 8 non è a marchio CE (premessa della domanda): vale il libretto delle verifiche e non è dovuto il manuale; costruita nel 1985, al 14/11/2026 ha 41 anni (> 20), quindi serve anche la certificazione dei cicli di vita residui. Restano quattro documenti.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 4",
+     "role": "supports",
+     "quote": "4.2.2 tutta la documentazione necessaria: 1. libretto delle verifiche rilasciato da INAIL/ISPESL o Copia della Dichiarazione di Conformità con relativa denuncia all’ISPESL per apparecchi a marchio CE; 2. verbali delle verifiche periodiche precedenti; 3. registro di controllo;"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 5",
+     "role": "supports",
+     "quote": "4. manuale di installazione, uso e manutenzione (solo apparecchi a marchio CE); 5. se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui;"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 SCORREVOLE"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-12",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Secondo il manuale del ponte sollevatore a due colonne MA STAR, entro quale intervallo massimo va sostituito il feltro di lubrificazione (lubrication felt) della vite?",
+   "question_en": "According to the manual of the MA STAR two-post lift, within what maximum interval must the spindle lubrication felt be replaced?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "Manuale MA STAR, sezione 7.2.2 «Lubricating the Spindle and the Load Nut»: il feltro di lubrificazione va controllato per usura e/o contaminazione e sostituito almeno ogni 12 mesi (un anno).",
+   "evidence": [
+    {
+     "source": "mastar-manual",
+     "locator": "p. 31",
+     "role": "supports",
+     "quote": "Also check the lubrication felt for wear and/or contamination and replace at least every 12 months."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-13",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Secondo il manuale del ponte sollevatore MA STAR, prima di abbassare il veicolo chi è responsabile di assicurarsi che nessuno si trovi nella zona di pericolo?",
+   "question_en": "According to the MA STAR lift manual, before lowering the vehicle who is responsible for ensuring that nobody is within the danger zone?",
+   "answer": {
+    "kind": "text",
+    "value": "L'operatore del ponte (the operator)",
+    "keywords": [
+     [
+      "operatore",
+      "operator"
+     ]
+    ]
+   },
+   "answer_text": "Manuale MA STAR, sezione 4.4.4 «Lowering Process»: prima di abbassare il veicolo vanno rimossi attrezzi e ostacoli da sotto il veicolo, e l'operatore è responsabile di assicurarsi che nessuno si trovi nella zona di pericolo.",
+   "evidence": [
+    {
+     "source": "mastar-manual",
+     "locator": "p. 20",
+     "role": "supports",
+     "quote": "The operator is responsible for ensuring that nobody is within the danger zone."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-14",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Secondo il manuale del laser scanner di sicurezza nanoScan3, con quale frequenza minima devono essere eseguite le verifiche approfondite periodiche (regular thorough check) del dispositivo di protezione?",
+   "question_en": "According to the manual of the nanoScan3 safety laser scanner, at what minimum frequency must the regular thorough checks of the protective device be carried out?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "Manuale nanoScan3, sezione 5.6.2 «Planning the regular thorough check»: i test vanno eseguiti almeno una volta l'anno; i requisiti minimi ripetono che le verifiche approfondite (funzione principale del dispositivo e capacità di rilevamento) vanno eseguite almeno una volta l'anno. Verifiche più frequenti (ad es. giornaliere) sono solo raccomandate, in base alla valutazione del rischio.",
+   "evidence": [
+    {
+     "source": "nanoscan3-manual",
+     "locator": "p. 50",
+     "role": "supports",
+     "quote": "Carry out tests at least once a year."
+    },
+    {
+     "source": "nanoscan3-manual",
+     "locator": "p. 51",
+     "role": "supports",
+     "quote": "The following thorough checks must be carried out at least once a year:"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-15",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Quali impieghi il manuale del nanoScan3 indica come uso non consentito (impermissible use) del laser scanner, a parte le condizioni ambientali non ammesse?",
+   "question_en": "Which uses does the nanoScan3 manual list as impermissible use of the laser scanner, apart from the impermissible ambient conditions?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "As a physical guard",
+     "Access control or authorization",
+     "Detection of transparent items"
+    ]
+   },
+   "answer_text": "Manuale nanoScan3, sezione 2.3 «Improper use», voce «Impermissible use»: (1) come riparo fisico (il prodotto è una misura di protezione indiretta e non protegge da parti proiettate né da radiazioni emesse); (2) controllo accessi o autorizzazione; (3) rilevamento di oggetti trasparenti. Le condizioni ambientali non ammesse (all'aperto, sott'acqua, aree a rischio di esplosione) sono un elenco separato.",
+   "evidence": [
+    {
+     "source": "nanoscan3-manual",
+     "locator": "p. 11",
+     "role": "supports",
+     "quote": "Impermissible use O As a physical guard. The product works as an indirect protective measure and cannot provide protection from parts thrown from the application nor from emitted radiation. O Access control or authorization O Detection of transparent items"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-16",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Il manuale dell'UR5e consente di usare aria compressa per pulire il braccio robotico?",
+   "question_en": "Does the UR5e manual allow compressed air to be used to clean the robot arm?",
+   "answer": {
+    "kind": "boolean",
+    "value": false
+   },
+   "answer_text": "No. Manuale UR5e, sezione 18.2 «Robot Arm Cleaning and Inspection» (Robot Arm Inspection Plan): l'uso di aria compressa può danneggiare i componenti del braccio; il manuale prescrive di non usare mai aria compressa per pulire il braccio robotico.",
+   "evidence": [
+    {
+     "source": "ur5e-manual",
+     "locator": "p. 207",
+     "role": "supports",
+     "quote": "Using compressed air to clean the robot arm can damage the robot arm components."
+    },
+    {
+     "source": "ur5e-manual",
+     "locator": "p. 207",
+     "role": "supports",
+     "quote": "Never use compressed air to clean the robot arm."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-17",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Secondo il manuale dell'UR5e, a partire da quale durata di stoccaggio un robot è considerato in stoccaggio a lungo termine (long-term storage)?",
+   "question_en": "According to the UR5e manual, from what storage duration is a robot considered to be in long-term storage?",
+   "answer": {
+    "kind": "duration",
+    "value": "P6M"
+   },
+   "answer_text": "Manuale UR5e, sezione 17.4 «Long Term Storage»: un robot è considerato in stoccaggio a lungo termine quando è immagazzinato per un periodo di 6 mesi o più. (L'avviamento almeno annuale raccomandato nella stessa sezione è un'altra indicazione.)",
+   "evidence": [
+    {
+     "source": "ur5e-manual",
+     "locator": "p. 202",
+     "role": "supports",
+     "quote": "A robot is considered long-term stored when it is stored for a period of 6 months or more."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-18",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Secondo il manuale dell'UR10e, dopo un arresto di emergenza è ammesso ripristinare (reset) l'arresto da un punto diverso dal pulsante che lo ha attivato?",
+   "question_en": "According to the UR10e manual, after an emergency stop is it permitted to reset the stop from somewhere other than the push-button that initiated it?",
+   "answer": {
+    "kind": "boolean",
+    "value": false
+   },
+   "answer_text": "No. Manuale UR10e, sezione 15.1 «Emergency Stop»: dopo l'azionamento il pulsante resta agganciato; ogni volta che un arresto di emergenza viene attivato deve essere ripristinato manualmente sul pulsante che ha avviato l'arresto, dopo aver individuato e valutato a vista il motivo dell'attivazione.",
+   "evidence": [
+    {
+     "source": "ur10e-manual",
+     "locator": "p. 196",
+     "role": "supports",
+     "quote": "each time an emergency stop is activated, it must be manually reset at the push-button that initiated the stop."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-19",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Secondo il manuale dell'UR10e, su chi ricade la responsabilità di smaltire il robot in conformità alle leggi, ai regolamenti e alle norme nazionali applicabili?",
+   "question_en": "According to the UR10e manual, with whom does the responsibility rest for disposing of the robot in accordance with the applicable national laws, regulations and standards?",
+   "answer": {
+    "kind": "text",
+    "value": "Sul proprietario del robot (the owner of the robot)",
+    "keywords": [
+     [
+      "proprietario",
+      "owner"
+     ]
+    ]
+   },
+   "answer_text": "Manuale UR10e, capitolo 19 «Disposal and Environment»: i robot Universal Robots devono essere smaltiti in conformità alle leggi, ai regolamenti e alle norme nazionali applicabili, e questa responsabilità ricade sul proprietario del robot. (Il fabbricante organizza lo smaltimento solo per i robot restituiti alla sua sede in Danimarca.)",
+   "evidence": [
+    {
+     "source": "ur10e-manual",
+     "locator": "p. 224",
+     "role": "supports",
+     "quote": "Universal Robots robots must be disposed of in accordance with the applicable national laws, regulations and standards. this responsibility rests with the owner of the robot."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-20",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Quanti cicli di vita residui risultano dalla certificazione di verifica strutturale della gru a ponte scorrevole DEFRIES-TITANO in posizione 11?",
+   "question_en": "How many residual life cycles result from the structural verification certification of the DEFRIES-TITANO overhead travelling crane at position 11?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. La scheda tecnica (punto 4.2.2, voce 5) prevede soltanto che IGEA metta a disposizione, per gli apparecchi con più di 20 anni, la certificazione di verifica strutturale dei cicli di vita residui; la tabella A2 riporta per la posizione 11 solo portata, matricola, anno e numero di fabbrica. Né la scheda né le altre fonti riportano il contenuto di tale certificazione.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 5",
+     "role": "supports",
+     "quote": "se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 SCORREVOLE TITANO"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-21",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Quale sanzione è prevista per il datore di lavoro che non sottopone un apparecchio di sollevamento dell'elenco alla verifica periodica prescritta dall'articolo 71, comma 11, del D.Lgs. 81/2008?",
+   "question_en": "What penalty applies to an employer who fails to submit a lifting device in the list to the periodic verification required by Article 71(11) of Legislative Decree 81/2008?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. L'art. 71, comma 11, pone l'obbligo di verifica periodica a carico del datore di lavoro, ma né l'articolo 71, né l'Allegato VII, né il D.M. 11 aprile 2011, né la scheda tecnica riportano la sanzione per l'omissione (le disposizioni sanzionatorie del D.Lgs. 81/2008 non fanno parte delle fonti disponibili). Il D.M. prevede solo la comunicazione delle violazioni all'organo di vigilanza.",
+   "evidence": [
+    {
+     "source": "DLGS71",
+     "locator": "art. 71, c. 11",
+     "role": "supports",
+     "quote": "il datore di lavoro sottopone le attrezzature di lavoro riportate nell'allegato VII a verifiche periodiche"
+    },
+    {
+     "source": "DM2011",
+     "locator": "Allegato II",
+     "role": "supports",
+     "quote": "3.2.2. Le eventuali violazioni. riferite al punto 3.1.2. e 3.2.1 devono essere comunicate all'organo di vigilanza competente per territorio."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-22",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Con quale coppia di serraggio vanno serrati i tiranti di ancoraggio (anchor rod HAS-U M16) delle colonne del ponte sollevatore MA STAR 3.5?",
+   "question_en": "To what tightening torque must the anchor rods (HAS-U M16) of the columns of the MA STAR 3.5 lift be tightened?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. I dati tecnici del manuale MA STAR indicano per l'ancoraggio solo la malta adesiva, il tipo di tirante (HAS U 5.8 M16) e la qualità minima del calcestruzzo, senza coppia di serraggio. L'unica coppia riportata nel manuale (120 Nm) riguarda le viti di fissaggio dei supporti presa ruota (sez. 4.8), non i tiranti di ancoraggio.",
+   "evidence": [
+    {
+     "source": "mastar-manual",
+     "locator": "p. 9",
+     "role": "supports",
+     "quote": "Adhesive mortar for anchor rod HILTI HIT HY 200-A Anchor rod HAS U 5.8 M16 Required minimum concrete quality C20/25 (DIN EN 1992)"
+    },
+    {
+     "source": "mastar-manual",
+     "locator": "p. 22",
+     "role": "supports",
+     "quote": "Torque the screws to 120 Nm."
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-23",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Qual è il valore di MTTFd (tempo medio al guasto pericoloso, ISO 13849) dichiarato dal fabbricante per il laser scanner di sicurezza nanoScan3?",
+   "question_en": "What MTTFd value (mean time to dangerous failure, ISO 13849) does the manufacturer declare for the nanoScan3 safety laser scanner?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. La tabella 34 «Safety-related parameters» del manuale nanoScan3 dichiara categoria 3, PL d, SIL 2, PFH (8 × 10–8 h–1) e durata di missione TM (20 anni), ma non riporta alcun valore di MTTFd; il termine non compare in nessuna delle fonti.",
+   "evidence": [
+    {
+     "source": "nanoscan3-manual",
+     "locator": "p. 130",
+     "role": "supports",
+     "quote": "PFH (average frequency of a 8 × 10–8 h–1 dangerous failure) TM (mission time) (ISO 13849) 20 years"
+    }
+   ]
+  },
+  {
+   "id": "BLIND-PLANT-24",
+   "type": "I",
+   "split": "blind",
+   "question_it": "Quanto pesa la Control Box del robot UR5e?",
+   "question_en": "How much does the Control Box of the UR5e robot weigh?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. Le specifiche tecniche del manuale UR5e riportano il peso del braccio (20,7 kg) e, per la Control Box, solo dimensioni, alimentazione e porte I/O; la sezione sulla movimentazione dice soltanto che la Control Box può essere trasportata da una persona. Nessuna fonte ne indica il peso.",
+   "evidence": [
+    {
+     "source": "ur5e-manual",
+     "locator": "p. 15",
+     "role": "supports",
+     "quote": "Robot arm weight 20.7 kg / 45.7 lb"
+    },
+    {
+     "source": "ur5e-manual",
+     "locator": "p. 16",
+     "role": "supports",
+     "quote": "Control Box size (W × H × D)"
+    },
+    {
+     "source": "ur5e-manual",
+     "locator": "p. 36",
+     "role": "supports",
+     "quote": "The Control Box and the Teach Pendant can each be carried by one person."
+    }
+   ]
+  }
+ ]
+}

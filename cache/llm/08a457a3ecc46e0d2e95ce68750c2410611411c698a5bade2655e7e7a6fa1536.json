@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "What MTTFd value (mean time to dangerous failure, ISO 13849) does the manufacturer declare for the nanoScan3 safety laser scanner?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quale valore di MTTFd (tempo medio al guasto pericoloso, ISO 13849) dichiara il produttore per lo scanner laser di sicurezza nanoScan3?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 710,
+   "completion_tokens": 271,
+   "total_tokens": 981
+  }
+ }
+}

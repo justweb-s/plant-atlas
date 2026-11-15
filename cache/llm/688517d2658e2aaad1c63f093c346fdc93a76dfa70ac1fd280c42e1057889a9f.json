@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "How much does the Control Box of the UR5e robot weigh?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"UR5e user manual Control Box weight kg \\\"Control Box\\\" specifications technical data\", \"UR5e \\\"Control Box\\\" \\\"mass\\\" OR \\\"weight\\\" OR \\\"kg\\\" Universal Robots datasheet\", \"UR5e manuale \\\"Control Box\\\" peso \\\"kg\\\" dati tecnici\", \"Universal Robots UR5e \\\"Control Box\\\" \\\"weight\\\" table specifications \\\"Control Box\\\" row\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 875,
+   "completion_tokens": 158,
+   "total_tokens": 1033
+  }
+ }
+}

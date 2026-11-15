@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the manual of the MA STAR two-post lift, within what maximum interval must the spindle lubrication felt be replaced?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo il manuale del ponte sollevatore a due colonne MA STAR, entro quale intervallo massimo deve essere sostituito il feltro di lubrificazione della vite?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 701,
+   "completion_tokens": 520,
+   "total_tokens": 1221
+  }
+ }
+}

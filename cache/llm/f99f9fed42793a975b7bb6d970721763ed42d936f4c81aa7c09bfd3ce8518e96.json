@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Under the Ministerial Decree of 11 April 2011, which documents must the verifier examine during the first periodic verification of equipment in groups SC and SP (lifting of goods and of persons)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Ai sensi del Decreto Ministeriale dell'11 aprile 2011, quali documenti deve esaminare il verificatore durante la prima verifica periodica delle attrezzature dei gruppi SC e SP (sollevamento di cose e di persone)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 722,
+   "completion_tokens": 291,
+   "total_tokens": 1013
+  }
+ }
+}

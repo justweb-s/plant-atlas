@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "What is the amount of the penalty laid down by Legislative Decree 81/2008 for an employer who fails to submit Annex VII equipment to the periodic verifications of Article 71(11)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"Decreto Legislativo 81/2008 articolo 87 sanzioni datore di lavoro omessa verifica periodica attrezzature allegato VII\", \"Testo unico sicurezza lavoro articolo 71 comma 11 verifiche periodiche attrezzature di lavoro allegato VII\", \"Legislative Decree 81/2008 Article 87 penalties employer fails periodic inspection work equipment Annex VII arrest or fine amount euro\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 917,
+   "completion_tokens": 167,
+   "total_tokens": 1084
+  }
+ }
+}

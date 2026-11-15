@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Under Article 71 of Legislative Decree 81/2008, who bears the cost of carrying out the periodic verifications of the lifting devices in the IGEA list?\n\nAnswer A: \"Il datore di lavoro: ai sensi dell'art. 71, comma 11, del D.Lgs. 81/2008, le spese delle verifiche periodiche sono poste a suo carico, poiché le verifiche sono effettuate a titolo oneroso.\"\nUnder Art. 71, comma 11, of Legislative Decree 81/2008, the employer (datore di lavoro) bears the cost of the periodic verifications, because they are carried out for a fee.\nEvidence of A:\n- datore di lavoro, costi delle verifiche: hasObligation = le spese per la loro effettuazione sono poste a carico del datore di lavoro (condition: Le verifiche di cui al presente comma sono effettuate a titolo oneroso) | sentence: \"Le verifiche di cui al presente comma sono effettuate a titolo oneroso e le spese per la loro effettuazione sono poste a carico del datore di lavoro.\" [DLGS71, art. 71, c. 11]\n\nAnswer B: \"The employer (datore di lavoro) bears the costs of the periodic verifications.\"\nUnder Art. 71, comma 11, of D.Lgs. 81/2008, the periodic verifications are paid services and their costs are charged to the employer, so for the IGEA lifting devices IGEA as the employer pays.\nEvidence of B:\n- Read on demand: DLGS71, art. 71, c. 11 | sentence: \"Le verifiche di cui al presente comma sono effettuate a titolo oneroso e le spese per la loro effettuazione sono poste a carico del datore di lavoro.\" [DLGS71, art. 71, c. 11]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Both answers rest on the same sentence of Art. 71, comma 11, D.Lgs. 81/2008, which states that the costs of the verifications are charged to the employer. Both reach the same conclusion: the employer bears the cost. B's addition that IGEA is the employer is an inference about the specific company, but the core answer is identical.\", \"choice\": \"same\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1653,
+   "completion_tokens": 127,
+   "total_tokens": 1780
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "To what tightening torque must the anchor rods (HAS-U M16) of the columns of the MA STAR 3.5 lift be tightened?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"MA STAR 3.5 installation manual anchor rods HAS-U M16 columns tightening torque, manuale installazione MA STAR 3.5 tirafondi HAS-U M16 colonne coppia di serraggio Nm\", \"MA STAR 3.5 foundation anchoring floor requirements anchor bolt specification, ancoraggio al pavimento MA STAR 3.5 caratteristiche del pavimento tassello chimico HAS-U M16\", \"MA STAR 3.5 column base plate anchor tightening sequence and torque value table, piastra di base colonna MA STAR 3.5 tabella coppie di serraggio tirafondi M16\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 903,
+   "completion_tokens": 410,
+   "total_tokens": 1313
+  }
+ }
+}

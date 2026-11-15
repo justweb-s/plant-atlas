@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "How many residual life cycles result from the structural verification certification of the DEFRIES-TITANO overhead travelling crane at position 11?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quanti cicli di vita residui risultano dalla certificazione di verifica strutturale del carroponte DEFRIES-TITANO in posizione 11?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 702,
+   "completion_tokens": 206,
+   "total_tokens": 908
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "Under the Ministerial Decree of 11 April 2011, which documents must the verifier examine during the first periodic verification of equipment in groups SC and SP (lifting of goods and of persons)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"Decreto Ministeriale 11 aprile 2011 verifica periodica prima verifica apparecchi di sollevamento gruppi SC SP documenti da esaminare Ministerial Decree 11 April 2011 first periodic verification lifting equipment groups SC SP documents to examine\", \"Decreto 11 aprile 2011 allegato verifica prima periodica documentazione tecnica libretto di omologazione dichiarazione CE di conformità manuale d'uso e manutenzione registro di controllo SC SP Ministerial Decree 11 April 2011 annex first verification technical documentation EC declaration of conformity instruction manual inspection register\", \"Decreto 11 aprile 2011 definizione gruppo SC apparecchi di sollevamento di cose gruppo SP apparecchi di sollevamento di persone Ministerial Decree 11 April 2011 definition group SC lifting of goods group SP lifting of persons\", \"DM 11/04/2011 verificatore esame documentazione prima verifica periodica attrezzature di lavoro sollevamento SC SP Italian decree verifier examines documents first periodic verification lifting equipment\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 919,
+   "completion_tokens": 525,
+   "total_tokens": 1444
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: The Ministerial Decree of 11 April 2011 and Legislative Decree 81/2008 give different time limits within which INAIL must carry out the first periodic verification of Annex VII equipment, counted from the employer's request. Which time limit is valid today?\n\nAnswer A: \"The first periodic verification by INAIL must be carried out within 45 days of receiving the complete request, under D.Lgs. 81/2008, art. 71, c. 11. The facts do not give the 2011 Ministerial Decree's own time limit, so it cannot be compared here.\"\nThe 45-day limit from receipt of the complete request, set by D.Lgs. 81/2008, art. 71, c. 11, is the time limit supported by the facts for INAIL's first periodic verification of Annex VII equipment. The 2011 Ministerial Decree's figure is not in the facts.\nEvidence of A:\n- prima verifica INAIL: hasTimeLimit = quarantacinque giorni | sentence: \"Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta.\" [DLGS71, art. 71, c. 11]\n- prima verifica periodica: hasTimeLimit = entro 45 giorni (condition: dalla data di ricevimento della richiesta completa) | sentence: \"La prima verifica periodica deve essere effettuata entro 45 giorni dalla data di ricevimento della richiesta completa, può essere condotta da personale dell’Inail ovvero su incarico dell’Inail dal soggetto abilitato indicato dal datore di lavoro nella richiesta;\" [inail-guide, p. 36]\n- prima verifica periodica: hasTimeLimit = entro 45 giorni dalla data di ricevimento della richiesta completa | sentence: \"La prima verifica periodica deve essere effettuata entro 45 giorni dalla data di ricevimento della richiesta completa, può essere condotta da personale dell’Inail ovvero su incarico dell’Inail dal soggetto abilitato indicato dal datore di lavoro nella richiesta;\" [inail-guide, p. 29]\n- first periodic verification: verifiedBy = INAIL (condition: della prima delle verifiche periodiche) | sentence: \"81/2008, l'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta, mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta.\" [DM2011, art. 2, c. 1]\n\nAnswer B: \"P45D\"\nUnder art. 71, c. 11 of Legislative Decree 81/2008, which prevails over the 60-day wording in art. 2, c. 1 of the Ministerial Decree of 11 April 2011, INAIL must carry out the first periodic verification within 45 days of the employer's request.\nEvidence of B:\n- Read on demand: DLGS71, art. 71, c. 11 | sentence: \"Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta.\" [DLGS71, art. 71, c. 11]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Both answers give 45 days, based on D.Lgs. 81/2008 art. 71 c. 11, which is a law and outranks the 2011 Ministerial Decree's 60-day wording. Answer A's evidence states 45 days for exactly this subject, and the DM2011 evidence in A's own list shows the 60-day figure, so A's claim that the DM figure is absent is only a minor inaccuracy. Both reach the same supported answer.\", \"choice\": \"same\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 2169,
+   "completion_tokens": 166,
+   "total_tokens": 2335
+  }
+ }
+}

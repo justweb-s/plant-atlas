@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "If the Effer hydraulic truck-mounted crane at position 7 (790 kg) were used with regular use, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified on 31 December 2027?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Se la gru idraulica montata su autocarro Effer in posizione 7 (790 kg) fosse utilizzata con un uso regolare, cioè al di fuori dei settori edile, siderurgico, portuale ed estrattivo, con quale frequenza dovrebbe essere verificata il 31 dicembre 2027?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 735,
+   "completion_tokens": 429,
+   "total_tokens": 1164
+  }
+ }
+}

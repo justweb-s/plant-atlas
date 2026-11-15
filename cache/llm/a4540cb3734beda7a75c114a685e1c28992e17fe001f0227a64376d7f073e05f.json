@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Which requirements does Annex V to Legislative Decree 81/2008 lay down for the emergency stop devices of work equipment built in the absence of product directives?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quali requisiti stabilisce l'Allegato V del Decreto Legislativo 81/2008 per i dispositivi di arresto di emergenza delle attrezzature di lavoro costruite in assenza di direttive di prodotto?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 710,
+   "completion_tokens": 322,
+   "total_tokens": 1032
+  }
+ }
+}

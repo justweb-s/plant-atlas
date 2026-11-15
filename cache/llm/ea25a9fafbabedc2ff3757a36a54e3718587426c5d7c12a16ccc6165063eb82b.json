@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 1 March 2027 a distributor has reason to believe that a machine it is about to sell does not comply with the applicable Regulation. May it nevertheless make it available on the market, merely informing the manufacturer and the surveillance authorities?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il 1 marzo 2027 un distributore ha motivo di ritenere che una macchina che sta per vendere non sia conforme al Regolamento applicabile. Può comunque metterla a disposizione sul mercato, limitandosi a informarne il fabbricante e le autorità di vigilanza?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 736,
+   "completion_tokens": 373,
+   "total_tokens": 1109
+  }
+ }
+}

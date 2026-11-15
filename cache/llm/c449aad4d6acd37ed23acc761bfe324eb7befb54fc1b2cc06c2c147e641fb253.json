@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "Under the Ministerial Decree of 11 April 2011, how long at least before the deadline must the employer request a periodic verification subsequent to the first one, such as those of the IGEA lifting devices?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P30D\", \"text\": \"Under Allegato II, point 5.2.1 of the Ministerial Decree of 11 April 2011 (DM2011.md), the employer must request the ASL to carry out periodic verifications after the first at least 30 days before the deadline. Art. 2, c. 1 also gives the ASL a 30-day term for these verifications.\", \"sources\": [{\"file\": \"DM2011.md\", \"place\": \"Allegato II, punto 5.2 Verifiche periodiche successive alla prima\", \"quote\": \"Con la periodicita' prevista dall'allegato VII del decreto legislativo n. 81/2008 e almeno 30 giorni prima della scadenza del relativo termine, il datore di lavoro deve richiedere alla ASL competente per territorio l'esecuzione delle verifiche periodiche successive alla prima\"}]}",
+  "turns": 5,
+  "usage": {
+   "prompt_tokens": 45810,
+   "completion_tokens": 1019
+  }
+ }
+}

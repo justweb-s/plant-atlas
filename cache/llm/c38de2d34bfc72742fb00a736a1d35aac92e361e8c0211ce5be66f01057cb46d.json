@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "For how long is the registration of a body in the list of bodies authorised to carry out periodic verifications under the Ministerial Decree of 11 April 2011 valid before it must be renewed?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Per quanto tempo è valida l'iscrizione di un organismo nell'elenco degli organismi autorizzati a effettuare le verifiche periodiche ai sensi del Decreto Ministeriale 11 aprile 2011 prima di dover essere rinnovata?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 716,
+   "completion_tokens": 353,
+   "total_tokens": 1069
+  }
+ }
+}

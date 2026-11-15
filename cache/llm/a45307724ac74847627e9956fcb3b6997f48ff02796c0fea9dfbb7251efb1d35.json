@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "A manufacturer of vehicle lifts asks INAIL for the recognition of suitability (for vehicle roadworthiness testing) by having the prototype examined at its own premises. According to the INAIL guide, does the recognition obtained extend to the whole series?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Un costruttore di sollevatori per veicoli chiede all'INAIL il riconoscimento di idoneità (per le verifiche di efficienza dei veicoli) facendo esaminare il prototipo presso la propria sede. Secondo la guida INAIL, il riconoscimento ottenuto si estende all'intera serie?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 743,
+   "completion_tokens": 265,
+   "total_tokens": 1008
+  }
+ }
+}

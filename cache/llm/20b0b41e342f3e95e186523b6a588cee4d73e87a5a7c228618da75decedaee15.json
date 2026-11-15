@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: According to the Global Service specification excerpt in the University of Catania guideline on work equipment, how often must the scheduled maintenance of chemical fume hoods be carried out (filter replacement aside)?\n\nAnswer A: \"P6M\"\nScheduled maintenance of chemical fume hoods must be carried out every six months (semiannual), per the University of Catania guideline, p. 13, excluding filter replacement.\nEvidence of A:\n- cappe chimiche: requiresPeriodicCheck = Manutenzione semestrale | sentence: \"Cappe chimiche (riferimento norma EN 14175) Manutenzione semestrale 1.\" [unict-guideline, p. 13]\n\nAnswer B: reader B found no passage that states the answer. Its note: The Global Service specification excerpt in the UniCT work-equipment guideline (Appendice A, Art. 16.2 'cappe chimiche') does not state how often scheduled maintenance of chemical fume hoods must be done. The guideline's own plan for chemical fume hoods lists semiannual maintenance, but that is a different document section, not the Global Service specification."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "A's evidence is a single sentence from p. 13 giving \"Manutenzione semestrale\" for chemical fume hoods. Reader B reports that this comes from the guideline's own maintenance plan, not from the Global Service specification excerpt (Appendice A, Art. 16.2) that the question names. Nothing in A's evidence shows it belongs to that excerpt, so it concerns a neighbouring subject. B found no frequency in the excerpt itself.\n\n{\"reasoning\": \"The question asks about the Global Service specification excerpt. A's sentence on p. 13 is not shown to come from that excerpt, and B reports it is from the guideline's own plan, a different section. B found no frequency in the excerpt, so neither answer is supported.\", \"choice\": \"neither\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1417,
+   "completion_tokens": 484,
+   "total_tokens": 1901
+  }
+ }
+}

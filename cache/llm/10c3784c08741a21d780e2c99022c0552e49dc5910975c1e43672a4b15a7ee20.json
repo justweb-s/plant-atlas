@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "How many residual life cycles result from the structural verification certification of the DEFRIES-TITANO overhead travelling crane at position 11?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"DEFRIES-TITANO overhead travelling crane position 11 structural verification certificate residual life cycles\", \"gru a ponte DEFRIES-TITANO posizione 11 verifica strutturale certificato cicli di vita residui\", \"residual number of cycles structural verification crane table row position 11 DEFRIES-TITANO manual\", \"cicli residui verifica strutturale gru a ponte allegato tabella riga 11 DEFRIES-TITANO\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 900,
+   "completion_tokens": 423,
+   "total_tokens": 1323
+  }
+ }
+}

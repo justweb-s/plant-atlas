@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "What penalty applies to an employer who fails to submit a lifting device in the list to the periodic verification required by Article 71(11) of Legislative Decree 81/2008?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quale sanzione è prevista per il datore di lavoro che omette di sottoporre alla verifica periodica un dispositivo di sollevamento incluso nell'elenco di cui all'articolo 71, comma 11, del decreto legislativo 81/2008?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 713,
+   "completion_tokens": 426,
+   "total_tokens": 1139
+  }
+ }
+}

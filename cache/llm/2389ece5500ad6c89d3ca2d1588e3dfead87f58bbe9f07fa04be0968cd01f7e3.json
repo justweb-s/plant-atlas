@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "According to the Università Politecnica delle Marche guidelines on laboratory equipment, who decides whether to set up the equipment usage register (Model C)?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"text\", \"value\": \"The RDRL (the person responsible for the laboratory's teaching or research activity) of the laboratory where the equipment is located decides, unless the Employer (Datore di Lavoro) of the structure gives a different instruction.\", \"text\": \"Section 7.3 (Modello C - Registro d'uso della strumentazione, p. 10) of the UNIVPM Linee guida per la gestione e manutenzione delle attrezzature di laboratorio (v1.0, March 2024) says the RDRL of the laboratory where the instrument sits decides whether to set up the usage register, unless the structure's Employer directs otherwise.\", \"sources\": [{\"file\": \"univpm-guideline.md\", \"place\": \"7.3 Modello C - Registro d'uso della strumentazione (p. 10)\", \"quote\": \"L'istituzione del registro è decisa dal RDRL del laboratorio presso il quale lo strumento è collocato salvo diversa indicazione del Datore di Lavoro della struttura.\"}]}",
+  "turns": 4,
+  "usage": {
+   "prompt_tokens": 26370,
+   "completion_tokens": 742
+  }
+ }
+}

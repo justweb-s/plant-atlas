@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 1 March 2027 a manufacturer places on the market a machine with instructions for use in digital format. At the time of purchase the user asks for paper instructions: within what time must the manufacturer provide them free of charge?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il 1 marzo 2027 un fabbricante immette sul mercato una macchina con le istruzioni per l'uso in formato digitale. Al momento dell'acquisto l'utente chiede le istruzioni in formato cartaceo: entro quale termine il fabbricante deve fornirle gratuitamente?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 727,
+   "completion_tokens": 382,
+   "total_tokens": 1109
+  }
+ }
+}

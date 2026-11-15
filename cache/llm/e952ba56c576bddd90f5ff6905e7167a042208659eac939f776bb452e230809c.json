@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "A company rents out a piece of work equipment without an operator to another firm. Besides certifying its good condition, is it obliged to obtain and keep a declaration certifying the specific training of those who will use it?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Un'azienda noleggia a un'altra impresa un'attrezzatura di lavoro senza operatore. Oltre a certificarne il buono stato, è obbligata a ottenere e conservare una dichiarazione che attesti la formazione specifica di coloro che la utilizzeranno?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 721,
+   "completion_tokens": 427,
+   "total_tokens": 1148
+  }
+ }
+}

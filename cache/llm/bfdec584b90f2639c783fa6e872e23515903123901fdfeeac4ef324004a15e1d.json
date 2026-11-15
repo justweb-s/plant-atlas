@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: For how long is the registration of a body in the list of bodies authorised to carry out periodic verifications under the Ministerial Decree of 11 April 2011 valid before it must be renewed?\n\nAnswer A: \"P30D\"\nsubsequent periodic verifications has the time limit trenta giorni (P30D), on the condition: successive alla prima (source: DM2011, art. 2, c. 1).\nEvidence of A:\n- [skill single_value: relation_facts > choose > settle > answer] subsequent periodic verifications: hasTimeLimit = trenta giorni (condition: successive alla prima) | sentence: \"81/2008, l'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta, mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta.\" [DM2011, art. 2, c. 1]\n\nAnswer B: reader B found no passage that states the answer. Its note: The facts in force do not answer this question. (the period P5Y is not written in the sentences pointed at)"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Answer A cites a 30-day deadline for subsequent periodic verifications by ASL, which concerns a different subject than the validity period of a body's registration in the list. Reader B found nothing. A's evidence does not state the registration validity period, so A is not supported.\", \"choice\": \"neither\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1431,
+   "completion_tokens": 104,
+   "total_tokens": 1535
+  }
+ }
+}

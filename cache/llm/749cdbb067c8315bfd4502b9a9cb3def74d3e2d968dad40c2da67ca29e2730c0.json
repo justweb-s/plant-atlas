@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "Given that the company works in mining areas (extractive sector), from which day does the IGEA-PRIM 5t overhead travelling crane at position 13 move from two-yearly to yearly verification?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"date\", \"value\": \"2027-01-01\", \"text\": \"Position 13 is the IGEA-PRIM 5t fixed overhead crane (gru a ponte scorrevole) at Pozzo Vittorio, Monteponi, Iglesias, in a mining area, built in 2017. Under Allegato VII, D.Lgs. 81/2008, a fixed lifting appliance used in extractive settings and more than 10 years old needs annual checks, so the move from biennial to annual falls when it reaches 10 years of age. The file gives only \\\"gen-17\\\" (January 2017), so the first day is an inference: 1 January 2027, not a day stated in the documents.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 6, Tabella A2 (and p. 8, Allegato B, Tabella B1)\", \"quote\": \"GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 8, Allegato B – Tabella B1\", \"quote\": \"IGEA – 2017- Pozzo Vittorio 13 5000 2017 gen-17 Iglesias SCORREVOLE PRIM 5t 200086/CA Monteponi\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 3, 2.2\", \"quote\": \"Area mineraria Monteponi 19 Iglesias\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 15\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali\"}, {\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 16\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg , non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali\"}]}",
+  "turns": 13,
+  "usage": {
+   "prompt_tokens": 158250,
+   "completion_tokens": 5015
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Under Article 71(8) of Legislative Decree 81/2008, by whom must the checks (initial, periodic and extraordinary) on work equipment be carried out?\n\nAnswer A: \"Under art. 71(8), the employer (datore di lavoro) must carry out the initial check (after installation and before commissioning) and the extraordinary checks (whenever exceptional events occur). The facts do not attribute the periodic checks to art. 71(8) they fall under art.\"\nThe facts in force do not answer this question.\nEvidence of A:\n- datore di lavoro, controllo iniziale delle attrezzature di lavoro: hasObligation = dopo l'installazione e prima della messa in esercizio (condition: attrezzature di lavoro la cui sicurezza dipende dalle condizioni di installazione) | sentence: \"a) le attrezzature di lavoro la cui sicurezza dipende dalle condizioni di installazione siano sottoposte a un controllo iniziale (dopo l'installazione e prima della messa in esercizio) e ad un controllo dopo ogni montaggio in un nuovo cantiere o in una nuova località di impianto, al fine di assicurarne l'installazione corretta e il buon funzionamento;\" [DLGS71, art. 71, c. 8]\n- datore di lavoro, interventi di controllo straordinari: hasObligation = ogni volta che intervengano eventi eccezionali (condition: eventi eccezionali che possano avere conseguenze pregiudizievoli per la sicurezza delle attrezzature di lavoro) | sentence: \"ad interventi di controllo straordinari al fine di garantire il mantenimento di buone condizioni di sicurezza, ogni volta che intervengano eventi eccezionali che possano avere conseguenze pregiudizievoli per la sicurezza delle attrezzature di lavoro, quali riparazioni, trasformazioni, incidenti, fenomeni naturali o periodi prolungati di inattività;\" [DLGS71, art. 71, c. 8]\n\nAnswer B: \"A competent person (persona competente).\"\nUnder Article 71(8)(c) of Legislative Decree 81/2008, the initial, periodic and extraordinary checks on work equipment must be carried out by a competent person.\nEvidence of B:\n- Read on demand: DLGS71, art. 71, c. 8 | sentence: \"c) Gli interventi di controllo di cui alle lettere a) e b) sono volti ad assicurare il buono stato di conservazione e l'efficienza a fini di sicurezza delle attrezzature di lavoro e devono essere effettuati da persona competente.\" [DLGS71, art. 71, c. 8]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Article 71(8)(c) states that the checks under letters a) and b) (initial, periodic, extraordinary) must be carried out by a competent person. Answer B quotes this sentence directly. Answer A attributes the checks to the employer, which the evidence does not state; the cited sentences only show the employer's obligation to ensure checks occur, not who performs them.\", \"choice\": \"B\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1949,
+   "completion_tokens": 135,
+   "total_tokens": 2084
+  }
+ }
+}

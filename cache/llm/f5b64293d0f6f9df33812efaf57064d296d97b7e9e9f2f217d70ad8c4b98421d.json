@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "To what tightening torque must the anchor rods (HAS-U M16) of the columns of the MA STAR 3.5 lift be tightened?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "A quale coppia di serraggio devono essere serrate le barre di ancoraggio (HAS-U M16) dei montanti del ponte sollevatore MA STAR 3.5?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 705,
+   "completion_tokens": 263,
+   "total_tokens": 968
+  }
+ }
+}

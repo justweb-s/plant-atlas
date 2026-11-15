@@ -1,0 +1,673 @@
+{
+  "about": "Blind test set, slice 'law': 24 questions (type T lookup, type V version/regime in force) on Regulation (EU) 2023/1230 and its corrigendum, Directive 2006/42/EC, D.Lgs. 81/2008 arts. 69-73 and Annex VII, D.M. 11 April 2011 and the INAIL/UNICT/UNIVPM guidance; gold written only from the source documents, reference date 2026-11-14. Not to be used for tuning.",
+  "cqs": [
+    {
+      "id": "BLIND-LAW-01",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Il D.M. 11 aprile 2011 e il D.Lgs. 81/2008 indicano termini diversi entro cui l'INAIL deve effettuare la prima verifica periodica di un'attrezzatura dell'allegato VII a partire dalla richiesta del datore di lavoro. Qual è il termine valido oggi?",
+      "question_en": "The Ministerial Decree of 11 April 2011 and Legislative Decree 81/2008 give different time limits within which INAIL must carry out the first periodic verification of Annex VII equipment, counted from the employer's request. Which time limit is valid today?",
+      "answer": {
+        "kind": "duration",
+        "value": "P45D"
+      },
+      "answer_text": "L'articolo 71, comma 11, del D.Lgs. 81/2008 (testo vigente) stabilisce che l'INAIL provvede alla prima verifica nel termine di quarantacinque giorni dalla richiesta. Il D.M. 11 aprile 2011 (art. 2, c. 1) indicava sessanta giorni, ma è fonte di rango inferiore: prevale il decreto legislativo. La guida INAIL conferma i 45 giorni.",
+      "trap": "60 giorni: è il termine dell'art. 2, c. 1, del D.M. 11 aprile 2011, superato dal testo vigente dell'art. 71, c. 11; oppure 30 giorni, che il D.M. riferisce alle ASL.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 11",
+          "role": "supports",
+          "quote": "Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta"
+        },
+        {
+          "source": "inail-guide",
+          "locator": "p. 36",
+          "role": "supports",
+          "quote": "La prima verifica periodica deve essere effettuata entro 45 giorni dalla data di ricevimento della richiesta completa"
+        },
+        {
+          "source": "DM2011",
+          "locator": "art. 2, c. 1",
+          "role": "superseded",
+          "quote": "titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-02",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Secondo l'articolo 71 del D.Lgs. 81/2008, quali elementi deve prendere in considerazione il datore di lavoro all'atto della scelta delle attrezzature di lavoro?",
+      "question_en": "Under Article 71 of Legislative Decree 81/2008, which elements must the employer take into consideration when choosing work equipment?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "le condizioni e le caratteristiche specifiche del lavoro da svolgere",
+          "i rischi presenti nell'ambiente di lavoro",
+          "i rischi derivanti dall'impiego delle attrezzature stesse",
+          "i rischi derivanti da interferenze con le altre attrezzature già in uso"
+        ]
+      },
+      "answer_text": "L'articolo 71, comma 2, elenca quattro elementi: a) le condizioni e le caratteristiche specifiche del lavoro da svolgere; b) i rischi presenti nell'ambiente di lavoro; c) i rischi derivanti dall'impiego delle attrezzature stesse; d) i rischi derivanti da interferenze con le altre attrezzature già in uso.",
+      "trap": "Confondere l'elenco del comma 2 (scelta) con le misure del comma 4 (installazione, manutenzione, registro di controllo) o con i principi di ergonomia del comma 6.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 2",
+          "role": "supports",
+          "quote": "All'atto della scelta delle attrezzature di lavoro, il datore di lavoro prende in considerazione: a) le condizioni e le caratteristiche specifiche del lavoro da svolgere; b) i rischi presenti nell'ambiente di lavoro; c) i rischi derivanti dall'impiego delle attrezzature stesse; d) i rischi derivanti da interferenze con le altre attrezzature già in uso"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-03",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Un'impresa noleggia a un'altra azienda un'attrezzatura di lavoro senza operatore. Oltre ad attestarne il buono stato, è obbligata ad acquisire e conservare una dichiarazione che attesti la formazione e l'addestramento specifico di chi la utilizzerà?",
+      "question_en": "A company rents out a piece of work equipment without an operator to another firm. Besides certifying its good condition, is it obliged to obtain and keep a declaration certifying the specific training of those who will use it?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. L'articolo 72, comma 2, del D.Lgs. 81/2008 impone a chi noleggia o concede in uso attrezzature senza operatore di acquisire e conservare agli atti, per tutta la durata del noleggio o della concessione, una dichiarazione autocertificativa che attesti l'avvenuta formazione e addestramento specifico dei soggetti individuati per l'utilizzo.",
+      "trap": "No: ritenere che il noleggiatore debba solo attestare il buono stato di conservazione, manutenzione ed efficienza (primo periodo del comma 2).",
+      "evidence": [
+        {
+          "source": "DLGS72",
+          "locator": "art. 72, c. 2",
+          "role": "supports",
+          "quote": "Deve altresì acquisire e conservare agli atti, per tutta la durata del noleggio o della concessione dell'attrezzatura, una dichiarazione autocertificativa del soggetto che prende a noleggio, o in concessione in uso, o del datore di lavoro, che attesti l'avvenuta formazione e addestramento specifico, effettuati conformemente alle disposizioni del presente Titolo, dei soggetti individuati per l'utilizzo"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-04",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Secondo l'articolo 71, comma 8, del D.Lgs. 81/2008, da chi devono essere effettuati gli interventi di controllo (iniziale, periodici e straordinari) sulle attrezzature di lavoro?",
+      "question_en": "Under Article 71(8) of Legislative Decree 81/2008, by whom must the checks (initial, periodic and extraordinary) on work equipment be carried out?",
+      "answer": {
+        "kind": "text",
+        "value": "Da persona competente",
+        "keywords": [
+          [
+            "persona competente",
+            "competent person"
+          ]
+        ]
+      },
+      "answer_text": "L'articolo 71, comma 8, lettera c), stabilisce che gli interventi di controllo di cui alle lettere a) e b) devono essere effettuati da persona competente.",
+      "trap": "INAIL, ASL o soggetti abilitati: sono i soggetti delle verifiche periodiche del comma 11 (allegato VII), non dei controlli del comma 8.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 8",
+          "role": "supports",
+          "quote": "Gli interventi di controllo di cui alle lettere a) e b) sono volti ad assicurare il buono stato di conservazione e l'efficienza a fini di sicurezza delle attrezzature di lavoro e devono essere effettuati da persona competente"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-05",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Con quale periodicità devono essere sottoposte a verifica periodica le piattaforme di lavoro autosollevanti su colonne secondo l'allegato VII del D.Lgs. 81/2008?",
+      "question_en": "How often must mast climbing work platforms (piattaforme di lavoro autosollevanti su colonne) undergo periodic verification under Annex VII to Legislative Decree 81/2008?",
+      "answer": {
+        "kind": "duration",
+        "value": "P2Y"
+      },
+      "answer_text": "L'allegato VII del D.Lgs. 81/2008 prevede per le piattaforme di lavoro autosollevanti su colonne la verifica biennale; la guida INAIL riporta la stessa periodicità.",
+      "trap": "Tre anni: è la periodicità delle piattaforme di lavoro mobili elevabili, voce diversa dell'allegato VII; oppure un anno, che vale per carrelli semoventi a braccio telescopico e ascensori da cantiere.",
+      "evidence": [
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 10",
+          "role": "supports",
+          "quote": "Piattaforme di lavoro autosollevanti su colonne | Verifica biennale"
+        },
+        {
+          "source": "inail-guide",
+          "locator": "p. 26",
+          "role": "supports",
+          "quote": "Piattaforme di lavoro autosollevanti su colonne Verifica biennale"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-06",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Per quanto tempo è valida l'iscrizione di un soggetto nell'elenco dei soggetti abilitati alle verifiche periodiche previsto dal D.M. 11 aprile 2011, prima di dover essere rinnovata?",
+      "question_en": "For how long is the registration of a body in the list of bodies authorised to carry out periodic verifications under the Ministerial Decree of 11 April 2011 valid before it must be renewed?",
+      "answer": {
+        "kind": "duration",
+        "value": "P5Y"
+      },
+      "answer_text": "L'allegato III, punto 4.1, del D.M. 11 aprile 2011 stabilisce che l'iscrizione nell'elenco ha validità quinquennale e può essere rinnovata a seguito di apposita istanza.",
+      "trap": "Dieci anni: è il periodo minimo di conservazione degli atti documentali dell'attività di verifica (punto 4.2), non la validità dell'iscrizione.",
+      "evidence": [
+        {
+          "source": "DM2011",
+          "locator": "Allegato III",
+          "role": "supports",
+          "quote": "L'iscrizione nell'elenco ha validita' quinquennale e puo' essere rinnovata a seguito di apposita istanza"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-07",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Secondo il D.M. 11 aprile 2011, di quale documentazione deve prendere visione il verificatore durante la prima verifica periodica di un'attrezzatura dei gruppi SC e SP (sollevamento cose e persone)?",
+      "question_en": "Under the Ministerial Decree of 11 April 2011, which documents must the verifier examine during the first periodic verification of equipment in groups SC and SP (lifting of goods and of persons)?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "dichiarazione CE di conformità",
+          "dichiarazione di corretta installazione",
+          "tabelle/diagrammi di portata",
+          "diagramma delle aree di lavoro",
+          "istruzioni per l'uso"
+        ]
+      },
+      "answer_text": "L'allegato II, punto 3.1.2, lettera a), elenca: 1. dichiarazione CE di conformità; 2. dichiarazione di corretta installazione (ove previsto da disposizioni legislative); 3. tabelle/diagrammi di portata (ove previsti); 4. diagramma delle aree di lavoro (ove previsto); 5. istruzioni per l'uso.",
+      "trap": "Elencare le informazioni da rilevare per identificare l'attrezzatura (costruttore, numero di fabbrica, anno, matricola) invece dei documenti da visionare.",
+      "evidence": [
+        {
+          "source": "DM2011",
+          "locator": "Allegato II",
+          "role": "supports",
+          "quote": "Deve inoltre prendere visione della seguente documentazione: 1. dichiarazione CE di conformita'; 2. dichiarazione di corretta installazione (ove previsto da disposizioni legislative); 3. tabelle/diagrammi di portata (ove previsti): 4. diagramma delle aree di lavoro (ove previsto); 5. istruzioni per l'uso."
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-08",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Un soggetto abilitato ha rilasciato, come organismo di certificazione di prodotto, la certificazione ai fini della marcatura CE di una specifica attrezzatura di lavoro. Secondo il D.M. 11 aprile 2011, può effettuare la prima verifica periodica di quella stessa attrezzatura?",
+      "question_en": "An authorised body issued, as a product certification body, the certification for CE marking of a specific piece of work equipment. Under the Ministerial Decree of 11 April 2011, may it carry out the first periodic verification of that same equipment?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. L'allegato I, punto 4, del D.M. 11 aprile 2011 stabilisce che i soggetti che hanno svolto attività di certificazione di prodotto non possono effettuare la prima delle verifiche periodiche della specifica attrezzatura per la quale abbiano rilasciato la certificazione ai fini della marcatura CE.",
+      "trap": "Sì: ritenere sufficiente il possesso dei requisiti di abilitazione dell'allegato I, punto 1, senza considerare l'incompatibilità del punto 4.",
+      "evidence": [
+        {
+          "source": "DM2011",
+          "locator": "Allegato I",
+          "role": "supports",
+          "quote": "che hanno svolto attivita' di certificazione di prodotto. non possono effettuare la prima delle verifiche periodiche della specifica attrezzatura di lavoro per la quale abbiano rilasciato la certificazione ai fini della marcatura CE"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-09",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Secondo l'estratto del capitolato Global Service riportato nella linea guida dell'Università di Catania sulle attrezzature di lavoro, ogni quanto va eseguita la manutenzione programmata delle cappe chimiche (esclusa la sostituzione dei filtri)?",
+      "question_en": "According to the Global Service specification excerpt in the University of Catania guideline on work equipment, how often must the scheduled maintenance of chemical fume hoods be carried out (filter replacement aside)?",
+      "answer": {
+        "kind": "duration",
+        "value": "P6M"
+      },
+      "answer_text": "L'appendice A della linea guida UNICT prevede per le cappe chimiche (riferimento norma EN 14175) una manutenzione semestrale; la sola sostituzione dei filtri, per le cappe che ne sono dotate, ha frequenza annuale.",
+      "trap": "Un anno: è la frequenza della sostituzione dei filtri, oppure della manutenzione delle cabine a rischio biologico e degli arredi tecnici.",
+      "evidence": [
+        {
+          "source": "unict-guideline",
+          "locator": "p. 13",
+          "role": "supports",
+          "quote": "Cappe chimiche (riferimento norma EN 14175) Manutenzione semestrale"
+        },
+        {
+          "source": "unict-guideline",
+          "locator": "p. 13",
+          "role": "supports",
+          "quote": "Sostituzione filtri delle cappe che ne sono dotati (frequenza annuale)"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-10",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Un fabbricante di ponti sollevatori per veicoli chiede all'INAIL il riconoscimento d'idoneità (per l'attività di revisione dei veicoli) facendo esaminare il prototipo presso la propria sede. Secondo la guida INAIL, il riconoscimento ottenuto si estende all'intera serie?",
+      "question_en": "A manufacturer of vehicle lifts asks INAIL for the recognition of suitability (for vehicle roadworthiness testing) by having the prototype examined at its own premises. According to the INAIL guide, does the recognition obtained extend to the whole series?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. La guida INAIL (cap. 7 e scheda 7.1) indica che, quando è il fabbricante a richiedere il riconoscimento, l'attività consiste nell'esame del prototipo presso il fabbricante e il riconoscimento si estende all'intera serie; il fabbricante rilascia poi agli utenti un certificato di conformità del singolo esemplare al prototipo. Solo l'esame del singolo esemplare presso l'utilizzatore non è estendibile.",
+      "trap": "No: è la regola che vale quando la richiesta è presentata dall'officina utilizzatrice per il singolo esemplare.",
+      "evidence": [
+        {
+          "source": "inail-guide",
+          "locator": "p. 44",
+          "role": "supports",
+          "quote": "Nel primo caso l’attività di riconoscimento consiste nell’esame del prototipo presso il fabbricante e il riconoscimento si estende in questo caso all’intera serie"
+        },
+        {
+          "source": "inail-guide",
+          "locator": "p. 43",
+          "role": "supports",
+          "quote": "nei casi in cui è il costruttore a richiedere il riconoscimento d’ido- neità, che si estende in questo caso all’intera serie"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-11",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Secondo le linee guida dell'Università Politecnica delle Marche sulle attrezzature di laboratorio, chi decide l'istituzione del registro d'uso della strumentazione (Modello C)?",
+      "question_en": "According to the Università Politecnica delle Marche guidelines on laboratory equipment, who decides whether to set up the equipment usage register (Model C)?",
+      "answer": {
+        "kind": "text",
+        "value": "Il RDRL (Responsabile dell'attività didattica e di ricerca in laboratorio) del laboratorio in cui lo strumento è collocato, salvo diversa indicazione del Datore di Lavoro della struttura",
+        "keywords": [
+          [
+            "RDRL",
+            "responsabile dell'attività didattica",
+            "responsabile dell’attività didattica",
+            "responsabile delle attività didattiche",
+            "head of the teaching and research activity",
+            "responsible for the teaching and research activity",
+            "person responsible for teaching and research"
+          ]
+        ]
+      },
+      "answer_text": "Il punto 7.3 delle linee guida UNIVPM stabilisce che l'istituzione del registro d'uso è decisa dal RDRL del laboratorio presso il quale lo strumento è collocato, salvo diversa indicazione del Datore di Lavoro della struttura. RDRL è il Responsabile dell'attività didattica e di ricerca in laboratorio (punto 1).",
+      "trap": "L'Ufficio Sicurezza e Ambiente (che ha redatto le linee guida) o il RSPP: non è a loro che il punto 7.3 attribuisce la decisione.",
+      "evidence": [
+        {
+          "source": "univpm-guideline",
+          "locator": "p. 12",
+          "role": "supports",
+          "quote": "istituzione del registro è decisa dal RDRL del laboratorio presso il quale lo strumento è collocato salvo diversa indicazione del Datore di Lavoro della struttura"
+        },
+        {
+          "source": "univpm-guideline",
+          "locator": "p. 4",
+          "role": "supports",
+          "quote": "Responsabili dell’attività didattica e di ricerca in Laboratorio (RDRL)"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-12",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Il 1° marzo 2027 un fabbricante immette sul mercato una macchina con le istruzioni per l'uso in formato digitale. Al momento dell'acquisto l'utilizzatore chiede le istruzioni su carta: entro quanto tempo il fabbricante deve fornirle gratuitamente?",
+      "question_en": "On 1 March 2027 a manufacturer places on the market a machine with instructions for use in digital format. At the time of purchase the user asks for paper instructions: within what time must the manufacturer provide them free of charge?",
+      "answer": {
+        "kind": "duration",
+        "value": "P1M"
+      },
+      "answer_text": "Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (art. 54 come rettificato: dal 20 gennaio 2027). L'articolo 10, paragrafo 7, prevede che, su richiesta dell'utilizzatore al momento dell'acquisto, il fabbricante fornisca le istruzioni per l'uso in formato cartaceo gratuitamente entro un mese.",
+      "trap": "Dieci anni: è il periodo minimo di accessibilità online delle istruzioni digitali (art. 10, par. 7, lett. c), non il termine di consegna della copia cartacea.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 10(7)",
+          "role": "supports",
+          "quote": "However, at the request of the user at the time of the purchase, the manufacturer shall provide the instructions for use in paper format free of charge within one month"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-13",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Secondo il Regolamento (UE) 2023/1230, per quanto tempo almeno, dopo l'immissione sul mercato della macchina, l'importatore deve tenere una copia della dichiarazione di conformità UE a disposizione delle autorità di vigilanza del mercato?",
+      "question_en": "Under Regulation (EU) 2023/1230, for how long at least, after the machinery has been placed on the market, must the importer keep a copy of the EU declaration of conformity at the disposal of the market surveillance authorities?",
+      "answer": {
+        "kind": "duration",
+        "value": "P10Y"
+      },
+      "answer_text": "L'articolo 13, paragrafo 8, del Regolamento (UE) 2023/1230 impone agli importatori di tenere, per almeno 10 anni dall'immissione sul mercato della macchina o del prodotto correlato, una copia della dichiarazione di conformità UE a disposizione delle autorità di vigilanza del mercato.",
+      "trap": "Un mese (termine per le istruzioni cartacee su richiesta) o la «vita prevista» della macchina (che riguarda l'accessibilità online dei documenti digitali del fabbricante).",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 13(8)",
+          "role": "supports",
+          "quote": "Importers shall, for at least 10 years after the machinery or related product has been placed on the market, keep a copy of the EU declaration of conformity at the disposal of the market surveillance authorities"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-14",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Il 1° marzo 2027 un distributore ha motivo di ritenere che una macchina che sta per vendere non sia conforme al Regolamento applicabile. Può comunque metterla a disposizione sul mercato, limitandosi a informare il fabbricante e le autorità di vigilanza?",
+      "question_en": "On 1 March 2027 a distributor has reason to believe that a machine it is about to sell does not comply with the applicable Regulation. May it nevertheless make it available on the market, merely informing the manufacturer and the surveillance authorities?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (dal 20 gennaio 2027 secondo la rettifica). L'articolo 15, paragrafo 3, vieta al distributore di mettere a disposizione la macchina finché non sia stata resa conforme; l'informazione al fabbricante o importatore e alle autorità si aggiunge, quando la macchina presenta un rischio, ma non sostituisce il divieto.",
+      "trap": "Sì: scambiare l'obbligo di informazione (che si aggiunge in caso di rischio) per un'alternativa al divieto di messa a disposizione.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 15(3)",
+          "role": "supports",
+          "quote": "Where a distributor considers or has reason to believe that machinery or a related product is not in conformity with this Regulation, the distributor shall not make the machinery or related product available on the market until it has been brought into conformity"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-15",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Il 1° marzo 2027 un fabbricante immette sul mercato un ponte sollevatore per veicoli. Tra quali procedure di valutazione della conformità può scegliere?",
+      "question_en": "On 1 March 2027 a manufacturer places a vehicle servicing lift on the market. Among which conformity assessment procedures may it choose?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "EU type-examination (module B) followed by conformity to type based on internal production control (module C)",
+          "conformity based on full quality assurance (module H)",
+          "conformity based on unit verification (module G)"
+        ]
+      },
+      "answer_text": "Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (dal 20 gennaio 2027 secondo la rettifica). I ponti sollevatori per veicoli sono nell'allegato I, parte A (punto 3); per queste categorie l'articolo 25, paragrafo 2, ammette solo: a) esame UE del tipo (modulo B) seguito dalla conformità al tipo basata sul controllo interno della produzione (modulo C); b) garanzia totale di qualità (modulo H); c) verifica dell'unità (modulo G). Il solo controllo interno, che la Direttiva 2006/42/CE consentiva per le macchine dell'allegato IV costruite secondo norme armonizzate, non è più ammesso.",
+      "trap": "Includere il solo controllo interno della produzione (modulo A): era ammesso dall'art. 12, par. 3, lett. a), della Direttiva e lo è nel Regolamento solo per l'allegato I, parte B.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Annex I, Part A, point 3",
+          "role": "supports",
+          "quote": "3. Vehicle servicing lifts."
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 25(2)",
+          "role": "supports",
+          "quote": "Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027"
+        },
+        {
+          "source": "DIR",
+          "locator": "Art. 12(3)",
+          "role": "superseded",
+          "quote": "(a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-16",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Da quale data si applica, in via generale, il Regolamento (UE) 2023/1230 sulle macchine (salve le disposizioni che l'articolo 54 anticipa)?",
+      "question_en": "From which date does Regulation (EU) 2023/1230 on machinery apply in general (apart from the provisions that Article 54 brings forward)?",
+      "answer": {
+        "kind": "date",
+        "value": "2027-01-20"
+      },
+      "answer_text": "L'articolo 54, secondo comma, nel testo pubblicato indicava il 14 gennaio 2027; la rettifica (punto 10) sostituisce la data con il 20 gennaio 2027. Prevale il testo rettificato: il Regolamento si applica dal 20 gennaio 2027.",
+      "trap": "14 gennaio 2027 (testo pubblicato, non rettificato) oppure la data di entrata in vigore (ventesimo giorno dalla pubblicazione), che non coincide con la data di applicazione.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "It shall apply from 14 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-17",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Entro quale data gli Stati membri devono notificare alla Commissione le norme sulle sanzioni e le misure di attuazione previste dall'articolo 50 del Regolamento (UE) 2023/1230?",
+      "question_en": "By which date must Member States notify the Commission of the rules on penalties and the implementing measures provided for in Article 50 of Regulation (EU) 2023/1230?",
+      "answer": {
+        "kind": "date",
+        "value": "2026-10-20"
+      },
+      "answer_text": "L'articolo 50, paragrafo 2, nel testo pubblicato fissava il termine al 14 ottobre 2026; la rettifica (punto 4) lo sostituisce con il 20 ottobre 2026. Prevale il testo rettificato.",
+      "trap": "14 ottobre 2026: è la data del testo pubblicato, corretta dalla rettifica.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 4",
+          "role": "supports",
+          "quote": "Article 50, paragraph 2: for: ‘ 14 October 2026 ’, read: ‘ 20 October 2026"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 50(2)",
+          "role": "superseded",
+          "quote": "Member States shall, by 14 October 2026, notify the Commission of those rules and of those measures"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-18",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Una macchina viene immessa sul mercato dell'Unione per la prima volta esattamente il 20 gennaio 2027. Può essere immessa sul mercato in conformità alla sola Direttiva 2006/42/CE, anziché al Regolamento (UE) 2023/1230?",
+      "question_en": "A machine is placed on the Union market for the first time exactly on 20 January 2027. May it be placed on the market in conformity with Directive 2006/42/EC alone, instead of Regulation (EU) 2023/1230?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Secondo il testo rettificato, il Regolamento si applica dal 20 gennaio 2027 (art. 54, rettifica punto 10) e la Direttiva 2006/42/CE è abrogata con effetto dal 20 gennaio 2027 (art. 51, par. 2, rettifica punto 5). La disposizione transitoria tutela solo i prodotti immessi sul mercato prima del 20 gennaio 2027 (art. 52, par. 1, rettifica punto 6): il 20 gennaio 2027 vale già il Regolamento.",
+      "trap": "Sì: considerare il 20 gennaio 2027 come ultimo giorno utile della Direttiva, mentre la soglia è «prima del» 20 gennaio 2027.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 5",
+          "role": "supports",
+          "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 6",
+          "role": "supports",
+          "quote": "Article 52, paragraph 1, first sentence: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 52(1)",
+          "role": "supports",
+          "quote": "Member States shall not impede the making available on the market of products which were placed on the market in conformity with Directive 2006/42/EC before"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-19",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Per una macchina immessa sul mercato il 1° marzo 2027, il fabbricante può, invece di far accompagnare la macchina dalla dichiarazione di conformità, limitarsi a indicare nelle istruzioni per l'uso l'indirizzo internet o il codice leggibile da dispositivo automatico da cui la dichiarazione è accessibile?",
+      "question_en": "For a machine placed on the market on 1 March 2027, may the manufacturer, instead of having the declaration of conformity accompany the machine, simply give in the instructions for use the internet address or machine-readable code where the declaration can be accessed?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (dal 20 gennaio 2027 secondo la rettifica), il cui articolo 10, paragrafo 8, consente, in alternativa alla dichiarazione di conformità UE che accompagna la macchina, di indicare nelle istruzioni per l'uso l'indirizzo internet o il codice leggibile da dispositivo automatico dove la dichiarazione è accessibile. La Direttiva 2006/42/CE (art. 5, par. 1, lett. e) richiedeva invece che la dichiarazione accompagnasse la macchina, ma a quella data è abrogata.",
+      "trap": "No: è la regola della Direttiva 2006/42/CE (la dichiarazione CE deve accompagnare la macchina), non più applicabile dal 20 gennaio 2027.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 10(8)",
+          "role": "supports",
+          "quote": "Manufacturers shall ensure that the machinery or related product is accompanied by the EU declaration of conformity set out in Annex V, Part A or, alternatively, manufacturers shall provide the internet address or machine-readable code where that EU declaration of conformity can be accessed in the instructions for use and the information set out in Annex III"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027"
+        },
+        {
+          "source": "DIR",
+          "locator": "Art. 5(1)",
+          "role": "superseded",
+          "quote": "(e) draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-20",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Qual è l'importo della sanzione prevista dal D.Lgs. 81/2008 per il datore di lavoro che non sottopone un'attrezzatura dell'allegato VII alle verifiche periodiche dell'articolo 71, comma 11?",
+      "question_en": "What is the amount of the penalty laid down by Legislative Decree 81/2008 for an employer who fails to submit Annex VII equipment to the periodic verifications of Article 71(11)?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "Non determinabile dai documenti disponibili. Gli articoli 69-73 e l'allegato VII del D.Lgs. 81/2008 stabiliscono l'obbligo di verifica periodica ma non contengono le disposizioni sanzionatorie del decreto; nemmeno il D.M. 11 aprile 2011 o le guide indicano l'importo.",
+      "trap": "Citare un importo a memoria, o scambiare per sanzione le tariffe/spese di verifica poste a carico del datore di lavoro.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 11",
+          "role": "supports",
+          "quote": "il datore di lavoro sottopone le attrezzature di lavoro riportate nell'allegato VII a verifiche periodiche volte a valutarne l'effettivo stato di conservazione e di efficienza ai fini di sicurezza, con la frequenza indicata nel medesimo allegato"
+        },
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 11",
+          "role": "supports",
+          "quote": "Le verifiche di cui al presente comma sono effettuate a titolo oneroso e le spese per la loro effettuazione sono poste a carico del datore di lavoro"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-21",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Quante ore deve durare il corso di formazione per ottenere l'abilitazione degli operatori dei carrelli semoventi a braccio telescopico, ai sensi dell'articolo 73, comma 5, del D.Lgs. 81/2008?",
+      "question_en": "How many hours must the training course last to obtain the operator qualification for telescopic handlers (carrelli semoventi a braccio telescopico), pursuant to Article 73(5) of Legislative Decree 81/2008?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "Non determinabile dai documenti disponibili. L'articolo 73, comma 5, rinvia alla Conferenza Stato-Regioni l'individuazione delle attrezzature che richiedono una specifica abilitazione, dei soggetti formatori e della durata della formazione, ma l'atto della Conferenza non è tra i documenti; l'allegato VII indica solo la periodicità di verifica dell'attrezzatura.",
+      "trap": "Rispondere «un anno» (periodicità di verifica dei carrelli a braccio telescopico nell'allegato VII) o citare a memoria le ore di un accordo non presente nei documenti.",
+      "evidence": [
+        {
+          "source": "DLGS73",
+          "locator": "art. 73, c. 5",
+          "role": "supports",
+          "quote": "sono individuate le attrezzature di lavoro per le quali è richiesta una specifica abilitazione degli operatori nonché le modalità per il riconoscimento di tale abilitazione, i soggetti formatori, la durata, gli indirizzi ed i requisiti minimi di validità della formazione"
+        },
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 9",
+          "role": "supports",
+          "quote": "Carrelli semoventi a braccio telescopico | Verifica annuale"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-22",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Quali requisiti stabilisce l'allegato V del D.Lgs. 81/2008 per i dispositivi di arresto di emergenza delle attrezzature di lavoro costruite in assenza di direttive di prodotto?",
+      "question_en": "Which requirements does Annex V to Legislative Decree 81/2008 lay down for the emergency stop devices of work equipment built in the absence of product directives?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "Non determinabile dai documenti disponibili. Gli articoli 70 e 72 del D.Lgs. 81/2008 e il D.M. 11 aprile 2011 rinviano ai requisiti generali di sicurezza dell'allegato V, ma il testo dell'allegato V non è tra i documenti. I requisiti sull'arresto di emergenza della Direttiva 2006/42/CE e del Regolamento (UE) 2023/1230 riguardano la progettazione delle macchine nuove e non sono l'allegato V.",
+      "trap": "Riportare il requisito 1.2.4.3 (arresto di emergenza) dell'allegato I della Direttiva o dell'allegato III del Regolamento come se fosse l'allegato V del D.Lgs. 81/2008.",
+      "evidence": [
+        {
+          "source": "DLGS70",
+          "locator": "art. 70, c. 2",
+          "role": "supports",
+          "quote": "Le attrezzature di lavoro costruite in assenza di disposizioni legislative e regolamentari di cui al comma 1, e quelle messe a disposizione dei lavoratori antecedentemente all'emanazione di norme legislative e regolamentari di recepimento delle direttive comunitarie di prodotto, devono essere conformi ai requisiti generali di sicurezza di cui all'allegato V"
+        },
+        {
+          "source": "DM2011",
+          "locator": "Allegato II",
+          "role": "supports",
+          "quote": "dovra' essere attestata da parte del datore di lavoro o da persona competente da lui incaricata la conformita' della macchina ai requisiti di sicurezza di cui all'allegato V del decreto legislativo n. 81/2008"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-23",
+      "type": "V",
+      "split": "blind",
+      "question_it": "Quale norma armonizzata (numero EN) conferisce la presunzione di conformità ai ponti sollevatori per veicoli immessi sul mercato dal 20 gennaio 2027 ai sensi del Regolamento (UE) 2023/1230?",
+      "question_en": "Which harmonised standard (EN number) gives presumption of conformity for vehicle servicing lifts placed on the market from 20 January 2027 under Regulation (EU) 2023/1230?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "Non determinabile dai documenti disponibili. Il Regolamento elenca i ponti sollevatori per veicoli nell'allegato I, parte A, e prevede in generale la presunzione di conformità per le norme armonizzate i cui riferimenti sono pubblicati nella Gazzetta ufficiale, ma né il Regolamento, né la Direttiva, né le guide indicano il numero di una norma specifica per questa categoria.",
+      "trap": "Citare a memoria una norma EN, o indicare i decreti ministeriali richiamati dalla guida INAIL per il riconoscimento d'idoneità dei ponti destinati alla revisione dei veicoli, che non sono norme armonizzate.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Annex I, Part A, point 3",
+          "role": "supports",
+          "quote": "3. Vehicle servicing lifts."
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 20(1)",
+          "role": "supports",
+          "quote": "harmonised standards or parts thereof the references of which have been published in the Official Journal of the European Union"
+        }
+      ]
+    },
+    {
+      "id": "BLIND-LAW-24",
+      "type": "T",
+      "split": "blind",
+      "question_it": "Qual è, in Italia, l'autorità nazionale di sorveglianza del mercato competente per le macchine, che gli organi di vigilanza devono informare ai sensi dell'articolo 70, comma 4, del D.Lgs. 81/2008?",
+      "question_en": "Which is, in Italy, the national market surveillance authority competent for machinery, which the supervisory bodies must inform under Article 70(4) of Legislative Decree 81/2008?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "Non determinabile dai documenti disponibili. L'articolo 70, comma 4, parla dell'«autorità nazionale di sorveglianza del mercato competente per tipo di prodotto» senza nominarla; né il Regolamento, né la Direttiva, né il D.M. 11 aprile 2011, né le guide indicano quale amministrazione italiana lo sia per le macchine.",
+      "trap": "Indicare l'INAIL, l'ASL o un ministero perché compaiono nei documenti con altri ruoli (verifiche periodiche, abilitazione dei soggetti, deroghe).",
+      "evidence": [
+        {
+          "source": "DLGS70",
+          "locator": "art. 70, c. 4",
+          "role": "supports",
+          "quote": "ne informano immediatamente l'autorità nazionale di sorveglianza del mercato competente per tipo di prodotto"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "The DEMAG overhead travelling crane at position 8 dates from 1985 and is not CE-marked. Under point 4.2.2 of the technical sheet, which documentation must IGEA make available to the verifier for this device today?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"libretto delle verifiche rilasciato da INAIL/ISPESL\", \"verbali delle verifiche periodiche precedenti\", \"registro di controllo\", \"certificazione di verifica strutturale dei cicli di vita residui\"], \"text\": \"Under point 4.2.2 of the IGEA technical sheet (Scheda tecnica, p. 4-5), IGEA must give the verifier the libretto delle verifiche, the previous periodic-verification reports and the registro di controllo. Because device 8 (DEMAG, 1985) is over 20 years old and is not CE-marked, the structural verification certificate for remaining service life also applies, while the CE declaration of conformity and the installation, use and maintenance manual do not, since they apply only to CE-marked devices.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 4, section 4.2.2 (IMPEGNI APPALTATORE)\", \"quote\": \"4.2.2 tutta la documentazione necessaria: 1. libretto delle verifiche rilasciato da INAIL/ISPESL o Copia della Dichiarazione di Conformità con relativa denuncia all'ISPESL per apparecchi a marchio CE; 2. verbali delle verifiche periodiche precedenti; 3. registro di controllo;\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 5, section 4.2.2 (continued)\", \"quote\": \"4. manuale di installazione, uso e manutenzione (solo apparecchi a marchio CE); 5. se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui;\"}, {\"file\": \"igea-equipment.md\", \"place\": \"p. 6, Allegato A, Tabella A2, position 8\", \"quote\": \"GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 SCORREVOLE\"}]}",
+  "turns": 4,
+  "usage": {
+   "prompt_tokens": 24696,
+   "completion_tokens": 1393
+  }
+ }
+}

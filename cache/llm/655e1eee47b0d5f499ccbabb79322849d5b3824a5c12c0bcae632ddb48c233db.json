@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the manual of the nanoScan3 safety laser scanner, at what minimum frequency must the regular thorough checks of the protective device be carried out?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo il manuale dello scanner laser di sicurezza nanoScan3, con quale frequenza minima devono essere effettuati i controlli regolari approfonditi del dispositivo di protezione?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 707,
+   "completion_tokens": 274,
+   "total_tokens": 981
+  }
+ }
+}

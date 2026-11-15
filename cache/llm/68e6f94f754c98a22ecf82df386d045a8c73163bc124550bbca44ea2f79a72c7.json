@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "If the Effer hydraulic truck-mounted crane at position 7 (790 kg) were used with regular use, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified on 31 December 2027?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "The Effer 790 qualifies for the biennial cadence, though the 10-year threshold is close enough to flag.\n\n```json\n{\"kind\": \"duration\", \"value\": \"P2Y\", \"text\": \"Under Allegato VII of D.Lgs. 81/2008 (DLGSALLVII.md, Allegato VII riga 13), a mobile lifting appliance above 200 kg in regular use, not older than 10 years, needs verification every two years, so on 31 December 2027 the Effer 790 (position 7, Tabella A1 of igea-equipment.md, manufactured 2017) would be on a two-year cycle. This relies on reading 'antecedente 10 anni' as 'older than 10 years'. At 31 December 2027 the crane is exactly 10 years from its 2017 build year, so if the reading is 'more than 10 years' it is not yet antecedente; the record gives only the year, so this is a judgement call.\", \"sources\": [{\"file\": \"DLGSALLVII.md\", \"place\": \"Allegato VII, riga 13\", \"quote\": \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano, di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni | Verifica biennale\"}, {\"file\": \"igea-equipment.md\", \"place\": \"ALLEGATO A – Tabella A1 (p. 6)\", \"quote\": \"IVECO 7 Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT\"}]}\n```",
+  "turns": 10,
+  "usage": {
+   "prompt_tokens": 134460,
+   "completion_tokens": 3953
+  }
+ }
+}

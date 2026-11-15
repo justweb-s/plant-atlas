@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the Università Politecnica delle Marche guidelines on laboratory equipment, who decides whether to set up the equipment usage register (Model C)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo le linee guida dell'Università Politecnica delle Marche sulle attrezzature di laboratorio, chi decide se istituire il registro di utilizzo delle attrezzature (Modello C)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 707,
+   "completion_tokens": 301,
+   "total_tokens": 1008
+  }
+ }
+}

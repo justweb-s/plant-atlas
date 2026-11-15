@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Given that the company works in mining areas (extractive sector), from which day does the IGEA-PRIM 5t overhead travelling crane at position 13 move from two-yearly to yearly verification?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Dato che l'azienda opera in aree minerarie (settore estrattivo), da quale giorno il carroponte IGEA-PRIM da 5t in posizione 13 passa dalla verifica biennale a quella annuale?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 721,
+   "completion_tokens": 287,
+   "total_tokens": 1008
+  }
+ }
+}

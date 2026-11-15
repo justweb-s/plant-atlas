@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "For how long is the registration of a body in the list of bodies authorised to carry out periodic verifications under the Ministerial Decree of 11 April 2011 valid before it must be renewed?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"Decreto ministeriale 11 aprile 2011 elenco organismi abilitati verifiche periodiche attrezzature di lavoro iscrizione durata validità rinnovo / Ministerial Decree 11 April 2011 list of bodies authorised periodic verifications work equipment registration duration validity renewal\", \"DM 11 aprile 2011 articolo iscrizione nell'elenco validità anni domanda di rinnovo / DM 11 April 2011 article registration in the list valid for years application for renewal\", \"art. 71 decreto legislativo 81/2008 verifiche periodiche organismi abilitati elenco DM 11 aprile 2011 allegato / art. 71 Legislative Decree 81/2008 periodic verifications authorised bodies list DM 11 April 2011 annex\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 913,
+   "completion_tokens": 592,
+   "total_tokens": 1505
+  }
+ }
+}

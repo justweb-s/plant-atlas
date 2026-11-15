@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "Under Article 71 of Legislative Decree 81/2008, who bears the cost of carrying out the periodic verifications of the lifting devices in the IGEA list?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"text\", \"value\": \"Il datore di lavoro (per la lista IGEA, IGEA S.p.A.) sostiene le spese delle verifiche periodiche.\", \"text\": \"Under Art. 71(11) of Legislative Decree 81/2008, periodic verifications are carried out at a fee and their cost is charged to the employer (datore di lavoro). The IGEA technical sheet confirms that IGEA S.p.A. is the employer and that the fee for each lifting device is paid under its contract (point 2.7, p. 4).\", \"sources\": [{\"file\": \"DLGS71.md\", \"place\": \"## art. 71, c. 11\", \"quote\": \"Le verifiche di cui al presente comma sono effettuate a titolo oneroso e le spese per la loro effettuazione sono poste a carico del datore di lavoro.\"}, {\"file\": \"igea-equipment.md\", \"place\": \"## p. 4\", \"quote\": \"2.7 Per ciascun apparecchio di sollevamento in elenco, aggiornato in numero e ubicazione secondo il punto 2.5, sottoposto a verifica secondo le cadenze ed entro le scadenze previste, verrà corrisposto l'importo calcolato sulla base di quanto disposto al punto 2.6 e col ribasso proposto dall' Aggiudicatario;\"}]}",
+  "turns": 5,
+  "usage": {
+   "prompt_tokens": 29821,
+   "completion_tokens": 1298
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the UR10e manual, with whom does the responsibility rest for disposing of the robot in accordance with the applicable national laws, regulations and standards?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo il manuale dell'UR10e, a chi spetta la responsabilità di smaltire il robot in conformità alle leggi, ai regolamenti e alle norme nazionali applicabili?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 709,
+   "completion_tokens": 280,
+   "total_tokens": 989
+  }
+ }
+}

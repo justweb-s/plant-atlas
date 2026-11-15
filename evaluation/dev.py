@@ -18,7 +18,10 @@ from pathlib import Path
 from evaluation.score import score, summary
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results" / "dev"
+# ATLAS_QSET=blind: the same board on data/cq/blind/, a test set nobody tunes on. Only its totals are printed
+# and written to the board; the rows stay in results/blind/<mode>.json and are not meant to be read.
+QSET = os.getenv("ATLAS_QSET", "dev")
+OUT = ROOT / "results" / QSET
 MODES = ("free", "rag", "B")
 LABELS = {"free": "Free search (model + folder of documents)", "rag": "RAG (passages by similarity)",
           "B": "Plant Atlas (fact store, reading on demand, judge)"}
@@ -26,7 +29,7 @@ SKIP = {"DEV-IGEA-05", "DEV-VER-14", "DEV-CELL-11"}   # two defensible answers: 
 
 
 def load() -> list[dict]:
-    return [c for p in sorted((ROOT / "data/cq/dev").glob("*.json"))
+    return [c for p in sorted((ROOT / "data/cq" / QSET).glob("*.json"))
             for c in json.loads(p.read_text(encoding="utf-8"))["cqs"] if c["id"] not in SKIP]
 
 
@@ -79,6 +82,9 @@ def markdown() -> str:
             rows = [r for r in d["rows"] if r["group"] == g]
             cells.append(f"{sum(r['score'] == 1.0 for r in rows)}/{len(rows)}")
         out.append(f"| {LABELS[m]} | " + " | ".join(cells) + " |")
+    if QSET == "blind":
+        return "\n".join(out).replace("# Development board", "# Blind test board").replace(
+            "`data/cq/dev/`", "`data/cq/blind/` (never used to change the system)") + "\n"
     out += ["", "## Question by question", "", "| Question | Expected | " + " | ".join(LABELS[m].split(" (")[0] for m in loaded) + " |",
             "|---|---|" + "---|" * len(loaded)]
     by = {m: {r["id"]: r for r in d["rows"]} for m, d in loaded.items()}

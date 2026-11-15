@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "For a machine placed on the market on 1 March 2027, may the manufacturer, instead of having the declaration of conformity accompany the machine, simply give in the instructions for use the internet address or machine-readable code where the declaration can be accessed?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Per una macchina immessa sul mercato il 1° marzo 2027, il fabbricante può, anziché far accompagnare la macchina dalla dichiarazione di conformità, limitarsi a indicare nelle istruzioni per l'uso l'indirizzo internet o il codice leggibile da dispositivo automatico attraverso cui accedere alla dichiarazione?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 735,
+   "completion_tokens": 397,
+   "total_tokens": 1132
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the Global Service specification excerpt in the University of Catania guideline on work equipment, how often must the scheduled maintenance of chemical fume hoods be carried out (filter replacement aside)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo l'estratto della specifica del Global Service nella linea guida dell'Università di Catania sulle attrezzature di lavoro, con quale frequenza deve essere effettuata la manutenzione programmata delle cappe chimiche (escludendo la sostituzione dei filtri)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 724,
+   "completion_tokens": 314,
+   "total_tokens": 1038
+  }
+ }
+}

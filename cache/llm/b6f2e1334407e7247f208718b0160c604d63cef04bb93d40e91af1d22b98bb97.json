@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "The Ministerial Decree of 11 April 2011 and Legislative Decree 81/2008 give different time limits within which INAIL must carry out the first periodic verification of Annex VII equipment, counted from the employer's request. Which time limit is valid today?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il Decreto Ministeriale dell'11 aprile 2011 e il Decreto Legislativo 81/2008 fissano termini diversi entro i quali l'INAIL deve effettuare la prima verifica periodica delle attrezzature di cui all'Allegato VII, calcolati dalla richiesta del datore di lavoro. Quale termine è valido oggi?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 743,
+   "completion_tokens": 330,
+   "total_tokens": 1073
+  }
+ }
+}

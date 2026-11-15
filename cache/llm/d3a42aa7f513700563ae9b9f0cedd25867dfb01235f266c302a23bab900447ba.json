@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Given that the company works in mining areas (extractive sector), for which positions among the fixed devices in the list (overhead travelling cranes and the gantry crane) is the verification yearly today?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Dato che l'azienda opera in aree minerarie (settore estrattivo), per quali posizioni tra i dispositivi fissi dell'elenco (carroponti e gru a portale) la verifica è annuale oggi?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 718,
+   "completion_tokens": 240,
+   "total_tokens": 958
+  }
+ }
+}
