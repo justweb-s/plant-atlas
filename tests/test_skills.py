@@ -144,3 +144,22 @@ def test_the_hook_falls_back_when_no_skill_fits(monkeypatch):
     hit = skills.try_answer(CASES[0][1], store, DAY)
     assert hit.value == "P2Y" and hit.steps[0].text.startswith("[skill verification_interval:") and hit.trace["skill"]
     assert all(step.statement_id and step.quote and step.locator for step in hit.steps)
+
+
+def test_who_does_takes_the_fact_by_its_subject_and_names_every_body_of_its_sentence(monkeypatch):
+    query = {"relations": ["verifiedBy"], "subject_terms": ["subsequent verifications", "cranes"], "wants": "one"}
+    ask(monkeypatch, query)
+    store, skill = tiny_store(), by_name("who_does")
+    sentence = "The subsequent verifications of cranes are carried out by the ASL or, where regional law says so, by ARPA."
+    store.statements += [
+        fact("w2", "subsequent verifications of cranes", "verifiedBy", "ASL", quote=sentence, layer="law", source="LAW"),
+        fact("w3", "subsequent verifications of cranes", "verifiedBy", "ARPA", quote=sentence, layer="law", source="LAW"),
+        fact("w4", "subsequent verifications of cranes", "verifiedBy", "the owner", layer="company", source="PROC"),
+        fact("w5", "audits", "verifiedBy", "the notified body")]
+    question = "Who carries out the subsequent verifications of cranes?"
+    value, kind, text, used, trace = skills.run(skill, question, store, DAY)
+    assert kind == "text" and value == "ASL; ASL or, where regional law says so, by ARPA"   # the law, not the company
+    assert [s.id for s in used] == ["w2", "w3"] and follows_edges(skill, trace)
+    ask(monkeypatch, {"relations": ["verifiedBy"], "subject_terms": ["boilers"], "wants": "one"})
+    value, kind, _, used, trace = skills.run(skill, "Who verifies the boilers?", store, DAY)
+    assert value is None and kind == "unknown" and not used     # no fact whose subject is what is asked: no answer

@@ -21,8 +21,9 @@ EXTRA = 40           # facts added by relation, by locator and by family, on top
 FAMILY = 30          # a family (same source, same article or annex part) larger than this is not pulled in whole
 SEEDS = 10           # how many of the nearest facts may bring their family along
 SYSTEM = """You answer a question about machinery and work-equipment law using ONLY the numbered facts given.
-Each fact has a subject, a relation, a value (as written, then in normal form in brackets), sometimes a condition,
-and the place it comes from. Some facts carry a note computed from the dates: trust the notes.
+Each fact is one line: subject | relation | value | condition (after "if:", when there is one) | the place it
+comes from. A long value or condition is shortened and ends with "…"; a normal form (a date, a duration, a short
+name) follows the value in brackets when there is one. Some facts carry a note computed from the dates: trust the notes.
 
 Rules:
 - Use only these facts. Do not use anything you know from elsewhere.
@@ -143,9 +144,66 @@ def _notes(s: Statement, asked: list[date], corrected: dict[date, tuple[date, St
     return f" [note: {'; '.join(notes)}]" if notes else ""
 
 
+HEAD = 12            # words of a value shown to the model and used for ranking; the whole value stays in the fact
+CLAUSE_END = re.compile(r"[;:,]|\s\((?:[a-z]|\d{1,2})\)|\s[-–]\s")
+
+
+def _head(text: str, words: int = HEAD) -> str:
+    """The head of a text: whole when short, else about `words` words cut at a clause boundary, ending with "…"."""
+    text = " ".join((text or "").split())
+    parts = text.split(" ")
+    if len(parts) <= words:
+        return text
+    cut = None
+    for boundary in CLAUSE_END.finditer(text):
+        before = len(text[:boundary.start()].split(" "))
+        if before > words + 4:
+            break
+        if before >= 4:
+            cut = boundary.start()
+    head = text[:cut] if cut else " ".join(parts[:words])
+    return head.rstrip(" ,;:-–") + "…"
+
+
+def _normal_form(s: Statement) -> str:
+    """The normal form worth showing: a date or a duration, or a short name that differs from the value as written."""
+    for form in (s.object, s.object_normalised):
+        form = (form or "").strip()
+        if ISO_DATE.fullmatch(form) or (len(form) > 1 and ISO_DURATION.fullmatch(form)):
+            return form
+    form = (s.object_normalised or "").strip()
+    return form if form and len(form) <= 60 and _key(form) != _key(s.object_as_written) else ""
+
+
+def short_value(s: Statement) -> str:
+    """The value of a fact in a few words: its head as written, then its normal form in brackets when it has one.
+    A fact repaired to hold its whole sentence reads, here, like the short fact it replaced."""
+    head, form = _head(s.object_as_written), _normal_form(s)
+    if not head:
+        return form
+    return f"{head} ({form})" if form and _key(form) != _key(head) else head
+
+
+def _relation(name: str) -> str:
+    return re.sub(r"(?<=[a-z])(?=[A-Z])", " ", name or "").lower()
+
+
 def _line(s: Statement) -> str:
-    condition = f" [condition: {s.condition}]" if s.condition else ""
-    return f"{s.subject} — {s.predicate} — {s.object_as_written} ({s.object}){condition} [{s.source_doc}, {s.anchor}]"
+    """One compact, uniform line per fact: subject | relation | short value | first clause of the condition | place."""
+    condition = f" | if: {_head(s.condition, 2 * HEAD)}" if s.condition else ""
+    return f"{s.subject} | {_relation(s.predicate)} | {short_value(s)}{condition} | [{s.source_doc}, {s.anchor}]"
+
+
+def _bags(s: Statement, relation: bool = False) -> tuple[set[str], set[str]]:
+    """The words a fact is ranked by: its subject, relation, short value and the first clause of its condition
+    first; the rest of its value and condition second, as a weak signal, so that a long fact does not outrank
+    a short one by its length."""
+    first = _words(f"{s.subject} {s.predicate if relation else ''} {_head(s.object_as_written)} {_normal_form(s)} "
+                   f"{_head(s.condition, 2 * HEAD)}")   # exactly the short forms the model is shown
+    return first, _words(f"{s.object_as_written} {s.object} {s.condition}") - first
+
+
+WEAK = 0.3           # weight of a word found only in the long text of a fact
 
 
 _VECTORS: dict[str, tuple[list[float], float]] = {}   # line -> (vector, length); filled once per process
@@ -265,14 +323,15 @@ def lexical(question: str, facts: list[Statement], top: int = LEXICAL) -> list[S
     wanted = _words(question) | _words(_other_language(question))
     if not wanted:
         return []
-    bags = [_words(f"{s.subject} {s.predicate} {s.object_as_written} {s.object} {s.condition}") for s in facts]
+    bags = [_bags(s, relation=True) for s in facts]
     seen: dict[str, int] = {}
-    for bag in bags:
-        for w in bag & wanted:
+    for first, second in bags:
+        for w in (first | second) & wanted:
             seen[w] = seen.get(w, 0) + 1
     total = len(facts) or 1
-    scored = sorted(((sum(math.log(1 + total / seen[w]) for w in bag & wanted), -i) for i, bag in enumerate(bags)),
-                    reverse=True)
+    scored = sorted(((sum(math.log(1 + total / seen[w]) for w in first & wanted)
+                      + WEAK * sum(math.log(1 + total / seen[w]) for w in second & wanted), -i)
+                     for i, (first, second) in enumerate(bags)), reverse=True)
     return [facts[-i] for value, i in scored[:top] if value > 0]
 
 
@@ -335,9 +394,25 @@ def _canon(duration: str) -> str:
     return f"P{int(match.group(1)) // 12}Y" if match and int(match.group(1)) % 12 == 0 else (duration or "")
 
 
+NUMBER_WORDS = {w: n for n, names in enumerate(
+    ("one un uno una a an", "two due", "three tre", "four quattro", "five cinque", "six sei", "seven sette",
+     "eight otto", "nine nove", "ten dieci", "eleven undici", "twelve dodici"), start=1) for w in names.split()}
+WORDED_DURATION = re.compile(r"\b(" + "|".join(NUMBER_WORDS) + r")\s+(" + "|".join(UNITS) + r")\b", re.I)
+PER_UNIT = re.compile(r"\b(?:once|una volta|every|each|per|ogni|all[\'’]|al|alla)\s*(?:an?\s+)?(" + "|".join(UNITS) + r")\b", re.I)
+NAMED_DURATION = (("P1Y", r"\b(annual\w*|yearly|annuale|annuali|annualmente)\b"), ("P1M", r"\b(monthly|mensil\w+)\b"),
+                  ("P1W", r"\b(weekly|settimanal\w+)\b"), ("P1D", r"\b(daily|giornalier\w+|quotidian\w+)\b"),
+                  ("P6M", r"\b(half-yearly|semestral\w+|six-monthly)\b"), ("P2Y", r"\b(biennial\w*|biennal\w+)\b"))
+
+
 def _all_durations(text: str) -> set[str]:
-    found = {m.group(0).upper() for m in ISO_DURATION.finditer(text or "") if len(m.group(0)) > 1}
-    found |= {f"P{int(m.group(1))}{UNITS[m.group(2).lower()]}" for m in WRITTEN_DURATION.finditer(text or "")}
+    """Every duration a text states: ISO, digits with a unit, a number word with a unit ("ten years"), once per
+    unit ("once a year", "ogni anno") and the named ones ("annual", "mensile")."""
+    text = text or ""
+    found = {m.group(0).upper() for m in ISO_DURATION.finditer(text) if len(m.group(0)) > 1}
+    found |= {f"P{int(m.group(1))}{UNITS[m.group(2).lower()]}" for m in WRITTEN_DURATION.finditer(text)}
+    found |= {f"P{NUMBER_WORDS[m.group(1).lower()]}{UNITS[m.group(2).lower()]}" for m in WORDED_DURATION.finditer(text)}
+    found |= {f"P1{UNITS[m.group(1).lower()]}" for m in PER_UNIT.finditer(text)}
+    found |= {iso for iso, pattern in NAMED_DURATION if re.search(pattern, text, re.I)}
     return {_canon(d) for d in found}
 
 
@@ -434,10 +509,10 @@ def graph_query(question: str, facts: list[Statement]) -> tuple[list[Statement],
     place = _place(str(query.get("place") or ""))
     number = re.fullmatch(r"\d+(?: \d+)+", place)
     hint = _words(str(query.get("source_hint") or ""))
-    bags = [_words(f"{s.subject} {s.object_as_written} {s.object} {s.condition}") for s in pool]
+    bags = [_bags(s) for s in pool]
     seen: dict[str, int] = {}
-    for bag in bags:
-        for w in bag & wanted:
+    for first, second in bags:
+        for w in (first | second) & wanted:
             seen[w] = seen.get(w, 0) + 1
 
     def placed(s: Statement) -> bool:
@@ -449,8 +524,10 @@ def graph_query(question: str, facts: list[Statement]) -> tuple[list[Statement],
     if everything and under and len(under) <= FAMILY:
         return under, query   # all of a place: every fact of those relations filed there
     scored = []
-    for i, (s, bag) in enumerate(zip(pool, bags)):
-        value = sum(math.log(1 + len(pool) / seen[w]) for w in bag & wanted)
+    for i, (s, (first, second)) in enumerate(zip(pool, bags)):
+        value = sum(math.log(1 + len(pool) / seen[w]) for w in first & wanted) \
+            + WEAK * sum(math.log(1 + len(pool) / seen[w]) for w in second & wanted)
+        value *= 1.0 if s.predicate == relations[0] else 0.8   # the first relation named is the one asked for
         value += 5.0 * placed(s) + 3.0 * bool(hint & (_words(s.source_doc) | _words(s.subject)))
         if value > 0:
             scored.append((value, -i))
@@ -475,7 +552,7 @@ def one_regime(question: str, matched: list[Statement], facts: list[Statement], 
 
 
 LEAD = re.compile(r"^\s*(?:(?:option|opzione)\s*\(?[a-z0-9]{1,2}\)?\s*[:.\-]|\(?[a-z0-9]{1,2}\)|\d{1,2}\.)\s+", re.I)
-TAIL = re.compile(r"\s*\(([^()]*)\)\s*$")
+TAIL = re.compile(r"\s*\(((?:[^()]|\([^()]*\))*)\)\s*$")   # a closing bracket, which may hold "5(1)"
 LOCATOR = re.compile(r"\b(annex|allegato|art|article|articolo|point|punto|part|parte|riga|comma)\b|\b[pc]\.", re.I)
 CLAUSE = re.compile(r"^\s*(before|where|if|in a language|as determined|or alternatively)\b", re.I)
 ALTERNATIVE = re.compile(r"alternativ|does not allow|non consent", re.I)
@@ -494,7 +571,7 @@ def _item_of(s: Statement) -> str:
     short = (s.object_normalised or "").strip()
     if short and len(short) <= 60 and not ISO_DATE.fullmatch(short) and not ISO_DURATION.fullmatch(short):
         return short
-    return s.object_as_written
+    return _head(s.object_as_written).rstrip("…")   # the noun phrase, never a whole sentence
 
 
 def polish_set(items: list[str], used: list[Statement], pool: list[Statement] | None = None,
@@ -630,6 +707,21 @@ def typed(kind: str, value):
     return text or None
 
 
+def _reply(text: str) -> dict:
+    """The model's JSON answer. When it does not parse (typically a quotation mark left unescaped inside the
+    reasoning), the reasoning is cut out and the rest, which carries kind, value, text and used, is read."""
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if not match:
+        return {}
+    for body in (match.group(0), re.sub(r'"reasoning"\s*:\s*".*?"\s*,\s*(?="kind"\s*:)', "", match.group(0), count=1, flags=re.DOTALL)):
+        try:
+            data = json.loads(body)
+        except json.JSONDecodeError:
+            continue
+        return data if isinstance(data, dict) else {}
+    return {}
+
+
 def answer(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
     if day is None and os.getenv("ATLAS_TODAY"):   # a fixed 'today' makes recorded runs repeatable on a later day
         day = date.fromisoformat(os.environ["ATLAS_TODAY"])
@@ -654,10 +746,16 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         named = set()
     matched, regime = [], ""
     if len(facts) > TOP:   # the graph is queried by relation first; the nearest facts follow as context
-        matched, _ = graph_query(question, ranked)
+        matched, query = graph_query(question, ranked)
+        asked_for = {s.predicate for s in matched}
         matched, regime = one_regime(question, matched, facts, asked)
         ids = {s.id for s in matched}
         chosen = matched + [s for s in chosen if s.id not in ids]
+        if regime:   # one regime answers: the other act's facts of the relations asked are not shown as context
+            other = OLD_ACT if "Regulation's" in regime else NEW_ACT
+            chosen = [s for s in chosen if not (s.source_doc in other and s.predicate in asked_for)]
+            regime += (" The other act's facts on the relations asked were left out; today's date does not change"
+                       " which act the question is about.")
     by_relation = {s.id for s in matched}
     rule = device_rule(question, facts, ranked[:TOP], asked[0] if asked else day)
     for result in rule:
@@ -693,13 +791,7 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
     out = llm.chat([{"role": "system", "content": SYSTEM + (ITALIAN if lang == "it" else "")},
                     {"role": "user", "content": f"Today is {day.isoformat()}.\nQuestion: {question}\n\nFacts:\n{numbered}"}],
                    temperature=0, max_tokens=3000)
-    match = re.search(r"\{.*\}", out["text"] or "", re.DOTALL)
-    try:
-        data = json.loads(match.group(0)) if match else {}
-    except json.JSONDecodeError:
-        data = {}
-    if not isinstance(data, dict):
-        data = {}
+    data = _reply(out["text"] or "")
     numbers = data.get("used") if isinstance(data.get("used"), list) else []
     used = [chosen[i] for i in dict.fromkeys(n for n in numbers if isinstance(n, int) and not isinstance(n, bool))
             if 0 <= i < len(chosen)]

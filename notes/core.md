@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 17:28_
+_Aggiornato: 15.11 13:40_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -86,3 +86,6 @@ _Aggiornato: 17:28_
 
 ## Bloccato
 - Manca `.env` con la chiave del team: nessuna chiamata a un modello finora.
+
+- **15.11 13:40 — l'agente lavora sui valori corti, non sul testo lungo dei fatti.** `atlas/agent/answer.py`, `atlas/agent/skills.py`, `atlas/skills/who_does.yaml`: al modello arrivano righe compatte (soggetto, relazione, valore, condizione), l'ordinamento usa il valore corto, gli elementi di un elenco vengono dalle forme corte, la procedura «chi fa cosa» è riaccesa. Misura sulle 22 domande di design, data fissata al 14.11 (`ATLAS_TODAY=2026-11-14`), una corsa per configurazione [verificato: file di misura della sessione, non committati]: agente di prima 17,23 (15 giuste); agente di prima + regole apprese 16,39; **agente nuovo 17,79 (16 giuste)**; agente nuovo + regole apprese 17,26 (15 giuste). Resta committato l'agente nuovo con le regole NON applicate. Per applicarle: `learned_rules.apply(Path("ontology/B/rounds/round3-rules.json"))`; per toglierle: `learned_rules.revert(...)`.
+- **Non misurato:** il tabellone in `results/` NON è stato rifatto e l'effetto sulle domande tenute da parte non è noto: dalle 13:05 del 15.11 la chiave del team risponde 401 (l'evento è chiuso). I numeri in `results/` sono ancora quelli dell'agente di prima.

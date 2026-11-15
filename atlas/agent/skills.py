@@ -462,34 +462,47 @@ def answer_members(ctx):
 # ---- who_does ----------------------------------------------------------------------------------------------
 @node
 def lookup_who(ctx):
+    """The fact saying who does what the question asks about: the facts of the relation are ranked by how well
+    their SUBJECT matches the question's subject, not by their being of the relation. Among equal matches the
+    source of higher authority wins; equal matches of equal authority must come from one sentence."""
     relation = ctx["relations"][0] if ctx["relations"] else ""
-    found = [s for s in ctx["matched"] if s.predicate == relation]
-    top, problem = _single(ctx, found, lambda a, b: base._key(a.object_as_written) == base._key(b.object_as_written)) \
-        if found else (None, "no fact")
-    if top is None:
-        ctx["why"] = f"facts saying who: {problem}"
+    scored = sorted(((_cover(ctx, s), -i, s) for i, s in enumerate(ctx["facts"]) if s.predicate == relation),
+                    key=lambda row: (row[0], row[1]), reverse=True)
+    if not scored or scored[0][0][0] < 2 or scored[0][0][1] < 0.6:
+        ctx["why"] = "facts saying who: no fact whose subject is what the question asks about"
         return "none", ctx["why"], []
-    ctx["fact"] = top
-    return "found", f"{top.subject} {top.predicate} {top.object_as_written} ({_cite(top)})", [top.id]
+    best = [s for cover, _, s in scored if cover == scored[0][0]]
+    rank = getattr(ctx["store"], "rank_of", None)
+    if rank and len(best) > 1:
+        top = max(rank(s) for s in best)
+        best = [s for s in best if rank(s) == top]
+    if len({(s.source_doc, s.quote) for s in best}) > 1:
+        ctx["why"] = "facts saying who: several sources of equal authority match the subject equally"
+        return "none", ctx["why"], []
+    ctx["fact"], ctx["same_sentence"] = best[0], best
+    return "found", f"{best[0].subject} {best[0].predicate} {best[0].object_as_written} ({_cite(best[0])})", [s.id for s in best]
 
 
 @node
 def collect_bodies(ctx):
+    """Every body the fact's own sentence names: the fact's value, the bodies joined to it by "or" in the quote,
+    and the values of the other facts read from the same sentence."""
     fact = ctx["fact"]
-    name = fact.subject if fact.predicate == "hasObligation" else fact.object_as_written
-    ctx["bodies"] = base.all_bodies(name, [fact]) if fact.predicate != "hasObligation" else name
-    return "", ctx["bodies"], [fact.id]
+    bodies = base.all_bodies(fact.object_as_written, [fact])
+    for other in ctx["same_sentence"][1:]:
+        if base._key(other.object_as_written) not in base._key(bodies):
+            bodies += f"; {other.object_as_written}"
+    ctx["bodies"] = bodies
+    return "", bodies, [s.id for s in ctx["same_sentence"]]
 
 
 @node
 def answer_who(ctx):
     fact = ctx["fact"]
-    ctx["used"] = [fact]
-    ctx["kind"] = "text"
-    condition = f" ({fact.condition})" if fact.condition else ""
-    ctx["value"] = f"{ctx['bodies']}{condition}"
-    ctx["text"] = _sentence(fact, ctx["bodies"] if fact.predicate != "hasObligation" else None)
-    return "", ctx["value"], [fact.id]
+    ctx["used"] = list(ctx["same_sentence"])
+    ctx["kind"], ctx["value"] = "text", ctx["bodies"]
+    ctx["text"] = _sentence(fact, ctx["bodies"])
+    return "", ctx["value"], [s.id for s in ctx["used"]]
 
 
 def decide_by_model(ctx, prompt: str, options: list[str]) -> str:
