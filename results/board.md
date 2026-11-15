@@ -6,25 +6,25 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 
 | | Giuste | «Non lo so» | Sbagliate | Media |
 |---|---|---|---|---|
-| RAG | 10/22 | 8 | 4 | 0.48 |
+| RAG | 9/22 | 8 | 5 | 0.44 |
 | A (free extraction) | 7/22 | 8 | 7 | 0.41 |
-| B (checked facts) | 15/22 | 3 | 4 | 0.78 |
+| B (checked facts) | 16/22 | 3 | 3 | 0.83 |
 
 ## Domande tenute da parte (quelle oneste)
 
 | | Giuste | «Non lo so» | Sbagliate | Media |
 |---|---|---|---|---|
-| RAG | 6/12 | 5 | 1 | 0.50 |
+| RAG | 5/12 | 7 | 0 | 0.42 |
 | A (free extraction) | 4/12 | 5 | 3 | 0.33 |
-| B (checked facts) | 4/12 | 4 | 4 | 0.40 |
+| B (checked facts) | 7/12 | 4 | 1 | 0.58 |
 
 ## Solo le domande sui documenti che B ha già letto (`CORR`, `DIR`, `DLGS69`, `DLGS70`, `DLGS71`, `DLGS72`, `DLGS73`, `DLGSALLVII`, `DM2011`, `REG`, `igea-equipment`, `inail-guide`, `mastar-manual`, `nanoscan3-manual`, `robot-cell-sheet`, `unict-guideline`, `univpm-guideline`, `ur10e-manual`, `ur5e-manual`), progetto e tenute insieme
 
 | | Giuste | «Non lo so» | Sbagliate | Media |
 |---|---|---|---|---|
-| RAG | 16/31 | 10 | 5 | 0.54 |
+| RAG | 14/31 | 12 | 5 | 0.47 |
 | A (free extraction) | 11/31 | 10 | 10 | 0.42 |
-| B (checked facts) | 19/31 | 4 | 8 | 0.71 |
+| B (checked facts) | 23/31 | 4 | 4 | 0.81 |
 
 ## Domanda per domanda
 
@@ -36,7 +36,7 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 | CQ04 | progetto | sì | ✓ | ✓ | ✓ |
 | CQ05 | progetto | sì | ? | 0.22 | 0.67 |
 | CQ06 | progetto | sì | ✓ | ✓ | ✓ |
-| CQ07 | progetto | sì | ✓ | ✗ | 0.33 |
+| CQ07 | progetto | sì | ✓ | ✗ | 0.80 |
 | CQ08 | progetto | sì | ✓ | ✓ | ✓ |
 | CQ09 | progetto | sì | ✗ | ✓ | ✓ |
 | CQ10 | progetto | sì | ✗ | ✗ | ✓ |
@@ -45,22 +45,22 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 | CQ13 | progetto | no | ? | ? | ? |
 | CQ14 | progetto | no | ? | ? | ? |
 | CQ15 | progetto | no | ? | ? | ? |
-| CQ16 | tenuta | sì | ? | ? | 0.29 |
+| CQ16 | tenuta | sì | ? | ? | ? |
 | CQ17 | tenuta | sì | ✓ | ✗ | ✓ |
-| CQ18 | tenuta | sì | ✓ | ✓ | 0.50 |
+| CQ18 | tenuta | sì | ✓ | ✓ | ? |
 | CQ19 | tenuta | sì | ? | ? | ? |
 | CQ20 | tenuta | sì | ? | ? | ? |
 | CQ21 | progetto | sì | ? | ? | ✓ |
-| CQ22 | progetto | sì | ✓ | ✗ | ✓ |
-| CQ23 | progetto | sì | ? | 0.50 | 0.50 |
-| CQ24 | progetto | sì | ✓ | ? | ✓ |
+| CQ22 | progetto | sì | ? | ✗ | ✓ |
+| CQ23 | progetto | sì | ✓ | 0.50 | ✓ |
+| CQ24 | progetto | sì | ✗ | ? | ✓ |
 | CQ25 | progetto | sì | ? | ✓ | ✓ |
 | CQ26 | progetto | sì | ✓ | ? | ✓ |
 | CQ27 | progetto | sì | ✓ | ✓ | ✓ |
-| CQ28 | tenuta | sì | ✗ | ? | ✓ |
-| CQ29 | tenuta | sì | ✓ | ✗ | ✗ |
-| CQ30 | tenuta | sì | ? | ✗ | ? |
+| CQ28 | tenuta | sì | ? | ? | ✓ |
+| CQ29 | tenuta | sì | ? | ✗ | ✗ |
+| CQ30 | tenuta | sì | ? | ✗ | ✓ |
 | CQ31 | tenuta | sì | ✓ | ✓ | ✓ |
-| CQ32 | tenuta | sì | ✓ | ? | ✗ |
+| CQ32 | tenuta | sì | ✓ | ? | ✓ |
 | CQ33 | tenuta | sì | ✓ | ✓ | ✓ |
-| CQ34 | tenuta | sì | ? | ✓ | ? |
+| CQ34 | tenuta | sì | ? | ✓ | ✓ |

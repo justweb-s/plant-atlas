@@ -1,18 +1,18 @@
 {
  "summary": {
   "n": 34,
-  "correct": 16,
-  "unknown": 13,
+  "correct": 14,
+  "unknown": 15,
   "wrong": 5,
-  "mean": 0.49,
+  "mean": 0.431,
   "by_type": {
-   "I": 0.429,
-   "T": 0.606,
-   "V": 0.444
+   "I": 0.357,
+   "T": 0.697,
+   "V": 0.222
   },
   "by_split": {
-   "design": 0.485,
-   "heldout": 0.5
+   "design": 0.439,
+   "heldout": 0.417
   },
   "cost_usd": 0.0
  },
@@ -131,9 +131,9 @@
    "type": "T",
    "split": "design",
    "score": 1.0,
-   "value": "INAIL carries out the first periodic verification, within 45 days of the employer's request according to D.Lgs. 81/2008 art. 71(11), but within 60 days according to DM 11 April 2011 art. 2(1).",
-   "text": "For equipment listed in Annex VII of D.Lgs. 81/2008, INAIL carries out the first periodic verification. Article 71(11) of D.Lgs. 81/2008 sets the deadline at 45 days from the request, while DM 11 April 2011, art. 2(1), sets it at 60 days. The passages do not resolve this difference, so the 45-day statutory term should be checked against the official text.",
-   "tokens": 8897,
+   "value": "Carried out by INAIL personnel, or by a qualified body (soggetto abilitato) that INAIL commissions and the employer names in the request, within 45 days of receiving the complete request.",
+   "text": "Under the INAIL guide (p. 36, and the same rule for the SP group on p. 40), the first periodic verification must be done within 45 days of receiving a complete request. Annex II, point 3.1.1 of DM 11 April 2011 requires it to be done by the deadline set by the Annex VII frequency.",
+   "tokens": 12380,
    "cost_usd": 0.0
   },
   {
@@ -142,8 +142,8 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "Article 5(3) of Directive 2009/104/EC requires the employer to record the results of inspections, keep them at the disposal of the authorities, and keep them for a 'suitable period of time', but it does not set a fixed duration. The Italian provision (art. 71(11) of Legislative Decree 81/2008) requires the inspection reports to be kept and made available to the supervisory body, also without a stated period.",
-   "tokens": 3883,
+   "text": "The passages do not give a fixed period. Article 5(3) of Directive 2009/104/EC (eu-dir-2009-104) requires the employer to keep inspection results for a 'suitable period of time', and Italian Legislative Decree 81/2008, art. 71(11) (DLGS71), requires the inspection reports to be kept and made available to the supervisory body, without stating how long.",
+   "tokens": 4168,
    "cost_usd": 0.0
   },
   {
@@ -232,38 +232,38 @@
    "split": "design",
    "score": 0.0,
    "value": null,
-   "text": "The passages do not include Table A2, which lists the overhead travelling cranes (positions 8-13), so I cannot confirm the DEMAG crane at position 8 or its manufacture year and duty type. Passage 0 says all 24 positions follow the Allegato VII intervals, and Allegato VII sets annual verification for lifting equipment over 200 kg in the rows quoted (rows 12, 14 and 15), but which row applies depends on data not given here.",
-   "tokens": 5256,
+   "text": "The passages place position 8 among the overhead travelling cranes in Table A2 of the IGEA list (positions 8-13), but they do not give the DEMAG crane's entry, its manufacture year, or its use pattern. The IGEA specification (p. 3, section 2.3) only says verification follows the Allegato VII cadences. Allegato VII lists annual verification for the relevant equipment categories (rows 12 and 14), but which row applies cannot be determined from these passages.",
+   "tokens": 5833,
    "cost_usd": 0.0
   },
   {
    "id": "CQ22",
    "type": "I",
    "split": "design",
-   "score": 1.0,
-   "value": "P1Y",
-   "text": "Annual verification (ogni anno), under Allegato VII, row 12 of D.Lgs. 81/08, which applies to mobile lifting equipment over 200 kg used in extractive and similar sectors. The passages do not give position 7's make, year-of-use details, or last verification date. Its mining-area location and the 2017 build year (under 10 years old) point to this row rather than the biennial row for non-extractive use (row 13), but the passages do not state the sector explicitly for position 7.",
-   "tokens": 4935,
+   "score": 0.0,
+   "value": null,
+   "text": "The passages place the position 7 truck-mounted crane (table A1) under Allegato VII, which gives either annual verification (row 12, if used in extractive or other listed sectors) or biennial verification (row 13, if mobile, regularly used, and under 10 years old). The table A1 entries for position 7 and the crane's sector of use are not in the passages, so the interval cannot be determined.",
+   "tokens": 5716,
    "cost_usd": 0.0
   },
   {
    "id": "CQ23",
    "type": "T",
    "split": "design",
-   "score": 0.0,
-   "value": null,
-   "text": "The passages do not say who carries out periodic verifications after the first one on equipment listed in Annex VII. Annex VII of the Machinery Regulation, as quoted in passage 6, covers EU type-examination by a notified body, and no passage describes periodic re-verification.",
-   "tokens": 4703,
+   "score": 1.0,
+   "value": "After the first periodic verification, the verifications are carried out by the ASL, ARPA, or other authorised bodies (soggetti abilitati).",
+   "text": "Per the INAIL guide (p. 12), the first periodic verification is requested from INAIL, and later verifications go to the ASL, ARPA, or authorised bodies. The periodicity is set in Annex VII of Legislative Decree 81/2008.",
+   "tokens": 5885,
    "cost_usd": 0.0
   },
   {
    "id": "CQ24",
    "type": "V",
    "split": "design",
-   "score": 1.0,
-   "value": "P45D",
-   "text": "Article 71(11) of Legislative Decree 81/2008 requires INAIL to carry out the first periodic verification within forty-five days of the request, and that is the figure I'd rely on. Article 2(1) of the 2011 Ministerial Decree says sixty days, which conflicts with the statute it cites, so the discrepancy should be checked before relying on either number. Today's date (2026-11-14) does not affect the calculation.",
-   "tokens": 6128,
+   "score": 0.0,
+   "value": "P60D",
+   "text": "DM 11 April 2011, art. 2, c. 1 sets the INAIL first periodic verification at 60 days from the request. The INAIL guide (pp. 29 and 36) instead says the first verification must be carried out within 45 days of receiving the complete request, and that the 45-day period is suspended while INAIL asks for missing information. The passages do not include the text of Article 71 of Legislative Decree 81/2008, so the 45-day figure cannot be checked against the statute itself.",
+   "tokens": 8623,
    "cost_usd": 0.0
   },
   {
@@ -292,8 +292,8 @@
    "split": "design",
    "score": 1.0,
    "value": "P15D",
-   "text": "Under the verifier's commitments in the IGEA technical specification (Scheda Tecnica, section 4, p. 5), when planning the inspections jointly with IGEA's appointed staff, the verifier must notify IGEA at least 15 days in advance.",
-   "tokens": 4190,
+   "text": "The verifier must plan the checks jointly with IGEA's appointed staff and give IGEA at least 15 days' notice (\"preavviso di almeno 15 giorni\"), per section 4 'Impegni Aggiudicatario / Verificatore' of the igea-equipment Scheda Tecnica (p. 5).",
+   "tokens": 5390,
    "cost_usd": 0.0
   },
   {
@@ -301,19 +301,19 @@
    "type": "I",
    "split": "heldout",
    "score": 0.0,
-   "value": "P1Y",
-   "text": "Position 13 (IGEA-PRIM 5t overhead travelling crane, built 2017) falls under the Allegato VII D.Lgs. 81/08 lifting-equipment entry for non-hand-operated appliances over 200 kg, which requires verification every year. The passages do not explicitly classify an overhead travelling crane under that entry, so this is an inference from the category.",
-   "tokens": 6710,
+   "value": null,
+   "text": "The passages do not state how often the overhead travelling crane at position 13 (GRU A PONTE SCORREVOLE, IGEA-PRIM 5t, built 2017, Pozzo Vittorio, Monteponi) must be verified. The Scheda Tecnica says the verifications follow the cadences in Allegato VII of D.Lgs. 81/08, but the only annual entry in the passages is for construction-site hoists and lifts, which does not cover overhead cranes. Check Allegato VII directly for the overhead-crane periodicity.",
+   "tokens": 9657,
    "cost_usd": 0.0
   },
   {
    "id": "CQ29",
    "type": "V",
    "split": "heldout",
-   "score": 1.0,
-   "value": "P1Y",
-   "text": "In November 2028 the IGEA-PRIM crane (position 13, built 2017) will be more than 10 years old, so under Allegato VII row 14 it falls in the 'older than 10 years' category and must be verified annually, not biennially as under row 13.",
-   "tokens": 5824,
+   "score": 0.0,
+   "value": null,
+   "text": "The passages do not give the verification interval for the IGEA-PRIM overhead travelling crane (position 13, built 2017). Passage 2 says periodic checks follow the cadences in Allegato VII of D.Lgs. 81/08, and passage 9 says the interval depends on the equipment's age and sector, but neither gives the figure for this crane type.",
+   "tokens": 10060,
    "cost_usd": 0.0
   },
   {
@@ -322,8 +322,8 @@
    "split": "heldout",
    "score": 0.0,
    "value": null,
-   "text": "The passages place the platform at position 24 (table A6) and say its periodic verification follows the intervals in Allegato VII of D.Lgs. 81/08, but they do not give the interval for elevating platforms. The Allegato VII rows provided cover pressure equipment and piping, not lifting equipment, and table A6 with the HINOWA entry is not included.",
-   "tokens": 4551,
+   "text": "The passages say that the verification for position 24 (table A6, piattaforma elevatrice) follows the cadences in Allegato VII of D.Lgs. 81/08 (Scheda Tecnica, sections 2.1 and 2.3), but they do not give the specific interval for the HINOWA platform. Table A6 itself is not included, and the only platform periodicity given is for PLAC (piattaforme di lavoro autosollevanti su colonne) in the INAIL guide, which does not establish that position 24 is a PLAC.",
+   "tokens": 6904,
    "cost_usd": 0.0
   },
   {
@@ -332,8 +332,8 @@
    "split": "heldout",
    "score": 1.0,
    "value": null,
-   "text": "The passages do not give the last verification date for the DEMAG overhead crane at position 8, which is listed in Table A2 of Allegato A (positions 8-13, 'gru a ponte scorrevole'). Without that date, it cannot be determined whether the verification is overdue today (2026-11-14). Allegato VII of D.Lgs. 81/08 sets annual cadences for some lifting equipment, but the passages do not confirm that this crane falls under that row.",
-   "tokens": 4608,
+   "text": "The passages place overhead travelling cranes (gru a ponte scorrevole) at positions 8-13 in table A2 of Allegato A of the Scheda Tecnica (point 2.1), and point 2.3 says verification follows the Allegato VII D.Lgs. 81/08 cadences. However, the passages do not include table A2, so the DEMAG entry and its last verification date are not available to determine whether it is overdue.",
+   "tokens": 6348,
    "cost_usd": 0.0
   },
   {

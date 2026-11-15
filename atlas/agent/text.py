@@ -155,15 +155,40 @@ def _place(text: str) -> str:
     return " ".join(words.get(w, w) for w in re.sub(r"[^a-z0-9]+", " ", _plain(text)).split())
 
 
+NAMES = (("REG", r"2023/1230|machinery regulation|regolamento macchine"),
+         ("DIR", r"2006/42|machinery directive|direttiva macchine"),
+         ("DLGS71", r"81/2008|81/08|article 71|art\. ?71|articolo 71"), ("DLGSALLVII", r"annex vii|allegato vii"),
+         ("DM2011", r"11 april 2011|11 aprile 2011|ministerial decree|decreto ministeriale|\bdm\b"),
+         ("inail-guide", r"\binail guid"), ("igea-equipment", r"\bigea\b"),
+         ("ur5e-manual", r"\bur5e\b"), ("ur10e-manual", r"\bur10e\b"), ("nanoscan3-manual", r"nanoscan"),
+         ("mastar-manual", r"ma ?star"), ("robot-cell-sheet", r"robot cell|cella robot"),
+         ("unict-guideline", r"\bunict\b"), ("univpm-guideline", r"\bunivpm\b"))
+ACT = re.compile(r"eu-(?:dir|reg)-(\d{4})-(\d+)")
+
+
+def named_sources(question: str) -> set[str]:
+    """The registered documents a question names: by the number of an act, or by the name of a machine or guide."""
+    low = _plain(question)
+    found = {source for source, pattern in NAMES if re.search(pattern, low)}
+    from atlas.corpus.chunker import load
+
+    for source in {c.source for c in load()}:
+        match = ACT.fullmatch(source)
+        if match and re.search(rf"\b{match.group(1)}/{match.group(2)}\b|\b{match.group(2)}/{match.group(1)}\b", low):
+            found.add(source)
+    return found
+
+
 def passages(question: str, top: int = PASSAGES, sources: set[str] | None = None,
-             also: list[tuple[str, str]] | None = None) -> list[tuple]:
+             also: list[tuple[str, str]] | None = None, translate: bool = True, named_by: str = "") -> list[tuple]:
     """The pieces closest to the question by their words (BM25), best first. A piece filed under a place the
     question names ("Article 53(1)") moves up. At most three windows of the same piece."""
     from atlas.agent.answer import PLACE, _other_language
 
     units, counts, seen, average = _index()
-    asked = set(_tokens(f"{question} {_other_language(question)}"))
+    asked = set(_tokens(f"{question} {_other_language(question) if translate else ''}"))
     named = [_place(m.group(0)) for m in PLACE.finditer(question)]
+    documents = named_sources(f"{question} {named_by}")
     scored = []
     for i, words in enumerate(counts):
         chunk = units[i][0]
@@ -178,6 +203,11 @@ def passages(question: str, top: int = PASSAGES, sources: set[str] | None = None
             place = _place(chunk.locator)
             if any(place == n or place.startswith(n + " ") for n in named):
                 score *= 2.0
+        if score and documents:   # a document the question names moves up; an act it does not name moves down
+            if chunk.source in documents:
+                score *= 1.6
+            elif ACT.fullmatch(chunk.source):
+                score *= 0.5
         if score:
             scored.append((score, i))
     chosen, per_piece = [], {}
@@ -195,7 +225,7 @@ def passages(question: str, top: int = PASSAGES, sources: set[str] | None = None
     per_source: dict[str, int] = {}
     for _, i in sorted(scored, reverse=True):
         chunk = units[i][0]
-        if per_piece.get(chunk.id, 0) >= 3 or per_source.get(chunk.source, 0) >= PER_SOURCE:
+        if per_piece.get(chunk.id, 0) >= 3 or per_source.get(chunk.source, 0) >= (PER_SOURCE + 3 if chunk.source in documents else PER_SOURCE):
             continue
         per_piece[chunk.id] = per_piece.get(chunk.id, 0) + 1
         per_source[chunk.source] = per_source.get(chunk.source, 0) + 1
@@ -203,6 +233,41 @@ def passages(question: str, top: int = PASSAGES, sources: set[str] | None = None
         if len(chosen) >= top:
             break
     return chosen
+
+
+PLAN = """A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals
+of specific machines, a company's list of lifting devices) could not be answered from the passages found by its own
+words. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a
+definition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual
+declares about a machine, the row of a table).
+Return JSON only: {"lookups": ["<search words for one lookup>", ...]} with 2 to 4 lookups. Write each lookup as
+the words the document itself would use, in English and in Italian together, naming the act, the article or annex
+and the machine when the question names them. Do not answer the question."""
+
+
+def lookups(question: str) -> list[str]:
+    out = llm.chat([{"role": "system", "content": PLAN}, {"role": "user", "content": question}],
+                   temperature=0, max_tokens=500)
+    found = _reply(out.get("text") or "").get("lookups")
+    return [str(x) for x in found if isinstance(x, str) and x.strip()][:4] if isinstance(found, list) else []
+
+
+def passages_in_depth(question: str, also: list[tuple[str, str]] | None = None) -> list[tuple]:
+    """A second, wider search: the question is broken into lookups, each lookup brings its own passages, and the
+    passages found by the question's own words follow. No piece twice."""
+    chosen, seen = [], set()
+
+    def add(units: list[tuple]) -> None:
+        for unit in units:
+            key = (unit[0].id, unit[1][:80])
+            if key not in seen:
+                seen.add(key)
+                chosen.append(unit)
+
+    for lookup in lookups(question):
+        add(passages(f"{lookup}", top=5, also=None, translate=False, named_by=question))
+    add(passages(question, top=8, also=also))
+    return chosen[:26]
 
 
 def _reply(text: str) -> dict:
@@ -228,6 +293,26 @@ def _numbers(text: str) -> set[str]:
     return set(re.findall(r"\d+", plain)) | {n for w, n in words.items() if re.search(rf"\b{w}\b", plain)}
 
 
+def derivable(value: str, written: list, numbers: set[str]) -> bool:
+    """A date given as the answer must be written in the sentences, or be worked out from a written date in one
+    plain step: the day before or after it ("until the day before", "from the day after"), or that date moved by
+    a whole number of years or months that the sentences state ("every four years", "within 18 months")."""
+    from datetime import timedelta
+
+    try:
+        day = date.fromisoformat(value)
+    except ValueError:
+        return False
+    for start in written:
+        if day == start or abs((day - start).days) == 1:
+            return True
+        months = (day.year - start.year) * 12 + day.month - start.month
+        if day.day == start.day and months and (str(abs(months)) in numbers
+                                                or (months % 12 == 0 and str(abs(months) // 12) in numbers)):
+            return True
+    return False
+
+
 def check(kind: str, value, evidence: list, shown: list[tuple]) -> tuple[list[tuple], str]:
     """The same gate as the store: every quote is in its passage; a date or a number given as the answer is
     written in a quote. Returns the (piece, quote) pairs that hold and, when the answer falls, why."""
@@ -247,9 +332,8 @@ def check(kind: str, value, evidence: list, shown: list[tuple]) -> tuple[list[tu
     if kind == "date":
         from atlas.agent.answer import _dates
 
-        days = {d.isoformat() for d in _dates(quoted)}
-        if str(value) not in days:
-            return [], f"the date {value} is not written in the sentences pointed at"
+        if not derivable(str(value), _dates(quoted), _numbers(quoted)):
+            return [], f"the date {value} is neither written in the sentences pointed at nor worked out from them"
     if kind == "duration":
         digits = re.findall(r"\d+", str(value))
         if digits and not set(digits) & _numbers(quoted):
@@ -260,13 +344,14 @@ def check(kind: str, value, evidence: list, shown: list[tuple]) -> tuple[list[tu
 
 
 def answer(question: str, day: date | None = None, mode: str = "B", lang: str = "en",
-           sources: set[str] | None = None, also: list[tuple[str, str]] | None = None) -> Answer:
+           sources: set[str] | None = None, also: list[tuple[str, str]] | None = None,
+           deep: bool = False) -> Answer:
     from atlas.agent.answer import ITALIAN, UNKNOWN, typed
 
     if day is None and os.getenv("ATLAS_TODAY"):
         day = date.fromisoformat(os.environ["ATLAS_TODAY"])
     day = day or date.today()
-    shown = passages(question, sources=sources, also=also)
+    shown = passages_in_depth(question, also) if deep else passages(question, sources=sources, also=also)
     numbered = "\n\n".join(
         f"[{i}] {chunk.source}, {chunk.locator} — rank: {RANK.get(chunk.layer, chunk.layer)}"
         + (f" — {mark}" if mark else "") + f"\n{piece}" for i, (chunk, piece, mark) in enumerate(shown))

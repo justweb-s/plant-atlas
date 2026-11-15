@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Which essential requirement on protection against corruption does the Regulation introduce that the Directive did not have?\n\nAnswer A: \"Essential requirement 1.1.9 of Annex III of the Regulation, which requires software and data critical for compliance, and hardware components transmitting signals or data relevant for access to such software, to be adequately protected against accidental or intentional corruption.\"\nThe Regulation introduces essential requirement 1.1.9 (Annex III), under which software and data critical for compliance with the essential health and safety requirements, and hardware components transmitting signals or data relevant for connection or access to such software, must be adequately protected against accidental or intentional corruption.\nEvidence of A:\n- software and data critical for compliance (1.1.9): requiresMeasure = adequately protected against accidental or intentional corruption (condition: critical for compliance with the relevant essential health and safety requirements) | sentence: \"Software and data that are critical for the compliance of the machinery or related product with the relevant essential health and safety requirements shall be identified as such and shall be adequately protected against accidental or intentional corruption.\" [REG, Annex III, 1.1.9]\n- hardware component transmitting signal or data (1.1.9): requiresMeasure = adequately protected against accidental or intentional corruption (condition: relevant for connection or access to software that is critical for compliance) | sentence: \"A hardware component transmitting signal or data, relevant for connection or access to software that is critical for the compliance of the machinery or related product with the relevant essential health and safety requirements shall be designed so that it is adequately protected against accidental or intentional corruption.\" [REG, Annex III, 1.1.9]\n\nAnswer B: \"Annex III, section 1.1.9 'Protection against corruption': connected devices must not cause hazards, and safety-critical hardware, software and data must be protected against accidental or intentional corruption, with the software identified and evidence of interventions or modifications collected.\"\nThe Regulation's Annex III, 1.1.9 ('Protection against corruption') contains this requirement. The supplied passages do not include any Directive text on corruption, so they do not themselves confirm that it is new compared with the Directive.\nEvidence of B:\n- Read on demand: REG, Annex III, 1.1.9 | sentence: \"1.1.9. Protection against corruption The machinery or related product shall be designed and constructed so that the connection to it of another device, via any feature of the connected device itself or via any remote device that communicates with the machinery or related product does not lead to a hazardous situation.\" [REG, Annex III, 1.1.9]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Both answers point to Annex III, 1.1.9 'Protection against corruption'. A's evidence quotes sentences stating software/data critical for compliance and hardware components must be protected against corruption, which matches the requirement. B's quoted sentence only covers connected devices not causing hazards, and B's answer adds items (evidence of interventions) not in its shown evidence. Neither shows Directive text, but both identify the same requirement; A is better supported for the corruption protection content.\", \"choice\": \"A\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1894,
+   "completion_tokens": 173,
+   "total_tokens": 2067
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: After the repeal of Directive 2006/42/EC, until when do EC type-examination certificates issued under Article 12 of the Directive remain valid?\n\nAnswer A: \"2027-01-20\"\nproducts placed on the market in conformity with Directive 2006/42/EC may be placed on the market until 2027-01-20, on the condition: placed on the market in conformity with Directive 2006/42/EC before 20 January 2027 (source: CORR, Corrigendum, point 6).\nEvidence of A:\n- [skill value_on_date: dated_facts > in_force > compare > answer] products placed on the market in conformity with Directive 2006/42/EC: placingAllowedUntil = 20 January 2027 (condition: placed on the market in conformity with Directive 2006/42/EC before 20 January 2027) | sentence: \"read: ‘ 20 January 2027 ’.\" [CORR, Corrigendum, point 6]\n\nAnswer B: \"Until they expire (each certificate's own expiry date); no fixed cut-off date is given.\"\nUnder Article 52(2) of the Regulation, EC type-examination certificates and approval decisions issued under Article 12 of Directive 2006/42/EC remain valid until they expire. The Directive itself is repealed with effect from 20 January 2027 (Article 51(2), as corrected).\nEvidence of B:\n- Read on demand: REG, Art. 52(2) | sentence: \"2. EC type-examination certificates and approval decisions issued in accordance with Article 12 of Directive 2006/42/EC shall remain valid until they expire.\" [REG, Art. 52(2)]\n- Read on demand: REG, Art. 51(2) (corrected by the corrigendum (Corrigendum, point 5: '14 January 2027' now reads '20 January 2027')) | sentence: \"Article 51 Repeals. 2. Directive 2006/42/EC is repealed with effect from 20 January 2027.\" [REG, Art. 51(2)]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"The question asks about validity of EC type-examination certificates under Article 12. Article 52(2) states they remain valid until they expire, which is B's evidence for the exact subject. A's evidence concerns the placing on the market of products, a different subject, not certificate validity.\", \"choice\": \"B\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1702,
+   "completion_tokens": 103,
+   "total_tokens": 1805
+  }
+ }
+}

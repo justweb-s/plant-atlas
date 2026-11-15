@@ -1,0 +1,653 @@
+{
+ "about": "Dev set 2 (slice IGEA, più difficile): 16 domande di tipo I su cadenze di verifica dipendenti dal tempo, tipologie di apparecchio non usate nel primo set, insiemi calcolati sull'intero elenco, termini del servizio e casi non determinabili; scritte solo dalla scheda tecnica igea-equipment, dall'Allegato VII e art. 71 del D.Lgs. 81/2008 e dal D.M. 11 aprile 2011; data di riferimento 2026-11-14; l'età si calcola confrontando gli anni (Y antecedente 10 anni nell'anno N se Y < N − 10).",
+ "cqs": [
+  {
+   "id": "DEV-IGEB-01",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), ogni quanto deve essere verificata il 1° giugno 2027 la gru a ponte scorrevole IGEA-PRIM 5t in posizione 13?",
+   "question_en": "Given that the company works in mining areas (extractive sector), how often must the IGEA-PRIM 5t overhead travelling crane at position 13 be verified on 1 June 2027?",
+   "answer": {
+    "kind": "duration",
+    "value": "P2Y"
+   },
+   "answer_text": "La gru a ponte in posizione 13 è un apparecchio di sollevamento materiali di tipo fisso, portata 5000 kg (> 200 kg), costruito nel 2017. Convenzione: si confrontano gli anni (un apparecchio costruito nell'anno Y è 'antecedente 10 anni' in un giorno dell'anno N se Y < N − 10, altrimenti 'non antecedente'). Nel 2027 la soglia è 2027 − 10 = 2017: il 2017 non è minore del 2017, quindi l'anno di fabbricazione è ancora 'non antecedente 10 anni' (caso limite, esattamente dieci anni). Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe del settore estrattivo. Si applica l'Allegato VII riga 16: verifica biennale.",
+   "trap": "Annuale (P1Y): chi conta 'dieci anni compiuti' come già 'antecedente' passa alla riga 15 un anno prima del dovuto; il cambio avviene solo dal 2028.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 16",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-02",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), ogni quanto dovrà essere verificata nel 2028 la gru a ponte scorrevole IGEA-PRIM 5t in posizione 13?",
+   "question_en": "Given that the company works in mining areas (extractive sector), how often will the IGEA-PRIM 5t overhead travelling crane at position 13 have to be verified in 2028?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "La gru a ponte in posizione 13 è di tipo fisso, portata 5000 kg (> 200 kg), costruita nel 2017. Convenzione: si confrontano gli anni (un apparecchio costruito nell'anno Y è 'antecedente 10 anni' in un giorno dell'anno N se Y < N − 10, altrimenti 'non antecedente'). Nel 2028 la soglia è 2028 − 10 = 2018: 2017 < 2018, quindi l'anno di fabbricazione è 'antecedente 10 anni'. Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe del settore estrattivo. Si applica l'Allegato VII riga 15: verifica annuale. La cadenza della stessa gru passa quindi da biennale (fino al 2027) ad annuale (dal 2028).",
+   "trap": "Biennale (P2Y): è la cadenza della stessa gru oggi (14/11/2026) e fino a tutto il 2027, riga 16; chi non ricalcola l'età alla data della domanda la ripete.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 15",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-03",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Se la gru idraulica per autocarro FASSI F 28 B22 da 1500 kg in posizione 3 fosse stata impiegata con modalità di utilizzo regolare, cioè fuori dai settori costruzioni, siderurgico, portuale ed estrattivo, ogni quanto doveva essere verificata nel 2018?",
+   "question_en": "If the 1500 kg FASSI F 28 B22 hydraulic truck-mounted crane at position 3 had been used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often did it have to be verified in 2018?",
+   "answer": {
+    "kind": "duration",
+    "value": "P2Y"
+   },
+   "answer_text": "La gru per autocarro in posizione 3 è un apparecchio di sollevamento materiali di tipo mobile, portata 1500 kg (> 200 kg), costruito nel 2009. Convenzione: si confrontano gli anni (un apparecchio costruito nell'anno Y è 'antecedente 10 anni' in un giorno dell'anno N se Y < N − 10, altrimenti 'non antecedente'). Nel 2018 la soglia è 2018 − 10 = 2008: il 2009 non è minore del 2008, quindi 'non antecedente 10 anni'. Con utilizzo regolare (ipotesi posta dalla domanda) si applica l'Allegato VII riga 13: verifica biennale.",
+   "trap": "Annuale (P1Y): è la cadenza con l'età di oggi (riga 14) oppure quella reale nel settore estrattivo (riga 12); la domanda chiede il 2018 e l'utilizzo regolare.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI 3 1500 CA 200043/ 10 2009 Mitsubishi 0206-5071 DV 431 BA PER AUTOCARRO F 28 B22"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 13",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni | Verifica biennale"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-04",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Se la gru idraulica per autocarro FASSI F 28 B22 da 1500 kg in posizione 3 fosse stata impiegata con modalità di utilizzo regolare, cioè fuori dai settori costruzioni, siderurgico, portuale ed estrattivo, ogni quanto doveva essere verificata nel 2024?",
+   "question_en": "If the 1500 kg FASSI F 28 B22 hydraulic truck-mounted crane at position 3 had been used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often did it have to be verified in 2024?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "La gru per autocarro in posizione 3 è di tipo mobile, portata 1500 kg (> 200 kg), costruita nel 2009. Convenzione: si confrontano gli anni (un apparecchio costruito nell'anno Y è 'antecedente 10 anni' in un giorno dell'anno N se Y < N − 10, altrimenti 'non antecedente'). Nel 2024 la soglia è 2024 − 10 = 2014: 2009 < 2014, quindi 'antecedente 10 anni'. Con utilizzo regolare (ipotesi posta dalla domanda) si applica l'Allegato VII riga 14: verifiche annuali. La stessa gru nel 2018 era invece biennale (riga 13).",
+   "trap": "Biennale (P2Y): riga 13, valida solo fino al 2019 (2009 non antecedente a 2019 − 10); oppure riga 17 se la si considera di tipo fisso.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI 3 1500 CA 200043/ 10 2009 Mitsubishi 0206-5071 DV 431 BA PER AUTOCARRO F 28 B22"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 14",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-05",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), ogni quanto dovrà essere verificata il 1° giugno 2029 la gru idraulica per autocarro Effer in posizione 7?",
+   "question_en": "Given that the company works in mining areas (extractive sector), how often will the Effer hydraulic truck-mounted crane at position 7 have to be verified on 1 June 2029?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "La gru per autocarro in posizione 7 è un apparecchio di sollevamento materiali di tipo mobile, portata 790 kg (> 200 kg), costruito nel 2017. Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe del settore estrattivo. Per il tipo mobile o trasferibile nel settore estrattivo l'Allegato VII ha una sola riga, la 12, che non distingue per anno di fabbricazione: verifica annuale, nel 2029 come oggi. L'età (nel 2029: 2017 < 2019, antecedente 10 anni) non cambia la riga.",
+   "trap": "Biennale (P2Y): chi ragiona per età pensa che fino al 2027 l'apparecchio fosse biennale e cerca un cambio di cadenza; ma la distinzione per età esiste solo per l'utilizzo regolare (righe 13-14) o per il tipo fisso (righe 15-16).",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA IVECO 7 Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 12",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-06",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Se la gru a ponte scorrevole IGEA-PRIM 5t in posizione 13 fosse impiegata con modalità di utilizzo regolare, cioè fuori dai settori costruzioni, siderurgico, portuale ed estrattivo, ogni quanto dovrebbe essere verificata nel 2031?",
+   "question_en": "If the IGEA-PRIM 5t overhead travelling crane at position 13 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified in 2031?",
+   "answer": {
+    "kind": "duration",
+    "value": "P2Y"
+   },
+   "answer_text": "La gru a ponte in posizione 13 è di tipo fisso, portata 5000 kg (> 200 kg), costruita nel 2017. Convenzione: si confrontano gli anni (un apparecchio costruito nell'anno Y è 'antecedente 10 anni' in un giorno dell'anno N se Y < N − 10, altrimenti 'non antecedente'). Nel 2031 la soglia è 2031 − 10 = 2021: 2017 < 2021, quindi 'antecedente 10 anni'. Con utilizzo regolare (ipotesi posta dalla domanda) si applica l'Allegato VII riga 17: verifiche biennali.",
+   "trap": "Triennale (P3Y): è la cadenza con utilizzo regolare all'età di oggi (riga 18, valida fino al 2027). Oppure annuale (P1Y): riga 15, che nel 2031 vale per il settore estrattivo, non per l'utilizzo regolare.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 17",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche biennali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-07",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), ogni quanto deve essere verificato il paranco elettrico KITO KR50L in posizione 16?",
+   "question_en": "Given that the company works in mining areas (extractive sector), how often must the KITO KR50L electric hoist at position 16 be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "Il paranco elettrico in posizione 16 è un apparecchio di sollevamento materiali non azionato a mano, portata 5000 kg (> 200 kg), costruito nel 2000: al 14/11/2026 la soglia è 2016 e 2000 < 2016, quindi anno di fabbricazione antecedente 10 anni. I documenti non dicono se il paranco sia di tipo fisso o mobile/trasferibile, ma nel settore estrattivo (assunzione di contesto: l'azienda opera in aree minerarie) il risultato non cambia: se fisso si applica l'Allegato VII riga 15 (antecedente 10 anni), se mobile o trasferibile la riga 12; entrambe prevedono la verifica annuale.",
+   "trap": "Biennale (P2Y): riga 16 (fisso, non antecedente 10 anni) leggendo male l'età, oppure riga 17 (fisso, utilizzo regolare). Oppure 'non determinabile' perché manca il tipo fisso/mobile: qui le due righe possibili danno la stessa cadenza.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "PARANCO KITO CA 200121/ 16 5000 2000 55781 ELETTRICO KR50L 09"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 15",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 12",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 15",
+     "role": "supports",
+     "quote": "Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-08",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), ogni quanto deve essere verificata la gru a cavalletto GCB 35 da 35000 kg in posizione 23?",
+   "question_en": "Given that the company works in mining areas (extractive sector), how often must the 35,000 kg GCB 35 gantry crane at position 23 be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "La gru a cavalletto in posizione 23 è un apparecchio di sollevamento materiali, portata 35000 kg (> 200 kg), costruito nel 1989: al 14/11/2026 la soglia è 2016 e 1989 < 2016, quindi anno di fabbricazione antecedente 10 anni. Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe del settore estrattivo. Come apparecchio di tipo fisso rientra nell'Allegato VII riga 15: verifica annuale. Anche se la si considerasse di tipo mobile o trasferibile la cadenza non cambierebbe (riga 12, verifica annuale).",
+   "trap": "Biennale (P2Y): riga 17, valida solo con utilizzo regolare. La portata elevata non introduce alcuna cadenza diversa: l'Allegato VII distingue solo sopra/sotto 200 kg.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "23 GRU A CAVALLETTO 35000 NU 16/95 1989 459 GCB 35 X 12/21"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 15",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 12",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-09",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Se il paranco pneumatico SIS PROFI 10 TI da 10000 kg in posizione 14 fosse impiegato con modalità di utilizzo regolare, cioè fuori dai settori costruzioni, siderurgico, portuale ed estrattivo, ogni quanto dovrebbe essere verificato?",
+   "question_en": "If the 10,000 kg SIS PROFI 10 TI pneumatic hoist at position 14 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "Non determinabile dai documenti. Il paranco in posizione 14 ha portata 10000 kg (> 200 kg) ed è stato costruito nel 2002: al 14/11/2026 l'anno di fabbricazione è antecedente 10 anni (2002 < 2016). Con utilizzo regolare la cadenza dipende però dal tipo: fisso → Allegato VII riga 17, verifiche biennali; mobile o trasferibile → riga 14, verifiche annuali. La scheda riporta solo apparecchio, marca, portata, matricola, anno e numero di fabbrica e nessun documento dice se un paranco pneumatico sia di tipo fisso oppure mobile/trasferibile: le due righe danno cadenze diverse.",
+   "trap": "Annuale (P1Y) o biennale (P2Y) scelti a caso: nel settore estrattivo la differenza non conta (righe 12 e 15 entrambe annuali per un apparecchio del 2002), ma con utilizzo regolare sì.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "14 10000 CA 200100/06 2002 801453 PNEUMATICO SIS PROFI 10 TI"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 17",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche biennali"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 14",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "numero di portata matr. anno di Pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola PARANCO"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-10",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Quali posizioni dell'elenco corrispondono ad apparecchi con anno di costruzione anteriore al 1990?",
+   "question_en": "Which positions of the list are devices whose year of construction is earlier than 1990?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "17",
+     "23"
+    ]
+   },
+   "answer_text": "Scorrendo le 24 righe dell'Allegato A (tabelle A1-A6) gli anni di costruzione anteriori al 1990 sono: posizione 8 (1985), 9 (1985), 10 (1988), 11 (1978), 12 (1980), 17 (1977), 23 (1989). Tutte le altre sono dal 1991 in poi: 1 (1991), 2 (2005), 3 (2009), 4 (2005), 5 (2003), 6 (2004), 7 (2017), 13 (2017), 14 (2002), 15 (1997), 16 (2000), 18-21 (2010), 22 (1997), 24 (2017). Gli anni coincidono tra Allegato A e Allegato B.",
+   "trap": "Includere la posizione 1 (1991, la più vecchia delle gru per autocarro) o la 13 (gru a ponte come le altre, ma del 2017); oppure dimenticare l'autogru 17 e la gru a cavalletto 23 limitandosi alle gru a ponte. Attenzione anche agli anni contenuti nelle matricole (es. '57 / 92', '41/85', '16/95'), che non sono anni di costruzione.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 SCORREVOLE"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 9 DEMAG 5000 CA 128 / 86 1985 503292 SCORREVOLE"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 10 GUTTER 3000 CA 197 / 88 1988 24984 SCORREVOLE"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 SCORREVOLE TITANO"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 12 PRIM 5000 NU 41/85 1980 160 SCORREVOLE"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "17 AUTOGRU' P&H R200 18760 RM - I - 22027 1977 70761"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "23 GRU A CAVALLETTO 35000 NU 16/95 1989 459 GCB 35 X 12/21"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "1 3870 CA 57 / 92 1991 32203 CA 707668 PER AUTOCARRO SAS MOD. NT-520"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-11",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Quali posizioni dell'elenco corrispondono ad apparecchi con portata inferiore a 1000 kg?",
+   "question_en": "Which positions of the list are devices with a capacity below 1,000 kg?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "2",
+     "4",
+     "5",
+     "6",
+     "7",
+     "24"
+    ]
+   },
+   "answer_text": "Scorrendo le 24 righe dell'Allegato A, le portate inferiori a 1000 kg sono: posizione 2 (995 kg), 4 (520 kg), 5 (995 kg), 6 (995 kg), 7 (790 kg) e 24 (230 kg). Le altre sono tutte da 1500 kg in su: 1 (3870), 3 (1500), 8, 9, 12, 13, 16, 19, 20 (5000), 10, 11 (3000), 14 (10000), 15 (25000 declassato a 10000), 17 (18760), 18, 21 (7500), 22 (2095), 23 (35000). Le portate coincidono tra Allegato A e Allegato B.",
+   "trap": "Dimenticare la piattaforma elevatrice in posizione 24 (230 kg) perché non è una gru, oppure includere la posizione 3, che ha lo stesso modello FASSI F 28 B22 della posizione 2 ma portata 1500 kg.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI FORD 2 995 CA 200084/06 2005 3090 CX 921 ZK PER AUTOCARRO F 28 B22 TRANSIT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA IVECO 4 AMCO VEBA 520 CA 200241/06 2005 18825 DF 019 FJ PER AUTOCARRO FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI IVECO 5 995 CA 200085 / 03 2003 6249 AT 336397 PER AUTOCARRO F28A. 22 FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI IVECO 6 995 CA 200081/04 2004 6344 AP 337 RY PER AUTOCARRO F 28A. 22 FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA IVECO 7 Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "PIATTAFORMA 2017- 24 HINOWA 230 2017 2G320 ELEVATRICE 200076-ca"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI 3 1500 CA 200043/ 10 2009 Mitsubishi 0206-5071 DV 431 BA PER AUTOCARRO F 28 B22"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-12",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Secondo l'Allegato B, quali posizioni dell'elenco hanno come ubicazione (settore/servizio) Monteponi?",
+   "question_en": "According to Annex B, which positions of the list have Monteponi as their location (sector/service)?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "13",
+     "14"
+    ]
+   },
+   "answer_text": "Nella tabella B1 dell'Allegato B solo due righe riportano Monteponi nella colonna ubicazione settore/servizio: la posizione 13 (gru a ponte IGEA-PRIM 5t, Pozzo Vittorio - Monteponi) e la posizione 14 (paranco pneumatico SIS PROFI 10 TI, Livello Vesme - Monteponi). Le altre posizioni del Comune di Iglesias sono a Campo Pisano, Masua o Acquaresi.",
+   "trap": "Rispondere con tutte le 19 posizioni del Comune di Iglesias, perché il riepilogo del punto 2.2 elenca Monteponi tra le aree minerarie di Iglesias; oppure aggiungere la posizione 15, che è al 'Pozzo 2' ma di Campo Pisano.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 8",
+     "role": "supports",
+     "quote": "Pozzo Vittorio 13 5000 2017 gen-17 Iglesias SCORREVOLE PRIM 5t 200086/CA Monteponi"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 8",
+     "role": "supports",
+     "quote": "Livello Vesme 14 10000 2002 801453 Iglesias PNEUMATICO SIS PROFI 200100/06 Monteponi"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 8",
+     "role": "supports",
+     "quote": "Pozzo 2 15 PALAIR 1997 9712150/97 Iglesias PNEUMATICO s. 200109 CA Campo Pisano"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-13",
+   "type": "I",
+   "split": "dev",
+   "question_it": "La scheda tecnica prevede che IGEA metta a disposizione del verificatore, per gli apparecchi con più di 20 anni di età, la certificazione di verifica strutturale dei cicli di vita residui. Al 14 novembre 2026, per quali delle sette gru per autocarro (posizioni 1-7) vale questa previsione?",
+   "question_en": "The technical sheet requires IGEA to make available to the verifier, for devices more than 20 years old, the certification of structural verification of the residual life cycles. As of 14 November 2026, for which of the seven truck-mounted cranes (positions 1-7) does this apply?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "1",
+     "2",
+     "4",
+     "5",
+     "6"
+    ]
+   },
+   "answer_text": "Il punto 4.2.2, n. 5, della scheda chiede la certificazione di verifica strutturale dei cicli di vita residui 'se superiore a 20 anni di età'. Al 14/11/2026, confrontando gli anni di costruzione della tabella A1: posizione 1 (1991, 35 anni), 2 (2005, 21 anni), 4 (2005, 21 anni), 5 (2003, 23 anni), 6 (2004, 22 anni) superano i 20 anni; la posizione 3 (2009, 17 anni) e la 7 (2017, 9 anni) no. Un apparecchio costruito in qualunque giorno del 2005 ha comunque più di 20 anni al 14/11/2026. Nota: per le posizioni 4 e 6 la matricola INAIL differisce tra Allegato A e Allegato B (200241/06 contro 200024/06; 200081/04 contro 200081/0 3), ma l'anno di costruzione coincide.",
+   "trap": "Fermarsi alla posizione 1, l'unica del secolo scorso, o escludere le due gru del 2005 perché 'hanno 20 anni': al 2026 ne hanno 21. Oppure includere la posizione 3 (2009), che supererà i 20 anni solo dal 2030.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 5",
+     "role": "supports",
+     "quote": "se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "1 3870 CA 57 / 92 1991 32203 CA 707668 PER AUTOCARRO SAS MOD. NT-520"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI FORD 2 995 CA 200084/06 2005 3090 CX 921 ZK PER AUTOCARRO F 28 B22 TRANSIT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI 3 1500 CA 200043/ 10 2009 Mitsubishi 0206-5071 DV 431 BA PER AUTOCARRO F 28 B22"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA IVECO 4 AMCO VEBA 520 CA 200241/06 2005 18825 DF 019 FJ PER AUTOCARRO FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI IVECO 5 995 CA 200085 / 03 2003 6249 AT 336397 PER AUTOCARRO F28A. 22 FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA FASSI IVECO 6 995 CA 200081/04 2004 6344 AP 337 RY PER AUTOCARRO F 28A. 22 FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA IVECO 7 Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-14",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Le verifiche degli apparecchi IGEA sono affidate a un soggetto abilitato: secondo il D.M. 11 aprile 2011, per quanto tempo almeno il soggetto abilitato deve conservare gli atti documentali relativi all'attività di verifica?",
+   "question_en": "The verifications of the IGEA devices are entrusted to an authorised body: under the Ministerial Decree of 11 April 2011, for how long at least must the authorised body keep the documents relating to the verification activity?",
+   "answer": {
+    "kind": "duration",
+    "value": "P10Y"
+   },
+   "answer_text": "La scheda affida le verifiche a soggetti abilitati pubblici o privati con le modalità del D.M. 11 aprile 2011. L'Allegato III, punto 4.2, del decreto impone ai soggetti abilitati di riportare in un registro informatizzato copia dei verbali delle verifiche effettuate e di conservare per un periodo non inferiore a dieci anni tutti gli atti documentali relativi all'attività di verifica.",
+   "trap": "Tre anni (P3Y): è la durata del servizio IGEA (2019-2021) e anche il periodo minimo di conservazione dei risultati dei controlli dell'art. 71 c. 9, che riguarda il datore di lavoro e i controlli del comma 8, non il soggetto abilitato. Oppure cinque anni (P5Y): è la validità dell'iscrizione nell'elenco dei soggetti abilitati.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "con le modalità del D.M. 11 aprile 2011 da parte di soggetti abilitati pubblici o privati"
+    },
+    {
+     "source": "DM2011",
+     "locator": "Allegato III",
+     "role": "supports",
+     "quote": "I soggetti abilitati, pubblici o privati, devono riportare in apposito registro informatizzato copia dei verbali delle verifiche effettuate"
+    },
+    {
+     "source": "DM2011",
+     "locator": "Allegato III",
+     "role": "supports",
+     "quote": "per un periodo non inferiore a dieci anni, tutti gli atti documentali relativi all'attivita' di verifica"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-15",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Qual è la targa dell'autocarro su cui è montata la gru idraulica Effer in posizione 7?",
+   "question_en": "What is the registration plate of the truck on which the Effer hydraulic crane at position 7 is mounted?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "Non determinabile dai documenti. Le tabelle A1 e B1 hanno una colonna 'targa', ma la riga della posizione 7 riporta solo apparecchio, marca (Effer), portata (790 kg), matricola INAIL (2018/200045/CA), anno di costruzione (2017), veicolo (IVECO FIAT) e numero di fabbrica (100026789): la targa non è indicata, né nell'Allegato A né nell'Allegato B, a differenza delle altre gru per autocarro.",
+   "trap": "Rispondere 100026789 (è il numero di fabbrica/matricola dell'apparecchio) o 2018/200045/CA (è la matricola INAIL), oppure prendere la targa di una riga vicina, ad esempio quella della posizione 6.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA IVECO 7 Effer 790 2018/200045/CA 2017 100026789 PER AUTOCARRO FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 8",
+     "role": "supports",
+     "quote": "7 Effer 790 2017 100026789 Iglesias PER 5/CA FIAT Campo Pisano AUTOCARRO"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "numero di portata matr. anno di pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEB-16",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Quale importo in euro viene corrisposto al verificatore per la verifica periodica della gru a cavalletto da 35000 kg in posizione 23?",
+   "question_en": "What amount in euro is paid to the verifier for the periodic verification of the 35,000 kg gantry crane at position 23?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "Non determinabile dai documenti. La scheda stabilisce solo il criterio: per ciascun apparecchio verificato viene corrisposto l'importo calcolato sul tariffario del Decreto Dirigenziale del 23/11/2012, con gli indici ISTAT aggiornati, e col ribasso proposto dall'aggiudicatario. Né il tariffario, né gli indici, né il ribasso offerto sono riportati nei documenti; il D.M. 11 aprile 2011 rinvia a sua volta a un decreto sulle tariffe senza indicare importi.",
+   "trap": "Ricavare un importo dalle percentuali del D.M. 11 aprile 2011 (15% o 5% delle tariffe): sono quote di ripartizione, non prezzi. Oppure scambiare per un prezzo uno dei numeri della riga (35000 è la portata in kg, 459 il numero di fabbrica).",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "23 GRU A CAVALLETTO 35000 NU 16/95 1989 459 GCB 35 X 12/21"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 4",
+     "role": "supports",
+     "quote": "come base d’asta di riferimento verrà utilizzato il tariffario, con gli indici ISTAT aggiornati"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 4",
+     "role": "supports",
+     "quote": "verrà corrisposto l’importo calcolato sulla base di quanto disposto al punto 2.6 e col ribasso proposto dall’ Aggiudicatario"
+    },
+    {
+     "source": "DM2011",
+     "locator": "art. 3",
+     "role": "supports",
+     "quote": "Le tariffe per le prestazioni rese ai sensi del presente decreto sono determinate con decreto del Ministero del lavoro e delle politiche sociali"
+    }
+   ]
+  }
+ ]
+}

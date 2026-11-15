@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: By which date must the Commission adopt the delegated acts provided for in Article 6(11) of Regulation (EU) 2023/1230 (common methodology for the data Member States must provide)?\n\nAnswer A: \"2024-07-20\"\nArticle 6(11) applies from 20 July 2024, so the delegated acts on the common methodology are due by that date. The facts give only this application date and no separate adoption deadline.\nEvidence of A:\n- Article 6(2) to (6), (8) and (11) and Articles 47 and 53(3): appliesFrom = 20 July 2024 | sentence: \"read: ‘ 20 July 2024 ’.\" [CORR, Corrigendum, point 14]\n\nAnswer B: reader B found no passage that states the answer. Its note: Regulation (EU) 2023/1230, Art. 6(11) provides for the delegated acts only 'if necessary' and sets no adoption deadline. The 20 July 2024 date in Art. 6(10) concerns implementing acts, and Art. 47(2) only sets the five-year delegation period from 19 July 2023."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"A's evidence only says Article 6(2)-(6), (8), (11) apply from 20 July 2024, which is an application date, not a deadline for the Commission to adopt delegated acts. B found no adoption deadline. A's answer treats an application date as an adoption deadline, which the evidence does not state for the exact subject asked.\", \"choice\": \"neither\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1403,
+   "completion_tokens": 126,
+   "total_tokens": 1529
+  }
+ }
+}

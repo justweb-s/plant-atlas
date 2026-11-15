@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Which annex of the Regulation does Annex IV of Directive 2006/42/EC correspond to?\n\nAnswer A: \"Annex I of the Regulation\"\nDirective 2006/42/EC Annex IV, the list of machinery categories needing special conformity procedures, corresponds to Annex I of the Regulation, which lists the categories of machinery and related products (Part A and Part B). The facts do not say this in so many words, so it is inferred from what each annex does.\nEvidence of A:\n- categories of machinery and related products: listedIn = listed in Annex I | sentence: \"Article 6 Categories of machinery and related products listed in Annex I subject to relevant conformity assessment procedures.\" [REG, Art. 6(4)]\n- categories of machinery listed in Annex IV: requiresProcedure = one of the procedures referred to in Article 12(3) and (4) | sentence: \"ANNEX IV Categories of machinery to which one of the procedures referred to in Article 12(3) and (4) must be applied 1.\" [DIR, Annex IV]\n- machinery or related products: listedIn = Annex I | sentence: \"(b) the conformity assessment procedure applicable to machinery or related products listed in Annex I.\" [REG, Art. 53(2)]\n\nAnswer B: reader B found no passage that states the answer. Its note: Regulation Art. 51(2) refers to a correlation table in Annex XII, but the table itself is not in the passages, so the annex corresponding to Annex IV of Directive 2006/42/EC cannot be determined."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"B found nothing, so decide whether A's evidence states the answer for the exact subject. A's evidence only shows Annex I of the Regulation lists categories of machinery and Annex IV of the Directive lists categories; it admits the correspondence is inferred, and the correlation table (Annex XII) is not shown. Correspondence is not stated by the evidence.\", \"choice\": \"neither\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1558,
+   "completion_tokens": 135,
+   "total_tokens": 1693
+  }
+ }
+}

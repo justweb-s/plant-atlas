@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "On which date did the Commission actually adopt the first implementing act with the template for Member States' data collection provided for in Article 6(10) of Regulation (EU) 2023/1230?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"Regulation (EU) 2023/1230 Article 6(10) Commission implementing act template Member States data collection / regolamento (UE) 2023/1230 articolo 6 paragrafo 10 atto di esecuzione modello raccolta dati Stati membri\", \"Commission Implementing Regulation laying down template for data collection Member States Machinery Regulation 2023/1230 adopted / regolamento di esecuzione della Commissione che stabilisce il modello per la raccolta dei dati degli Stati membri regolamento macchine 2023/1230 adottato\", \"Official Journal of the European Union implementing act template Article 6(10) 2023/1230 date of adoption / Gazzetta ufficiale dell'Unione europea atto di esecuzione modello articolo 6 paragrafo 10 data di adozione\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 913,
+   "completion_tokens": 743,
+   "total_tokens": 1656
+  }
+ }
+}

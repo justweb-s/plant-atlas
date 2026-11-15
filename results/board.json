@@ -30,24 +30,24 @@
   "rag": {
    "design": {
     "n": 22,
-    "correct": 10,
+    "correct": 9,
     "unknown": 8,
-    "wrong": 4,
-    "mean": 0.485
+    "wrong": 5,
+    "mean": 0.439
    },
    "heldout": {
     "n": 12,
-    "correct": 6,
-    "unknown": 5,
-    "wrong": 1,
-    "mean": 0.5
+    "correct": 5,
+    "unknown": 7,
+    "wrong": 0,
+    "mean": 0.417
    },
    "covered_by_b": {
     "n": 31,
-    "correct": 16,
-    "unknown": 10,
+    "correct": 14,
+    "unknown": 12,
     "wrong": 5,
-    "mean": 0.538
+    "mean": 0.473
    },
    "answered": 34,
    "of": 34
@@ -80,24 +80,24 @@
   "B": {
    "design": {
     "n": 22,
-    "correct": 15,
+    "correct": 16,
     "unknown": 3,
-    "wrong": 4,
-    "mean": 0.783
+    "wrong": 3,
+    "mean": 0.827
    },
    "heldout": {
     "n": 12,
-    "correct": 4,
+    "correct": 7,
     "unknown": 4,
-    "wrong": 4,
-    "mean": 0.399
+    "wrong": 1,
+    "mean": 0.583
    },
    "covered_by_b": {
     "n": 31,
-    "correct": 19,
+    "correct": 23,
     "unknown": 4,
-    "wrong": 8,
-    "mean": 0.71
+    "wrong": 4,
+    "mean": 0.813
    },
    "answered": 34,
    "of": 34
@@ -172,7 +172,7 @@
    "covered_by_b": true,
    "rag": 1.0,
    "A": 0.0,
-   "B": 0.333
+   "B": 0.8
   },
   {
    "id": "CQ08",
@@ -262,7 +262,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": 0.0,
-   "B": 0.286
+   "B": 0.0
   },
   {
    "id": "CQ17",
@@ -282,7 +282,7 @@
    "covered_by_b": true,
    "rag": 1.0,
    "A": 1.0,
-   "B": 0.5
+   "B": 0.0
   },
   {
    "id": "CQ19",
@@ -320,7 +320,7 @@
    "type": "I",
    "question": "How often must the Effer truck-mounted hydraulic crane at position 7 of the IGEA list, built in 2017, be verified?",
    "covered_by_b": true,
-   "rag": 1.0,
+   "rag": 0.0,
    "A": 0.0,
    "B": 1.0
   },
@@ -330,9 +330,9 @@
    "type": "T",
    "question": "Who carries out the periodic verifications after the first one on the equipment listed in Annex VII?",
    "covered_by_b": true,
-   "rag": 0.0,
+   "rag": 1.0,
    "A": 0.5,
-   "B": 0.5
+   "B": 1.0
   },
   {
    "id": "CQ24",
@@ -340,7 +340,7 @@
    "type": "V",
    "question": "The Ministerial Decree of 11 April 2011 says sixty days and Article 71 of Legislative Decree 81/2008 says forty-five: within how many days of the request must the first periodic verification be carried out today?",
    "covered_by_b": true,
-   "rag": 1.0,
+   "rag": 0.0,
    "A": 0.0,
    "B": 1.0
   },
@@ -390,7 +390,7 @@
    "type": "V",
    "question": "In November 2028, how often will the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, have to be verified?",
    "covered_by_b": true,
-   "rag": 1.0,
+   "rag": 0.0,
    "A": 0.0,
    "B": 0.0
   },
@@ -402,7 +402,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": 0.0,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ31",
@@ -422,7 +422,7 @@
    "covered_by_b": true,
    "rag": 1.0,
    "A": 0.0,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ33",
@@ -442,7 +442,7 @@
    "covered_by_b": true,
    "rag": 0.0,
    "A": 1.0,
-   "B": 0.0
+   "B": 1.0
   }
  ]
 }

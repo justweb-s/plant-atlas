@@ -1,0 +1,786 @@
+{
+ "about": "Development set, slice 'regimes' (harder): 12 type-V questions on which regime applies on a stated day (Directive 2006/42/EC vs Regulation (EU) 2023/1230 as corrected by its corrigendum) and on computed or selected dates, and 6 type-I questions on the real machines (UR5e, UR10e, MA STAR), most combining a manual statement with what the law requires; 4 of the 18 (2 V, 2 I) are 'unknown'. Gold written from the source documents only, reference date 2026-11-14.",
+ "cqs": [
+  {
+   "id": "DEV-REG-01",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Una macchina è stata costruita e la sua dichiarazione CE di conformità firmata il 10 gennaio 2027, ma viene messa a disposizione per la prima volta sul mercato dell'Unione il 25 gennaio 2027. Quale atto disciplina la sua immissione sul mercato: la Direttiva 2006/42/CE o il Regolamento (UE) 2023/1230?",
+   "question_en": "A machine was built and its EC declaration of conformity signed on 10 January 2027, but it is made available on the Union market for the first time on 25 January 2027. Which act governs its placing on the market: Directive 2006/42/EC or Regulation (EU) 2023/1230?",
+   "answer": {
+    "kind": "text",
+    "value": "Il Regolamento (UE) 2023/1230",
+    "keywords": [
+     [
+      "2023/1230",
+      "regolamento",
+      "regulation"
+     ]
+    ]
+   },
+   "answer_text": "Conta la data dell'immissione sul mercato, cioè la prima messa a disposizione (art. 3, punto 12, del Regolamento; art. 2, lettera h), della Direttiva), non la data di costruzione o della dichiarazione. Per effetto della rettifica (punti 5 e 10) la Direttiva è abrogata e il Regolamento si applica dal 20 gennaio 2027; la tutela transitoria dell'articolo 52, paragrafo 1 (rettifica, punto 6) vale solo per i prodotti immessi sul mercato prima del 20 gennaio 2027. Il 25 gennaio 2027 si applica quindi il Regolamento.",
+   "trap": "La Direttiva 2006/42/CE, perché la macchina è stata costruita e dichiarata conforme il 10 gennaio 2027: la data rilevante è quella della prima messa a disposizione, successiva al 20 gennaio 2027.",
+   "evidence": [
+    {
+     "source": "REG",
+     "locator": "Art. 3(12)",
+     "role": "supports",
+     "quote": "‘placing on the market’ means the first making available of a product within the scope of this Regulation on the Union market"
+    },
+    {
+     "source": "DIR",
+     "locator": "Art. 2",
+     "role": "supports",
+     "quote": "‘placing on the market’ means making available for the first time in the Community machinery or partly completed machinery with a view to distribution or use"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 10",
+     "role": "supports",
+     "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 5",
+     "role": "supports",
+     "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 6",
+     "role": "supports",
+     "quote": "Article 52, paragraph 1, first sentence: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "It shall apply from 14 January 2027"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 51(2)",
+     "role": "superseded",
+     "quote": "Directive 2006/42/EC is repealed with effect from 14 January 2027"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 52(1)",
+     "role": "superseded",
+     "quote": "Member States shall not impede the making available on the market of products which were placed on the market in conformity with Directive 2006/42/EC before 14 January 2027"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-02",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Il 1° dicembre 2026 il fabbricante di una macchina di una categoria elencata nell'allegato IV della Direttiva 2006/42/CE, non costruita secondo norme armonizzate, vuole immetterla sul mercato ricorrendo alla verifica dell'unità (modulo G) al posto dell'esame CE del tipo o della garanzia qualità totale. Questa procedura è ammessa dall'atto applicabile quel giorno?",
+   "question_en": "On 1 December 2026 the manufacturer of a machine in a category listed in Annex IV to Directive 2006/42/EC, not built to harmonised standards, wants to place it on the market using unit verification (module G) instead of EC type-examination or full quality assurance. Is that procedure admitted by the act applicable on that day?",
+   "answer": {
+    "kind": "boolean",
+    "value": false
+   },
+   "answer_text": "No. Il 1° dicembre 2026 si applica ancora la Direttiva 2006/42/CE: il Regolamento si applica dal 20 gennaio 2027 (art. 54 come rettificato dal punto 10). L'articolo 12, paragrafo 4, della Direttiva ammette solo due procedure: esame CE del tipo (allegato IX) con controllo interno della fabbricazione (allegato VIII, punto 3) oppure garanzia qualità totale (allegato X). La conformità basata sulla verifica dell'unità (modulo G) esiste solo nell'articolo 25 del Regolamento.",
+   "trap": "Sì: è la risposta che si ottiene applicando in anticipo l'articolo 25, paragrafo 2, lettera c), del Regolamento, che il 1° dicembre 2026 non è ancora applicabile.",
+   "evidence": [
+    {
+     "source": "DIR",
+     "locator": "Art. 12(4)",
+     "role": "supports",
+     "quote": "the manufacturer or his authorised representative shall apply one of the following procedures: (a) the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3; (b) the full quality assurance procedure provided for in Annex X"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 25(2)",
+     "role": "supports",
+     "quote": "(c) conformity based on unit verification (module G) set out in Annex X"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 10",
+     "role": "supports",
+     "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "It shall apply from 14 January 2027"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-03",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Il 1° dicembre 2026, per le categorie dell'allegato IV della Direttiva 2006/42/CE costruite secondo norme armonizzate che coprono tutti i requisiti pertinenti, il fabbricante può limitarsi al controllo interno della fabbricazione. Per quali di quelle categorie, il 1° febbraio 2027, il controllo interno della produzione (modulo A) non è più ammesso nemmeno applicando integralmente le norme armonizzate?",
+   "question_en": "On 1 December 2026, for Annex IV categories of Directive 2006/42/EC built to harmonised standards covering all the relevant requirements, the manufacturer may use internal checks on manufacture alone. For which of those categories is internal production control (module A) no longer admitted on 1 February 2027, even when harmonised standards are fully applied?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "Removable mechanical transmission devices including their guards",
+     "Guards for removable mechanical transmission devices",
+     "Vehicle servicing lifts",
+     "Portable cartridge-operated fixing and other impact machinery"
+    ]
+   },
+   "answer_text": "Fino al 19 gennaio 2027 vale l'articolo 12, paragrafo 3, lettera a), della Direttiva: per tutte le categorie dell'allegato IV costruite secondo norme armonizzate complete è ammesso il controllo interno (allegato VIII). Dal 20 gennaio 2027 (rettifica, punto 10) si applica il Regolamento: le categorie dell'allegato I, parte A, seguono l'articolo 25, paragrafo 2, che non prevede il modulo A. Delle sei voci della parte A, quattro erano già nell'allegato IV della Direttiva (punti 14, 15, 16 e 18): dispositivi amovibili di trasmissione meccanica con i loro ripari, ripari per tali dispositivi, ponti elevatori per veicoli, apparecchi portatili a carica esplosiva per il fissaggio o altre macchine ad impatto. Le altre voci dell'allegato IV sono finite nella parte B, dove il modulo A resta possibile con norme armonizzate (art. 25, paragrafo 3).",
+   "trap": "Includere le due voci della parte A sui sistemi con comportamento auto-evolutivo basati su apprendimento automatico (punti 5 e 6): sono nuove, non erano nell'allegato IV della Direttiva. Oppure elencare tutte le 23 voci dell'allegato IV.",
+   "evidence": [
+    {
+     "source": "DIR",
+     "locator": "Art. 12(3)",
+     "role": "supports",
+     "quote": "(a) the procedure for assessment of conformity with internal checks on the manufacture of machinery, provided for in Annex VIII"
+    },
+    {
+     "source": "DIR",
+     "locator": "Annex IV",
+     "role": "supports",
+     "quote": "14. Removable mechanical transmission devices including their guards. 15. Guards for removable mechanical transmission devices. 16. Vehicle servicing lifts."
+    },
+    {
+     "source": "DIR",
+     "locator": "Annex IV",
+     "role": "supports",
+     "quote": "18. Portable cartridge-operated fixing and other impact machinery."
+    },
+    {
+     "source": "REG",
+     "locator": "Annex I, Part A, point 1",
+     "role": "supports",
+     "quote": "1. Removable mechanical transmission devices including their guards."
+    },
+    {
+     "source": "REG",
+     "locator": "Annex I, Part A, point 2",
+     "role": "supports",
+     "quote": "2. Guards for removable mechanical transmission devices."
+    },
+    {
+     "source": "REG",
+     "locator": "Annex I, Part A, point 3",
+     "role": "supports",
+     "quote": "3. Vehicle servicing lifts."
+    },
+    {
+     "source": "REG",
+     "locator": "Annex I, Part A, point 4",
+     "role": "supports",
+     "quote": "4. Portable cartridge-operated fixing and other impact machinery."
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 25(2)",
+     "role": "supports",
+     "quote": "Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X."
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 10",
+     "role": "supports",
+     "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "It shall apply from 14 January 2027"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-04",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Il 1° marzo 2027 un'impresa, che non è il fabbricante originario e non è un utilizzatore non professionale, esegue una modifica sostanziale su una macchina immessa sul mercato nel febbraio 2027. In quale veste (quale operatore economico) risponde di quella macchina secondo l'atto applicabile quel giorno?",
+   "question_en": "On 1 March 2027 a company that is neither the original manufacturer nor a non-professional user carries out a substantial modification of a machine placed on the market in February 2027. In what capacity (as which economic operator) does it answer for that machine under the act applicable on that day?",
+   "answer": {
+    "kind": "text",
+    "value": "Come fabbricante (as manufacturer), con gli obblighi dell'articolo 10 del Regolamento (UE) 2023/1230",
+    "keywords": [
+     [
+      "fabbricante",
+      "costruttore",
+      "manufacturer"
+     ]
+    ]
+   },
+   "answer_text": "Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (art. 54 come rettificato: dal 20 gennaio 2027). L'articolo 18 stabilisce che chi esegue una modifica sostanziale è considerato fabbricante ed è soggetto agli obblighi dell'articolo 10 per la macchina interessata, compresa la procedura di valutazione della conformità dell'articolo 25. La Direttiva 2006/42/CE non contiene né la definizione di «modifica sostanziale» né una regola analoga; fa eccezione solo l'utilizzatore non professionale che modifica la macchina per uso proprio.",
+   "trap": "Come semplice utilizzatore o datore di lavoro, senza obblighi da fabbricante: è la lettura che si ricava dalla Direttiva, che non conosce la modifica sostanziale, ma il 1° marzo 2027 la Direttiva è abrogata.",
+   "evidence": [
+    {
+     "source": "REG",
+     "locator": "Art. 18",
+     "role": "supports",
+     "quote": "A natural or legal person that carries out a substantial modification of machinery or a related product shall be considered to be a manufacturer for the purposes of this Regulation and shall be subject to the obligations of the manufacturer set out in Article 10 for that machinery or related product"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 3(16)",
+     "role": "supports",
+     "quote": "‘substantial modification’ means a modification of machinery or a related product, by physical or digital means after that machinery or related product has been placed on the market or put into service, which is not foreseen or planned by the manufacturer"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 10",
+     "role": "supports",
+     "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 5",
+     "role": "supports",
+     "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "It shall apply from 14 January 2027"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-05",
+   "type": "V",
+   "split": "dev",
+   "question_it": "La linea guida UNIVPM sulle attrezzature afferma che il costruttore è obbligato a fornire le istruzioni per l'uso in formato cartaceo. Il 1° marzo 2027, per una macchina destinata solo a utilizzatori professionali immessa sul mercato quel giorno, il fabbricante può fornire le istruzioni per l'uso in formato digitale anziché cartaceo?",
+   "question_en": "The UNIVPM equipment guideline states that the manufacturer is obliged to supply the instructions for use on paper. On 1 March 2027, for a machine intended only for professional users and placed on the market that day, may the manufacturer provide the instructions for use in digital format instead of on paper?",
+   "answer": {
+    "kind": "boolean",
+    "value": true
+   },
+   "answer_text": "Sì. Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (dal 20 gennaio 2027, rettifica punto 10), il cui articolo 10, paragrafo 7, consente di fornire le istruzioni in formato digitale, a condizione di indicare come accedervi, renderle stampabili e scaricabili e tenerle accessibili online; la copia cartacea è dovuta gratuitamente entro un mese solo se l'utilizzatore la chiede al momento dell'acquisto. La linea guida UNIVPM, che richiama l'obbligo del cartaceo dall'entrata in vigore della Direttiva 2006/42/CE, è un documento aziendale di rango inferiore e riferito alla Direttiva ormai abrogata: prevale il Regolamento.",
+   "trap": "No: è la risposta della linea guida UNIVPM (obbligo di formato cartaceo), fondata sulla Direttiva 2006/42/CE, che il 1° marzo 2027 non è più in vigore.",
+   "evidence": [
+    {
+     "source": "REG",
+     "locator": "Art. 10(7)",
+     "role": "supports",
+     "quote": "The instructions may be provided in a digital format."
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 10(7)",
+     "role": "supports",
+     "quote": "at the request of the user at the time of the purchase, the manufacturer shall provide the instructions for use in paper format free of charge within one month"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 10",
+     "role": "supports",
+     "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "It shall apply from 14 January 2027"
+    },
+    {
+     "source": "univpm-guideline",
+     "locator": "p. 7",
+     "role": "superseded",
+     "quote": "il costruttore di un macchinario è obbligato a fornire in formato cartaceo le istruzioni per"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-06",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Il 1° marzo 2027 un distributore sta per mettere a disposizione sul mercato una macchina (non una quasi-macchina). Secondo l'atto applicabile quel giorno, quali elementi deve verificare prima di farlo?",
+   "question_en": "On 1 March 2027 a distributor is about to make a machine (not partly completed machinery) available on the market. Under the act applicable on that day, which items must it verify before doing so?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "The machinery bears the CE marking",
+     "It is accompanied by the EU declaration of conformity",
+     "It is accompanied by the instructions for use and information, in a language easily understood by users",
+     "The manufacturer and the importer have complied with their identification and contact-details requirements (Art. 10(5)-(6), Art. 13(3))"
+    ]
+   },
+   "answer_text": "Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (dal 20 gennaio 2027, rettifica punto 10). L'articolo 15, paragrafo 2, impone al distributore quattro verifiche: marcatura CE; dichiarazione di conformità UE a corredo; istruzioni per l'uso e informazioni in una lingua facilmente comprensibile dagli utilizzatori; rispetto, da parte di fabbricante e importatore, degli obblighi di identificazione e di contatto (art. 10, paragrafi 5 e 6, e art. 13, paragrafo 3). La Direttiva 2006/42/CE non prevedeva obblighi propri del distributore: prima del 20 gennaio 2027 questo elenco non era vincolante in base alla normativa macchine.",
+   "trap": "Rispondere che il distributore non ha obblighi di verifica (lettura della Direttiva 2006/42/CE, che non menziona distributori né importatori), oppure attribuirgli gli obblighi del fabbricante (documentazione tecnica, valutazione della conformità).",
+   "evidence": [
+    {
+     "source": "REG",
+     "locator": "Art. 15(2)",
+     "role": "supports",
+     "quote": "Before making machinery or a related product available on the market, distributors shall verify that: (a) the machinery or related product bears the CE marking; (b) the machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8); (c) the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7), and that they are in a language which can be easily understood by users, as determined by the Member State in which the machinery or related product is to be made available on the market; (d) the manufacturer and the importer have complied with the requirements referred to in Article 10(5) and (6) and Article 13(3) respectively."
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 10",
+     "role": "supports",
+     "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "It shall apply from 14 January 2027"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-07",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Qual è l'ultimo giorno in cui una macchina può essere immessa sul mercato in conformità alla Direttiva 2006/42/CE perché gli Stati membri non possano poi ostacolarne la messa a disposizione sul mercato in base alle disposizioni transitorie del Regolamento (UE) 2023/1230?",
+   "question_en": "What is the last day on which a machine can be placed on the market in conformity with Directive 2006/42/EC so that Member States may not afterwards impede its making available on the market under the transitional provisions of Regulation (EU) 2023/1230?",
+   "answer": {
+    "kind": "date",
+    "value": "2027-01-19"
+   },
+   "answer_text": "L'articolo 52, paragrafo 1, tutela i prodotti immessi sul mercato in conformità alla Direttiva «prima» della data indicata; il testo pubblicato diceva 14 gennaio 2027, la rettifica (punto 6) la sostituisce con 20 gennaio 2027, data dalla quale la Direttiva è abrogata (punto 5). L'ultimo giorno utile è quindi il giorno precedente: 19 gennaio 2027.",
+   "trap": "13 gennaio 2027 (giorno precedente la data del testo pubblicato, non rettificato) oppure 20 gennaio 2027 (la data stessa, che però è esclusa: «before»).",
+   "evidence": [
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 6",
+     "role": "supports",
+     "quote": "Article 52, paragraph 1, first sentence: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 52(1)",
+     "role": "superseded",
+     "quote": "Member States shall not impede the making available on the market of products which were placed on the market in conformity with Directive 2006/42/EC before 14 January 2027"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 5",
+     "role": "supports",
+     "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 51(2)",
+     "role": "superseded",
+     "quote": "Directive 2006/42/EC is repealed with effect from 14 January 2027"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-08",
+   "type": "V",
+   "split": "dev",
+   "question_it": "L'articolo 54 del Regolamento (UE) 2023/1230 fissa più date di applicazione. Da quale data si applica l'articolo 6, paragrafo 7 (condizioni per l'inserimento di una categoria nell'allegato I, parte A o parte B)?",
+   "question_en": "Article 54 of Regulation (EU) 2023/1230 sets several dates of application. From which date does Article 6(7) (conditions for including a category in Annex I, Part A or Part B) apply?",
+   "answer": {
+    "kind": "date",
+    "value": "2023-07-19"
+   },
+   "answer_text": "L'articolo 54, terzo comma, lettera c), elenca l'articolo 6, paragrafo 7, insieme agli articoli 48 e 52; il testo pubblicato indicava il 13 luglio 2023, la rettifica (punto 13) lo sostituisce con il 19 luglio 2023. Gli altri paragrafi dell'articolo 6 seguono date diverse: i paragrafi da 2 a 6, 8 e 11 dal 20 luglio 2024 (lettera d), rettifica punto 14), i restanti dalla data generale del 20 gennaio 2027.",
+   "trap": "20 luglio 2024 (vale per l'articolo 6, paragrafi da 2 a 6, 8 e 11, non per il paragrafo 7); 13 luglio 2023 (testo non rettificato); 20 gennaio 2027 (data generale di applicazione).",
+   "evidence": [
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 13",
+     "role": "supports",
+     "quote": "Article 54, third paragraph, point (c): for: ‘ 13 July 2023 ’, read: ‘ 19 July 2023 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "(c) Article 6(7) and Articles 48 and 52 from 13 July 2023"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "(d) Article 6(2) to (6), (8) and (11) and Articles 47 and 53(3) from 14 July 2024"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 14",
+     "role": "supports",
+     "quote": "Article 54, third paragraph, point (d): for: ‘ 14 July 2024 ’, read: ‘ 20 July 2024 ’"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-09",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Entro quale data la Commissione deve presentare la seconda relazione specifica sulla valutazione dell'articolo 6, paragrafi 4 e 5, del Regolamento (UE) 2023/1230, prevista dall'articolo 53, paragrafo 3?",
+   "question_en": "By which date must the Commission submit the second specific report on the assessment of Article 6(4) and (5) of Regulation (EU) 2023/1230, provided for in Article 53(3)?",
+   "answer": {
+    "kind": "date",
+    "value": "2031-07-20"
+   },
+   "answer_text": "L'articolo 53, paragrafo 3, prevede la relazione specifica entro una prima data «e successivamente ogni cinque anni». Il testo pubblicato indicava il 14 luglio 2026; la rettifica (punto 9) lo sostituisce con il 20 luglio 2026. La seconda relazione è quindi dovuta cinque anni dopo: 20 luglio 2031.",
+   "trap": "14 luglio 2031 (calcolato sul testo non rettificato); 20 luglio 2032 (confondendo con la relazione generale dell'articolo 53, paragrafo 1: 20 luglio 2028 e poi ogni quattro anni); 20 luglio 2026 (è la prima relazione).",
+   "evidence": [
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 9",
+     "role": "supports",
+     "quote": "Article 53, paragraph 3, first subparagraph: for: ‘ 14 July 2026 ’, read: ‘ 20 July 2026 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 53(3)",
+     "role": "superseded",
+     "quote": "By 14 July 2026 and every five years thereafter, the Commission shall submit a specific report on the assessment of Article 6(4) and (5) of this Regulation"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 53(1)",
+     "role": "superseded",
+     "quote": "By 14 July 2028 and every four years thereafter, the Commission shall submit a report on the evaluation and review of this Regulation"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-10",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Alla data odierna (14 novembre 2026) è già scaduto il termine entro cui la Commissione deve elaborare la relazione sulla delega di potere prevista dall'articolo 47, paragrafo 2, del Regolamento (UE) 2023/1230?",
+   "question_en": "As of today (14 November 2026), has the time limit within which the Commission must draw up the report on the delegation of power under Article 47(2) of Regulation (EU) 2023/1230 already expired?",
+   "answer": {
+    "kind": "boolean",
+    "value": false
+   },
+   "answer_text": "No. L'articolo 47, paragrafo 2, conferisce la delega per cinque anni da una data che la rettifica (punto 3) fissa al 19 luglio 2023 (il testo pubblicato diceva 13 luglio 2023): il periodo termina quindi nel luglio 2028. La relazione va elaborata al più tardi nove mesi prima della scadenza del periodo, cioè entro ottobre 2027. Il 14 novembre 2026 il termine non è ancora scaduto.",
+   "trap": "Sì: confondendo il termine della relazione con la data di inizio della delega (19 luglio 2023) o con la data di applicazione dell'articolo 47 (20 luglio 2024), entrambe già trascorse.",
+   "evidence": [
+    {
+     "source": "REG",
+     "locator": "Art. 47(2)",
+     "role": "superseded",
+     "quote": "shall be conferred on the Commission for a period of five years from 13 July 2023"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 3",
+     "role": "supports",
+     "quote": "Article 47, paragraph 2: for: ‘ 13 July 2023 ’, read: ‘ 19 July 2023 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 47(2)",
+     "role": "supports",
+     "quote": "The Commission shall draw up a report in respect of the delegation of power not later than nine months before the end of the five-year period."
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-11",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Il braccio UR10e dell'isola può essere messo in servizio sulla sola base della dichiarazione fornita dal suo fabbricante, prima che l'isola robotizzata completa sia stata dichiarata conforme?",
+   "question_en": "May the UR10e arm of the cell be put into service on the sole basis of the declaration supplied by its manufacturer, before the complete robot cell has been declared in conformity?",
+   "answer": {
+    "kind": "boolean",
+    "value": false
+   },
+   "answer_text": "No. Il manuale UR10e (cap. 20.1) riporta una Dichiarazione di incorporazione ai sensi dell'allegato II B della Direttiva 2006/42/CE, non una dichiarazione di conformità: il robot è una quasi-macchina e, secondo la stessa dichiarazione, può essere messo in servizio solo dopo l'integrazione in una macchina finale conforme. È ciò che la legge esige: l'allegato II, parte 1, sezione B, punto 6, della Direttiva (in vigore fino al 19 gennaio 2027) impone che la dichiarazione di incorporazione dichiari il divieto di messa in servizio finché la macchina finale non è stata dichiarata conforme.",
+   "trap": "Sì: la dichiarazione del fabbricante cita la Direttiva 2006/42/CE e certificazioni di terzi; ma è una dichiarazione di incorporazione, che non autorizza la messa in servizio.",
+   "evidence": [
+    {
+     "source": "ur10e-manual",
+     "locator": "p. 227",
+     "role": "supports",
+     "quote": "EU Declaration of Incorporation (DOI) (in accordance with 2006/42/EC Annex II B)"
+    },
+    {
+     "source": "ur10e-manual",
+     "locator": "p. 227",
+     "role": "supports",
+     "quote": "shall only be put into service upon being integrated into a final complete machine (robot application or cell), which conforms with the provisions of the Machinery Directive and other applicable Directives"
+    },
+    {
+     "source": "DIR",
+     "locator": "Annex II, 1",
+     "role": "supports",
+     "quote": "a statement that the partly completed machinery must not be put into service until the final machinery into which it is to be incorporated has been declared in conformity with the provisions of this Directive, where appropriate"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-12",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Il manuale UR5e contiene una Dichiarazione di incorporazione e le istruzioni di assemblaggio del robot. Una volta che il robot è stato incorporato nell'isola robotizzata, di quale documentazione della macchina finale devono entrare a far parte questi due documenti secondo la Direttiva 2006/42/CE?",
+   "question_en": "The UR5e manual contains a Declaration of Incorporation and the robot's assembly instructions. Once the robot has been incorporated into the robot cell, of which documentation of the final machinery must these two documents become part under Directive 2006/42/EC?",
+   "answer": {
+    "kind": "text",
+    "value": "Del fascicolo tecnico della macchina finale (technical file of the final machinery)",
+    "keywords": [
+     [
+      "fascicolo tecnico",
+      "technical file"
+     ]
+    ]
+   },
+   "answer_text": "Il manuale UR5e (cap. 3.2 e 20.1) qualifica il robot come quasi-macchina corredata di Dichiarazione di incorporazione. L'articolo 13, paragrafo 2, della Direttiva 2006/42/CE stabilisce che le istruzioni di assemblaggio e la dichiarazione di incorporazione accompagnano la quasi-macchina fino all'incorporazione nella macchina finale e poi fanno parte del fascicolo tecnico di quest'ultima; l'allegato VII, parte A, elenca infatti tra i contenuti del fascicolo la dichiarazione di incorporazione delle quasi-macchine incluse e le relative istruzioni di assemblaggio.",
+   "trap": "Restano solo nel manuale del robot, oppure vanno allegate alla dichiarazione CE di conformità o consegnate all'utilizzatore: la Direttiva le colloca nel fascicolo tecnico della macchina finale.",
+   "evidence": [
+    {
+     "source": "ur5e-manual",
+     "locator": "p. 17",
+     "role": "supports",
+     "quote": "The robot is partly completed machinery, as such a Declaration of Incorporation is provided."
+    },
+    {
+     "source": "DIR",
+     "locator": "Art. 13(2)",
+     "role": "supports",
+     "quote": "The assembly instructions and the declaration of incorporation shall accompany the partly completed machinery until it is incorporated into the final machinery and shall then form part of the technical file for that machinery."
+    },
+    {
+     "source": "DIR",
+     "locator": "Annex VII",
+     "role": "supports",
+     "quote": "where appropriate, the declaration of incorporation for included partly completed machinery and the relevant assembly instructions for such machinery"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-13",
+   "type": "I",
+   "split": "dev",
+   "question_it": "L'integratore completa oggi (14 novembre 2026) l'isola robotizzata con i bracci UR5e e UR10e. Secondo la Dichiarazione di incorporazione dei robot è lui il responsabile della macchina completa. Quali adempimenti gli impone l'articolo 5, paragrafo 1, dell'atto oggi applicabile prima di mettere in servizio l'isola?",
+   "question_en": "Today (14 November 2026) the integrator completes the robot cell with the UR5e and UR10e arms. According to the robots' Declaration of Incorporation the integrator is responsible for the complete machine. Which steps does Article 5(1) of the act applicable today require of the integrator before the cell is put into service?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "Ensure it satisfies the essential health and safety requirements of Annex I",
+     "Ensure the technical file is available",
+     "Provide the necessary information, such as instructions",
+     "Carry out the conformity assessment procedure (Art. 12)",
+     "Draw up the EC declaration of conformity and ensure it accompanies the machinery",
+     "Affix the CE marking"
+    ]
+   },
+   "answer_text": "Oggi si applica ancora la Direttiva 2006/42/CE (abrogata solo dal 20 gennaio 2027, rettifica punto 5). L'isola è un insieme di quasi-macchine e macchine che funzionano come un tutto: è «macchina» ai sensi dell'articolo 2, lettera a), quarto trattino (la scheda dell'isola robotizzata dice che diventa un'unica entità). Il manuale UR indica l'integratore come responsabile della macchina completa, della marcatura CE e della dichiarazione di conformità; la legge, che prevale sul manuale, elenca all'articolo 5, paragrafo 1, sei adempimenti: requisiti essenziali dell'allegato I, fascicolo tecnico, informazioni e istruzioni, procedura di valutazione della conformità, dichiarazione CE di conformità, marcatura CE.",
+   "trap": "Solo marcatura CE e dichiarazione di conformità (ciò che dice il manuale del robot), oppure rispondere con gli obblighi dell'articolo 10 del Regolamento (UE) 2023/1230, non ancora applicabile il 14 novembre 2026.",
+   "evidence": [
+    {
+     "source": "ur10e-manual",
+     "locator": "p. 227",
+     "role": "supports",
+     "quote": "When this partly completed machine is integrated and becomes a complete machine, the integrator is responsible for the completed machine fulfiling all applicable Directives, applying the CE mark and providing the Declaration of Conformity (DOC)"
+    },
+    {
+     "source": "DIR",
+     "locator": "Art. 5(1)",
+     "role": "supports",
+     "quote": "Before placing machinery on the market and/or putting it into service, the manufacturer or his authorised representative shall: (a) ensure that it satisfies the relevant essential health and safety requirements set out in Annex I; (b) ensure that the technical file referred to in Annex VII, part A is available; (c) provide, in particular, the necessary information, such as instructions; (d) carry out the appropriate procedures for assessing conformity in accordance with Article 12; (e) draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery; (f) affix the CE marking in accordance with Article 16."
+    },
+    {
+     "source": "DIR",
+     "locator": "Art. 2",
+     "role": "supports",
+     "quote": "assemblies of machinery referred to in the first, second and third indents or partly completed machinery referred to in point (g) which, in order to achieve the same end, are arranged and controlled so that they function as an integral whole"
+    },
+    {
+     "source": "robot-cell-sheet",
+     "locator": "p. 1",
+     "role": "supports",
+     "quote": "diventa una unica entità anche se composta di più macchine diverse tra loro"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 5",
+     "role": "supports",
+     "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 51(2)",
+     "role": "superseded",
+     "quote": "Directive 2006/42/EC is repealed with effect from 14 January 2027"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-14",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Il manuale del ponte sollevatore a due colonne MA STAR riporta una dichiarazione CE di conformità alla Direttiva 2006/42/CE. Per un esemplare dello stesso modello immesso sul mercato il 1° marzo 2027, la marcatura CE deve essere seguita dal numero di identificazione di un organismo notificato?",
+   "question_en": "The manual of the MA STAR two post lift carries an EC declaration of conformity to Directive 2006/42/EC. For a unit of the same model placed on the market on 1 March 2027, must the CE marking be followed by the identification number of a notified body?",
+   "answer": {
+    "kind": "boolean",
+    "value": true
+   },
+   "answer_text": "Sì. Il manuale MA STAR (sez. 1.7 e dichiarazione a p. 37) descrive un ponte sollevatore per il sollevamento di veicoli in lavori di assistenza e riparazione, dichiarato conforme alla Direttiva 2006/42/CE. Il 1° marzo 2027 la Direttiva è abrogata e si applica il Regolamento (UE) 2023/1230 (dal 20 gennaio 2027, rettifica punti 5 e 10): i ponti elevatori per veicoli sono nell'allegato I, parte A, punto 3, quindi soggetti alle procedure dell'articolo 25, paragrafo 2 (moduli B+C, H o G), e per tutte queste l'articolo 24, paragrafo 3, impone che la marcatura CE sia seguita dal numero di identificazione dell'organismo notificato. Sotto la Direttiva (allegato III) il numero era richiesto solo con la garanzia qualità totale.",
+   "trap": "No: è la risposta valida sotto la Direttiva per chi applica norme armonizzate e controllo interno (art. 12, paragrafo 3, lettera a)); la dichiarazione nel manuale è del 2025 e non vale per esemplari immessi sul mercato dal 20 gennaio 2027.",
+   "evidence": [
+    {
+     "source": "mastar-manual",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "This lift is exclusively intended for the safe lifting and lowering of passenger cars and commercial vehicles within the scope of service and repair work."
+    },
+    {
+     "source": "mastar-manual",
+     "locator": "p. 37",
+     "role": "supports",
+     "quote": "Original EC Declaration of Conformity"
+    },
+    {
+     "source": "REG",
+     "locator": "Annex I, Part A, point 3",
+     "role": "supports",
+     "quote": "3. Vehicle servicing lifts."
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 24(3)",
+     "role": "supports",
+     "quote": "Where the conformity of machinery or a related product is assessed in accordance with the conformity assessment procedure referred to in Article 25(2), points (a), (b) and (c) and in Article 25(3), points (b), (c) and (d), the CE marking shall be followed by the identification number of the notified body involved in that procedure."
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 10",
+     "role": "supports",
+     "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 5",
+     "role": "supports",
+     "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+    },
+    {
+     "source": "REG",
+     "locator": "Art. 54",
+     "role": "superseded",
+     "quote": "It shall apply from 14 January 2027"
+    },
+    {
+     "source": "DIR",
+     "locator": "Annex III",
+     "role": "superseded",
+     "quote": "Where the full quality assurance procedure referred to in Article 12(3)(c) and 12(4)(b) has been applied, the CE marking must be followed by the identification number of the notified body."
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-15",
+   "type": "V",
+   "split": "dev",
+   "question_it": "Qual è l'importo massimo della sanzione applicabile in Italia, il 1° febbraio 2027, a un fabbricante che viola il Regolamento (UE) 2023/1230?",
+   "question_en": "What is the maximum amount of the penalty applicable in Italy, on 1 February 2027, to a manufacturer infringing Regulation (EU) 2023/1230?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. L'articolo 50, paragrafo 1, del Regolamento rimette agli Stati membri la fissazione delle sanzioni (effettive, proporzionate e dissuasive, anche penali per le violazioni gravi) e il paragrafo 2, come rettificato, impone solo di notificarle alla Commissione entro il 20 ottobre 2026. Nessuna delle fonti italiane disponibili (art. 71 e allegato VII del D.Lgs. 81/2008, D.M. 11 aprile 2011) né le guide riportano l'importo di tali sanzioni.",
+   "trap": "Un importo ricavato a memoria dalla normativa italiana di recepimento della Direttiva o dalle sanzioni del D.Lgs. 81/2008: non è nei documenti.",
+   "evidence": [
+    {
+     "source": "REG",
+     "locator": "Art. 50(1)",
+     "role": "supports",
+     "quote": "Member States shall lay down the rules on penalties applicable to infringements by economic operators of this Regulation and shall take all measures necessary to ensure that they are implemented."
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 4",
+     "role": "supports",
+     "quote": "Article 50, paragraph 2: for: ‘ 14 October 2026 ’, read: ‘ 20 October 2026 ’"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-16",
+   "type": "V",
+   "split": "dev",
+   "question_it": "In quale data la Commissione ha effettivamente adottato il primo atto di esecuzione con il modello per la raccolta dei dati da parte degli Stati membri previsto dall'articolo 6, paragrafo 10, del Regolamento (UE) 2023/1230?",
+   "question_en": "On which date did the Commission actually adopt the first implementing act with the template for Member States' data collection provided for in Article 6(10) of Regulation (EU) 2023/1230?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. L'articolo 6, paragrafo 10, quarto comma, fissa solo il termine ultimo per l'adozione del primo atto di esecuzione (14 luglio 2024 nel testo pubblicato, 20 luglio 2024 dopo la rettifica, punto 2); nessuna fonte riporta se e quando l'atto sia stato adottato.",
+   "trap": "20 luglio 2024 (o 14 luglio 2024): è il termine entro cui l'atto doveva essere adottato, non la data di adozione effettiva.",
+   "evidence": [
+    {
+     "source": "REG",
+     "locator": "Art. 6(10)",
+     "role": "superseded",
+     "quote": "The first such implementing act shall be adopted not later than 14 July 2024."
+    },
+    {
+     "source": "CORR",
+     "locator": "Corrigendum, point 2",
+     "role": "supports",
+     "quote": "Article 6, paragraph 10, fourth subparagraph: for: ‘ 14 July 2024 ’, read: ‘ 20 July 2024 ’"
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-17",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Quale organismo notificato ha eseguito l'esame CE del tipo del ponte sollevatore a due colonne MA STAR?",
+   "question_en": "Which notified body carried out the EC type-examination of the MA STAR two post lift?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. I ponti elevatori per veicoli sono nell'allegato IV della Direttiva 2006/42/CE (punto 16) e l'allegato II, parte 1, sezione A, punto 5, richiede di indicare nella dichiarazione CE di conformità, «se del caso», l'organismo notificato che ha eseguito l'esame CE del tipo. La dichiarazione riportata nel manuale MA STAR (p. 37) elenca solo direttive e norme e non nomina alcun organismo notificato né un certificato: dai documenti non si può stabilire se un esame CE del tipo sia stato eseguito né da chi.",
+   "trap": "Indicare un ente di certificazione noto, o quelli citati nei manuali dei robot UR: riguardano altri prodotti, non il ponte sollevatore.",
+   "evidence": [
+    {
+     "source": "mastar-manual",
+     "locator": "p. 37",
+     "role": "supports",
+     "quote": "Richtlinien | Directives 2006/42/EG 2006/42/EC 2014/53/EU 2014/53/EU Normen | Standards EN 1493:2022 EN 60204-1:2018 EN ISO 13849-1:2023"
+    },
+    {
+     "source": "DIR",
+     "locator": "Annex II, 1",
+     "role": "supports",
+     "quote": "where appropriate, the name, address and identification number of the notified body which carried out the EC type-examination referred to in Annex IX and the number of the EC type-examination certificate"
+    },
+    {
+     "source": "DIR",
+     "locator": "Annex IV",
+     "role": "supports",
+     "quote": "16. Vehicle servicing lifts."
+    }
+   ]
+  },
+  {
+   "id": "DEV-REG-18",
+   "type": "I",
+   "split": "dev",
+   "question_it": "In quale data è stata redatta la dichiarazione CE di conformità dell'isola robotizzata completa (la macchina finale in cui sono integrati i bracci UR5e e UR10e)?",
+   "question_en": "On what date was the EC declaration of conformity of the complete robot cell (the final machine into which the UR5e and UR10e arms are integrated) drawn up?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "I documenti non lo dicono. I manuali UR contengono solo la Dichiarazione di incorporazione dei robot (quasi-macchine), datata 20 dicembre 2024, e attribuiscono all'integratore la dichiarazione di conformità della macchina completa; la scheda dell'isola robotizzata è una scheda di sicurezza generale e non riporta alcuna dichiarazione né alcuna data.",
+   "trap": "20 dicembre 2024: è la data della Dichiarazione di incorporazione dei robot UR, non della dichiarazione di conformità dell'isola.",
+   "evidence": [
+    {
+     "source": "ur10e-manual",
+     "locator": "p. 227",
+     "role": "supports",
+     "quote": "the integrator is responsible for the completed machine fulfiling all applicable Directives, applying the CE mark and providing the Declaration of Conformity (DOC)"
+    },
+    {
+     "source": "ur10e-manual",
+     "locator": "p. 227",
+     "role": "supports",
+     "quote": "Odense Denmark, 20 December 2024"
+    },
+    {
+     "source": "ur5e-manual",
+     "locator": "p. 220",
+     "role": "supports",
+     "quote": "Odense Denmark, 20 December 2024"
+    }
+   ]
+  }
+ ]
+}

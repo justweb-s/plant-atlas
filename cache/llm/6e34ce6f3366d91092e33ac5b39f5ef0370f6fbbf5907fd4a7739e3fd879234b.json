@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "On what date was the last periodic verification of the DEMAG overhead travelling crane at position 9 carried out?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"DEMAG overhead travelling crane position 9 verifica periodica ultima data / last periodic inspection date, registro verifiche periodiche gru a ponte carroponte DEMAG posizione 9\", \"elenco apparecchi di sollevamento DEMAG carroponte posizione 9 / lifting equipment list DEMAG overhead travelling crane position 9 verbale di verifica periodica\", \"D.Lgs. 81/2008 art. 71 Allegato VII verifiche periodiche attrezzature di lavoro apparecchi di sollevamento / periodic inspection of work equipment lifting equipment Annex VII\", \"Direttiva 2006/42/CE Allegato I manuale di istruzioni DEMAG carroponte ispezione periodica / machinery directive instructions manual DEMAG overhead travelling crane periodic inspection interval\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 891,
+   "completion_tokens": 458,
+   "total_tokens": 1349
+  }
+ }
+}

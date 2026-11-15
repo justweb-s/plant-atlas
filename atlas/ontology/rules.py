@@ -9,6 +9,8 @@ import re
 from datetime import date
 
 # How the device kinds of a plant list map onto the two types the Annex names. Anything else is not decided here.
+PLATFORM = r"\bPIATTAFORMA (ELEVATRICE|DI LAVORO)\b|\bELEVATING (WORK )?PLATFORM\b|\bMEWP\b"
+PLATFORM_ROW = "Piattaforme di lavoro mobili elevabili"
 KIND_TYPE = [
     (r"\bPER AUTOCARRO\b|\bAUTOGRU\b|\bGRU MOBILE\b|\bMOBILE CRANE\b|\bTRUCK CRANE\b", "mobile"),
     (r"\bA PONTE\b|\bA CAVALLETTO\b|\bPARANCO\b|\bOVERHEAD\b|\bGANTRY\b|\bHOIST\b", "fisso"),
@@ -43,6 +45,16 @@ def verification_interval(device: dict, annex_facts: list, on: date) -> dict:
     if not rows:
         return {"interval": None, "why": "no Annex VII row for lifting equipment among the facts"}
     kind = str(device.get("kind") or "").upper().replace("'", "")
+    if re.search(PLATFORM, kind):
+        # Declared assumption (decision 1450, not verified on the machine's manual): an "elevating platform" of the
+        # list is a mobile elevating work platform, which has a row of its own with no sector and no age.
+        row = next((f for f in annex_facts if PLATFORM_ROW in f"{_get(f, 'subject')} {_get(f, 'condition')}"), None)
+        if row is None:
+            return {"interval": None, "why": "no Annex VII row for mobile elevating work platforms among the facts"}
+        return {"interval": _get(row, "object_normalised") or _get(row, "object"), "row_id": _get(row, "id"),
+                "because": [(ids.get("kind", ""), f"{device['kind']} is taken to be a mobile elevating work platform "
+                             "(declared assumption, not verified on its manual)"),
+                            (_get(row, "id"), "Annex VII row for mobile elevating work platforms: no sector, no age")]}
     kind_type = next((t for pattern, t in KIND_TYPE if re.search(pattern, kind)), None)
     if kind_type is None:
         return {"interval": None, "why": f"kind '{device.get('kind')}' is not mapped to fixed or mobile lifting equipment"}

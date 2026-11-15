@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Which positions of the list are devices with a capacity below 1,000 kg?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quali posizioni dell'elenco corrispondono a dispositivi con una capacità inferiore a 1,000 kg?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 681,
+   "completion_tokens": 262,
+   "total_tokens": 943
+  }
+ }
+}

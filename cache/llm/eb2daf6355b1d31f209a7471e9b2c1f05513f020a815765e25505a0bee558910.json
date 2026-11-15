@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "The UNIVPM equipment guideline states that the manufacturer is obliged to supply the instructions for use on paper. On 1 March 2027, for a machine intended only for professional users and placed on the market that day, may the manufacturer provide the instructions for use in digital format instead of on paper?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "La linea guida UNIVPM sulle apparecchiature afferma che il fabbricante è obbligato a fornire le istruzioni per l'uso su carta. Il 1° marzo 2027, per una macchina destinata esclusivamente a utenti professionali e immessa sul mercato in quella data, il fabbricante può fornire le istruzioni per l'uso in formato digitale invece che su carta?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 751,
+   "completion_tokens": 257,
+   "total_tokens": 1008
+  }
+ }
+}

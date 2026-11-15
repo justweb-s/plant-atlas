@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 1 December 2026 the manufacturer of a machine in a category listed in Annex IV to Directive 2006/42/EC, not built to harmonised standards, wants to place it on the market using unit verification (module G) instead of EC type-examination or full quality assurance. Is that procedure admitted by the act applicable on that day?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il 1° dicembre 2026 il fabbricante di una macchina appartenente a una categoria elencata nell'Allegato IV della direttiva 2006/42/CE, non costruita secondo le norme armonizzate, intende immettere la macchina sul mercato utilizzando la verifica di ogni singolo prodotto (modulo G) invece dell'esame CE del tipo o del sistema di garanzia qualità completo. Tale procedura è ammessa dall'atto applicabile in quel giorno?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 765,
+   "completion_tokens": 538,
+   "total_tokens": 1303
+  }
+ }
+}

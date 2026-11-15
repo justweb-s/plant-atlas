@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "A question about machines at work (EU machinery law, Italian law on work equipment, guidance, manuals\nof specific machines, a company's list of lifting devices) could not be answered from the passages found by its own\nwords. Break it into the lookups needed to answer it: each lookup is one thing to find in the documents (a\ndefinition, the article that sets a duty, the list an annex gives, the date an article applies from, what a manual\ndeclares about a machine, the row of a table).\nReturn JSON only: {\"lookups\": [\"<search words for one lookup>\", ...]} with 2 to 4 lookups. Write each lookup as\nthe words the document itself would use, in English and in Italian together, naming the act, the article or annex\nand the machine when the question names them. Do not answer the question."
+   },
+   {
+    "role": "user",
+    "content": "Which essential requirement on protection against corruption does the Regulation introduce that the Directive did not have?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 500
+ },
+ "response": {
+  "text": "{\"lookups\": [\"Regulation (EU) 2023/1230 Annex III essential health and safety requirements \\\"protection against corruption\\\" machinery control system software\", \"Regolamento (UE) 2023/1230 Allegato III requisiti essenziali di salute e sicurezza \\\"protezione contro la corruzione\\\" sistema di controllo software macchina\", \"Directive 2006/42/EC Annex I essential health and safety requirements \\\"corruption\\\" control system safety-related parts\", \"Direttiva 2006/42/CE Allegato I requisiti essenziali di sicurezza e di tutela della salute \\\"corruzione\\\" parti dei sistemi di comando legate alla sicurezza\"]}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 889,
+   "completion_tokens": 741,
+   "total_tokens": 1630
+  }
+ }
+}

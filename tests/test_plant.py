@@ -59,7 +59,7 @@ def test_200_kg_or_less_is_unknown():
 
 
 def test_unmapped_kind_and_missing_values_are_unknown():
-    assert verification_interval(device(kind="PIATTAFORMA ELEVATRICE"), annex(), date(2019, 6, 1))["interval"] is None
+    assert verification_interval(device(kind="CARRELLO ELEVATORE"), annex(), date(2019, 6, 1))["interval"] is None
     assert verification_interval(device(capacity_kg=None), annex(), date(2019, 6, 1))["interval"] is None
     assert verification_interval(device(sector=""), annex(), date(2019, 6, 1))["interval"] is None
     assert verification_interval(device(year_built=None), annex(), date(2019, 6, 1))["interval"] is None

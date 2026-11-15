@@ -350,9 +350,12 @@ VERIFY = re.compile(r"verif|inspect|check|controll|ispezion", re.I)
 POSITION = re.compile(r"\b(?:position|posizione|pos\.?|device|dispositivo|apparecchio|item|n\.|no\.|nr\.?)\s*(\d{1,3})\b", re.I)
 ASSUMPTIONS = {
     "en": "Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes "
-          "and hoists as fixed, and the site's sector applies to every device.",
+          "and hoists as fixed, an elevating platform as a mobile elevating work platform (not verified on its "
+          "manual), and the site's sector applies to every device unless the question states another use.",
     "it": "Ipotesi della regola: le gru su autocarro e le autogru sono trattate come mobili, le gru a ponte e a "
-          "cavalletto e i paranchi come fissi, e il settore del sito vale per ogni apparecchio."}
+          "cavalletto e i paranchi come fissi, una piattaforma elevatrice come piattaforma di lavoro mobile elevabile "
+          "(non verificato sul libretto), e il settore del sito vale per ogni apparecchio, salvo che la domanda "
+          "indichi un altro utilizzo."}
 
 
 FREQUENCY = re.compile(r"how often|every how many|how frequent|periodicit|interval|frequen|ogni quant|cadenz", re.I)
@@ -451,6 +454,70 @@ def device_rule(question: str, facts: list[Statement], near: list[Statement], on
     return results
 
 
+LIST_QUESTION = re.compile(r"\b(which|how many|quali|quante|quanti)\b[^?]*\b(positions?|devices?|appliances?|cranes?|hoists?|"
+                           r"platforms?|equipment|items?|posizion\w+|apparecch\w+|gru|paranch\w+|attrezzatur\w+)\b", re.I)
+LIST_QUERY = """You turn a question into a filter over a list of lifting devices. Every device has these fields:
+- position: integer, its number in the list
+- kind: one of the kinds listed below, exactly as written
+- capacity_kg: integer
+- year_built: integer
+- age_years: integer, the year of the day asked about minus year_built (computed for you)
+Return JSON only:
+{"applies": true | false,
+ "filters": [{"field": "position|kind|capacity_kg|year_built|age_years", "op": "<|<=|>|>=|=|in", "value": <number, or a list for "in">}]}
+Every filter must hold (they are joined by "and"). For a kind of device use "in" with the kinds, from the list
+below, that the question means. "applies" is true only when the question asks WHICH or HOW MANY devices of the
+list satisfy conditions on these fields alone. It is false when the question needs anything else (a site or
+place, a maker or model, a registration number, a verification date or interval, a price), or asks about one
+device, or is not about this list."""
+
+
+def device_query(question: str, facts: list[Statement], on: date) -> dict | None:
+    """A question about the whole device list ("which positions were built before 1990?") is answered by a query
+    run in code over the device facts. A model only writes the filter; it never sees or names the devices.
+    None when the question is not such a query."""
+    if not LIST_QUESTION.search(question):
+        return None
+    from atlas.strategies.plant import device_records
+
+    records = [d for d in device_records(facts) if {"kind", "capacity_kg", "year_built"} <= d.keys()]
+    if not records:
+        return None
+    kinds = sorted({d["kind"] for d in records})
+    out = llm.chat([{"role": "system", "content": LIST_QUERY + "\nKinds in the list: " + "; ".join(kinds)},
+                    {"role": "user", "content": f"The day asked about is {on.isoformat()}.\nQuestion: {question}"}],
+                   temperature=0, max_tokens=600)
+    spec = _reply(out.get("text") or "")
+    filters = spec.get("filters") if isinstance(spec.get("filters"), list) else []
+    if spec.get("applies") is not True or not filters:
+        return None
+    compare = {"<": lambda a, b: a < b, "<=": lambda a, b: a <= b, ">": lambda a, b: a > b, ">=": lambda a, b: a >= b,
+               "=": lambda a, b: a == b, "in": lambda a, b: a in b}
+    fields = set()
+    kept = [{**d, "age_years": on.year - int(d["year_built"])} for d in records]
+    for f in filters:
+        field, op, value = (f.get("field"), f.get("op"), f.get("value")) if isinstance(f, dict) else (None, None, None)
+        if field not in ("position", "kind", "capacity_kg", "year_built", "age_years") or op not in compare:
+            return None
+        if op == "in" and not isinstance(value, list) or op != "in" and isinstance(value, (list, dict, bool)):
+            return None
+        if field == "kind":
+            wanted = [str(v).upper() for v in (value if isinstance(value, list) else [value])]
+            if not set(wanted) <= {k.upper() for k in kinds}:
+                return None   # a kind that is not in the list: the query does not fit
+            kept = [d for d in kept if str(d["kind"]).upper() in wanted]
+        else:
+            try:
+                kept = [d for d in kept if compare[op](d[field], value if op == "in" else float(value))]
+            except (TypeError, ValueError):
+                return None
+        fields.add({"age_years": "year_built"}.get(field, field))
+    by_id = {s.id: s for s in facts}
+    used = [by_id[d["facts"][f]] for d in kept for f in sorted(fields) if d["facts"].get(f) in by_id]
+    said = " and ".join(f"{f['field']} {f['op']} {f['value']}" for f in filters)
+    return {"positions": [str(d["position"]) for d in kept], "filter": said, "facts": used, "of": len(records)}
+
+
 def _canon(duration: str) -> str:
     match = re.fullmatch(r"P(\d+)M", duration or "")
     return f"P{int(match.group(1)) // 12}Y" if match and int(match.group(1)) % 12 == 0 else (duration or "")
@@ -497,7 +564,9 @@ def grounded(kind: str, value, used: list[Statement], question: str) -> tuple[ob
     blob = " ".join(f"{s.subject} {s.object_as_written} {s.object} {s.object_normalised} {s.condition} {s.quote} "
                     f"{s.source_doc} {s.anchor}" for s in used)
     if kind == "date":
-        ok = any(d.isoformat() == value for d in _dates(blob))
+        from atlas.agent.text import _numbers, derivable
+
+        ok = derivable(str(value), _dates(blob), _numbers(blob))   # written, or one plain step from a written date
         return (value if ok else None), used, "" if ok else f"no used fact carries the date {value}"
     if kind == "duration":
         ok = _canon(str(value)) in _all_durations(blob)
@@ -796,6 +865,15 @@ def from_facts(question: str, store: Store, day: date | None = None, mode: str =
         hit = skills.try_answer(question, store, day, mode)
         if hit is not None:
             return hit
+    listed = device_query(question, facts, asked_day(question, day)) if len(facts) > TOP and lang == "en" else None
+    if listed is not None:
+        positions = listed["positions"]
+        text = (f"{len(positions)} of the {listed['of']} devices of the IGEA list satisfy {listed['filter']} on "
+                f"{asked_day(question, day).isoformat()}: positions {', '.join(positions) or 'none'}. "
+                f"Worked out in code over the device facts.")
+        steps = [Step(text=f"{s.subject}: {s.predicate} = {s.object_as_written}", triples=[(s.subject, s.predicate, s.object)],
+                      quote=s.quote, locator=f"{s.source_doc}, {s.anchor}", statement_id=s.id) for s in listed["facts"]]
+        return Answer(question=question, mode=mode, value=positions or None, text=text, steps=steps, basis="rule")
     ranked = nearest(question, facts, top=max(TOP, len(facts) - 1)) if len(facts) > TOP else list(facts)
     chosen = ranked[:TOP]
     chosen = chosen + related(question, ranked, chosen)
@@ -875,7 +953,7 @@ def from_facts(question: str, store: Store, day: date | None = None, mode: str =
             value = typed("duration", only["interval"]) if only["interval"] else None
             if value is None:
                 text = f"IGEA device {only['device']['position']}: {UNKNOWN.get(lang, UNKNOWN['en'])} ({only['why']})."
-            elif not used or data.get("value") is None or typed("duration", data.get("value")) != value:
+            else:   # the rule's own words: its result and its reasons
                 text = (f"IGEA device {only['device']['position']} must be verified every {value} on {on}: "
                         f"{only['because']}.")
         for result in rule:
@@ -959,6 +1037,12 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
     places = [tuple(part.strip() for part in step.locator.split(",", 1)) for step in found.steps if step.locator]
     read = reading.answer(question, day, mode, lang, also=[p for p in places if len(p) == 2])
     tokens = found.tokens + read.tokens
+    if read.value is None and os.getenv("ATLAS_READ_DEEP", "1") != "0":
+        # The documents, read by the question's own words, do not answer: the question may need several passages
+        # that those words do not bring together. It is broken into lookups and read once more, under the same
+        # gate, before the fact store's answer (if any) is put to the judge.
+        read = reading.answer(question, day, mode, lang, also=[p for p in places if len(p) == 2], deep=True)
+        tokens += read.tokens
     if found.value is None and read.value is None:
         found.tokens, found.basis = tokens, "none"
         return found

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: How often must the nanoScan3 safety laser scanner be tested?\n\nAnswer A: \"P1D\"\ncontrollo efficienza dei dispositivi di sicurezza must be checked every GIORNALIERA (P1D) (source: unict-guideline, p. 7).\nEvidence of A:\n- [skill single_value: relation_facts > choose > settle > answer] controllo efficienza dei dispositivi di sicurezza: requiresPeriodicCheck = GIORNALIERA | sentence: \"Trapano a colonna) INTERVENTO FREQUENZA INCARICATO MODALITA’ CONTROLLO EFFICIENZA DEI DISPOSITIVI DI SICUREZZA GIORNALIERA OPERATORE PROCEDURA P1 CONTROLLO DEL CORREDO DELLA MACCHINA UTENSILE GIORNALIERA OPERATORE Ispezione visiva PULIZIA DELLA TAVOLA DELLA MORSA GIORNALIERA OPERATORE PROCEDURA P2 VERIFICA INTEGRITA’\" [unict-guideline, p. 7]\n\nAnswer B: reader B found no passage that states the answer. Its note: The supplied passages do not state how often the nanoScan3 must be tested. D.Lgs. 81/2008 art. 71 c. 8 only refers to manufacturer's indications, and the nanoScan3 manual pages provided give no interval."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"B found nothing, so the question is whether A's evidence states the answer for the nanoScan3 specifically. A's evidence is a generic table row from a university guideline about a column drill press (Trapano a colonna), saying daily check of safety devices. It is not about the nanoScan3 safety laser scanner, so it is a neighbouring subject and does not support A.\", \"choice\": \"neither\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1543,
+   "completion_tokens": 135,
+   "total_tokens": 1678
+  }
+ }
+}
