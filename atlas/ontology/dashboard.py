@@ -344,6 +344,24 @@ def _row(r: dict | None) -> dict | None:
     return {"value": r.get("value"), "text": r.get("text") or "", "score": r.get("score")}
 
 
+def _recorded_steps(questions: list, vb: dict, facts: dict) -> None:
+    """Steps of every design answer from ontology/B/answers_design.json when it exists; otherwise nothing changes."""
+    path = ROOT / "ontology" / "B" / "answers_design.json"
+    if not path.exists():
+        return
+    recorded = _load(path)
+    vbf = {f["id"]: f for f in vb["facts"]}
+    for q in questions:
+        steps = (recorded.get(q["id"]) or {}).get("steps")
+        if not steps:
+            continue
+        for s in steps:
+            if s.get("statement_id") in vbf:
+                facts.setdefault(s["statement_id"], dict(vbf[s["statement_id"]], n=vb["sources"][vbf[s["statement_id"]]["d"]]["noun"]))
+        q["steps"] = [{"n": n, "f": s.get("statement_id") if s.get("statement_id") in vbf else "", "text": s.get("text") or "",
+                       "quote": s.get("quote") or "", "locator": s.get("locator") or ""} for n, s in enumerate(steps, 1)]
+
+
 def build(store=None, today: date | None = None) -> dict:
     store = store or atlas_page.viewer._store()
     today = today or atlas_page.TODAY
@@ -359,6 +377,7 @@ def build(store=None, today: date | None = None) -> dict:
     verify = _load(ROOT / "ontology" / "B" / "verify_report.json")
     numbers = base["numbers"]
     vb = atlas_page.viewer.build_data(store, today)
+    _recorded_steps(questions, vb, base["facts"])
     whole, flagged = _whole(vb, verify["verdicts"], impact, base["facts"], store)
     dmap = _docmap(store, impact, questions, base["facts"], vb)
     _verdicts(vb, questions, base["facts"])

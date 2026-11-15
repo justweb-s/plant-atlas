@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You translate English into Italian. The user sends a JSON list of strings. Translate each string faithfully and plainly. Keep numbers, dates, document names, article and annex references, product and company names, and any text between quotation marks exactly as they are. Do not add or remove information. An empty string stays empty. Return only a JSON list of strings of the same length, in the same order, with no other text."
+   },
+   {
+    "role": "user",
+    "content": "[\"The nanoScan3 protective device must be regularly tested at least once a year (nanoScan3 manual, p. 50), and its detection capability test and thorough check of the main function are also required at least once a year (p. 51).\"]"
+   }
+  ],
+  "temperature": 0
+ },
+ "response": {
+  "text": "[\"Il dispositivo di protezione nanoScan3 deve essere testato regolarmente almeno una volta all'anno (manuale nanoScan3, p. 50), e anche il test della capacità di rilevamento e il controllo approfondito della funzione principale sono richiesti almeno una volta all'anno (p. 51).\"]",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 112,
+   "prompt_tokens": 201,
+   "total_tokens": 313,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 7.61e-05,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 7.61e-05,
+   "gateway_cost": 7.61e-05
+  }
+ }
+}

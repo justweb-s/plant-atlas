@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You translate English into Italian. The user sends a JSON list of strings. Translate each string faithfully and plainly. Keep numbers, dates, document names, article and annex references, product and company names, and any text between quotation marks exactly as they are. Do not add or remove information. An empty string stays empty. Return only a JSON list of strings of the same length, in the same order, with no other text."
+   },
+   {
+    "role": "user",
+    "content": "[\"IGEA device 7 must be verified every P1Y on 2026-11-14: GRU IDRAULICA PER AUTOCARRO is lifting equipment of type mobile o trasferibile (mapping of the rule); capacity 790 kg is above 200 kg; sector estrattivo: named in the row; Annex VII row for type mobile, sector use (source: DLGSALLVII, Allegato VII, riga 12). Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.\", \"device 7: kind GRU IDRAULICA PER AUTOCARRO, capacity_kg 790, year_built 2017, sector estrattivo\", \"7 rows for lifting equipment\", \"GRU IDRAULICA PER AUTOCARRO is lifting equipment of type mobile o trasferibile (mapping of the rule)\", \"capacity 790 kg is above 200 kg\", \"sector estrattivo: named in the row\", \"not needed by the rows that match\", \"Annex VII row for type mobile, sector use\", \"P1Y\", \"\"]"
+   }
+  ],
+  "temperature": 0
+ },
+ "response": {
+  "text": "[\"Il dispositivo 7 di IGEA deve essere verificato ogni P1Y il 2026-11-14: GRU IDRAULICA PER AUTOCARRO è un'attrezzatura di sollevamento di tipo mobile o trasferibile (mappatura della regola); la portata di 790 kg è superiore a 200 kg; settore estrattivo: indicato nella riga; riga dell'Allegato VII per il tipo mobile, uso nel settore (fonte: DLGSALLVII, Allegato VII, riga 12). Ipotesi della regola: le gru su autocarro e le gru mobili sono trattate come mobili, le gru a ponte, le gru a portale e i paranchi come fissi, e il settore del sito si applica a ogni dispositivo.\", \"dispositivo 7: tipo GRU IDRAULICA PER AUTOCARRO, capacity_kg 790, year_built 2017, settore estrattivo\", \"7 righe per attrezzature di sollevamento\", \"GRU IDRAULICA PER AUTOCARRO è un'attrezzatura di sollevamento di tipo mobile o trasferibile (mappatura della regola)\", \"la portata 790 kg è superiore a 200 kg\", \"settore estrattivo: indicato nella riga\", \"non necessario per le righe corrispondenti\", \"riga dell'Allegato VII per il tipo mobile, uso nel settore\", \"P1Y\", \"\"]",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 1386,
+   "prompt_tokens": 515,
+   "total_tokens": 1901,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 895,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0007445,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0007445,
+   "gateway_cost": 0.0007445
+  }
+ }
+}

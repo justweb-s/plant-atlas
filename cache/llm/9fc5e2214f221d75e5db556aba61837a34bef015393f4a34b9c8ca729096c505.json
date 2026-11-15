@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You translate English into Italian. The user sends a JSON list of strings. Translate each string faithfully and plainly. Keep numbers, dates, document names, article and annex references, product and company names, and any text between quotation marks exactly as they are. Do not add or remove information. An empty string stays empty. Return only a JSON list of strings of the same length, in the same order, with no other text."
+   },
+   {
+    "role": "user",
+    "content": "[\"Under Directive 2006/42/EC (Annex I, 1.7.4 and Art. 5(1)), which still applies on 2026-11-14, machinery must be accompanied by instructions in the required language, the instruction manual and the original instructions, and by the EC declaration of conformity. The Regulation's corresponding requirements apply only from 2027-01-20.\"]"
+   }
+  ],
+  "temperature": 0
+ },
+ "response": {
+  "text": "[\"In base alla Direttiva 2006/42/CE (Allegato I, 1.7.4 e Art. 5(1)), che si applica ancora al 2026-11-14, le macchine devono essere accompagnate da istruzioni nella lingua richiesta, dal manuale di istruzioni e dalle istruzioni originali, nonché dalla dichiarazione CE di conformità. I corrispondenti requisiti del Regolamento si applicano solo a partire dal 2027-01-20.\"]",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 168,
+   "prompt_tokens": 249,
+   "total_tokens": 417,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0001089,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0001089,
+   "gateway_cost": 0.0001089
+  }
+ }
+}

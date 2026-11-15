@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You translate English into Italian. The user sends a JSON list of strings. Translate each string faithfully and plainly. Keep numbers, dates, document names, article and annex references, product and company names, and any text between quotation marks exactly as they are. Do not add or remove information. An empty string stays empty. Return only a JSON list of strings of the same length, in the same order, with no other text."
+   },
+   {
+    "role": "user",
+    "content": "[\"For machinery listed in Annex I, Part A, the manufacturer must apply one of the procedures in Article 25(2): module B followed by module C (Annexes VII and VIII), full quality assurance under module H (Annex IX), or unit verification under module G (Annex X).\"]"
+   }
+  ],
+  "temperature": 0
+ },
+ "response": {
+  "text": "[\"Per i macchinari elencati nell'Allegato I, Parte A, il fabbricante deve applicare una delle procedure di cui all'articolo 25, paragrafo 2: modulo B seguito dal modulo C (allegati VII e VIII), garanzia qualità totale secondo il modulo H (allegato IX), oppure verifica di unità secondo il modulo G (allegato X).\"]",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 136,
+   "prompt_tokens": 220,
+   "total_tokens": 356,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 9e-05,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 9e-05,
+   "gateway_cost": 9e-05
+  }
+ }
+}

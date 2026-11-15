@@ -169,7 +169,7 @@ def _what_if(q: dict, support: list[str], used: list[str], tr: dict | None, fact
     replaced = next(((by[by[i].conflicts_with], by[i]) for i in live
                      if by[i].conflicts_with in by and by[by[i].conflicts_with].status == "closed"), None)
     lost = next(((g, by[i]) for i in live for g in facts.store.statements
-                 if g.status == "conflict" and g.conflicts_with == i), None)
+                 if g.status == "conflict" and (g.conflicts_with == i or by[i].conflicts_with == g.id)), None)
     # ...togli un documento
     docs: dict[str, list[str]] = {}
     for i in live:
@@ -232,7 +232,11 @@ def _what_if(q: dict, support: list[str], used: list[str], tr: dict | None, fact
     return out
 
 
-def _question(q: dict, tr: dict | None, facts: _Facts, metrics: dict, health: dict, scenes: list) -> dict:
+def _question(q: dict, tr: dict | None, facts: _Facts, metrics: dict, health: dict, scenes: list, rec: dict | None = None) -> dict:
+    rec = rec or {}
+    if isinstance(rec.get("trace"), dict):
+        tr = {"skill": rec["trace"].get("skill"), "trace": rec["trace"]}
+    outputs_it = rec.get("outputs_it") or []
     by = facts.by_id
     b, r, v = q.get("B") or {}, q.get("rag") or {}, q["verdict"]
     every = q["it"].strip().lower().startswith("ogni quanto")
@@ -254,7 +258,11 @@ def _question(q: dict, tr: dict | None, facts: _Facts, metrics: dict, health: di
         return got
 
     if tr:
-        nodes = [n for n in tr["trace"]["nodes"] if n.get("status") == "run"]
+        every_node = tr["trace"]["nodes"]
+        italian = outputs_it if rec.get("translated") and len(outputs_it) == len(every_node) else [None] * len(every_node)
+        for n, it in zip(every_node, italian):
+            n["_it"] = it
+        nodes = [n for n in every_node if n.get("status") == "run"]
         path.append({"k": "proc", "title": "La procedura scelta", "out": SKILLS.get(tr["skill"], tr["skill"].replace("_", " ")),
                      "sub": f"{len(nodes)} passi eseguiti dal codice, {tr['trace'].get('model_calls', 0)} chiamate al modello nel grafo"})
         for n in nodes:
@@ -262,19 +270,14 @@ def _question(q: dict, tr: dict | None, facts: _Facts, metrics: dict, health: di
             if n.get("kind") == "answer":
                 answer_facts = ids
                 continue
-            path.append({"k": "node", "title": NODES.get(n["id"], n.get("does") or n["id"]), "out": str(n.get("output") or ""), "facts": ids})
+            path.append({"k": "node", "title": NODES.get(n["id"], n.get("does") or n["id"]), "out": str(n.get("_it") or n.get("output") or ""), "facts": ids})
+        take([s.get("statement_id") for s in rec.get("steps") or []], None)
     else:
         steps = q.get("steps") or []
-        ids = [s.get("f") for s in steps if s.get("f") in by]
-        if not ids:                     # no recorded steps: the only link we draw is to a fact that won a conflict with this very value
-            recorded = False
-            won = next((by[g.conflicts_with] for g in facts.store.statements if g.status == "conflict" and g.conflicts_with in by
-                        and str(by[g.conflicts_with].object) == str(b.get("value"))
-                        and dashboard._root(by[g.conflicts_with].anchor) in _norm(b.get("text")).replace("art. ", "art. ")), None)
-            ids = [won.id] if won else []
+        ids = [s.get("statement_id") for s in rec.get("steps") or [] if s.get("statement_id") in by] or [s.get("f") for s in steps if s.get("f") in by]
+        recorded = bool(ids)
         path.append({"k": "proc", "title": "La procedura scelta", "out": "Ricerca tra i fatti",
-                     "sub": "l'agente cerca i fatti e risponde solo da quelli" if recorded else
-                     ("i passi non sono registrati: vedi il fatto in vigore con questo valore" if ids else "i passi di questa risposta non sono registrati")})
+                     "sub": "l'agente cerca i fatti e risponde solo da quelli" if recorded else "questa risposta non ha passi registrati"})
         for i in take(ids, support):
             s = by[i]
             path.append({"k": "fact", "title": shorten(s.subject, 70),
@@ -317,10 +320,11 @@ def _question(q: dict, tr: dict | None, facts: _Facts, metrics: dict, health: di
         "id": q["id"], "it": q["it"], "short": shorten(q["it"]),
         "group": "struct" if ok and verdict["structure"] else "fail" if not ok else "other",
         "value": words(b.get("value"), every), "text": b.get("text") or "", "mark": mark(b),
+        "text_it": rec.get("text_it") if rec.get("translated") and rec.get("text") == (b.get("text") or "") else "",
         "rag": {"value": words(r.get("value"), every), "text": r.get("text") or "", "mark": mark(r)},
         "verdict": verdict, "path": path, "layers": layers, "open": (answer_facts or support or [None])[0],
         "skill": (tr or {}).get("skill"), "recorded": recorded,
-        "whatif": _what_if(q, support, used, tr, facts, scenes) if ok else [],
+        "whatif": _what_if(q, support, used, tr, facts, scenes) if b.get("value") not in (None, "", []) else [],
     }
 
 
@@ -346,7 +350,9 @@ def build(store=None) -> dict:
     impact = _load(ROOT / "ontology" / "B" / "impact.json")
     counts = store.counts()
     facts = _Facts(store)
-    questions = [_question(q, traces.get(q["id"]), facts, metrics, impact["health"], data["scenes"]) for q in data["questions"]]
+    from atlas.ontology import recorded
+    answers = {k: v for k, v in recorded.load().items() if k in design}
+    questions = [_question(q, traces.get(q["id"]), facts, metrics, impact["health"], data["scenes"], answers.get(q["id"])) for q in data["questions"]]
     order = {"verification_interval": 0, "value_on_date": 1, "single_value": 2}
     struct = sorted((q for q in questions if q["group"] == "struct"),
                     key=lambda q: (q["rag"]["mark"] == "giusta", order.get(q["skill"], 9), q["id"]))
@@ -467,6 +473,9 @@ details.more summary{cursor:pointer;color:var(--muted);font-size:13px;font-weigh
 .sys{border-left:3px solid var(--line);padding:2px 0 2px 16px;color:var(--text)}
 .sys .lab,.lab2{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 .sys p{margin:0}
+.sys details.orig{margin-top:10px;color:var(--muted);font-size:13px}
+.sys details.orig summary{cursor:pointer;font-weight:600;width:max-content}
+.sys details.orig p{margin-top:6px}
 .verdict{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:15px;margin-top:4px}
 .pill{font-weight:700;border-radius:999px;padding:4px 14px;font-size:14px}
 .pill.ok{background:var(--ok-bg);color:var(--ok)} .pill.warn{background:var(--warn-bg);color:var(--warn)} .pill.bad{background:var(--bad-bg);color:var(--bad)}
@@ -656,8 +665,8 @@ const DATA = __DATA__;/*DATA-END*/
     let line = '<span class="pill ' + v.tone + '">' + esc(v.label) + "</span><span>" + esc(v.reason) + "</span>";
     if (v.calls) line += '<span style="color:var(--muted)">· ' + v.calls[0] + (v.calls[0] === 1 ? " chiamata" : " chiamate") + " al modello invece di " + v.calls[1] + "</span>";
     $("hero").innerHTML = '<p class="q">' + esc(q.it) + '</p><div class="heroGrid"><div>' + valueHtml(q.value, "big")
-      + '<div class="verdict">' + line + '</div></div><div class="sys"><div class="lab">risposta del sistema</div><p>'
-      + esc(q.text || "Nessun testo registrato.") + "</p></div></div>";
+      + '<div class="verdict">' + line + '</div></div><div class="sys"><div class="lab">' + (q.text_it ? "risposta del sistema, tradotta" : "risposta del sistema") + '</div><p>'
+      + esc(q.text_it || q.text || "Nessun testo registrato.") + "</p>" + (q.text_it ? '<details class="orig"><summary>testo originale</summary><p>' + esc(q.text) + "</p></details>" : "") + "</div></div>";
   }
 
   function fchip(id){

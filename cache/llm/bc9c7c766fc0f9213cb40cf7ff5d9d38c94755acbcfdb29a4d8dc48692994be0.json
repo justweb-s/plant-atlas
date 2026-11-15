@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You translate English into Italian. The user sends a JSON list of strings. Translate each string faithfully and plainly. Keep numbers, dates, document names, article and annex references, product and company names, and any text between quotation marks exactly as they are. Do not add or remove information. An empty string stays empty. Return only a JSON list of strings of the same length, in the same order, with no other text."
+   },
+   {
+    "role": "user",
+    "content": "[\"The first periodic verification must be carried out within 45 days of receiving the complete request, under art. 71, c. 11 of Legislative Decree 81/2008. The facts do not support the 60-day figure attributed to the 2011 Ministerial Decree.\"]"
+   }
+  ],
+  "temperature": 0
+ },
+ "response": {
+  "text": "[\"La prima verifica periodica deve essere effettuata entro 45 giorni dalla ricezione della richiesta completa, ai sensi dell'art. 71, c. 11 del Decreto Legislativo 81/2008. I fatti non giustificano la cifra di 60 giorni attribuita al Decreto Ministeriale del 2011.\"]",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 118,
+   "prompt_tokens": 213,
+   "total_tokens": 331,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 8.03e-05,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 8.03e-05,
+   "gateway_cost": 8.03e-05
+  }
+ }
+}

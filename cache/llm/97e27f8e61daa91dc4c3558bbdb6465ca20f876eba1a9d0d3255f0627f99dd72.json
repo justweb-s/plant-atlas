@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You translate English into Italian. The user sends a JSON list of strings. Translate each string faithfully and plainly. Keep numbers, dates, document names, article and annex references, product and company names, and any text between quotation marks exactly as they are. Do not add or remove information. An empty string stays empty. Return only a JSON list of strings of the same length, in the same order, with no other text."
+   },
+   {
+    "role": "user",
+    "content": "[\"Under essential health and safety requirement 1.3.7 of Annex III to the Regulation, the risks addressed are contact leading to hazardous situations, contact that could lead to accidents (where risks persist), moving parts, accidental blockage of moving parts, and psychological stress from interaction with the machinery.\"]"
+   }
+  ],
+  "temperature": 0
+ },
+ "response": {
+  "text": "[\"Ai sensi del requisito essenziale di salute e sicurezza 1.3.7 dell'Allegato III del Regolamento, i rischi affrontati sono il contatto che può portare a situazioni pericolose, il contatto che potrebbe portare a incidenti (laddove i rischi persistono), le parti in movimento, il blocco accidentale delle parti in movimento e lo stress psicologico derivante dall'interazione con la macchina.\"]",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 154,
+   "prompt_tokens": 230,
+   "total_tokens": 384,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0001,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0001,
+   "gateway_cost": 0.0001
+  }
+ }
+}

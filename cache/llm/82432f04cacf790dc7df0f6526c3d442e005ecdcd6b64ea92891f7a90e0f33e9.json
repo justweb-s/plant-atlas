@@ -1,0 +1,51 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You translate English into Italian. The user sends a JSON list of strings. Translate each string faithfully and plainly. Keep numbers, dates, document names, article and annex references, product and company names, and any text between quotation marks exactly as they are. Do not add or remove information. An empty string stays empty. Return only a JSON list of strings of the same length, in the same order, with no other text."
+   },
+   {
+    "role": "user",
+    "content": "[\"IGEA device 8 must be verified every P1Y on 2026-11-14: GRU A PONTE SCORREVOLE is lifting equipment of type fisso (mapping of the rule); capacity 5000 kg is above 200 kg; sector estrattivo: named in the row; built in 1985: more than 10 years before 2026-11-14; Annex VII row for type fisso, sector use, age old (source: DLGSALLVII, Allegato VII, riga 15). Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.\", \"device 8: kind GRU A PONTE SCORREVOLE, capacity_kg 5000, year_built 1985, sector estrattivo\", \"7 rows for lifting equipment\", \"GRU A PONTE SCORREVOLE is lifting equipment of type fisso (mapping of the rule)\", \"capacity 5000 kg is above 200 kg\", \"sector estrattivo: named in the row\", \"built in 1985: more than 10 years before 2026-11-14\", \"Annex VII row for type fisso, sector use, age old\", \"P1Y\", \"\"]"
+   }
+  ],
+  "temperature": 0
+ },
+ "response": {
+  "text": "[\"IGEA device 8 deve essere verificato ogni P1Y il 2026-11-14: GRU A PONTE SCORREVOLE è un'attrezzatura di sollevamento di tipo fisso (mappatura della regola); la portata 5000 kg è superiore a 200 kg; settore estrattivo: indicato nella riga; costruita nel 1985: più di 10 anni prima del 2026-11-14; riga dell'Allegato VII per tipo fisso, settore uso, età vecchia (fonte: DLGSALLVII, Allegato VII, riga 15). Ipotesi della regola: le gru su autocarro e le gru mobili sono trattate come mobili, le gru a ponte e a portale e i paranchi come fissi, e il settore del sito si applica a ogni dispositivo.\", \"dispositivo 8: tipo GRU A PONTE SCORREVOLE, capacity_kg 5000, year_built 1985, settore estrattivo\", \"7 righe per attrezzature di sollevamento\", \"GRU A PONTE SCORREVOLE è un'attrezzatura di sollevamento di tipo fisso (mappatura della regola)\", \"la portata 5000 kg è superiore a 200 kg\", \"settore estrattivo: indicato nella riga\", \"costruita nel 1985: più di 10 anni prima del 2026-11-14\", \"riga dell'Allegato VII per tipo fisso, settore uso, età vecchia\", \"P1Y\", \"\"]",
+  "model": "anthropic/claude-haiku-5.5",
+  "usage": {
+   "completion_tokens": 504,
+   "prompt_tokens": 532,
+   "total_tokens": 1036,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 0,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null,
+    "image_tokens": 0
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": 0,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null,
+    "video_tokens": 0
+   },
+   "cost": 0.0003052,
+   "is_byok": false,
+   "cost_details": {
+    "upstream_inference_cost": null,
+    "upstream_inference_prompt_cost": 0,
+    "upstream_inference_completions_cost": 0
+   },
+   "cache_creation_input_tokens": 0,
+   "market_cost": 0.0003052,
+   "gateway_cost": 0.0003052
+  }
+ }
+}
