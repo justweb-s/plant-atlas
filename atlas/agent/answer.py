@@ -1043,7 +1043,14 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         # gate, before the fact store's answer (if any) is put to the judge.
         read = reading.answer(question, day, mode, lang, also=[p for p in places if len(p) == 2], deep=True)
         tokens += read.tokens
+    searching = os.getenv("ATLAS_SEARCH", "1") != "0"
     if found.value is None and read.value is None:
+        if searching:   # third reading: a free search through the documents, under the same gate
+            sought = reading.search(question, day, mode, lang)
+            sought.tokens += tokens
+            if sought.value is not None:
+                return sought
+            tokens = sought.tokens
         found.tokens, found.basis = tokens, "none"
         return found
     if found.value is None:
@@ -1057,6 +1064,12 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         read.tokens, read.basis = tokens, "text"
         return read
     if choice == "neither" or (choice == "b" and read.value is None):
+        if searching:   # the judge found no support: the documents are searched before giving up
+            sought = reading.search(question, day, mode, lang)
+            sought.tokens += tokens
+            if sought.value is not None:
+                return sought
+            tokens = sought.tokens
         return Answer(question=question, mode=mode, value=None, tokens=tokens, basis="judged unsupported",
                       text=f"{UNKNOWN.get(lang, UNKNOWN['en'])} (the fact store and the documents read on demand "
                            f"do not support one answer)")

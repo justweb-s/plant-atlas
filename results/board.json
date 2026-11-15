@@ -107,23 +107,23 @@
    "design": {
     "n": 22,
     "correct": 16,
-    "unknown": 3,
-    "wrong": 3,
+    "unknown": 2,
+    "wrong": 4,
     "mean": 0.827
    },
    "heldout": {
     "n": 12,
-    "correct": 7,
-    "unknown": 4,
+    "correct": 9,
+    "unknown": 2,
     "wrong": 1,
-    "mean": 0.583
+    "mean": 0.75
    },
    "covered_by_b": {
     "n": 31,
-    "correct": 23,
-    "unknown": 4,
+    "correct": 25,
+    "unknown": 2,
     "wrong": 4,
-    "mean": 0.813
+    "mean": 0.877
    },
    "answered": 34,
    "of": 34
@@ -304,7 +304,7 @@
    "free": 1.0,
    "rag": 0.0,
    "A": 0.0,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ17",
@@ -326,7 +326,7 @@
    "free": 1.0,
    "rag": 0.0,
    "A": 1.0,
-   "B": 0.0
+   "B": 1.0
   },
   {
    "id": "CQ19",

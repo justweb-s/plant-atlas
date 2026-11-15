@@ -1,18 +1,18 @@
 {
  "summary": {
   "n": 34,
-  "correct": 23,
-  "unknown": 7,
-  "wrong": 4,
-  "mean": 0.741,
+  "correct": 25,
+  "unknown": 4,
+  "wrong": 5,
+  "mean": 0.8,
   "by_type": {
    "I": 0.786,
    "T": 0.927,
-   "V": 0.444
+   "V": 0.667
   },
   "by_split": {
    "design": 0.827,
-   "heldout": 0.583
+   "heldout": 0.75
   },
   "cost_usd": 0.0
  },
@@ -160,9 +160,24 @@
    "type": "I",
    "split": "design",
    "score": 0.0,
-   "value": null,
-   "text": "The facts do not identify any catalogue models or their self-certification route, so they do not show which models will need a notified body from 20 January 2027.",
-   "tokens": 26156,
+   "value": [
+    "MA STAR 3.5 A STOCK",
+    "MA STAR 3.5 S STOCK",
+    "MA STAR 3.5 A",
+    "MA STAR 3.5 S",
+    "MA STAR 3.5 A BMW",
+    "MA STAR 3.5 A MB",
+    "VAS 771 043 (MA STAR 3.5 A)",
+    "MA STAR 5.5 STOCK",
+    "MA STAR 5.5",
+    "MA STAR 5.5 MB",
+    "VAS 771 045 (MA STAR 5.5)",
+    "MA STAR 6.5 STOCK",
+    "MA STAR 6.5",
+    "MA STAR 6.5 MB"
+   ],
+   "text": "All 14 two-post lift models in the MAHA declaration of conformity (mastar-manual, section 10) are vehicle servicing lifts. Under Regulation (EU) 2023/1230 Annex I, Part A, point 3, and Article 25(2), they need a notified body from 20 January 2027 (Article 54). Units placed on the market under Directive 2006/42/EC before that date remain saleable under Article 52(1).",
+   "tokens": 332206,
    "cost_usd": 0.0
   },
   {
@@ -172,7 +187,7 @@
    "score": 0.0,
    "value": null,
    "text": "The facts do not say which category RC-5 falls under, so the required conformity assessment procedure from 20 January 2027 cannot be determined from them; the Regulation applies from that date (Corrigendum point 10), but the procedure depends on RC-5's category under Article 6 and Article 25.",
-   "tokens": 34128,
+   "tokens": 147213,
    "cost_usd": 0.0
   },
   {
@@ -182,17 +197,20 @@
    "score": 0.0,
    "value": null,
    "text": "The facts do not say whether model CS-400 may stay with internal production control after 20 January 2027, so no answer can be given.",
-   "tokens": 31992,
+   "tokens": 70684,
    "cost_usd": 0.0
   },
   {
    "id": "CQ16",
    "type": "V",
    "split": "heldout",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts in force do not answer this question. (the fact store and the documents read on demand do not support one answer)",
-   "tokens": 23825,
+   "score": 1.0,
+   "value": [
+    "Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions (Annex I, Part A, point 5)",
+    "Machinery that has embedded systems with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions that have not been placed independently on the market (Annex I, Part A, point 6)"
+   ],
+   "text": "Annex I, Part A, points 5 and 6 of Regulation (EU) 2023/1230 are the categories not listed in Annex IV of Directive 2006/42/EC; points 1-4 of Part A correspond to Annex IV points 14, 15, 16 and 18.",
+   "tokens": 130406,
    "cost_usd": 0.0
   },
   {
@@ -209,10 +227,10 @@
    "id": "CQ18",
    "type": "V",
    "split": "heldout",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts in force do not answer this question. (the fact store and the documents read on demand do not support one answer)",
-   "tokens": 30884,
+   "score": 1.0,
+   "value": "Protection against corruption (Annex III, section 1.1.9): machinery must be protected against accidental or intentional corruption of critical software and data, and must collect evidence of unauthorised interventions.",
+   "text": "The Regulation's Annex III, section 1.1.9 ('Protection against corruption') introduces this essential requirement, which has no counterpart in the Directive's essential health and safety requirements.",
+   "tokens": 70225,
    "cost_usd": 0.0
   },
   {
@@ -222,7 +240,7 @@
    "score": 0.0,
    "value": null,
    "text": "The facts in force do not answer this question.",
-   "tokens": 20457,
+   "tokens": 142860,
    "cost_usd": 0.0
   },
   {
@@ -232,7 +250,7 @@
    "score": 0.0,
    "value": null,
    "text": "The facts in force do not answer this question.",
-   "tokens": 25404,
+   "tokens": 357580,
    "cost_usd": 0.0
   },
   {
@@ -342,7 +360,7 @@
    "score": 1.0,
    "value": null,
    "text": "The facts give the required interval for this crane (annual, P1Y, under Allegato VII, riga 15 and the age and capacity rules), but no last or next verification date, so I cannot say whether it is overdue on 2026-11-14.",
-   "tokens": 40734,
+   "tokens": 94863,
    "cost_usd": 0.0
   },
   {

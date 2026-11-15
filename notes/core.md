@@ -1,6 +1,6 @@
 # Note di Core
 
-_Aggiornato: 15.11 16:00_
+_Aggiornato: 15.11 19:30_
 
 ## Fatto
 - **Registro dei fatti** in `atlas/ontology/statements.py`: un solo ingresso (`write_statement`), una sola uscita (`as_of`). Rifiuta e conta: citazione che non sta nel testo, valore che non sta nella citazione, condizione persa. Una versione nuova dello stesso documento chiude il fatto vecchio; tra fonti diverse vince l'autorità più alta (legge > manuale > procedura); niente viene cancellato. 6 test in `tests/test_statements.py`.
@@ -92,3 +92,6 @@ _Aggiornato: 15.11 16:00_
 
 - **15.11 16:00 — due letture e un giudice** (decisione `1600-due-letture-e-un-giudice`). Il modello passa da `claude -p` (`ATLAS_LLM_BACKEND=claude-cli`); banco di sviluppo nuovo in `data/cq/dev/` (73 domande valutate); `atlas/agent/text.py` legge i documenti a richiesta con lo stesso controllo delle citazioni; un giudice sceglie quando le letture non concordano; la regola dell'impianto confronta gli anni e risponde alle domande sull'intero elenco. Tabellone rifatto [verificato: `results/board.md`]: progetto 16/22, tenute da parte 7 giuste, 4 «non lo so», 1 sbagliata (prima 3, 4, 5); RAG 9/22 e 5/12. Per rifare: `ATLAS_LLM_BACKEND=claude-cli ATLAS_TODAY=2026-11-14 python -m evaluation.board run B`.
 - **Ancora aperto:** le pagine generate (`ontology/B/*.html`) e l'app mostrano ancora i numeri e il percorso di prima; `Answer.basis` dice quale lettura ha risposto ma l'interfaccia non lo mostra; la posizione (sito) di ogni apparecchio non è nei fatti, quindi «quali apparecchi sono a Lula» resta senza risposta.
+
+- **15.11 19:30 — tre modi a confronto e terza lettura.** `evaluation/free.py` (ricerca libera: un modello con la cartella dei documenti e tre strumenti), `evaluation/local_embed.py` (RAG con vettori calcolati in locale, senza chiave), `evaluation/dev.py` (tabellone di sviluppo, `results/dev/board.md`). La ricerca libera da sola batteva Plant Atlas sulle domande tenute da parte (9 contro 7 su 12): ora Plant Atlas, quando le prime due letture non rispondono o il giudice non trova sostegno, cerca nei documenti allo stesso modo ma sotto lo stesso controllo (`text.search`: ogni frase indicata deve stare in un pezzo registrato, la rettifica è già applicata ai file). Misura [verificato: `results/board.md`, `results/dev/board.md`; Haiku, data 14.11, una corsa]: sviluppo 68/73 (ricerca libera 59, RAG 40); progetto 16/22 (13, 11); tenute da parte 9/12 con 1 sbagliata (9 con 1 sbagliata; 4 con 0 sbagliate).
+- **Limiti:** sulle tenute da parte Plant Atlas pareggia la ricerca libera, non la supera; i loro totali sono stati guardati dopo ogni modifica. CQ13–CQ15 chiedono un catalogo che non è più nel repo: nessun modo può rispondere giusto.

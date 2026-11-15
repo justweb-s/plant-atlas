@@ -6,7 +6,7 @@
 |---|---|---|---|---|
 | Free search (model + folder of documents) | 59/73 | 0 | 14 | 0.82 |
 | RAG (passages by similarity) | 40/73 | 21 | 12 | 0.56 |
-| Plant Atlas (fact store, reading on demand, judge) | 66/73 | 3 | 4 | 0.92 |
+| Plant Atlas (fact store, reading on demand, judge) | 68/73 | 1 | 4 | 0.95 |
 
 ## By group of questions (right / total)
 
@@ -14,7 +14,7 @@
 |---|---|---|---|---|---|
 | Free search (model + folder of documents) | 10/13 | 13/13 | 11/16 | 16/18 | 9/13 |
 | RAG (passages by similarity) | 12/13 | 6/13 | 6/16 | 11/18 | 5/13 |
-| Plant Atlas (fact store, reading on demand, judge) | 13/13 | 12/13 | 14/16 | 14/18 | 13/13 |
+| Plant Atlas (fact store, reading on demand, judge) | 13/13 | 12/13 | 14/16 | 16/18 | 13/13 |
 
 ## Question by question
 
@@ -64,7 +64,7 @@
 | DEV-IGEB-16: What amount in euro is paid to the verifier for the periodic verification of the 35,000 kg gantry crane at pos | null | ✓ | ✓ | ✓ |
 | DEV-REG-01: A machine was built and its EC declaration of conformity signed on 10 January 2027, but it is made available o | "Il Regolamento (UE) 2023/1230" | ✓ | ✓ | ✓ |
 | DEV-REG-02: On 1 December 2026 the manufacturer of a machine in a category listed in Annex IV to Directive 2006/42/EC, not | false | ✓ | ✓ | ✓ |
-| DEV-REG-03: On 1 December 2026, for Annex IV categories of Directive 2006/42/EC built to harmonised standards covering all | ["Removable mechanical transmission devi | ✓ | ? | ? |
+| DEV-REG-03: On 1 December 2026, for Annex IV categories of Directive 2006/42/EC built to harmonised standards covering all | ["Removable mechanical transmission devi | ✓ | ? | ✓ |
 | DEV-REG-04: On 1 March 2027 a company that is neither the original manufacturer nor a non-professional user carries out a  | "Come fabbricante (as manufacturer), con | ✓ | ✓ | ✓ |
 | DEV-REG-05: The UNIVPM equipment guideline states that the manufacturer is obliged to supply the instructions for use on p | true | ✓ | ✓ | ✓ |
 | DEV-REG-06: On 1 March 2027 a distributor is about to make a machine (not partly completed machinery) available on the mar | ["The machinery bears the CE marking", " | ✗ | ? | 0.25 |
@@ -75,7 +75,7 @@
 | DEV-REG-11: May the UR10e arm of the cell be put into service on the sole basis of the declaration supplied by its manufac | false | ✓ | ✓ | ✓ |
 | DEV-REG-12: The UR5e manual contains a Declaration of Incorporation and the robot's assembly instructions. Once the robot  | "Del fascicolo tecnico della macchina fi | ✓ | ✓ | ✓ |
 | DEV-REG-13: Today (14 November 2026) the integrator completes the robot cell with the UR5e and UR10e arms. According to th | ["Ensure it satisfies the essential heal | 0.50 | ? | 0.50 |
-| DEV-REG-14: The manual of the MA STAR two post lift carries an EC declaration of conformity to Directive 2006/42/EC. For a | true | ✓ | ? | ? |
+| DEV-REG-14: The manual of the MA STAR two post lift carries an EC declaration of conformity to Directive 2006/42/EC. For a | true | ✓ | ? | ✓ |
 | DEV-REG-15: What is the maximum amount of the penalty applicable in Italy, on 1 February 2027, to a manufacturer infringin | null | ✓ | ✓ | ✓ |
 | DEV-REG-16: On which date did the Commission actually adopt the first implementing act with the template for Member States | null | ✓ | ✓ | ✓ |
 | DEV-REG-17: Which notified body carried out the EC type-examination of the MA STAR two post lift? | null | ✓ | ✓ | ✓ |

@@ -92,6 +92,44 @@ def _cli_chat(payload: dict) -> dict:
     raise RuntimeError(f"claude -p gave no answer: {error}")
 
 
+def search_agent(system: str, prompt: str, folder: Path, model: str | None = None, stamp: str = "") -> dict:
+    """A model that may list, search and read the files of one folder, and nothing else (Claude command line,
+    tools Read, Grep and Glob only). Returns {"text", "turns", "usage"}; cached like chat(). `stamp` names the
+    content of the folder, so that a changed folder is not answered from the cache."""
+    import subprocess
+
+    payload = {"model": _cli_model(model or os.getenv("ATLAS_TEXT_MODEL", "anthropic/claude-haiku-5.5")),
+               "system": system, "prompt": prompt, "folder": stamp, "tools": ["Read", "Grep", "Glob"]}
+    path = _cache_path("search-cli", payload)
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))["response"]
+    if os.getenv("ATLAS_OFFLINE") == "1":
+        raise RuntimeError("ATLAS_OFFLINE=1 and this search is not in cache/llm/")
+    command = ["claude", "-p", "--model", payload["model"], "--system-prompt", system, "--tools", "Read,Grep,Glob",
+               "--allowedTools", "Read,Grep,Glob", "--strict-mcp-config", "--no-session-persistence",
+               "--setting-sources", "", "--no-chrome", "--output-format", "json"]
+    error = None
+    for _ in range(2):
+        try:
+            done = subprocess.run(command, input=prompt, capture_output=True, text=True, encoding="utf-8",
+                                  cwd=folder, timeout=900)
+            reply = json.loads(done.stdout)
+        except (ValueError, subprocess.TimeoutExpired) as problem:
+            error = str(problem)[:200]
+            continue
+        if reply.get("is_error") or not isinstance(reply.get("result"), str):
+            error = str(reply.get("result"))[:200]
+            continue
+        usage = reply.get("usage") or {}
+        tokens_in = sum(usage.get(k, 0) or 0 for k in ("input_tokens", "cache_creation_input_tokens",
+                                                       "cache_read_input_tokens"))
+        out = {"text": reply["result"], "turns": reply.get("num_turns"),
+               "usage": {"prompt_tokens": tokens_in, "completion_tokens": usage.get("output_tokens", 0) or 0}}
+        _store(path, payload, out)
+        return out
+    raise RuntimeError(f"the search agent gave no answer: {error}")
+
+
 def chat(messages: list[dict], model: str | None = None, **params) -> dict:
     """Returns {"text", "model", "usage"}. params go to chat.completions (temperature, max_tokens, ...)."""
     payload = {"model": model or os.getenv("ATLAS_TEXT_MODEL", "anthropic/claude-haiku-5.5"),

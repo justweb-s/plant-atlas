@@ -15,6 +15,7 @@ import re
 import unicodedata
 from datetime import date
 from functools import lru_cache
+from pathlib import Path
 
 from atlas import llm
 from atlas.contracts import Answer, Step
@@ -377,4 +378,95 @@ def answer(question: str, day: date | None = None, mode: str = "B", lang: str = 
              for chunk, quote in (held if value is not None else [])]
     usage = out.get("usage") or {}
     return Answer(question=question, mode=mode, value=value, text=text, steps=steps,
+                  tokens=(usage.get("prompt_tokens") or 0) + (usage.get("completion_tokens") or 0))
+
+
+# ---- the third reading: a search through the documents, under the same gate ----------------------------------
+FOLDER = Path(__file__).resolve().parents[2] / "runtime" / "atlas_search" / "docs"
+SEARCH = SYSTEM.replace(
+    "using ONLY the numbered passages given. Each passage is headed by its document, its place and its rank.",
+    "using ONLY the documents in the current folder, one text file per document; README.md lists them with their "
+    "rank. Use your tools (Glob, Grep, Read) to find and read what you need: search in English and in Italian, "
+    "follow references from one article or annex to another, and read the whole section before you rely on it."
+).replace("- Use only the passages.", "- Use only the files.").replace(
+    '"evidence": [{"passage": <number>, "quote": "<copied exactly from that passage>"}]}',
+    '"evidence": [{"file": "<file name>", "quote": "<copied exactly from that file, one sentence or one table row>"}]}'
+).replace("Return JSON only, with the reasoning first:",
+          "When you have the answer, or are sure the files do not state it, reply with JSON only, nothing before or "
+          "after, with the reasoning first:")
+
+
+@lru_cache(maxsize=1)
+def _folder() -> str:
+    """Every registered document as one text file, the Regulation with the corrigendum already applied and marked.
+    Returns a stamp of the content (the search is cached under it)."""
+    import hashlib
+
+    from atlas.corpus.chunker import load
+
+    by_source: dict[str, list] = {}
+    for chunk in load():
+        by_source.setdefault(chunk.source, []).append(chunk)
+    FOLDER.mkdir(parents=True, exist_ok=True)
+    index = ["# Documents", "", "| File | Rank | Sections |", "|---|---|---|"]
+    stamp = hashlib.sha256()
+    for source, chunks in sorted(by_source.items()):
+        lines = [f"# {source}", "", f"Rank: {RANK.get(chunks[0].layer, chunks[0].layer)}.", ""]
+        for chunk in chunks:
+            body, mark = corrected(chunk)
+            lines += [f"## {chunk.locator}", ""] + ([f"[{mark}]", ""] if mark else []) + [body, ""]
+        content = "\n".join(lines)
+        stamp.update(content.encode("utf-8"))
+        target = FOLDER / f"{source}.md"
+        if not target.exists() or target.read_text(encoding="utf-8") != content:
+            target.write_text(content, encoding="utf-8")
+        index.append(f"| {source}.md | {RANK.get(chunks[0].layer, chunks[0].layer)} | {len(chunks)} |")
+    (FOLDER / "README.md").write_text("\n".join(index) + "\n", encoding="utf-8")
+    return stamp.hexdigest()[:16]
+
+
+def search(question: str, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
+    """The documents are searched freely by a model with read-only tools; what it brings back passes the same
+    gate as every other reading: each sentence it points at must be found in a registered piece of that document,
+    and a date or a period given as the answer must be written in those sentences."""
+    from atlas.agent.answer import UNKNOWN, typed
+    from atlas.corpus.chunker import load
+
+    if day is None and os.getenv("ATLAS_TODAY"):
+        day = date.fromisoformat(os.environ["ATLAS_TODAY"])
+    day = day or date.today()
+    out = llm.search_agent(SEARCH, f"Today is {day.isoformat()}.\nQuestion: {question}", FOLDER, stamp=_folder())
+    found = re.findall(r"\{.*\}", out.get("text") or "", re.DOTALL)
+    data = _reply(found[-1]) if found else {}
+    kind = str(data.get("kind") or "")
+    if re.match(r"\s*(who|chi)\b", question, re.I) and isinstance(data.get("value"), list):
+        kind, data["value"] = "text", "; ".join(str(v) for v in data["value"])
+    value = typed(kind, data.get("value"))
+    shown, pointed = [], []
+    if value is not None:
+        pieces: dict[str, list] = {}
+        for chunk in load():
+            pieces.setdefault(chunk.source, []).append(chunk)
+        for item in data.get("evidence") if isinstance(data.get("evidence"), list) else []:
+            if not isinstance(item, dict):
+                continue
+            source, quote = str(item.get("file") or "").removesuffix(".md"), str(item.get("quote") or "")
+            wanted = _squash(quote)
+            for chunk in pieces.get(source, []) if len(wanted) >= 8 else []:
+                body, mark = corrected(chunk)
+                if wanted in _squash(body) or (len(_loose(quote)) >= 20 and _loose(quote) in _loose(body)):
+                    pointed.append({"passage": len(shown), "quote": quote})
+                    shown.append((chunk, body, mark))
+                    break
+    held, why = check(kind, value, pointed, shown) if value is not None else ([], "")
+    text = data.get("text") or UNKNOWN.get(lang, UNKNOWN["en"])
+    if value is not None and not held:
+        value, text = None, f"{UNKNOWN.get(lang, UNKNOWN['en'])} ({why})"
+    marks = {chunk.id: mark for chunk, _, mark in shown}
+    steps = [Step(text=f"Found by search: {chunk.source}, {chunk.locator}"
+                       + (f" ({marks.get(chunk.id)})" if marks.get(chunk.id) else ""),
+                  triples=[], quote=quote, locator=f"{chunk.source}, {chunk.locator}", statement_id=None)
+             for chunk, quote in (held if value is not None else [])]
+    usage = out.get("usage") or {}
+    return Answer(question=question, mode=mode, value=value, text=text, steps=steps, basis="search",
                   tokens=(usage.get("prompt_tokens") or 0) + (usage.get("completion_tokens") or 0))

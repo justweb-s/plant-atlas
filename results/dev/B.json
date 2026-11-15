@@ -1,16 +1,16 @@
 {
  "summary": {
   "n": 73,
-  "correct": 66,
-  "unknown": 3,
+  "correct": 68,
+  "unknown": 1,
   "wrong": 4,
-  "mean": 0.924,
+  "mean": 0.951,
   "by_type": {
-   "I": 0.92,
-   "V": 0.93
+   "I": 0.941,
+   "V": 0.97
   },
   "by_split": {
-   "dev": 0.924
+   "dev": 0.951
   },
   "cost_usd": 0.0
  },
@@ -36,7 +36,7 @@
    "kind": "duration",
    "score": 1.0,
    "value": "P1Y",
-   "text": "The UR10e User Manual, section 17.4 Long Term Storage, recommends unpacking and starting up the robot at least yearly, running a light load program that rotates all joints at least 90 degrees five times in each direction.",
+   "text": "The UR10e User Manual, section 17 (Transportation, long-term storage guidelines), recommends unpacking and starting up the robot at least yearly.",
    "basis": "text",
    "cost_usd": 0.0
   },
@@ -48,7 +48,7 @@
    "kind": "duration",
    "score": 1.0,
    "value": "P20Y",
-   "text": "The nanoScan3 manual (Technical data, section 14.1, p. 130) states a mission time TM of 20 years according to ISO 13849.",
+   "text": "The nanoScan3 manufacturer's manual (operating instructions, Technical data, section 14.2 Safety-related parameters, Table 34 on page 130) states TM (mission time) according to ISO 13849 as 20 years for both the Core I/O and Pro I/O variants.",
    "basis": "text",
    "cost_usd": 0.0
   },
@@ -578,10 +578,15 @@
    "type": "V",
    "split": "dev",
    "kind": "set",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts do not say which Annex IV categories are listed in Annex I Part A or Part B, so they cannot show which categories lose module A on 1 February 2027. The Directive is repealed from 20 January 2027 and the Regulation applies from that date (Corrigendum points 5 and 10), and Annex I Part B categories keep module A (Art. 25(3)).",
-   "basis": "none",
+   "score": 1.0,
+   "value": [
+    "Removable mechanical transmission devices including their guards",
+    "Guards for removable mechanical transmission devices",
+    "Vehicle servicing lifts",
+    "Portable cartridge-operated fixing and other impact machinery"
+   ],
+   "text": "Under Regulation (EU) 2023/1230, Annex I, Part A (applied via Article 25(2)) excludes module A for removable transmission devices and their guards, vehicle servicing lifts, and portable cartridge-operated fixing machinery. These correspond to Directive 2006/42/EC Annex IV points 14, 15, 16 and 18, which the Regulation replaces from 20 January 2027.",
+   "basis": "search",
    "cost_usd": 0.0
   },
   {
@@ -722,10 +727,10 @@
    "type": "I",
    "split": "dev",
    "kind": "boolean",
-   "score": 0.0,
-   "value": null,
-   "text": "The facts in force do not answer this question. (the fact store and the documents read on demand do not support one answer)",
-   "basis": "judged unsupported",
+   "score": 1.0,
+   "value": true,
+   "text": "Yes. For a vehicle servicing lift placed on the market on 1 March 2027, Regulation (EU) 2023/1230 applies (Directive 2006/42/EC was repealed from 20 January 2027, Art. 51(2)), and Art. 24(3) requires the notified body's identification number after the CE marking because the lift falls under Annex I, Part A, point 3 and Art. 25(2).",
+   "basis": "search",
    "cost_usd": 0.0
   },
   {

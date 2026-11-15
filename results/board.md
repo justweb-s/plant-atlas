@@ -9,7 +9,7 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 | Free search (model + folder) | 13/22 | 2 | 7 | 0.69 |
 | RAG | 11/22 | 7 | 4 | 0.55 |
 | A (free extraction) | 7/22 | 8 | 7 | 0.41 |
-| B (checked facts) | 16/22 | 3 | 3 | 0.83 |
+| B (checked facts) | 16/22 | 2 | 4 | 0.83 |
 
 ## Domande tenute da parte (quelle oneste)
 
@@ -18,7 +18,7 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 | Free search (model + folder) | 9/12 | 2 | 1 | 0.75 |
 | RAG | 4/12 | 8 | 0 | 0.33 |
 | A (free extraction) | 4/12 | 5 | 3 | 0.33 |
-| B (checked facts) | 7/12 | 4 | 1 | 0.58 |
+| B (checked facts) | 9/12 | 2 | 1 | 0.75 |
 
 ## Solo le domande sui documenti che B ha già letto (`CORR`, `DIR`, `DLGS69`, `DLGS70`, `DLGS71`, `DLGS72`, `DLGS73`, `DLGSALLVII`, `DM2011`, `REG`, `igea-equipment`, `inail-guide`, `mastar-manual`, `nanoscan3-manual`, `robot-cell-sheet`, `unict-guideline`, `univpm-guideline`, `ur10e-manual`, `ur5e-manual`), progetto e tenute insieme
 
@@ -27,7 +27,7 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 | Free search (model + folder) | 22/31 | 2 | 7 | 0.78 |
 | RAG | 15/31 | 12 | 4 | 0.52 |
 | A (free extraction) | 11/31 | 10 | 10 | 0.42 |
-| B (checked facts) | 23/31 | 4 | 4 | 0.81 |
+| B (checked facts) | 25/31 | 2 | 4 | 0.88 |
 
 ## Domanda per domanda
 
@@ -45,12 +45,12 @@ Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · �
 | CQ10 | progetto | sì | ✓ | ✗ | ✗ | ✓ |
 | CQ11 | progetto | sì | 0.50 | ✓ | ? | ✓ |
 | CQ12 | progetto | sì | ✓ | ✓ | ? | ✓ |
-| CQ13 | progetto | no | ✗ | ? | ? | ? |
+| CQ13 | progetto | no | ✗ | ? | ? | ✗ |
 | CQ14 | progetto | no | ? | ? | ? | ? |
 | CQ15 | progetto | no | ? | ? | ? | ? |
-| CQ16 | tenuta | sì | ✓ | ? | ? | ? |
+| CQ16 | tenuta | sì | ✓ | ? | ? | ✓ |
 | CQ17 | tenuta | sì | ✓ | ✓ | ✗ | ✓ |
-| CQ18 | tenuta | sì | ✓ | ? | ✓ | ? |
+| CQ18 | tenuta | sì | ✓ | ? | ✓ | ✓ |
 | CQ19 | tenuta | sì | ? | ? | ? | ? |
 | CQ20 | tenuta | sì | ? | ? | ? | ? |
 | CQ21 | progetto | sì | ✓ | ? | ? | ✓ |
