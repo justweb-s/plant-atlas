@@ -631,6 +631,8 @@ def typed(kind: str, value):
 
 
 def answer(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
+    if day is None and os.getenv("ATLAS_TODAY"):   # a fixed 'today' makes recorded runs repeatable on a later day
+        day = date.fromisoformat(os.environ["ATLAS_TODAY"])
     day = day or date.today()
     facts = [s for s in store.as_of(day) if s.status == "current"]
     if os.getenv("ATLAS_SKILLS", "1") != "0" and len(facts) > TOP and lang == "en":
