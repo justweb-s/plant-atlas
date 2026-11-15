@@ -5,6 +5,12 @@ Every model call of the product goes through chat() or embed():
 - every response is saved in cache/llm/<sha256>.json and committed, so a rerun costs nothing
   for either of us and the demo works with the wifi off (ATLAS_OFFLINE=1);
 - tests never reach this code with the network on.
+
+ATLAS_LLM_BACKEND=claude-cli sends chat() through the Claude command line (`claude -p`) instead of the
+gateway, for when the event key no longer works. Tools, settings and project files are switched off, so
+the model sees only the messages. temperature and max_tokens cannot be set there: they are ignored.
+A call already answered by the gateway is still read from its cache file; new answers go to their own
+cache files (kind "chat-cli"), so the two never mix. embed() has no such backend: cache only.
 """
 from __future__ import annotations
 
@@ -40,6 +46,52 @@ def _store(path: Path, request: dict, response: dict) -> None:
                     encoding="utf-8")
 
 
+def _cli_model(model: str) -> str:
+    for name in ("haiku", "sonnet", "opus"):
+        if name in model:
+            return name
+    raise RuntimeError(f"the claude-cli backend has no model for {model!r}")
+
+
+def _cli_chat(payload: dict) -> dict:
+    """One answer from `claude -p`: system messages as the system prompt, the rest on stdin."""
+    import re
+    import subprocess
+    import tempfile
+
+    system = "\n\n".join(m["content"] for m in payload["messages"] if m["role"] == "system") or "Answer the user."
+    turns = [m for m in payload["messages"] if m["role"] != "system"]
+    prompt = turns[0]["content"] if len(turns) == 1 else "\n\n".join(f"[{m['role']}]\n{m['content']}" for m in turns)
+    command = ["claude", "-p", "--model", _cli_model(payload["model"]), "--system-prompt", system, "--tools", "",
+               "--strict-mcp-config", "--no-session-persistence", "--setting-sources", "", "--no-chrome",
+               "--output-format", "json"]
+    error = None
+    for _ in range(3):
+        with tempfile.TemporaryDirectory() as empty:   # an empty folder: no project instructions to pick up
+            done = subprocess.run(command, input=prompt, capture_output=True, text=True, encoding="utf-8",
+                                  cwd=empty, timeout=600)
+        try:
+            reply = json.loads(done.stdout)
+        except ValueError:
+            error = (done.stderr or done.stdout)[:300]
+            continue
+        if reply.get("is_error") or not isinstance(reply.get("result"), str):
+            error = str(reply.get("result"))[:300]
+            continue
+        text = reply["result"].strip()
+        if payload.get("response_format", {}).get("type") == "json_object":   # no JSON mode there: drop a code fence
+            fenced = re.search(r"```(?:json)?\s*(\{.*\})\s*```", text, re.S)
+            text = fenced.group(1) if fenced else text
+        usage = reply.get("usage") or {}
+        tokens_in = sum(usage.get(k, 0) or 0 for k in ("input_tokens", "cache_creation_input_tokens",
+                                                       "cache_read_input_tokens"))
+        tokens_out = usage.get("output_tokens", 0) or 0
+        return {"text": text, "model": next(iter(reply.get("modelUsage") or {}), payload["model"]),
+                "usage": {"prompt_tokens": tokens_in, "completion_tokens": tokens_out,
+                          "total_tokens": tokens_in + tokens_out}}
+    raise RuntimeError(f"claude -p gave no answer: {error}")
+
+
 def chat(messages: list[dict], model: str | None = None, **params) -> dict:
     """Returns {"text", "model", "usage"}. params go to chat.completions (temperature, max_tokens, ...)."""
     payload = {"model": model or os.getenv("ATLAS_TEXT_MODEL", "anthropic/claude-haiku-5.5"),
@@ -47,6 +99,13 @@ def chat(messages: list[dict], model: str | None = None, **params) -> dict:
     path = _cache_path("chat", payload)
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))["response"]
+    if os.getenv("ATLAS_LLM_BACKEND") == "claude-cli" and os.getenv("ATLAS_OFFLINE") != "1":
+        path = _cache_path("chat-cli", payload)
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))["response"]
+        out = _cli_chat(payload)
+        _store(path, payload, out)
+        return out
     resp = _client().chat.completions.create(**payload)
     out = {"text": resp.choices[0].message.content, "model": resp.model,
            "usage": resp.usage.model_dump() if resp.usage else None}

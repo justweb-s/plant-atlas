@@ -89,7 +89,9 @@ def answer(question: str, as_of: date | None = None) -> Answer:
         from atlas import fake
         return fake.rag_answer(question, as_of)
     from atlas import llm
-    day = as_of or date.today()
+    import os
+    fixed = os.getenv("ATLAS_TODAY")   # the same fixed 'today' as the agent, so a board can be repeated later
+    day = as_of or (date.fromisoformat(fixed) if fixed else date.today())
     chosen = retrieve(question)
     numbered = "\n\n".join(f"[{i}] {_passage(c)}" for i, c in enumerate(chosen))
     out = llm.chat([{"role": "system", "content": SYSTEM},

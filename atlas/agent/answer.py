@@ -218,12 +218,17 @@ def _vectors(texts: list[str]) -> list[tuple[list[float], float]]:
     return [_VECTORS[t] for t in texts]
 
 
+# The translation is always made by the same small model, whatever model answers: the search then looks
+# for the same facts, and a change of the answering model changes only the answer.
+TRANSLATOR = "anthropic/claude-haiku-5.5"
+
+
 def _other_language(question: str) -> str:
     """The question in the other language of the sources (English and Italian), so that facts written in
     either language can be found. One short cached call; the question itself if the model returns nothing."""
     out = llm.chat([{"role": "system", "content": "Translate the question into Italian if it is in English, into "
                      "English if it is in Italian. Keep names, numbers and dates. Return only the translation."},
-                    {"role": "user", "content": question}], temperature=0, max_tokens=300)
+                    {"role": "user", "content": question}], model=TRANSLATOR, temperature=0, max_tokens=300)
     return (out.get("text") or "").strip() or question
 
 
