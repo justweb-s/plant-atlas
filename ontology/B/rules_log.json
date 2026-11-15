@@ -1,0 +1,651 @@
+{
+ "rules": {
+  "fix_list_item": {
+   "kind": "FIX",
+   "fired_whole_store": 33,
+   "on_failures": 21,
+   "failures_addressed": 20,
+   "on_passed": 3,
+   "failure_ids": [
+    "st-0088",
+    "st-0115",
+    "st-0132",
+    "st-0181",
+    "st-0193",
+    "st-0243",
+    "st-0244",
+    "st-0245",
+    "st-0246",
+    "st-0247",
+    "st-0313",
+    "st-0314",
+    "st-0315",
+    "st-0316",
+    "st-0397",
+    "st-0398",
+    "st-0996",
+    "st-0997",
+    "st-0998",
+    "st-1000",
+    "st-1001"
+   ],
+   "passed_ids": [
+    "st-0087",
+    "st-0131",
+    "st-0178"
+   ]
+  },
+  "fix_definition_whole": {
+   "kind": "FIX",
+   "fired_whole_store": 90,
+   "on_failures": 21,
+   "failures_addressed": 20,
+   "on_passed": 13,
+   "failure_ids": [
+    "st-0002",
+    "st-0006",
+    "st-0007",
+    "st-0008",
+    "st-0010",
+    "st-0011",
+    "st-0012",
+    "st-0014",
+    "st-0015",
+    "st-0016",
+    "st-0017",
+    "st-0018",
+    "st-0019",
+    "st-0021",
+    "st-0022",
+    "st-0025",
+    "st-0026",
+    "st-0028",
+    "st-0029",
+    "st-0031",
+    "st-0040"
+   ],
+   "passed_ids": [
+    "st-0009",
+    "st-0027",
+    "st-0030",
+    "st-0033",
+    "st-0034",
+    "st-0035",
+    "st-0037",
+    "st-0038",
+    "st-0039",
+    "st-0041",
+    "st-0042",
+    "st-0079",
+    "st-0294"
+   ]
+  },
+  "fix_obligation_whole": {
+   "kind": "FIX",
+   "fired_whole_store": 9,
+   "on_failures": 4,
+   "failures_addressed": 3,
+   "on_passed": 2,
+   "failure_ids": [
+    "st-0094",
+    "st-0184",
+    "st-0190",
+    "st-0196"
+   ],
+   "passed_ids": [
+    "st-0085",
+    "st-0177"
+   ]
+  },
+  "fix_listed_item_whole": {
+   "kind": "FIX",
+   "fired_whole_store": 10,
+   "on_failures": 6,
+   "failures_addressed": 6,
+   "on_passed": 4,
+   "failure_ids": [
+    "st-0384",
+    "st-0388",
+    "st-0395",
+    "st-0396",
+    "st-0399",
+    "st-0407"
+   ],
+   "passed_ids": [
+    "st-0385",
+    "st-0401",
+    "st-0638",
+    "st-0654"
+   ]
+  },
+  "fix_condition_whole": {
+   "kind": "FIX",
+   "fired_whole_store": 13,
+   "on_failures": 8,
+   "failures_addressed": 7,
+   "on_passed": 1,
+   "failure_ids": [
+    "st-0098",
+    "st-0138",
+    "st-0149",
+    "st-0151",
+    "st-0152",
+    "st-0155",
+    "st-0183",
+    "st-0186"
+   ],
+   "passed_ids": [
+    "st-0252"
+   ]
+  },
+  "fix_period_floor_and_start": {
+   "kind": "FIX",
+   "fired_whole_store": 17,
+   "on_failures": 6,
+   "failures_addressed": 5,
+   "on_passed": 7,
+   "failure_ids": [
+    "st-0089",
+    "st-0096",
+    "st-0209",
+    "st-0938",
+    "st-1507",
+    "st-1576"
+   ],
+   "passed_ids": [
+    "st-0095",
+    "st-0465",
+    "st-0466",
+    "st-1482",
+    "st-1483",
+    "st-1519",
+    "st-1520"
+   ]
+  },
+  "check_entry_into_force": {
+   "kind": "CHECK",
+   "fired_whole_store": 1,
+   "on_failures": 1,
+   "failures_addressed": 1,
+   "on_passed": 0,
+   "failure_ids": [
+    "st-1045"
+   ],
+   "passed_ids": []
+  },
+  "check_accompany_not_stated": {
+   "kind": "CHECK",
+   "fired_whole_store": 12,
+   "on_failures": 6,
+   "failures_addressed": 6,
+   "on_passed": 6,
+   "failure_ids": [
+    "st-0500",
+    "st-0632",
+    "st-0785",
+    "st-0787",
+    "st-0789",
+    "st-1255"
+   ],
+   "passed_ids": [
+    "st-0653",
+    "st-0848",
+    "st-0849",
+    "st-0850",
+    "st-1424",
+    "st-1425"
+   ]
+  },
+  "check_empty_value": {
+   "kind": "CHECK",
+   "fired_whole_store": 5,
+   "on_failures": 1,
+   "failures_addressed": 1,
+   "on_passed": 0,
+   "failure_ids": [
+    "st-0005"
+   ],
+   "passed_ids": []
+  }
+ },
+ "totals": {
+  "second_reader_failures": 117,
+  "second_reader_passed": 228,
+  "failures_fired_on": 74,
+  "failures_addressed": 69,
+  "failures_flagged": 8,
+  "false_alarms_on_passed": 36,
+  "facts_changed_whole_store": 170,
+  "old_facts_closed_by_a_fix": 172,
+  "facts_closed_by_a_check": 0,
+  "facts_flagged_only": 18,
+  "rebuilt_but_refused_by_the_gate": 0,
+  "refused_facts_recovered_not_applied": 46,
+  "candidates": 1919
+ },
+ "refused_by_the_gate": [],
+ "spot_check": {
+  "calls": 30,
+  "cost_usd": 0.089,
+  "passed": 27,
+  "failed": 3,
+  "of_which_failed_before": 15,
+  "failed_before_now_passed": 13,
+  "not_read_before": 10,
+  "not_read_before_now_passed": 9,
+  "rows": [
+   {
+    "new_id": "learned_rules-0001",
+    "replaces": "st-0002",
+    "rules": [
+     "fix_definition_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage states exactly this definition for purposes of this Regulation; the claim's value matches, and no exception or condition is dropped."
+   },
+   {
+    "new_id": "learned_rules-0034",
+    "replaces": "st-0085",
+    "rules": [
+     "fix_obligation_whole"
+    ],
+    "before": "passed",
+    "after": "passed",
+    "why": "Passage states manufacturers must ensure accompaniment by instructions and Annex III information; no exception attached to that duty, and the digital-format sentence is permissive, not restrictive."
+   },
+   {
+    "new_id": "learned_rules-0035",
+    "replaces": "st-0087",
+    "rules": [
+     "fix_list_item"
+    ],
+    "before": "passed",
+    "after": "passed",
+    "why": "Passage states manufacturer must mark how to access digital instructions, with the fallback to packaging/document, and the claim keeps the digital-format condition."
+   },
+   {
+    "new_id": "learned_rules-0037",
+    "replaces": "st-0089",
+    "rules": [
+     "fix_period_floor_and_start"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage states the online accessibility period (expected lifetime and at least 10 years after placing on market); claim's condition carries the timing; paper-format proviso is a separate obligation, n"
+   },
+   {
+    "new_id": "learned_rules-0041",
+    "replaces": "st-0098",
+    "rules": [
+     "fix_condition_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage requires manufacturers to immediately inform competent national authorities where risk is presented; the claim keeps the risk condition in full."
+   },
+   {
+    "new_id": "learned_rules-0073",
+    "replaces": "st-0384",
+    "rules": [
+     "fix_listed_item_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage is point 5 of Annex I, Part A, listing exactly this category; the claim's value matches and the passage attaches no further conditions."
+   },
+   {
+    "new_id": "learned_rules-0083",
+    "replaces": "st-0415",
+    "rules": [
+     "fix_definition_whole"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "The passage defines 'danger zone' with the same wording as the claim's value, and no exception or condition is attached beyond what the value contains."
+   },
+   {
+    "new_id": "learned_rules-0088",
+    "replaces": "st-0424",
+    "rules": [
+     "fix_obligation_whole"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "Passage states manufacturer's duties (a)-(e) verbatim; the only framing, 'by the iterative process of risk assessment and risk reduction', is manner, not a restriction of scope."
+   },
+   {
+    "new_id": "learned_rules-0089",
+    "replaces": "st-0425",
+    "rules": [
+     "fix_list_item"
+    ],
+    "before": "not read",
+    "after": "failed",
+    "why": "Passage lists (e) as a step; the claim's condition (iterative risk assessment process) is shown only in the list lead-in, which is not in the passage, and no further restriction appears."
+   },
+   {
+    "new_id": "learned_rules-0163",
+    "replaces": "guidance-st-0090",
+    "rules": [
+     "fix_period_floor_and_start"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "Passage states 45 days from complete request, after which employer may ask another body; claim's time limit and condition match, no extra restriction omitted."
+   },
+   {
+    "new_id": "learned_rules-0070",
+    "replaces": "st-0320",
+    "rules": [
+     "fix_condition_whole"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "Passage says authorities require operator to take corrective action when non-compliance found; claim includes the Where-condition, with no further restriction attached to the action."
+   },
+   {
+    "new_id": "learned_rules-0074",
+    "replaces": "st-0385",
+    "rules": [
+     "fix_listed_item_whole"
+    ],
+    "before": "passed",
+    "after": "passed",
+    "why": "Passage lists this machinery at Annex I Part A point 6; claim value copies it and keeps the 'in respect only of those systems' restriction."
+   },
+   {
+    "new_id": "learned_rules-0002",
+    "replaces": "st-0006",
+    "rules": [
+     "fix_definition_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "The passage defines 'interchangeable equipment' exactly as claimed, and the claim's value and condition both include the proviso that the device is not a tool."
+   },
+   {
+    "new_id": "learned_rules-0038",
+    "replaces": "st-0094",
+    "rules": [
+     "fix_obligation_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Claim reproduces the passage's obligation including the 'or, alternatively' option; the following sentence concerns a separate duty (digital accessibility), not a condition on this one."
+   },
+   {
+    "new_id": "learned_rules-0036",
+    "replaces": "st-0088",
+    "rules": [
+     "fix_list_item"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage states the print/download/save format obligation; claim's condition (digital instructions) matches context, and no further exception appears in passage."
+   },
+   {
+    "new_id": "learned_rules-0039",
+    "replaces": "st-0095",
+    "rules": [
+     "fix_period_floor_and_start"
+    ],
+    "before": "passed",
+    "after": "passed",
+    "why": "Passage says digital declarations accessible for expected lifetime and at least 10 years after placing on market/putting into service; claim covers the 10-year minimum and trigger, omitting nothing re"
+   },
+   {
+    "new_id": "learned_rules-0045",
+    "replaces": "st-0138",
+    "rules": [
+     "fix_condition_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage says importer shall inform manufacturer and market surveillance authorities where machinery presents a risk; the claim's condition reproduces the risk qualifiers in full."
+   },
+   {
+    "new_id": "learned_rules-0075",
+    "replaces": "st-0388",
+    "rules": [
+     "fix_listed_item_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage lists these circular saws at Annex I Part B point 1; the claim's condition restates the wood/meat scope fully, so nothing is dropped."
+   },
+   {
+    "new_id": "learned_rules-0084",
+    "replaces": "st-0417",
+    "rules": [
+     "fix_definition_whole"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "Passage defines 'operator' with exactly this wording; no exceptions or conditions attached, and neighboring sentences are separate definitions."
+   },
+   {
+    "new_id": "learned_rules-0121",
+    "replaces": "st-0968",
+    "rules": [
+     "fix_obligation_whole"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "Passage states the obligation for the manufacturer or authorised representative, and the claim's condition carries the Article 12 procedures scope."
+   },
+   {
+    "new_id": "learned_rules-0092",
+    "replaces": "st-0467",
+    "rules": [
+     "fix_list_item"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "Passage states the limits-of-safety-functions obligation, and the claim keeps the 'where such modifications could lead to hazardous situations' condition in its value."
+   },
+   {
+    "new_id": "learned_rules-0164",
+    "replaces": "guidance-st-0127",
+    "rules": [
+     "fix_period_floor_and_start"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "Passage states the request must be made at least 45 days before the legal deadline; claim has no condition and passage attaches none to it."
+   },
+   {
+    "new_id": "learned_rules-0071",
+    "replaces": "st-0332",
+    "rules": [
+     "fix_condition_whole"
+    ],
+    "before": "not read",
+    "after": "passed",
+    "why": "Passage requires the economic operator to take all appropriate measures, and the claim's condition reproduces the full triggering clause; the 'or' alternatives (withdraw, recall) are separate obligati"
+   },
+   {
+    "new_id": "learned_rules-0076",
+    "replaces": "st-0395",
+    "rules": [
+     "fix_listed_item_whole"
+    ],
+    "before": "failed",
+    "after": "failed",
+    "why": "Passage lists thicknessers for one-side dressing with built-in feed and manual loading/unloading, 'for woodworking'; claim's condition omits 'for woodworking' though value includes it."
+   },
+   {
+    "new_id": "learned_rules-0003",
+    "replaces": "st-0007",
+    "rules": [
+     "fix_definition_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "The claim's value reproduces the definition of 'safety component' and its condition repeats the 'not necessary... or normal components may be substituted' proviso, so nothing is dropped."
+   },
+   {
+    "new_id": "learned_rules-0050",
+    "replaces": "st-0177",
+    "rules": [
+     "fix_obligation_whole"
+    ],
+    "before": "passed",
+    "after": "passed",
+    "why": "Passage states distributors must verify items (a)-(d) before making machinery available; the claim copies the list and keeps the 'before making available' condition."
+   },
+   {
+    "new_id": "learned_rules-0042",
+    "replaces": "st-0115",
+    "rules": [
+     "fix_list_item"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Claim reproduces the obligation, including the 'where not possible' alternatives, and the condition 'when instructions are in digital format' from the lead-in."
+   },
+   {
+    "new_id": "learned_rules-0040",
+    "replaces": "st-0096",
+    "rules": [
+     "fix_period_floor_and_start"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage states digital declarations accessible for expected lifetime and at least 10 years after placing on market or putting into service; the claim keeps that condition."
+   },
+   {
+    "new_id": "learned_rules-0046",
+    "replaces": "st-0149",
+    "rules": [
+     "fix_condition_whole"
+    ],
+    "before": "failed",
+    "after": "passed",
+    "why": "Passage states importers shall immediately inform competent national authorities where there is a risk; claim's condition reproduces the risk condition, though it omits the 'Member States in which mad"
+   },
+   {
+    "new_id": "learned_rules-0077",
+    "replaces": "st-0396",
+    "rules": [
+     "fix_listed_item_whole"
+    ],
+    "before": "failed",
+    "after": "failed",
+    "why": "Passage lists these band-saws at Annex I Part B point 4; the claim's condition keeps manual loading/unloading and wood or meat, though 'similar material' and 'types' are omitted."
+   }
+  ]
+ },
+ "error_types_of_the_117_failures": {
+  "definition cut before its end": {
+   "count": 22,
+   "examples": [
+    "st-0008",
+    "st-0025"
+   ]
+  },
+  "obligation value cut inside its sentence (qualifier follows)": {
+   "count": 23,
+   "examples": [
+    "st-0073",
+    "st-0109"
+   ]
+  },
+  "obligation value that is an empty fragment": {
+   "count": 6,
+   "examples": [
+    "st-0094",
+    "st-0190"
+   ]
+  },
+  "condition of a duty cut at its first comma, or leading clause not carried": {
+   "count": 9,
+   "examples": [
+    "st-0138",
+    "st-0151"
+   ]
+  },
+  "list item cut from the sentence that opens the list": {
+   "count": 26,
+   "examples": [
+    "st-0244",
+    "st-0313"
+   ]
+  },
+  "entry of an annex list without its qualifier ('for woodworking', 'of the following types')": {
+   "count": 7,
+   "examples": [
+    "st-0395",
+    "st-0388"
+   ]
+  },
+  "retention period or time limit without floor or starting point": {
+   "count": 7,
+   "examples": [
+    "st-0096",
+    "st-0938"
+   ]
+  },
+  "contents of the instructions or a heading stored as mustAccompany": {
+   "count": 7,
+   "examples": [
+    "st-0632",
+    "st-0785"
+   ]
+  },
+  "entry into force stored as date of application": {
+   "count": 1,
+   "examples": [
+    "st-1045"
+   ]
+  },
+  "exception or context in a neighbouring sentence (none starts with a listed exception word)": {
+   "count": 7,
+   "examples": [
+    "st-0204",
+    "st-1567"
+   ]
+  },
+  "other": {
+   "count": 2,
+   "examples": [
+    "st-0250",
+    "st-1523"
+   ]
+  }
+ },
+ "gate_rejections": {
+  "total": 160,
+  "no_anchor": {
+   "count": 60,
+   "pattern": "48 open points with an empty quote; not recoverable"
+  },
+  "missing_condition": {
+   "count": 53,
+   "pattern": "condition word in the quote, empty condition: 'if' 44, 'se' 6, except/unless/purché 1 each; one 'SE' is a company form, not Italian. recover_missing_condition rebuilds 46 (in the proposal under recovered_not_applied)"
+  },
+  "value_not_in_quote": {
+   "count": 28,
+   "pattern": "line-break hyphens of the PDF ('installa- tore'), straight against curly apostrophe, paraphrased values; no rule written"
+  },
+  "not_in_schema": {
+   "count": 15,
+   "pattern": "relation name invented by the model"
+  },
+  "condition_no_anchor": {
+   "count": 4
+  }
+ },
+ "reading_of_the_passed_facts_changed_or_flagged": {
+  "fix_definition_whole": "13: the rule is right in all (the stored definition stopped early; the second reader accepts a shortened excerpt)",
+  "fix_period_floor_and_start": "7: the rule is right in all (the starting point was missing: 'from the date of issue of the certificate', 'after such upload')",
+  "fix_listed_item_whole": "4: harmless (the entry replaces its number); the second reader is right that nothing was wrong",
+  "fix_list_item": "3: the rule adds the opening sentence the reader had not asked for; correct text, no error repaired",
+  "fix_obligation_whole": "2: the rule is right (values 'are accompanied by' and 'shall verify that' were fragments)",
+  "fix_condition_whole": "0 after narrowing",
+  "check_accompany_not_stated": "6: items of a list of what the instructions contain; the rule's reading is defensible, the reader's too: flag only",
+  "dropped": "fix_obligation_whole in its wide form (every cut duty lengthened): 40 failures against 72 passed facts changed; kept as fix_obligation_whole_wide, outside FIXES"
+ },
+ "criterion_for_close": "a fact is closed only when a rebuilt fact that passed the gate replaces it; a check alone closes only a value that is a number or punctuation (none in this store); every other check result is flag_only",
+ "addressed_is_measured_by": "code (asked_for): the rebuilt fact holds a word that the second reader's reason names and the old fact lacked: 69 of the 74 failures a rule fires on. Read by hand, the other 5 (st-0040, st-0152, st-0190, st-0247, st-1576) also change in the direction asked. Changed in the direction asked is not the same as passing: in the spot-check 13 of 15 formerly failed facts passed the second reader, 2 did not (st-0395, st-0396: the value is whole but the old condition is still the short one)."
+}

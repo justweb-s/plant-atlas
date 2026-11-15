@@ -48,7 +48,7 @@ def test_part_loads_and_every_statement_passes_the_quote_check(layer):
     store = Store(ChunkCorpus(chunks))
     for statement in statements:
         assert statement.source_doc in of_layer
-        assert statement.status in ("current", "open_point")
+        assert statement.status in ("current", "open_point", "closed")   # closed: replaced by a learned rule, kept
         assert statement.status == "open_point" or statement.predicate in RELATIONS
         assert statement.asserted_by == f"strategy_b:{layer}"
         again = store.write_statement(statement.model_copy())
