@@ -1,0 +1,444 @@
+{
+ "about": "Dev set (slice IGEA): 14 domande di tipo I sulle cadenze e sui termini di verifica degli apparecchi di sollevamento, scritte solo dalla scheda tecnica igea-equipment, dall'Allegato VII e art. 71 del D.Lgs. 81/2008 e dal D.M. 11 aprile 2011; data di riferimento 2026-11-14.",
+ "cqs": [
+  {
+   "id": "DEV-IGEA-01",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), ogni quanto deve essere verificata la gru a ponte scorrevole IGEA-PRIM 5t in posizione 13?",
+   "question_en": "Given that the company works in mining areas (extractive sector), how often must the IGEA-PRIM 5t overhead travelling crane at position 13 be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P2Y"
+   },
+   "answer_text": "La gru a ponte in posizione 13 è un apparecchio di sollevamento materiali di tipo fisso, portata 5000 kg (> 200 kg), costruito nel 2017: al 14/11/2026 ha 9 anni, quindi anno di fabbricazione non antecedente 10 anni. Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe del settore estrattivo. Si applica l'Allegato VII riga 16 (tipo fisso, settore estrattivo, non antecedente 10 anni): verifica biennale.",
+   "trap": "Annuale (P1Y): chi vede le altre gru a ponte dell'elenco, tutte anteriori al 1990, applica la riga 15 senza controllare l'anno 2017. Oppure triennale (P3Y): riga 18, valida solo per utilizzo regolare fuori dai settori elencati.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 16",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-02",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Tenuto conto che l'azienda opera in aree minerarie (settore estrattivo), ogni quanto deve essere verificata la gru a ponte scorrevole DEFRIES-TITANO in posizione 11?",
+   "question_en": "Given that the company works in mining areas (extractive sector), how often must the DEFRIES-TITANO overhead travelling crane at position 11 be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "La gru a ponte in posizione 11 è di tipo fisso, portata 3000 kg (> 200 kg), costruita nel 1978: al 14/11/2026 ha 48 anni, quindi anno di fabbricazione antecedente 10 anni. Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe del settore estrattivo. Si applica l'Allegato VII riga 15 (tipo fisso, settore estrattivo, antecedente 10 anni): verifica annuale.",
+   "trap": "Biennale (P2Y): riga 17 (tipo fisso, antecedente 10 anni, ma utilizzo regolare) oppure riga 16 se si legge male 'antecedente' / 'non antecedente'.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 SCORREVOLE TITANO"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 15",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-03",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Ogni quanto deve essere verificata la gru idraulica per autocarro AMCO VEBA in posizione 4, che ha una portata di soli 520 kg?",
+   "question_en": "How often must the AMCO VEBA hydraulic truck-mounted crane at position 4, whose capacity is only 520 kg, be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "La gru per autocarro in posizione 4 è un apparecchio di sollevamento materiali di tipo mobile; la portata di 520 kg supera la soglia di 200 kg, quindi rientra nell'Allegato VII. Assunzione di contesto: l'azienda opera in aree minerarie, quindi si applicano le righe del settore estrattivo. Si applica la riga 12 (tipo mobile o trasferibile, settore estrattivo), che non distingue per età: verifica annuale.",
+   "trap": "Nessuna verifica, perché la portata sembra piccola: ma la soglia dell'Allegato VII è 200 kg e 520 kg la supera. Oppure biennale, cercando una riga per età che nel settore estrattivo, per il tipo mobile, non esiste.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU IDRAULICA IVECO 4 AMCO VEBA 520 CA 200241/06 2005 18825 DF 019 FJ PER AUTOCARRO FIAT"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "Comune - area mineraria o settore di appartenenza"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 12",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 12",
+     "role": "supports",
+     "quote": "Apparecchi di sollevamento materiali con portata superiore a 200 Kg. non azionati a mano"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-04",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Se l'autogru JCB JS190NLC in posizione 18 fosse impiegata con modalità di utilizzo regolare, cioè fuori dai settori costruzioni, siderurgico, portuale ed estrattivo, ogni quanto dovrebbe essere verificata?",
+   "question_en": "If the JCB JS190NLC mobile crane at position 18 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "L'autogru in posizione 18 è di tipo mobile, portata 7500 kg (> 200 kg), costruita nel 2010: al 14/11/2026 ha 16 anni, quindi anno di fabbricazione antecedente 10 anni. Con utilizzo regolare (ipotesi posta dalla domanda) si applica l'Allegato VII riga 14: verifiche annuali.",
+   "trap": "Biennale (P2Y): riga 13, valida solo se l'anno di fabbricazione non è antecedente 10 anni; il 2010 sembra recente rispetto al resto dell'elenco, ma al 2026 sono 16 anni.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "18 AUTOGRU' JCB - JS190NLC 7500 2010 CA cingolato 314198"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 14",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche annuali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-05",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Ogni quanto deve essere verificata la piattaforma elevatrice HINOWA in posizione 24?",
+   "question_en": "How often must the HINOWA elevating platform at position 24 be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P1Y"
+   },
+   "answer_text": "La piattaforma elevatrice in posizione 24 è un'attrezzatura per il sollevamento di persone del tipo ponte mobile sviluppabile su carro ad azionamento motorizzato, in dotazione al settore Meccanizzazione di Campo Pisano (non in un frutteto): si applica l'Allegato VII riga 2, verifica annuale, senza distinzione di età o settore.",
+   "trap": "Triennale (P3Y): la riga 3 contiene le parole 'piattaforme di lavoro mobili elevabili', ma riguarda le operazioni in frutteto. Oppure biennale (P2Y): trattandola come apparecchio di sollevamento materiali recente (2017) con le righe 13 o 16.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "PIATTAFORMA 2017- 24 HINOWA 230 2017 2G320 ELEVATRICE 200076-ca"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 9",
+     "role": "supports",
+     "quote": "2017- Meccanizzazione 24 A HINOWA 230 2017 2G320 Iglesias 200076-ca Campo Pisano"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 2",
+     "role": "supports",
+     "quote": "Ponti mobili sviluppabili su carro ad azionamento motorizzato | Verifica annuale"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-06",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Se la gru a ponte scorrevole IGEA-PRIM 5t in posizione 13 fosse impiegata con modalità di utilizzo regolare, cioè fuori dai settori costruzioni, siderurgico, portuale ed estrattivo, ogni quanto dovrebbe essere verificata?",
+   "question_en": "If the IGEA-PRIM 5t overhead travelling crane at position 13 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P3Y"
+   },
+   "answer_text": "La gru a ponte in posizione 13 è di tipo fisso, portata 5000 kg, costruita nel 2017: al 14/11/2026 ha 9 anni, quindi anno di fabbricazione non antecedente 10 anni. Con utilizzo regolare (ipotesi posta dalla domanda) si applica l'Allegato VII riga 18: verifiche triennali.",
+   "trap": "Biennale (P2Y): è la cadenza reale della stessa gru nel settore estrattivo (riga 16), oppure la riga 17 se si sbaglia l'età.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 18",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo regolare e anno di fabbricazione non antecedente 10 anni | Verifiche triennali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-07",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Se la gru a ponte scorrevole GUTTER in posizione 10 fosse impiegata con modalità di utilizzo regolare, cioè fuori dai settori costruzioni, siderurgico, portuale ed estrattivo, ogni quanto dovrebbe essere verificata?",
+   "question_en": "If the GUTTER overhead travelling crane at position 10 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?",
+   "answer": {
+    "kind": "duration",
+    "value": "P2Y"
+   },
+   "answer_text": "La gru a ponte in posizione 10 è di tipo fisso, portata 3000 kg (> 200 kg), costruita nel 1988: al 14/11/2026 ha 38 anni, quindi anno di fabbricazione antecedente 10 anni. Con utilizzo regolare (ipotesi posta dalla domanda) si applica l'Allegato VII riga 17: verifiche biennali.",
+   "trap": "Annuale (P1Y): è la cadenza reale della stessa gru nel settore estrattivo (riga 15), oppure la riga 14 se la si considera di tipo mobile.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 10 GUTTER 3000 CA 197 / 88 1988 24984 SCORREVOLE"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 17",
+     "role": "supports",
+     "quote": "di tipo fisso, con modalità di utilizzo regolare e anno di fabbricazione antecedente 10 anni | Verifiche biennali"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-08",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Quali posizioni dell'elenco corrispondono agli apparecchi di sollevamento ubicati nel Comune di Lula (miniera Sos Enattos)?",
+   "question_en": "Which positions of the list are the lifting devices located in the municipality of Lula (Sos Enattos mine)?",
+   "answer": {
+    "kind": "set",
+    "value": [
+     "6",
+     "23"
+    ]
+   },
+   "answer_text": "La tabella B3 dell'Allegato B elenca per Lula (Sos Enattos) due apparecchi: la posizione 6 (gru idraulica per autocarro FASSI F 28A.22) e la posizione 23 (gru a cavalletto da 35000 kg). Il riepilogo al punto 2.2 conferma 2 apparecchi a Lula.",
+   "trap": "Aggiungere le posizioni 5 e 12, che sono a Gadoni (Funtana Raminosa), o rispondere solo 23 perché la gru a cavalletto è l'apparecchio più visibile.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 9",
+     "role": "supports",
+     "quote": "6 PER 995 200081/0 2004 6344 Lula Lula (Sos Enattos)"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 9",
+     "role": "supports",
+     "quote": "Lula (Sos Enattos) 23 GCB 35 X 35000 NU 16/95 1989 459 Lula CAVALLETTO"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "2 Lula Miniera Sos Enattos"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-09",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Con quanto preavviso minimo il verificatore aggiudicatario deve comunicare a IGEA la pianificazione dei controlli degli apparecchi?",
+   "question_en": "With what minimum notice must the appointed verifier communicate to IGEA the planning of the checks on the devices?",
+   "answer": {
+    "kind": "duration",
+    "value": "P15D"
+   },
+   "answer_text": "Tra gli impegni dell'aggiudicatario/verificatore la scheda tecnica prevede di pianificare i controlli insieme agli incaricati IGEA dando comunicazione con un preavviso di almeno 15 giorni.",
+   "trap": "30 giorni (P30D): è il termine del DM 11 aprile 2011 per la richiesta o l'esecuzione delle verifiche successive, non il preavviso fissato dalla scheda.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 5",
+     "role": "supports",
+     "quote": "dando comunicazione a IGEA con un preavviso di almeno 15 giorni"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-10",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Per le operazioni di verifica IGEA deve mettere a disposizione del verificatore anche gli apparecchi di misurazione?",
+   "question_en": "For the verification operations, must IGEA also make the measuring instruments available to the verifier?",
+   "answer": {
+    "kind": "boolean",
+    "value": false
+   },
+   "answer_text": "No: al punto 4.2.1 la scheda tecnica stabilisce che IGEA mette a disposizione il personale occorrente sotto la vigilanza di un preposto e i mezzi necessari (pesi campione), esclusi gli apparecchi di misurazione.",
+   "trap": "Sì: la frase elenca personale e mezzi necessari e un lettore frettoloso non nota l'esclusione finale.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 4",
+     "role": "supports",
+     "quote": "i mezzi necessari per l’esecuzione delle operazioni stesse (pesi campione), esclusi gli apparecchi di misurazione"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-11",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Le verifiche oggetto della scheda tecnica IGEA sono verifiche periodiche successive alla prima: secondo il D.M. 11 aprile 2011, quale soggetto ne è titolare ed entro quanti giorni dalla richiesta devono essere effettuate?",
+   "question_en": "The verifications covered by the IGEA technical sheet are periodic verifications after the first one: under the Ministerial Decree of 11 April 2011, which body is in charge of them and within how many days from the request must they be carried out?",
+   "answer": {
+    "kind": "text",
+    "value": "ASL, entro 30 giorni dalla richiesta",
+    "keywords": [
+     [
+      "ASL"
+     ],
+     [
+      "30",
+      "trenta",
+      "thirty"
+     ]
+    ]
+   },
+   "answer_text": "La scheda disciplina la verifica periodica successiva alla prima. L'art. 2, comma 1, del D.M. 11 aprile 2011 stabilisce che le ASL sono titolari delle verifiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta.",
+   "trap": "INAIL entro 45 giorni (art. 71 c. 11) o entro 60 giorni (D.M. art. 2 c. 1): sono i termini della PRIMA verifica, non di quelle successive.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "la verifica periodica (successiva alla prima) degli apparecchi di sollevamento"
+    },
+    {
+     "source": "DM2011",
+     "locator": "art. 2, c. 1",
+     "role": "supports",
+     "quote": "le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-12",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Durante la verifica periodica dell'autogru P&H R200 in posizione 17, il datore di lavoro deve esibire le risultanze di un'indagine supplementare?",
+   "question_en": "During the periodic verification of the P&H R200 mobile crane at position 17, must the employer show the results of a supplementary investigation?",
+   "answer": {
+    "kind": "boolean",
+    "value": true
+   },
+   "answer_text": "Sì. L'autogru in posizione 17 è una gru mobile costruita nel 1977, quindi con oltre 20 anni di esercizio. L'Allegato II del D.M. 11 aprile 2011 definisce l'indagine supplementare per le attrezzature in esercizio da oltre 20 anni (punto 2, lett. c) e al punto 3.2.3 impone al datore di lavoro di esibirne le risultanze nelle verifiche periodiche delle gru mobili; la scheda chiede infatti, oltre i 20 anni di età, la certificazione di verifica strutturale dei cicli di vita residui.",
+   "trap": "No: l'indagine supplementare non compare nell'Allegato VII né nell'art. 71, e chi guarda solo la cadenza della verifica non la trova.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "17 AUTOGRU' P&H R200 18760 RM - I - 22027 1977 70761"
+    },
+    {
+     "source": "DM2011",
+     "locator": "Allegato II",
+     "role": "supports",
+     "quote": "nell'utilizzo dell'attrezzatura di lavoro messe in esercizio da oltre 20 anni"
+    },
+    {
+     "source": "DM2011",
+     "locator": "Allegato II",
+     "role": "supports",
+     "quote": "sono esibite dal datore di lavoro le risultanze delle indagini supplementari di cui al punto 2, lettera c)"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 5",
+     "role": "supports",
+     "quote": "se superiore a 20 anni di età, certificazione di verifica strutturale dei cicli di vita residui"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-13",
+   "type": "I",
+   "split": "dev",
+   "question_it": "In che data è stata eseguita l'ultima verifica periodica della gru a ponte scorrevole DEMAG in posizione 9?",
+   "question_en": "On what date was the last periodic verification of the DEMAG overhead travelling crane at position 9 carried out?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "Non determinabile dai documenti. La scheda afferma che le date delle ultime verifiche sono descritte nelle tabelle dell'Allegato A, ma la riga della posizione 9 riporta solo apparecchio, marca, portata, matricola INAIL, anno di costruzione e numero di fabbrica: nessuna data di verifica.",
+   "trap": "Rispondere 1986 o 1985: sono l'anno della matricola INAIL (CA 128 / 86) e l'anno di costruzione, non la data di una verifica.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 3",
+     "role": "supports",
+     "quote": "le relative date delle ultime verifiche, sono descritte nelle tabelle dell’Allegato A"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "GRU A PONTE 9 DEMAG 5000 CA 128 / 86 1985 503292 SCORREVOLE"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 6",
+     "role": "supports",
+     "quote": "numero di portata matr. anno di pos apparecchio marca/tipo veicolo fabbrica- targa Kg INAIL costruzione matricola"
+    }
+   ]
+  },
+  {
+   "id": "DEV-IGEA-14",
+   "type": "I",
+   "split": "dev",
+   "question_it": "Alla data del 14 novembre 2026 la verifica periodica dell'autogru P&H R200 in posizione 17 è scaduta?",
+   "question_en": "As of 14 November 2026, is the periodic verification of the P&H R200 mobile crane at position 17 overdue?",
+   "answer": {
+    "kind": "unknown",
+    "value": null
+   },
+   "answer_text": "Non determinabile dai documenti. Si può ricavare la cadenza (annuale, Allegato VII riga 12, nell'ipotesi del settore estrattivo), ma per sapere se la verifica è scaduta serve la data dell'ultima verifica, che la scheda non riporta; inoltre il servizio descritto copre solo le annualità 2019, 2020 e 2021.",
+   "trap": "Sì: l'apparecchio è del 1977 e il servizio finisce nel 2021, quindi sembra scaduto; ma l'assenza di dati sulle verifiche dopo il 2021 non prova che non siano state fatte.",
+   "evidence": [
+    {
+     "source": "igea-equipment",
+     "locator": "p. 7",
+     "role": "supports",
+     "quote": "17 AUTOGRU' P&H R200 18760 RM - I - 22027 1977 70761"
+    },
+    {
+     "source": "igea-equipment",
+     "locator": "p. 4",
+     "role": "supports",
+     "quote": "La durata del presente servizio è da intendersi per anni 3 (tre) ossia per le annualità 2019, 2020, 2021"
+    },
+    {
+     "source": "DLGSALLVII",
+     "locator": "Allegato VII, riga 12",
+     "role": "supports",
+     "quote": "di tipo mobile o trasferibile, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo | Verifica annuale"
+    }
+   ]
+  }
+ ]
+}

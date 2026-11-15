@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: After 20 January 2027, can a vehicle servicing lift built to harmonised standards covering all requirements be certified with internal production control alone?\n\nAnswer A: true\nYes, under Regulation Article 25(3) (Annex I Part A, point 3), a manufacturer may use internal production control when the lift is designed and built to harmonised standards, since the Regulation applies from 20 January 2027 and Directive 2006/42/EC is repealed from that date.\nEvidence of A:\n- vehicle servicing lifts: listedIn = Vehicle servicing lifts | sentence: \"3. Vehicle servicing lifts.\" [REG, Annex I, Part A, point 3]\n- manufacturer applying internal production control: hasObligation = it shall design and construct the machinery or related product (condition: if a manufacturer applies the internal production control procedure referred to in point (a)) | sentence: \"If a manufacturer applies the internal production control procedure referred to in point (a), it shall design and construct the machinery or related product in accordance with the harmonised standards or common specifications specific to that category of machinery or related product covering all the relevant essential health and safety requirements.\" [REG, Art. 25(3)]\n- Regulation: appliesFrom = 20 January 2027 (condition: However, the following Articles shall apply from the following dates) | sentence: \"read: ‘ 20 January 2027 ’.\" [CORR, Corrigendum, point 10]\n- Directive 2006/42/EC: repealedFrom = 20 January 2027 | sentence: \"read: ‘ 20 January 2027 ’.\" [CORR, Corrigendum, point 5]\n- Articles 26 to 42: appliesFrom = 20 January 2024 | sentence: \"read: ‘ 20 January 2024 ’.\" [CORR, Corrigendum, point 11]\n\nAnswer B: false\nNo. Under Regulation Article 25(3), internal production control alone is available only for categories listed in Annex I, Part B, and vehicle servicing lifts are listed in Annex I, Part A, point 3.\nEvidence of B:\n- Read on demand: REG, Art. 25(3) | sentence: \"Where the category of machinery or related product is listed in Annex I, Part B, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures:\" [REG, Art. 25(3)]\n- Read on demand: REG, Annex I, Part A, point 3 | sentence: \"3. Vehicle servicing lifts.\" [REG, Annex I, Part A, point 3]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Art. 25(3) opens with the condition that the category is listed in Annex I, Part B, and only then offers internal production control. The evidence shows vehicle servicing lifts are in Annex I, Part A, point 3. A's evidence quotes the internal-control sentence but never shows that it covers a Part A category, so it does not support A's answer for the exact subject. B's evidence supports 'No'.\", \"choice\": \"B\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1897,
+   "completion_tokens": 602,
+   "total_tokens": 2499
+  }
+ }
+}

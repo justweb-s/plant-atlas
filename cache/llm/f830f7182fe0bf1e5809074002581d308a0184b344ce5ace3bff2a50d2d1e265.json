@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: According to the nanoScan3 manual, in which situations (apart from the regular check) must the protective device and its application be thoroughly checked?\n\nAnswer A: [\"after changes to the configuration or the safety function\", \"before commissioning\"]\nApart from the regular check, the nanoScan3 manual (p. 50) requires a thorough check of the protective device after changes to its configuration or safety function, after changes to its mounting, alignment or electrical connection, and before commissioning.\nEvidence of A:\n- protective device thorough check: requiresCheckAfter = After changes to the configuration or the safety function | sentence: \"O Before commissioning O After changes to the configuration or the safety function O After changes to the mounting, the alignment, or the electrical connection O After exceptional events, such as after manipulation has been detected, after modification of the machine,\" [nanoscan3-manual, p. 50]\n- protective device thorough check: requiresCheckAfter = After changes to the mounting, the alignment, or the electrical connection | sentence: \"O Before commissioning O After changes to the configuration or the safety function O After changes to the mounting, the alignment, or the electrical connection O After exceptional events, such as after manipulation has been detected, after modification of the machine,\" [nanoscan3-manual, p. 50]\n- protective device thorough check: requiresCheckAfter = Before commissioning | sentence: \"O Before commissioning O After changes to the configuration or the safety function O After changes to the mounting, the alignment, or the electrical connection O After exceptional events, such as after manipulation has been detected, after modification of the machine,\" [nanoscan3-manual, p. 50]\n\nAnswer B: [\"before commissioning\", \"after changes to the configuration or the safety function\", \"after changes to the mounting, the alignment, or the electrical connection\", \"after exceptional events, such as manipulation being detected, modification of the machine, or replacing components\"]\nAccording to the nanoScan3 manual, section 5.6.1 (p. 50), apart from the regular check, the protective device and its application must be thoroughly checked before commissioning, after changes to the configuration or safety function, after changes to the mounting, alignment or electrical connection, and after exceptional events.\nEvidence of B:\n- Read on demand: nanoscan3-manual, p. 50 | sentence: \"The protective device and its application must be thoroughly checked in the follow- ing situations: O Before commissioning O After changes to the configuration or the safety function O After changes to the mounting, the alignment, or the electrical connection O After exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components\" [nanoscan3-manual, p. 50]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"The manual's list (p. 50) has four situations: before commissioning, after changes to configuration/safety function, after changes to mounting/alignment/electrical connection, and after exceptional events. Answer B lists all four, each stated in its evidence. Answer A's list omits two items (mounting/alignment/electrical connection changes and exceptional events), so it is incomplete, even though its prose mentions three.\", \"choice\": \"B\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1924,
+   "completion_tokens": 148,
+   "total_tokens": 2072
+  }
+ }
+}

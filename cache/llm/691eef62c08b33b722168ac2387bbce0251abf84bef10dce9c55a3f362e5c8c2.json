@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "How often does the manufacturer recommend unpacking and starting up a UR10e robot kept in long-term storage?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Con quale frequenza il produttore raccomanda di disimballare e avviare un robot UR10e conservato per un lungo periodo di stoccaggio?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 695,
+   "completion_tokens": 227,
+   "total_tokens": 922
+  }
+ }
+}

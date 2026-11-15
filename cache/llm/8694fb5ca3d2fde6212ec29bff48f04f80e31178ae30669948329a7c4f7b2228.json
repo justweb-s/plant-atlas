@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: If the UR5e arm in the cell is replaced with a UR10e, by how many millimetres does the reach increase?\n\nAnswer A: \"1300 mm\"\nUR10e robot has a reach of 1300 mm (source: ur10e-manual, p. 47).\nEvidence of A:\n- [skill single_value: relation_facts > choose > settle > answer] UR10e robot: hasReach = 1300 mm | sentence: \"The robot extends 1300 mm from the base joint.\" [ur10e-manual, p. 47]\n\nAnswer B: reader B found no passage that states the answer. Its note: The passages give the UR10e reach as 1300 mm (UR10e User Manual, section 6.4), but they do not give the UR5e reach, so the increase in millimetres cannot be calculated."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"The question asks for the increase in reach when replacing a UR5e with a UR10e, which needs both reaches. A's evidence only gives the UR10e reach of 1300 mm, not the UR5e reach or the difference, so it does not support 1300 mm as the increase. B found nothing and correctly notes the UR5e reach is missing.\", \"choice\": \"neither\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1305,
+   "completion_tokens": 129,
+   "total_tokens": 1434
+  }
+ }
+}

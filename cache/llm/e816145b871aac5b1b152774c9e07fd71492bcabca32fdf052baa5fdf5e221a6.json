@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: How often must the filters of the UR10e Control Box be replaced?\n\nAnswer A: \"P1Y\"\nSostituzione dei filtri degli armadi di sicurezza must be checked every frequenza annuale (P1Y) (source: unict-guideline, p. 14).\nEvidence of A:\n- [skill single_value: relation_facts > choose > settle > answer] Sostituzione dei filtri degli armadi di sicurezza: requiresPeriodicCheck = frequenza annuale | sentence: \"Sostituzione dei filtri (frequenza annuale) e smaltimento degli stessi secondo normativa.\" [unict-guideline, p. 14]\n\nAnswer B: reader B found no passage that states the answer. Its note: The UR10e User Manual (section 18, Maintenance and Repair, p. 216) explains how to replace the Control Box filters but does not state how often this must be done, and the passages provided give no interval."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "Reader B found no interval, so the question is whether A's evidence states one for the UR10e Control Box. It does not. The sentence from the unict-guideline concerns the filters of \"armadi di sicurezza\" (safety cabinets), which is a different device from the UR10e Control Box. Neither answer is supported.\n\n{\"reasoning\": \"Reader B found no interval for the UR10e Control Box filters. Reader A's evidence is about filters of safety cabinets (armadi di sicurezza), a neighbouring subject rather than the UR10e Control Box, so it does not support the annual answer.\", \"choice\": \"neither\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1354,
+   "completion_tokens": 313,
+   "total_tokens": 1667
+  }
+ }
+}

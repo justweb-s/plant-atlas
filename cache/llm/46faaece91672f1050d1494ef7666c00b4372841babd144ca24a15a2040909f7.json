@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the nanoScan3 manual, in which situations (apart from the regular check) must the protective device and its application be thoroughly checked?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo il manuale di nanoScan3, in quali situazioni (oltre al controllo periodico) il dispositivo di protezione e la sua applicazione devono essere controllati accuratamente?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 700,
+   "completion_tokens": 236,
+   "total_tokens": 936
+  }
+ }
+}

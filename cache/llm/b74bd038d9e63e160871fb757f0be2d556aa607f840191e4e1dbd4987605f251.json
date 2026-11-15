@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "From which date do Articles 26 to 42 of Regulation (EU) 2023/1230 (notification of conformity assessment bodies) apply?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "A partire da quale data si applicano gli articoli da 26 a 42 del regolamento (UE) 2023/1230 (notifica degli organismi di valutazione della conformità)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 704,
+   "completion_tokens": 224,
+   "total_tokens": 928
+  }
+ }
+}

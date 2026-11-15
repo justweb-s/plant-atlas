@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "During the periodic verification of the P&H R200 mobile crane at position 17, must the employer show the results of a supplementary investigation?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Durante la verifica periodica della gru mobile P&H R200 in posizione 17, il datore di lavoro deve esibire i risultati di un accertamento integrativo?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 699,
+   "completion_tokens": 348,
+   "total_tokens": 1047
+  }
+ }
+}

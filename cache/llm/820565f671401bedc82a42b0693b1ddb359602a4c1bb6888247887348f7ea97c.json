@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "With what minimum notice must the appointed verifier communicate to IGEA the planning of the checks on the devices?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Con quale preavviso minimo il verificatore incaricato deve comunicare a IGEA la pianificazione delle verifiche sui dispositivi?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 694,
+   "completion_tokens": 185,
+   "total_tokens": 879
+  }
+ }
+}

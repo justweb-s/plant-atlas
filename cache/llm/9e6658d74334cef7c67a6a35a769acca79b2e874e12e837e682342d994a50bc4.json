@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "For the periodic verifications after the first one of Annex VII equipment, is the employer obliged to apply to the ASL (local health authority), being allowed to use an authorised body only once thirty days from the request have elapsed?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Per le verifiche periodiche successive alla prima delle attrezzature di cui all'Allegato VII, il datore di lavoro è obbligato a rivolgersi all'ASL, potendo ricorrere a un organismo abilitato solo decorsi trenta giorni dalla richiesta?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 728,
+   "completion_tokens": 253,
+   "total_tokens": 981
+  }
+ }
+}

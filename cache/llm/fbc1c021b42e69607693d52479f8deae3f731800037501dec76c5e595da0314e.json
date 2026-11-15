@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: In November 2028, how often will the IGEA-PRIM overhead travelling crane at position 13 of the IGEA list, built in 2017, have to be verified?\n\nAnswer A: \"P2Y\"\nIGEA device 13 must be verified every P2Y on 2026-11-14: GRU A PONTE SCORREVOLE is lifting equipment of type fisso (mapping of the rule); capacity 5000 kg is above 200 kg; sector estrattivo: named in the row; built in 2017: not more than 10 years before 2026-11-14; Annex VII row for type fisso, sector use, age new (source: DLGSALLVII, Allegato VII, riga 16). Assumptions of the rule: truck cranes and mobile cranes are treated as mobile, overhead and gantry cranes and hoists as fixed, and the site's sector applies to every device.\nEvidence of A:\n- [skill verification_interval: device > annex_rows > fixed_or_mobile > capacity > sector > age > row > answer] IGEA device 13: deviceKind = GRU A PONTE | sentence: \"GRU A PONTE 2017- 13 IGEA -PRIM 5t 5000 2017 gen-17 SCORREVOLE 200086/CA\" [igea-equipment, p. 6]\n- IGEA device 13: capacityKg = 5000 | sentence: \"13 IGEA -PRIM 5t 5000 2017 gen-17\" [igea-equipment, p. 6]\n- IGEA site: siteSector = Area mineraria | sentence: \"Qtà COMUNE Area mineraria Monteponi 19 Iglesias Campo Pisano Masua - Acquaresi 2 Gadoni Miniera Funtana Raminosa 2 Lula Miniera Sos Enattos 1 Furtei Miniera Furtei\" [igea-equipment, p. 3]\n- IGEA device 13: yearBuilt = 2017 | sentence: \"13 IGEA -PRIM 5t 5000 2017 gen-17\" [igea-equipment, p. 6]\n- Apparecchi di sollevamento materiali: verificationInterval = Verifiche biennali (condition: con portata superiore a 200 Kg , non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni) | sentence: \"Apparecchi di sollevamento materiali con portata superiore a 200 Kg , non azionati a mano, di tipo fisso, con modalità di utilizzo riscontrabili in settori di impiego quali costruzioni, siderurgico, portuale, estrattivo e con anno di fabbricazione non antecedente 10 anni | Verifiche biennali\" [DLGSALLVII, Allegato VII, riga 16]\n\nAnswer B: reader B found no passage that states the answer. Its note: Under Allegato VII of D.Lgs. 81/08 (riga 16), the biennial cadence covers equipment built no more than 10 years earlier. The IGEA-PRIM crane (position 13, built 2017) is past that limit by November 2028, and the passages do not state the cadence that would apply to it then."
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Answer A's rule applies the 10-year age condition as of 2026-11-14, when the 2017 crane is still within it. The question asks about November 2028, when the crane is 11 years old and outside the condition, and no passage states the cadence for that date. Reader B correctly reports that the evidence does not give the 2028 cadence, so neither answer is supported.\", \"choice\": \"neither\"}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 2177,
+   "completion_tokens": 437,
+   "total_tokens": 2614
+  }
+ }
+}

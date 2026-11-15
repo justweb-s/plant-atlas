@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "The Ministerial Decree of 11 April 2011 names INAIL as holder of the first periodic verification and the ASL for the following ones. For a variable-inclination aerial ladder owned by the national fire brigade (Corpo nazionale dei vigili del fuoco), may the brigade carry out the periodic verifications itself?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il Decreto Ministeriale dell'11 aprile 2011 indica l'INAIL come soggetto competente per la prima verifica periodica e le ASL per quelle successive. Per una autoscala a inclinazione variabile di proprietà del Corpo nazionale dei vigili del fuoco, il Corpo può effettuare autonomamente le verifiche periodiche?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 764,
+   "completion_tokens": 266,
+   "total_tokens": 1030
+  }
+ }
+}

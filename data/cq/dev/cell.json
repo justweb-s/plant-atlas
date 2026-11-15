@@ -1,0 +1,349 @@
+{
+  "about": "Development set, slice 'cell': 14 type-I questions on the real machines of the robot cell (UR5e, UR10e, nanoScan3, MA STAR) with gold answers written only from the source documents.",
+  "cqs": [
+    {
+      "id": "DEV-CELL-01",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Ogni quanto va controllato l'indicatore di usura della chiocciola portante (load nut) del ponte sollevatore a due colonne MA STAR?",
+      "question_en": "How often must the wear indicator of the load nut of the MA STAR two post lift be checked?",
+      "answer": {
+        "kind": "duration",
+        "value": "P6M"
+      },
+      "answer_text": "Il manuale MA STAR, sezione 7.3 «Checking the Load Nut's Wear Indicator», prescrive il controllo dell'indicatore di usura ogni 6 mesi, con sostituzione della coppia di chiocciole al raggiungimento del limite di usura.",
+      "trap": "12 mesi: è l'intervallo di sostituzione del feltro di lubrificazione (sez. 7.2.2), non del controllo dell'indicatore di usura; oppure «ogni giorno», che vale per i controlli visivi e funzionali della sezione 6.",
+      "evidence": [
+        {
+          "source": "mastar-manual",
+          "locator": "p. 34",
+          "role": "supports",
+          "quote": "wear indicator must be checked every 6 months, and the pair of nuts must be replaced when the wear limit is reached"
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-02",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Ogni quanto il fabbricante raccomanda di disimballare e avviare un robot UR10e tenuto in stoccaggio a lungo termine?",
+      "question_en": "How often does the manufacturer recommend unpacking and starting up a UR10e robot kept in long-term storage?",
+      "answer": {
+        "kind": "duration",
+        "value": "P1Y"
+      },
+      "answer_text": "Il manuale UR10e, sezione 17.4 «Long Term Storage», raccomanda di disimballare e avviare i robot almeno una volta l'anno, facendo girare un programma a carico leggero per distribuire i lubrificanti.",
+      "trap": "6 mesi: è la soglia oltre la quale lo stoccaggio è considerato «a lungo termine», non la frequenza di avviamento.",
+      "evidence": [
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 209",
+          "role": "supports",
+          "quote": "Universal Robots recommends to unpack and start up robots at least yearly"
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-03",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Qual è la durata di missione (mission time TM, ISO 13849) dichiarata dal fabbricante per il laser scanner di sicurezza nanoScan3?",
+      "question_en": "What mission time (TM, ISO 13849) does the manufacturer state for the nanoScan3 safety laser scanner?",
+      "answer": {
+        "kind": "duration",
+        "value": "P20Y"
+      },
+      "answer_text": "Nei dati tecnici del manuale nanoScan3 (capitolo 14 «Technical data», caratteristiche di sicurezza) il fabbricante indica TM (mission time) secondo ISO 13849 pari a 20 anni.",
+      "trap": "1 anno: è la periodicità minima della verifica approfondita regolare (sez. 5.6.2), non la durata di missione.",
+      "evidence": [
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 130",
+          "role": "supports",
+          "quote": "TM (mission time) (ISO 13849) 20 years"
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-04",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Per quanto tempo il manuale dell'UR5e dice di attendere, dopo aver spento il robot, per lasciarlo raffreddare prima di maneggiarlo?",
+      "question_en": "For how long does the UR5e manual say to wait after powering the robot off to let it cool down before handling it?",
+      "answer": {
+        "kind": "duration",
+        "value": "PT1H"
+      },
+      "answer_text": "Il manuale UR5e, sezione 4.3 «General Warnings and Cautions» (avvertenza HOT SURFACE), indica di lasciar raffreddare il robot spegnendolo e attendendo un'ora.",
+      "trap": "«Alcune ore»: riguarda le alte tensioni residue negli alimentatori della Control Box (cap. 18), non il raffreddamento del braccio.",
+      "evidence": [
+        {
+          "source": "ur5e-manual",
+          "locator": "p. 30",
+          "role": "supports",
+          "quote": "Allow the robot to cool down by powering it off and waiting one hour."
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-05",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Secondo le linee guida UNIVPM sulla gestione delle attrezzature, i risultati scritti dei controlli sulle attrezzature di lavoro (come le macchine dell'isola) relativi ad almeno quale periodo passato devono essere conservati a disposizione degli organi di vigilanza?",
+      "question_en": "According to the UNIVPM equipment guideline, the written results of the checks on work equipment (such as the machines of the cell) must be kept available to the supervisory bodies for at least how long back?",
+      "answer": {
+        "kind": "duration",
+        "value": "P3Y"
+      },
+      "answer_text": "Le linee guida UNIVPM, sezione 2 «Normativa di riferimento», riportano l'art. 71 comma 9 del D.Lgs. 81/08: i risultati dei controlli vanno riportati per iscritto e almeno quelli degli ultimi tre anni conservati a disposizione degli organi di vigilanza. Lo stesso testo è riportato nella linea guida UNICT.",
+      "trap": "5 anni (durata massima della garanzia estesa MA STAR) o 10 anni: non sono periodi di conservazione dei verbali di controllo.",
+      "evidence": [
+        {
+          "source": "univpm-guideline",
+          "locator": "p. 5",
+          "role": "supports",
+          "quote": "almeno quelli relativi agli ultimi tre anni, devono essere conservati e tenuti a disposizione degli organi di vigilanza"
+        },
+        {
+          "source": "unict-guideline",
+          "locator": "p. 18",
+          "role": "supports",
+          "quote": "almeno quelli relativi agli ultimi tre anni, devono essere conservati e tenuti a disposizione degli organi di vigilanza"
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-06",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Il robot UR10e, così come consegnato dal fabbricante, deve riportare la marcatura CE ai sensi della direttiva macchine?",
+      "question_en": "Must the UR10e robot, as delivered by the manufacturer, bear the CE mark under the Machinery Directive?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Il manuale UR10e, capitolo 20 «Declarations and Certifications», dice che i robot UR sono quasi-macchine e quindi la marcatura CE non va apposta; secondo la Dichiarazione di incorporazione (20.1) è l'integratore ad apporre la marcatura CE sulla macchina completa.",
+      "trap": "Sì: il robot ha certificati TÜV e una dichiarazione del fabbricante che cita la 2006/42/CE; ma è una Dichiarazione di incorporazione, non di conformità.",
+      "evidence": [
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 229",
+          "role": "supports",
+          "quote": "robots are partly completed machines, as such a CE mark is not to be affixed"
+        },
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 227",
+          "role": "supports",
+          "quote": "the integrator is responsible for the completed machine fulfiling all applicable Directives, applying the CE mark and providing the Declaration of Conformity (DOC)"
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-07",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Il laser scanner di sicurezza nanoScan3 può essere impiegato all'aperto?",
+      "question_en": "May the nanoScan3 safety laser scanner be used outdoors?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Il manuale nanoScan3, sezione 2.3 «Improper use», elenca l'esterno («Outdoors») tra le condizioni ambientali non ammesse, insieme a sott'acqua e alle aree a rischio di esplosione.",
+      "trap": "Sì: il manuale cita altrove il prodotto «outdoorScan3» e il grado di protezione IP65, ma si tratta di un altro prodotto e l'IP65 non rende ammesso l'uso all'aperto.",
+      "evidence": [
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 11",
+          "role": "supports",
+          "quote": "Impermissible ambient conditions O Outdoors O Underwater O In explosion-hazardous areas"
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-08",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Il robot UR10e può essere usato senza il Teach Pendant collegato, a condizione di definire un'altra sorgente di arresto di emergenza?",
+      "question_en": "May the UR10e robot be used without the Teach Pendant attached, provided another emergency stop source is defined?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. Il manuale UR10e, sezione 10.3.3 «Safety Configuration without Teach Pendant», dice che il robot si può usare senza collegare il Teach Pendant; rimuoverlo richiede di definire un'altra sorgente di arresto di emergenza.",
+      "trap": "No: si pensa che il pulsante di emergenza del Teach Pendant sia indispensabile; il manuale ammette invece l'uso senza pendant purché sia definita un'altra sorgente di arresto di emergenza.",
+      "evidence": [
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 123",
+          "role": "supports",
+          "quote": "You can use the robot without attaching the Teach Pendant. Removing the Teach Pendant requires defining another Emergency Stop source."
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-09",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Secondo il manuale del nanoScan3, in quali situazioni (oltre alla verifica periodica) il dispositivo di protezione e la sua applicazione devono essere sottoposti a verifica approfondita?",
+      "question_en": "According to the nanoScan3 manual, in which situations (apart from the regular check) must the protective device and its application be thoroughly checked?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "Before commissioning",
+          "After changes to the configuration or the safety function",
+          "After changes to the mounting, the alignment, or the electrical connection",
+          "After exceptional events"
+        ]
+      },
+      "answer_text": "Il manuale nanoScan3, sezione 5.6.1 «Planning the thorough check during commissioning and in certain situations», elenca come requisiti minimi quattro situazioni: prima della messa in servizio, dopo modifiche alla configurazione o alla funzione di sicurezza, dopo modifiche a montaggio, allineamento o collegamento elettrico, e dopo eventi eccezionali (manipolazione rilevata, modifica della macchina, sostituzione di componenti).",
+      "trap": "Rispondere solo «almeno una volta l'anno»: è la verifica periodica della sez. 5.6.2, non l'elenco delle situazioni particolari.",
+      "evidence": [
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 50",
+          "role": "supports",
+          "quote": "O Before commissioning O After changes to the configuration or the safety function O After changes to the mounting, the alignment, or the electrical connection O After exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components"
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-10",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Secondo il manuale dell'UR10e, di chi è la responsabilità della valutazione del rischio dell'applicazione robotica?",
+      "question_en": "According to the UR10e manual, who is responsible for the risk assessment of the robot application?",
+      "answer": {
+        "kind": "text",
+        "value": "L'integratore (che può coincidere con l'utilizzatore)",
+        "keywords": [
+          [
+            "integratore",
+            "integrator"
+          ]
+        ]
+      },
+      "answer_text": "Il manuale UR10e, capitolo 14 «Risk Assessment», dice che la valutazione del rischio dell'applicazione è responsabilità dell'integratore e che l'utilizzatore può essere anche l'integratore.",
+      "trap": "Il fabbricante del robot: il robot è una quasi-macchina e il fabbricante non valuta il rischio dell'applicazione completa.",
+      "evidence": [
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 183",
+          "role": "supports",
+          "quote": "The application risk assessment is the responsibility of the integrator. The user can also be the integrator."
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-11",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Il manuale dell'UR10e dice che i robot sono progettati per applicazioni collaborative in cui l'applicazione opera insieme a una persona; la scheda dell'isola robotizzata chiede invece l'assenza di persone nello Spazio Protetto durante il funzionamento automatico. Per l'isola, quale indicazione prevale e che cosa richiede?",
+      "question_en": "The UR10e manual says the robots are designed for collaborative applications where the application operates together with a human; the robot cell sheet instead requires that no persons be in the Protected Space during automatic operation. For the cell, which indication prevails and what does it require?",
+      "answer": {
+        "kind": "text",
+        "value": "Prevale la scheda dell'isola robotizzata (documento di guida): nessuna persona nello Spazio Protetto durante il funzionamento automatico",
+        "keywords": [
+          [
+            "scheda",
+            "guida",
+            "guidance",
+            "sheet"
+          ],
+          [
+            "assenza di persone",
+            "nessuna persona",
+            "nessuno",
+            "senza persone",
+            "no persons",
+            "no person",
+            "no people",
+            "nobody",
+            "no one",
+            "absence of persons",
+            "absence of people"
+          ]
+        ]
+      },
+      "answer_text": "La scheda «2.4.16 Isola robotizzata» (documento di guida) pone come principio fondamentale l'assenza di persone nello Spazio Protetto durante il funzionamento automatico; il manuale UR10e (sez. 2.2 «Intended Use») descrive invece l'uso collaborativo con una persona. Poiché la guida prevale sul manuale del fabbricante, per l'isola vale l'assenza di persone nello Spazio Protetto in automatico.",
+      "trap": "Prevale il manuale del fabbricante perché più specifico per il robot: no, nella gerarchia la guida sta sopra il manuale del fabbricante.",
+      "evidence": [
+        {
+          "source": "robot-cell-sheet",
+          "locator": "p. 2",
+          "role": "supports",
+          "quote": "Assenza di persone nello Spazio Protetto durante il funzionamento automatico"
+        },
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 12",
+          "role": "supports",
+          "quote": "purposely designed to enable collaborative applications, where the robot application operates together with a human"
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-12",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Ogni quanto vanno sostituiti i filtri della Control Box del robot UR10e?",
+      "question_en": "How often must the filters of the UR10e Control Box be replaced?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. Il manuale UR10e, sezione 18.3 «Cleaning TP and CB», descrive come sostituire i filtri ai lati della Control Box ma non indica alcun intervallo; nessun altro documento dell'isola lo indica.",
+      "trap": "Mensile, semestrale o annuale: sono le colonne del piano di ispezione del braccio (sez. 18.2), che non riguarda i filtri della Control Box.",
+      "evidence": [
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 216",
+          "role": "supports",
+          "quote": "There is a filter on either side of the control box."
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-13",
+      "type": "I",
+      "split": "dev",
+      "question_it": "In che data è stata eseguita l'ultima verifica approfondita periodica del laser scanner nanoScan3 dell'isola?",
+      "question_en": "On what date was the last regular thorough check of the cell's nanoScan3 laser scanner carried out?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. Il manuale nanoScan3 (sez. 5.6.2) prescrive solo che le prove siano eseguite almeno una volta l'anno e documentate in modo tracciabile; nessun documento riporta la data di una prova effettivamente eseguita sull'isola.",
+      "trap": "Una data ricavata dalla data di edizione del manuale o dalla data odierna meno un anno: sarebbe inventata.",
+      "evidence": [
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 50",
+          "role": "supports",
+          "quote": "Carry out tests at least once a year."
+        }
+      ]
+    },
+    {
+      "id": "DEV-CELL-14",
+      "type": "I",
+      "split": "dev",
+      "question_it": "Ogni quanto deve essere ricalibrato il braccio robotico UR5e?",
+      "question_en": "How often must the UR5e robot arm be recalibrated?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. Il manuale UR5e, capitolo 18 «Maintenance and Repair», dice solo che manutenzione, ispezione e calibrazione vanno eseguite secondo le istruzioni di sicurezza del manuale, il Service Manual UR e i requisiti locali, senza indicare alcun intervallo di calibrazione.",
+      "trap": "Un anno: è l'intervallo dell'avviamento raccomandato per i robot in stoccaggio a lungo termine (sez. 17.4), non un intervallo di calibrazione.",
+      "evidence": [
+        {
+          "source": "ur5e-manual",
+          "locator": "p. 203",
+          "role": "supports",
+          "quote": "Any maintenance work, inspection and calibration shall be conducted in compliance with all safety instructions in this manual, the UR Service Manual, and according to local requirements."
+        }
+      ]
+    }
+  ]
+}

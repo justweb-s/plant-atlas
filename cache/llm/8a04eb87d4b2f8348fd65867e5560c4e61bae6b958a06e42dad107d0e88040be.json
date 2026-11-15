@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You turn a question into a query over a store of facts. Each fact has a subject, a relation and a value.\nReturn JSON only:\n{\"relations\": [up to 3 relation names from the list below, the ones whose facts would answer the question],\n \"subject_terms\": [2 to 5 words naming what the question is about, in English and in Italian],\n \"place\": \"an article, annex part or numbered point if the question names one, else null\",\n \"source_hint\": \"a document or product the question names, else null\",\n \"wants\": \"one\" or \"all\"}\n\nRelations:\n- addressesRisk: the risk a numbered essential requirement addresses\n- appliesFrom: the date from which an act or a provision applies\n- becomesManufacturer: who is considered the manufacturer, and in which case\n- capacityKg: the capacity of a device in kg, as listed\n- conformsToStandard: a standard or directive the machine is declared to conform to\n- definedAs: a defined term and its definition\n- deviceKind: the kind of a device, as the equipment list names it\n- hasDeclaration: the declaration that comes with a machine (of incorporation or of conformity) and the act or annex it follows\n- hasMaxPayload: the maximum payload or rated load capacity of a machine, with its unit\n- hasObligation: an obligation of a manufacturer, importer, distributor or employer\n- hasReach: the reach or working radius of a machine, with its unit\n- hasSafetyFunction: a safety function of the machine, or how many it has and at which performance level\n- hasStoppingLimit: a stopping time, stopping distance, response time or safety limit with its unit\n- hasTimeLimit: the time limit or interval of a verification, check or request\n- integratorResponsibleFor: what the integrator or the user is responsible for when the machine is built into an application\n- isPartlyCompletedMachinery: that a machine is partly completed machinery (the words that say so)\n- listedIn: a category of machinery or safety component and the annex, part and point that lists it\n- maintenanceRule: who may carry out maintenance, on what basis, or what maintenance must respect\n- minimumDistanceParameter: the value of one term of the minimum distance rule (approach speed, supplement, resolution limit)\n- minimumDistanceRule: the formula or rule for the minimum distance between a protective device and the hazard\n- mustAccompany: what must accompany the machinery or product\n- mustKeepRegister: a register or record that must be kept, and what goes into it\n- placingAllowedUntil: until when products conforming to an earlier act may still be placed on the market\n- protectiveFieldRange: the range or size of the protective field, with its unit\n- putIntoServiceOnlyWhen: the condition under which a machine may be put into service (e.g. only once integrated into a complete machine)\n- repealedFrom: an act that is repealed and the date from which the repeal has effect\n- requiresCheckAfter: what must be checked or verified again, and the change or event after which (value = the change or event)\n- requiresMeasure: the guard, protective device or measure a requirement asks for\n- requiresPeriodicCheck: what must be checked, tested or maintained regularly, and how often (value = the interval)\n- requiresProcedure: the conformity assessment procedure(s) or module(s) that apply to a category of machinery\n- retentionPeriod: for how long a document or record must be kept, and by whom\n- safeguardedSpaceRule: how the protected space around a robotic cell is bounded and when it may be entered\n- siteSector: the sector a site works in\n- verificationInterval: how often a category of equipment must be verified, with its conditions\n- verifiedBy: who carries out a verification or check\n- yearBuilt: the year a device was built, as listed"
+   },
+   {
+    "role": "user",
+    "content": "For the verification operations, must IGEA also make the measuring instruments available to the verifier?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 400
+ },
+ "response": {
+  "text": "{\"relations\": [\"hasObligation\", \"verifiedBy\", \"verificationInterval\"], \"subject_terms\": [\"IGEA verification measuring instruments\", \"IGEA verifica strumenti di misura\"], \"place\": null, \"source_hint\": null, \"wants\": \"one\"}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 1864,
+   "completion_tokens": 697,
+   "total_tokens": 2561
+  }
+ }
+}

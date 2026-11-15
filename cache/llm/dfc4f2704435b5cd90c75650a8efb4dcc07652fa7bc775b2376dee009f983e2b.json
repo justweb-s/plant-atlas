@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "By which date must the Commission submit its first report on the evaluation and review of Regulation (EU) 2023/1230 (Article 53(1))?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "In quale data la Commissione deve presentare la sua prima relazione sulla valutazione e il riesame del regolamento (UE) 2023/1230 (articolo 53, paragrafo 1)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 705,
+   "completion_tokens": 154,
+   "total_tokens": 859
+  }
+ }
+}

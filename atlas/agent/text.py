@@ -1,0 +1,295 @@
+"""Owner: Core. Reading on demand: when the fact store does not hold the answer, the registered documents are
+read for this one question, under the same rule as the store ("no quote, no fact").
+
+The passages closest to the question are found by their words (no embedding, so it works with no key), the
+corrigendum is applied to the text by code, and a model answers only by pointing at sentences. Code then checks
+that every sentence pointed at is really in its passage, and that a date or a number given as the answer is
+written in one of those sentences. An answer that fails the check is "unknown".
+"""
+from __future__ import annotations
+
+import json
+import math
+import os
+import re
+import unicodedata
+from datetime import date
+from functools import lru_cache
+
+from atlas import llm
+from atlas.contracts import Answer, Step
+
+PASSAGES = 14
+PER_SOURCE = 5                     # no document fills the page: the text of a higher rank must find room
+WINDOW, STEP = 2400, 1200          # a long piece (a table, a whole annex) is read through overlapping windows
+RANK = {"law": "law", "guidance": "guidance", "manufacturer": "manufacturer's manual",
+        "company": "company procedure", "plant": "plant record"}
+FOR_READ = re.compile(r"Article\s+(\d+)(?:,\s*(?:paragraph\s+(\d+)|(\w+)\s+paragraph))?.*?"
+                      r"for:\s*[‘'\"]\s*(.+?)\s*[’'\"],\s*read:\s*[‘'\"]\s*(.+?)\s*[’'\"]", re.S)
+ORDINAL = {"first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5}
+STOP = set("the a an of to in on for and or is are be by with from at as that this which what who how does do must "
+           "can may it its their there than then when where into not no if under any all each per "
+           "il lo la i gli le un una di a da in con su per tra fra e o che chi come quale quali quanto dove quando "
+           "del dello della dei degli delle al allo alla ai agli alle dal dalla nel nella nei nelle sul sulla "
+           "è sono deve devono può possono non se".split())
+
+SYSTEM = """You answer a question about machines at work (law, guidance, manufacturers' manuals, company and plant
+documents) using ONLY the numbered passages given. Each passage is headed by its document, its place and its rank.
+
+Rules:
+- Use only the passages. Do not use anything you know from elsewhere.
+- Answer only if a passage states the answer for the exact subject asked about (the same device, the same article
+  and paragraph, the same kind of verification, the same deadline). A passage about a neighbouring subject does not
+  answer the question: then the kind is "unknown" and the value is null. A question about something that happened
+  (the date of the last check, whether something is overdue today) is "unknown" unless a passage records that event.
+- A passage marked "corrected by the corrigendum" already shows the corrected wording: reason with it. The old
+  wording, given in the mark, is no longer valid.
+- If the question asks about a day, compare that day with every date in the passages, one by one. A repeal or an
+  application "from" a date takes effect on that date, not earlier: an act repealed from a date is still fully in
+  force on every earlier day; a rule applying from a date does not yet bind on earlier days.
+- When passages of different rank disagree, the higher rank wins: law, then guidance, then manufacturer's manual,
+  then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.) wins over a
+  ministerial decree (DM). Say which one wins.
+- A row of a table belongs to the thing named in that same row. Read the row of the item asked about, not a
+  neighbouring row. When the question itself states a condition ("if it were in regular use", "built in 2017"),
+  reason with that condition.
+- The kind follows the question: "from which date / by which date / when (a day)" is "date"; "how often / for how
+  long / within what time" is "duration"; "can / may / is / does / must" is "boolean"; "which / what (several
+  things)" is "set"; who, why, under which condition is "text" (one short sentence naming every element asked for).
+- Point at the evidence: for every passage you rely on, copy word for word the sentence, or the table row, that
+  states what you use. Copy exactly, without changing a character; do not join text from two places.
+- Return JSON only, with the reasoning first:
+  {"reasoning": "what the passages say and how it leads to the answer, in a few short sentences",
+   "kind": "set|date|duration|boolean|text|unknown",
+   "value": <list of short strings for set | "YYYY-MM-DD" for date | ISO 8601 duration like "P10Y", "P6M", "P45D", "PT1H" | true/false | a short text | null>,
+   "text": "one or two sentences for a person, naming the document and the article, section or page",
+   "evidence": [{"passage": <number>, "quote": "<copied exactly from that passage>"}]}"""
+
+
+def _plain(text: str) -> str:
+    text = unicodedata.normalize("NFKD", (text or "").lower())
+    return "".join(c for c in text if not unicodedata.combining(c))
+
+
+def _tokens(text: str) -> list[str]:
+    """Words for the search: lower case, no accents, no filler words, long words cut to a common stem."""
+    out = []
+    for word in re.findall(r"[a-z0-9]+", _plain(text)):
+        if word in STOP or (len(word) < 3 and not word.isdigit()):
+            continue
+        out.append(word if word.isdigit() or len(word) <= 6 else word[:6])
+    return out
+
+
+def _squash(text: str) -> str:
+    return re.sub(r"\s+", " ", _plain(text)).strip()
+
+
+def _loose(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", _plain(text)).strip()
+
+
+@lru_cache(maxsize=1)
+def _corrections() -> dict[tuple[int, int | None], list[tuple[str, str, str]]]:
+    """(article, paragraph) -> [(old wording, new wording, corrigendum point)], read from the corrigendum itself."""
+    from atlas.corpus.chunker import load
+
+    found: dict[tuple[int, int | None], list[tuple[str, str, str]]] = {}
+    for chunk in load():
+        if chunk.source != "CORR":
+            continue
+        match = FOR_READ.search(chunk.text)
+        if match:
+            paragraph = int(match.group(2)) if match.group(2) else ORDINAL.get((match.group(3) or "").lower())
+            found.setdefault((int(match.group(1)), paragraph), []).append(
+                (match.group(4).strip(), match.group(5).strip(), chunk.locator))
+    return found
+
+
+def corrected(chunk) -> tuple[str, str]:
+    """The text of a piece with the corrigendum applied, and the mark that says what was changed ("" if nothing)."""
+    if chunk.source != "REG":
+        return chunk.text, ""
+    place = re.match(r"Art\.\s*(\d+)(?:\((\d+)\))?", chunk.locator or "")
+    if not place:
+        return chunk.text, ""
+    article, paragraph = int(place.group(1)), int(place.group(2)) if place.group(2) else None
+    text, marks = chunk.text, []
+    for (art, par), changes in _corrections().items():
+        if art != article or (par is not None and paragraph is not None and par != paragraph):
+            continue
+        for old, new, point in changes:
+            if old in text and new not in text:
+                text = text.replace(old, new)
+                marks.append(f"{point}: '{old}' now reads '{new}'")
+    return text, ("corrected by the corrigendum (" + "; ".join(marks) + ")") if marks else ""
+
+
+@lru_cache(maxsize=1)
+def _index():
+    """Every piece of the registered documents, long ones cut into windows, with the word counts the search uses."""
+    from atlas.corpus.chunker import load
+
+    units, counts, seen = [], [], {}
+    for chunk in load():
+        if chunk.source == "CORR":
+            continue   # its content is applied to the Regulation's text, and cited from there
+        text, mark = corrected(chunk)
+        starts = range(0, max(1, len(text) - WINDOW + STEP), STEP) if len(text) > WINDOW else [0]
+        for start in starts:
+            piece = text[start:start + WINDOW]
+            words: dict[str, int] = {}
+            for token in _tokens(f"{chunk.locator} {piece}"):
+                words[token] = words.get(token, 0) + 1
+            units.append((chunk, piece, mark))
+            counts.append(words)
+            for token in words:
+                seen[token] = seen.get(token, 0) + 1
+    average = sum(sum(c.values()) for c in counts) / max(1, len(counts))
+    return units, counts, seen, average
+
+
+def _place(text: str) -> str:
+    words = {"article": "art", "articolo": "art", "allegato": "annex", "parte": "part", "punto": "point",
+             "riga": "row"}
+    return " ".join(words.get(w, w) for w in re.sub(r"[^a-z0-9]+", " ", _plain(text)).split())
+
+
+def passages(question: str, top: int = PASSAGES, sources: set[str] | None = None,
+             also: list[tuple[str, str]] | None = None) -> list[tuple]:
+    """The pieces closest to the question by their words (BM25), best first. A piece filed under a place the
+    question names ("Article 53(1)") moves up. At most three windows of the same piece."""
+    from atlas.agent.answer import PLACE, _other_language
+
+    units, counts, seen, average = _index()
+    asked = set(_tokens(f"{question} {_other_language(question)}"))
+    named = [_place(m.group(0)) for m in PLACE.finditer(question)]
+    scored = []
+    for i, words in enumerate(counts):
+        chunk = units[i][0]
+        if sources is not None and chunk.source not in sources:
+            continue
+        length = sum(words.values())
+        score = 0.0
+        for token in asked & words.keys():
+            idf = math.log(1 + (len(counts) - seen[token] + 0.5) / (seen[token] + 0.5))
+            score += idf * words[token] * 2.2 / (words[token] + 1.2 * (0.25 + 0.75 * length / average))
+        if score and named:
+            place = _place(chunk.locator)
+            if any(place == n or place.startswith(n + " ") for n in named):
+                score *= 2.0
+        if score:
+            scored.append((score, i))
+    chosen, per_piece = [], {}
+    wanted = {(source, _place(locator)) for source, locator in (also or [])[:8]}
+    if wanted:   # the pieces the fact store answered from are read too, so the two readings can be compared
+        best = {}
+        for score, i in scored:
+            chunk = units[i][0]
+            if (chunk.source, _place(chunk.locator)) in wanted and score > best.get(chunk.id, (0, 0))[0]:
+                best[chunk.id] = (score, i)
+        for _, i in sorted(best.values(), reverse=True)[:5]:
+            chosen.append(units[i])
+            per_piece[units[i][0].id] = 3   # one window of each is enough
+    top += len(chosen)
+    per_source: dict[str, int] = {}
+    for _, i in sorted(scored, reverse=True):
+        chunk = units[i][0]
+        if per_piece.get(chunk.id, 0) >= 3 or per_source.get(chunk.source, 0) >= PER_SOURCE:
+            continue
+        per_piece[chunk.id] = per_piece.get(chunk.id, 0) + 1
+        per_source[chunk.source] = per_source.get(chunk.source, 0) + 1
+        chosen.append(units[i])
+        if len(chosen) >= top:
+            break
+    return chosen
+
+
+def _reply(text: str) -> dict:
+    match = re.search(r"\{.*\}", text or "", re.DOTALL)
+    if not match:
+        return {}
+    try:
+        data = json.loads(match.group(0))
+    except json.JSONDecodeError:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def _numbers(text: str) -> set[str]:
+    words = {"one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "ten": "10", "twelve": "12",
+             "fifteen": "15", "twenty": "20", "thirty": "30", "forty-five": "45", "sixty": "60",
+             "un": "1", "uno": "1", "una": "1", "due": "2", "tre": "3", "quattro": "4", "cinque": "5", "sei": "6",
+             "dieci": "10", "dodici": "12", "quindici": "15", "venti": "20", "trenta": "30", "quarantacinque": "45",
+             "sessanta": "60", "annual": "1", "annuale": "1", "annually": "1", "yearly": "1", "biennale": "2",
+             "biennial": "2", "triennale": "3", "triennial": "3", "monthly": "1", "mensile": "1", "daily": "1",
+             "semestrale": "6", "half-yearly": "6", "hour": "1", "ora": "1"}
+    plain = _plain(text)
+    return set(re.findall(r"\d+", plain)) | {n for w, n in words.items() if re.search(rf"\b{w}\b", plain)}
+
+
+def check(kind: str, value, evidence: list, shown: list[tuple]) -> tuple[list[tuple], str]:
+    """The same gate as the store: every quote is in its passage; a date or a number given as the answer is
+    written in a quote. Returns the (piece, quote) pairs that hold and, when the answer falls, why."""
+    held = []
+    for item in evidence if isinstance(evidence, list) else []:
+        if not isinstance(item, dict) or not isinstance(item.get("passage"), int) or isinstance(item.get("passage"), bool):
+            continue
+        number, quote = item["passage"], str(item.get("quote") or "")
+        if not 0 <= number < len(shown) or len(quote.strip()) < 8:
+            continue
+        chunk, piece, _ = shown[number]
+        if _squash(quote) in _squash(piece) or (len(_loose(quote)) >= 20 and _loose(quote) in _loose(piece)):
+            held.append((chunk, quote.strip()))
+    if not held:
+        return [], "no sentence pointed at was found in its passage"
+    quoted = " ".join(q for _, q in held)
+    if kind == "date":
+        from atlas.agent.answer import _dates
+
+        days = {d.isoformat() for d in _dates(quoted)}
+        if str(value) not in days:
+            return [], f"the date {value} is not written in the sentences pointed at"
+    if kind == "duration":
+        digits = re.findall(r"\d+", str(value))
+        if digits and not set(digits) & _numbers(quoted):
+            twelfths = {str(int(d) * 12) for d in digits} | {str(int(d) // 12) for d in digits if int(d) % 12 == 0}
+            if not twelfths & _numbers(quoted):
+                return [], f"the period {value} is not written in the sentences pointed at"
+    return held, ""
+
+
+def answer(question: str, day: date | None = None, mode: str = "B", lang: str = "en",
+           sources: set[str] | None = None, also: list[tuple[str, str]] | None = None) -> Answer:
+    from atlas.agent.answer import ITALIAN, UNKNOWN, typed
+
+    if day is None and os.getenv("ATLAS_TODAY"):
+        day = date.fromisoformat(os.environ["ATLAS_TODAY"])
+    day = day or date.today()
+    shown = passages(question, sources=sources, also=also)
+    numbered = "\n\n".join(
+        f"[{i}] {chunk.source}, {chunk.locator} — rank: {RANK.get(chunk.layer, chunk.layer)}"
+        + (f" — {mark}" if mark else "") + f"\n{piece}" for i, (chunk, piece, mark) in enumerate(shown))
+    out = llm.chat([{"role": "system", "content": SYSTEM + (ITALIAN if lang == "it" else "")},
+                    {"role": "user", "content": f"Today is {day.isoformat()}.\nQuestion: {question}\n\nPassages:\n{numbered}"}],
+                   temperature=0, max_tokens=3000)
+    data = _reply(out.get("text") or "")
+    kind = str(data.get("kind") or "")
+    if re.match(r"\s*(who|chi)\b", question, re.I) and isinstance(data.get("value"), list):
+        kind = "text"   # "who" is answered by one sentence naming every body, not by a list
+        data["value"] = "; ".join(str(v) for v in data["value"])
+    value = typed(kind, data.get("value"))
+    held, why = check(kind, value, data.get("evidence"), shown) if value is not None else ([], "")
+    text = data.get("text") or UNKNOWN.get(lang, UNKNOWN["en"])
+    if value is not None and not held:
+        value, text = None, f"{UNKNOWN.get(lang, UNKNOWN['en'])} ({why})"
+    elif value is None:
+        text = data.get("text") or UNKNOWN.get(lang, UNKNOWN["en"])
+    marks = {chunk.id: mark for chunk, _, mark in shown}
+    steps = [Step(text=f"Read on demand: {chunk.source}, {chunk.locator}"
+                       + (f" ({marks.get(chunk.id)})" if marks.get(chunk.id) else ""),
+                  triples=[], quote=quote, locator=f"{chunk.source}, {chunk.locator}", statement_id=None)
+             for chunk, quote in (held if value is not None else [])]
+    usage = out.get("usage") or {}
+    return Answer(question=question, mode=mode, value=value, text=text, steps=steps,
+                  tokens=(usage.get("prompt_tokens") or 0) + (usage.get("completion_tokens") or 0))

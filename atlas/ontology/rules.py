@@ -66,10 +66,9 @@ def verification_interval(device: dict, annex_facts: list, on: date) -> dict:
         year = device.get("year_built")
         if year is None:
             return {"interval": None, "why": "year of construction not known"}
-        age = on.year - int(year)
-        if age == 10 and len({row["interval"] for row in candidates}) > 1:
-            return {"interval": None, "why": f"built in {year}: whether it is more than 10 years old on {on} depends on the month, which is not known"}
-        old = age > 10
+        # The row speaks of the YEAR of manufacture ("anno di fabbricazione [non] antecedente 10 anni"): years are
+        # compared, so no month is needed. A year exactly ten years back is "not earlier than 10 years".
+        old = int(year) < on.year - 10
         candidates = [row for row in candidates if row["age"] in (None, "old" if old else "new")]
         because.append((ids.get("year_built", ""), f"built in {year}: " + ("more" if old else "not more") + f" than 10 years before {on}"))
     intervals = {row["interval"] for row in candidates}

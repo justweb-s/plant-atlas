@@ -106,6 +106,22 @@ def _dates(text: str) -> list[date]:
     return days
 
 
+BARE_YEAR = re.compile(r"\b(?:in|by|during|of|nel|nell[\'’]anno|entro il|year|anno)\s+(20\d\d)\b", re.I)
+BUILT = re.compile(r"\b(built|manufactured|made|constructed|costruit\w+|fabbricat\w+|prodott\w+|del)\s+(?:in\s+|nel\s+)?$", re.I)
+
+
+def asked_day(question: str, today: date) -> date:
+    """The day a question is about: a full date written in it; else a bare year ("in 2028"), unless that year is
+    when something was built; else today."""
+    days = _dates(question)
+    if days:
+        return days[0]
+    for match in BARE_YEAR.finditer(question or ""):
+        if not BUILT.search(question[:match.start(1)].rsplit(" ", 1)[0] + " "):
+            return date(int(match.group(1)), today.month, today.day if today.month != 2 or today.day < 29 else 28)
+    return today
+
+
 def _fact_day(s: Statement) -> date | None:
     match = ISO_DATE.fullmatch((s.object or "").strip())
     days = _dates(match.group(0)) if match else []
@@ -237,11 +253,45 @@ def nearest(question: str, facts: list[Statement], top: int = TOP) -> list[State
     A fact counts as close when it is close to the question in either language."""
     if len(facts) <= top:
         return list(facts)
+    other = _other_language(question)
+    try:
+        asked = llm.embed([question, other])
+    except Exception:   # no embedding service (no key, no network): the question is placed by its words
+        return _nearest_by_words(f"{question} {other}", facts, top)
     queries = []
-    for q in llm.embed([question, _other_language(question)]):
+    for q in asked:
         queries.append((q, math.sqrt(sum(x * x for x in q)) or 1.0))
     scored = sorted(((max(sum(x * y for x, y in zip(q, v)) / (q_length * length) for q, q_length in queries), i)
                      for i, (v, length) in enumerate(_vectors([_line(s) for s in facts]))), reverse=True)
+    return [facts[i] for _, i in scored[:top]]
+
+
+def _nearest_by_words(question: str, facts: list[Statement], top: int) -> list[Statement]:
+    """`nearest` without an embedding of the question. The facts are first ranked by the rare words they share
+    with the question; the vectors of the best few, which are on disk, stand in for the question's own vector."""
+    asked = _words(question)
+    bags = [_bags(s, relation=True) for s in facts]
+    seen: dict[str, int] = {}
+    for first, second in bags:
+        for word in (first | second) & asked:
+            seen[word] = seen.get(word, 0) + 1
+    weight = {w: math.log(1 + len(facts) / n) for w, n in seen.items()}
+    by_words = [sum(weight[w] for w in first & asked) + WEAK * sum(weight[w] for w in second & asked)
+                for first, second in bags]
+    best = max(by_words, default=0.0) or 1.0
+    order = sorted(range(len(facts)), key=lambda i: -by_words[i])
+    try:
+        vectors = _vectors([_line(s) for s in facts])
+    except Exception:
+        return [facts[i] for i in order[:top]]
+    seeds = [i for i in order[:8] if by_words[i] > 0]
+    if not seeds:
+        return [facts[i] for i in order[:top]]
+    size = len(vectors[0][0])
+    centre = [sum(vectors[i][0][k] / vectors[i][1] for i in seeds) for k in range(size)]
+    length = math.sqrt(sum(x * x for x in centre)) or 1.0
+    scored = sorted(((sum(x * y for x, y in zip(centre, v)) / (length * n) + 0.5 * by_words[i] / best, i)
+                     for i, (v, n) in enumerate(vectors)), reverse=True)
     return [facts[i] for _, i in scored[:top]]
 
 
@@ -363,6 +413,10 @@ def _named_places(question: str, facts: list[Statement]) -> set[str]:
     return out if len(out) <= FAMILY else set()
 
 
+REGULAR_USE = re.compile(r"\b(regular (use|conditions)|used regularly|utilizzo regolare|uso regolare|"
+                         r"outside the (construction|listed|named)[^.?]{0,80}sectors?)\b", re.I)
+
+
 def device_rule(question: str, facts: list[Statement], near: list[Statement], on: date) -> list[dict]:
     """The verification rule applied to the plant's lifting devices the question is about, on the day asked.
     A question is about them when it concerns verification and either names a position of the device list or
@@ -384,7 +438,10 @@ def device_rule(question: str, facts: list[Statement], near: list[Statement], on
         targets = [d for d in records if d["position"] in close[:3]]
     annex = [s for s in facts if s.predicate == "verificationInterval"]
     results = []
+    stated = REGULAR_USE.search(question)   # the question itself states the conditions of use
     for d in targets:
+        if stated:
+            d = {**d, "sector": "regular use (stated in the question)"}
         result = verification_interval(d, annex, on)
         ids = [i for i, _ in result.get("because", [])] or list(d["facts"].values())
         ids = list(dict.fromkeys(ids + list(d["facts"].values())))
@@ -727,7 +784,8 @@ def _reply(text: str) -> dict:
     return {}
 
 
-def answer(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
+def from_facts(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
+    """The answer from the fact store alone (procedures, rule, facts)."""
     if day is None and os.getenv("ATLAS_TODAY"):   # a fixed 'today' makes recorded runs repeatable on a later day
         day = date.fromisoformat(os.environ["ATLAS_TODAY"])
     day = day or date.today()
@@ -762,11 +820,11 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
             regime += (" The other act's facts on the relations asked were left out; today's date does not change"
                        " which act the question is about.")
     by_relation = {s.id for s in matched}
-    rule = device_rule(question, facts, ranked[:TOP], asked[0] if asked else day)
+    rule = device_rule(question, facts, ranked[:TOP], asked_day(question, day))
     for result in rule:
         chosen += [s for s in result["facts"] if all(s.id != c.id for c in chosen)]
     index = {s.id: i for i, s in enumerate(chosen)}
-    on = (asked[0] if asked else day).isoformat()
+    on = asked_day(question, day).isoformat()
     computed = "".join(
         f"\n- IGEA device {r['device']['position']} ({r['device'].get('kind', '?')}): verification interval on {on} = "
         + (f"{r['interval']}, because {r['because']}" if r["interval"] else f"unknown, because {r['why']}")
@@ -829,4 +887,97 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
                   locator=f"{s.source_doc}, {s.anchor}", statement_id=s.id) for s in used]
     return Answer(question=question, mode=mode, value=value,
                   text=text,
-                  steps=steps, tokens=(usage.get("prompt_tokens") or 0) + (usage.get("completion_tokens") or 0))
+                  steps=steps, tokens=(usage.get("prompt_tokens") or 0) + (usage.get("completion_tokens") or 0),
+                  basis="rule" if rule and frequency and len(rule) == 1 else "facts")
+
+
+# The judge is a stronger model than the two readers: it is asked only when they do not agree.
+JUDGE_MODEL = "anthropic/claude-sonnet-5.5"
+JUDGE = """Two readers answered the same question about machines at work. Reader A used facts taken from a fact
+store; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at
+sentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.
+
+Rules:
+- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the
+  same article and paragraph, the same kind of verification, the same deadline, the same condition the question
+  states). Evidence about a neighbouring subject does not support an answer.
+- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's
+  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)
+  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.
+- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.
+- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.
+- "same" means the two answers say the same thing. "neither" means neither answer is supported.
+Return JSON only: {"reasoning": "two or three short sentences", "choice": "A" | "B" | "same" | "neither"}"""
+
+
+def _same_value(a, b) -> bool:
+    if isinstance(a, bool) or isinstance(b, bool):
+        return a is b
+    if isinstance(a, list) and isinstance(b, list):
+        keys_a, keys_b = [_key(str(x)) for x in a], [_key(str(x)) for x in b]
+        close = lambda x, others: any(x == o or (min(len(x), len(o)) >= 4 and (x in o or o in x)) for o in others)
+        return len(a) == len(b) and all(close(x, keys_b) for x in keys_a) and all(close(x, keys_a) for x in keys_b)
+    if isinstance(a, str) and isinstance(b, str):
+        if ISO_DURATION.fullmatch(a.strip()) and ISO_DURATION.fullmatch(b.strip()):
+            return _canon(a.strip().upper()) == _canon(b.strip().upper())
+        return _key(a) == _key(b)
+    return False
+
+
+def _evidence(found: Answer) -> str:
+    lines = [f"- {step.text} | sentence: \"{' '.join((step.quote or '').split())[:600]}\" [{step.locator}]"
+             for step in found.steps[:12]]
+    return "\n".join(lines) or "- (no evidence)"
+
+
+def _judge(question: str, day: date, facts: Answer, read: Answer) -> str:
+    b = (f"Answer B: {json.dumps(read.value, ensure_ascii=False)}\n{read.text}\nEvidence of B:\n{_evidence(read)}"
+         if read.value is not None else f"Answer B: reader B found no passage that states the answer. Its note: {read.text}")
+    out = llm.chat([{"role": "system", "content": JUDGE},
+                    {"role": "user", "content": f"Today is {day.isoformat()}.\nQuestion: {question}\n\n"
+                     f"Answer A: {json.dumps(facts.value, ensure_ascii=False)}\n{facts.text}\nEvidence of A:\n"
+                     f"{_evidence(facts)}\n\n{b}"}], model=os.getenv("ATLAS_JUDGE_MODEL", JUDGE_MODEL),
+                   temperature=0, max_tokens=800)
+    choice = str(_reply(out.get("text") or "").get("choice") or "").strip().lower()
+    return choice if choice in ("a", "b", "same", "neither") else "a"
+
+
+def answer(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
+    """Two readings and a judge. The fact store answers first. Then the documents are read on demand for this
+    question, under the same rule (every sentence used is checked against its passage). When only one reading
+    answers, or the two disagree, a judge decides on the evidence alone; it can only choose, never write a value.
+    A result computed by the plant rule is not put to the vote. ATLAS_READ_TEXT=0 keeps the fact store alone."""
+    found = from_facts(question, store, day, mode, lang)
+    if os.getenv("ATLAS_READ_TEXT", "1") == "0" or found.basis == "rule" or lang != "en" \
+            or len([s for s in store.statements if s.status == "current"]) <= TOP:
+        return found
+    from atlas.agent import text as reading
+
+    if day is None and os.getenv("ATLAS_TODAY"):
+        day = date.fromisoformat(os.environ["ATLAS_TODAY"])
+    day = day or date.today()
+    places = [tuple(part.strip() for part in step.locator.split(",", 1)) for step in found.steps if step.locator]
+    read = reading.answer(question, day, mode, lang, also=[p for p in places if len(p) == 2])
+    tokens = found.tokens + read.tokens
+    if found.value is None and read.value is None:
+        found.tokens, found.basis = tokens, "none"
+        return found
+    if found.value is None:
+        read.tokens, read.basis = tokens, "text"
+        return read
+    if read.value is not None and _same_value(found.value, read.value):
+        choice = "same"
+    else:
+        choice = _judge(question, day, found, read)
+    if choice == "b" and read.value is not None:
+        read.tokens, read.basis = tokens, "text"
+        return read
+    if choice == "neither" or (choice == "b" and read.value is None):
+        return Answer(question=question, mode=mode, value=None, tokens=tokens, basis="judged unsupported",
+                      text=f"{UNKNOWN.get(lang, UNKNOWN['en'])} (the fact store and the documents read on demand "
+                           f"do not support one answer)")
+    found.tokens = tokens
+    if choice == "same" and read.value is not None:
+        found.steps = found.steps + read.steps
+        found.basis = "both"
+    return found

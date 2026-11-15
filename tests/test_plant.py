@@ -35,9 +35,11 @@ def test_recent_fixed_crane_in_mining_is_biennial_then_annual():
     assert verification_interval(new, annex(), date(2028, 6, 1))["interval"] == "P1Y"
 
 
-def test_tenth_year_is_not_decided_without_the_month():
-    result = verification_interval(device(year_built=2017), annex(), date(2027, 6, 1))
-    assert result["interval"] is None and "month" in result["why"]
+def test_tenth_year_is_decided_by_the_year_alone():
+    # Annex VII speaks of the YEAR of manufacture: 2017 is "not earlier than 10 years" for the whole of 2027,
+    # and earlier than that from 2028 on. No month is needed.
+    assert verification_interval(device(year_built=2017), annex(), date(2027, 6, 1))["interval"] == "P2Y"
+    assert verification_interval(device(year_built=2017), annex(), date(2028, 1, 1))["interval"] == "P1Y"
 
 
 def test_mobile_crane_in_mining_is_annual_whatever_its_age():

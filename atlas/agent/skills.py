@@ -82,7 +82,7 @@ def context(question: str, store, day: date) -> dict:
         terms = query.get("subject_terms") if isinstance(query.get("subject_terms"), list) else []
         _CONTEXT.clear()
         _CONTEXT.update(key=key, question=question, store=store, day=day, facts=facts, matched=matched, query=query,
-                        relations=relations, asked=asked, on=asked[0] if asked else day,
+                        relations=relations, asked=asked, on=base.asked_day(question, day),
                         wanted=base._words(question) | base._words(" ".join(str(t) for t in terms)),
                         place=base._place(str(query.get("place") or "")),
                         tokens=(usage.get("prompt_tokens") or 0) + (usage.get("completion_tokens") or 0))
@@ -180,7 +180,8 @@ def try_answer(question: str, store, day: date, mode: str = "B") -> Answer | Non
     if steps:
         steps[0].text = f"[skill {skill['name']}: {path}] {steps[0].text}"
     found = Answer(question=question, mode=mode, value=value, text=text, steps=steps,
-                   tokens=context(question, store, day)["tokens"])
+                   tokens=context(question, store, day)["tokens"],
+                   basis="rule" if skill["name"] == "verification_interval" else "facts")
     found.trace = trace   # not a field of the dataclass: a batch run reads it and writes the traces file
     return found
 
@@ -235,6 +236,8 @@ def lookup_device(ctx):
     if device is None:
         ctx["why"] = "no device facts for the position asked"
         return "none", ctx["why"], []
+    if base.REGULAR_USE.search(ctx["question"]):   # the question itself states the conditions of use
+        device = {**device, "sector": "regular use (stated in the question)"}
     ctx["device"] = device
     shown = ", ".join(f"{k} {device.get(k, '?')}" for k in ("kind", "capacity_kg", "year_built", "sector"))
     return "found", f"device {device['position']}: {shown}", list(device["facts"].values())

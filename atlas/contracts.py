@@ -48,6 +48,7 @@ class Answer:
     steps: list[Step] = field(default_factory=list)
     tokens: int = 0
     cost_usd: float = 0.0
+    basis: str = ""            # which path answered: "rule", "facts", "text" (read on demand), "both", "" (not said)
 
 
 @dataclass

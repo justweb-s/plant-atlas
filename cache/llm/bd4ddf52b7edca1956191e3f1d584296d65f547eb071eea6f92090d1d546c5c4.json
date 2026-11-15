@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: How often must the nanoScan3 safety laser scanner be tested?\n\nAnswer A: \"P1Y\"\nThe nanoScan3 protective device must be regularly tested at least once a year (nanoScan3 manual, p. 50-51). A daily visual check is also recommended in many cases, but it is not the mandatory test interval.\nEvidence of A:\n- protective device regular tests: requiresPeriodicCheck = at least once a year | sentence: \"→ Carry out tests at least once a year.\" [nanoscan3-manual, p. 50]\n- test of the detection capability (resolution): requiresPeriodicCheck = at least once a year | sentence: \"PROJECT PLANNING 5 Minimum requirements for the regular thorough check The following thorough checks must be carried out at least once a year: O \"Thorough check of the principal function of the protective device\", page 51 O Test of the detection capability (resolution), see \"Thorough check of the area to be protected\", page 52 Recommendations for further thorough checks In many cases, depending on the application conditions,\" [nanoscan3-manual, p. 51]\n- thorough check of the principal function of the protective device: requiresPeriodicCheck = at least once a year | sentence: \"PROJECT PLANNING 5 Minimum requirements for the regular thorough check The following thorough checks must be carried out at least once a year: O \"Thorough check of the principal function of the protective device\", page 51 O Test of the detection capability (resolution), see \"Thorough check of the area to be protected\", page 52 Recommendations for further thorough checks In many cases, depending on the application conditions,\" [nanoscan3-manual, p. 51]\n- visual check of the machine and the protective device: requiresPeriodicCheck = daily (condition: In many cases, it makes sense to carry out the following thorough checks daily) | sentence: \"O \"Visual check of the machine and the protective device\", page 53 O \"Test of the contour detection field\", page 52 O Test of the relevant points on the checklist, see \"Checklist for initial commissioning and commissioning\", page 149 In many cases, it makes sense to carry out the following thorough checks daily:\" [nanoscan3-manual, p. 51]\n\nAnswer B: reader B found no passage that states the answer. Its note: The facts in force do not answer this question. (the period P1Y is not written in the sentences pointed at)"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"The manual states that the thorough checks of the nanoScan3 protective device 'must be carried out at least once a year', and 'Carry out tests at least once a year' appears on p. 50. That is the same device and the same mandatory requirement the question asks about, so A's answer is supported. B's claim that P1Y is not written is wrong, since 'at least once a year' is that period.\", \"choice\": \"A\"}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 1842,
+   "completion_tokens": 434,
+   "total_tokens": 2276
+  }
+ }
+}

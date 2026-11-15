@@ -1,0 +1,442 @@
+{
+  "about": "Development set, slice 'versions' (type V): which text is in force / which version wins (Regulation (EU) 2023/1230 vs its corrigendum, Directive 2006/42/EC, D.Lgs. 81/2008 art. 71 and Annex VII vs D.M. 11 April 2011); gold written from the source documents only, reference date 2026-11-14.",
+  "cqs": [
+    {
+      "id": "DEV-VER-01",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Da quale data si applica l'articolo 50, paragrafo 1, del Regolamento (UE) 2023/1230 (obbligo degli Stati membri di stabilire le sanzioni)?",
+      "question_en": "From which date does Article 50(1) of Regulation (EU) 2023/1230 (Member States' duty to lay down penalties) apply?",
+      "answer": {
+        "kind": "date",
+        "value": "2026-10-20"
+      },
+      "answer_text": "L'articolo 54, terzo comma, lettera b), nel testo pubblicato indicava il 14 ottobre 2023; la rettifica (punto 12) sostituisce la data con il 20 ottobre 2026. Prevale il testo rettificato: 20 ottobre 2026.",
+      "trap": "14 ottobre 2023 (testo pubblicato dell'art. 54): la rettifica cambia sia il giorno sia l'anno; chi corregge solo il giorno risponde 20 ottobre 2023.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 12",
+          "role": "supports",
+          "quote": "Article 54, third paragraph, point (b): for: ‘ 14 October 2023 ’, read: ‘ 20 October 2026 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "(b) Article 50(1) from 14 October 2023"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-02",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Da quale data si applicano gli articoli da 26 a 42 del Regolamento (UE) 2023/1230 (notifica degli organismi di valutazione della conformità)?",
+      "question_en": "From which date do Articles 26 to 42 of Regulation (EU) 2023/1230 (notification of conformity assessment bodies) apply?",
+      "answer": {
+        "kind": "date",
+        "value": "2024-01-20"
+      },
+      "answer_text": "L'articolo 54, terzo comma, lettera a), anticipa l'applicazione degli articoli da 26 a 42 rispetto alla data generale; il testo pubblicato indicava il 14 gennaio 2024, la rettifica (punto 11) lo corregge in 20 gennaio 2024.",
+      "trap": "14 gennaio 2024 (testo pubblicato) oppure la data generale di applicazione del Regolamento (20 gennaio 2027), ignorando la deroga.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 11",
+          "role": "supports",
+          "quote": "Article 54, third paragraph, point (a): for: ‘ 14 January 2024 ’, read: ‘ 20 January 2024 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "(a) Articles 26 to 42 from 14 January 2024"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-03",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Entro quale data gli Stati membri devono fornire per la prima volta alla Commissione i dati e le informazioni di cui all'articolo 6, paragrafo 5, del Regolamento (UE) 2023/1230?",
+      "question_en": "By which date must Member States provide for the first time the data and information referred to in Article 6(5) of Regulation (EU) 2023/1230?",
+      "answer": {
+        "kind": "date",
+        "value": "2025-07-20"
+      },
+      "answer_text": "L'articolo 6, paragrafo 9, nel testo pubblicato fissava il 14 luglio 2025 (e poi ogni cinque anni); la rettifica (punto 1) corregge la data in 20 luglio 2025, che prevale.",
+      "trap": "14 luglio 2025: è la data del testo pubblicato, superata dalla rettifica.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 1",
+          "role": "supports",
+          "quote": "Article 6, paragraph 9: for: ‘ 14 July 2025 ’, read: ‘ 20 July 2025 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 6(9)",
+          "role": "superseded",
+          "quote": "By 14 July 2025, and every five years thereafter, Member States shall provide the data and information referred to in paragraph 5"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-04",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Entro quale data la Commissione deve presentare la prima relazione sulla valutazione e sul riesame del Regolamento (UE) 2023/1230 (articolo 53, paragrafo 1)?",
+      "question_en": "By which date must the Commission submit its first report on the evaluation and review of Regulation (EU) 2023/1230 (Article 53(1))?",
+      "answer": {
+        "kind": "date",
+        "value": "2028-07-20"
+      },
+      "answer_text": "L'articolo 53, paragrafo 1, nel testo pubblicato indicava il 14 luglio 2028; la rettifica (punto 8) corregge in 20 luglio 2028. Non va confusa con la relazione specifica dell'articolo 53, paragrafo 3 (20 luglio 2026).",
+      "trap": "14 luglio 2028 (testo pubblicato) oppure 20 luglio 2026, che è il termine della diversa relazione specifica sull'articolo 6 (art. 53, par. 3).",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 8",
+          "role": "supports",
+          "quote": "Article 53, paragraph 1: for: ‘ 14 July 2028 ’, read: ‘ 20 July 2028 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 53(1)",
+          "role": "superseded",
+          "quote": "By 14 July 2028 and every four years thereafter, the Commission shall submit a report on the evaluation and review of this Regulation"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-05",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Il 18 gennaio 2027 la Direttiva 2006/42/CE è ancora in vigore (non ancora abrogata)?",
+      "question_en": "On 18 January 2027, is Directive 2006/42/EC still in force (not yet repealed)?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. L'articolo 51, paragrafo 2, nel testo pubblicato abrogava la Direttiva dal 14 gennaio 2027, ma la rettifica (punto 5) sposta l'abrogazione al 20 gennaio 2027: il 18 gennaio 2027 la Direttiva è ancora in vigore.",
+      "trap": "No: leggendo il solo testo pubblicato (abrogazione dal 14 gennaio 2027) il 18 gennaio la Direttiva risulterebbe già abrogata.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 5",
+          "role": "supports",
+          "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 51(2)",
+          "role": "superseded",
+          "quote": "Directive 2006/42/EC is repealed with effect from 14 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-06",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Il 1° settembre 2026 l'articolo 50, paragrafo 1, del Regolamento (UE) 2023/1230 (norme sulle sanzioni) è già applicabile?",
+      "question_en": "On 1 September 2026, does Article 50(1) of Regulation (EU) 2023/1230 (rules on penalties) already apply?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Secondo l'articolo 54, lettera b), come rettificato (punto 12 della rettifica), l'articolo 50, paragrafo 1, si applica dal 20 ottobre 2026; il 1° settembre 2026 non è ancora applicabile.",
+      "trap": "Sì: il testo pubblicato dell'art. 54, lett. b), indicava il 14 ottobre 2023, data già trascorsa il 1° settembre 2026.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 12",
+          "role": "supports",
+          "quote": "Article 54, third paragraph, point (b): for: ‘ 14 October 2023 ’, read: ‘ 20 October 2026 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "(b) Article 50(1) from 14 October 2023"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-07",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Il 15 luglio 2023 il capo VI del Regolamento (UE) 2023/1230 si applicava già, in luogo dell'articolo 11 della Direttiva 2006/42/CE, ai prodotti immessi sul mercato in conformità alla Direttiva?",
+      "question_en": "On 15 July 2023, did Chapter VI of Regulation (EU) 2023/1230 already apply, instead of Article 11 of Directive 2006/42/EC, to products placed on the market in conformity with the Directive?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. L'articolo 52, paragrafo 1, seconda frase, nel testo pubblicato indicava il 13 luglio 2023, ma la rettifica (punti 7 e 13) fissa al 19 luglio 2023 sia quella data sia l'applicazione dell'articolo 52: il 15 luglio 2023 valeva ancora l'articolo 11 della Direttiva.",
+      "trap": "Sì: il testo pubblicato faceva decorrere l'applicazione del capo VI dal 13 luglio 2023.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 7",
+          "role": "supports",
+          "quote": "Article 52, paragraph 1, second sentence: for: ‘ 13 July 2023 ’, read: ‘ 19 July 2023 ’"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 13",
+          "role": "supports",
+          "quote": "Article 54, third paragraph, point (c): for: ‘ 13 July 2023 ’, read: ‘ 19 July 2023 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 52(1)",
+          "role": "superseded",
+          "quote": "Chapter VI of this Regulation shall apply, from 13 July 2023, mutatis mutandis to such products instead of Article 11 of that Directive"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "(c) Article 6(7) and Articles 48 and 52 from 13 July 2023"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-08",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Una macchina è stata immessa sul mercato il 15 gennaio 2027 in conformità alla Direttiva 2006/42/CE. Il 1° marzo 2027 rientra tra i prodotti di cui gli Stati membri non possono ostacolare la messa a disposizione sul mercato ai sensi delle disposizioni transitorie del Regolamento (UE) 2023/1230?",
+      "question_en": "A machine was placed on the market on 15 January 2027 in conformity with Directive 2006/42/EC. On 1 March 2027, is it among the products whose making available on the market Member States may not impede under the transitional provisions of Regulation (EU) 2023/1230?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. L'articolo 52, paragrafo 1, tutela i prodotti immessi sul mercato in conformità alla Direttiva prima della data limite, che la rettifica (punto 6) porta dal 14 al 20 gennaio 2027; il 15 gennaio 2027 è anteriore al 20 gennaio 2027 e la Direttiva era ancora in vigore (abrogazione dal 20 gennaio 2027, punto 5).",
+      "trap": "No: con il testo pubblicato (immissione prima del 14 gennaio 2027) una macchina immessa il 15 gennaio 2027 resterebbe fuori dalla tutela transitoria.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 6",
+          "role": "supports",
+          "quote": "Article 52, paragraph 1, first sentence: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 5",
+          "role": "supports",
+          "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 52(1)",
+          "role": "superseded",
+          "quote": "Member States shall not impede the making available on the market of products which were placed on the market in conformity with Directive 2006/42/EC before 14 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-09",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Per le verifiche periodiche successive alla prima delle attrezzature dell'allegato VII, il datore di lavoro è obbligato a rivolgersi all'ASL e può ricorrere a un soggetto abilitato solo dopo che siano trascorsi inutilmente trenta giorni dalla richiesta?",
+      "question_en": "For the periodic verifications after the first one of Annex VII equipment, is the employer obliged to apply to the ASL (local health authority), being allowed to use an authorised body only once thirty days from the request have elapsed?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Il D.M. 11 aprile 2011 (art. 2, c. 1 e allegato II, punto 5.2.1) indica l'ASL come titolare con termine di trenta giorni, ma l'articolo 71, comma 11, del D.Lgs. 81/2008, fonte di rango superiore, prevede che le verifiche successive siano effettuate su libera scelta del datore di lavoro dalle ASL, dall'ARPA ove previsto da legge regionale, o da soggetti pubblici o privati abilitati. Prevale il decreto legislativo.",
+      "trap": "Sì: è la regola che si ricava dal solo D.M. 11 aprile 2011 (ASL titolare, trenta giorni, poi soggetti abilitati), superata dal testo dell'art. 71, c. 11.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 11",
+          "role": "supports",
+          "quote": "Le successive verifiche sono effettuate su libera scelta del datore di lavoro dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati"
+        },
+        {
+          "source": "DM2011",
+          "locator": "art. 2, c. 1",
+          "role": "superseded",
+          "quote": "le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta"
+        },
+        {
+          "source": "DM2011",
+          "locator": "art. 2, c. 2",
+          "role": "superseded",
+          "quote": "Decorsi i termini temporali di cui al comma l, il datore di lavoro puo' avvalersi dei soggetti abilitati, pubblici o privati"
+        },
+        {
+          "source": "DM2011",
+          "locator": "Allegato II",
+          "role": "superseded",
+          "quote": "il datore di lavoro deve richiedere alla ASL competente per territorio l'esecuzione delle verifiche periodiche successive alla prima"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-10",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Il D.M. 11 aprile 2011 indica l'INAIL come titolare della prima verifica periodica e le ASL come titolari delle successive. Per una scala aerea ad inclinazione variabile di proprietà del Corpo nazionale dei vigili del fuoco, il Corpo può effettuare direttamente le verifiche periodiche?",
+      "question_en": "The Ministerial Decree of 11 April 2011 names INAIL as holder of the first periodic verification and the ASL for the following ones. For a variable-inclination aerial ladder owned by the national fire brigade (Corpo nazionale dei vigili del fuoco), may the brigade carry out the periodic verifications itself?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. L'articolo 71, comma 13-bis, del D.Lgs. 81/2008 consente al Corpo nazionale dei vigili del fuoco di effettuare direttamente le verifiche periodiche del comma 11 sulle attrezzature dell'allegato VII di cui dispone a titolo di proprietà o comodato d'uso; la scala aerea ad inclinazione variabile è nell'allegato VII. La norma di legge prevale sulla titolarità INAIL/ASL indicata dal D.M. 11 aprile 2011.",
+      "trap": "No: dal solo D.M. 11 aprile 2011 la prima verifica spetta all'INAIL e le successive alle ASL, senza eccezioni per i vigili del fuoco.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 13-bis",
+          "role": "supports",
+          "quote": "il Corpo nazionale dei vigili del fuoco può effettuare direttamente le verifiche periodiche di cui al comma 11, relativamente alle attrezzature riportate nell'allegato VII di cui dispone a titolo di proprietà o comodato d'uso"
+        },
+        {
+          "source": "DLGSALLVII",
+          "locator": "Allegato VII, riga 1",
+          "role": "supports",
+          "quote": "Scale aeree ad inclinazione variabile | Verifica annuale"
+        },
+        {
+          "source": "DM2011",
+          "locator": "art. 2, c. 1",
+          "role": "superseded",
+          "quote": "l'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta, mentre le ASL sono titolari delle verifiche periodiche successive alla prima"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-11",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Dopo l'abrogazione della Direttiva 2006/42/CE, fino a quando restano validi gli attestati di esame CE del tipo rilasciati a norma dell'articolo 12 della Direttiva?",
+      "question_en": "After the repeal of Directive 2006/42/EC, until when do EC type-examination certificates issued under Article 12 of the Directive remain valid?",
+      "answer": {
+        "kind": "text",
+        "value": "Fino alla loro scadenza (until they expire): non decadono con l'abrogazione della Direttiva.",
+        "keywords": [
+          [
+            "scadenza",
+            "scadono",
+            "scadere",
+            "scadano",
+            "expire",
+            "expiry",
+            "expiration"
+          ]
+        ]
+      },
+      "answer_text": "L'articolo 52, paragrafo 2, del Regolamento (UE) 2023/1230 stabilisce che gli attestati di esame CE del tipo e le decisioni di approvazione rilasciati a norma dell'articolo 12 della Direttiva restano validi fino alla loro scadenza; l'abrogazione della Direttiva (20 gennaio 2027 secondo la rettifica) non li fa decadere.",
+      "trap": "20 gennaio 2027 (o 14 gennaio 2027): la data di abrogazione della Direttiva non è il termine di validità degli attestati.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 52(2)",
+          "role": "supports",
+          "quote": "EC type-examination certificates and approval decisions issued in accordance with Article 12 of Directive 2006/42/EC shall remain valid until they expire"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 5",
+          "role": "supports",
+          "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-12",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Entro quale data la Commissione deve adottare gli atti delegati previsti dall'articolo 6, paragrafo 11, del Regolamento (UE) 2023/1230 (metodologia comune per i dati che gli Stati membri devono fornire)?",
+      "question_en": "By which date must the Commission adopt the delegated acts provided for in Article 6(11) of Regulation (EU) 2023/1230 (common methodology for the data Member States must provide)?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I testi non fissano alcun termine: l'articolo 6, paragrafo 11, prevede l'adozione solo \"se necessario\" dopo la relazione dell'articolo 53, paragrafo 3. L'articolo 54, lettera d), come rettificato indica solo da quando il paragrafo 11 si applica (20 luglio 2024), non una scadenza per gli atti delegati.",
+      "trap": "20 luglio 2024 (data di applicazione dell'art. 6, par. 11) o 20 luglio 2026 (termine della relazione dell'art. 53, par. 3): nessuna delle due è un termine per adottare gli atti delegati.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 6(11)",
+          "role": "supports",
+          "quote": "If necessary after the Commission report referred to in Article 53(3), the Commission shall adopt delegated acts in accordance with Article 47 to supplement paragraph 5 of this Article"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "(d) Article 6(2) to (6), (8) and (11) and Articles 47 and 53(3) from 14 July 2024"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 14",
+          "role": "supports",
+          "quote": "Article 54, third paragraph, point (d): for: ‘ 14 July 2024 ’, read: ‘ 20 July 2024 ’"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-13",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Entro quale termine deve essere adottato il decreto ministeriale che modifica l'elenco delle attrezzature dell'allegato VII, previsto dall'articolo 71, comma 14, del D.Lgs. 81/2008?",
+      "question_en": "Within what time limit must the ministerial decree amending the list of equipment in Annex VII, provided for by Article 71(14) of Legislative Decree 81/2008, be adopted?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "L'articolo 71, comma 14, prevede il decreto di modifica dell'allegato VII ma non indica alcun termine per adottarlo. Il termine di dodici mesi è stabilito dal comma 13 per un decreto diverso (modalità delle verifiche e criteri di abilitazione).",
+      "trap": "Dodici mesi dall'entrata in vigore del decreto legislativo: è il termine del comma 13, che riguarda un altro decreto.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 14",
+          "role": "supports",
+          "quote": "vengono apportate le modifiche all'allegato VII relativamente all'elenco delle attrezzature di lavoro da sottoporre alle verifiche di cui al comma 11"
+        },
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 13",
+          "role": "supports",
+          "quote": "da adottarsi entro dodici mesi dalla data di entrata in vigore del presente decreto"
+        }
+      ]
+    },
+    {
+      "id": "DEV-VER-14",
+      "type": "V",
+      "split": "dev",
+      "question_it": "Entro quale data ciascuno Stato membro deve designare l'autorità di notifica prevista dall'articolo 27 del Regolamento (UE) 2023/1230?",
+      "question_en": "By which date must each Member State designate the notifying authority required by Article 27 of Regulation (EU) 2023/1230?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "L'articolo 27, paragrafo 1, impone agli Stati membri di designare un'autorità di notifica ma non fissa alcuna scadenza. L'articolo 54, lettera a), come rettificato stabilisce solo che gli articoli da 26 a 42 si applicano dal 20 gennaio 2024: è la data da cui l'obbligo vale, non un termine entro cui la designazione deve essere avvenuta.",
+      "trap": "20 gennaio 2024 (o 14 gennaio 2024): è la data di applicazione degli articoli 26-42, non un termine di designazione.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 27(1)",
+          "role": "supports",
+          "quote": "Member States shall designate a notifying authority that shall be responsible for setting up and carrying out the necessary procedures for the assessment and notification of conformity assessment bodies"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "(a) Articles 26 to 42 from 14 January 2024"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 11",
+          "role": "supports",
+          "quote": "Article 54, third paragraph, point (a): for: ‘ 14 January 2024 ’, read: ‘ 20 January 2024 ’"
+        }
+      ]
+    }
+  ]
+}
