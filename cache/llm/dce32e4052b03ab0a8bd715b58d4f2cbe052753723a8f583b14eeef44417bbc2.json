@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "After the repeal of Directive 2006/42/EC, until when do EC type-examination certificates issued under Article 12 of the Directive remain valid?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Dopo l'abrogazione della direttiva 2006/42/CE, fino a quando restano validi i certificati di esame CE del tipo rilasciati ai sensi dell'articolo 12 della direttiva?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 706,
+   "completion_tokens": 393,
+   "total_tokens": 1099
+  }
+ }
+}

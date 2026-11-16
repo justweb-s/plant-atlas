@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Whoever hires out or grants the use of work equipment without an operator must obtain a self-certification on the training of the persons designated to use it. For how long must it be kept on file under Article 72 of Legislative Decree 81/2008?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Chiunque noleggi o conceda in uso attrezzature di lavoro senza operatore deve acquisire un'autocertificazione relativa alla formazione delle persone designate al loro utilizzo. Per quanto tempo deve essere conservata agli atti ai sensi dell'articolo 72 del decreto legislativo 81/2008?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 731,
+   "completion_tokens": 369,
+   "total_tokens": 1100
+  }
+ }
+}

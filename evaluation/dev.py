@@ -22,12 +22,23 @@ ROOT = Path(__file__).resolve().parents[1]
 # and written to the board; the rows stay in results/blind/<mode>.json and are not meant to be read.
 QSET = os.getenv("ATLAS_QSET", "dev")
 OUT = ROOT / "results" / QSET
-MODES = ("free", "rag", "B", "P", "G")
+TAG = os.getenv("ATLAS_RUN_TAG", "")
+MODES = ("free", "rag", "B", "P", "S", "S+learned", "G", "G+learned")
 LABELS = {"free": "Free search (model + folder of documents)", "rag": "RAG (passages by similarity)",
           "B": "Plant Atlas, earlier chain (fact store, reading by words, search, judge)",
+          "S": "Fact store alone, no search", "S+learned": "Fact store alone, after learning from the development questions",
+          "G+learned": "Plant Atlas, after learning from the development questions",
           "G": "Plant Atlas (search agent handed the fact store; rules in code; quote check)",
           "P": "Plant Atlas, panel (every reader answers, agreement or one judge)"}
 SKIP = {"DEV-IGEA-05", "DEV-VER-14", "DEV-CELL-11"}   # two defensible answers: not scored
+
+
+def GROUP(cq: dict) -> str:
+    """Questions are grouped by their id, or, when the set says so, by whether their passage is one a
+    development question also cites (the store may have learned from it) or not."""
+    if "near_dev" in cq:
+        return "passages the development questions cite" if cq["near_dev"] else "other passages"
+    return cq["id"].rsplit("-", 1)[0]
 
 
 def load() -> list[dict]:
@@ -36,7 +47,13 @@ def load() -> list[dict]:
 
 
 def run_mode(mode: str) -> dict:
-    if mode in ("B", "P", "G"):
+    if mode == "S":
+        from datetime import date as _date
+
+        from atlas.agent.answer import from_facts
+        from atlas.ontology.build import store_for
+        fn = lambda q: from_facts(q, store_for("B"), _date.fromisoformat(os.environ["ATLAS_TODAY"]))
+    elif mode in ("B", "P", "G"):
         from atlas import api
         if mode in ("P", "G"):
             os.environ["ATLAS_DECIDE"] = "panel" if mode == "P" else "agent"
@@ -57,7 +74,7 @@ def run_mode(mode: str) -> dict:
             value, text, basis = a.value, a.text, getattr(a, "basis", "")
         except Exception as problem:   # a failed call is shown as such, never as a wrong answer
             value, text, basis = None, f"ERROR {type(problem).__name__}: {str(problem)[:200]}", "error"
-        return {"id": cq["id"], "group": cq["id"].rsplit("-", 1)[0], "type": cq["type"], "split": "dev",
+        return {"id": cq["id"], "group": GROUP(cq), "type": cq["type"], "split": "dev",
                 "kind": cq["answer"]["kind"], "score": score(cq, value), "value": value, "text": text,
                 "basis": basis, "cost_usd": 0.0}
 
@@ -66,7 +83,7 @@ def run_mode(mode: str) -> dict:
         rows = list(pool.map(one, cqs))
     out = {"summary": summary(rows), "errors": sum(r["basis"] == "error" for r in rows), "rows": rows}
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / f"{mode}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    (OUT / f"{mode}{TAG}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     return out
 
 
@@ -80,7 +97,7 @@ def markdown() -> str:
     for m, d in loaded.items():
         s = d["summary"]
         out.append(f"| {LABELS[m]} | {s['correct']}/{s['n']} | {s['unknown']} | {s['wrong']} | {s['mean']:.2f} |")
-    groups = sorted({c["id"].rsplit("-", 1)[0] for c in cqs})
+    groups = sorted({GROUP(c) for c in cqs})
     out += ["", "## By group of questions (right / total)", "", "| | " + " | ".join(groups) + " |", "|---|" + "---|" * len(groups)]
     for m, d in loaded.items():
         cells = []
@@ -88,7 +105,7 @@ def markdown() -> str:
             rows = [r for r in d["rows"] if r["group"] == g]
             cells.append(f"{sum(r['score'] == 1.0 for r in rows)}/{len(rows)}")
         out.append(f"| {LABELS[m]} | " + " | ".join(cells) + " |")
-    if QSET == "blind":
+    if QSET.startswith("blind"):
         return "\n".join(out).replace("# Development board", "# Blind test board").replace(
             "`data/cq/dev/`", "`data/cq/blind/` (never used to change the system)") + "\n"
     out += ["", "## Question by question", "", "| Question | Expected | " + " | ".join(LABELS[m].split(" (")[0] for m in loaded) + " |",

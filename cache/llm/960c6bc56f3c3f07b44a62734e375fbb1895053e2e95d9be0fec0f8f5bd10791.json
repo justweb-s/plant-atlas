@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "If the IGEA-PRIM 5t overhead travelling crane at position 13 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified in 2031?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Se il carroponte IGEA-PRIM da 5t in posizione 13 fosse utilizzato in condizioni ordinarie, cioè al di fuori dei settori edile, siderurgico, portuale ed estrattivo, con quale frequenza dovrebbe essere sottoposto a verifica nel 2031?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 731,
+   "completion_tokens": 407,
+   "total_tokens": 1138
+  }
+ }
+}

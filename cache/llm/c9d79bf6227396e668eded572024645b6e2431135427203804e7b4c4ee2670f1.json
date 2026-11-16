@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Under Annex VII of Legislative Decree 81/2008, which party performs the first periodic verification of the listed work equipment, and what is the deadline for it?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Ai sensi dell'Allegato VII del Decreto Legislativo 81/2008, quale soggetto effettua la prima verifica periodica delle attrezzature di lavoro elencate e qual è il termine entro cui deve essere effettuata?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 709,
+   "completion_tokens": 326,
+   "total_tokens": 1035
+  }
+ }
+}

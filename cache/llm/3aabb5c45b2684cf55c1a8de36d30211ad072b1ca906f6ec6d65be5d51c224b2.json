@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "As of 15 July 2023, was Chapter VI of Regulation (EU) 2023/1230 already in force in place of Article 11 of Directive 2006/42/EC for products that had been placed on the market in conformity with the Directive?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Alla data del 15 luglio 2023, il capo VI del regolamento (UE) 2023/1230 era già in vigore in sostituzione dell'articolo 11 della direttiva 2006/42/CE per i prodotti immessi sul mercato in conformità alla direttiva?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 736,
+   "completion_tokens": 230,
+   "total_tokens": 966
+  }
+ }
+}

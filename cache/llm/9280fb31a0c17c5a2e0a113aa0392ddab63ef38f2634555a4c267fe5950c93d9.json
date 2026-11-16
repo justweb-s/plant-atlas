@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the nanoScan3 manual, at least how often must the regular thorough checks (regular tests) of the protective device be carried out?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo il manuale del nanoScan3, con quale frequenza minima devono essere eseguite le verifiche regolari approfondite (test periodici) del dispositivo di protezione?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 702,
+   "completion_tokens": 191,
+   "total_tokens": 893
+  }
+ }
+}

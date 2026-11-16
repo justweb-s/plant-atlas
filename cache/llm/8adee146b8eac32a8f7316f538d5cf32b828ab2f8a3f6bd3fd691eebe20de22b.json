@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "For the verification operations, must IGEA also make the measuring instruments available to the verifier?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Per le operazioni di verifica, IGEA deve anche mettere a disposizione del verificatore gli strumenti di misura?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 687,
+   "completion_tokens": 194,
+   "total_tokens": 881
+  }
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Regulation (EU) 2023/1230 has several dates of application laid down in its Article 54. As of which date does Article 6(7), covering the conditions for placing a category in Annex I, Part A or Part B, apply?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Il regolamento (UE) 2023/1230 prevede diverse date di applicazione stabilite nel suo articolo 54. A partire da quale data si applica l'articolo 6, paragrafo 7, che riguarda le condizioni per l'immissione di una categoria nell'allegato I, parte A o parte B?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 730,
+   "completion_tokens": 382,
+   "total_tokens": 1112
+  }
+ }
+}

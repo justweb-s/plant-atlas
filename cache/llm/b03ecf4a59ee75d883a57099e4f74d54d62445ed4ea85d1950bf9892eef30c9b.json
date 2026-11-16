@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "How far in advance must the designated verifier notify IGEA about the scheduling of the device inspections?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "In quanto anticipo il verificatore designato deve comunicare a IGEA la programmazione delle ispezioni degli apparecchi?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 691,
+   "completion_tokens": 136,
+   "total_tokens": 827
+  }
+ }
+}

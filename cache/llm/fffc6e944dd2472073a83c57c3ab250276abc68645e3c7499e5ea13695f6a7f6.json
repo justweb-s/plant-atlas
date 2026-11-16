@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "What is the date of the Directorial Decree setting the tariff used as the reference auction base for the periodic verifications of the IGEA devices?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Qual è la data del Decreto Dirigenziale che stabilisce la tariffa utilizzata come base d'asta di riferimento per le verifiche periodiche degli apparecchi IGEA?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 704,
+   "completion_tokens": 162,
+   "total_tokens": 866
+  }
+ }
+}

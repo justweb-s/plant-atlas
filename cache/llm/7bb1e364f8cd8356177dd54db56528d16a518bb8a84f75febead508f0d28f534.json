@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "If the 1500 kg FASSI F 28 B22 hydraulic truck-mounted crane at position 3 had been used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often did it have to be verified in 2024?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Se la gru idraulica su autocarro FASSI F 28 B22 da 1500 kg in posizione 3 fosse stata utilizzata in condizioni regolari, cioè al di fuori dei settori edile, siderurgico, portuale ed estrattivo, con quale frequenza avrebbe dovuto essere verificata nel 2024?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 741,
+   "completion_tokens": 443,
+   "total_tokens": 1184
+  }
+ }
+}

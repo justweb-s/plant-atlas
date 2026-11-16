@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "At what interval does the manufacturer advise taking a UR10e robot that's in long-term storage out of its packaging and powering it on?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Con quale intervallo il produttore consiglia di estrarre dalla confezione e accendere un robot UR10e che si trova in stoccaggio a lungo termine?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 702,
+   "completion_tokens": 221,
+   "total_tokens": 923
+  }
+ }
+}

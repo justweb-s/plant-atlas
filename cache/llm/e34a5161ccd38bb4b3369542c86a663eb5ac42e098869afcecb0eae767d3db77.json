@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "What enclosure rating (IP code) does the nanoScan3 laser scanner have when the optics cover and the system plug are mounted and the USB connection is closed with the protective cover?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quale grado di protezione (codice IP) ha lo scanner laser nanoScan3 quando la copertura ottica e il connettore di sistema sono montati e la connessione USB è chiusa con il coperchio protettivo?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 717,
+   "completion_tokens": 296,
+   "total_tokens": 1013
+  }
+ }
+}

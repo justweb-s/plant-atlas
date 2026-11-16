@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Is the employer required to present the outcomes of a supplementary investigation when the P&H R200 mobile crane at position 17 undergoes its periodic verification?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Il datore di lavoro è tenuto a presentare gli esiti di un'indagine integrativa quando la gru mobile P&H R200 in posizione 17 viene sottoposta alla sua verifica periodica?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 710,
+   "completion_tokens": 371,
+   "total_tokens": 1081
+  }
+ }
+}

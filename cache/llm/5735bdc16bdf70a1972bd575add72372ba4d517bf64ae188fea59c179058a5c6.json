@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Following a substantial modification of machinery, which party is regarded as its manufacturer?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "A seguito di una modifica sostanziale di un macchinario, quale soggetto viene considerato il suo fabbricante?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 685,
+   "completion_tokens": 212,
+   "total_tokens": 897
+  }
+ }
+}

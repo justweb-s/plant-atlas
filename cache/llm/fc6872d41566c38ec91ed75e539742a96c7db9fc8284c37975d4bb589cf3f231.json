@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Which entries in the list have Monteponi listed as their location (sector/service) in Annex B?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Quali voci dell'elenco hanno Monteponi indicato come sede (settore/servizio) nell'Allegato B?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 690,
+   "completion_tokens": 237,
+   "total_tokens": 927
+  }
+ }
+}

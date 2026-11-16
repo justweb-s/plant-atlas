@@ -1,0 +1,531 @@
+{
+ "summary": {
+  "n": 40,
+  "correct": 39,
+  "unknown": 1,
+  "wrong": 0,
+  "mean": 0.975,
+  "by_type": {
+   "I": 1.0,
+   "V": 0.944
+  },
+  "by_split": {
+   "dev": 0.975
+  },
+  "cost_usd": 0.0
+ },
+ "errors": 0,
+ "rows": [
+  {
+   "id": "BLIND2-01",
+   "group": "passages the development questions cite",
+   "type": "V",
+   "split": "dev",
+   "kind": "duration",
+   "score": 1.0,
+   "value": "P45D",
+   "text": "Under D.Lgs. 81/2008 art. 71, c. 11, INAIL must carry out the first periodic verification within 45 days of the request, which prevails over the 60 days in DM 11 April 2011, art. 2, c. 1, because a legislative decree outranks a ministerial decree.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-02",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "duration",
+   "score": 1.0,
+   "value": "P10Y",
+   "text": "Under Article 10(3) of Regulation (EU) 2023/1230, the manufacturer must keep the technical documentation and EU declaration of conformity at the disposal of market surveillance authorities for at least 10 years after the machinery is placed on the market or put into service; the Regulation applies from 20 January 2027 (Art. 54, as corrected), so it covers a machine placed on the market on 1 March 2027.",
+   "basis": "facts+search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-03",
+   "group": "passages the development questions cite",
+   "type": "V",
+   "split": "dev",
+   "kind": "set",
+   "score": 1.0,
+   "value": [
+    "15 gennaio",
+    "15 aprile",
+    "15 luglio",
+    "15 ottobre"
+   ],
+   "text": "Under DM 11 April 2011, Allegato III, punto 4.3, the computerised register (punto 4.2) must be sent electronically to the holder of the function quarterly, on 15 April, 15 July, 15 October and 15 January.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-04",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "duration",
+   "score": 1.0,
+   "value": "P15Y",
+   "text": "Under Directive 2006/42/EC, Annex IX, point 4, the manufacturer and the notified body keep a copy of the EC type-examination certificate, the technical file and all relevant documents for 15 years from the date of issue of the certificate.",
+   "basis": "facts+search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-05",
+   "group": "passages the development questions cite",
+   "type": "V",
+   "split": "dev",
+   "kind": "text",
+   "score": 1.0,
+   "value": "The scheda tecnica di identificazione dell'attrezzatura di lavoro (technical identification form, in the Annex IV format), compiled at the first periodic verification.",
+   "text": "Under Annex II, point 3.1.3 of DM 11 April 2011, the technical identification form (scheda tecnica di identificazione) must be compiled at the first periodic verification to provide a reference for subsequent periodic verifications, using the form in Annex IV.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-06",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "date",
+   "score": 1.0,
+   "value": "2011-06-29",
+   "text": "Under Article 27 (Derogation) of Directive 2006/42/EC, Member States could allow such machinery conforming to the national provisions in force at adoption to be placed on the market and put into service until 29 June 2011.",
+   "basis": "facts+search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-07",
+   "group": "passages the development questions cite",
+   "type": "V",
+   "split": "dev",
+   "kind": "unknown",
+   "score": 1.0,
+   "value": null,
+   "text": "The files do not name any Sardinian regional law. Art. 71(11) of D.Lgs. 81/2008 allows ARPA to carry out the subsequent verifications only where a regional law provides for it, but no document in the folder identifies that law for Sardinia.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-08",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "set",
+   "score": 1.0,
+   "value": [
+    "interchangeable equipment",
+    "safety components",
+    "lifting accessories",
+    "chains, ropes and webbing",
+    "removable mechanical transmission devices"
+   ],
+   "text": "Under Article 2(1) of Regulation (EU) 2023/1230, besides machinery and partly completed machinery, the Regulation applies to interchangeable equipment, safety components, lifting accessories, chains, ropes and webbing, and removable mechanical transmission devices.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-09",
+   "group": "passages the development questions cite",
+   "type": "V",
+   "split": "dev",
+   "kind": "duration",
+   "score": 1.0,
+   "value": "P1M",
+   "text": "Under Article 10(7) of Regulation (EU) 2023/1230, as applicable from 20 January 2027 per the corrigendum, the manufacturer must provide paper instructions free of charge within one month of the user's purchase-time request.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-10",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "boolean",
+   "score": 1.0,
+   "value": false,
+   "text": "No. Under Regulation (EU) 2023/1230, Annex VII, point 6.1, the validity of a newly issued or renewed EU type-examination certificate may not exceed five years, so a six-year certificate cannot be issued on 1 March 2027.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-11",
+   "group": "passages the development questions cite",
+   "type": "V",
+   "split": "dev",
+   "kind": "boolean",
+   "score": 1.0,
+   "value": false,
+   "text": "No. Under Article 50(2) of Regulation (EU) 2023/1230, as corrected by the corrigendum, the notification deadline is 20 October 2026, which is after 16 October 2026, so it had not yet expired.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-12",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "unknown",
+   "score": 1.0,
+   "value": null,
+   "text": "The UNICT guideline, Appendix A (p. 11), states that the Global Service maintenance contract is awarded to an unnamed external company ('ditta esterna'), but no document in the folder names that company.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-13",
+   "group": "passages the development questions cite",
+   "type": "V",
+   "split": "dev",
+   "kind": "date",
+   "score": 1.0,
+   "value": "2032-07-20",
+   "text": "Under Article 53(1) of Regulation (EU) 2023/1230, as corrected by the corrigendum (point 8), the first report is due by 20 July 2028 and the next one every four years after that, so the second report is due by 20 July 2032.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-14",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "text",
+   "score": 1.0,
+   "value": "A document attesting the execution of the last check with a positive outcome (un documento attestante l'esecuzione dell'ultimo controllo con esito positivo).",
+   "text": "Under Article 71, paragraph 10 of Legislative Decree 81/2008, equipment subject to the paragraph 8 checks and used outside the production unit's premises must be accompanied by a document attesting the execution of the last check with a positive outcome.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-15",
+   "group": "passages the development questions cite",
+   "type": "V",
+   "split": "dev",
+   "kind": "boolean",
+   "score": 1.0,
+   "value": false,
+   "text": "No. Under Article 18 of Regulation (EU) 2023/1230 (REG.md), which applies from 20 January 2027 under Article 54, a non-professional user who substantially modifies his or her machinery for his or her own use is not considered a manufacturer and is not subject to the Article 10 manufacturer obligations.",
+   "basis": "facts+search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-16",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "text",
+   "score": 1.0,
+   "value": "For the entire duration of the hire or grant of the equipment (per tutta la durata del noleggio o della concessione dell'attrezzatura).",
+   "text": "Under Article 72, paragraph 2 of Legislative Decree 81/2008 (DLGS72.md), the self-certification on training and instruction must be kept on file for the entire duration of the hire or grant of the equipment.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-17",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "set",
+   "score": 1.0,
+   "value": [
+    "EU type-examination (module B) followed by conformity to type based on internal production control (module C)",
+    "conformity based on full quality assurance (module H)",
+    "conformity based on unit verification (module G)"
+   ],
+   "text": "Under Regulation (EU) 2023/1230, Article 25(2) and Annex I, Part A, point 3, a vehicle servicing lift may follow module B with module C, module H, or module G.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-18",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "boolean",
+   "score": 1.0,
+   "value": true,
+   "text": "Yes. Under art. 73, comma 5-bis of the D.Lgs. (DLGS73), the training and abilitation of Corpo nazionale dei vigili del fuoco personnel for the equipment listed in art. 73, comma 5 (equipment requiring a specific operator abilitation) may be carried out directly by the Corpo itself, using its available human, instrumental and financial resources.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-19",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "set",
+   "score": 1.0,
+   "value": [
+    "Gadoni",
+    "Lula",
+    "Furtei"
+   ],
+   "text": "According to the location summary in section 2.2 of the IGEA technical sheet (igea-equipment, p. 3), the lifting devices are also located in Gadoni (2), Lula (2) and Furtei (1), besides Iglesias (19).",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-20",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "date",
+   "score": 0.0,
+   "value": null,
+   "text": "DM 11 April 2011 (DM2011.md, art. 6) enters into force 90 days after its publication in the Gazzetta Ufficiale, but no file gives that publication date, so the entry-into-force date cannot be determined from the documents.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-21",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "date",
+   "score": 1.0,
+   "value": "2012-11-23",
+   "text": "The reference auction base for the IGEA lifting-equipment verifications is the tariff fixed by the Decreto Dirigenziale of 23/11/2012, as stated in point 2.6 of the IGEA technical specification (Scheda Tecnica) in the plant record. (Worked out from the sentences cited: the date 2012-11-23 is neither written in the sentences pointed at nor worked out from them.)",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-22",
+   "group": "other passages",
+   "type": "V",
+   "split": "dev",
+   "kind": "duration",
+   "score": 1.0,
+   "value": "P30D",
+   "text": "According to the INAIL guide (Guida ai servizi di verifica, section 2.1 on earthing installations, p. 17), the employer must send the declaration of conformity to INAIL and to the competent ASL or ARPA within 30 days of putting the plant into service, when the Sportello Unico is not operating.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-23",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "unknown",
+   "score": 1.0,
+   "value": null,
+   "text": "The IGEA tender scheme (igea-equipment, p. 4, section 2.7) refers to the successful bidder's discount ('ribasso') but does not state its percentage, and no other document in the folder gives it.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-24",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "boolean",
+   "score": 1.0,
+   "value": true,
+   "text": "Yes. Per the robot cell sheet (guidance), section 2.4.16 'Isola robotizzata', page 4, resetting any emergency stop device must take place outside the Protected Space.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-25",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "date",
+   "score": 1.0,
+   "value": "2025-11-17",
+   "text": "The EC declaration of conformity reproduced on p. 37 of the MA STAR two-post lift manual (BA364501-en) is dated Haldenwang, 2025-11-17.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-26",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "set",
+   "score": 1.0,
+   "value": [
+    "guanti di protezione contro rischi meccanici",
+    "scarpe antinfortunistiche con puntale di protezione (S1)",
+    "protettori per l'udito"
+   ],
+   "text": "The robot-cell sheet (guidance), section 2.4.16.5 'Dispositivi di protezione individuale' on p. 5, lists gloves against mechanical risk, safety shoes with toe protection (S1), and hearing protectors.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-27",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "boolean",
+   "score": 1.0,
+   "value": true,
+   "text": "Yes. According to MA STAR operating instructions section 7.3 (p. 34), when the safety nut takes over the full load the vehicle can still be lowered, but it cannot be raised again from the home position.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-28",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "text",
+   "score": 1.0,
+   "value": "SARDEGNACAT",
+   "text": "The RDO for the IGEA lifting devices periodic verification service (2019, 2020, 2021) is run telematically on \"SARDEGNACAT\", as stated on page 1 of the igea-equipment plant record.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-29",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "duration",
+   "score": 1.0,
+   "value": "P6M",
+   "text": "According to the UR10e User Manual, section 17.4 Long Term Storage (p. 211), a robot is considered long-term stored when it is stored for a period of 6 months or more.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-30",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "duration",
+   "score": 1.0,
+   "value": "P5Y",
+   "text": "According to the Extended Warranty section 8 of the MA STAR operating instructions (mastar-manual, p. 36), MAHA's extended warranty on the spindle drive is valid for a maximum of five years after initial start-up, and only if the regular inspection and maintenance intervals were demonstrably observed.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-31",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "boolean",
+   "score": 1.0,
+   "value": false,
+   "text": "No. According to the CAUTION in the UR10e User Manual (around page 126, in the section on removing the Teach Pendant), if the Teach Pendant is detached or disconnected, its Emergency Stop button is no longer active.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-32",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "unknown",
+   "score": 1.0,
+   "value": null,
+   "text": "The manufacturer's manual for the MA STAR two-post lift (mastar-manual.md) does not state a declared noise emission level in dB(A) anywhere, including the technical data tables on pages 9 and 10 and the declaration of conformity on page 37.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-33",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "text",
+   "score": 1.0,
+   "value": "The temperature must be checked on the log screen before handling or touching the robot.",
+   "text": "According to the WARNING: HOT SURFACE in section 4.3 of the UR5e user manual (file page p. 30), check the temperature on the log screen before handling or touching the robot.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-34",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "set",
+   "score": 1.0,
+   "value": [
+    "Water",
+    "70% Isopropyl alcohol",
+    "10% Ethanol alcohol",
+    "10% Naphtha"
+   ],
+   "text": "The UR10e manual's Cleaning Methods section (file heading p. 212, printed page UR10e 215) lists water, 70% isopropyl alcohol, 10% ethanol alcohol and 10% naphtha for cleaning the robot arm and/or Teach Pendant; the Cleaning TP and CB section (p. 215) only asks for a mild industrial cleaning agent without thinning agents.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-35",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "duration",
+   "score": 1.0,
+   "value": "P1Y",
+   "text": "According to the nanoScan3 manual, section 5.6.2 'Planning the regular thorough check' (p. 50), regular tests must be carried out at least once a year, and p. 51 repeats that the minimum regular thorough checks must be carried out at least once a year. (Worked out from the sentences cited: the period P1Y is not written in the sentences pointed at.)",
+   "basis": "facts+search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-36",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "unknown",
+   "score": 1.0,
+   "value": null,
+   "text": "The UR5e user manual (p. 207, Robot Arm inspection notice) refers to a 'warranty period' but does not state its length, so the files do not give the manufacturer's warranty duration.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-37",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "unknown",
+   "score": 1.0,
+   "value": null,
+   "text": "The documents describe the nanoScan3 Core I/O and Pro I/O variants (nanoscan3-manual) but do not state which one is installed in the robot cell; the robot-cell sheet (guidance) contains no scanner information.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-38",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "text",
+   "score": 1.0,
+   "value": "IP65",
+   "text": "The nanoScan3 has enclosure rating IP65 (IEC 60529) under the conditions stated in the manual's technical data (Table 38, p. 132, and footnote 1 on p. 133) and in the NOTICE in section 11.4 (p. 112).",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-39",
+   "group": "passages the development questions cite",
+   "type": "I",
+   "split": "dev",
+   "kind": "set",
+   "score": 1.0,
+   "value": [
+    "Spazio Massimo",
+    "Spazio Ristretto"
+   ],
+   "text": "According to the robot-cell sheet (guidance), section 2.4.16.1a 'Lavori all'interno dello Spazio Protetto', two areas must be identified: the Spazio Massimo and the Spazio Ristretto.",
+   "basis": "search",
+   "cost_usd": 0.0
+  },
+  {
+   "id": "BLIND2-40",
+   "group": "other passages",
+   "type": "I",
+   "split": "dev",
+   "kind": "boolean",
+   "score": 1.0,
+   "value": false,
+   "text": "Under the UNIVPM equipment guideline (univpm-guideline, section 5.1, p. 8), a machine whose non-conformity is prejudicial to workers' safety may not be used until the measures needed to eliminate the non-conformity are adopted.",
+   "basis": "facts+search",
+   "cost_usd": 0.0
+  }
+ ]
+}

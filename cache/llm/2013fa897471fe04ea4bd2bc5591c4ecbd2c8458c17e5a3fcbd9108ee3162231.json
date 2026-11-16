@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "By what deadline is the ministerial decree that revises the list of equipment in Annex VII, as envisioned by Article 71(14) of Legislative Decree 81/2008, required to be adopted?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Entro quale termine deve essere adottato il decreto ministeriale che revisiona l'elenco delle attrezzature di cui all'Allegato VII, previsto dall'articolo 71, comma 14, del decreto legislativo 81/2008?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 720,
+   "completion_tokens": 275,
+   "total_tokens": 995
+  }
+ }
+}

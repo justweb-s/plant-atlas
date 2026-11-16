@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On what date was the EC declaration of conformity of the complete robot cell (the final machine into which the UR5e and UR10e arms are integrated) drawn up?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "In quale data è stata redatta la dichiarazione di conformità CE della cella robotizzata completa (la macchina finale in cui vengono integrati i bracci UR5e e UR10e)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 709,
+   "completion_tokens": 231,
+   "total_tokens": 940
+  }
+ }
+}

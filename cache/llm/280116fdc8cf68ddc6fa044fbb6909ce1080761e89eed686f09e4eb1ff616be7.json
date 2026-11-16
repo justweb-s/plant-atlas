@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On which date did the Commission actually adopt the first implementing act with the template for Member States' data collection provided for in Article 6(10) of Regulation (EU) 2023/1230?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "In quale data la Commissione ha effettivamente adottato il primo atto di esecuzione che prevede il modello per la raccolta dei dati da parte degli Stati membri, di cui all'articolo 6, paragrafo 10, del regolamento (UE) 2023/1230?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 717,
+   "completion_tokens": 291,
+   "total_tokens": 1008
+  }
+ }
+}

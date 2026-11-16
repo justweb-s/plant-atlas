@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the MA STAR manual, if the load nut breaks through due to wear and the safety nut takes over the whole load, can the vehicle still be lowered?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo il manuale MA STAR, se il dado di carico cede per usura e il dado di sicurezza assorbe l'intero carico, il veicolo può comunque essere abbassato?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 710,
+   "completion_tokens": 293,
+   "total_tokens": 1003
+  }
+ }
+}

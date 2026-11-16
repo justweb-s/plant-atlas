@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "The manual of the MA STAR two post lift carries an EC declaration of conformity to Directive 2006/42/EC. For a unit of the same model placed on the market on 1 March 2027, must the CE marking be followed by the identification number of a notified body?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Il manuale del ponte sollevatore a due colonne MA STAR riporta una dichiarazione di conformità CE alla Direttiva 2006/42/CE. Per un'unità dello stesso modello immessa sul mercato il 1 marzo 2027, la marcatura CE deve essere seguita dal numero di identificazione di un organismo notificato?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 740,
+   "completion_tokens": 470,
+   "total_tokens": 1210
+  }
+ }
+}

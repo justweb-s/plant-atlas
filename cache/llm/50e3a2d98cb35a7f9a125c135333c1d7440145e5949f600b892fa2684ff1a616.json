@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "What is the date of the Directorial Decree setting the tariff used as the reference auction base for the periodic verifications of the IGEA devices?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"date\", \"value\": \"2012-11-23\", \"text\": \"The IGEA technical sheet (igea-equipment.md, page 4, point 2.6) names the Decreto Dirigenziale of 23/11/2012 as the tariff that sets the reference auction base for the periodic verifications.\", \"sources\": [{\"file\": \"igea-equipment.md\", \"place\": \"p. 4\", \"quote\": \"2.6 Per le prestazioni di cui al punto 2.5, come base d'asta di riferimento verrà utilizzato il tariffario, con gli indici ISTAT aggiornati, emanato dal Ministero del Lavoro e delle Politiche Sociali di concerto con i Ministeri dello Sviluppo Economico e della Salute, attraverso il Decreto Dirigenziale del 23/11/2012 con cui si fissano le tariffe per le attività di verifica periodica delle attrezzature di lavoro di cui all'allegato VII del Decreto Legislativo 9 aprile 2008 n. 81 e successive modifiche e integrazioni\"}]}",
+  "turns": 4,
+  "usage": {
+   "prompt_tokens": 22948,
+   "completion_tokens": 812
+  }
+ }
+}

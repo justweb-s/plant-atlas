@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 1 March 2027 a non-professional user carries out a substantial modification to his or her own machine, for his or her own use. Under the act applicable on that day, is that user considered a manufacturer and subject to the manufacturer's obligations?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il 1° marzo 2027 un utente non professionista apporta una modifica sostanziale alla propria macchina, per uso personale. Ai sensi della legge applicabile in quel giorno, tale utente è considerato un fabbricante e soggetto agli obblighi del fabbricante?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 734,
+   "completion_tokens": 462,
+   "total_tokens": 1196
+  }
+ }
+}

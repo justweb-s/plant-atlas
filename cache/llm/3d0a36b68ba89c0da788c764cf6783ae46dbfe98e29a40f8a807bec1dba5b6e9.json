@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Under what circumstances is it required that guards on moving transmission parts be interlocking movable guards rather than fixed guards?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Under what circumstances is it required that guards on moving transmission parts be interlocking movable guards rather than fixed guards?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 698,
+   "completion_tokens": 41,
+   "total_tokens": 739
+  }
+ }
+}

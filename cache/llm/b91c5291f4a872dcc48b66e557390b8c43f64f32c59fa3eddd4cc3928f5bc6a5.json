@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 1 March 2027 a distributor is about to make a machine (not partly completed machinery) available on the market. Under the act applicable on that day, which items must it verify before doing so?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Il 1 March 2027 un distributore sta per mettere a disposizione sul mercato una macchina (non una quasi-macchina). Ai sensi della normativa applicabile in quella data, quali elementi deve verificare prima di farlo?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 716,
+   "completion_tokens": 491,
+   "total_tokens": 1207
+  }
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "By what date is the Commission required to adopt the delegated acts referred to in Article 6(11) of Regulation (EU) 2023/1230, which concern the common methodology for the data that Member States must provide?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Entro quale data la Commissione è tenuta ad adottare gli atti delegati di cui all'articolo 6, paragrafo 11, del regolamento (UE) 2023/1230, relativi alla metodologia comune per i dati che gli Stati membri devono fornire?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 724,
+   "completion_tokens": 350,
+   "total_tokens": 1074
+  }
+ }
+}

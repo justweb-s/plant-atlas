@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Is it permissible to commission the cell's UR10e arm solely on the strength of the manufacturer's supplied declaration, prior to the entire robot cell having been declared compliant?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "È consentito mettere in servizio il braccio UR10e della cella basandosi esclusivamente sulla dichiarazione fornita dal costruttore, prima che l'intera cella robotizzata sia stata dichiarata conforme?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 716,
+   "completion_tokens": 308,
+   "total_tokens": 1024
+  }
+ }
+}

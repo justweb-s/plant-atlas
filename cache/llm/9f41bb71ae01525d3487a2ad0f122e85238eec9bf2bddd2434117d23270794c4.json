@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Besides machinery and partly completed machinery, to which 'related products' does Regulation (EU) 2023/1230 apply under Article 2(1)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Oltre alle macchine e alle quasi-macchine, a quali \"prodotti correlati\" si applica il regolamento (UE) 2023/1230 ai sensi dell'articolo 2, paragrafo 1?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 708,
+   "completion_tokens": 306,
+   "total_tokens": 1014
+  }
+ }
+}

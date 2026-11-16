@@ -138,6 +138,8 @@ def chat(messages: list[dict], model: str | None = None, **params) -> dict:
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))["response"]
     if os.getenv("ATLAS_LLM_BACKEND") == "claude-cli" and os.getenv("ATLAS_OFFLINE") != "1":
+        if os.getenv("ATLAS_LLM_SALT"):   # a fresh sample of the same call, to measure run-to-run noise
+            payload = {**payload, "salt": os.environ["ATLAS_LLM_SALT"]}
         path = _cache_path("chat-cli", payload)
         if path.exists():
             return json.loads(path.read_text(encoding="utf-8"))["response"]

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Under Annex II to the Ministerial Decree of 11 April 2011, which document must be compiled at the first periodic verification to provide a reference for the subsequent periodic verifications?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Ai sensi dell'Allegato II del Decreto Ministeriale dell'11 aprile 2011, quale documento deve essere compilato in occasione della prima verifica periodica per costituire un riferimento per le successive verifiche periodiche?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 718,
+   "completion_tokens": 277,
+   "total_tokens": 995
+  }
+ }
+}

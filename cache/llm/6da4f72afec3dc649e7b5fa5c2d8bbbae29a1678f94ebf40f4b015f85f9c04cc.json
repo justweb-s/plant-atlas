@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Among the conformity assessment procedures available to the manufacturer, which ones may be selected for machinery that is listed in Annex I, Part A?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Tra le procedure di valutazione della conformità a disposizione del fabbricante, quali possono essere scelte per le macchine elencate nell'Allegato I, Parte A?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 705,
+   "completion_tokens": 288,
+   "total_tokens": 993
+  }
+ }
+}

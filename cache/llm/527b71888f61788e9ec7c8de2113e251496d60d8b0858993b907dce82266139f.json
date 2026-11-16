@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the UR10e manual, if the Teach Pendant is detached or disconnected from the robot, does the Emergency Stop button on the Teach Pendant remain active?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo il manuale del UR10e, se il Teach Pendant viene staccato o disconnesso dal robot, il pulsante di arresto di emergenza sul Teach Pendant rimane attivo?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 715,
+   "completion_tokens": 212,
+   "total_tokens": 927
+  }
+ }
+}

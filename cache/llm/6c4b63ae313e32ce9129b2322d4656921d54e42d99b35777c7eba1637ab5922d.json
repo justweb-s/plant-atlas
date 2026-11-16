@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "What is the last day on which a machine can be placed on the market in conformity with Directive 2006/42/EC so that Member States may not afterwards impede its making available on the market under the transitional provisions of Regulation (EU) 2023/1230?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Qual è l'ultimo giorno in cui una macchina può essere immessa sul mercato in conformità con la direttiva 2006/42/CE, affinché gli Stati membri non possano successivamente ostacolarne la messa a disposizione sul mercato ai sensi delle disposizioni transitorie del regolamento (UE) 2023/1230?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 735,
+   "completion_tokens": 454,
+   "total_tokens": 1189
+  }
+ }
+}

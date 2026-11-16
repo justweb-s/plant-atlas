@@ -1,0 +1,4032 @@
+[
+ {
+  "question": "6eaff5cce193",
+  "value": [
+   "Removable mechanical transmission devices including their guards",
+   "Guards for removable mechanical transmission devices",
+   "Vehicle servicing lifts",
+   "Portable cartridge-operated fixing and other impact machinery",
+   "Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions",
+   "Machinery that has embedded systems with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions, in respect only of those systems"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 1,
+    "subject": "Machinery categories listed in Annex I, Part A of Regulation (EU) 2023/1230 (Article 25(2))",
+    "predicate": "requiresProcedure",
+    "value": "shall apply one of the following procedures",
+    "normalised": "one of the following conformity assessment procedures (manufacturer or Article 18 person)",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Annex I, Part A",
+    "attempt": 1,
+    "subject": "Categories of machinery or related products requiring a procedure referred to in Article 25(2) (REG, Annex I, Part A)",
+    "predicate": "requiresProcedure",
+    "value": "Categories of machinery or related products to which a procedure referred to in Article 25(2) shall be applied",
+    "normalised": "Procedure referred to in Article 25(2) (notified body involvement) applies to the categories listed in Annex I Part A",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 1",
+    "attempt": 1,
+    "subject": "Machinery category 'Removable mechanical transmission devices including their guards' (REG, Annex I, Part A, point 1) and its conformity assessment requirement",
+    "predicate": "listedIn",
+    "value": "1. Removable mechanical transmission devices including their guards.",
+    "normalised": "Annex I, Part A, point 1 (categories of machinery requiring notified body involvement)",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 2",
+    "attempt": 1,
+    "subject": "Guards for removable mechanical transmission devices (Annex I, Part A, point 2 of Regulation REG, machinery requiring a notified body conformity assessment procedure)",
+    "predicate": "listedIn",
+    "value": "2. Guards for removable mechanical transmission devices.",
+    "normalised": "Annex I, Part A, point 2",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Guards for removable mechanical transmission devices\", \"Vehicle servicing lifts\", \"Portable cartridge-operated fixing , not [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devic"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 3",
+    "attempt": 1,
+    "subject": "Vehicle servicing lifts (Annex I, Part A, point 3 of the Machinery Regulation, listing categories of machinery that require a notified body conformity assessment procedure)",
+    "predicate": "listedIn",
+    "value": "3. Vehicle servicing lifts.",
+    "normalised": "Vehicle servicing lifts are listed in REG Annex I, Part A, point 3",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Guards for removable mechanical transmission devices\", \"Vehicle servicing lifts\", \"Portable cartridge-operated fixing , not [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devic"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 4",
+    "attempt": 1,
+    "subject": "Portable cartridge-operated fixing and other impact machinery (Regulation REG, Annex I, Part A, point 4) - listing as a category requiring a notified body conformity assessment procedure",
+    "predicate": "listedIn",
+    "value": "4. Portable cartridge-operated fixing and other impact machinery.",
+    "normalised": "Annex I, Part A, point 4",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Guards for removable mechanical transmission devices\", \"Vehicle servicing lifts\", \"Portable cartridge-operated fixing , not [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devic"
+   },
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 2,
+    "subject": "Conformity assessment procedure for machinery and related products listed in Annex I, Part A (Regulation, Article 25(2))",
+    "predicate": "requiresProcedure",
+    "value": "the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures",
+    "normalised": "one of the following procedures (Annex I, Part A categories)",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A",
+    "attempt": 2,
+    "subject": "REG, Annex I, Part A: categories of machinery or related products to which a procedure referred to in Article 25(2) shall be applied",
+    "predicate": "requiresProcedure",
+    "value": "Categories of machinery or related products to which a procedure referred to in Article 25(2) shall be applied",
+    "normalised": "Article 25(2) conformity assessment procedure involving a notified body (listed categories)",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 1",
+    "attempt": 2,
+    "subject": "Removable mechanical transmission devices including their guards (Annex I, Part A, point 1 of Regulation REG)",
+    "predicate": "requiresProcedure",
+    "value": "Removable mechanical transmission devices including their guards.",
+    "normalised": "notified body conformity assessment",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The passage only lists removable mechanical transmission devices as a machinery category; it names no conformity assessment procedure or module, and the claim's value just repeats the category.)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 2",
+    "attempt": 2,
+    "subject": "Machinery category listed in REG Annex I, Part A, point 2 (guards for removable mechanical transmission devices)",
+    "predicate": "listedIn",
+    "value": "Guards for removable mechanical transmission devices",
+    "normalised": "Guards for removable mechanical transmission devices",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 3",
+    "attempt": 2,
+    "subject": "Vehicle servicing lifts, a category of machinery listed in Annex I, Part A of REG",
+    "predicate": "listedIn",
+    "value": "3. Vehicle servicing lifts.",
+    "normalised": "Annex I, Part A, point 3",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 4",
+    "attempt": 2,
+    "subject": "Portable cartridge-operated fixing and other impact machinery, as a category of machinery in the Machinery Regulation (REG)",
+    "predicate": "listedIn",
+    "value": "4. Portable cartridge-operated fixing and other impact machinery.",
+    "normalised": "Annex I, Part A, point 4",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "d6b41ed44487",
+  "value": [
+   "module B followed by module C (EU type-examination plus internal production control)",
+   "module H (full quality assurance)",
+   "module G (unit verification)"
+  ],
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 1,
+    "subject": "Machinery listed in Annex I, Part A of Regulation (EU) 2023/1230 (REG), Art. 25(2): conformity assessment procedures the manufacturer may apply",
+    "predicate": "requiresProcedure",
+    "value": "one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X",
+    "normalised": "module B followed by module C; module H; module G",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"EU type-examination (module B) followed by module C\", \"module H\", \"module G\"], not [\"module B followed by module C (EU type-examination plus internal production control)\", \"module H (full quality assuran"
+   },
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 2,
+    "subject": "Machinery listed in Annex I, Part A of Regulation (EU) 2023/1230, Article 25(2): conformity assessment procedures the manufacturer (or person under Article 18) must apply",
+    "predicate": "requiresProcedure",
+    "value": "(a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X.",
+    "normalised": "module B followed by module C (EU type-examination plus internal production control); module H (full quality assurance); module G (unit verification)",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   }
+  ]
+ },
+ {
+  "question": "ea57b7536ef4",
+  "value": "Annex I, Part A, point 5: safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Annex I, Part A, point 5",
+    "attempt": 1,
+    "subject": "Safety components with fully or partially self-evolving behaviour using machine learning approaches (Annex I, Part A, point 5 of the Machinery Regulation)",
+    "predicate": "listedIn",
+    "value": "Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions",
+    "normalised": "Annex I, Part A, point 5 (high-risk category of safety components)",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "a914e21c5dde",
+  "value": "Interlocking movable guards are required instead of fixed guards for moving transmission parts where frequent access is envisaged (Regulation, Annex III, point 1.3.8.1).",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Annex III, 1.3.8.1",
+    "attempt": 1,
+    "subject": "Guards for moving transmission parts (Regulation, Annex III, point 1.3.8.1)",
+    "predicate": "requiresMeasure",
+    "value": "Interlocking movable guards shall be used where frequent access is envisaged.",
+    "normalised": "interlocking movable guards where frequent access is envisaged",
+    "condition": "where frequent access is envisaged",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"Interlocking movable guards are required for guards on moving transmission parts where frequent access is envisaged.\", not \"Interlocking movable guards are required instead of fixed guards for moving transmission parts where frequent access is"
+   },
+   {
+    "place": "DIR, Annex I, 1.3.8.1",
+    "attempt": 1,
+    "subject": "Guards for moving transmission parts (Directive, Annex I, section 1.3.8.1)",
+    "predicate": "requiresMeasure",
+    "value": "interlocking movable guards as referred to in section 1.4.2.2. Interlocking movable guards should be used where frequent access is envisaged",
+    "normalised": "interlocking movable guards where frequent access is envisaged",
+    "condition": "where frequent access is envisaged",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"Interlocking movable guards are required for guards on moving transmission parts where frequent access is envisaged.\", not \"Interlocking movable guards are required instead of fixed guards for moving transmission parts where frequent access is"
+   },
+   {
+    "place": "REG, Annex III, 1.3.8.1",
+    "attempt": 2,
+    "subject": "guards protecting persons against moving transmission parts (Regulation, Annex III, point 1.3.8.1)",
+    "predicate": "requiresMeasure",
+    "value": "Interlocking movable guards shall be used",
+    "normalised": "interlocking movable guards instead of fixed guards",
+    "condition": "where frequent access is envisaged",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"Interlocking movable guards must replace fixed guards for moving transmission parts where frequent access is envisaged., not \"Interlocking movable guards are required instead of fixed guards for moving transmission parts where frequent access is"
+   },
+   {
+    "place": "DIR, Annex I, 1.3.8.1",
+    "attempt": 2,
+    "subject": "Guards for moving transmission parts in machinery (Directive, Annex I, 1.3.8.1)",
+    "predicate": "requiresProcedure",
+    "value": "Interlocking movable guards should be used where frequent access is envisaged.",
+    "normalised": "interlocking movable guards instead of fixed guards where frequent access is envisaged",
+    "condition": "where frequent access is envisaged",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   }
+  ]
+ },
+ {
+  "question": "1045848dc685",
+  "value": [
+   "risks of contact which could lead to accidents",
+   "accidental blockage of moving parts",
+   "risks of contact leading to hazardous situations",
+   "psychological stress that may be caused by the interaction with the machinery"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Annex III, 1.3.7",
+    "attempt": 1,
+    "subject": "Essential health and safety requirement 1.3.7 of Annex III (Regulation REG, Annex III, point 1.3.7) on risks related to moving parts",
+    "predicate": "addressesRisk",
+    "value": "prevent risks of contact which could lead to accidents",
+    "normalised": "risks of contact which could lead to accidents",
+    "condition": "where risks persist, be fitted with guards or protective devices",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"risks of contact which could lead to accidents\", \"accidental blockage of moving parts\"], not [\"risks of contact which could lead to accidents\", \"accidental blockage of moving parts\", \"risks of contact leading to h"
+   },
+   {
+    "place": "REG, Annex III, 1.3.7",
+    "attempt": 1,
+    "subject": "Essential health and safety requirement 1.3.7 of Annex III of the Machinery Regulation (REG), on risks addressed by the requirement",
+    "predicate": "addressesRisk",
+    "value": "prevent accidental blockage of moving parts",
+    "normalised": "accidental blockage of moving parts",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"risks of contact which could lead to accidents\", \"accidental blockage of moving parts\"], not [\"risks of contact which could lead to accidents\", \"accidental blockage of moving parts\", \"risks of contact leading to h"
+   },
+   {
+    "place": "REG, Annex III, 1.3.7",
+    "attempt": 1,
+    "subject": "Essential health and safety requirement 1.3.7 of Annex III of REG (machinery), risks addressed by the prevention measures",
+    "predicate": "addressesRisk",
+    "value": "The prevention of risks of contact leading to hazardous situations and the psychological stress that may be caused by the interaction with the machinery",
+    "normalised": "risks of contact leading to hazardous situations; psychological stress caused by interaction with the machinery",
+    "condition": "shall be adapted to: (a) human-machine coexistence in a shared space without direct collaboration; (b) human-machine interaction.",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Annex III, 1.3.7",
+    "attempt": 2,
+    "subject": "Essential health and safety requirement 1.3.7 (Risks related to moving parts), Annex III of the machinery regulation (REG)",
+    "predicate": "addressesRisk",
+    "value": "risks of contact which could lead to accidents",
+    "normalised": "risks of contact which could lead to accidents",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"risks of contact which could lead to accidents\", \"accidental blockage of moving parts\"], not [\"risks of contact which could lead to accidents\", \"accidental blockage of moving parts\", \"risks of contact leading to h"
+   },
+   {
+    "place": "REG, Annex III, 1.3.7",
+    "attempt": 2,
+    "subject": "Essential health and safety requirement 1.3.7 of Annex III (REG), the risks it addresses",
+    "predicate": "addressesRisk",
+    "value": "prevent accidental blockage of moving parts",
+    "normalised": "accidental blockage of moving parts",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"risks of contact which could lead to accidents\", \"accidental blockage of moving parts\"], not [\"risks of contact which could lead to accidents\", \"accidental blockage of moving parts\", \"risks of contact leading to h"
+   },
+   {
+    "place": "REG, Annex III, 1.3.7",
+    "attempt": 2,
+    "subject": "Essential health and safety requirement 1.3.7 of Annex III to Regulation (EU) 2023/1230 (machinery), risks addressed",
+    "predicate": "addressesRisk",
+    "value": "The prevention of risks of contact leading to hazardous situations and the psychological stress that may be caused by the interaction with the machinery",
+    "normalised": "risks of contact leading to hazardous situations; psychological stress from human-machine interaction",
+    "condition": "shall be adapted to: (a) human-machine coexistence in a shared space without direct collaboration; (b) human-machine interaction.",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   }
+  ]
+ },
+ {
+  "question": "5da8b6535d56",
+  "value": "The natural or legal person who carries out the substantial modification of the machinery (not a non-professional user modifying it for its own use) is considered the manufacturer under Article 18 of the Regulation.",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 18",
+    "attempt": 1,
+    "subject": "Machinery or related product after a substantial modification (Regulation, Art. 18): who is considered the manufacturer",
+    "predicate": "becomesManufacturer",
+    "value": "A natural or legal person that carries out a substantial modification of machinery or a related product shall be considered to be a manufacturer",
+    "normalised": "the natural or legal person who carries out the substantial modification",
+    "condition": "A natural or legal person that carries out a substantial modification of machinery or a related product",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"A natural or legal person that carries out a substantial modification of machinery or a related product becomes the man, not \"The natural or legal person who carries out the substantial modification of the machinery (not a non-professional user "
+   },
+   {
+    "place": "REG, Art. 18",
+    "attempt": 1,
+    "subject": "Manufacturer status after a substantial modification of machinery by a non-professional user, Regulation Art. 18",
+    "predicate": "becomesManufacturer",
+    "value": "shall not be considered to be a manufacturer for the purposes of this Regulation",
+    "normalised": "not a manufacturer (false)",
+    "condition": "for his or her own use",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"A natural or legal person that carries out a substantial modification of machinery or a related product becomes the man, not \"The natural or legal person who carries out the substantial modification of the machinery (not a non-professional user "
+   },
+   {
+    "place": "REG, Art. 18",
+    "attempt": 2,
+    "subject": "Manufacturer status after a substantial modification of machinery (REG, Art. 18)",
+    "predicate": "becomesManufacturer",
+    "value": "A natural or legal person that carries out a substantial modification of machinery or a related product shall be considered to be a manufacturer",
+    "normalised": "The natural or legal person carrying out the substantial modification is considered the manufacturer",
+    "condition": "that carries out a substantial modification of machinery or a related product",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 18",
+    "attempt": 2,
+    "subject": "Manufacturer status after substantial modification of machinery under Article 18 of the Regulation, where the modifier is a non-professional user",
+    "predicate": "becomesManufacturer",
+    "value": "shall not be considered to be a manufacturer for the purposes of this Regulation",
+    "normalised": "not considered a manufacturer",
+    "condition": "for his or her own use",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "6901f6f1109f",
+  "value": [
+   "the instructions for use",
+   "the information set out in Annex III",
+   "the EU declaration of conformity set out in Annex V, Part A (or an internet address or machine-readable code where it can be accessed in the instructions for use)"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 10(7)",
+    "attempt": 1,
+    "subject": "Machinery or related products placed on the market (REG, Art. 10(7)): documents that must accompany them",
+    "predicate": "mustAccompany",
+    "value": "accompanied by the instructions for use and the information set out in Annex III",
+    "normalised": "instructions for use and the information set out in Annex III",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"Machinery placed on the market must be accompanied by the instructions for use and the information set out in the cited, not [\"the instructions for use\", \"the information set out in Annex III\", \"the EU declaration of conformity set out in Annex "
+   },
+   {
+    "place": "REG, Art. 10(8)",
+    "attempt": 1,
+    "subject": "Machinery placed on the market under the Machinery Regulation (REG, Art. 10(8)): documents that must accompany it",
+    "predicate": "mustAccompany",
+    "value": "accompanied by the EU declaration of conformity set out in Annex V, Part A",
+    "normalised": "EU declaration of conformity (Annex V, Part A), or internet address or machine-readable code where it can be accessed in the instructions for use; and the information set out in Annex III",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 10(7)",
+    "attempt": 2,
+    "subject": "Machinery or related products placed on the market under Regulation (EU) 2023/1230, Art. 10(7)",
+    "predicate": "mustAccompany",
+    "value": "accompanied by the instructions for use and the information set out in Annex III",
+    "normalised": "the instructions for use and the information set out in Annex III",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"accompanied by the instructions for use and the information set out in\"], not [\"the instructions for use\", \"the information set out in Annex III\", \"the EU declaration of conformity set out in Annex "
+   },
+   {
+    "place": "REG, Art. 10(8)",
+    "attempt": 2,
+    "subject": "Machinery placed on the market under REG Art. 10(8): documents that must accompany it",
+    "predicate": "mustAccompany",
+    "value": "accompanied by the EU declaration of conformity set out in Annex V, Part A",
+    "normalised": "EU declaration of conformity (Annex V, Part A)",
+    "condition": "Manufacturers shall ensure that the machinery or related product is accompanied by the EU declaration of conformity set out in Annex V, Part A or, alternatively, manufacturers shall provide the internet address or machine-readable code where that EU declaration of conformity can be accessed in the instructions for use and the information set out in Annex III.",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"accompanied by the instructions for use and the information set out in\"], not [\"the instructions for use\", \"the information set out in Annex III\", \"the EU declaration of conformity set out in Annex "
+   }
+  ]
+ },
+ {
+  "question": "2a0e6e7cce6b",
+  "value": "P10Y",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "REG, Art. 10(3)",
+    "attempt": 1,
+    "subject": "Machinery Regulation (EU) 2023/1230, Art. 10(3): retention of technical documentation and EU declaration of conformity by the manufacturer",
+    "predicate": "retentionPeriod",
+    "value": "for at least 10 years",
+    "normalised": "P10Y",
+    "condition": "after the machinery or the related product has been placed on the market or put into service",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "st-0071"
+   },
+   {
+    "place": "DIR, Annex II, 2",
+    "attempt": 1,
+    "subject": "Manufacturer's retention of the original EC declaration of conformity for machinery (Directive 98/37/EC, Annex II, point 2)",
+    "predicate": "retentionPeriod",
+    "value": "for a period of at least 10 years from the last date of manufacture of the machinery",
+    "normalised": "P10Y",
+    "condition": "from the last date of manufacture of the machinery",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "st-1482"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 1,
+    "subject": "Directive 2006/42/EC (Machinery Directive), repeal under the regulation's Article 51(2)",
+    "predicate": "repealedFrom",
+    "value": "repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   }
+  ]
+ },
+ {
+  "question": "7eb6c72c7fa3",
+  "value": "2027-01-20",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "REG, Art. 54",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230 on machinery, date from which it applies",
+    "predicate": "appliesFrom",
+    "value": "It shall apply from 20 January 2027.",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 10",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230 (Machinery Regulation): date from which it applies, as corrected in Article 54, second paragraph",
+    "predicate": "appliesFrom",
+    "value": "read: ‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "st-1598"
+   }
+  ]
+ },
+ {
+  "question": "8fb874819323",
+  "value": true,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 5",
+    "attempt": 1,
+    "subject": "Directive 2006/42/EC (Machinery Directive), Article 51(2), first subparagraph: end of placing on the market of machinery conforming to the Directive",
+    "predicate": "placingAllowedUntil",
+    "value": "read: ‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "unclear",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Corrigendum replaces '14 January 2027' with '20 January 2027' in Article 51(2) first subparagraph; the passage does not name the Directive 2006/42/EC or placing-on-market context.)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 5",
+    "attempt": 2,
+    "subject": "Article 51(2), first subparagraph, as corrected by this corrigendum (point 5): the date until which earlier-act conforming products may be placed on the market",
+    "predicate": "placingAllowedUntil",
+    "value": "‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "unclear",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Corrigendum replaces '14 January 2027' with '20 January 2027' in Art. 51(2) first subparagraph; the passage doesn't say what the date concerns (placing on market).)"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC (Machinery Directive), as repealed by the Machinery Regulation, Art. 51(2)",
+    "predicate": "repealedFrom",
+    "value": "repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 52(1)",
+    "attempt": 2,
+    "subject": "Machinery conforming to Directive 2006/42/EC (Regulation Art. 52(1) transitional provisions): whether such products may still be made available on the market",
+    "predicate": "placingAllowedUntil",
+    "value": "products which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "products which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   }
+  ]
+ },
+ {
+  "question": "4b77d712df0c",
+  "value": "INAIL carries out the first periodic verification of Annex VII equipment, within sixty days from the request (DM 11 April 2011, art. 2, c. 1); the INAIL guide's 45-day figure is overridden by this law.",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "DM2011, art. 2, c. 1",
+    "attempt": 1,
+    "subject": "First periodic verification of work equipment listed in Annex VII of Legislative Decree 81/2008, under art. 71 c. 11-12 (DM 11 April 2011, art. 2, c. 1)",
+    "predicate": "verifiedBy",
+    "value": "l'INAIL e' titolare della prima delle verifiche periodiche",
+    "normalised": "INAIL",
+    "condition": "Ai sensi dell'articolo 71, commi 11 e 12, del decreto legislativo n. 81/2008",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"INAIL carries out the first periodic verification of Annex VII work equipment (art. 71, paragraphs 11-12, DM 11 April 2, not \"INAIL carries out the first periodic verification of Annex VII equipment, within sixty days from the request (DM 11 Apr"
+   },
+   {
+    "place": "DM2011, art. 1, c. 1",
+    "attempt": 1,
+    "subject": "DM 11 April 2011 on periodic verifications of work equipment in Annex VII of Legislative Decree 81/2008, art. 1, c. 1 (scope of the decree)",
+    "predicate": "definedAs",
+    "value": "disciplina le modalita' di effettuazione delle verifiche periodiche cui sono sottoposte le attrezzature di lavoro di cui all'allegato VII del decreto legislativo n. 81/2008",
+    "normalised": "the decree sets out how periodic verifications of work equipment listed in Annex VII of Legislative Decree 81/2008 are carried out, plus the criteria for qualifying public or private bodies and the conditions under which INAIL and the ASL may use public or private support bodies for those verifications",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DM2011, art. 2, c. 1",
+    "attempt": 2,
+    "subject": "first periodic verification of Annex VII work equipment, carried out by INAIL under art. 71, paragraphs 11-12, of Legislative Decree 81/2008",
+    "predicate": "hasTimeLimit",
+    "value": "nel termine di sessanta giorni dalla richiesta",
+    "normalised": "P60D from the request",
+    "condition": "Ai sensi dell'articolo 71, commi 11 e 12, del decreto legislativo n. 81/2008",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"INAIL carries out the first periodic verification of Annex VII work equipment, within sixty days from the request.\", not \"INAIL carries out the first periodic verification of Annex VII equipment, within sixty days from the request (DM 11 Apr"
+   },
+   {
+    "place": "DM2011, art. 1, c. 1",
+    "attempt": 2,
+    "subject": "Periodic verification of Annex VII work equipment under DM 11 April 2011, art. 1, c. 1",
+    "predicate": "verifiedBy",
+    "value": "l'INAIL e le ASL possono avvalersi del supporto di soggetti pubblici o privati",
+    "normalised": "INAIL and ASL, with public or private bodies in support",
+    "condition": "per l'effettuazione delle verifiche periodiche di cui all'articolo 71, comma 11",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "yes",
+    "decision": "rejected",
+    "reason": "the second reader: a condition of the sentence was dropped"
+   },
+   {
+    "place": "inail-guide, p. 29",
+    "attempt": 2,
+    "subject": "First periodic verification of Annex VII work equipment under Legislative Decree 81/2008 (INAIL guide, p. 29)",
+    "predicate": "hasTimeLimit",
+    "value": "entro 45 giorni dalla data di ricevimento della richiesta completa",
+    "normalised": "P45D",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   }
+  ]
+ },
+ {
+  "question": "24d5214024e1",
+  "value": "P3Y",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "DLGS71, art. 71, c. 9",
+    "attempt": 1,
+    "subject": "Results of the checks on work equipment referred to in art. 71, c. 8 (D.Lgs. 81/2008), retention by the employer",
+    "predicate": "retentionPeriod",
+    "value": "almeno quelli relativi agli ultimi tre anni, devono essere conservati",
+    "normalised": "P3Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "st-1565"
+   }
+  ]
+ },
+ {
+  "question": "95f2142cfd69",
+  "value": [
+   "MA STAR 3.5 A STOCK",
+   "MA STAR 3.5 S STOCK",
+   "MA STAR 3.5 A",
+   "MA STAR 3.5 S",
+   "MA STAR 3.5 A BMW",
+   "MA STAR 3.5 A MB",
+   "VAS 771 043 (MA STAR 3.5 A)",
+   "MA STAR 5.5 STOCK",
+   "MA STAR 5.5",
+   "MA STAR 5.5 MB",
+   "VAS 771 045 (MA STAR 5.5)",
+   "MA STAR 6.5 STOCK",
+   "MA STAR 6.5",
+   "MA STAR 6.5 MB"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "mastar-manual, p. 37",
+    "attempt": 1,
+    "subject": "Two-post lift (Zwei-Säulen-Hebebühne / Two Post Lift), MA STAR lift models, as listed in the mastar-manual designation table",
+    "predicate": "conformsToStandard",
+    "value": "Richtlinien | Directives 2006/42/EG 2006/42/EC 2014/53/EU 2014/53/EU",
+    "normalised": "Directives 2006/42/EC and 2014/53/EU",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 3",
+    "attempt": 1,
+    "subject": "Vehicle servicing lifts, a category of machinery in Annex I, Part A of REG",
+    "predicate": "listedIn",
+    "value": "3. Vehicle servicing lifts.",
+    "normalised": "Annex I, Part A, point 3",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 1,
+    "subject": "Conformity assessment procedures for machinery categories listed in Annex I, Part A (Regulation Art. 25(2))",
+    "predicate": "requiresProcedure",
+    "value": "one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X",
+    "normalised": "one of: module B followed by module C; module H; or module G",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "mastar-manual, p. 37",
+    "attempt": 2,
+    "subject": "Two Post Lift (Zwei-Säulen-Hebebühne) in the MA STAR manual (mastar-manual, p. 37 designation table), including the MA STAR 3.5, 5.5 and 6.5 models",
+    "predicate": "conformsToStandard",
+    "value": "2006/42/EG 2006/42/EC 2014/53/EU 2014/53/EU",
+    "normalised": "Directive 2006/42/EC and Directive 2014/53/EU",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 3",
+    "attempt": 2,
+    "subject": "Vehicle servicing lifts (REG, Annex I, Part A, point 3): the models listed in the catalogue under this category, e.g. MA STAR 3.5 A, MA STAR 5.5, MA STAR 6.5 and their variants, self-certified today under internal checks",
+    "predicate": "requiresProcedure",
+    "value": "Vehicle servicing lifts.",
+    "normalised": "Vehicle servicing lifts are listed in Annex I, Part A, point 3, so the category is covered by the conformity assessment procedure that applies to it from 20 January 2027 and the models in the catalogue need a notified body",
+    "condition": "from 20 January 2027",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 2,
+    "subject": "Conformity assessment for machinery listed in Annex I, Part A of Regulation (EU) 2023/1230 (Art. 25(2))",
+    "predicate": "requiresProcedure",
+    "value": "(a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X.",
+    "normalised": "module B followed by module C, or module H, or module G (one of these, with a notified body involved)",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (EU) on machinery (REG, Art. 54): entry into force and date of application",
+    "predicate": "appliesFrom",
+    "value": "It shall apply from 20 January 2027.",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC (Machinery Directive), repeal of the Directive",
+    "predicate": "repealedFrom",
+    "value": "Directive 2006/42/EC is repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 52(1)",
+    "attempt": 2,
+    "subject": "Products placed on the market under Directive 2006/42/EC before the Machinery Regulation's transition date (transitional provision, REG Art. 52(1))",
+    "predicate": "placingAllowedUntil",
+    "value": "before 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "products which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   }
+  ]
+ },
+ {
+  "question": "521f80028011",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "b59d613a5187",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "74eeb8429dc7",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "dbe0e56b1918",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "2722b5b23d52",
+  "value": "The ASL carries out the subsequent periodic verifications at the employer's free choice; ARPA does so where a regional law provides for it; authorised public or private bodies may also do them (D.Lgs. 81/2008, art. 71, c. 11).",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "DLGS71, art. 71, c. 11",
+    "attempt": 1,
+    "subject": "Periodic verifications after the first one on equipment listed in Annex VII of D.Lgs. 81/2008 (art. 71, c. 11)",
+    "predicate": "verifiedBy",
+    "value": "dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati",
+    "normalised": "ASL; or ARPA where a regional law provides for it; or authorised public or private bodies; chosen freely by the employer",
+    "condition": "Le successive verifiche sono effettuate su libera scelta del datore di lavoro",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DM2011, art. 2, c. 1",
+    "attempt": 1,
+    "subject": "Periodic verifications of equipment listed in Annex VII (DM 2011, art. 2, c. 1) after the first one",
+    "predicate": "verifiedBy",
+    "value": "le ASL sono titolari delle verifiche periodiche successive alla prima",
+    "normalised": "ASL (local health authority)",
+    "condition": "Ai sensi dell'articolo 71, commi 11 e 12, del decreto legislativo n. 81/2008",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"The ASL (local health authority) carries out the periodic verifications after the first one on Annex VII equipment, as , not \"The ASL carries out the subsequent periodic verifications at the employer's free choice; ARPA does so where a regional "
+   },
+   {
+    "place": "DLGS71, art. 71, c. 11",
+    "attempt": 2,
+    "subject": "Periodic verifications after the first one on equipment listed in Annex VII of D.Lgs. 81/2008 (art. 71, c. 11)",
+    "predicate": "verifiedBy",
+    "value": "dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati",
+    "normalised": "ASL, ARPA where regional law provides, or authorised public or private bodies",
+    "condition": "Le successive verifiche sono effettuate su libera scelta del datore di lavoro",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"The ASL (local health authority) or, where regional law so provides, ARPA, when the employer freely chooses them.\", not \"The ASL carries out the subsequent periodic verifications at the employer's free choice; ARPA does so where a regional "
+   },
+   {
+    "place": "DM2011, art. 2, c. 1",
+    "attempt": 2,
+    "subject": "periodic verifications after the first one (DM2011, art. 2, c. 1)",
+    "predicate": "verifiedBy",
+    "value": "le ASL sono titolari delle verifiche periodiche successive alla prima",
+    "normalised": "ASL (local health authority)",
+    "condition": "Ai sensi dell'articolo 71, commi 11 e 12, del decreto legislativo n. 81/2008",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"The ASL (local health authority) or, where regional law so provides, ARPA, when the employer freely chooses them.\", not \"The ASL carries out the subsequent periodic verifications at the employer's free choice; ARPA does so where a regional "
+   }
+  ]
+ },
+ {
+  "question": "ea43870b6562",
+  "value": "P45D",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "DLGS71, art. 71, c. 11",
+    "attempt": 1,
+    "subject": "First periodic verification of machinery by INAIL (Legislative Decree 81/2008, Art. 71, c. 11)",
+    "predicate": "hasTimeLimit",
+    "value": "nel termine di quarantacinque giorni dalla richiesta",
+    "normalised": "P45D",
+    "condition": "Per la prima verifica il datore di lavoro si avvale dell'INAIL",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "st-1568"
+   },
+   {
+    "place": "DM2011, art. 2, c. 1",
+    "attempt": 1,
+    "subject": "First periodic verification of machinery under the Ministerial Decree of 11 April 2011, art. 2, c. 1 (carried out by INAIL)",
+    "predicate": "hasTimeLimit",
+    "value": "nel termine di sessanta giorni dalla richiesta",
+    "normalised": "P60D",
+    "condition": "la prima delle verifiche periodiche",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "inail-guide, p. 29",
+    "attempt": 1,
+    "subject": "First periodic verification of machinery/equipment by Inail after a request (inail-guide, p. 29)",
+    "predicate": "hasTimeLimit",
+    "value": "entro 45 giorni dalla data di ricevimento della richiesta completa",
+    "normalised": "P45D",
+    "condition": "dalla data di ricevimento della richiesta completa",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "guidance-st-0079"
+   }
+  ]
+ },
+ {
+  "question": "cc73e5277260",
+  "value": false,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "ur5e-manual, p. 220",
+    "attempt": 1,
+    "subject": "UR5e robot arm (Universal Robots e-Series) and its putting into service, ur5e-manual p. 220",
+    "predicate": "putIntoServiceOnlyWhen",
+    "value": "shall only be put into service upon being integrated into a final complete machine (robot application or cell)",
+    "normalised": "only once integrated into a final complete machine (robot application or cell)",
+    "condition": "which conforms with the provisions of the Machinery Directive and other applicable Directives",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "ur5e-manual, p. 180",
+    "attempt": 1,
+    "subject": "UR5e robot arm (ur5e-manual, p. 180) – whether it can be put into service on its own as delivered",
+    "predicate": "isPartlyCompletedMachinery",
+    "value": "The robot is partly completed machinery",
+    "normalised": "true",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "060028888958",
+  "value": "P1Y",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "nanoscan3-manual, p. 50",
+    "attempt": 1,
+    "subject": "nanoScan3 safety laser scanner, periodic testing (manual p. 50)",
+    "predicate": "requiresPeriodicCheck",
+    "value": "Carry out tests at least once a year.",
+    "normalised": "P1Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "manufacturer-st-0546"
+   },
+   {
+    "place": "nanoscan3-manual, p. 51",
+    "attempt": 1,
+    "subject": "nanoScan3 safety laser scanner: thorough checks",
+    "predicate": "requiresPeriodicCheck",
+    "value": "at least once a year",
+    "normalised": "P1Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "manufacturer-st-0549"
+   }
+  ]
+ },
+ {
+  "question": "9b25096292b7",
+  "value": "P15D",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "igea-equipment, p. 5",
+    "attempt": 1,
+    "subject": "verification of the equipment (controls on the various apparatus) planned with IGEA incaricati",
+    "predicate": "hasTimeLimit",
+    "value": "con un preavviso di almeno 15 giorni",
+    "normalised": "P15D",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "plant_igea_terms-09"
+   }
+  ]
+ },
+ {
+  "question": "843d2e485a7a",
+  "value": "P6M",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "mastar-manual, p. 34",
+    "attempt": 1,
+    "subject": "MA STAR two post lift, load nut wear indicator (section 7.3, mastar-manual p. 34)",
+    "predicate": "requiresPeriodicCheck",
+    "value": "must be checked every 6 months",
+    "normalised": "P6M",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "manufacturer-st-0650"
+   }
+  ]
+ },
+ {
+  "question": "1e035aca3859",
+  "value": "P1Y",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "ur10e-manual, p. 209",
+    "attempt": 1,
+    "subject": "UR10e robot kept in long-term storage: recommended unpacking and start-up interval (ur10e-manual, p. 209)",
+    "predicate": "verificationInterval",
+    "value": "at least yearly",
+    "normalised": "P1Y",
+    "condition": "robots kept in long-term storage",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   },
+   {
+    "place": "ur10e-manual, p. 209",
+    "attempt": 1,
+    "subject": "UR10e robot in storage: what counts as long-term stored (ur10e-manual, p. 209)",
+    "predicate": "definedAs",
+    "value": "stored for a period of 6 months or more",
+    "normalised": "P6M or more",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "ur10e-manual, p. 209",
+    "attempt": 2,
+    "subject": "UR10e robot: unpacking and start-up interval (robots kept in storage)",
+    "predicate": "requiresPeriodicCheck",
+    "value": "at least yearly",
+    "normalised": "P1Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "ur10e-manual, p. 209",
+    "attempt": 2,
+    "subject": "UR10e robot kept in long-term storage (stored 6 months or more): how often the manufacturer recommends unpacking and starting it up",
+    "predicate": "requiresPeriodicCheck",
+    "value": "unpacking and starting up",
+    "normalised": "P1Y",
+    "condition": "A robot is considered long-term stored when it is stored for a period of 6 months or more.",
+    "gate": "value_not_in_quote",
+    "decision": "rejected",
+    "reason": "value_as_written is not a part of the sentence, copied exactly"
+   }
+  ]
+ },
+ {
+  "question": "e5d01201cd33",
+  "value": "P20Y",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "nanoscan3-manual, p. 130",
+    "attempt": 1,
+    "subject": "nanoScan3 safety laser scanner (manual p. 130), mission time TM per ISO 13849",
+    "predicate": "hasTimeLimit",
+    "value": "TM (mission time) (ISO 13849) 20 years",
+    "normalised": "P20Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "07d2ea9ce35b",
+  "value": "PT1H",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "ur5e-manual, p. 30",
+    "attempt": 1,
+    "subject": "UR5e robot cool-down before handling (ur5e-manual, p. 30)",
+    "predicate": "hasTimeLimit",
+    "value": "waiting one hour",
+    "normalised": "PT1H",
+    "condition": "after powering the robot off, to allow it to cool down",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   },
+   {
+    "place": "ur5e-manual, p. 30",
+    "attempt": 2,
+    "subject": "UR5e robot cool-down after powering off, before handling (ur5e-manual, p. 30)",
+    "predicate": "hasTimeLimit",
+    "value": "waiting one hour",
+    "normalised": "PT1H",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "71a6893f048b",
+  "value": "P3Y",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "univpm-guideline, p. 5",
+    "attempt": 1,
+    "subject": "UNIVPM guideline: written results of work equipment checks (comma 8 checks, such as the machines of the cell) and their retention for supervisory bodies",
+    "predicate": "retentionPeriod",
+    "value": "almeno quelli relativi agli ultimi tre anni, devono essere conservati e tenuti a disposizione degli organi di vigilanza",
+    "normalised": "P3Y",
+    "condition": "almeno quelli relativi agli ultimi tre anni",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "company-st-0097"
+   }
+  ]
+ },
+ {
+  "question": "ae9db59e5603",
+  "value": false,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "ur10e-manual, p. 229",
+    "attempt": 1,
+    "subject": "UR10e robot (ur10e-manual, p. 229) and CE marking under the Machinery Directive",
+    "predicate": "isPartlyCompletedMachinery",
+    "value": "Universal Robots’ robots are partly completed machines, as such a CE mark is not to be affixed",
+    "normalised": "true",
+    "condition": "According to the Machinery Directive",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "ur10e-manual, p. 227",
+    "attempt": 1,
+    "subject": "UR10e robot (Universal Robots e-Series) as partly completed machinery, incorporation under the Machinery Directive",
+    "predicate": "isPartlyCompletedMachinery",
+    "value": "shall only be put into service upon being integrated into a final complete machine",
+    "normalised": "true",
+    "condition": "Universal Robots e-Series (UR3e, UR5e, UR7e, UR10e, UR12e and UR16e)",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "DIR, Art. 4(2)",
+    "attempt": 1,
+    "subject": "Partly completed machinery under the Machinery Directive (Art. 4(2), market surveillance)",
+    "predicate": "hasObligation",
+    "value": "Member States shall take all appropriate measures to ensure that partly completed machinery can be placed on the market only if it satisfies the relevant provisions of this Directive",
+    "normalised": "partly completed machinery may be placed on the market only if it satisfies the relevant provisions of the Directive",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "ur10e-manual, p. 229",
+    "attempt": 2,
+    "subject": "UR10e robot as delivered by the manufacturer (partly completed machinery under the Machinery Directive): whether it bears the CE mark",
+    "predicate": "isPartlyCompletedMachinery",
+    "value": "Universal Robots’ robots are partly completed machines, as such a CE mark is not to be affixed",
+    "normalised": "true: the UR10e is partly completed machinery and no CE mark is to be affixed",
+    "condition": "According to the Machinery Directive",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "ur10e-manual, p. 227",
+    "attempt": 2,
+    "subject": "Universal Robots e-Series robots (UR3e, UR5e, UR7e, UR10e, UR12e and UR16e), including the UR10e as delivered by the manufacturer",
+    "predicate": "putIntoServiceOnlyWhen",
+    "value": "shall only be put into service upon being integrated into a final complete machine (robot application or cell)",
+    "normalised": "only once integrated into a final complete machine (robot application or cell) which conforms with the Machinery Directive and other applicable Directives",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DIR, Art. 4(2)",
+    "attempt": 2,
+    "subject": "Partly completed machinery (Machinery Directive, Art. 4(2)): conditions for placing on the market",
+    "predicate": "hasObligation",
+    "value": "can be placed on the market only if it satisfies the relevant provisions of this Directive",
+    "normalised": "only if compliant with the Directive",
+    "condition": "for partly completed machinery",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   }
+  ]
+ },
+ {
+  "question": "9a8939894ba2",
+  "value": false,
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "nanoscan3-manual, p. 11",
+    "attempt": 1,
+    "subject": "nanoScan3 safety laser scanner, permitted ambient conditions for use",
+    "predicate": "definedAs",
+    "value": "Impermissible ambient conditions O Outdoors",
+    "normalised": "outdoors is an impermissible ambient condition (use outdoors not permitted)",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Passage lists impermissible ambient conditions including outdoors, underwater, explosion-hazardous areas; the claim names only 'Outdoors' and mislabels it as permitted conditions, though it's a list i)"
+   },
+   {
+    "place": "nanoscan3-manual, p. 11",
+    "attempt": 1,
+    "subject": "nanoScan3 safety laser scanner (operating conditions for use)",
+    "predicate": "hasObligation",
+    "value": "must only be used within the limits of the prescribed and specified technical data and operating conditions at all times",
+    "normalised": "use only within the prescribed and specified technical data and operating conditions, at all times",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "nanoscan3-manual, p. 11",
+    "attempt": 2,
+    "subject": "nanoScan3 safety laser scanner: impermissible ambient conditions for use (nanoscan3-manual, p. 11)",
+    "predicate": "definedAs",
+    "value": "Impermissible ambient conditions O Outdoors O Underwater O In explosion-hazardous areas",
+    "normalised": "Outdoors is listed as an impermissible ambient condition; the scanner may not be used outdoors (not permitted)",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "nanoscan3-manual, p. 11",
+    "attempt": 2,
+    "subject": "nanoScan3 safety laser scanner (manual p. 11): permitted use environment",
+    "predicate": "hasObligation",
+    "value": "must only be used within the limits of the prescribed and specified technical data and operating conditions at all times",
+    "normalised": "only within prescribed technical data and operating conditions",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "19a0b3b34f7c",
+  "value": true,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "ur10e-manual, p. 123",
+    "attempt": 1,
+    "subject": "UR10e robot, use without Teach Pendant (ur10e-manual, p. 123)",
+    "predicate": "putIntoServiceOnlyWhen",
+    "value": "You can use the robot without attaching the Teach Pendant.",
+    "normalised": "true",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "yes",
+    "decision": "rejected",
+    "reason": "the second reader: a condition of the sentence was dropped"
+   },
+   {
+    "place": "ur10e-manual, p. 123",
+    "attempt": 2,
+    "subject": "UR10e robot use without the Teach Pendant attached (ur10e-manual, p. 123)",
+    "predicate": "definedAs",
+    "value": "You can use the robot without attaching the Teach Pendant.",
+    "normalised": "true",
+    "condition": "without attaching the Teach Pendant",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "yes",
+    "decision": "rejected",
+    "reason": "the second reader: a condition of the sentence was dropped"
+   },
+   {
+    "place": "ur10e-manual, p. 123",
+    "attempt": 2,
+    "subject": "UR10e robot, Teach Pendant removal (ur10e-manual, p. 123)",
+    "predicate": "hasObligation",
+    "value": "Removing the Teach Pendant requires defining another Emergency Stop source.",
+    "normalised": "removing the Teach Pendant requires defining another Emergency Stop source",
+    "condition": "Removing the Teach Pendant",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "66ac904dc605",
+  "value": [
+   "before commissioning",
+   "after changes to the configuration or the safety function",
+   "after changes to the mounting, the alignment, or the electrical connection",
+   "after exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "nanoscan3-manual, p. 50",
+    "attempt": 1,
+    "subject": "nanoScan3 protective device and its application: situations requiring a thorough check (manual p. 50, section 5.6.1)",
+    "predicate": "requiresCheckAfter",
+    "value": "After changes to the configuration or the safety function",
+    "normalised": "after changes to the configuration or the safety function",
+    "condition": "Minimum requirements; in the following situations: Before commissioning; After changes to the configuration or the safety function; After changes to the mounting, the alignment, or the electrical connection; After exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   },
+   {
+    "place": "nanoscan3-manual, p. 50",
+    "attempt": 2,
+    "subject": "nanoScan3 protective device and its application: thorough check (manual p. 50, section 5.6.1)",
+    "predicate": "requiresCheckAfter",
+    "value": "Before commissioning; After changes to the configuration or the safety function; After changes to the mounting, the alignment, or the electrical connection; After exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components",
+    "normalised": "thorough check before commissioning, after changes to configuration or safety function, after changes to mounting, alignment or electrical connection, and after exceptional events (manipulation detected, machine modified, components replaced)",
+    "condition": "in the following situations",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   }
+  ]
+ },
+ {
+  "question": "ce1ecb6574c5",
+  "value": "The integrator is responsible for the application risk assessment (the user can also be the integrator).",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "ur10e-manual, p. 183",
+    "attempt": 1,
+    "subject": "UR10e robot application risk assessment, responsibility for it (ur10e-manual, p. 183)",
+    "predicate": "hasObligation",
+    "value": "The application risk assessment is the responsibility of the integrator.",
+    "normalised": "the integrator is responsible for the application risk assessment (the user can also be the integrator)",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "ur10e-manual, p. 183",
+    "attempt": 2,
+    "subject": "UR10e robot application risk assessment, responsibility",
+    "predicate": "hasObligation",
+    "value": "The application risk assessment is the responsibility of the integrator.",
+    "normalised": "integrator",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "013f9ed77c0c",
+  "value": "The robot-cell sheet (guidance) prevails over the UR10e manufacturer's manual, so no persons may be in the Protected Space during automatic operation in the cell.",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "robot-cell-sheet, p. 2",
+    "attempt": 1,
+    "subject": "UR10e robot cell (robot-cell-sheet) Protected Space access during automatic operation",
+    "predicate": "safeguardedSpaceRule",
+    "value": "Assenza di persone nello Spazio Protetto durante il funzionamento automatico",
+    "normalised": "no persons in the Protected Space during automatic operation",
+    "condition": "durante il funzionamento automatico",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "robot-cell-sheet, p. 3",
+    "attempt": 1,
+    "subject": "UR10e robot cell protected space (robot-cell sheet)",
+    "predicate": "safeguardedSpaceRule",
+    "value": "nessuno è presente all’interno dello spazio protetto",
+    "normalised": "no person is present inside the protected space",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "yes",
+    "decision": "rejected",
+    "reason": "the second reader: a condition of the sentence was dropped"
+   },
+   {
+    "place": "ur10e-manual, p. 199",
+    "attempt": 1,
+    "subject": "UR10e manual, Automatic Mode: entry into the safeguarded space",
+    "predicate": "hasObligation",
+    "value": "No-one is to enter, or be within, the safeguarded space in Automatic Mode",
+    "normalised": "no one may enter or be within the safeguarded space in Automatic Mode",
+    "condition": "unless safeguarding is used or the collaborative application is validated for power and force limiting (PFL)",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "robot-cell-sheet, p. 2",
+    "attempt": 2,
+    "subject": "Robot cell (UR10e) on the robot-cell sheet: which indication prevails between the cell sheet and the UR10e manufacturer's manual, and what the cell sheet requires during automatic operation",
+    "predicate": "hasObligation",
+    "value": "Assenza di persone nello Spazio Protetto durante il funzionamento automatico",
+    "normalised": "no persons in the Protected Space during automatic operation",
+    "condition": "durante il funzionamento automatico",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "robot-cell-sheet, p. 3",
+    "attempt": 2,
+    "subject": "UR10e robot cell, Protected Space access rule (robot-cell sheet, p. 3)",
+    "predicate": "safeguardedSpaceRule",
+    "value": "nessuno è presente all'interno dello spazio protetto",
+    "normalised": "no person present inside the protected space",
+    "condition": "during automatic operation",
+    "gate": "value_not_in_quote",
+    "decision": "rejected",
+    "reason": "value_as_written is not a part of the sentence, copied exactly"
+   },
+   {
+    "place": "ur10e-manual, p. 199",
+    "attempt": 2,
+    "subject": "UR10e robot cell with safeguarded space: Automatic Mode access rule in the UR10e manual (p. 199)",
+    "predicate": "hasObligation",
+    "value": "No-one is to enter, or be within, the safeguarded space in Automatic Mode",
+    "normalised": "no persons may enter or be within the safeguarded space in Automatic Mode",
+    "condition": "unless safeguarding is used or the collaborative application is validated for power and force limiting (PFL)",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "0b81a68ae1b7",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "39623ddf0402",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "9cb2bd2a6948",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "d50ec4543554",
+  "value": "P2Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "e2d20a1d71b7",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "6dce394de533",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "eb3a77615db9",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "fef8b8270bef",
+  "value": "P3Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "b54b7de5d033",
+  "value": "P3Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "884485ded847",
+  "value": "P2Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "2e5dc6c8c003",
+  "value": [
+   "6",
+   "23"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "igea-equipment, p. 9",
+    "attempt": 1,
+    "subject": "Lifting device at list position 6 of the igea-equipment list, located in Lula (Sos Enattos mine)",
+    "predicate": "deviceKind",
+    "value": "GRU IDRAULICA CA FASSI IVECO AP 337",
+    "normalised": "hydraulic crane (Fassi Iveco AP 337)",
+    "condition": "Lula (Sos Enattos)",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "igea-equipment, p. 9",
+    "attempt": 1,
+    "subject": "Equipment list entry at position 23: Euro costruzioni Pellegrini crane, matr. 459, built 1989",
+    "predicate": "deviceKind",
+    "value": "GRU",
+    "normalised": "crane (lifting device)",
+    "condition": "A Lula (Sos Enattos)",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "5785ff50d5dd",
+  "value": "P15D",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "igea-equipment, p. 5",
+    "attempt": 1,
+    "subject": "Notice the appointed verifier (contractor) must give IGEA before planning the checks on the devices",
+    "predicate": "hasTimeLimit",
+    "value": "con un preavviso di almeno 15 giorni",
+    "normalised": "P15D",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "plant_igea_terms-09"
+   }
+  ]
+ },
+ {
+  "question": "d02828cc5e98",
+  "value": false,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "igea-equipment, p. 4",
+    "attempt": 1,
+    "subject": "IGEA verification operations (igea-equipment, p. 4, point 4.2.1): means to be provided for the verification operations",
+    "predicate": "hasObligation",
+    "value": "esclusi gli apparecchi di misurazione",
+    "normalised": "measuring instruments excluded; IGEA does not provide them",
+    "condition": "Il personale occorrente sotto la vigilanza di un preposto e i mezzi necessari per l'esecuzione delle operazioni stesse (pesi campione)",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   },
+   {
+    "place": "igea-equipment, p. 4",
+    "attempt": 2,
+    "subject": "IGEA verification operations (igea-equipment, p. 4, point 4.2.1): means IGEA must supply",
+    "predicate": "hasObligation",
+    "value": "i mezzi necessari per l’esecuzione delle operazioni stesse (pesi campione)",
+    "normalised": "necessary means such as standard weights; measuring instruments not included",
+    "condition": "esclusi gli apparecchi di misurazione",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "d91a96ff4bf5",
+  "value": "The ASL (Aziende Sanitarie Locali) are in charge of the periodic verifications after the first, and they must be carried out within 30 days of the request (trenta giorni dalla richiesta).",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "DM2011, art. 2, c. 1",
+    "attempt": 1,
+    "subject": "Periodic verifications after the first one (DM 11 April 2011, art. 2, c. 1) for machinery covered by the IGEA technical sheet",
+    "predicate": "hasTimeLimit",
+    "value": "nel termine di trenta giorni dalla richiesta",
+    "normalised": "P30D",
+    "condition": "le ASL sono titolari delle verifiche periodiche successive alla prima",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "igea-equipment, p. 3",
+    "attempt": 1,
+    "subject": "Periodic verification (after the first) of the lifting equipment of Igea S.p.A., under art. 71 c. 11 D.Lgs. 81/08 as amended by Legge 98/2013, Allegato VII, and the D.M. 11 aprile 2011",
+    "predicate": "verifiedBy",
+    "value": "da parte di soggetti abilitati pubblici o privati",
+    "normalised": "authorised public or private bodies",
+    "condition": "degli apparecchi di sollevamento di Igea S.p.A., con le modalità del D.M. 11 aprile 2011",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   },
+   {
+    "place": "DM2011, art. 2, c. 1",
+    "attempt": 2,
+    "subject": "Periodic verifications after the first one of machinery under Ministerial Decree of 11 April 2011 (DM2011, art. 2, c. 1): body in charge and deadline",
+    "predicate": "hasTimeLimit",
+    "value": "le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta",
+    "normalised": "P30D from the request; the ASL (Aziende Sanitarie Locali) are in charge of the periodic verifications after the first",
+    "condition": "verifiche periodiche successive alla prima",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "igea-equipment, p. 3",
+    "attempt": 2,
+    "subject": "Periodic verification (after the first) of Igea S.p.A. lifting equipment (apparecchi di sollevamento), under the D.M. 11 aprile 2011",
+    "predicate": "verifiedBy",
+    "value": "da parte di soggetti abilitati pubblici o privati",
+    "normalised": "authorised public or private bodies",
+    "condition": "con le modalità del D.M. 11 aprile 2011",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "5d85b46e7648",
+  "value": true,
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "DM2011, Allegato II",
+    "attempt": 1,
+    "subject": "Periodic verification of mobile cranes, transferable cranes and self-propelled mobile lifting platforms (DM2011 Allegato II, punto 3.2.3)",
+    "predicate": "hasObligation",
+    "value": "sono esibite dal datore di lavoro le risultanze delle indagini supplementari di cui al punto 2, lettera c)",
+    "normalised": "the employer must show the results of the supplementary investigations referred to in point 2(c), carried out according to technical standards",
+    "condition": "Nel corso delle verifiche periodiche, sulle gru mobili. sulle gru trasferibili e sui ponti sviluppabili su carro ad azionamento motorizzato.",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DM2011, Allegato II",
+    "attempt": 1,
+    "subject": "Indagine supplementare (supplementary investigation) in the periodic verification of work equipment, DM 2011 Allegato II",
+    "predicate": "definedAs",
+    "value": "Attivita' finalizzata ad individuare eventuali vizi, difetti o anomalie",
+    "normalised": "an activity aimed at identifying possible defects, faults or anomalies arising from use of the equipment",
+    "condition": "messe in esercizio da oltre 20 anni",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "igea-equipment, p. 7",
+    "attempt": 1,
+    "subject": "P&H R200 mobile crane (serial 18760) in the igea-equipment list, p. 7",
+    "predicate": "deviceKind",
+    "value": "AUTOGRU' P&H R200",
+    "normalised": "mobile crane (autogru), P&H R200",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "DM2011, Allegato II",
+    "attempt": 2,
+    "subject": "Periodic verification of mobile cranes (gru mobili), DM2011 Allegato II point 3.2.3, employer's obligation on supplementary investigation results",
+    "predicate": "hasObligation",
+    "value": "sono esibite dal datore di lavoro le risultanze delle indagini supplementari",
+    "normalised": "true",
+    "condition": "Nel corso delle verifiche periodiche, sulle gru mobili",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "DM2011, Allegato II",
+    "attempt": 2,
+    "subject": "supplementary investigation (indagine supplementare) in periodic verification of work equipment under DM 2011, Allegato II",
+    "predicate": "definedAs",
+    "value": "Attivita' finalizzata ad individuare eventuali vizi, difetti o anomalie",
+    "normalised": "activity to detect defects or anomalies",
+    "condition": "messe in esercizio da oltre 20 anni",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "igea-equipment, p. 7",
+    "attempt": 2,
+    "subject": "P&H R200 crane (serial 18760, listed in the igea-equipment list, p. 7)",
+    "predicate": "deviceKind",
+    "value": "AUTOGRU",
+    "normalised": "mobile crane",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "d50750895ef1",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "381f78b11780",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "04f815d24d68",
+  "value": "P2Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "d23c565fc26d",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "05ba602c5978",
+  "value": "P2Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "a083a22b55c3",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "77baeaee21ab",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "8aa7c2104c95",
+  "value": "P2Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "fe893dbb66ea",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "36105c62bdf2",
+  "value": "P1Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "fe9ee3f7b58c",
+  "value": "P2Y",
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "66fee418d63a",
+  "value": [
+   "8",
+   "9",
+   "10",
+   "11",
+   "12",
+   "17",
+   "23"
+  ],
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "edbcad0c02de",
+  "value": [
+   "2",
+   "4",
+   "5",
+   "6",
+   "7",
+   "24"
+  ],
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "394a9c0a4e05",
+  "value": [
+   "13",
+   "14"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "igea-equipment, p. 8",
+    "attempt": 1,
+    "subject": "Annex B equipment list, row for SCORREVOLE PRIM 5t 200086/CA (igea-equipment, p. 8)",
+    "predicate": "siteSector",
+    "value": "Monteponi",
+    "normalised": "Monteponi",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"SCORREVOLE PRIM 5t 200086/CA\", \"PNEUMATICO SIS PROFI 200100/06\"], not [\"13\", \"14\"]"
+   },
+   {
+    "place": "igea-equipment, p. 8",
+    "attempt": 1,
+    "subject": "Equipment PNEUMATICO SIS PROFI 200100/06 in the Annex B equipment list (igea-equipment, p. 8)",
+    "predicate": "siteSector",
+    "value": "Monteponi",
+    "normalised": "Monteponi",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"SCORREVOLE PRIM 5t 200086/CA\", \"PNEUMATICO SIS PROFI 200100/06\"], not [\"13\", \"14\"]"
+   },
+   {
+    "place": "igea-equipment, p. 3",
+    "attempt": 1,
+    "subject": "Annex B equipment list, positions 13 and 14 (igea-equipment, p. 3): location",
+    "predicate": "siteSector",
+    "value": "Area mineraria Monteponi",
+    "normalised": "Monteponi",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Passage lists 'Area mineraria Monteponi' with quantity 19 under Iglesias; nothing about positions 13 and 14 or a sector relation is shown.)"
+   },
+   {
+    "place": "igea-equipment, p. 8",
+    "attempt": 2,
+    "subject": "Annex B equipment list, row for SCORREVOLE PRIM 5t 200086/CA (list position number not stated in this row), as listed at location Monteponi in igea-equipment p. 8",
+    "predicate": "siteSector",
+    "value": "Monteponi",
+    "normalised": "Monteponi",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The passage lists Monteponi only as a location beside the row; it does not say Monteponi is a sector the site works in.)"
+   },
+   {
+    "place": "igea-equipment, p. 8",
+    "attempt": 2,
+    "subject": "Annex B equipment list (igea-equipment, p. 8): sector/service of the row for PNEUMATICO SIS PROFI 200100/06",
+    "predicate": "siteSector",
+    "value": "Monteponi",
+    "normalised": "Monteponi",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Row 'PNEUMATICO SIS PROFI 200100/06 Monteponi' lists Monteponi, but it is a location/site, not a sector or service; the claim's relation is sector.)"
+   },
+   {
+    "place": "igea-equipment, p. 3",
+    "attempt": 2,
+    "subject": "Annex B equipment list, igea-equipment p. 3: the row named 'Area mineraria Monteponi' (the sentence gives no position numbers for this row)",
+    "predicate": "deviceKind",
+    "value": "Area mineraria Monteponi 19 Iglesias",
+    "normalised": "Area mineraria Monteponi, quantity 19, location Iglesias",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Passage lists 'Area mineraria Monteponi 19 Iglesias' as a row of quantity/comune, not a device kind; the value is not a device kind.)"
+   }
+  ]
+ },
+ {
+  "question": "ce27cae4a438",
+  "value": [
+   "1",
+   "2",
+   "4",
+   "5",
+   "6"
+  ],
+  "basis": "rule",
+  "candidates": [],
+  "skipped": "the answer rests on facts already in the store"
+ },
+ {
+  "question": "a55f87e1d85a",
+  "value": "P10Y",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "DM2011, Allegato III",
+    "attempt": 1,
+    "subject": "Authorised body (organismo autorizzato) verifying IGEA devices under DM 11 April 2011, Allegato III: retention of verification documents",
+    "predicate": "retentionPeriod",
+    "value": "per un periodo non inferiore a dieci anni, tutti gli atti documentali relativi all'attivita' di verifica",
+    "normalised": "P10Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "5d0ec24b666a",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "0e655d26c6f0",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "98556ca65e6b",
+  "value": "Regulation (EU) 2023/1230 governs, because the machine is first made available on 25 January 2027, after Directive 2006/42/EC is repealed and the Regulation applies from 20 January 2027.",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 3(12)",
+    "attempt": 1,
+    "subject": "'placing on the market' under Regulation (EU) 2023/1230, Article 3(12)",
+    "predicate": "definedAs",
+    "value": "the first making available of a product within the scope of this Regulation on the Union market",
+    "normalised": "the first making available of a product within the scope of Regulation (EU) 2023/1230 on the Union market",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "CORR, Corrigendum, point 5",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230 (Machinery Regulation): date from which Article 51(2), first subparagraph, applies, as corrected by the corrigendum",
+    "predicate": "appliesFrom",
+    "value": "20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "unclear",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Corrigendum replaces '14 January 2027' with '20 January 2027' in Art. 51(2) first subparagraph, but does not say it is an application date.)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 10",
+    "attempt": 1,
+    "subject": "Article 54, second paragraph (corrected text, page 39, Corrigendum to Regulation (EU) 2023/1230)",
+    "predicate": "appliesFrom",
+    "value": "‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Corrigendum replaces '14 January 2027' with '20 January 2027' in Article 54 second paragraph; the passage does not say it is an application date.)"
+   },
+   {
+    "place": "REG, Art. 3(12)",
+    "attempt": 2,
+    "subject": "'placing on the market' under Regulation (EU) 2023/1230, Art. 3(12)",
+    "predicate": "definedAs",
+    "value": "the first making available of a product within the scope of this Regulation on the Union market",
+    "normalised": "first making available on the Union market",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC (Machinery Directive), repeal under Regulation (EU) 2023/1230 Article 51",
+    "predicate": "repealedFrom",
+    "value": "Directive 2006/42/EC is repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230 (Machinery Regulation), its general application date",
+    "predicate": "appliesFrom",
+    "value": "It shall apply from 20 January 2027.",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 52(1)",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230 Art. 52(1): products placed on the market in conformity with Directive 2006/42/EC",
+    "predicate": "placingAllowedUntil",
+    "value": "before 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 5",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230 (Machinery): the date in Article 51(2), first subparagraph, as corrected by this corrigendum",
+    "predicate": "appliesFrom",
+    "value": "‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces '14 January 2027' with '20 January 2027' in Article 51(2) first subparagraph; it does not itself say what the date governs (applies from).)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 10",
+    "attempt": 2,
+    "subject": "Article 54, second paragraph (page 39) of the act amended by this corrigendum",
+    "predicate": "hasTimeLimit",
+    "value": "‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces '14 January 2027' with '20 January 2027' in Article 54, second paragraph; the passage doesn't say it is a time limit of a verification.)"
+   }
+  ]
+ },
+ {
+  "question": "9412001c68df",
+  "value": false,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "DIR, Art. 12(4)",
+    "attempt": 1,
+    "subject": "Machinery in Annex IV not manufactured to harmonised standards (Directive 2006/42/EC, Article 12(4)): procedures for assessing conformity",
+    "predicate": "requiresProcedure",
+    "value": "the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3; (b) the full quality assurance procedure provided for in Annex X",
+    "normalised": "EC type-examination (Annex IX) plus internal manufacturing checks (Annex VIII point 3), or full quality assurance (Annex X); unit verification (module G) is not among the listed procedures",
+    "condition": "Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2), or only partly in accordance with such standards, or if the harmonised standards do not cover all the relevant essential health and safety requirements or if no harmonised standards exist for the machinery in question",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DIR, Art. 12(4)",
+    "attempt": 2,
+    "subject": "Machinery in Annex IV not built to harmonised standards, conformity assessment procedure options (Directive 2006/42/EC, Art. 12(4))",
+    "predicate": "requiresProcedure",
+    "value": "the EC type-examination procedure provided for in Annex IX, plus the internal checks on the manufacture of machinery provided for in Annex VIII, point 3; (b) the full quality assurance procedure provided for in Annex X",
+    "normalised": "EC type-examination (Annex IX) with internal manufacturing checks (Annex VIII point 3), or full quality assurance (Annex X)",
+    "condition": "Where the machinery is referred to in Annex IV and has not been manufactured in accordance with the harmonised standards referred to in Article 7(2), or only partly in accordance with such standards, or if the harmonised standards do not cover all the relevant essential health and safety requirements or if no harmonised standards exist for the machinery in question",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC (Machinery Directive), repeal under Regulation (EU) on machinery, Article 51(2)",
+    "predicate": "repealedFrom",
+    "value": "Directive 2006/42/EC is repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (REG) Article 54: entry into force and date of application of the regulation",
+    "predicate": "appliesFrom",
+    "value": "It shall apply from 20 January 2027.",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   }
+  ]
+ },
+ {
+  "question": "ccaf26970c14",
+  "value": [
+   "Removable mechanical transmission devices including their guards",
+   "Guards for removable mechanical transmission devices",
+   "Vehicle servicing lifts",
+   "Portable cartridge-operated fixing and other impact machinery",
+   "Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions",
+   "Machinery that has embedded systems with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions that have not been placed independently on the market, in respect only of those systems"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 1,
+    "subject": "Machinery categories listed in Annex I, Part A of Regulation (EU) 2023/1230 (Art. 25(2)): conformity assessment procedures",
+    "predicate": "requiresProcedure",
+    "value": "(a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X",
+    "normalised": "one of: module B followed by module C; module H; or module G",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A",
+    "attempt": 1,
+    "subject": "Categories of machinery or related products listed in Annex I, Part A of the Regulation (REG)",
+    "predicate": "requiresProcedure",
+    "value": "a procedure referred to in Article 25(2) shall be applied",
+    "normalised": "procedure referred to in Article 25(2)",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 1",
+    "attempt": 1,
+    "subject": "Removable mechanical transmission devices including their guards (Directive 2006/42/EC, Annex IV, Part A, point 1) — internal production control (module A) no longer admitted from 1 February 2027",
+    "predicate": "listedIn",
+    "value": "1. Removable mechanical transmission devices including their guards.",
+    "normalised": "Annex IV, Part A, point 1: removable mechanical transmission devices including their guards",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 2",
+    "attempt": 1,
+    "subject": "Guards for removable mechanical transmission devices (Directive 2006/42/EC, Annex I, Part A, point 2) and their internal production control under module A",
+    "predicate": "listedIn",
+    "value": "2. Guards for removable mechanical transmission devices.",
+    "normalised": "Annex I, Part A, point 2 (guards for removable mechanical transmission devices)",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Passage lists point 2 as guards for removable mechanical transmission devices, but says nothing about internal production control under module A; the claim adds that.)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 3",
+    "attempt": 1,
+    "subject": "Vehicle servicing lifts, as a category of machinery in Regulation (EU) 2023/1230 (Machinery Regulation)",
+    "predicate": "listedIn",
+    "value": "3. Vehicle servicing lifts.",
+    "normalised": "Annex I, Part A, point 3",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 4",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230 (REG), Annex I, Part A: categories of machinery subject to the high-risk conformity assessment list",
+    "predicate": "listedIn",
+    "value": "Portable cartridge-operated fixing and other impact machinery",
+    "normalised": "Portable cartridge-operated fixing and other impact machinery (Annex I, Part A, point 4)",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 2,
+    "subject": "Conformity assessment procedures for machinery categories listed in Annex I, Part A (Regulation (EU) 2023/1230, Art. 25(2))",
+    "predicate": "requiresProcedure",
+    "value": "one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X",
+    "normalised": "module B followed by module C, or module H, or module G",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Removable mechanical transmission devices including their guards, category of machinery under Directive 2006/42/EC\", \", not [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devic"
+   },
+   {
+    "place": "REG, Annex I, Part A",
+    "attempt": 2,
+    "subject": "REG, Annex I, Part A: categories of machinery or related products to which the Article 25(2) procedure applies",
+    "predicate": "requiresProcedure",
+    "value": "Categories of machinery or related products to which a procedure referred to in Article 25(2) shall be applied",
+    "normalised": "Article 25(2) procedure applies to the categories listed in Part A",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Removable mechanical transmission devices including their guards, category of machinery under Directive 2006/42/EC\", \", not [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devic"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 1",
+    "attempt": 2,
+    "subject": "Removable mechanical transmission devices including their guards, category of machinery under Directive 2006/42/EC",
+    "predicate": "listedIn",
+    "value": "Removable mechanical transmission devices including their guards",
+    "normalised": "Annex IV Part A point 1",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Removable mechanical transmission devices including their guards, category of machinery under Directive 2006/42/EC\", \", not [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devic"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 2",
+    "attempt": 2,
+    "subject": "Guards for removable mechanical transmission devices (category of machinery in Annex I, Part A of the Machinery Regulation)",
+    "predicate": "listedIn",
+    "value": "2. Guards for removable mechanical transmission devices.",
+    "normalised": "Annex I, Part A, point 2",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Removable mechanical transmission devices including their guards, category of machinery under Directive 2006/42/EC\", \", not [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devic"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 3",
+    "attempt": 2,
+    "subject": "Vehicle servicing lifts, a machinery category listed in Annex I, Part A of Regulation (EU) 2023/1230 (REG), which is the list of categories among the six verified answers to the module A question",
+    "predicate": "listedIn",
+    "value": "3. Vehicle servicing lifts.",
+    "normalised": "Vehicle servicing lifts, Annex I Part A point 3",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Removable mechanical transmission devices including their guards, category of machinery under Directive 2006/42/EC\", \", not [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devic"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 4",
+    "attempt": 2,
+    "subject": "Portable cartridge-operated fixing and other impact machinery, listed in Annex IV of Directive 2006/42/EC",
+    "predicate": "listedIn",
+    "value": "4. Portable cartridge-operated fixing and other impact machinery.",
+    "normalised": "Annex IV, Part A, point 4",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Passage lists this machinery at Annex I, Part A, point 4 of a regulation; the claim says Annex IV of Directive 2006/42/EC, which the passage does not show.)"
+   }
+  ]
+ },
+ {
+  "question": "99f91141c8cb",
+  "value": "As a manufacturer: under Article 18 of Regulation (EU) 2023/1230 it is considered the manufacturer and subject to the Article 10 manufacturer obligations for the modified machinery (narrowed to the affected item only if the modification affects only a machinery item forming part of an assembly).",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 18",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230 (Machinery), Article 18: a natural or legal person that carries out a substantial modification of machinery or a related product",
+    "predicate": "becomesManufacturer",
+    "value": "shall be considered to be a manufacturer for the purposes of this Regulation",
+    "normalised": "manufacturer (subject to Article 10 manufacturer obligations for that machinery or related product)",
+    "condition": "carries out a substantial modification of machinery or a related product; if the substantial modification has an impact on the safety of only machinery or a related product that is part of an assembly of machinery, for that affected machinery or related product, as demonstrated in the risk assessment",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "CORR, Corrigendum, point 10",
+    "attempt": 1,
+    "subject": "Article 54, second paragraph (date provision, as corrected by the corrigendum at page 39)",
+    "predicate": "appliesFrom",
+    "value": "20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "unclear",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces '14 January 2027' with '20 January 2027' in Article 54, second paragraph, but does not say the date is an application date.)"
+   },
+   {
+    "place": "REG, Art. 18",
+    "attempt": 2,
+    "subject": "Machinery Regulation (EU) 2023/1230, Article 18: a natural or legal person (not the original manufacturer nor a non-professional user) that carries out a substantial modification of machinery or a related product",
+    "predicate": "becomesManufacturer",
+    "value": "shall be considered to be a manufacturer for the purposes of this Regulation",
+    "normalised": "manufacturer",
+    "condition": "carries out a substantial modification of machinery or a related product",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"It answers as the manufacturer: under Article 18 of Regulation (EU) 2023/1230, a non-original, non-professional-user co, not \"As a manufacturer: under Article 18 of Regulation (EU) 2023/1230 it is considered the manufacturer and subject to the A"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230 (Machinery Regulation), Article 54: date from which the regulation applies",
+    "predicate": "appliesFrom",
+    "value": "shall apply from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 10",
+    "attempt": 2,
+    "subject": "Article 54, second paragraph, of the regulation corrected by this corrigendum (page 39)",
+    "predicate": "definedAs",
+    "value": "‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"It answers as the manufacturer: under Article 18 of Regulation (EU) 2023/1230, a non-original, non-professional-user co, not \"As a manufacturer: under Article 18 of Regulation (EU) 2023/1230 it is considered the manufacturer and subject to the A"
+   }
+  ]
+ },
+ {
+  "question": "e030e668c6d3",
+  "value": true,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "REG, Art. 10(7)",
+    "attempt": 1,
+    "subject": "Instructions for use supplied in digital format instead of on paper, UNIVPM equipment guideline Art. 10(7)(c)",
+    "predicate": "hasObligation",
+    "value": "make them accessible online during the expected lifetime of the machinery or related product and for at least 10 years after the placing on the market of the machinery or related product",
+    "normalised": "Manufacturer must keep the digital instructions accessible online during the expected lifetime and for at least P10Y after placing on the market",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 10(7)",
+    "attempt": 2,
+    "subject": "Instructions for use accompanying machinery and related products under the UNIVPM equipment guideline (REG, Art. 10(7))",
+    "predicate": "mustAccompany",
+    "value": "The instructions may be provided in a digital format.",
+    "normalised": "digital format permitted",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "REG, Art. 10(7)",
+    "attempt": 2,
+    "subject": "Manufacturer's obligation to supply instructions for use in paper format (UNIVPM equipment guideline, Art. 10(7))",
+    "predicate": "hasObligation",
+    "value": "shall provide the instructions for use in paper format free of charge within one month",
+    "normalised": "Provide instructions for use on paper, free of charge, within one month",
+    "condition": "at the request of the user at the time of the purchase",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "REG, Art. 10(7)",
+    "attempt": 2,
+    "subject": "Manufacturer's supply of safety information for machinery intended for non-professional users (Art. 10(7))",
+    "predicate": "hasObligation",
+    "value": "shall provide, in paper format, the safety information",
+    "normalised": "safety information provided in paper format",
+    "condition": "In the case of machinery or a related product intended for non-professional users or that can, under reasonably foreseeable conditions, be used by non-professional users, even if not intended for them",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "REG, Art. 10(7)",
+    "attempt": 2,
+    "subject": "Instructions for use supplied in digital form instead of paper (Machinery Regulation Art. 10(7)(c), online accessibility)",
+    "predicate": "hasTimeLimit",
+    "value": "for at least 10 years after the placing on the market",
+    "normalised": "P10Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "yes",
+    "decision": "rejected",
+    "reason": "the second reader: a condition of the sentence was dropped"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "The UNIVPM equipment regulation (REG, Art. 54): date from which the Regulation applies",
+    "predicate": "appliesFrom",
+    "value": "It shall apply from 20 January 2027.",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC (repeal by the regulation, REG Art. 51(2))",
+    "predicate": "repealedFrom",
+    "value": "repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   }
+  ]
+ },
+ {
+  "question": "bf7bbeab4ccb",
+  "value": [
+   "CE marking",
+   "EU declaration of conformity",
+   "instructions for use and the information referred to in Article 10(7) in a language users can easily understand",
+   "manufacturer and importer have complied with the requirements of Article 10(5) and (6) and Article 13(3)"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 15(2)",
+    "attempt": 1,
+    "subject": "Machinery Regulation (EU) 2023/1230, Article 15(2)(a): verification by a distributor before making a machine available on the market",
+    "predicate": "hasObligation",
+    "value": "the machinery or related product bears the CE marking",
+    "normalised": "machinery or related product bears the CE marking (true)",
+    "condition": "before a distributor makes the machinery available on the market",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   },
+   {
+    "place": "REG, Art. 15(2)",
+    "attempt": 1,
+    "subject": "Machinery Regulation (EU) 2023/1230, Article 15(2)(b): distributor's verification before making a machine available on the market",
+    "predicate": "hasObligation",
+    "value": "the machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8)",
+    "normalised": "machinery must be accompanied by the EU declaration of conformity (Article 10(8))",
+    "condition": "before making the machinery or related product available on the market",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 15(2)",
+    "attempt": 1,
+    "subject": "Machinery Regulation (EU) 2023/1230, Art. 15(2)(c): verification by a distributor before making a machine available on the market",
+    "predicate": "hasObligation",
+    "value": "the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7)",
+    "normalised": "machinery accompanied by instructions for use and the Article 10(7) information, in a language users can easily understand",
+    "condition": "as determined by the Member State in which the machinery or related product is to be made available on the market",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 15(2)",
+    "attempt": 1,
+    "subject": "Machinery Regulation (EU) art. 15(2) – conditions for a distributor making a machine available on the market: verification of the manufacturer's and importer's compliance",
+    "predicate": "hasObligation",
+    "value": "the manufacturer and the importer have complied with the requirements referred to in Article 10(5) and (6) and Article 13(3) respectively",
+    "normalised": "manufacturer and importer have complied with Article 10(5) and (6) and Article 13(3) respectively",
+    "condition": "before a distributor makes a machine available on the market",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 15(2)",
+    "attempt": 2,
+    "subject": "Distributor's verification before making a machine (not partly completed machinery) available on the market, under Regulation (EU) 2023/1230, Art. 15(2)(a)",
+    "predicate": "hasObligation",
+    "value": "the machinery or related product bears the CE marking",
+    "normalised": "machinery bears the CE marking",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"machinery bears the CE marking\", \"the machinery or related product is accompanied by the EU declaration of\", \"accompan, not [\"CE marking\", \"EU declaration of conformity\", \"instructions for use and the information referred to in Article 10(7) in"
+   },
+   {
+    "place": "REG, Art. 15(2)",
+    "attempt": 2,
+    "subject": "Distributor obligations under Regulation (EU) 2023/1230 (Machinery Regulation), Article 15(2)(b) — machinery made available on the market (not partly completed machinery)",
+    "predicate": "hasObligation",
+    "value": "the machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8)",
+    "normalised": "distributor verifies EU declaration of conformity accompanies machinery",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"machinery bears the CE marking\", \"the machinery or related product is accompanied by the EU declaration of\", \"accompan, not [\"CE marking\", \"EU declaration of conformity\", \"instructions for use and the information referred to in Article 10(7) in"
+   },
+   {
+    "place": "REG, Art. 15(2)",
+    "attempt": 2,
+    "subject": "Distributor's verification before making machinery available on the market (Regulation, Art. 15(2)(c))",
+    "predicate": "mustAccompany",
+    "value": "accompanied by the instructions for use and the information referred to in Article 10(7)",
+    "normalised": "instructions for use and Art. 10(7) information in user-understandable language",
+    "condition": "as determined by the Member State in which the machinery or related product is to be made available on the market",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"machinery bears the CE marking\", \"the machinery or related product is accompanied by the EU declaration of\", \"accompan, not [\"CE marking\", \"EU declaration of conformity\", \"instructions for use and the information referred to in Article 10(7) in"
+   },
+   {
+    "place": "REG, Art. 15(2)",
+    "attempt": 2,
+    "subject": "Distributor's verification before making a machine (not partly completed machinery) available on the market, under the Machinery Regulation (REG, Art. 15(2))",
+    "predicate": "hasObligation",
+    "value": "the manufacturer and the importer have complied with the requirements referred to in Article 10(5) and (6) and Article 13(3) respectively",
+    "normalised": "manufacturer and importer compliance with Art. 10(5), 10(6) and 13(3) verified",
+    "condition": "before making a machine (not partly completed machinery) available on the market",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230 on machinery (Article 54, entry into application)",
+    "predicate": "appliesFrom",
+    "value": "It shall apply from 20 January 2027.",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   }
+  ]
+ },
+ {
+  "question": "c0ce68233724",
+  "value": "2027-01-19",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 6",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230, Article 52(1) first sentence (as corrected): machinery conforming to Directive 2006/42/EC placed on the market under the transitional provision",
+    "predicate": "placingAllowedUntil",
+    "value": "20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "unclear",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum only replaces the date '14 January 2027' with '20 January 2027' in Article 52(1); it does not say what the provision concerns (machinery under Directive 2006/42/EC, placing on market).)"
+   },
+   {
+    "place": "REG, Art. 52(1)",
+    "attempt": 2,
+    "subject": "Machinery placed on the market under Directive 2006/42/EC, transitional provision in Regulation (EU) 2023/1230 Art. 52(1)",
+    "predicate": "placingAllowedUntil",
+    "value": "before 20 January 2027",
+    "normalised": "2027-01-20 (exclusive: placed before this date)",
+    "condition": "products which were placed on the market in conformity with Directive 2006/42/EC",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC, repealed under Regulation (EU) 2023/1230 (Art. 51(2))",
+    "predicate": "repealedFrom",
+    "value": "repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 6",
+    "attempt": 2,
+    "subject": "Machinery under Directive 2006/42/EC placed on the market before the Regulation (EU) 2023/1230 transitional deadline (Article 52(1) of Regulation (EU) 2023/1230, as corrected)",
+    "predicate": "placingAllowedUntil",
+    "value": "20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "Article 52, paragraph 1, first sentence of Regulation (EU) 2023/1230 (corrected from 14 January 2027)",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   }
+  ]
+ },
+ {
+  "question": "1b45ccd78174",
+  "value": "2023-07-19",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 13",
+    "attempt": 1,
+    "subject": "Article 6(7) of Regulation (EU) 2023/1230 (conditions for including a category in Annex I, Part A or Part B), as corrected by the corrigendum to Article 54",
+    "predicate": "appliesFrom",
+    "value": "19 July 2023",
+    "normalised": "2023-07-19",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Passage corrects a date in Article 54 third paragraph point (c) to 19 July 2023; it does not say Article 6(7) applies from that date.)"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230, Article 54: date of application of Article 6(7) (conditions for including a category in Annex I, Part A or Part B)",
+    "predicate": "appliesFrom",
+    "value": "Article 6(7) and Articles 48 and 52 from 19 July 2023",
+    "normalised": "2023-07-19",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 13",
+    "attempt": 2,
+    "subject": "Date in Article 54, third paragraph, point (c) of Regulation (EU) 2023/1230, as corrected by the corrigendum",
+    "predicate": "appliesFrom",
+    "value": "‘ 19 July 2023 ’",
+    "normalised": "2023-07-19",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces '13 July 2023' with '19 July 2023' in Article 54(3)(c), but does not say this date is an 'applies from' date.)"
+   }
+  ]
+ },
+ {
+  "question": "4bad1bdceeae",
+  "value": "2031-07-20",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 9",
+    "attempt": 1,
+    "subject": "Commission specific report on the assessment of Article 6(4) and (5) of Regulation (EU) 2023/1230, under Article 53(3) first subparagraph (as corrected by the corrigendum)",
+    "predicate": "hasTimeLimit",
+    "value": "‘ 20 July 2026 ’",
+    "normalised": "2026-07-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The passage only corrects the date in Article 53(3) to 20 July 2026; it does not say the deadline concerns a Commission report on Article 6(4) and (5).)"
+   },
+   {
+    "place": "REG, Art. 53(3)",
+    "attempt": 2,
+    "subject": "Commission specific report on the assessment of Article 6(4) and (5) of Regulation (EU) 2023/1230, Article 53(3)",
+    "predicate": "hasTimeLimit",
+    "value": "By 20 July 2026 and every five years thereafter",
+    "normalised": "first by 2026-07-20, then every P5Y",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 9",
+    "attempt": 2,
+    "subject": "Article 53(3), first subparagraph, of Regulation (EU) 2023/1230, as corrected by the corrigendum (the date given in that subparagraph)",
+    "predicate": "hasTimeLimit",
+    "value": "‘ 20 July 2026 ’",
+    "normalised": "2026-07-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "1c7eda230c0d",
+  "value": false,
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 47(2)",
+    "attempt": 1,
+    "subject": "Commission report on the delegation of power under Article 47(2) of Regulation (EU) 2023/1230 (Machinery Regulation), covering delegated acts under Articles 6(2), 6(11) and 7(2)",
+    "predicate": "hasTimeLimit",
+    "value": "not later than nine months before the end of the five-year period",
+    "normalised": "P9M before the end of the five-year period (delegation runs five years from 19 July 2023)",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "CORR, Corrigendum, point 3",
+    "attempt": 1,
+    "subject": "Article 47(2) of Regulation (EU) 2023/1230, the delegation of power to the Commission (corrected by CORR)",
+    "predicate": "appliesFrom",
+    "value": "‘ 19 July 2023 ’",
+    "normalised": "2023-07-19",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Corrigendum replaces '13 July 2023' with '19 July 2023' in Article 47(2); it does not say the provision 'applies from' that date.)"
+   },
+   {
+    "place": "REG, Art. 47(2)",
+    "attempt": 2,
+    "subject": "Commission report on the delegation of power under Article 47(2) of Regulation (EU) 2023/1230",
+    "predicate": "hasTimeLimit",
+    "value": "not later than nine months before the end of the five-year period",
+    "normalised": "P9M",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 3",
+    "attempt": 2,
+    "subject": "Article 47(2) of Regulation (EU) 2023/1230, the date stated in that paragraph for the start of the Commission's delegated power (as corrected by the corrigendum)",
+    "predicate": "hasTimeLimit",
+    "value": "read: ‘ 19 July 2023 ’",
+    "normalised": "2023-07-19",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Corrigendum replaces '13 July 2023' with '19 July 2023' in Article 47(2); it does not say what the date refers to or a time limit.)"
+   }
+  ]
+ },
+ {
+  "question": "bf04f96ea158",
+  "value": false,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "DIR, Annex II, 1",
+    "attempt": 1,
+    "subject": "Partly completed machinery (e.g. UR10e arm) under Machinery Directive, Annex II, point 1 – statement required in the declaration of incorporation",
+    "predicate": "putIntoServiceOnlyWhen",
+    "value": "must not be put into service until the final machinery into which it is to be incorporated has been declared in conformity",
+    "normalised": "only after the final machinery into which it is incorporated has been declared in conformity with the Directive",
+    "condition": "where appropriate",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "ur10e-manual, p. 227",
+    "attempt": 1,
+    "subject": "UR10e e-Series arm (partly completed machinery) in the robot cell, ur10e-manual p. 227: conditions for being put into service",
+    "predicate": "putIntoServiceOnlyWhen",
+    "value": "shall only be put into service upon being integrated into a final complete machine (robot application or cell)",
+    "normalised": "only once integrated into a final complete machine (robot application or cell) that conforms with the Machinery Directive and other applicable Directives",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DIR, Annex II, 1",
+    "attempt": 2,
+    "subject": "UR10e arm of the cell, partly completed machinery under the Machinery Directive, Annex II point 1 statement",
+    "predicate": "hasObligation",
+    "value": "must not be put into service until the final machinery into which it is to be incorporated has been declared in conformity",
+    "normalised": "false",
+    "condition": "where appropriate",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   },
+   {
+    "place": "ur10e-manual, p. 227",
+    "attempt": 2,
+    "subject": "UR10e arm (Universal Robots e-Series) in the cell, and when it may be put into service",
+    "predicate": "putIntoServiceOnlyWhen",
+    "value": "shall only be put into service upon being integrated into a final complete machine (robot application or cell)",
+    "normalised": "only once integrated into a complete machine",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "yes",
+    "decision": "rejected",
+    "reason": "the second reader: a condition of the sentence was dropped"
+   }
+  ]
+ },
+ {
+  "question": "dc714f3b651e",
+  "value": "The technical file for the final machinery (the robot cell into which the robot is incorporated)",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "DIR, Art. 13(2)",
+    "attempt": 1,
+    "subject": "Assembly instructions and declaration of incorporation for partly completed machinery (e.g. UR5e robot), Directive 2006/42/EC Article 13",
+    "predicate": "hasObligation",
+    "value": "shall then form part of the technical file for that machinery",
+    "normalised": "form part of the technical file of the final machinery into which the partly completed machinery is incorporated",
+    "condition": "until it is incorporated into the final machinery",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DIR, Art. 13(2)",
+    "attempt": 2,
+    "subject": "Assembly instructions and declaration of incorporation of a partly completed machinery (e.g. UR5e robot) after it is incorporated into final machinery (Directive 2006/42/EC, Art. 13(2))",
+    "predicate": "hasObligation",
+    "value": "shall then form part of the technical file for that machinery",
+    "normalised": "technical file of final machinery",
+    "condition": "until it is incorporated into the final machinery",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as \"The technical file of the final machinery (Directive 2006/42/EC, Art. 13(2)).\", not \"The technical file for the final machinery (the robot cell into which the robot is incorporated)\""
+   }
+  ]
+ },
+ {
+  "question": "aaa24558ec0a",
+  "value": [
+   "ensure that it satisfies the relevant essential health and safety requirements set out in Annex I",
+   "ensure that the technical file referred to in Annex VII, part A is available",
+   "provide, in particular, the necessary information, such as instructions",
+   "carry out the appropriate procedures for assessing conformity in accordance with Article 12",
+   "draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery",
+   "affix the CE marking in accordance with Article 16"
+  ],
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "DIR, Art. 5(1)",
+    "attempt": 1,
+    "subject": "Article 5(1) of the Machinery Directive: duties of the manufacturer or authorised representative before machinery is placed on the market or put into service",
+    "predicate": "hasObligation",
+    "value": "the manufacturer or his authorised representative shall: (a) ensure that it satisfies the relevant essential health and safety requirements set out in Annex I; (b) ensure that the technical file referred to in Annex VII, part A is available; (c) provide, in particular, the necessary information, such as instructions; (d) carry out the appropriate procedures for assessing conformity in accordance with Article 12; (e) draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery; (f) affix the CE marking in accordance with Article 16",
+    "normalised": "six duties: meet Annex I essential health and safety requirements; keep Annex VII part A technical file available; provide necessary information such as instructions; carry out conformity assessment under Article 12; draw up EC declaration of conformity per Annex II part 1 Section A and make it accompany the machinery; affix CE marking under Article 16",
+    "condition": "Before placing machinery on the market and/or putting it into service",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "ur10e-manual, p. 227",
+    "attempt": 1,
+    "subject": "Integrator of a partly completed machine (UR5e/UR10e arm) that is integrated into a complete machine",
+    "predicate": "hasObligation",
+    "value": "the integrator is responsible for the completed machine fulfiling all applicable Directives, applying the CE mark and providing the Declaration of Conformity (DOC)",
+    "normalised": "integrator must ensure the completed machine fulfils all applicable Directives, apply the CE mark and provide the Declaration of Conformity",
+    "condition": "When this partly completed machine is integrated and becomes a complete machine",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DIR, Art. 5(1)",
+    "attempt": 2,
+    "subject": "Article 5(1) duties of the manufacturer or his authorised representative for machinery placed on the market or put into service",
+    "predicate": "hasObligation",
+    "value": "carry out the appropriate procedures for assessing conformity in accordance with Article 12",
+    "normalised": "conformity assessment per Article 12",
+    "condition": "Before placing machinery on the market and/or putting it into service",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Carry out the appropriate conformity assessment procedure under Article 12 before the cell is placed on the market and, not [\"ensure that it satisfies the relevant essential health and safety requirements set out in Annex I\", \"ensure that the t"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC (Machinery Directive), as repealed under Article 51(2) of the Machinery Regulation",
+    "predicate": "repealedFrom",
+    "value": "repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "ur10e-manual, p. 227",
+    "attempt": 2,
+    "subject": "UR5e and UR10e partly completed machinery, integrator obligations once the machine becomes a complete machine",
+    "predicate": "hasObligation",
+    "value": "the integrator is responsible for the completed machine fulfiling all applicable Directives, applying the CE mark and providing the Declaration of Conformity (DOC)",
+    "normalised": "integrator: meet applicable Directives, apply CE mark, provide DOC",
+    "condition": "When this partly completed machine is integrated and becomes a complete machine",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the answer comes out as [\"Carry out the appropriate conformity assessment procedure under Article 12 before the cell is placed on the market and, not [\"ensure that it satisfies the relevant essential health and safety requirements set out in Annex I\", \"ensure that the t"
+   }
+  ]
+ },
+ {
+  "question": "10b241fad4b1",
+  "value": true,
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 24(3)",
+    "attempt": 1,
+    "subject": "CE marking of machinery assessed under the conformity assessment procedures in Article 25(2)(a), (b), (c) and Article 25(3)(b), (c), (d) of the Machinery Regulation (EU) 2023/1230",
+    "predicate": "hasObligation",
+    "value": "the CE marking shall be followed by the identification number of the notified body involved in that procedure",
+    "normalised": "CE marking must be followed by the notified body identification number",
+    "condition": "Where the conformity of machinery or a related product is assessed in accordance with the conformity assessment procedure referred to in Article 25(2), points (a), (b) and (c) and in Article 25(3), points (b), (c) and (d)",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 1,
+    "subject": "Article 25(2) conformity assessment for machinery or related products listed in Annex I, Part A (Regulation (EU) 2023/1230)",
+    "predicate": "requiresProcedure",
+    "value": "shall apply one of the following procedures",
+    "normalised": "manufacturer applies one of the conformity assessment procedures listed in Article 25(2)",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 3",
+    "attempt": 1,
+    "subject": "Vehicle servicing lifts, a category of machinery in Annex I, Part A (Regulation (EU) 2023/1230)",
+    "predicate": "listedIn",
+    "value": "Vehicle servicing lifts",
+    "normalised": "Vehicle servicing lifts, listed as point 3 of Annex I, Part A",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC (Machinery Directive) under the Regulation, Article 51 Repeals",
+    "predicate": "repealedFrom",
+    "value": "Directive 2006/42/EC is repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 52(1)",
+    "attempt": 2,
+    "subject": "Machinery Regulation (EU) 2023/1230 Art. 52(1) transitional provision for products conforming to Directive 2006/42/EC",
+    "predicate": "placingAllowedUntil",
+    "value": "before 20 January 2027",
+    "normalised": "2027-01-20 (exclusive: placed on the market before this date)",
+    "condition": "products which were placed on the market in conformity with Directive 2006/42/EC",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "REG, Art. 24(3)",
+    "attempt": 2,
+    "subject": "CE marking of machinery and related products, Article 24(3) (where conformity is assessed under the procedures in Article 25(2)(a)-(c) or 25(3)(b)-(d))",
+    "predicate": "hasObligation",
+    "value": "the CE marking shall be followed by the identification number of the notified body involved in that procedure",
+    "normalised": "CE marking must be followed by the identification number of the notified body involved in the procedure",
+    "condition": "Where the conformity of machinery or a related product is assessed in accordance with the conformity assessment procedure referred to in Article 25(2), points (a), (b) and (c) and in Article 25(3), points (b), (c) and (d)",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "REG, Art. 25(2)",
+    "attempt": 2,
+    "subject": "conformity assessment for machinery listed in Annex I, Part A (Art. 25(2))",
+    "predicate": "requiresProcedure",
+    "value": "shall apply one of the following procedures",
+    "normalised": "one of the listed procedures",
+    "condition": "Where the category of machinery or related product is listed in Annex I, Part A",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Annex I, Part A, point 3",
+    "attempt": 2,
+    "subject": "Vehicle servicing lifts, a category of machinery listed in Annex I, Part A of the Machinery Regulation (REG)",
+    "predicate": "listedIn",
+    "value": "3. Vehicle servicing lifts.",
+    "normalised": "Annex I, Part A, point 3",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "2c25bafac3d1",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "2bcd9dc4c8df",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "29f85d7c34d7",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "db8d0c140d69",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "2ef327fe43d4",
+  "value": "2026-10-20",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 12",
+    "attempt": 1,
+    "subject": "Article 54, third paragraph, point (b) of Regulation (EU) 2023/1230, as corrected by the corrigendum",
+    "predicate": "appliesFrom",
+    "value": "20 October 2026",
+    "normalised": "2026-10-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230 (Machinery), Article 50(1) (Member States' duty to lay down penalties)",
+    "predicate": "appliesFrom",
+    "value": "Article 50(1) from 20 October 2026",
+    "normalised": "2026-10-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 12",
+    "attempt": 2,
+    "subject": "Article 50(1) of Regulation (EU) 2023/1230 (Member States' duty to lay down penalties): application date set by Article 54, third paragraph, point (b), as corrected",
+    "predicate": "appliesFrom",
+    "value": "20 October 2026",
+    "normalised": "2026-10-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "unclear",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces the date in Article 54 third paragraph point (b) with 20 October 2026, but the passage doesn't mention Article 50(1) or what that point covers.)"
+   }
+  ]
+ },
+ {
+  "question": "96757cc12b2e",
+  "value": "2024-01-20",
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 11",
+    "attempt": 1,
+    "subject": "Articles 26 to 42 of Regulation (EU) 2023/1230 (notification of conformity assessment bodies), per the corrigendum to Article 54, third paragraph, point (a)",
+    "predicate": "appliesFrom",
+    "value": "read: ‘ 20 January 2024 ’",
+    "normalised": "2024-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "unclear",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Passage only replaces a date in Article 54(3)(a); it never mentions Articles 26 to 42, so the link depends on unshown text.)"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230, Articles 26 to 42 (notification of conformity assessment bodies), date from which they apply",
+    "predicate": "appliesFrom",
+    "value": "Articles 26 to 42 from 20 January 2024",
+    "normalised": "2024-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 11",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230, Article 54, third paragraph, point (a), date as corrected by the Corrigendum (page 39)",
+    "predicate": "appliesFrom",
+    "value": "20 January 2024",
+    "normalised": "2024-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces '14 January 2024' with '20 January 2024' in Article 54, third paragraph, point (a); it does not itself say the provision 'applies from' that date.)"
+   }
+  ]
+ },
+ {
+  "question": "bcdd781718e0",
+  "value": "2025-07-20",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 1",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230, Article 6 paragraph 9: deadline for Member States to provide the data and information (corrigendum correcting the date from 14 July 2025)",
+    "predicate": "hasTimeLimit",
+    "value": "20 July 2025",
+    "normalised": "2025-07-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces '14 July 2025' with '20 July 2025' in Article 6(9); it states no deadline subject or Member State data duty itself.)"
+   },
+   {
+    "place": "REG, Art. 6(9)",
+    "attempt": 2,
+    "subject": "Member States' first provision of the data and information referred to in Article 6(5) of Regulation (EU) 2023/1230 (Machinery Regulation), for every category of machinery or related products included in Annex I",
+    "predicate": "hasTimeLimit",
+    "value": "By 20 July 2025",
+    "normalised": "2025-07-20",
+    "condition": "and every five years thereafter; for every category of machinery or related products which is included in Annex I or which is not included in Annex I where that non-inclusion is a cause of concern for the Member State",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 1",
+    "attempt": 2,
+    "subject": "Date in Article 6, paragraph 9 of Regulation (EU) 2023/1230 (page 17), as corrected by the corrigendum",
+    "predicate": "hasTimeLimit",
+    "value": "20 July 2025",
+    "normalised": "2025-07-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "c95bb9dc4043",
+  "value": "2028-07-20",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 53(1)",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230 (Machinery Regulation), Article 53(1): Commission evaluation and review report",
+    "predicate": "hasTimeLimit",
+    "value": "By 20 July 2028 and every four years thereafter",
+    "normalised": "2028-07-20 (first report); then every four years (P4Y)",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 8",
+    "attempt": 1,
+    "subject": "Commission's first report on the evaluation and review of Regulation (EU) 2023/1230, Article 53(1) (corrigendum to Article 53(1))",
+    "predicate": "hasTimeLimit",
+    "value": "‘ 20 July 2028 ’",
+    "normalised": "2028-07-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "95587deac178",
+  "value": true,
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 5",
+    "attempt": 1,
+    "subject": "Directive 2006/42/EC (Machinery Directive): date of its repeal under Article 51(2), first subparagraph, as corrected at page 38",
+    "predicate": "repealedFrom",
+    "value": "‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Corrigendum only replaces the date in Article 51(2) with 20 January 2027; it never names Directive 2006/42/EC or says it is repealed.)"
+   },
+   {
+    "place": "REG, Art. 51(2)",
+    "attempt": 2,
+    "subject": "Directive 2006/42/EC (Machinery Directive), repeal under Regulation Article 51(2)",
+    "predicate": "repealedFrom",
+    "value": "repealed with effect from 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 5",
+    "attempt": 2,
+    "subject": "Article 51(2), first subparagraph, page 38, of the act corrected by this corrigendum (Corrigendum point 5)",
+    "predicate": "appliesFrom",
+    "value": "20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces the date with 20 January 2027 in Art. 51(2); it does not say the provision 'applies from' that date.)"
+   }
+  ]
+ },
+ {
+  "question": "e7dd739a8fef",
+  "value": false,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 12",
+    "attempt": 1,
+    "subject": "Article 54, third paragraph, point (b) of Regulation (EU) 2023/1230 (as corrected by the corrigendum)",
+    "predicate": "appliesFrom",
+    "value": "20 October 2026",
+    "normalised": "2026-10-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces the date in Article 54, third paragraph, point (b) with 20 October 2026, but does not say the provision 'applies from' that date.)"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Article 50(1) of Regulation (EU) 2023/1230 (rules on penalties), date from which it applies",
+    "predicate": "appliesFrom",
+    "value": "Article 50(1) from 20 October 2026",
+    "normalised": "2026-10-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 12",
+    "attempt": 2,
+    "subject": "Date in Article 54, third paragraph, point (b) of Regulation (EU) 2023/1230, as corrected by the corrigendum (replacing 14 October 2023)",
+    "predicate": "appliesFrom",
+    "value": "‘ 20 October 2026 ’",
+    "normalised": "2026-10-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "117f6e15c1b2",
+  "value": false,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 7",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230, Article 52(1), second sentence, as corrected by Corrigendum point 7 (page 38)",
+    "predicate": "appliesFrom",
+    "value": "‘ 19 July 2023 ’",
+    "normalised": "2023-07-19",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum only replaces '13 July 2023' with '19 July 2023' in Article 52(1); it does not say the provision applies from that date.)"
+   },
+   {
+    "place": "REG, Art. 52(1)",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230, Article 52(1): application of Chapter VI relative to Article 11 of Directive 2006/42/EC",
+    "predicate": "appliesFrom",
+    "value": "from 19 July 2023",
+    "normalised": "2023-07-19",
+    "condition": "to such products instead of Article 11 of that Directive, including products for which a procedure has already been initiated under Article 11 of Directive 2006/42/EC",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 7",
+    "attempt": 2,
+    "subject": "Article 52(1), second sentence, of Regulation (EU) 2023/1230 (text as corrected by the corrigendum, page 38)",
+    "predicate": "appliesFrom",
+    "value": "‘ 19 July 2023 ’",
+    "normalised": "2023-07-19",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces '13 July 2023' with '19 July 2023' in Article 52(1) second sentence, but does not say this is an application date.)"
+   }
+  ]
+ },
+ {
+  "question": "35fadafd7a02",
+  "value": true,
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 52(1)",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230, Article 52(1) transitional provisions: products placed on the market under Directive 2006/42/EC",
+    "predicate": "placingAllowedUntil",
+    "value": "placed on the market in conformity with Directive 2006/42/EC before 20 January 2027",
+    "normalised": "2027-01-20",
+    "condition": "products which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 6",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230, Article 52(1), first sentence: transitional provision on making available on the market of machinery conforming to Directive 2006/42/EC (as corrected by the corrigendum)",
+    "predicate": "placingAllowedUntil",
+    "value": "‘ 20 January 2027 ’",
+    "normalised": "2027-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "confirmation",
+    "confirms": "st-1596"
+   }
+  ]
+ },
+ {
+  "question": "a571e067d728",
+  "value": false,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "DLGS71, art. 71, c. 11",
+    "attempt": 1,
+    "subject": "Periodic verifications (after the first) of Annex VII equipment under D.Lgs. 81/2008 art. 71, c. 11 — who carries them out",
+    "predicate": "verifiedBy",
+    "value": "dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati",
+    "normalised": "ASL (local health authority), or ARPA where regional law provides, or authorised public or private bodies; chosen freely by the employer",
+    "condition": "Le successive verifiche (successive to the first verification)",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DM2011, art. 2, c. 2",
+    "attempt": 1,
+    "subject": "Periodic verifications of Annex VII equipment under DM2011 art. 2, c. 2: who may carry them out",
+    "predicate": "verifiedBy",
+    "value": "il datore di lavoro puo' avvalersi dei soggetti abilitati, pubblici o privati, di cui all'elenco previsto nell'allegato III",
+    "normalised": "employer may use authorised public or private bodies listed in Annex III",
+    "condition": "Decorsi i termini temporali di cui al comma l",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "DM2011, Allegato II",
+    "attempt": 1,
+    "subject": "Periodic verifications after the first one of Annex VII equipment (DM2011, Allegato II, point 5.2.1): who must request them and from whom",
+    "predicate": "hasObligation",
+    "value": "il datore di lavoro deve richiedere alla ASL competente per territorio l'esecuzione delle verifiche periodiche successive alla prima",
+    "normalised": "the employer must request the competent local health authority (ASL) to carry out the periodic verifications after the first one",
+    "condition": "Con la periodicita' prevista dall'allegato VII del decreto legislativo n. 81/2008 e almeno 30 giorni prima della scadenza del relativo termine",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DLGS71, art. 71, c. 11",
+    "attempt": 2,
+    "subject": "Periodic verifications (after the first) of Annex VII equipment under Italian D.Lgs. 81/2008 art. 71 c. 11 — who may carry them out",
+    "predicate": "verifiedBy",
+    "value": "su libera scelta del datore di lavoro dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati",
+    "normalised": "employer's free choice: ASL, or ARPA where regional law provides, or authorised public or private bodies",
+    "condition": "Le successive verifiche (successive to the first verification)",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DM2011, art. 2, c. 2",
+    "attempt": 2,
+    "subject": "Periodic verifications of Annex VII equipment after the first one (DM 2011, art. 2, c. 2)",
+    "predicate": "verifiedBy",
+    "value": "il datore di lavoro puo' avvalersi dei soggetti abilitati, pubblici o privati, di cui all'elenco previsto nell'allegato III",
+    "normalised": "the employer may (is permitted to) use authorised bodies, public or private, listed in Annex III; this is optional, not an obligation to apply to the ASL",
+    "condition": "Decorsi i termini temporali di cui al comma l",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DM2011, Allegato II",
+    "attempt": 2,
+    "subject": "Periodic verifications after the first one of Annex VII equipment (DM2011, Allegato II, point 5.2.1)",
+    "predicate": "hasTimeLimit",
+    "value": "almeno 30 giorni prima della scadenza del relativo termine",
+    "normalised": "P30D",
+    "condition": "Con la periodicita' prevista dall'allegato VII del decreto legislativo n. 81/2008",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "f004c9577b98",
+  "value": true,
+  "basis": "facts+search",
+  "candidates": [
+   {
+    "place": "DLGS71, art. 71, c. 13-bis",
+    "attempt": 1,
+    "subject": "Periodic verifications of equipment in Annex VII owned or on loan to the Corpo nazionale dei vigili del fuoco (D.Lgs. 81/2008, art. 71, c. 13-bis)",
+    "predicate": "verifiedBy",
+    "value": "il Corpo nazionale dei vigili del fuoco può effettuare direttamente le verifiche periodiche",
+    "normalised": "Corpo nazionale dei vigili del fuoco (may carry out the periodic verifications directly)",
+    "condition": "Al fine di garantire la continuità e l'efficienza dei servizi di soccorso pubblico e di prevenzione ed estinzione degli incendi; relativamente alle attrezzature riportate nell'allegato VII di cui dispone a titolo di proprietà o comodato d'uso",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   },
+   {
+    "place": "DLGSALLVII, Allegato VII, riga 1",
+    "attempt": 1,
+    "subject": "Scale aeree ad inclinazione variabile (variable-inclination aerial ladders), Allegato VII of D.Lgs. 81/2008, row 1 of the verification table",
+    "predicate": "verificationInterval",
+    "value": "Verifica annuale",
+    "normalised": "P1Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "DLGS71, art. 71, c. 13-bis",
+    "attempt": 2,
+    "subject": "Periodic verifications of attrezzature in allegato VII (variable-inclination aerial ladder, national fire brigade) under DLGS 71, art. 71, comma 13-bis",
+    "predicate": "verifiedBy",
+    "value": "il Corpo nazionale dei vigili del fuoco può effettuare direttamente le verifiche periodiche",
+    "normalised": "Corpo nazionale dei vigili del fuoco (true)",
+    "condition": "Al fine di garantire la continuità e l'efficienza dei servizi di soccorso pubblico e di prevenzione ed estinzione degli incendi; relativamente alle attrezzature riportate nell'allegato VII di cui dispone a titolo di proprietà o comodato d'uso",
+    "gate": "condition_no_anchor",
+    "decision": "rejected",
+    "reason": "the condition is not copied exactly from the passage"
+   },
+   {
+    "place": "DLGSALLVII, Allegato VII, riga 1",
+    "attempt": 2,
+    "subject": "Variable-inclination aerial ladders (scale aeree ad inclinazione variabile): periodic verification interval listed in Allegato VII of the Italian DLGS, row 1",
+    "predicate": "verificationInterval",
+    "value": "Verifica annuale",
+    "normalised": "P1Y",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   }
+  ]
+ },
+ {
+  "question": "43a3ee37cbc2",
+  "value": "Until they expire; the regulation sets no fixed end date for these certificates.",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "REG, Art. 52(2)",
+    "attempt": 1,
+    "subject": "EC type-examination certificates and approval decisions issued under Article 12 of Directive 2006/42/EC (Machinery Regulation, Art. 52(2))",
+    "predicate": "hasTimeLimit",
+    "value": "shall remain valid until they expire",
+    "normalised": "until they expire (no fixed end date)",
+    "condition": "issued in accordance with Article 12 of Directive 2006/42/EC",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "yes",
+    "decision": "accepted"
+   }
+  ]
+ },
+ {
+  "question": "da33c4dd6b82",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "8c00b215a0ab",
+  "value": null,
+  "basis": "search",
+  "candidates": [],
+  "skipped": "no answer"
+ },
+ {
+  "question": "77c81cf0d936",
+  "value": "2024-01-20",
+  "basis": "search",
+  "candidates": [
+   {
+    "place": "CORR, Corrigendum, point 11",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230 (Machinery Regulation), Article 54, third paragraph, point (a), as corrected by the corrigendum: the date by which Member States must designate notifying authorities under Article 27",
+    "predicate": "hasTimeLimit",
+    "value": "20 January 2024",
+    "normalised": "2024-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "unclear",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (The corrigendum replaces '14 January 2024' with '20 January 2024' in Article 54 third paragraph point (a), but does not say what the date concerns (designating notifying authorities).)"
+   },
+   {
+    "place": "REG, Art. 27(1)",
+    "attempt": 1,
+    "subject": "Regulation (EU) 2023/1230, Article 27(1): notifying authorities designated by Member States",
+    "predicate": "hasObligation",
+    "value": "Member States shall designate a notifying authority",
+    "normalised": "Member States must designate a notifying authority",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "no",
+    "dropped_condition": "no",
+    "decision": "rejected",
+    "reason": "the second reader: the passage does not clearly state this fact (Passage says Member States shall designate a notifying authority, but the obligation falls on Member States, not on a manufacturer, importer, distributor or employer as the relation states.)"
+   },
+   {
+    "place": "REG, Art. 54",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230 (Machinery Regulation), Articles 26 to 42 (including the notifying authority provisions of Article 27)",
+    "predicate": "appliesFrom",
+    "value": "Articles 26 to 42 from 20 January 2024",
+    "normalised": "2024-01-20",
+    "condition": "",
+    "gate": "no_anchor",
+    "decision": "rejected",
+    "reason": "the sentence is not in the registered piece as written (for instance a wording the corrigendum changed)"
+   },
+   {
+    "place": "CORR, Corrigendum, point 11",
+    "attempt": 2,
+    "subject": "Regulation (EU) 2023/1230 (Machinery Regulation), Article 54, third paragraph, point (a): the date that the corrigendum replaces '14 January 2024' with",
+    "predicate": "hasTimeLimit",
+    "value": "20 January 2024",
+    "normalised": "2024-01-20",
+    "condition": "",
+    "gate": "ok",
+    "faithful": "yes",
+    "dropped_condition": "no",
+    "complete": "no",
+    "decision": "rejected",
+    "reason": "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+   },
+   {
+    "place": "REG, Art. 27(1)",
+    "attempt": 2,
+    "subject": "Notifying authority under Article 27(1) of Regulation (EU) 2023/1230 (Machinery Regulation)",
+    "predicate": "hasObligation",
+    "value": "Member States shall designate a notifying authority",
+    "normalised": "Member States must designate a notifying authority responsible for setting up and carrying out the procedures for assessing and notifying conformity assessment bodies and monitoring notified bodies",
+    "condition": "",
+    "gate": "long_normal_form",
+    "decision": "rejected",
+    "reason": "value_normalised is a sentence: it must be a date, a duration, true/false or a few plain words"
+   }
+  ]
+ }
+]

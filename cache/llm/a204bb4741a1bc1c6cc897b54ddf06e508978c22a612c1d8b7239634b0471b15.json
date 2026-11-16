@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "For how long at most, from initial start-up, is the extended warranty that MAHA grants on the functionality of the spindle drive of the MA STAR lift valid?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Per quanto tempo, al massimo a partire dalla prima messa in servizio, è valida la garanzia estesa che MAHA concede sul funzionamento del motore del mandrino dell'elevatore MA STAR?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 709,
+   "completion_tokens": 185,
+   "total_tokens": 894
+  }
+ }
+}

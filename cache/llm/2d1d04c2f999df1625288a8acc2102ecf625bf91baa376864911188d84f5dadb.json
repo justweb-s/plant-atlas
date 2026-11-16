@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "At which positions on the list are the lifting devices found that are situated in the municipality of Lula (Sos Enattos mine)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "In quali posizioni dell'elenco si trovano i dispositivi di sollevamento situati nel comune di Lula (miniera di Sos Enattos)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 699,
+   "completion_tokens": 213,
+   "total_tokens": 912
+  }
+ }
+}

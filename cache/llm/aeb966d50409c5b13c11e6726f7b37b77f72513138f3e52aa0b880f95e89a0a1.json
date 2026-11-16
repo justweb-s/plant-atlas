@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "The verifications of the IGEA devices are entrusted to an authorised body: under the Ministerial Decree of 11 April 2011, for how long at least must the authorised body keep the documents relating to the verification activity?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "Le verifiche degli apparecchi IGEA sono affidate a un organismo autorizzato: ai sensi del Decreto Ministeriale dell'11 aprile 2011, per quanto tempo minimo l'organismo autorizzato deve conservare la documentazione relativa all'attività di verifica?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 727,
+   "completion_tokens": 219,
+   "total_tokens": 946
+  }
+ }
+}

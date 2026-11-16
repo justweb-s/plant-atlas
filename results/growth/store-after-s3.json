@@ -1,0 +1,1152 @@
+[
+ {
+  "id": "CQ01",
+  "asked": {
+   "value": [
+    "Vehicle servicing lifts in Annex I, Part A of the Machinery Regulation (REG), where they require a conformity assessment procedure involving a notified body",
+    "Guards for removable mechanical transmission devices, listed in Annex I Part A of the Machinery Regulation (REG) as requiring a notified-body conformity assessment"
+   ],
+   "score": 0.5
+  },
+  "reworded": {
+   "value": [
+    "protective devices designed to detect the presence of persons",
+    "logic units to ensure safety functions",
+    "roll-over protective structures (ROPS)",
+    "vehicle servicing lifts",
+    "falling-object protective structures (FOPS)",
+    "portable chainsaws for woodworking",
+    "Guards for removable mechanical transmission devices"
+   ],
+   "score": 0.308
+  }
+ },
+ {
+  "id": "CQ02",
+  "asked": {
+   "value": [
+    "module G",
+    "module H",
+    "EU type-examination (module B) set out in Annex VII… (module B followed by module C)"
+   ],
+   "score": 1.0
+  },
+  "reworded": {
+   "value": [
+    "module G",
+    "module H",
+    "EU type-examination (module B) set out in Annex VII… (module B followed by module C)"
+   ],
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ03",
+  "asked": {
+   "value": "A safety component with self-evolving behaviour based on machine learning falls under the category 'Safety components with fully or partially self-evolving behaviour' in Annex I, Part A, point 5 of the Machinery Regulation.",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "Safety components with fully or partially self-evolving behaviour, listed in Annex I, Part A, point 5.",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ04",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": "Interlocking movable guards are required on moving transmission parts where frequent access is envisaged (Regulation, Annex III, point 1.3.8.1; Directive, Annex I, point 1.3.8.1).",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ05",
+  "asked": {
+   "value": [
+    "risks of contact leading to hazardous situations",
+    "psychological stress that may be caused by the interaction with the machinery",
+    "accidental blockage of moving parts"
+   ],
+   "score": 0.667
+  },
+  "reworded": {
+   "value": [
+    "prevent risks of contact which could lead to accidents",
+    "accidental blockage of moving parts",
+    "psychological stress that may be caused by the interaction with the machinery",
+    "risks of contact leading to hazardous situations"
+   ],
+   "score": 0.571
+  }
+ },
+ {
+  "id": "CQ06",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": "The natural or legal person who carries out the substantial modification is regarded as the manufacturer and is subject to the manufacturer's obligations, under Article 18 of the Regulation. A non-professional user who modifies machinery for their own use is not considered a manufacturer.",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ07",
+  "asked": {
+   "value": [
+    "EU declaration of conformity",
+    "is accompanied by the required documents",
+    "accompanied by the instructions for use",
+    "the information referred to in article 10(7)",
+    "machinery and related products for foodstuffs",
+    "portable hand-held or hand-guided machinery or related products",
+    "portable fixing and other impact machinery",
+    "Machinery or related products serving fixed landings",
+    "instructions for use"
+   ],
+   "score": 0.364
+  },
+  "reworded": {
+   "value": [
+    "a document accompanying the machinery",
+    "EU declaration of conformity",
+    "is accompanied by the required documents",
+    "Instructions for use accompanying machinery and related products (may be provided in digital format)"
+   ],
+   "score": 0.333
+  }
+ },
+ {
+  "id": "CQ08",
+  "asked": {
+   "value": "P10Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P10Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ09",
+  "asked": {
+   "value": "2027-01-20",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "2027-01-20",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ10",
+  "asked": {
+   "value": true,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "CQ11",
+  "asked": {
+   "value": "2, c. 1 INAIL guide).",
+   "score": 0.5
+  },
+  "reworded": {
+   "value": "INAIL performs the first periodic verification of Annex VII equipment, within 45 days (quarantacinque giorni) of receiving the complete request.",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ12",
+  "asked": {
+   "value": "P3Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P3Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ13",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "CQ14",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "CQ15",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "CQ21",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ22",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ23",
+  "asked": {
+   "value": "Le verifiche periodiche successive alla prima sulle attrezzature dell'Allegato VII sono effettuate dalle ASL (Aziende sanitarie locali); l'ARPA le effettua solo ove ciò sia previsto dalla legge regionale; ARPA , o da soggetti pubblici o privati abilitati che vi provvedono secondo le modalità di cui al comma 13",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "The local health authorities (ASL) are responsible for the periodic checks after the first one on Annex VII equipment, with ARPA taking that role where regional law provides for it.",
+   "score": 0.5
+  }
+ },
+ {
+  "id": "CQ24",
+  "asked": {
+   "value": "P45D",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P45D",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ25",
+  "asked": {
+   "value": false,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": false,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "CQ26",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "CQ27",
+  "asked": {
+   "value": "P15D",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P15D",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-CELL-01",
+  "asked": {
+   "value": "P6M",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P6M",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-CELL-02",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-CELL-03",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-CELL-04",
+  "asked": {
+   "value": "PT1H",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "PT1H",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-CELL-05",
+  "asked": {
+   "value": "P3Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-CELL-06",
+  "asked": {
+   "value": false,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": false,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-CELL-07",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-CELL-08",
+  "asked": {
+   "value": true,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": true,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-CELL-09",
+  "asked": {
+   "value": [
+    "After changes to the mounting, the alignment, or the electrical connection",
+    "before commissioning"
+   ],
+   "score": 0.667
+  },
+  "reworded": {
+   "value": [
+    "After changes to the mounting, the alignment, or the electrical connection",
+    "before commissioning"
+   ],
+   "score": 0.667
+  }
+ },
+ {
+  "id": "DEV-CELL-10",
+  "asked": {
+   "value": "The integrator is responsible for the application risk assessment of the robot application (UR10e manual, p. 183); the user can also be the integrator.",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "The integrator is responsible for the application risk assessment, according to the UR10e manual (p. 183). The user can also be the integrator.",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-CELL-12",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-CELL-13",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-CELL-14",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-01",
+  "asked": {
+   "value": "P2Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P2Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-02",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-03",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-04",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-06",
+  "asked": {
+   "value": "P3Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P3Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-07",
+  "asked": {
+   "value": "P2Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P2Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-08",
+  "asked": {
+   "value": [
+    "6",
+    "23"
+   ],
+   "score": 1.0
+  },
+  "reworded": {
+   "value": [
+    "6",
+    "23"
+   ],
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-09",
+  "asked": {
+   "value": "P15D",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P15D",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-10",
+  "asked": {
+   "value": false,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": false,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-11",
+  "asked": {
+   "value": "2, c. 1).",
+   "score": 0.0
+  },
+  "reworded": {
+   "value": "2, c. 1).",
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-12",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-13",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEA-14",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-01",
+  "asked": {
+   "value": "P2Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P2Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-02",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-03",
+  "asked": {
+   "value": "P2Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P2Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-04",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-05",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-06",
+  "asked": {
+   "value": "P2Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P2Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-07",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-08",
+  "asked": {
+   "value": "P1Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P1Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-09",
+  "asked": {
+   "value": "P2Y",
+   "score": 0.0
+  },
+  "reworded": {
+   "value": "P2Y",
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-10",
+  "asked": {
+   "value": [
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "17",
+    "23"
+   ],
+   "score": 1.0
+  },
+  "reworded": {
+   "value": [
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "17",
+    "23"
+   ],
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-11",
+  "asked": {
+   "value": [
+    "2",
+    "4",
+    "5",
+    "6",
+    "7",
+    "24"
+   ],
+   "score": 1.0
+  },
+  "reworded": {
+   "value": [
+    "2",
+    "4",
+    "5",
+    "6",
+    "7",
+    "24"
+   ],
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-12",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-13",
+  "asked": {
+   "value": [
+    "1",
+    "2",
+    "4",
+    "5",
+    "6"
+   ],
+   "score": 1.0
+  },
+  "reworded": {
+   "value": [
+    "1",
+    "2",
+    "4",
+    "5",
+    "6"
+   ],
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-14",
+  "asked": {
+   "value": "P10Y",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "P10Y",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-15",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-IGEB-16",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-REG-01",
+  "asked": {
+   "value": "Regulation (EU) 2023/1230 (Machinery Regulation) governs, because the machine is first made available on the Union market on 25 January 2027, after the Directive is repealed and the Regulation applies from 20 January 2027.",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "Regulation (EU) 2023/1230 governs it, because the machine is first made available on 25 January 2027, after the Directive is repealed and the Regulation applies from 20 January 2027 (Corrigendum points 5 and 6; Art. 3(12)); the 10 January signing date does not matter.",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-REG-02",
+  "asked": {
+   "value": false,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": false,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-REG-03",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-04",
+  "asked": {
+   "value": "It answers as the manufacturer: under Article 18 of Regulation (EU) 2023/1230, which applies from 20 January 2027, it must ensure compliance and declare it on its sole responsibility, and it is subject to the manufacturer's obligations where the substantial modification affects the safety of only machinery or a related product that is part of an assembly.",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-05",
+  "asked": {
+   "value": true,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": true,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-REG-06",
+  "asked": {
+   "value": [
+    "bears the CE marking",
+    "EU declaration of conformity",
+    "the manufacturer and the importer have complied with the requirements"
+   ],
+   "score": 0.571
+  },
+  "reworded": {
+   "value": [
+    "the manufacturer and the importer have complied with the requirements",
+    "bears the CE marking",
+    "EU declaration of conformity"
+   ],
+   "score": 0.571
+  }
+ },
+ {
+  "id": "DEV-REG-07",
+  "asked": {
+   "value": "2027-01-19",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "2027-01-20",
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-08",
+  "asked": {
+   "value": "2027-01-20",
+   "score": 0.0
+  },
+  "reworded": {
+   "value": "2023-07-19",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-REG-09",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-10",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-11",
+  "asked": {
+   "value": false,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": false,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-REG-12",
+  "asked": {
+   "value": "They become part of the technical file for the final machinery (Directive 2006/42/EC, Art. 13(2)).",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "They must become part of the technical file for the final machinery (the technical file of the final machinery), per Directive 2006/42/EC Art. 13(2).",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-REG-13",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-14",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": false,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-15",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": true,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-16",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "2027-01-20",
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-REG-17",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-REG-18",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-VER-01",
+  "asked": {
+   "value": "2027-01-20",
+   "score": 0.0
+  },
+  "reworded": {
+   "value": "2026-10-20",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-VER-02",
+  "asked": {
+   "value": "2024-01-20",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "2024-01-20",
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-VER-03",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-VER-04",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-VER-05",
+  "asked": {
+   "value": null,
+   "score": 0.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-VER-06",
+  "asked": {
+   "value": false,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": false,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-VER-07",
+  "asked": {
+   "value": false,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": false,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-VER-08",
+  "asked": {
+   "value": true,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": true,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-VER-09",
+  "asked": {
+   "value": false,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-VER-10",
+  "asked": {
+   "value": true,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": true,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-VER-11",
+  "asked": {
+   "value": "Until they expire; the certificates have no fixed end date.",
+   "score": 1.0
+  },
+  "reworded": {
+   "value": "2027-01-20",
+   "score": 0.0
+  }
+ },
+ {
+  "id": "DEV-VER-12",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ },
+ {
+  "id": "DEV-VER-13",
+  "asked": {
+   "value": null,
+   "score": 1.0
+  },
+  "reworded": {
+   "value": null,
+   "score": 1.0
+  }
+ }
+]

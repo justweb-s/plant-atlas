@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Which cleaning agents does the UR10e manual indicate for cleaning the robot arm and/or the Teach Pendant?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quali agenti detergenti indica il manuale dell'UR10e per la pulizia del braccio del robot e/o del Teach Pendant?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 700,
+   "completion_tokens": 170,
+   "total_tokens": 870
+  }
+ }
+}

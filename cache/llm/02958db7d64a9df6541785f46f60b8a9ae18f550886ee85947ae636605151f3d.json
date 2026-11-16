@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "From 20 January 2027, what conformity assessment procedure will model RC-5 be required to undergo, and what is the reason for this?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "A partire dal 20 gennaio 2027, quale procedura di valutazione della conformità dovrà seguire il modello RC-5 e qual è il motivo di questo obbligo?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 700,
+   "completion_tokens": 231,
+   "total_tokens": 931
+  }
+ }
+}

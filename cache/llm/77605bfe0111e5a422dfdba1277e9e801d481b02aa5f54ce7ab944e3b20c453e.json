@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Is it permissible to operate the UR10e robot with the Teach Pendant detached, as long as a different source of emergency stop has been defined?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "È consentito far funzionare il robot UR10e con il Teach Pendant staccato, purché sia stata definita un'altra fonte di arresto di emergenza?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 705,
+   "completion_tokens": 251,
+   "total_tokens": 956
+  }
+ }
+}

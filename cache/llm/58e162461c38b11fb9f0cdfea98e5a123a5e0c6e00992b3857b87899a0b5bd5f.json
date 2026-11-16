@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "According to the robot cell sheet, which two areas must be identified for the safety of the operator working inside the Protected Space to operate the robot?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"set\", \"value\": [\"Spazio Massimo\", \"Spazio Ristretto\"], \"text\": \"The robot cell sheet (Scheda 2.4.16 Isola robotizzata, section 2.4.16.1a \\\"Lavori all'interno dello Spazio Protetto\\\", p. 2) says that for the safety of an operator working inside the Protected Space to operate the robot, two areas must be identified: the Spazio Massimo (the full area the moving parts of the robot can cover, including end devices and handled pieces) and the Spazio Ristretto (the part of the Spazio Massimo that only the robot's moving parts can cover, limited by mechanical stops or other travel limiters).\", \"sources\": [{\"file\": \"robot-cell-sheet.md\", \"place\": \"2.4.16.1a Lavori all'interno dello Spazio Protetto (p. 2)\", \"quote\": \"Per la sicurezza dell'operatore che si trova ad operare all'interno dello spazio protetto per azionare il robot devono essere identificate due aree così definite: • Spazio Massimo: è lo spazio che può essere coperto dalle varie parti in movimento del robot, comprendente anche eventuali dispositivi applicati alle sue estremità ed i pezzi manipolati. • Spazio Ristretto: è una parte dello Spazio Massimo che può essere coperta solo dalle varie parti in movimento del robot.\"}]}",
+  "turns": 4,
+  "usage": {
+   "prompt_tokens": 19762,
+   "completion_tokens": 867
+  }
+ }
+}

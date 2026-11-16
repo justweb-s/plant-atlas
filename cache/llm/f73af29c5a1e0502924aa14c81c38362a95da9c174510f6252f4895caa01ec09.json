@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "What noise emission level (sound pressure in dB(A)) does the manufacturer declare for the MA STAR two post lift?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Qual è il livello di emissione sonora (pressione sonora in dB(A)) dichiarato dal produttore per il ponte sollevatore a due colonne MA STAR?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 698,
+   "completion_tokens": 260,
+   "total_tokens": 958
+  }
+ }
+}

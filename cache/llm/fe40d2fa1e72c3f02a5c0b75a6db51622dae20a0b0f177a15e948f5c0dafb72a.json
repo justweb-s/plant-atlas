@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Up to which final date can a machine be placed on the market in compliance with Directive 2006/42/EC so that, under the transitional provisions of Regulation (EU) 2023/1230, Member States cannot subsequently obstruct its being made available on the market?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "Fino a quale data finale una macchina può essere immessa sul mercato in conformità alla direttiva 2006/42/CE affinché, ai sensi delle disposizioni transitorie del regolamento (UE) 2023/1230, gli Stati membri non possano successivamente ostacolarne la messa a disposizione sul mercato?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 740,
+   "completion_tokens": 356,
+   "total_tokens": 1096
+  }
+ }
+}

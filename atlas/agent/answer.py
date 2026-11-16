@@ -229,7 +229,14 @@ def _vectors(texts: list[str]) -> list[tuple[list[float], float]]:
     missing = [t for t in dict.fromkeys(texts) if t not in _VECTORS]
     for start in range(0, len(missing), 200):   # batches: each one is cached on disk by atlas.llm
         batch = missing[start:start + 200]
-        for text, vector in zip(batch, llm.embed(batch)):
+        try:
+            vectors = llm.embed(batch)
+        except Exception:
+            # No embedding service for facts that are new (learned after the event's key stopped working): they
+            # get no vector and are found by their words, by relation and by the question they were learned from.
+            size = len(next(iter(_VECTORS.values()))[0]) if _VECTORS else 1
+            vectors = [[0.0] * size for _ in batch]
+        for text, vector in zip(batch, vectors):
             _VECTORS[text] = (vector, math.sqrt(sum(x * x for x in vector)) or 1.0)
     return [_VECTORS[t] for t in texts]
 
@@ -853,6 +860,31 @@ def _reply(text: str) -> dict:
     return {}
 
 
+_LEARNED: dict | None = None
+
+
+def learned_for(question: str, facts: list[Statement], enough: float = 0.5) -> list[Statement]:
+    """Facts the store learned from a question like this one: the questions are compared by their words (stems,
+    no filler words); a learned fact comes forward when its question shares at least half of them."""
+    global _LEARNED
+    if _LEARNED is None:
+        from pathlib import Path
+
+        from atlas.agent.text import _tokens
+
+        path = Path(__file__).resolve().parents[2] / "ontology" / "B" / "parts" / "learned.json"
+        asked = json.loads(path.read_text(encoding="utf-8")).get("questions", {}) if path.exists() else {}
+        _LEARNED = {key: set(_tokens(text)) for key, text in asked.items()}
+    if not _LEARNED:
+        return []
+    from atlas.agent.text import _tokens
+
+    words = set(_tokens(question))
+    close = {key: len(words & other) / len(words | other) for key, other in _LEARNED.items() if words and other}
+    keys = [key for key, share in sorted(close.items(), key=lambda kv: -kv[1]) if share >= enough][:3]
+    return [s for key in keys for s in facts if s.asserted_by == f"learned:{key}"]
+
+
 def from_facts(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
     """The answer from the fact store alone (procedures, rule, facts)."""
     if day is None and os.getenv("ATLAS_TODAY"):   # a fixed 'today' makes recorded runs repeatable on a later day
@@ -877,6 +909,8 @@ def from_facts(question: str, store: Store, day: date | None = None, mode: str =
     ranked = nearest(question, facts, top=max(TOP, len(facts) - 1)) if len(facts) > TOP else list(facts)
     chosen = ranked[:TOP]
     chosen = chosen + related(question, ranked, chosen)
+    taught = learned_for(question, facts) if len(facts) > TOP else []
+    chosen = taught + [s for s in chosen if all(s.id != x.id for x in taught)]
     asked, corrected = _dates(question), corrections(store, facts)
     if len(facts) > TOP:   # a crowded store: exact word matches, named places and every layer keep their seat
         named = _named_places(question, facts)
@@ -921,6 +955,7 @@ def from_facts(question: str, store: Store, day: date | None = None, mode: str =
     numbered = "\n".join(f"[{i}] {_line(s)}{_notes(s, asked, corrected)}"
                          + (" [matched by relation]" if s.id in by_relation else "")
                          + (" [note: filed under a place the question names]" if s.id in named else "")
+                         + (" [learned from a question like this one, checked against its source]" if s in taught else "")
                          for i, s in enumerate(chosen))
     if regime:
         numbered += "\n\n" + regime

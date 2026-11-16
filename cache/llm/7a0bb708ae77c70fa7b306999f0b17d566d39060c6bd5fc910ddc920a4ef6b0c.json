@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "The UR5e manual contains a Declaration of Incorporation and the robot's assembly instructions. Once the robot has been incorporated into the robot cell, of which documentation of the final machinery must these two documents become part under Directive 2006/42/EC?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Il manuale dell'UR5e contiene una Dichiarazione di incorporazione e le istruzioni di montaggio del robot. Una volta che il robot è stato incorporato nella cella robotizzata, di quale documentazione della macchina finale questi due documenti devono diventare parte ai sensi della Direttiva 2006/42/CE?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 740,
+   "completion_tokens": 394,
+   "total_tokens": 1134
+  }
+ }
+}

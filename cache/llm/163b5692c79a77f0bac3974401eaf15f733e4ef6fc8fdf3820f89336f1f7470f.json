@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Which variant of the nanoScan3 safety laser scanner (Core I/O or Pro I/O) is installed in the robot cell?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quale variante dello scanner laser di sicurezza nanoScan3 (Core I/O o Pro I/O) è installata nella cella robotica?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 704,
+   "completion_tokens": 268,
+   "total_tokens": 972
+  }
+ }
+}

@@ -86,19 +86,19 @@ def board() -> None:
            f"- accepted as new facts: {q['accepted']}; confirmations of facts already there: {q['confirmations']}; refused: {q['rejected']}",
            f"- refused on the first attempt: {q['first_attempts_rejected']}; recovered by the second attempt: {q['recovered_by_second_attempt']}",
            "- why the refused ones were refused: " + (", ".join(f"{k} {v}" for k, v in sorted(q["rejected_why"].items(), key=lambda kv: -kv[1])) or "—"), ""]
-    files = {tag: OUT / f"store-{tag}.json" for tag in ("before", "after")}
-    if all(f.exists() for f in files.values()):
-        rows = {tag: json.loads(f.read_text(encoding="utf-8")) for tag, f in files.items()}
-        n = len(rows["before"])
-        out += ["## The fact store alone, with no search", "",
+    runs = {tag: [json.loads(f.read_text(encoding="utf-8")) for f in sorted(OUT.glob(f"store-{tag}*.json"))] for tag in ("before", "after")}
+    if all(runs.values()):
+        n = len(runs["before"][0])
+        out += [f"## The fact store alone, with no search ({len(runs['before'])} runs before, {len(runs['after'])} after: mean, lowest-highest)", "",
                 "| | Right before | Right after | Wrong answers before | Wrong answers after |", "|---|---|---|---|---|"]
+
+        def cell(tag: str, name: str, kind: str) -> str:
+            counts = [sum((r[name]["score"] == 1.0) if kind == "right" else (r[name]["score"] < 1 and r[name]["value"] is not None)
+                          for r in rows) for rows in runs[tag]]
+            return f"{sum(counts) / len(counts):.1f} ({min(counts)}-{max(counts)})"
+
         for name, label in (("asked", "The questions it learned from (retention)"), ("reworded", "The same questions in other words (transfer)")):
-            cells = []
-            for kind in ("right", "wrong"):
-                for tag in ("before", "after"):
-                    cells.append(sum((r[name]["score"] == 1.0) if kind == "right" else (r[name]["score"] < 1 and r[name]["value"] is not None)
-                                     for r in rows[tag]))
-            out.append(f"| {label} | {cells[0]}/{n} | {cells[1]}/{n} | {cells[2]} | {cells[3]} |")
+            out.append(f"| {label}, of {n} | " + " | ".join(cell(tag, name, kind) for kind in ("right", "wrong") for tag in ("before", "after")) + " |")
         out.append("")
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "board.md").write_text("\n".join(out) + "\n", encoding="utf-8")

@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the manufacturer, what mission time (TM, as defined in ISO 13849) is specified for the nanoScan3 safety laser scanner?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Secondo il produttore, quale tempo di missione (TM, come definito nella ISO 13849) è specificato per lo scanner laser di sicurezza nanoScan3?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 707,
+   "completion_tokens": 265,
+   "total_tokens": 972
+  }
+ }
+}

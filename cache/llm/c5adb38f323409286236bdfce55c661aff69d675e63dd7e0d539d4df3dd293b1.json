@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "What items are required to be supplied together with machinery at the time it is placed on the market?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Quali elementi devono essere forniti insieme al macchinario nel momento in cui viene immesso sul mercato?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 685,
+   "completion_tokens": 261,
+   "total_tokens": 946
+  }
+ }
+}

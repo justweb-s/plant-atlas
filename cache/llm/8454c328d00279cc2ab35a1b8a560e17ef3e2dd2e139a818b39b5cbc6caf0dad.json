@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Article 71(11) of Legislative Decree 81/2008 allows the periodic verifications after the first one to be carried out by ARPA where a regional law so provides. Which regional law of Sardinia, where the IGEA devices are located, assigns these verifications to ARPA?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "L'articolo 71, comma 11, del Decreto Legislativo 81/2008 consente che le verifiche periodiche successive alla prima siano effettuate dall'ARPA quando una legge regionale lo preveda. Quale legge regionale della Sardegna, dove si trovano i dispositivi IGEA, attribuisce queste verifiche all'ARPA?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 747,
+   "completion_tokens": 331,
+   "total_tokens": 1078
+  }
+ }
+}

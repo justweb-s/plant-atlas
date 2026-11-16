@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "After 20 January 2027, is it permissible for model CS-400 to remain under internal production control?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "Dopo il 20 gennaio 2027, è consentito che il modello CS-400 resti sotto il controllo di produzione interno?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 690,
+   "completion_tokens": 259,
+   "total_tokens": 949
+  }
+ }
+}

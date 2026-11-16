@@ -122,8 +122,10 @@ def faithful(candidate: Statement, chunk_text: str) -> dict:
     return verify(candidate, chunk_text)
 
 
-def complete(question: str, expected, candidates: list[Statement], corpus: ChunkCorpus, day: date) -> tuple[bool, str]:
-    """The round trip: a store holding only these candidates is asked the question again."""
+def complete(question: str, expected, candidates: list[Statement], corpus: ChunkCorpus, day: date) -> tuple[str, str, set[int]]:
+    """The round trip: a store holding only these candidates is asked the question again.
+    Returns "yes" (same answer), "partial" (a list: every item given is right, some are missing) or "no"; the
+    reason when not "yes"; and which candidates the answer used."""
     from atlas.agent.answer import _same_value, from_facts
 
     mini = Store(corpus)
@@ -134,18 +136,45 @@ def complete(question: str, expected, candidates: list[Statement], corpus: Chunk
     try:
         again = from_facts(question, mini, day)
     except Exception as problem:   # a failed call is not a verdict on the fact
-        return False, f"the round trip could not run ({type(problem).__name__})"
+        return "no", f"the round trip could not run ({type(problem).__name__})", set()
+    used = {int(s.statement_id.split("-")[1]) for s in again.steps if (s.statement_id or "").startswith("cand-")}
     if again.value is None:
-        return False, "with these facts alone the question is not answered: the fact does not carry the answer (subject too vague, value cut short, or part of the answer missing)"
+        return "no", ("with these facts alone the question is not answered: the fact does not carry the answer "
+                      "(subject too vague, value cut short, or part of the answer missing)"), used
     same = _same_value(again.value, expected)
+    plain = lambda x: norm(str(x)).lower()
+    close = lambda a, b: plain(a) in plain(b) or plain(b) in plain(a)
     if not same and isinstance(expected, list) and isinstance(again.value, list):
-        left = [norm(str(x)).lower() for x in again.value]
-        same = all(any(norm(str(e)).lower() in l or l in norm(str(e)).lower() for l in left) for e in expected)
+        if all(any(close(e, g) for g in again.value) for e in expected):
+            same = True
+        elif again.value and all(any(close(g, e) for e in expected) for g in again.value):
+            return "partial", f"{len(again.value)} of the {len(expected)} items of the answer", used
     if not same and isinstance(expected, str) and isinstance(again.value, str):
         a, b = set(re.findall(r"\w+", again.value.lower())), set(re.findall(r"\w+", expected.lower()))
         same = bool(a and b) and len(a & b) / len(b) >= 0.6   # free text: the same content in other words
-    return same, "" if same else (f"with these facts alone the answer comes out as {json.dumps(again.value, ensure_ascii=False)[:120]}, "
-                                  f"not {json.dumps(expected, ensure_ascii=False)[:120]}")
+    if same:
+        return "yes", "", used or set(range(len(candidates)))
+    return "no", (f"with these facts alone the answer comes out as {json.dumps(again.value, ensure_ascii=False)[:120]}, "
+                  f"not {json.dumps(expected, ensure_ascii=False)[:120]}"), used
+
+
+def anchor(quote: str, text: str) -> str | None:
+    """The sentence as it is written in the piece: the search may hand it back with other spacing, quotation marks
+    or dashes. The letters and digits must be the same, in the same order; None when they are not there."""
+    def letters(s: str) -> tuple[str, list[int]]:
+        kept, at = [], []
+        for i, ch in enumerate(s):
+            if ch.isalnum():
+                kept.append(ch.lower())
+                at.append(i)
+        return "".join(kept), at
+
+    wanted, _ = letters(quote)
+    plain, positions = letters(text)
+    start = plain.find(wanted) if len(wanted) >= 8 else -1
+    if start < 0:
+        return None
+    return text[positions[start]:positions[start + len(wanted) - 1] + 1]
 
 
 def duplicate(candidate: Statement, store: Store) -> Statement | None:
@@ -163,7 +192,16 @@ def learn_from(question: str, answer: Answer, store: Store, chunks: dict, corpus
     entry = {"question": _key(question), "value": answer.value, "basis": answer.basis, "candidates": [], "accepted": []}
     sentences = [(chunks.get(tuple(p.strip() for p in s.locator.split(",", 1))), s.quote) for s in answer.steps
                  if s.statement_id is None and s.quote and s.locator]
-    sentences = [(c, q) for c, q in sentences if c is not None][:MAX_QUOTES]
+    exact = []
+    for chunk, quote in [(c, q) for c, q in sentences if c is not None][:MAX_QUOTES]:
+        written = anchor(quote, chunk.text)
+        if written is None:   # typically the Regulation's wording as corrected: the corrigendum's own facts hold it
+            entry["candidates"].append({"place": f"{chunk.source}, {chunk.locator}", "attempt": 1, "decision": "skipped",
+                                        "reason": "the sentence is not in the piece as registered (a wording the corrigendum corrected)"})
+        else:
+            exact.append((chunk, written))
+    sentences = exact
+    entry["_text"] = question
     if answer.value is None or not sentences:
         entry["skipped"] = "no answer" if answer.value is None else "the answer rests on facts already in the store"
         return entry
@@ -198,11 +236,15 @@ def learn_from(question: str, answer: Answer, store: Store, chunks: dict, corpus
             records.append(record)
             passed.append((index, record))
         if passed:
-            ok, why = complete(question, answer.value, [r["_candidate"] for _, r in passed], corpus, day)
-            for _, record in passed:
-                record["complete"] = "yes" if ok else "no"
-                if not ok:
-                    record.update(decision="rejected", reason=why)
+            status, why, used = complete(question, answer.value, [r["_candidate"] for _, r in passed], corpus, day)
+            for place, (_, record) in enumerate(passed):
+                if status == "no":
+                    record.update(complete="no", decision="rejected", reason=why)
+                elif place in used:
+                    record["complete"] = status if status == "yes" else f"partial: {why}"
+                else:   # the answer came out right without this fact: it adds nothing to this answer
+                    record.update(complete="not used", decision="rejected",
+                                  reason="the answer comes out without this fact: it does not carry a part of the answer")
         retry = {}
         for index, record in enumerate(records):
             if record.get("decision") == "rejected" and record.get("gate") != "no_anchor":
@@ -241,9 +283,12 @@ def save(entries: list[dict]) -> int:
     for entry in entries:
         if entry["question"] in done:
             continue
+        entry.setdefault("_text", "")
+        text = entry.pop("_text", "")
         for fact in entry.pop("accepted"):
             fact["id"] = f"learned-{len(part['statements']) + 1:04d}"
             part["statements"].append(fact)
+            part.setdefault("questions", {})[entry["question"]] = text   # to find the fact when a like question comes
             added += 1
         log.append(entry)
     PART.write_text(json.dumps(part, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -263,13 +308,16 @@ def report() -> dict:
     for c in last:
         if c.get("decision") == "rejected":
             kind = ("gate: " + c["gate"]) if c.get("gate") not in (None, "ok") else "second reader" if "second reader" in c["reason"] \
-                else "not complete" if c.get("complete") == "no" else "no fact written"
+                else "not complete" if c.get("complete") == "no" else "not needed for the answer" if c.get("complete") == "not used" \
+                else "no fact written"
             reasons[kind] = reasons.get(kind, 0) + 1
     out = {"questions": len(log), "questions_with_new_sentences": sum(1 for e in log if e["candidates"]),
            "questions_that_added_facts": sum(1 for e in log if any(c.get("decision") == "accepted" for c in e["candidates"])),
            "sentences_examined": len(last), "accepted": sum(c.get("decision") == "accepted" for c in last),
            "confirmations": sum(c.get("decision") == "confirmation" for c in last),
            "rejected": sum(c.get("decision") == "rejected" for c in last), "rejected_why": reasons,
+           "skipped_corrected_wording": sum(c.get("decision") == "skipped" for c in last),
+           "accepted_as_part_of_a_list": sum(c.get("decision") == "accepted" and str(c.get("complete", "")).startswith("partial") for c in last),
            "first_attempts_rejected": sum(1 for c in candidates if c["attempt"] == 1 and c.get("decision") == "rejected"),
            "recovered_by_second_attempt": sum(1 for c in last if c["attempt"] == 2 and c.get("decision") in ("accepted", "confirmation"))}
     return out

@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "To which external company is the Global Service maintenance of collective protective devices and basic laboratory equipment, described in Appendix A of the UNICT guideline, entrusted?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"unknown\", \"value\": null, \"text\": \"The UNICT guideline (unict-guideline.md, p. 11, Appendice A – Servizio di manutenzione dei dispositivi di protezione collettiva e attrezzature di base dei laboratori di Ateneo – Global Service) says the service is entrusted to an external company (ditta esterna / Appaltatore) under a contract for 2019-2021, but it does not name that company. No other document in the folder names it.\", \"sources\": [{\"file\": \"unict-guideline.md\", \"place\": \"p. 11, APPENDICE A SERVIZIO DI MANUTENZIONE DEI DISPOSITIVI DI PROTEZIONE COLLETTIVA E ATTREZZATURE DI BASE DEI LABORATORI DI ATENEO – GLOBAL SERVICE\", \"quote\": \"Formano oggetto di affidamento a ditta esterna i servizi di manutenzione dei dispositivi di protezione collettiva e attrezzature di base dei laboratori di Ateneo. L’appalto, in essere per il triennio 2019-2021, ha per oggetto il servizio di manutenzione dei dispositivi di protezione collettiva\"}]}",
+  "turns": 5,
+  "usage": {
+   "prompt_tokens": 58758,
+   "completion_tokens": 1227
+  }
+ }
+}

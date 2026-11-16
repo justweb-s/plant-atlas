@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the UNIVPM equipment guideline, the written results of the checks on work equipment (such as the machines of the cell) must be kept available to the supervisory bodies for at least how long back?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Secondo la linea guida UNIVPM sulle attrezzature, per quanto tempo minimo devono essere conservati a disposizione degli organi di vigilanza i risultati scritti delle verifiche sulle attrezzature di lavoro (come le macchine della cella)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 719,
+   "completion_tokens": 348,
+   "total_tokens": 1067
+  }
+ }
+}

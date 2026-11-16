@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 16 October 2026, had the time limit within which Member States must notify the Commission of the rules on penalties under Article 50(2) of Regulation (EU) 2023/1230 already expired?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il 16 ottobre 2026, il termine entro cui gli Stati membri dovevano notificare alla Commissione le norme sulle sanzioni ai sensi dell'articolo 50, paragrafo 2, del regolamento (UE) 2023/1230 era già scaduto?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 721,
+   "completion_tokens": 388,
+   "total_tokens": 1109
+  }
+ }
+}

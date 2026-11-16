@@ -1,0 +1,1125 @@
+{
+  "about": "Blind test set 2: 40 questions with gold answers written only from the source documents. near_dev=true marks questions whose passage is also cited as evidence by a development question (a different value, duty, condition or item of the same passage is asked); near_dev=false marks passages no development question cites. Reference date: 2026-11-14.",
+  "cqs": [
+    {
+      "id": "BLIND2-01",
+      "type": "V",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Il D.M. 11 aprile 2011 fissa un termine per la prima verifica periodica da parte dell'INAIL. Secondo la disciplina oggi in vigore (14 novembre 2026), entro quanti giorni dalla richiesta l'INAIL deve provvedere alla prima verifica periodica di un'attrezzatura dell'allegato VII?",
+      "question_en": "The Ministerial Decree of 11 April 2011 sets a time limit for the first periodic verification by INAIL. Under the rules in force today (14 November 2026), within how many days from the request must INAIL carry out the first periodic verification of an Annex VII piece of equipment?",
+      "answer": {
+        "kind": "duration",
+        "value": "P45D"
+      },
+      "answer_text": "Quarantacinque giorni. L'articolo 71, comma 11, del D.Lgs. 81/2008 nel testo vigente stabilisce che l'INAIL provvede alla prima verifica nel termine di quarantacinque giorni dalla richiesta; la guida INAIL (ed. 2019) conferma i 45 giorni dalla richiesta completa. Il termine di sessanta giorni dell'articolo 2, comma 1, del D.M. 11 aprile 2011 è superato dalla legge, fonte di rango superiore e modificata successivamente.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 11",
+          "role": "supports",
+          "quote": "Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta."
+        },
+        {
+          "source": "inail-guide",
+          "locator": "p. 36",
+          "role": "supports",
+          "quote": "La prima verifica periodica deve essere effettuata entro 45 giorni dalla data di ricevimento della richiesta completa"
+        },
+        {
+          "source": "DM2011",
+          "locator": "art. 2, c. 1",
+          "role": "superseded",
+          "quote": "l'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-02",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Una macchina viene immessa sul mercato il 1° marzo 2027. Per quanto tempo almeno, dopo l'immissione sul mercato o la messa in servizio, il fabbricante deve tenere la documentazione tecnica e la dichiarazione di conformità UE a disposizione delle autorità di vigilanza del mercato?",
+      "question_en": "A machine is placed on the market on 1 March 2027. For how long at least, after it has been placed on the market or put into service, must the manufacturer keep the technical documentation and the EU declaration of conformity at the disposal of the market surveillance authorities?",
+      "answer": {
+        "kind": "duration",
+        "value": "P10Y"
+      },
+      "answer_text": "Almeno dieci anni. Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (rettifica punto 10); l'articolo 10, paragrafo 3, impone al fabbricante di conservare documentazione tecnica e dichiarazione di conformità UE per almeno 10 anni dall'immissione sul mercato o dalla messa in servizio.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 10(3)",
+          "role": "supports",
+          "quote": "Manufacturers shall keep the technical documentation and the EU declaration of conformity at the disposal of the market surveillance authorities for at least 10 years after the machinery or the related product has been placed on the market or put into service."
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "It shall apply from 14 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-03",
+      "type": "V",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo il D.M. 11 aprile 2011, in quali date dell'anno i soggetti abilitati devono trasmettere per via telematica al titolare della funzione il registro informatizzato delle verifiche effettuate?",
+      "question_en": "Under the Ministerial Decree of 11 April 2011, on which dates of the year must the authorised bodies transmit electronically to the holder of the function the computerised register of the verifications carried out?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "15 aprile",
+          "15 luglio",
+          "15 ottobre",
+          "15 gennaio"
+        ]
+      },
+      "answer_text": "L'allegato III, punto 4.3, del D.M. 11 aprile 2011 prevede la trasmissione trimestrale del registro informatizzato: 15 aprile, 15 luglio, 15 ottobre e 15 gennaio.",
+      "evidence": [
+        {
+          "source": "DM2011",
+          "locator": "Allegato III",
+          "role": "supports",
+          "quote": "deve essere trimestralmente (15 aprile, 15 luglio, 15 ottobre e 15 gennaio) trasmesso per via telematica al soggetto titolare della funzione"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-04",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Oggi (14 novembre 2026) un organismo notificato rilascia un attestato di esame CE del tipo ai sensi dell'allegato IX della Direttiva 2006/42/CE. Per quanto tempo, dalla data di rilascio, fabbricante e organismo notificato devono conservare copia dell'attestato, del fascicolo tecnico e dei documenti pertinenti?",
+      "question_en": "Today (14 November 2026) a notified body issues an EC type-examination certificate under Annex IX to Directive 2006/42/EC. For how long, from the date of issue, must the manufacturer and the notified body retain a copy of the certificate, the technical file and the relevant documents?",
+      "answer": {
+        "kind": "duration",
+        "value": "P15Y"
+      },
+      "answer_text": "Quindici anni dalla data di rilascio dell'attestato. Oggi si applica ancora la Direttiva 2006/42/CE (abrogata dal 20 gennaio 2027, rettifica punto 5); l'allegato IX, punto 4, prevede la conservazione per 15 anni dalla data di rilascio.",
+      "evidence": [
+        {
+          "source": "DIR",
+          "locator": "Annex IX",
+          "role": "supports",
+          "quote": "The manufacturer and the notified body shall retain a copy of this certificate, the technical file and all relevant documents for a period of 15 years from the date of issue of the certificate."
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 5",
+          "role": "supports",
+          "quote": "Article 51, paragraph 2, first subparagraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-05",
+      "type": "V",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo l'allegato II del D.M. 11 aprile 2011, quale documento deve essere compilato in occasione della prima verifica periodica per assicurare un riferimento alle verifiche periodiche successive?",
+      "question_en": "Under Annex II to the Ministerial Decree of 11 April 2011, which document must be compiled at the first periodic verification to provide a reference for the subsequent periodic verifications?",
+      "answer": {
+        "kind": "text",
+        "value": "La scheda tecnica di identificazione dell'attrezzatura di lavoro",
+        "keywords": [
+          [
+            "scheda tecnica",
+            "scheda di identificazione",
+            "technical sheet",
+            "identification sheet",
+            "technical identification",
+            "technical data sheet"
+          ]
+        ]
+      },
+      "answer_text": "L'allegato II (punto 2, lettera b), e punto 3.1.3) prevede che con la prima verifica periodica sia compilata la scheda tecnica di identificazione dell'attrezzatura di lavoro, che diventa parte integrante della documentazione dell'attrezzatura e serve da riferimento per le verifiche successive.",
+      "evidence": [
+        {
+          "source": "DM2011",
+          "locator": "Allegato II",
+          "role": "supports",
+          "quote": "Al fine di assicurare un riferimento per le verifiche periodiche successive, dovra' essere compilata la scheda tecnica di identificazione"
+        },
+        {
+          "source": "DM2011",
+          "locator": "Allegato II",
+          "role": "supports",
+          "quote": "prevede anche la compilazione della scheda tecnica di identificazione dell'attrezzatura di lavoro"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-06",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Fino a quale data la Direttiva 2006/42/CE consentiva agli Stati membri, in deroga, di autorizzare l'immissione sul mercato e la messa in servizio di apparecchi portatili a carica esplosiva per il fissaggio e altre macchine ad impatto conformi alle disposizioni nazionali in vigore al momento dell'adozione della Direttiva?",
+      "question_en": "Until which date did Directive 2006/42/EC allow Member States, by way of derogation, to permit the placing on the market and putting into service of portable cartridge-operated fixing and other impact machinery conforming to the national provisions in force when the Directive was adopted?",
+      "answer": {
+        "kind": "date",
+        "value": "2011-06-29"
+      },
+      "answer_text": "Fino al 29 giugno 2011: è la deroga dell'articolo 27 della Direttiva 2006/42/CE.",
+      "evidence": [
+        {
+          "source": "DIR",
+          "locator": "Art. 27",
+          "role": "supports",
+          "quote": "Until 29 June 2011 Member States may allow the placing on the market and the putting into service of portable cartridge-operated fixing and other impact machinery"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-07",
+      "type": "V",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "L'articolo 71, comma 11, del D.Lgs. 81/2008 ammette che le verifiche periodiche successive alla prima siano effettuate dall'ARPA se una legge regionale lo prevede. Quale legge regionale della Sardegna, dove si trovano gli apparecchi IGEA, attribuisce queste verifiche all'ARPA?",
+      "question_en": "Article 71(11) of Legislative Decree 81/2008 allows the periodic verifications after the first one to be carried out by ARPA where a regional law so provides. Which regional law of Sardinia, where the IGEA devices are located, assigns these verifications to ARPA?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. L'articolo 71, comma 11, rinvia genericamente a una eventuale legge regionale e il D.M. 11 aprile 2011 parla di regioni in cui le funzioni sono state attribuite alle ARPA con provvedimenti locali; nessuna fonte disponibile indica se la Sardegna abbia adottato una tale legge né quale sia.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 11",
+          "role": "supports",
+          "quote": "ove ciò sia previsto con legge regionale, dall'ARPA"
+        },
+        {
+          "source": "DM2011",
+          "locator": "art. 2, c. 2",
+          "role": "supports",
+          "quote": "nelle regioni ove sono state attribuite loro le funzioni in virtu' di provvedimenti locali"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-08",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Oltre alle macchine e alle quasi-macchine, a quali «prodotti correlati» si applica il Regolamento (UE) 2023/1230 secondo l'articolo 2, paragrafo 1?",
+      "question_en": "Besides machinery and partly completed machinery, to which 'related products' does Regulation (EU) 2023/1230 apply under Article 2(1)?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "interchangeable equipment",
+          "safety components",
+          "lifting accessories",
+          "chains, ropes and webbing",
+          "removable mechanical transmission devices"
+        ]
+      },
+      "answer_text": "L'articolo 2, paragrafo 1, elenca cinque prodotti correlati: attrezzature intercambiabili; componenti di sicurezza; accessori di sollevamento; catene, funi e cinghie; dispositivi amovibili di trasmissione meccanica.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 2(1)",
+          "role": "supports",
+          "quote": "(a) interchangeable equipment; (b) safety components; (c) lifting accessories; (d) chains, ropes and webbing; (e) removable mechanical transmission devices."
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-09",
+      "type": "V",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Il 1° marzo 2027 un fabbricante immette sul mercato una macchina con le istruzioni per l'uso in formato digitale; al momento dell'acquisto l'utilizzatore chiede le istruzioni su carta. Entro quanto tempo il fabbricante deve fornirle gratuitamente?",
+      "question_en": "On 1 March 2027 a manufacturer places a machine on the market with the instructions for use in digital format; at the time of purchase the user asks for the instructions on paper. Within what time must the manufacturer provide them free of charge?",
+      "answer": {
+        "kind": "duration",
+        "value": "P1M"
+      },
+      "answer_text": "Entro un mese. Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (dal 20 gennaio 2027, rettifica punto 10); l'articolo 10, paragrafo 7, dispone che, su richiesta dell'utilizzatore al momento dell'acquisto, il fabbricante fornisca le istruzioni in formato cartaceo gratuitamente entro un mese.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 10(7)",
+          "role": "supports",
+          "quote": "at the request of the user at the time of the purchase, the manufacturer shall provide the instructions for use in paper format free of charge within one month"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "It shall apply from 14 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-10",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Il 1° marzo 2027 un organismo notificato può rilasciare, ai sensi del Regolamento (UE) 2023/1230, un certificato di esame UE del tipo con un periodo di validità di sei anni?",
+      "question_en": "On 1 March 2027, may a notified body issue, under Regulation (EU) 2023/1230, an EU type-examination certificate with a period of validity of six years?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. L'allegato VII, punto 6.1, del Regolamento (applicabile dal 20 gennaio 2027, rettifica punto 10) stabilisce che il periodo di validità di un certificato di nuova emissione, e se del caso di un certificato rinnovato, non supera cinque anni.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Annex VII, 6",
+          "role": "supports",
+          "quote": "The period of validity of a newly issued certificate and, where appropriate, of a renewed certificate shall not exceed five years."
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "It shall apply from 14 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-11",
+      "type": "V",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Il 16 ottobre 2026 era già scaduto il termine entro il quale gli Stati membri devono notificare alla Commissione le norme sulle sanzioni previste dall'articolo 50, paragrafo 2, del Regolamento (UE) 2023/1230?",
+      "question_en": "On 16 October 2026, had the time limit within which Member States must notify the Commission of the rules on penalties under Article 50(2) of Regulation (EU) 2023/1230 already expired?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Il testo pubblicato dell'articolo 50, paragrafo 2, indicava il 14 ottobre 2026, ma la rettifica (punto 4) lo sostituisce con il 20 ottobre 2026: il 16 ottobre 2026 il termine non era ancora scaduto.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 4",
+          "role": "supports",
+          "quote": "Article 50, paragraph 2: for: ‘ 14 October 2026 ’, read: ‘ 20 October 2026 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 50(2)",
+          "role": "superseded",
+          "quote": "Member States shall, by 14 October 2026, notify the Commission of those rules and of those measures"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-12",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "A quale ditta esterna è affidato il servizio di manutenzione Global Service dei dispositivi di protezione collettiva e delle attrezzature di base dei laboratori descritto nell'appendice A della linea guida UNICT?",
+      "question_en": "To which external company is the Global Service maintenance of collective protective devices and basic laboratory equipment, described in Appendix A of the UNICT guideline, entrusted?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. L'appendice A della linea guida UNICT descrive l'appalto (triennio 2019-2021), le prestazioni e le periodicità di manutenzione, e parla genericamente di «ditta esterna» e di «Appaltatore», senza mai indicarne la denominazione; nessun'altra fonte la riporta.",
+      "evidence": [
+        {
+          "source": "unict-guideline",
+          "locator": "p. 11",
+          "role": "supports",
+          "quote": "Formano oggetto di affidamento a ditta esterna i servizi di manutenzione dei dispositivi di protezione collettiva e attrezzature di base dei laboratori di Ateneo."
+        },
+        {
+          "source": "unict-guideline",
+          "locator": "p. 11",
+          "role": "supports",
+          "quote": "L’appalto, in essere per il triennio 2019-2021"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-13",
+      "type": "V",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Entro quale data la Commissione deve presentare la seconda relazione sulla valutazione e sul riesame del Regolamento (UE) 2023/1230 prevista dall'articolo 53, paragrafo 1?",
+      "question_en": "By which date must the Commission submit the second report on the evaluation and review of Regulation (EU) 2023/1230 provided for in Article 53(1)?",
+      "answer": {
+        "kind": "date",
+        "value": "2032-07-20"
+      },
+      "answer_text": "L'articolo 53, paragrafo 1, prevede la relazione entro una prima data e poi ogni quattro anni. La rettifica (punto 8) sostituisce il 14 luglio 2028 con il 20 luglio 2028; la seconda relazione è quindi dovuta quattro anni dopo, il 20 luglio 2032.",
+      "evidence": [
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 8",
+          "role": "supports",
+          "quote": "Article 53, paragraph 1: for: ‘ 14 July 2028 ’, read: ‘ 20 July 2028 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 53(1)",
+          "role": "superseded",
+          "quote": "By 14 July 2028 and every four years thereafter, the Commission shall submit a report on the evaluation and review of this Regulation"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-14",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Secondo l'articolo 71 del D.Lgs. 81/2008, che cosa deve accompagnare le attrezzature di lavoro soggette ai controlli del comma 8 quando sono usate al di fuori della sede dell'unità produttiva?",
+      "question_en": "Under Article 71 of Legislative Decree 81/2008, what must accompany work equipment subject to the checks of paragraph 8 when it is used outside the premises of the production unit?",
+      "answer": {
+        "kind": "text",
+        "value": "Un documento attestante l'esecuzione dell'ultimo controllo con esito positivo",
+        "keywords": [
+          [
+            "documento",
+            "attestazione",
+            "attestato",
+            "document",
+            "certificate",
+            "record"
+          ],
+          [
+            "ultimo controllo",
+            "last check",
+            "latest check",
+            "last inspection",
+            "latest inspection",
+            "last control",
+            "most recent check",
+            "most recent inspection"
+          ]
+        ]
+      },
+      "answer_text": "L'articolo 71, comma 10, dispone che le attrezzature di cui al comma 8 usate al di fuori della sede dell'unità produttiva siano accompagnate da un documento attestante l'esecuzione dell'ultimo controllo con esito positivo.",
+      "evidence": [
+        {
+          "source": "DLGS71",
+          "locator": "art. 71, c. 10",
+          "role": "supports",
+          "quote": "devono essere accompagnate da un documento attestante l'esecuzione dell'ultimo controllo con esito positivo"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-15",
+      "type": "V",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Il 1° marzo 2027 un utilizzatore non professionale apporta una modifica sostanziale alla propria macchina, per uso proprio. Secondo l'atto applicabile quel giorno, è considerato fabbricante e soggetto agli obblighi del fabbricante?",
+      "question_en": "On 1 March 2027 a non-professional user carries out a substantial modification to his or her own machine, for his or her own use. Under the act applicable on that day, is that user considered a manufacturer and subject to the manufacturer's obligations?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Il 1° marzo 2027 si applica il Regolamento (UE) 2023/1230 (rettifica punto 10). L'articolo 18, secondo comma, esclude espressamente l'utilizzatore non professionale che modifica in modo sostanziale la propria macchina per uso proprio: non è considerato fabbricante e non è soggetto agli obblighi dell'articolo 10.",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 18",
+          "role": "supports",
+          "quote": "A non-professional user who carries out a substantial modification to his or her machinery or related product, for his or her own use, shall not be considered to be a manufacturer for the purposes of this Regulation"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "It shall apply from 14 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-16",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Chi noleggia o concede in uso attrezzature di lavoro senza operatore deve acquisire una dichiarazione autocertificativa sulla formazione e sull'addestramento dei soggetti individuati per l'utilizzo. Per quanto tempo deve conservarla agli atti secondo l'articolo 72 del D.Lgs. 81/2008?",
+      "question_en": "Whoever hires out or grants the use of work equipment without an operator must obtain a self-certification on the training of the persons designated to use it. For how long must it be kept on file under Article 72 of Legislative Decree 81/2008?",
+      "answer": {
+        "kind": "text",
+        "value": "Per tutta la durata del noleggio o della concessione dell'attrezzatura",
+        "keywords": [
+          [
+            "durata del noleggio",
+            "durata della concessione",
+            "durata del contratto",
+            "duration of the hire",
+            "duration of the rental",
+            "duration of the lease",
+            "duration of the concession",
+            "rental period",
+            "hire period",
+            "whole duration",
+            "entire duration",
+            "full duration",
+            "as long as the"
+          ]
+        ]
+      },
+      "answer_text": "L'articolo 72, comma 2, impone di acquisire e conservare agli atti la dichiarazione autocertificativa per tutta la durata del noleggio o della concessione dell'attrezzatura; la norma non fissa un numero di anni.",
+      "evidence": [
+        {
+          "source": "DLGS72",
+          "locator": "art. 72, c. 2",
+          "role": "supports",
+          "quote": "Deve altresì acquisire e conservare agli atti, per tutta la durata del noleggio o della concessione dell'attrezzatura, una dichiarazione autocertificativa"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-17",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Un esemplare del ponte sollevatore a due colonne MA STAR (ponte elevatore per veicoli) viene immesso sul mercato il 1° febbraio 2027. Tra quali procedure di valutazione della conformità può scegliere il fabbricante secondo l'atto applicabile quel giorno?",
+      "question_en": "A unit of the MA STAR two post lift (a vehicle servicing lift) is placed on the market on 1 February 2027. Among which conformity assessment procedures may the manufacturer choose under the act applicable on that day?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "EU type-examination (module B) followed by conformity to type based on internal production control (module C)",
+          "Conformity based on full quality assurance (module H)",
+          "Conformity based on unit verification (module G)"
+        ]
+      },
+      "answer_text": "Il 1° febbraio 2027 si applica il Regolamento (UE) 2023/1230 (dal 20 gennaio 2027, rettifica punto 10). I ponti elevatori per veicoli sono nell'allegato I, parte A (punto 3): l'articolo 25, paragrafo 2, consente solo tre procedure: esame UE del tipo (modulo B) seguito dalla conformità al tipo basata sul controllo interno della produzione (modulo C); garanzia qualità totale (modulo H); verifica dell'unità (modulo G).",
+      "evidence": [
+        {
+          "source": "REG",
+          "locator": "Art. 25(2)",
+          "role": "supports",
+          "quote": "(a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X."
+        },
+        {
+          "source": "REG",
+          "locator": "Annex I, Part A, point 3",
+          "role": "supports",
+          "quote": "3. Vehicle servicing lifts."
+        },
+        {
+          "source": "mastar-manual",
+          "locator": "p. 7",
+          "role": "supports",
+          "quote": "This lift is exclusively intended for the safe lifting and lowering of passenger cars and commercial vehicles"
+        },
+        {
+          "source": "CORR",
+          "locator": "Corrigendum, point 10",
+          "role": "supports",
+          "quote": "Article 54, second paragraph: for: ‘ 14 January 2027 ’, read: ‘ 20 January 2027 ’"
+        },
+        {
+          "source": "REG",
+          "locator": "Art. 54",
+          "role": "superseded",
+          "quote": "It shall apply from 14 January 2027"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-18",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Il Corpo nazionale dei vigili del fuoco può provvedere direttamente alla formazione e all'abilitazione del proprio personale all'utilizzo delle attrezzature di lavoro per le quali è richiesta una specifica abilitazione degli operatori?",
+      "question_en": "May the national fire brigade (Corpo nazionale dei vigili del fuoco) directly provide the training and qualification of its own personnel for the use of the work equipment for which a specific operator qualification is required?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. L'articolo 73, comma 5-bis, del D.Lgs. 81/2008 consente che la formazione e l'abilitazione del personale del Corpo nazionale dei vigili del fuoco all'utilizzo delle attrezzature di cui al comma 5 siano effettuate direttamente dal Corpo medesimo.",
+      "evidence": [
+        {
+          "source": "DLGS73",
+          "locator": "art. 73, c. 5-bis",
+          "role": "supports",
+          "quote": "la formazione e l'abilitazione del personale del Corpo nazionale dei vigili del fuoco all'utilizzo delle attrezzature di cui al comma 5 possono essere effettuate direttamente dal Corpo nazionale medesimo"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-19",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo la sintesi dell'ubicazione riportata nella scheda tecnica IGEA, in quali comuni diversi da Iglesias si trovano apparecchi di sollevamento dell'elenco?",
+      "question_en": "According to the location summary in the IGEA technical sheet, in which municipalities other than Iglesias are lifting devices of the list located?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "Gadoni",
+          "Lula",
+          "Furtei"
+        ]
+      },
+      "answer_text": "Il punto 2.2 della scheda tecnica riassume l'ubicazione dei 24 apparecchi: 19 a Iglesias, 2 a Gadoni (miniera Funtana Raminosa), 2 a Lula (miniera Sos Enattos) e 1 a Furtei (miniera Furtei).",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 3",
+          "role": "supports",
+          "quote": "19 Iglesias Campo Pisano Masua - Acquaresi 2 Gadoni Miniera Funtana Raminosa 2 Lula Miniera Sos Enattos 1 Furtei Miniera Furtei"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-20",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "In quale data è entrato in vigore il D.M. 11 aprile 2011 sulle verifiche periodiche delle attrezzature di lavoro (a parte l'allegato III)?",
+      "question_en": "On what date did the Ministerial Decree of 11 April 2011 on the periodic verifications of work equipment enter into force (apart from Annex III)?",
+      "answer": {
+        "kind": "date",
+        "value": "2012-05-23"
+      },
+      "answer_text": "Il 23 maggio 2012. L'articolo 6 del decreto si limita a dire che entra in vigore 90 giorni dopo la pubblicazione nella Gazzetta Ufficiale (allegato III il giorno successivo alla pubblicazione) senza indicare una data; la guida INAIL indica espressamente il 23 maggio 2012 come data di entrata in vigore del decreto ministeriale 11 aprile 2011.",
+      "evidence": [
+        {
+          "source": "inail-guide",
+          "locator": "p. 28",
+          "role": "supports",
+          "quote": "23 maggio 2012, data di entrata in vigore del decreto ministeriale 11 aprile 2011"
+        },
+        {
+          "source": "DM2011",
+          "locator": "art. 6",
+          "role": "supports",
+          "quote": "Il presente decreto entra in vigore 90 giorni dopo la pubblicazione nella Gazzetta Ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-21",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Qual è la data del Decreto Dirigenziale che fissa il tariffario usato come base d'asta di riferimento per le verifiche periodiche degli apparecchi IGEA?",
+      "question_en": "What is the date of the Directorial Decree setting the tariff used as the reference auction base for the periodic verifications of the IGEA devices?",
+      "answer": {
+        "kind": "date",
+        "value": "2012-11-23"
+      },
+      "answer_text": "Il punto 2.6 della scheda tecnica IGEA indica come base d'asta il tariffario fissato con il Decreto Dirigenziale del 23/11/2012 (tariffe per le verifiche periodiche delle attrezzature dell'allegato VII); la guida INAIL cita lo stesso decreto dirigenziale del 23 novembre 2012.",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 4",
+          "role": "supports",
+          "quote": "attraverso il Decreto Dirigenziale del 23/11/2012 con cui si fissano le tariffe per le attività di verifica periodica delle attrezzature di lavoro"
+        },
+        {
+          "source": "inail-guide",
+          "locator": "p. 38",
+          "role": "supports",
+          "quote": "decreto dirigenziale del 23 novembre 2012 “Tariffe per le attività di verifica periodica delle attrezzature di cui all’allegato VII"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-22",
+      "type": "V",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Secondo la guida INAIL, entro quanti giorni dalla messa in esercizio di un impianto di messa a terra il datore di lavoro deve inviare la dichiarazione di conformità all'INAIL e all'ASL o ARPA (dove lo Sportello Unico non è operante)?",
+      "question_en": "According to the INAIL guide, within how many days from the putting into operation of an earthing installation must the employer send the declaration of conformity to INAIL and to the ASL or ARPA (where the one-stop shop is not operating)?",
+      "answer": {
+        "kind": "duration",
+        "value": "P30D"
+      },
+      "answer_text": "Entro 30 giorni dalla messa in esercizio dell'impianto: lo indica la scheda 2.1 della guida INAIL (verifica dell'impianto di messa a terra), «Modalità di trasmissione».",
+      "evidence": [
+        {
+          "source": "inail-guide",
+          "locator": "p. 17",
+          "role": "supports",
+          "quote": "entro 30 giorni dalla messa in esercizio dell’impianto, deve inviare la dichiarazione di conformità rispettivamente all’Inail e alle Asl o Arpa competenti per territorio"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-23",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Quale ribasso percentuale sul tariffario ha proposto l'aggiudicatario del servizio di verifica periodica degli apparecchi di sollevamento IGEA?",
+      "question_en": "What percentage discount on the tariff did the successful bidder for the IGEA lifting devices periodic verification service offer?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. La scheda tecnica IGEA stabilisce soltanto che il corrispettivo è calcolato sul tariffario ministeriale con il ribasso proposto dall'aggiudicatario; né l'entità del ribasso né l'aggiudicatario sono indicati in alcuna fonte.",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 4",
+          "role": "supports",
+          "quote": "verrà corrisposto l’importo calcolato sulla base di quanto disposto al punto 2.6 e col ribasso proposto dall’ Aggiudicatario"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-24",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Secondo la scheda dell'isola robotizzata, il ripristino dei dispositivi di arresto di emergenza deve avvenire all'esterno dello Spazio Protetto?",
+      "question_en": "According to the robot cell sheet, must the reset of the emergency stop devices take place outside the Protected Space?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. La scheda (2.4.16.2, «Arresto di emergenza») prescrive che il ripristino di ogni dispositivo di arresto d'emergenza avvenga all'esterno dello Spazio Protetto.",
+      "evidence": [
+        {
+          "source": "robot-cell-sheet",
+          "locator": "p. 4",
+          "role": "supports",
+          "quote": "Il ripristino di ogni dispositivo di arresto d’emergenza deve avvenire all’esterno dello Spazio Protetto."
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-25",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "In quale data è stata rilasciata la dichiarazione CE di conformità riportata nel manuale del ponte sollevatore MA STAR?",
+      "question_en": "On what date was the EC declaration of conformity reproduced in the MA STAR two post lift manual issued?",
+      "answer": {
+        "kind": "date",
+        "value": "2025-11-17"
+      },
+      "answer_text": "La dichiarazione CE di conformità originale riportata a pagina 37 del manuale MA STAR è datata Haldenwang, 17 novembre 2025.",
+      "evidence": [
+        {
+          "source": "mastar-manual",
+          "locator": "p. 37",
+          "role": "supports",
+          "quote": "Haldenwang, 2025-11-17"
+        },
+        {
+          "source": "mastar-manual",
+          "locator": "p. 37",
+          "role": "supports",
+          "quote": "Original EC Declaration of Conformity"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-26",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Quali dispositivi di protezione individuale elenca la scheda dell'isola robotizzata?",
+      "question_en": "Which items of personal protective equipment does the robot cell sheet list?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "Guanti",
+          "Scarpe antinfortunistiche",
+          "Protettori per l'udito"
+        ]
+      },
+      "answer_text": "La sezione 2.4.16.5 della scheda elenca tre DPI, da adottare in base alla valutazione delle lavorazioni: guanti contro il rischio meccanico, scarpe antinfortunistiche con puntale di protezione e protettori per l'udito.",
+      "evidence": [
+        {
+          "source": "robot-cell-sheet",
+          "locator": "p. 5",
+          "role": "supports",
+          "quote": "Guanti (vedi 5.6.4 “Guanti di protezione contro rischi meccanici”) contro il rischio meccanico. Scarpe antinfortunistiche"
+        },
+        {
+          "source": "robot-cell-sheet",
+          "locator": "p. 5",
+          "role": "supports",
+          "quote": "Protettori per l’udito"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-27",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo il manuale MA STAR, se la chiocciola portante cede per usura e la chiocciola di sicurezza si fa carico dell'intero peso, il veicolo può ancora essere abbassato?",
+      "question_en": "According to the MA STAR manual, if the load nut breaks through due to wear and the safety nut takes over the whole load, can the vehicle still be lowered?",
+      "answer": {
+        "kind": "boolean",
+        "value": true
+      },
+      "answer_text": "Sì. La sezione 7.3 del manuale spiega che, in caso di cedimento della chiocciola portante, la chiocciola di sicurezza a valle assume completamente il carico: il veicolo può essere abbassato, ma non può più essere sollevato dalla posizione di riposo.",
+      "evidence": [
+        {
+          "source": "mastar-manual",
+          "locator": "p. 34",
+          "role": "supports",
+          "quote": "the downstream safety nut takes over the load completely and the vehicle can be lowered, but it cannot be raised again from the home position"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-28",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Su quale piattaforma telematica è svolta la procedura (RDO) per l'affidamento del servizio di verifica periodica degli apparecchi di sollevamento IGEA?",
+      "question_en": "On which electronic platform is the procedure (RDO) for awarding the IGEA lifting devices periodic verification service carried out?",
+      "answer": {
+        "kind": "text",
+        "value": "SARDEGNACAT",
+        "keywords": [
+          [
+            "SARDEGNACAT",
+            "Sardegna CAT",
+            "SardegnaCAT"
+          ]
+        ]
+      },
+      "answer_text": "Il frontespizio della scheda tecnica IGEA indica che la procedura telematica si svolge mediante RDO su «SARDEGNACAT».",
+      "evidence": [
+        {
+          "source": "igea-equipment",
+          "locator": "p. 1",
+          "role": "supports",
+          "quote": "mediante RDO su “SARDEGNACAT”"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-29",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo il manuale UR10e, a partire da quale durata di stoccaggio un robot è considerato in stoccaggio a lungo termine?",
+      "question_en": "According to the UR10e manual, from what storage duration is a robot considered to be in long-term storage?",
+      "answer": {
+        "kind": "duration",
+        "value": "P6M"
+      },
+      "answer_text": "Sei mesi. La sezione sullo stoccaggio a lungo termine del manuale UR10e considera un robot stoccato a lungo termine quando è immagazzinato per un periodo di 6 mesi o più.",
+      "evidence": [
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 209",
+          "role": "supports",
+          "quote": "A robot is considered long-term stored when it is stored for a period of 6 months or more."
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-30",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Per quanto tempo al massimo, dalla prima messa in funzione, vale la garanzia estesa che MAHA concede sulla funzionalità dell'azionamento a vite del ponte sollevatore MA STAR?",
+      "question_en": "For how long at most, from initial start-up, is the extended warranty that MAHA grants on the functionality of the spindle drive of the MA STAR lift valid?",
+      "answer": {
+        "kind": "duration",
+        "value": "P5Y"
+      },
+      "answer_text": "Al massimo cinque anni dalla prima messa in funzione, e solo se gli intervalli di ispezione e manutenzione del manuale sono stati rispettati in modo dimostrabile (capitolo 8 «Extended Warranty»).",
+      "evidence": [
+        {
+          "source": "mastar-manual",
+          "locator": "p. 36",
+          "role": "supports",
+          "quote": "It is valid for a maximum of five years after initial start-up"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-31",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo il manuale UR10e, se il Teach Pendant viene staccato o scollegato dal robot, il pulsante di arresto di emergenza del Teach Pendant resta attivo?",
+      "question_en": "According to the UR10e manual, if the Teach Pendant is detached or disconnected from the robot, does the Emergency Stop button on the Teach Pendant remain active?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. Il manuale UR10e (sezione 10.3.3) avverte che, se il Teach Pendant è staccato o scollegato dal robot, il pulsante di arresto di emergenza non è più attivo e il Teach Pendant va allontanato dalle vicinanze del robot.",
+      "evidence": [
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 123",
+          "role": "supports",
+          "quote": "If the Teach Pendant is detached or disconnected from the robot, the Emergency Stop button is no longer active."
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-32",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Qual è il livello di emissione sonora (pressione acustica in dB(A)) dichiarato dal fabbricante per il ponte sollevatore a due colonne MA STAR?",
+      "question_en": "What noise emission level (sound pressure in dB(A)) does the manufacturer declare for the MA STAR two post lift?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. I dati tecnici del manuale MA STAR riportano portata, dimensioni, potenza, ciclo di lavoro e tempi di salita/discesa, ma nessun valore di rumorosità; i valori in dB(A) presenti nel corpus riguardano i robot UR, non il ponte sollevatore.",
+      "evidence": [
+        {
+          "source": "mastar-manual",
+          "locator": "p. 9",
+          "role": "supports",
+          "quote": "Drive power [kW] 2x 3.0 Duty cycle S3-20% Lifting/lowering time [s] 40"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-33",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo l'avvertenza sulle superfici calde del manuale UR5e, che cosa si deve controllare prima di maneggiare o toccare il robot, e dove?",
+      "question_en": "According to the hot surface warning in the UR5e manual, what must be checked before handling or touching the robot, and where?",
+      "answer": {
+        "kind": "text",
+        "value": "La temperatura, sulla schermata di log (log screen)",
+        "keywords": [
+          [
+            "temperatura",
+            "temperature"
+          ],
+          [
+            "log"
+          ]
+        ]
+      },
+      "answer_text": "L'avvertenza «Hot surface» del manuale UR5e prescrive di controllare la temperatura sulla schermata di log prima di maneggiare o toccare il robot.",
+      "evidence": [
+        {
+          "source": "ur5e-manual",
+          "locator": "p. 30",
+          "role": "supports",
+          "quote": "Check the temperature on the log screen before handling or touching the robot."
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-34",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Quali detergenti indica il manuale UR10e per pulire il braccio del robot e/o il Teach Pendant?",
+      "question_en": "Which cleaning agents does the UR10e manual indicate for cleaning the robot arm and/or the Teach Pendant?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "Water",
+          "70% Isopropyl alcohol",
+          "10% Ethanol alcohol",
+          "10% Naphtha"
+        ]
+      },
+      "answer_text": "La sezione 18.2 del manuale UR10e elenca quattro detergenti: acqua, alcol isopropilico al 70%, alcol etilico al 10% e nafta al 10% (per rimuovere il grasso); vieta la candeggina.",
+      "evidence": [
+        {
+          "source": "ur10e-manual",
+          "locator": "p. 212",
+          "role": "supports",
+          "quote": "Cleaning agents: • Water • 70% Isopropyl alcohol • 10% Ethanol alcohol • 10% Naphtha (Use to remove grease.)"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-35",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo il manuale nanoScan3, con quale frequenza minima devono essere eseguite le verifiche periodiche regolari (regular thorough check) del dispositivo di protezione?",
+      "question_en": "According to the nanoScan3 manual, at least how often must the regular thorough checks (regular tests) of the protective device be carried out?",
+      "answer": {
+        "kind": "duration",
+        "value": "P1Y"
+      },
+      "answer_text": "Almeno una volta l'anno. La sezione 5.6.2 del manuale nanoScan3 prescrive di eseguire le prove regolari almeno una volta l'anno; i controlli giornalieri sono indicati solo come opportuni in molti casi.",
+      "evidence": [
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 50",
+          "role": "supports",
+          "quote": "Carry out tests at least once a year."
+        },
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 51",
+          "role": "supports",
+          "quote": "The following thorough checks must be carried out at least once a year"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-36",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Quanto dura il periodo di garanzia offerto dal fabbricante per il robot UR5e?",
+      "question_en": "How long is the warranty period offered by the manufacturer for the UR5e robot?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. Il manuale UR5e dichiara espressamente di non contenere informazioni sulla garanzia e si limita a menzionare un «periodo di garanzia» senza indicarne la durata; nessun'altra fonte la riporta.",
+      "evidence": [
+        {
+          "source": "ur5e-manual",
+          "locator": "p. 4",
+          "role": "supports",
+          "quote": "This manual does not contain warranty information."
+        },
+        {
+          "source": "ur5e-manual",
+          "locator": "p. 207",
+          "role": "supports",
+          "quote": "If any damage is observed on a robot within the warranty period, contact the distributor where the robot was purchased."
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-37",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Quale variante del laser scanner di sicurezza nanoScan3 (Core I/O o Pro I/O) è installata nell'isola robotizzata?",
+      "question_en": "Which variant of the nanoScan3 safety laser scanner (Core I/O or Pro I/O) is installed in the robot cell?",
+      "answer": {
+        "kind": "unknown",
+        "value": null
+      },
+      "answer_text": "I documenti non lo dicono. Il manuale nanoScan3 descrive entrambe le varianti (Core I/O e Pro I/O) e i rispettivi dati tecnici; la scheda dell'isola robotizzata parla solo in generale di dispositivi di rilevazione della presenza di persone. Nessuna fonte indica quale variante sia montata nell'isola.",
+      "evidence": [
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 130",
+          "role": "supports",
+          "quote": "nanoScan3 Core I/O nanoScan3 Pro I/O Performance level PL d (ISO 13849)"
+        },
+        {
+          "source": "robot-cell-sheet",
+          "locator": "p. 1",
+          "role": "supports",
+          "quote": "dispositivi di rilevazione della presenza di persone"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-38",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Quale grado di protezione dell'involucro (codice IP) ha il laser scanner nanoScan3 quando la calotta ottica e il connettore di sistema sono montati e la connessione USB è chiusa con il coperchio di protezione?",
+      "question_en": "What enclosure rating (IP code) does the nanoScan3 laser scanner have when the optics cover and the system plug are mounted and the USB connection is closed with the protective cover?",
+      "answer": {
+        "kind": "text",
+        "value": "IP65",
+        "keywords": [
+          [
+            "IP65",
+            "IP 65"
+          ]
+        ]
+      },
+      "answer_text": "IP65 (IEC 60529): i dati ambientali del manuale nanoScan3 indicano il grado IP65, che vale solo con calotta ottica e connettore di sistema montati e connessione USB chiusa con il coperchio di protezione.",
+      "evidence": [
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 112",
+          "role": "supports",
+          "quote": "Enclosure rating IP65 only applies if the optics cover and the system plug are mounted and the USB connection is closed with the protective cover."
+        },
+        {
+          "source": "nanoscan3-manual",
+          "locator": "p. 132",
+          "role": "supports",
+          "quote": "Enclosure rating 1) IP65 (IEC 60529)"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-39",
+      "type": "I",
+      "split": "blind",
+      "near_dev": true,
+      "question_it": "Secondo la scheda dell'isola robotizzata, quali due aree devono essere identificate per la sicurezza dell'operatore che lavora all'interno dello Spazio Protetto per azionare il robot?",
+      "question_en": "According to the robot cell sheet, which two areas must be identified for the safety of the operator working inside the Protected Space to operate the robot?",
+      "answer": {
+        "kind": "set",
+        "value": [
+          "Spazio Massimo",
+          "Spazio Ristretto"
+        ]
+      },
+      "answer_text": "La scheda (2.4.16.1a «Lavori all'interno dello Spazio Protetto») richiede di identificare lo Spazio Massimo (lo spazio che può essere coperto dalle parti in movimento del robot, compresi dispositivi applicati e pezzi manipolati) e lo Spazio Ristretto (la parte dello Spazio Massimo limitata da fermi meccanici o altri limitatori di corsa).",
+      "evidence": [
+        {
+          "source": "robot-cell-sheet",
+          "locator": "p. 2",
+          "role": "supports",
+          "quote": "Spazio Massimo: è lo spazio che può essere coperto dalle varie parti in movimento del robot"
+        },
+        {
+          "source": "robot-cell-sheet",
+          "locator": "p. 2",
+          "role": "supports",
+          "quote": "Spazio Ristretto: è una parte dello Spazio Massimo"
+        }
+      ]
+    },
+    {
+      "id": "BLIND2-40",
+      "type": "I",
+      "split": "blind",
+      "near_dev": false,
+      "question_it": "Secondo la linea guida UNIVPM sulle attrezzature, una macchina che presenta una non conformità di pregiudizio per la sicurezza dei lavoratori può continuare a essere utilizzata in attesa delle misure necessarie a eliminarla?",
+      "question_en": "According to the UNIVPM equipment guideline, may a machine with a non-conformity that jeopardises workers' safety continue to be used pending the measures needed to eliminate it?",
+      "answer": {
+        "kind": "boolean",
+        "value": false
+      },
+      "answer_text": "No. La linea guida UNIVPM (5.1) stabilisce che, qualora la non conformità sia di pregiudizio per la sicurezza dei lavoratori, la macchina non potrà essere utilizzata fino all'adozione delle misure necessarie a eliminarla; la linea guida UNICT dice lo stesso.",
+      "evidence": [
+        {
+          "source": "univpm-guideline",
+          "locator": "p. 8",
+          "role": "supports",
+          "quote": "Qualora la non conformità sia di pregiudizio per la sicurezza dei lavoratori, la macchina non potrà essere utilizzata fino all’adozione delle misure necessarie atte ad eliminarla."
+        },
+        {
+          "source": "unict-guideline",
+          "locator": "p. 2",
+          "role": "supports",
+          "quote": "la macchina non potrà essere utilizzata fino all’adozione delle misure necessarie atte ad eliminarla"
+        }
+      ]
+    }
+  ]
+}

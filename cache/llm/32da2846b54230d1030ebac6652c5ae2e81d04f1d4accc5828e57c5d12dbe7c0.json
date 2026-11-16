@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "A machine is placed on the market on 1 March 2027. For how long at least, after it has been placed on the market or put into service, must the manufacturer keep the technical documentation and the EU declaration of conformity at the disposal of the market surveillance authorities?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Una macchina viene immessa sul mercato il 1° marzo 2027. Per almeno quanto tempo, dopo che è stata immessa sul mercato o messa in servizio, il fabbricante deve conservare la documentazione tecnica e la dichiarazione UE di conformità a disposizione delle autorità di vigilanza del mercato?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 738,
+   "completion_tokens": 533,
+   "total_tokens": 1271
+  }
+ }
+}

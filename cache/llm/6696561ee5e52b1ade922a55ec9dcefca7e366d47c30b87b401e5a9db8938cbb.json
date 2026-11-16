@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 14 November 2026, the integrator is completing the robot cell with the UR5e and UR10e arms, and the Declaration of Incorporation makes the integrator responsible for the complete machine. Under the act in force on that date, which steps does Article 5(1) require the integrator to take before the cell is put into service?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "Su quali passaggi l'articolo 5, paragrafo 1, richiede all'integratore di intervenire prima che la cella sia messa in servizio, secondo l'atto in vigore alla data del 14 novembre 2026, considerando che l'integratore, con la Dichiarazione di incorporazione, è responsabile dell'intera macchina, mentre l'integrazione della cella robotizzata è in corso con i bracci UR5e e UR10e?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 758,
+   "completion_tokens": 371,
+   "total_tokens": 1129
+  }
+ }
+}

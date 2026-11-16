@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Today (14 November 2026) a notified body issues an EC type-examination certificate under Annex IX to Directive 2006/42/EC. For how long, from the date of issue, must the manufacturer and the notified body retain a copy of the certificate, the technical file and the relevant documents?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Oggi (14 novembre 2026) un organismo notificato rilascia un certificato di esame CE del tipo ai sensi dell'allegato IX della direttiva 2006/42/CE. Per quanto tempo, a decorrere dalla data di rilascio, il fabbricante e l'organismo notificato devono conservare una copia del certificato, del fascicolo tecnico e della documentazione pertinente?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 750,
+   "completion_tokens": 591,
+   "total_tokens": 1341
+  }
+ }
+}

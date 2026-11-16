@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the hot surface warning in the UR5e manual, what must be checked before handling or touching the robot, and where?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo l'avvertenza sulla superficie calda nel manuale dell'UR5e, cosa deve essere controllato prima di maneggiare o toccare il robot, e dove?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 694,
+   "completion_tokens": 233,
+   "total_tokens": 927
+  }
+ }
+}

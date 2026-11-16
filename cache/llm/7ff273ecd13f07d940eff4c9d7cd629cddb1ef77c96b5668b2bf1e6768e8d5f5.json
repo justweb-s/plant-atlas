@@ -1,0 +1,59 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You check one claim against one passage of law. Use only the passage; do not use what you know of the law.\nAnswer with JSON: \"why\" (at most 20 words), then \"label\", then \"confidence\" (0 to 1)."
+   },
+   {
+    "role": "user",
+    "content": "Does the passage state the claim, and does the claim keep every condition the passage attaches to it?\n\nChoose one label:\n- stated: the passage says what the claim says, and every exception, condition or restriction of scope\n  that the passage attaches to it (except, unless, where, if, provided that, only for, an \"or\" list of\n  alternatives, salvo, qualora, a proviso in the sentence before or after) is present in the claim's condition.\n- stated_but_condition_dropped: the passage says it, but attaches an exception, condition, alternative or restriction\n  of scope that the claim leaves out, so the claim as written is broader than the passage.\n- not_stated: the passage does not say this: wrong subject, wrong value, wrong relation, or a value that\n  is only a fragment and does not carry the meaning (for example \"means:\" or \"the following\").\n- unclear: the passage is not enough to tell (for example the value depends on text that is not shown).\n\nThe value is a few words copied from the passage: a shortened but faithful excerpt is fine, do not ask for the\nwhole sentence. Words of manner or purpose (\"without risk to persons\", \"immediately\") are not conditions; only\nwhat changes when, where or to whom the claim applies counts. Judge only from the passage.\n\nLabels: stated, stated_but_condition_dropped, not_stated, unclear\n\nPASSAGE (REG, Art. 10(7))\nsentence before: (c) make them accessible online during the expected lifetime of the machinery or related product and for at least 10 years after the placing on the market of the machinery or related product.\nquoted sentences: However, at the request of the user at the time of the purchase, the manufacturer shall provide the instructions for use in paper format free of charge within one month\nsentence after: .\n\nCLAIM\nrelation: hasObligation (an obligation of a manufacturer, importer, distributor or employer)\nsubject: UNIVPM equipment guideline, Art. 10(7): manufacturer's supply of instructions for use in paper format on user request\nvalue: the manufacturer shall provide the instructions for use in paper format free of charge within one month\ncondition: at the request of the user at the time of the purchase"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 150,
+  "response_format": {
+   "type": "json_schema",
+   "json_schema": {
+    "name": "verdict",
+    "strict": true,
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "why": {
+       "type": "string"
+      },
+      "label": {
+       "type": "string",
+       "enum": [
+        "stated",
+        "stated_but_condition_dropped",
+        "not_stated",
+        "unclear"
+       ]
+      },
+      "confidence": {
+       "type": "number"
+      }
+     },
+     "required": [
+      "why",
+      "label",
+      "confidence"
+     ]
+    }
+   }
+  }
+ },
+ "response": {
+  "text": "{\"why\":\"Passage states manufacturer provides paper instructions free within one month on user request at purchase; claim carries that condition. The 'However' contrasts with online provision but is not an extra condition.\",\"label\":\"stated\",\"confidence\":0.88}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1350,
+   "completion_tokens": 80,
+   "total_tokens": 1430
+  }
+ }
+}

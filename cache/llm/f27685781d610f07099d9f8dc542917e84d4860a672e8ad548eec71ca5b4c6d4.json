@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Under the Ministerial Decree of 11 April 2011, on which dates of the year must the authorised bodies transmit electronically to the holder of the function the computerised register of the verifications carried out?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "In base al Decreto Ministeriale dell'11 aprile 2011, in quali date dell'anno gli organismi autorizzati devono trasmettere per via telematica al titolare della funzione il registro informatizzato delle verifiche effettuate?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 721,
+   "completion_tokens": 406,
+   "total_tokens": 1127
+  }
+ }
+}

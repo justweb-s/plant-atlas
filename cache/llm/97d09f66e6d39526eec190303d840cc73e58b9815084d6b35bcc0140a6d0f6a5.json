@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "From which date does Article 50(1) of Regulation (EU) 2023/1230 (Member States' duty to lay down penalties) apply?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Da quale data si applica l'articolo 50, paragrafo 1, del regolamento (UE) 2023/1230 (obbligo per gli Stati membri di stabilire le sanzioni)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 704,
+   "completion_tokens": 228,
+   "total_tokens": 932
+  }
+ }
+}

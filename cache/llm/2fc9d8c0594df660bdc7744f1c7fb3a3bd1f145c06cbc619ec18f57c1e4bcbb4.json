@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "For the periodic verifications following the first one on Annex VII equipment, must the employer submit a request to the ASL (local health authority), with the option of turning to an authorised body only after thirty days have passed since that request?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "Per le verifiche periodiche successive alla prima sulle attrezzature di cui all'Allegato VII, il datore di lavoro deve presentare una richiesta alla ASL, potendosi rivolgere a un organismo abilitato solo dopo che siano trascorsi trenta giorni da tale richiesta?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 725,
+   "completion_tokens": 452,
+   "total_tokens": 1177
+  }
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "At what interval is it required to test the nanoScan3 safety laser scanner?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "Con quale intervallo è richiesto effettuare il test dello scanner laser di sicurezza nanoScan3?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 684,
+   "completion_tokens": 214,
+   "total_tokens": 898
+  }
+ }
+}

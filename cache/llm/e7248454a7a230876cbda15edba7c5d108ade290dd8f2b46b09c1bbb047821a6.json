@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "At position 7 of the IGEA list, what is the required verification frequency for the Effer truck-mounted hydraulic crane built in 2017?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s1"
+ },
+ "response": {
+  "text": "Alla posizione 7 dell'elenco IGEA, qual è la frequenza di verifica richiesta per la gru idraulica su autocarro Effer costruita nel 2017?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 703,
+   "completion_tokens": 281,
+   "total_tokens": 984
+  }
+ }
+}

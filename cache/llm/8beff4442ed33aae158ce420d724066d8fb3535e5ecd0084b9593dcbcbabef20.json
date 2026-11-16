@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 1 December 2026, for Annex IV categories of Directive 2006/42/EC built to harmonised standards covering all the relevant requirements, the manufacturer may use internal checks on manufacture alone. For which of those categories is internal production control (module A) no longer admitted on 1 February 2027, even when harmonised standards are fully applied?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "Il 1° dicembre 2026, per le categorie dell'Allegato IV della Direttiva 2006/42/CE costruite secondo norme armonizzate che coprono tutti i requisiti pertinenti, il fabbricante può ricorrere al solo controllo interno della produzione. Per quali di tali categorie il controllo interno della produzione (modulo A) non è più ammesso a partire dal 1° febbraio 2027, anche quando le norme armonizzate sono applicate integralmente?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 770,
+   "completion_tokens": 568,
+   "total_tokens": 1338
+  }
+ }
+}

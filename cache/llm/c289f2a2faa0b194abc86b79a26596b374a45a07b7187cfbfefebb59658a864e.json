@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On what date did the Ministerial Decree of 11 April 2011 on the periodic verifications of work equipment enter into force (apart from Annex III)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "In quale data è entrato in vigore il Decreto Ministeriale dell'11 aprile 2011 sulle verifiche periodiche delle attrezzature di lavoro (fatta eccezione per l'Allegato III)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 709,
+   "completion_tokens": 296,
+   "total_tokens": 1005
+  }
+ }
+}

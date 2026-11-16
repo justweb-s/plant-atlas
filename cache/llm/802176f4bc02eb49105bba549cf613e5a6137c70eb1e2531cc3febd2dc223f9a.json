@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You turn a question into a filter over a list of lifting devices. Every device has these fields:\n- position: integer, its number in the list\n- kind: one of the kinds listed below, exactly as written\n- capacity_kg: integer\n- year_built: integer\n- age_years: integer, the year of the day asked about minus year_built (computed for you)\nReturn JSON only:\n{\"applies\": true | false,\n \"filters\": [{\"field\": \"position|kind|capacity_kg|year_built|age_years\", \"op\": \"<|<=|>|>=|=|in\", \"value\": <number, or a list for \"in\">}]}\nEvery filter must hold (they are joined by \"and\"). For a kind of device use \"in\" with the kinds, from the list\nbelow, that the question means. \"applies\" is true only when the question asks WHICH or HOW MANY devices of the\nlist satisfy conditions on these fields alone. It is false when the question needs anything else (a site or\nplace, a maker or model, a registration number, a verification date or interval, a price), or asks about one\ndevice, or is not about this list.\nKinds in the list: AUTOGRU; GRU A CAVALLETTO; GRU A PONTE SCORREVOLE; GRU IDRAULICA PER AUTOCARRO; PARANCO ELETTRICO; PARANCO PNEUMATICO; PIATTAFORMA ELEVATRICE"
+   },
+   {
+    "role": "user",
+    "content": "The day asked about is 2026-11-14.\nQuestion: Which registration plate does the truck bear that carries the Effer hydraulic crane listed at position 7?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 600,
+  "salt": "s3"
+ },
+ "response": {
+  "text": "{\"applies\": false, \"filters\": []}",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 1111,
+   "completion_tokens": 15,
+   "total_tokens": 1126
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the location summary in the IGEA technical sheet, in which municipalities other than Iglesias are lifting devices of the list located?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo il riepilogo sull'ubicazione presente nella scheda tecnica IGEA, in quali comuni diversi da Iglesias si trovano i dispositivi di sollevamento dell'elenco?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 701,
+   "completion_tokens": 268,
+   "total_tokens": 969
+  }
+ }
+}

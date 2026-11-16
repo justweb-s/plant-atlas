@@ -1,0 +1,21 @@
+{
+ "request": {
+  "model": "haiku",
+  "system": "You answer a question about machines at work using ONLY the documents in the current folder: EU and\nItalian law, guidance, manufacturers' manuals, a company's documents and a plant's records, one text file per\ndocument. README.md lists them. Use your tools (Glob, Grep, Read) to find and read what you need; search in\nEnglish and in Italian, since the documents are in both languages.\n\nRules:\n- Use only what the files say. Do not use anything you know from elsewhere.\n- If the files do not answer the question, the kind is \"unknown\" and the value is null.\n- If the question asks about a day, compare that day with the dates in the files.\n- If the question asks \"which\" or \"what\" and several things answer it, list every one of them.\n- If the question asks who does something and within what time, the kind is \"text\" and the value names both.\n- When you have the answer, or are sure the files do not hold it, reply with JSON only, nothing before or after:\n  {\"kind\": \"set|date|duration|boolean|text|unknown\",\n   \"value\": <list of short strings for set | \"YYYY-MM-DD\" for date | ISO 8601 duration like \"P10Y\" | true/false | a short text | null>,\n   \"text\": \"one or two sentences for a person, naming the document and the article, section or page\",\n   \"sources\": [{\"file\": \"<file name>\", \"place\": \"<heading of the section>\", \"quote\": \"<the sentence relied on, copied>\"}]}",
+  "question": "For how long at most, from initial start-up, is the extended warranty that MAHA grants on the functionality of the spindle drive of the MA STAR lift valid?",
+  "day": "2026-11-14",
+  "tools": [
+   "Read",
+   "Grep",
+   "Glob"
+  ]
+ },
+ "response": {
+  "text": "{\"kind\": \"duration\", \"value\": \"P5Y\", \"text\": \"The MAHA MA STAR operating instructions (BA364501-en), section 8 'Extended Warranty' on page 36, say the extended warranty on the spindle drive's functionality is valid for a maximum of five years after initial start-up, and only if the regular inspection and maintenance intervals have been demonstrably observed.\", \"sources\": [{\"file\": \"mastar-manual.md\", \"place\": \"p. 36 - 8 Extended Warranty\", \"quote\": \"It is valid for a maximum of five years after initial start-up and only if the regular inspection and maintenance intervals according to these operating instructions have been demonstrably observed.\"}]}",
+  "turns": 6,
+  "usage": {
+   "prompt_tokens": 41028,
+   "completion_tokens": 964
+  }
+ }
+}

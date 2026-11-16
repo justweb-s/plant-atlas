@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "According to the INAIL guide, within how many days from the putting into operation of an earthing installation must the employer send the declaration of conformity to INAIL and to the ASL or ARPA (where the one-stop shop is not operating)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Secondo la guida INAIL, entro quanti giorni dalla messa in esercizio di un impianto di terra il datore di lavoro deve inviare la dichiarazione di conformità all'INAIL e alla ASL o all'ARPA (laddove lo Sportello unico non sia operativo)?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 730,
+   "completion_tokens": 356,
+   "total_tokens": 1086
+  }
+ }
+}

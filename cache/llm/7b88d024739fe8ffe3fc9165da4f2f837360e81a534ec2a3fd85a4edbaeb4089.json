@@ -1,0 +1,27 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "A machine was placed on the market on 15 January 2027 in conformity with Directive 2006/42/EC. On 1 March 2027, is it among the products whose making available on the market Member States may not impede under the transitional provisions of Regulation (EU) 2023/1230?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300,
+  "salt": "s2"
+ },
+ "response": {
+  "text": "Una macchina è stata immessa sul mercato il 15 gennaio 2027 in conformità alla direttiva 2006/42/CE. Il 1° marzo 2027, rientra tra i prodotti la cui messa a disposizione sul mercato gli Stati membri non possono ostacolare ai sensi delle disposizioni transitorie del regolamento (UE) 2023/1230?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 745,
+   "completion_tokens": 409,
+   "total_tokens": 1154
+  }
+ }
+}
