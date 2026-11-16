@@ -429,7 +429,15 @@ def _folder() -> str:
     return stamp.hexdigest()[:16]
 
 
-def search(question: str, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
+BRIEF = """
+
+What the fact store already holds on this question (facts taken earlier from these same documents, each with the
+sentence it comes from). They are leads, not the answer: a fact can be incomplete, about a neighbouring subject,
+or wrong. Check each one you use against the files, and search further whenever they do not settle the question.
+"""
+
+
+def search(question: str, day: date | None = None, mode: str = "B", lang: str = "en", brief: str = "") -> Answer:
     """The documents are searched freely by a model with read-only tools; what it brings back passes the same
     gate as every other reading: each sentence it points at must be found in a registered piece of that document,
     and a date or a period given as the answer must be written in those sentences."""
@@ -439,7 +447,8 @@ def search(question: str, day: date | None = None, mode: str = "B", lang: str = 
     if day is None and os.getenv("ATLAS_TODAY"):
         day = date.fromisoformat(os.environ["ATLAS_TODAY"])
     day = day or date.today()
-    out = llm.search_agent(SEARCH, f"Today is {day.isoformat()}.\nQuestion: {question}", FOLDER, stamp=_folder())
+    out = llm.search_agent(SEARCH, f"Today is {day.isoformat()}.\nQuestion: {question}"
+                           + (BRIEF + brief if brief else ""), FOLDER, stamp=_folder())
     found = re.findall(r"\{.*\}", out.get("text") or "", re.DOTALL)
     data = _reply(found[-1]) if found else {}
     kind = str(data.get("kind") or "")
@@ -464,6 +473,12 @@ def search(question: str, day: date | None = None, mode: str = "B", lang: str = 
                     break
     held, why = check(kind, value, pointed, shown) if value is not None else ([], "")
     text = data.get("text") or UNKNOWN.get(lang, UNKNOWN["en"])
+    if value is not None and not held and os.getenv("ATLAS_VALUE_GATE", "soft") == "soft":
+        # The sentences pointed at are in the documents, but the date or period is not written in them as such:
+        # it was worked out from them. The answer stands, and says so; with no sentence found it still falls.
+        found_quotes, _ = check("text", value, pointed, shown)
+        if found_quotes:
+            held, text = found_quotes, f"{text} (Worked out from the sentences cited: {why}.)"
     if value is not None and not held:
         value, text = None, f"{UNKNOWN.get(lang, UNKNOWN['en'])} ({why})"
     marks = {chunk.id: mark for chunk, _, mark in shown}

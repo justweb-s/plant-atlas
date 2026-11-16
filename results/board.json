@@ -106,10 +106,10 @@
   "B": {
    "design": {
     "n": 22,
-    "correct": 16,
+    "correct": 17,
     "unknown": 2,
-    "wrong": 4,
-    "mean": 0.827
+    "wrong": 3,
+    "mean": 0.835
    },
    "heldout": {
     "n": 12,
@@ -120,10 +120,10 @@
    },
    "covered_by_b": {
     "n": 31,
-    "correct": 25,
+    "correct": 26,
     "unknown": 2,
-    "wrong": 4,
-    "mean": 0.877
+    "wrong": 3,
+    "mean": 0.883
    },
    "answered": 34,
    "of": 34
@@ -139,7 +139,7 @@
    "free": 1.0,
    "rag": 0.0,
    "A": 0.6,
-   "B": 0.727
+   "B": 1.0
   },
   {
    "id": "CQ02",
@@ -183,7 +183,7 @@
    "free": 0.5,
    "rag": 0.0,
    "A": 0.222,
-   "B": 0.667
+   "B": 0.571
   },
   {
    "id": "CQ06",

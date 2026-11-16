@@ -1020,6 +1020,46 @@ def _judge(question: str, day: date, facts: Answer, read: Answer) -> str:
     return choice if choice in ("a", "b", "same", "neither") else "a"
 
 
+def leads(question: str, store: Store, day: date, proposed: Answer) -> str:
+    """What the fact store holds on a question, written for the agent that searches the documents: the answer the
+    store proposes, the facts it rests on, and the facts found by relation and by nearness, each with its sentence."""
+    facts = [s for s in store.as_of(day) if s.status == "current"]
+    shown: list[Statement] = []
+    by_id = {s.id: s for s in facts}
+    for step in proposed.steps:
+        if step.statement_id in by_id and by_id[step.statement_id] not in shown:
+            shown.append(by_id[step.statement_id])
+    for s in nearest(question, facts, top=12):
+        if s not in shown:
+            shown.append(s)
+    corrected = corrections(store, facts)
+    lines = [f"- {_line(s)}{_notes(s, _dates(question), corrected)} | sentence: \"{' '.join((s.quote or '').split())[:400]}\""
+             for s in shown[:20]]
+    head = (f"The store's own answer: {json.dumps(proposed.value, ensure_ascii=False)} - {proposed.text}"
+            if proposed.value is not None else "The store has no answer of its own.")
+    return head + "\nFacts (subject | relation | value | condition | [document, place]):\n" + "\n".join(lines)
+
+
+def with_facts(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
+    """The agent that searches the documents is the reader; the fact store is what it is handed before it starts.
+    A result computed in code from the facts (plant rule, list query) is final. Otherwise the agent searches with
+    the store's facts as leads, and what it brings back passes the quote gate. ATLAS_DECIDE=agent selects this."""
+    from atlas.agent import text as reading
+
+    if day is None and os.getenv("ATLAS_TODAY"):
+        day = date.fromisoformat(os.environ["ATLAS_TODAY"])
+    day = day or date.today()
+    proposed = from_facts(question, store, day, mode, lang)
+    if proposed.basis == "rule":
+        return proposed
+    sought = reading.search(question, day, mode, lang, brief=leads(question, store, day, proposed))
+    sought.tokens += proposed.tokens
+    if sought.value is not None and proposed.value is not None and _same_value(sought.value, proposed.value):
+        sought.steps = proposed.steps + sought.steps
+        sought.basis = "facts+search"
+    return sought
+
+
 def answer(question: str, store: Store, day: date | None = None, mode: str = "B", lang: str = "en") -> Answer:
     """Two readings and a judge. The fact store answers first. Then the documents are read on demand for this
     question, under the same rule (every sentence used is checked against its passage). When only one reading
@@ -1029,6 +1069,11 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
         from atlas.agent import router   # every reader answers, agreement wins, one judge settles the rest
 
         return router.panel_answer(question, store, day, mode, lang)
+    # Default: the agent that searches the documents with the fact store handed to it. ATLAS_DECIDE=readings
+    # keeps the earlier chain (fact store, reading by words, search), ATLAS_DECIDE=panel asks every reader.
+    if os.getenv("ATLAS_DECIDE", "agent") == "agent" and os.getenv("ATLAS_READ_TEXT", "1") != "0" and lang == "en" \
+            and len(store.statements) > TOP:
+        return with_facts(question, store, day, mode, lang)
     found = from_facts(question, store, day, mode, lang)
     if os.getenv("ATLAS_READ_TEXT", "1") == "0" or found.basis == "rule" or lang != "en" \
             or len([s for s in store.statements if s.status == "current"]) <= TOP:

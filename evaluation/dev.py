@@ -22,9 +22,10 @@ ROOT = Path(__file__).resolve().parents[1]
 # and written to the board; the rows stay in results/blind/<mode>.json and are not meant to be read.
 QSET = os.getenv("ATLAS_QSET", "dev")
 OUT = ROOT / "results" / QSET
-MODES = ("free", "rag", "B", "P")
+MODES = ("free", "rag", "B", "P", "G")
 LABELS = {"free": "Free search (model + folder of documents)", "rag": "RAG (passages by similarity)",
-          "B": "Plant Atlas (fact store, reading on demand, judge)",
+          "B": "Plant Atlas, earlier chain (fact store, reading by words, search, judge)",
+          "G": "Plant Atlas (search agent handed the fact store; rules in code; quote check)",
           "P": "Plant Atlas, panel (every reader answers, agreement or one judge)"}
 SKIP = {"DEV-IGEA-05", "DEV-VER-14", "DEV-CELL-11"}   # two defensible answers: not scored
 
@@ -35,12 +36,12 @@ def load() -> list[dict]:
 
 
 def run_mode(mode: str) -> dict:
-    if mode in ("B", "P"):
+    if mode in ("B", "P", "G"):
         from atlas import api
-        if mode == "P":
-            os.environ["ATLAS_DECIDE"] = "panel"
+        if mode in ("P", "G"):
+            os.environ["ATLAS_DECIDE"] = "panel" if mode == "P" else "agent"
         else:
-            os.environ.pop("ATLAS_DECIDE", None)
+            os.environ["ATLAS_DECIDE"] = "readings"
         fn = lambda q: api.answer(q, "B")
     elif mode == "rag":
         from evaluation import rag
@@ -75,7 +76,7 @@ def markdown() -> str:
     out = ["# Development board: free search / RAG / Plant Atlas", "",
            f"{len(cqs)} questions of `data/cq/dev/`, written from the documents alone. ✓ right · ✗ wrong · "
            "? \"I don't know\" · a number = partly right.", "",
-           "| | Right | \"I don't know\" | Wrong | Mean |", "|---|---|---|---|---|"]
+           "| | Right | Wrongly said \"I don't know\" | Wrong answer | Mean |", "|---|---|---|---|---|"]
     for m, d in loaded.items():
         s = d["summary"]
         out.append(f"| {LABELS[m]} | {s['correct']}/{s['n']} | {s['unknown']} | {s['wrong']} | {s['mean']:.2f} |")

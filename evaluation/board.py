@@ -107,12 +107,12 @@ def board() -> dict:
 def markdown(b: dict) -> str:
     out = ["# Tabellone ricerca libera / RAG / A / B", "",
            "Generato da `python -m evaluation.board` su `data/cq/cqs.json`. ✓ giusta · ✗ sbagliata · "
-           "? «non lo so» · un numero = giusta in parte · — non lanciata.", ""]
+           "? «non lo so» · «Non lo so» a torto = ha detto di non saperlo ma la risposta c'era · un numero = giusta in parte · — non lanciata.", ""]
     sections = (("design", "Domande di progetto"), ("heldout", "Domande tenute da parte (quelle oneste)"),
                 ("covered_by_b", "Solo le domande sui documenti che B ha già letto ("
                  + ", ".join(f"`{s}`" for s in b["b_read"]) + "), progetto e tenute insieme"))
     for split, title in sections:
-        out += [f"## {title}", "", "| | Giuste | «Non lo so» | Sbagliate | Media |", "|---|---|---|---|---|"]
+        out += [f"## {title}", "", "| | Giuste | «Non lo so» a torto | Sbagliate | Media |", "|---|---|---|---|---|"]
         for m in MODES:
             if m in b["totals"]:
                 t = b["totals"][m][split]
