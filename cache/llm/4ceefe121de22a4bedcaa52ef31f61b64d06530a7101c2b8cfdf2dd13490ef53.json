@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it\nused. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When answers rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on\n  evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: According to the MA STAR lift manual, before lowering the vehicle who is responsible for ensuring that nobody is within the danger zone?\n\nAnswer 1 (given by 2 reader(s): words, similar): \"The operator is responsible for ensuring that nobody is within the danger zone before lowering the vehicle.\"\nAccording to section 4.4.4 (Lowering Process) of the MA STAR lift manual (BA364501-en, p. 20), the operator is responsible for ensuring that nobody is within the danger zone before the vehicle is lowered.\nEvidence:\n- Read on demand: mastar-manual, p. 20 | sentence: \"The operator is responsible for ensuring that nobody is within the danger zone.\" [mastar-manual, p. 20]\n- Read on demand: mastar-manual, p. 20 | sentence: \"The operator is responsible for ensuring that nobody is within the danger zone.\" [mastar-manual, p. 20]\n\nAnswer 2 (given by 1 reader(s): search): \"The operator is responsible for ensuring that nobody is within the danger zone.\"\nAccording to section 4.4.4 'Lowering Process' of the MA STAR Two Post Lifts operating instructions (BA364501-en), the operator is responsible for ensuring that nobody is within the danger zone before the vehicle is lowered.\nEvidence:\n- Found by search: mastar-manual, p. 20 | sentence: \"Before lowering the vehicle, remove tools, support blocks or similar obsta- cles from under the vehicle. The operator is responsible for ensuring that nobody is within the danger zone.\" [mastar-manual, p. 20]\n\nReaders that found nothing: facts"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Both answers rest on the same sentence on p. 20 of the MA STAR manual, which states that the operator is responsible for ensuring nobody is within the danger zone, in the context of lowering the vehicle. The answers agree, and the evidence matches the exact subject asked about.\", \"choice\": 1}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1551,
+   "completion_tokens": 107,
+   "total_tokens": 1658
+  }
+ }
+}

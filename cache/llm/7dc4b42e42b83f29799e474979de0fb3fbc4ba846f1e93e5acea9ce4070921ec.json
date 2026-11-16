@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it\nused. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When answers rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on\n  evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: According to Annex B, which positions of the list have Monteponi as their location (sector/service)?\n\nAnswer 1 (given by 1 reader(s): similar): [\"13\", \"14\"]\nAccording to Annex B (Table B1, IGEA equipment list, p. 8), positions 13 and 14 have Monteponi as their sector/service.\nEvidence:\n- Read on demand: igea-equipment, p. 8 | sentence: \"200086/CA Monteponi\" [igea-equipment, p. 8]\n- Read on demand: igea-equipment, p. 8 | sentence: \"PNEUMATICO SIS PROFI 200100/06 Monteponi\" [igea-equipment, p. 8]\n\nReaders that found nothing: facts, words, search"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "The two quoted sentences show only that two rows in Table B1 list Monteponi. Neither gives a position number, so \"13\" and \"14\" are not stated in the evidence. Three of the four readers found nothing, and the one answer shown cannot be checked against the text.\n\n```json\n{\"reasoning\": \"The evidence quotes two rows containing Monteponi but never states their position numbers, so 13 and 14 are unsupported. Most readers found nothing, and the single answer cannot be verified or shown to be complete.\", \"choice\": \"none\"}\n```",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1245,
+   "completion_tokens": 351,
+   "total_tokens": 1596
+  }
+ }
+}

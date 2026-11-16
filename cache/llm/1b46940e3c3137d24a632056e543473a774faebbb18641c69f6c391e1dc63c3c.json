@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it used. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: After the repeal of Directive 2006/42/EC, until when do EC type-examination certificates issued under Article 12 of the Directive remain valid?\n\nAnswer 1 (given by 1 reader(s): facts): \"2027-01-20\"\nDirective 2006/42/EC is repealed from 2027-01-20 (source: CORR, Corrigendum, point 5).\nEvidence:\n- [skill value_on_date: dated_facts > in_force > compare > answer] Directive 2006/42/EC: repealedFrom = 20 January 2027 | sentence: \"read: ‘ 20 January 2027 ’.\" [CORR, Corrigendum, point 5]\n\nAnswer 2 (given by 1 reader(s): words): \"They remain valid until they expire; the passages give no fixed end date.\"\nUnder Article 52(2) of the Regulation, EC type-examination certificates issued under Article 12 of Directive 2006/42/EC remain valid until they expire, and no fixed end date is given in the passages.\nEvidence:\n- Read on demand: REG, Art. 52(2) | sentence: \"EC type-examination certificates and approval decisions issued in accordance with Article 12 of Directive 2006/42/EC shall remain valid until they expire.\" [REG, Art. 52(2)]\n\nAnswer 3 (given by 1 reader(s): similar): \"Until they expire; the regulation sets no fixed end date.\"\nUnder Article 52(2) of the Regulation, which repeals Directive 2006/42/EC, EC type-examination certificates issued under Article 12 of that Directive remain valid until they expire.\nEvidence:\n- Read on demand: REG, Art. 52(2) | sentence: \"2. EC type-examination certificates and approval decisions issued in accordance with Article 12 of Directive 2006/42/EC shall remain valid until they expire.\" [REG, Art. 52(2)]\n\nReaders that found nothing: search"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Answer 1 gives the repeal date of the Directive, which is a different subject from the validity period of Article 12 certificates. Answers 2 and 3 cite Article 52(2) of the Regulation, which states that these certificates remain valid until they expire, and that matches the question. Answers 2 and 3 agree; Answer 3's wording is slightly more precise in naming the Regulation as the repealing act.\", \"choice\": 3}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1631,
+   "completion_tokens": 150,
+   "total_tokens": 1781
+  }
+ }
+}

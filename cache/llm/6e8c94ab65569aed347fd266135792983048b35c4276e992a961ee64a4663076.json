@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: After the repeal of Directive 2006/42/EC, until when do EC type-examination certificates issued under Article 12 of the Directive remain valid?\n\nAnswer A: \"They remain valid until they expire; the passages give no fixed end date.\"\nUnder Article 52(2) of the Regulation, EC type-examination certificates issued under Article 12 of Directive 2006/42/EC remain valid until they expire, and no fixed end date is given in the passages.\nEvidence of A:\n- Read on demand: REG, Art. 52(2) | sentence: \"EC type-examination certificates and approval decisions issued in accordance with Article 12 of Directive 2006/42/EC shall remain valid until they expire.\" [REG, Art. 52(2)]\n\nAnswer B: \"Until they expire; the regulation sets no fixed end date.\"\nUnder Article 52(2) of the Regulation, which repeals Directive 2006/42/EC, EC type-examination certificates issued under Article 12 of that Directive remain valid until they expire.\nEvidence of B:\n- Read on demand: REG, Art. 52(2) | sentence: \"2. EC type-examination certificates and approval decisions issued in accordance with Article 12 of Directive 2006/42/EC shall remain valid until they expire.\" [REG, Art. 52(2)]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Both answers rely on the same sentence from Art. 52(2) of the Regulation, which states that the certificates remain valid until they expire. Both say the same thing, and the evidence supports it for the exact subject asked about.\", \"choice\": \"same\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1475,
+   "completion_tokens": 89,
+   "total_tokens": 1564
+  }
+ }
+}

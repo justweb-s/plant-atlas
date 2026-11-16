@@ -346,13 +346,17 @@ def check(kind: str, value, evidence: list, shown: list[tuple]) -> tuple[list[tu
 
 def answer(question: str, day: date | None = None, mode: str = "B", lang: str = "en",
            sources: set[str] | None = None, also: list[tuple[str, str]] | None = None,
-           deep: bool = False) -> Answer:
+           deep: bool = False, finder=None) -> Answer:
     from atlas.agent.answer import ITALIAN, UNKNOWN, typed
 
     if day is None and os.getenv("ATLAS_TODAY"):
         day = date.fromisoformat(os.environ["ATLAS_TODAY"])
     day = day or date.today()
-    shown = passages_in_depth(question, also) if deep else passages(question, sources=sources, also=also)
+    if finder is not None:   # another way to find the passages (e.g. by similarity); same reading, same gate
+        shown = [(chunk, corrected(chunk)[0][:WINDOW * 2], corrected(chunk)[1]) for chunk in finder(question)
+                 if chunk.source != "CORR"]
+    else:
+        shown = passages_in_depth(question, also) if deep else passages(question, sources=sources, also=also)
     numbered = "\n\n".join(
         f"[{i}] {chunk.source}, {chunk.locator} — rank: {RANK.get(chunk.layer, chunk.layer)}"
         + (f" — {mark}" if mark else "") + f"\n{piece}" for i, (chunk, piece, mark) in enumerate(shown))

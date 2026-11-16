@@ -22,9 +22,10 @@ ROOT = Path(__file__).resolve().parents[1]
 # and written to the board; the rows stay in results/blind/<mode>.json and are not meant to be read.
 QSET = os.getenv("ATLAS_QSET", "dev")
 OUT = ROOT / "results" / QSET
-MODES = ("free", "rag", "B")
+MODES = ("free", "rag", "B", "P")
 LABELS = {"free": "Free search (model + folder of documents)", "rag": "RAG (passages by similarity)",
-          "B": "Plant Atlas (fact store, reading on demand, judge)"}
+          "B": "Plant Atlas (fact store, reading on demand, judge)",
+          "P": "Plant Atlas, panel (every reader answers, agreement or one judge)"}
 SKIP = {"DEV-IGEA-05", "DEV-VER-14", "DEV-CELL-11"}   # two defensible answers: not scored
 
 
@@ -34,8 +35,12 @@ def load() -> list[dict]:
 
 
 def run_mode(mode: str) -> dict:
-    if mode == "B":
+    if mode in ("B", "P"):
         from atlas import api
+        if mode == "P":
+            os.environ["ATLAS_DECIDE"] = "panel"
+        else:
+            os.environ.pop("ATLAS_DECIDE", None)
         fn = lambda q: api.answer(q, "B")
     elif mode == "rag":
         from evaluation import rag

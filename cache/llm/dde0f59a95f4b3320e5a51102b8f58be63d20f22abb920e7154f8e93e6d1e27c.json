@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Given that the company works in mining areas (extractive sector), how often must the 35,000 kg GCB 35 gantry crane at position 23 be verified?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Dato che l'azienda opera in aree minerarie (settore estrattivo), con quale frequenza deve essere verificata la gru a portale GCB 35 da 35.000 kg in posizione 23?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 709,
+   "completion_tokens": 224,
+   "total_tokens": 933
+  }
+ }
+}

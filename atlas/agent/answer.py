@@ -1025,6 +1025,10 @@ def answer(question: str, store: Store, day: date | None = None, mode: str = "B"
     question, under the same rule (every sentence used is checked against its passage). When only one reading
     answers, or the two disagree, a judge decides on the evidence alone; it can only choose, never write a value.
     A result computed by the plant rule is not put to the vote. ATLAS_READ_TEXT=0 keeps the fact store alone."""
+    if os.getenv("ATLAS_DECIDE") == "panel" and lang == "en" and len(store.statements) > TOP:
+        from atlas.agent import router   # every reader answers, agreement wins, one judge settles the rest
+
+        return router.panel_answer(question, store, day, mode, lang)
     found = from_facts(question, store, day, mode, lang)
     if os.getenv("ATLAS_READ_TEXT", "1") == "0" or found.basis == "rule" or lang != "en" \
             or len([s for s in store.statements if s.status == "current"]) <= TOP:

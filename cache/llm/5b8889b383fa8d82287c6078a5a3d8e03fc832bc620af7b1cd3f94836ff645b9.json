@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it\nused. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When answers rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on\n  evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: How often must the filters of the UR10e Control Box be replaced?\n\nAnswer 1 (given by 1 reader(s): facts): \"P1Y\"\nSostituzione dei filtri degli armadi di sicurezza must be checked every frequenza annuale (P1Y) (source: unict-guideline, p. 14).\nEvidence:\n- [skill single_value: relation_facts > choose > settle > answer] Sostituzione dei filtri degli armadi di sicurezza: requiresPeriodicCheck = frequenza annuale | sentence: \"Sostituzione dei filtri (frequenza annuale) e smaltimento degli stessi secondo normativa.\" [unict-guideline, p. 14]\n\nReaders that found nothing: words, similar, search"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"The only answer rests on a university guideline about filters of safety cabinets (armadi di sicurezza), which is a neighbouring subject, not the UR10e Control Box. Most readers found nothing, so the evidence does not support the answer for the exact device.\", \"choice\": \"none\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1248,
+   "completion_tokens": 100,
+   "total_tokens": 1348
+  }
+ }
+}

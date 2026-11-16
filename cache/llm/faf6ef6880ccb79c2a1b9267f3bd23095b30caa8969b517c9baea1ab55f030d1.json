@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Given that the company works in mining areas (extractive sector), how often must the IGEA-PRIM 5t overhead travelling crane at position 13 be verified on 1 June 2027?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Dato che l'azienda opera in aree minerarie (settore estrattivo), con quale frequenza deve essere verificato il carroponte IGEA-PRIM da 5t in posizione 13 il 1° giugno 2027?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 718,
+   "completion_tokens": 356,
+   "total_tokens": 1074
+  }
+ }
+}

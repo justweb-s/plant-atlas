@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: The verifications covered by the IGEA technical sheet are periodic verifications after the first one: under the Ministerial Decree of 11 April 2011, which body is in charge of them and within how many days from the request must they be carried out?\n\nAnswer A: \"The ASL (Aziende Sanitarie Locali) are in charge of the periodic verifications after the first, to be carried out within 30 days from the request.\"\nUnder DM 11 April 2011, art. 2, comma 1, the ASL are responsible for the periodic verifications after the first, which must be carried out within thirty days from the request.\nEvidence of A:\n- Read on demand: DM2011, art. 2, c. 1 | sentence: \"mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta.\" [DM2011, art. 2, c. 1]\n\nAnswer B: \"P30D\"\nUnder DM 11 April 2011, art. 2, c. 1, the periodic verifications after the first are the responsibility of the ASL (local health authority) and must be carried out within 30 days of the request.\nEvidence of B:\n- Found by search: DM2011, art. 2, c. 1 | sentence: \"L'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta, mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta.\" [DM2011, art. 2, c. 1]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Both answers state the ASL are in charge, with 30 days from the request, and both rest on the same sentence of DM2011 art. 2 c. 1. The evidence supports this for the exact subject, which is the periodic verifications after the first. B's 'P30D' is only a format of the same 30-day deadline.\", \"choice\": \"same\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1575,
+   "completion_tokens": 118,
+   "total_tokens": 1693
+  }
+ }
+}

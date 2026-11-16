@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it used. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: According to Annex B, which positions of the list have Monteponi as their location (sector/service)?\n\nAnswer 1 (given by 1 reader(s): similar): [\"13\", \"14\"]\nAccording to Annex B (Table B1, IGEA equipment list, p. 8), positions 13 and 14 have Monteponi as their sector/service.\nEvidence:\n- Read on demand: igea-equipment, p. 8 | sentence: \"200086/CA Monteponi\" [igea-equipment, p. 8]\n- Read on demand: igea-equipment, p. 8 | sentence: \"PNEUMATICO SIS PROFI 200100/06 Monteponi\" [igea-equipment, p. 8]\n\nReaders that found nothing: facts, words, search"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "The two quoted sentences are table rows on p. 8 that do show Monteponi as the location. But neither quote gives a position number, so \"13\" and \"14\" are not stated anywhere in the evidence. The other three readers found nothing, so nothing else backs those numbers. The list answer therefore cannot be confirmed.\n\n{\"reasoning\": \"The quoted rows confirm Monteponi appears twice on p. 8 of the equipment list, but neither sentence gives a position number. The positions 13 and 14 are not stated in the evidence, and the other readers found nothing to back them.\", \"choice\": \"none\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1241,
+   "completion_tokens": 518,
+   "total_tokens": 1759
+  }
+ }
+}

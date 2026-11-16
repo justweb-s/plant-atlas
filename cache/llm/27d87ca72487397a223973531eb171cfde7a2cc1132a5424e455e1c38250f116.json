@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: What must accompany machinery when it is placed on the market?\n\nAnswer A: [\"EC declaration of conformity\", \"instructions\"]\nUnder Directive 2006/42/EC Article 5(1)(e), the EC declaration of conformity must accompany the machinery, and under Annex I, point 1.7.4, all machinery must be accompanied by instructions.\nEvidence of A:\n- Found by search: DIR, Art. 5(1) | sentence: \"(e) draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery;\" [DIR, Art. 5(1)]\n- Found by search: DIR, Annex I, 1.7.4 | sentence: \"1.7.4. Instructions All machinery must be accompanied by instructions in the official Community language or languages of the Member State in which it is placed on the market and/or put into service.\" [DIR, Annex I, 1.7.4]\n\nAnswer B: [\"instructions\"]\nUnder Directive Annex I, point 1.7.4, all machinery must be accompanied by instructions in the official language(s) of the Member State where it is placed on the market or put into service. The Regulation (Art. 15(2)(b)-(c)) also requires an EU declaration of conformity and instructions for use, but its application date is not stated in the passages.\nEvidence of B:\n- Read on demand: DIR, Annex I, 1.7.4 | sentence: \"All machinery must be accompanied by instructions in the official Community language or languages of the Member State in which it is placed on the market and/or put into service.\" [DIR, Annex I, 1.7.4]\n- Read on demand: REG, Art. 15(2) | sentence: \"(b) the machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8);\" [REG, Art. 15(2)]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"Answer A is backed by evidence for both items: Directive Art. 5(1)(e) says the EC declaration of conformity must accompany the machinery, and Annex I 1.7.4 says instructions must accompany it. Answer B lists only instructions and leaves out the declaration, even though its own evidence from the Regulation mentions the declaration. A is complete and supported, so A wins.\", \"choice\": \"A\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1659,
+   "completion_tokens": 144,
+   "total_tokens": 1803
+  }
+ }
+}

@@ -1,0 +1,681 @@
+{
+ "levels": {
+  "law|set": {
+   "facts": {
+    "n": 3,
+    "answered": 3,
+    "right": 1,
+    "right_answered": 1
+   },
+   "words": {
+    "n": 3,
+    "answered": 1,
+    "right": 0,
+    "right_answered": 0
+   },
+   "similar": {
+    "n": 3,
+    "answered": 1,
+    "right": 0,
+    "right_answered": 0
+   },
+   "search": {
+    "n": 3,
+    "answered": 2,
+    "right": 1,
+    "right_answered": 1
+   }
+  },
+  "law|*": {
+   "facts": {
+    "n": 13,
+    "answered": 12,
+    "right": 11,
+    "right_answered": 10
+   },
+   "words": {
+    "n": 13,
+    "answered": 9,
+    "right": 8,
+    "right_answered": 7
+   },
+   "similar": {
+    "n": 13,
+    "answered": 9,
+    "right": 9,
+    "right_answered": 8
+   },
+   "search": {
+    "n": 13,
+    "answered": 11,
+    "right": 11,
+    "right_answered": 10
+   }
+  },
+  "*|*": {
+   "facts": {
+    "n": 95,
+    "answered": 63,
+    "right": 65,
+    "right_answered": 53
+   },
+   "words": {
+    "n": 95,
+    "answered": 56,
+    "right": 64,
+    "right_answered": 50
+   },
+   "similar": {
+    "n": 95,
+    "answered": 49,
+    "right": 57,
+    "right_answered": 44
+   },
+   "search": {
+    "n": 95,
+    "answered": 65,
+    "right": 74,
+    "right_answered": 60
+   }
+  },
+  "law|text": {
+   "facts": {
+    "n": 3,
+    "answered": 3,
+    "right": 3,
+    "right_answered": 3
+   },
+   "words": {
+    "n": 3,
+    "answered": 2,
+    "right": 2,
+    "right_answered": 2
+   },
+   "similar": {
+    "n": 3,
+    "answered": 3,
+    "right": 3,
+    "right_answered": 3
+   },
+   "search": {
+    "n": 3,
+    "answered": 3,
+    "right": 3,
+    "right_answered": 3
+   }
+  },
+  "day|date": {
+   "facts": {
+    "n": 12,
+    "answered": 8,
+    "right": 6,
+    "right_answered": 5
+   },
+   "words": {
+    "n": 12,
+    "answered": 10,
+    "right": 10,
+    "right_answered": 9
+   },
+   "similar": {
+    "n": 12,
+    "answered": 9,
+    "right": 7,
+    "right_answered": 7
+   },
+   "search": {
+    "n": 12,
+    "answered": 10,
+    "right": 11,
+    "right_answered": 10
+   }
+  },
+  "day|*": {
+   "facts": {
+    "n": 30,
+    "answered": 18,
+    "right": 17,
+    "right_answered": 14
+   },
+   "words": {
+    "n": 30,
+    "answered": 21,
+    "right": 23,
+    "right_answered": 20
+   },
+   "similar": {
+    "n": 30,
+    "answered": 20,
+    "right": 20,
+    "right_answered": 18
+   },
+   "search": {
+    "n": 30,
+    "answered": 24,
+    "right": 25,
+    "right_answered": 22
+   }
+  },
+  "law|duration": {
+   "facts": {
+    "n": 5,
+    "answered": 4,
+    "right": 5,
+    "right_answered": 4
+   },
+   "words": {
+    "n": 5,
+    "answered": 4,
+    "right": 4,
+    "right_answered": 3
+   },
+   "similar": {
+    "n": 5,
+    "answered": 3,
+    "right": 4,
+    "right_answered": 3
+   },
+   "search": {
+    "n": 5,
+    "answered": 4,
+    "right": 5,
+    "right_answered": 4
+   }
+  },
+  "day|boolean": {
+   "facts": {
+    "n": 7,
+    "answered": 3,
+    "right": 3,
+    "right_answered": 3
+   },
+   "words": {
+    "n": 7,
+    "answered": 6,
+    "right": 6,
+    "right_answered": 6
+   },
+   "similar": {
+    "n": 7,
+    "answered": 6,
+    "right": 6,
+    "right_answered": 6
+   },
+   "search": {
+    "n": 7,
+    "answered": 6,
+    "right": 6,
+    "right_answered": 6
+   }
+  },
+  "day|set": {
+   "facts": {
+    "n": 3,
+    "answered": 1,
+    "right": 0,
+    "right_answered": 0
+   },
+   "words": {
+    "n": 3,
+    "answered": 0,
+    "right": 0,
+    "right_answered": 0
+   },
+   "similar": {
+    "n": 3,
+    "answered": 0,
+    "right": 0,
+    "right_answered": 0
+   },
+   "search": {
+    "n": 3,
+    "answered": 2,
+    "right": 0,
+    "right_answered": 0
+   }
+  },
+  "device|duration": {
+   "facts": {
+    "n": 20,
+    "answered": 18,
+    "right": 17,
+    "right_answered": 17
+   },
+   "words": {
+    "n": 20,
+    "answered": 8,
+    "right": 9,
+    "right_answered": 8
+   },
+   "similar": {
+    "n": 20,
+    "answered": 3,
+    "right": 3,
+    "right_answered": 2
+   },
+   "search": {
+    "n": 20,
+    "answered": 10,
+    "right": 10,
+    "right_answered": 9
+   }
+  },
+  "device|*": {
+   "facts": {
+    "n": 27,
+    "answered": 20,
+    "right": 23,
+    "right_answered": 19
+   },
+   "words": {
+    "n": 27,
+    "answered": 11,
+    "right": 16,
+    "right_answered": 11
+   },
+   "similar": {
+    "n": 27,
+    "answered": 5,
+    "right": 9,
+    "right_answered": 4
+   },
+   "search": {
+    "n": 27,
+    "answered": 13,
+    "right": 17,
+    "right_answered": 12
+   }
+  },
+  "day|duration": {
+   "facts": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "words": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "similar": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "search": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   }
+  },
+  "machine|boolean": {
+   "facts": {
+    "n": 5,
+    "answered": 4,
+    "right": 4,
+    "right_answered": 4
+   },
+   "words": {
+    "n": 5,
+    "answered": 5,
+    "right": 5,
+    "right_answered": 5
+   },
+   "similar": {
+    "n": 5,
+    "answered": 5,
+    "right": 5,
+    "right_answered": 5
+   },
+   "search": {
+    "n": 5,
+    "answered": 5,
+    "right": 5,
+    "right_answered": 5
+   }
+  },
+  "machine|*": {
+   "facts": {
+    "n": 20,
+    "answered": 10,
+    "right": 11,
+    "right_answered": 7
+   },
+   "words": {
+    "n": 20,
+    "answered": 12,
+    "right": 16,
+    "right_answered": 11
+   },
+   "similar": {
+    "n": 20,
+    "answered": 12,
+    "right": 17,
+    "right_answered": 12
+   },
+   "search": {
+    "n": 20,
+    "answered": 13,
+    "right": 18,
+    "right_answered": 13
+   }
+  },
+  "machine|duration": {
+   "facts": {
+    "n": 6,
+    "answered": 3,
+    "right": 3,
+    "right_answered": 2
+   },
+   "words": {
+    "n": 6,
+    "answered": 3,
+    "right": 5,
+    "right_answered": 3
+   },
+   "similar": {
+    "n": 6,
+    "answered": 3,
+    "right": 5,
+    "right_answered": 3
+   },
+   "search": {
+    "n": 6,
+    "answered": 3,
+    "right": 5,
+    "right_answered": 3
+   }
+  },
+  "machine|text": {
+   "facts": {
+    "n": 4,
+    "answered": 2,
+    "right": 2,
+    "right_answered": 1
+   },
+   "words": {
+    "n": 4,
+    "answered": 1,
+    "right": 2,
+    "right_answered": 1
+   },
+   "similar": {
+    "n": 4,
+    "answered": 2,
+    "right": 3,
+    "right_answered": 2
+   },
+   "search": {
+    "n": 4,
+    "answered": 3,
+    "right": 4,
+    "right_answered": 3
+   }
+  },
+  "machine|set": {
+   "facts": {
+    "n": 3,
+    "answered": 1,
+    "right": 0,
+    "right_answered": 0
+   },
+   "words": {
+    "n": 3,
+    "answered": 3,
+    "right": 2,
+    "right_answered": 2
+   },
+   "similar": {
+    "n": 3,
+    "answered": 2,
+    "right": 2,
+    "right_answered": 2
+   },
+   "search": {
+    "n": 3,
+    "answered": 2,
+    "right": 2,
+    "right_answered": 2
+   }
+  },
+  "machine|date": {
+   "facts": {
+    "n": 2,
+    "answered": 0,
+    "right": 2,
+    "right_answered": 0
+   },
+   "words": {
+    "n": 2,
+    "answered": 0,
+    "right": 2,
+    "right_answered": 0
+   },
+   "similar": {
+    "n": 2,
+    "answered": 0,
+    "right": 2,
+    "right_answered": 0
+   },
+   "search": {
+    "n": 2,
+    "answered": 0,
+    "right": 2,
+    "right_answered": 0
+   }
+  },
+  "whole list|set": {
+   "facts": {
+    "n": 5,
+    "answered": 3,
+    "right": 3,
+    "right_answered": 3
+   },
+   "words": {
+    "n": 5,
+    "answered": 3,
+    "right": 1,
+    "right_answered": 1
+   },
+   "similar": {
+    "n": 5,
+    "answered": 3,
+    "right": 2,
+    "right_answered": 2
+   },
+   "search": {
+    "n": 5,
+    "answered": 4,
+    "right": 3,
+    "right_answered": 3
+   }
+  },
+  "whole list|*": {
+   "facts": {
+    "n": 5,
+    "answered": 3,
+    "right": 3,
+    "right_answered": 3
+   },
+   "words": {
+    "n": 5,
+    "answered": 3,
+    "right": 1,
+    "right_answered": 1
+   },
+   "similar": {
+    "n": 5,
+    "answered": 3,
+    "right": 2,
+    "right_answered": 2
+   },
+   "search": {
+    "n": 5,
+    "answered": 4,
+    "right": 3,
+    "right_answered": 3
+   }
+  },
+  "device|set": {
+   "facts": {
+    "n": 3,
+    "answered": 1,
+    "right": 3,
+    "right_answered": 1
+   },
+   "words": {
+    "n": 3,
+    "answered": 1,
+    "right": 3,
+    "right_answered": 1
+   },
+   "similar": {
+    "n": 3,
+    "answered": 1,
+    "right": 3,
+    "right_answered": 1
+   },
+   "search": {
+    "n": 3,
+    "answered": 1,
+    "right": 3,
+    "right_answered": 1
+   }
+  },
+  "device|boolean": {
+   "facts": {
+    "n": 3,
+    "answered": 1,
+    "right": 2,
+    "right_answered": 1
+   },
+   "words": {
+    "n": 3,
+    "answered": 2,
+    "right": 3,
+    "right_answered": 2
+   },
+   "similar": {
+    "n": 3,
+    "answered": 1,
+    "right": 2,
+    "right_answered": 1
+   },
+   "search": {
+    "n": 3,
+    "answered": 2,
+    "right": 3,
+    "right_answered": 2
+   }
+  },
+  "device|date": {
+   "facts": {
+    "n": 1,
+    "answered": 0,
+    "right": 1,
+    "right_answered": 0
+   },
+   "words": {
+    "n": 1,
+    "answered": 0,
+    "right": 1,
+    "right_answered": 0
+   },
+   "similar": {
+    "n": 1,
+    "answered": 0,
+    "right": 1,
+    "right_answered": 0
+   },
+   "search": {
+    "n": 1,
+    "answered": 0,
+    "right": 1,
+    "right_answered": 0
+   }
+  },
+  "day|text": {
+   "facts": {
+    "n": 7,
+    "answered": 5,
+    "right": 7,
+    "right_answered": 5
+   },
+   "words": {
+    "n": 7,
+    "answered": 4,
+    "right": 6,
+    "right_answered": 4
+   },
+   "similar": {
+    "n": 7,
+    "answered": 4,
+    "right": 6,
+    "right_answered": 4
+   },
+   "search": {
+    "n": 7,
+    "answered": 5,
+    "right": 7,
+    "right_answered": 5
+   }
+  },
+  "law|date": {
+   "facts": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "words": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "similar": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "search": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   }
+  },
+  "law|boolean": {
+   "facts": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "words": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "similar": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   },
+   "search": {
+    "n": 1,
+    "answered": 1,
+    "right": 1,
+    "right_answered": 1
+   }
+  }
+ },
+ "n": 380
+}

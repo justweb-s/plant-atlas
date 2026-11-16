@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it used. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: By which date must the Commission adopt the delegated acts provided for in Article 6(11) of Regulation (EU) 2023/1230 (common methodology for the data Member States must provide)?\n\nAnswer 1 (given by 1 reader(s): similar): \"2028-07-19\"\nUnder Article 47(2) of Regulation (EU) 2023/1230, the Commission's power to adopt the Article 6(11) delegated acts runs for five years from 19 July 2023, so the period ends on 19 July 2028 (the corrigendum corrected the start date from 13 July 2023).\nEvidence:\n- Read on demand: REG, Art. 47(2) (corrected by the corrigendum (Corrigendum, point 3: '13 July 2023' now reads '19 July 2023')) | sentence: \"The power to adopt delegated acts referred to in Articles 6(2), 6(11) and 7(2) shall be conferred on the Commission for a period of five years from 19 July 2023.\" [REG, Art. 47(2)]\n\nReaders that found nothing: facts, words, search"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "The one answer rests on Article 47(2), which sets how long the Commission holds the power to adopt delegated acts, five years from 19 July 2023. That is the delegation period, not a deadline by which the Article 6(11) acts must be adopted. The other readers found nothing, so the choice is \"none\".\n\n{\"reasoning\": \"The only answer relies on Article 47(2), which gives the duration of the delegation of power, not a deadline for adopting the Article 6(11) delegated acts. That is a neighbouring subject, and the other readers found nothing, so no answer is supported.\", \"choice\": \"none\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1348,
+   "completion_tokens": 428,
+   "total_tokens": 1776
+  }
+ }
+}

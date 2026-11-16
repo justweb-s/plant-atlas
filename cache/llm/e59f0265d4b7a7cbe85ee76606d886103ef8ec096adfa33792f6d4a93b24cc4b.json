@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Given that the company works in mining areas (extractive sector), how often must the KITO KR50L electric hoist at position 16 be verified?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Dato che l'azienda opera in aree minerarie (settore estrattivo), con quale frequenza deve essere verificato il paranco elettrico KITO KR50L in posizione 16?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 703,
+   "completion_tokens": 298,
+   "total_tokens": 1001
+  }
+ }
+}

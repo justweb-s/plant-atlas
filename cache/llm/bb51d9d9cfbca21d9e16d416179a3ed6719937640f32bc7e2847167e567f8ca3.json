@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Two readers answered the same question about machines at work. Reader A used facts taken from a fact\nstore; each fact comes with the sentence it was taken from. Reader B read the documents directly and points at\nsentences. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- If reader B found nothing, decide only whether A's evidence really states A's answer for the exact subject.\n- \"same\" means the two answers say the same thing. \"neither\" means neither answer is supported.\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": \"A\" | \"B\" | \"same\" | \"neither\"}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: Which positions of the list are the lifting devices located in the municipality of Lula (Sos Enattos mine)?\n\nAnswer A: [\"23\"]\nAccording to the Igea equipment technical sheet, the Lula (Sos Enattos) gru a cavalletto is at position 23 (Allegato B, table B3). A truck-mounted hydraulic crane is also listed at Lula (Sos Enattos), but its position number is unclear in the source.\nEvidence of A:\n- Read on demand: igea-equipment, p. 3 | sentence: \"Lula Miniera Sos Enattos 1\" [igea-equipment, p. 3]\n- Read on demand: igea-equipment, p. 9 | sentence: \"Euro costruzioni Pellegrini GRU A Lula (Sos Enattos) 23 GCB 35 X 35000 NU 16/95 1989 459 Lula CAVALLETTO\" [igea-equipment, p. 9]\n\nAnswer B: [\"6\", \"23\"]\nAccording to Allegato B, Tabella B3 of the Igea equipment plant record, the lifting devices located in Lula (Sos Enattos) are at list positions 6 and 23; note that the summary in section 2.2 of the same record gives a quantity of 1 for Lula, which does not match the table.\nEvidence of B:\n- Found by search: igea-equipment, p. 9 | sentence: \"6 PER 995 200081/0 2004 6344 Lula Lula (Sos Enattos)\" [igea-equipment, p. 9]\n- Found by search: igea-equipment, p. 9 | sentence: \"23 GCB 35 X 35000 NU 16/95 1989 459 Lula CAVALLETTO - ex Rimisa\" [igea-equipment, p. 9]\n- Found by search: igea-equipment, p. 3 | sentence: \"Lula Miniera Sos Enattos 1\" [igea-equipment, p. 3]"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"B's evidence shows two rows in the same table on p. 9 with Lula (Sos Enattos), at positions 6 and 23. A itself admits a second device, a truck-mounted crane, is listed at Lula but leaves out its position, so A's list is incomplete. The summary count of 1 is a less detailed figure than the table rows, so it does not override them.\", \"choice\": \"B\"}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1691,
+   "completion_tokens": 453,
+   "total_tokens": 2144
+  }
+ }
+}

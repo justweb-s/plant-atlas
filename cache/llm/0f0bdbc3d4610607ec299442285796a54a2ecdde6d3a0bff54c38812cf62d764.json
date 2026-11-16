@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it\nused. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When answers rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on\n  evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: On 1 December 2026, for Annex IV categories of Directive 2006/42/EC built to harmonised standards covering all the relevant requirements, the manufacturer may use internal checks on manufacture alone. For which of those categories is internal production control (module A) no longer admitted on 1 February 2027, even when harmonised standards are fully applied?\n\nAnswer 1 (given by 1 reader(s): search): [\"Removable mechanical transmission devices including their guards\", \"Guards for removable mechanical transmission devices\", \"Vehicle servicing lifts\", \"Portable cartridge-operated fixing and other impact machinery\"]\nUnder Regulation (EU) 2023/1230, Annex I, Part A (applied via Article 25(2)) excludes module A for removable transmission devices and their guards, vehicle servicing lifts, and portable cartridge-operated fixing machinery. These correspond to Directive 2006/42/EC Annex IV points 14, 15, 16 and 18, which the Regulation replaces from 20 January 2027.\nEvidence:\n- Found by search: REG, Art. 25(2) | sentence: \"Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII;\" [REG, Art. 25(2)]\n- Found by search: REG, Annex I, Part A, point 1 | sentence: \"1. Removable mechanical transmission devices including their guards.\" [REG, Annex I, Part A, point 1]\n- Found by search: REG, Annex I, Part A, point 2 | sentence: \"2. Guards for removable mechanical transmission devices.\" [REG, Annex I, Part A, point 2]\n- Found by search: REG, Annex I, Part A, point 3 | sentence: \"3. Vehicle servicing lifts.\" [REG, Annex I, Part A, point 3]\n- Found by search: REG, Annex I, Part A, point 4 | sentence: \"4. Portable cartridge-operated fixing and other impact machinery.\" [REG, Annex I, Part A, point 4]\n- Found by search: REG, Art. 51(2) (corrected by the corrigendum (Corrigendum, point 5: '14 January 2027' now reads '20 January 2027')) | sentence: \"Directive 2006/42/EC is repealed with effect from 20 January 2027.\" [REG, Art. 51(2)]\n\nReaders that found nothing: facts, words, similar"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "The Directive is repealed from 20 January 2027 (as corrected by the corrigendum), so the Regulation governs on 1 February 2027. Art. 25(2) requires the listed Annex I, Part A categories to use module B plus C, or another procedure, and the evidence shows no module A for them. The four Part A items quoted match the answer's list. The other readers found nothing, so this is the only supported answer.\n\n```json\n{\"reasoning\": \"By 1 Feb 2027 the Directive is repealed (20 Jan 2027, per the corrigendum) and Regulation 2023/1230 applies. Art. 25(2) requires Annex I Part A categories to use module B+C or another procedure, not module A. The four Part A items quoted match the answer's list, and no other reader found anything.\", \"choice\": 1}\n```",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1876,
+   "completion_tokens": 730,
+   "total_tokens": 2606
+  }
+ }
+}

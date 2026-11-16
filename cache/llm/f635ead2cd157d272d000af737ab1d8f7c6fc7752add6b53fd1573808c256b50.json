@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it used. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: How often must the nanoScan3 safety laser scanner be tested?\n\nAnswer 1 (given by 1 reader(s): facts): \"P1Y\"\nThe nanoScan3 protective device must be regularly tested at least once a year (nanoScan3 manual, p. 50-51). A daily visual check is also recommended in many cases, but it is not the mandatory test interval.\nEvidence:\n- protective device regular tests: requiresPeriodicCheck = at least once a year | sentence: \"→ Carry out tests at least once a year.\" [nanoscan3-manual, p. 50]\n- test of the detection capability (resolution): requiresPeriodicCheck = at least once a year | sentence: \"PROJECT PLANNING 5 Minimum requirements for the regular thorough check The following thorough checks must be carried out at least once a year: O \"Thorough check of the principal function of the protective device\", page 51 O Test of the detection capability (resolution), see \"Thorough check of the area to be protected\", page 52 Recommendations for further thorough checks In many cases, depending on the application conditions,\" [nanoscan3-manual, p. 51]\n- thorough check of the principal function of the protective device: requiresPeriodicCheck = at least once a year | sentence: \"PROJECT PLANNING 5 Minimum requirements for the regular thorough check The following thorough checks must be carried out at least once a year: O \"Thorough check of the principal function of the protective device\", page 51 O Test of the detection capability (resolution), see \"Thorough check of the area to be protected\", page 52 Recommendations for further thorough checks In many cases, depending on the application conditions,\" [nanoscan3-manual, p. 51]\n- visual check of the machine and the protective device: requiresPeriodicCheck = daily (condition: In many cases, it makes sense to carry out the following thorough checks daily) | sentence: \"O \"Visual check of the machine and the protective device\", page 53 O \"Test of the contour detection field\", page 52 O Test of the relevant points on the checklist, see \"Checklist for initial commissioning and commissioning\", page 149 In many cases, it makes sense to carry out the following thorough checks daily:\" [nanoscan3-manual, p. 51]\n\nReaders that found nothing: words, similar, search"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"The nanoScan3 manual states directly that the regular thorough checks must be carried out at least once a year, which matches the question for this exact device. The daily check is only a recommendation, so it is not the mandatory interval. Answer 1 is supported.\", \"choice\": 1}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1741,
+   "completion_tokens": 96,
+   "total_tokens": 1837
+  }
+ }
+}

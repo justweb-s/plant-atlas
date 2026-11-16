@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it used. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When the two rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: The UR5e manual contains a Declaration of Incorporation and the robot's assembly instructions. Once the robot has been incorporated into the robot cell, of which documentation of the final machinery must these two documents become part under Directive 2006/42/EC?\n\nAnswer 1 (given by 1 reader(s): words): \"They become part of the technical file for the final machinery (Art. 13(2) of Directive 2006/42/EC).\"\nUnder Article 13(2) of Directive 2006/42/EC, the assembly instructions and the declaration of incorporation accompany the partly completed machinery until it is incorporated, and then form part of the technical file for the final machinery.\nEvidence:\n- Read on demand: DIR, Art. 13(2) | sentence: \"The assembly instructions and the declaration of incorporation shall accompany the partly completed machinery until it is incorporated into the final machinery and shall then form part of the technical file for that machinery.\" [DIR, Art. 13(2)]\n\nAnswer 2 (given by 1 reader(s): similar): \"The technical file for the final machinery (the completed machine into which the partly completed machinery is incorporated).\"\nUnder Directive 2006/42/EC, Article 13(2), the assembly instructions and the declaration of incorporation become part of the technical file for the final machinery once the partly completed machinery is incorporated into it.\nEvidence:\n- Read on demand: DIR, Art. 13(2) | sentence: \"The assembly instructions and the declaration of incorporation shall accompany the partly completed machinery until it is incorporated into the final machinery and shall then form part of the technical file for that machinery.\" [DIR, Art. 13(2)]\n\nAnswer 3 (given by 1 reader(s): search): \"The technical file of the final machinery (the robot cell) into which the robot is incorporated.\"\nUnder Article 13(2) of Directive 2006/42/EC, the assembly instructions and the declaration of incorporation, after the partly completed machinery (the UR5e) is incorporated into the final machinery, form part of the technical file for that final machinery.\nEvidence:\n- Found by search: DIR, Art. 13(2) | sentence: \"2. The assembly instructions and the declaration of incorporation shall accompany the partly completed machinery until it is incorporated into the final machinery and shall then form part of the technical file for that machinery.\" [DIR, Art. 13(2)]\n\nReaders that found nothing: facts"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "All three answers rest on the same sentence from Art. 13(2) of Directive 2006/42/EC. It says the assembly instructions and the declaration of incorporation form part of the technical file for the final machinery. That matches the question exactly, so every answer is supported and they agree. Answer 1 is the most direct.\n\n```json\n{\"reasoning\": \"Art. 13(2) of Directive 2006/42/EC states that the assembly instructions and declaration of incorporation then form part of the technical file for the final machinery. All three answers rely on this same sentence and agree; Answer 1 states it most directly.\", \"choice\": 1}\n```",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1798,
+   "completion_tokens": 205,
+   "total_tokens": 2003
+  }
+ }
+}

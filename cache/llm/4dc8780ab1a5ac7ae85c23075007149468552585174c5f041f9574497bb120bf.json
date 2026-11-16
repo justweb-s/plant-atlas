@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Several readers answered the same question about machines at work, each pointing at the sentences it\nused. Decide which answer the evidence supports. Use only the evidence shown; do not use what you know.\n\nRules:\n- An answer is supported only if its evidence states it for the exact subject asked about (the same device, the\n  same article and paragraph, the same kind of verification, the same deadline, the same condition the question\n  states). Evidence about a neighbouring subject does not support an answer.\n- When answers rest on texts of different rank, the higher rank wins: law, then guidance, then manufacturer's\n  manual, then company procedure, then plant record. Between two Italian texts, a legislative decree (D.Lgs.)\n  wins over a ministerial decree (DM). A wording corrected by a corrigendum replaces the original wording.\n- For a list, prefer the answer whose items are each stated by the evidence and that leaves none out.\n- Readers that found nothing are listed too: when most readers found nothing and the one answer shown rests on\n  evidence about a neighbouring subject, choose \"none\".\nReturn JSON only: {\"reasoning\": \"two or three short sentences\", \"choice\": <the number of the answer supported, or \"none\">}"
+   },
+   {
+    "role": "user",
+    "content": "Today is 2026-11-14.\nQuestion: According to the Università Politecnica delle Marche guidelines on laboratory equipment, who decides whether to set up the equipment usage register (Model C)?\n\nAnswer 1 (given by 1 reader(s): words): \"The RDRL (Responsabile dell'attività didattica e di ricerca in Laboratorio) of the laboratory where the equipment is located decides, unless the Datore di Lavoro of the structure indicates otherwise.\"\nUnder section 7.3 (Modello C, Registro d'uso della strumentazione) of the Università Politecnica delle Marche equipment guidelines, the RDRL of the laboratory hosting the equipment decides whether to set up the usage register, unless the structure's Datore di Lavoro directs otherwise.\nEvidence:\n- Read on demand: univpm-guideline, p. 12 | sentence: \"L’istituzione del registro è decisa dal RDRL del laboratorio presso il quale lo strumento è collocato salvo diversa indicazione del Datore di Lavoro della struttura.\" [univpm-guideline, p. 12]\n\nAnswer 2 (given by 1 reader(s): similar): \"The RDRL (research/teaching manager) of the laboratory where the equipment is located decides, unless the structure's Datore di Lavoro (employer) indicates otherwise.\"\nUnder section 7.3 (Modello C - Registro d'uso della strumentazione) of the UNIVPM Linee guida per la gestione e manutenzione delle attrezzature, the RDRL of the laboratory where the instrument is located decides whether to set up the register, unless the employer gives a different instruction.\nEvidence:\n- Read on demand: univpm-guideline, p. 12 | sentence: \"L’istituzione del registro è decisa dal RDRL del laboratorio presso il quale lo strumento è collocato salvo diversa indicazione del Datore di Lavoro della struttura.\" [univpm-guideline, p. 12]\n\nAnswer 3 (given by 1 reader(s): search): \"The RDRL (the person responsible for the teaching or research activity in the laboratory) where the equipment is located decides, unless the Datore di Lavoro (employer) of the structure directs otherwise.\"\nPer the UNIVPM Linee guida per la gestione e manutenzione delle attrezzature di laboratorio (Ver. 1.0, March 2024), section 7.3 (Modello C - Registro d'uso della strumentazione), the RDRL of the laboratory where the instrument is located decides whether to set up the usage register, unless the employer of the structure specifies otherwise.\nEvidence:\n- Found by search: univpm-guideline, p. 12 | sentence: \"L’istituzione del registro è decisa dal RDRL del laboratorio presso il quale lo strumento è collocato salvo diversa indicazione del Datore di Lavoro della struttura.\" [univpm-guideline, p. 12]\n\nReaders that found nothing: facts"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 800
+ },
+ "response": {
+  "text": "{\"reasoning\": \"All three answers cite the same sentence from the UNIVPM guideline p. 12 (section 7.3, Modello C), which states that the RDRL of the laboratory where the instrument is located decides on setting up the register, unless the structure's Datore di Lavoro indicates otherwise. The evidence matches the exact subject asked, and the answers agree.\", \"choice\": 1}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1981,
+   "completion_tokens": 131,
+   "total_tokens": 2112
+  }
+ }
+}

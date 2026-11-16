@@ -1,0 +1,1688 @@
+[
+ {
+  "id": "CQ01",
+  "question": "Which categories of machinery always require a conformity assessment procedure involving a notified body?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not identify which machinery categories always require a notified body. Recital 59 of the Machinery Regulation only says that higher-risk 'certain categories' need a stricter procedure, so the specific list must be checked in the Regulation's annexes, which are not provided.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 5387,
+  "steps": []
+ },
+ {
+  "id": "CQ02",
+  "question": "Which conformity assessment procedures can the manufacturer choose for machinery listed in Annex I, Part A?",
+  "reader": "similar",
+  "value": [
+   "EU type-examination (module B) followed by conformity to type based on internal production control (module C)",
+   "conformity based on full quality assurance (module H)",
+   "conformity based on unit verification (module G)"
+  ],
+  "text": "For machinery in Annex I, Part A, the manufacturer may choose one of three procedures under Regulation Article 25(2): module B followed by module C, module H, or module G.",
+  "basis": "similar",
+  "answered": true,
+  "score": 0.667,
+  "right": false,
+  "tokens": 5673,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 25(2)",
+    "quote": "Where the category of machinery or related product is listed in Annex I, Part A, the manufacturer or the natural or legal person referred to in Article 18 shall apply one of the following procedures: (a) EU type-examination (module B) set out in Annex VII, followed by conformity to type based on internal production control (module C) set out in Annex VIII; (b) conformity based on full quality assurance (module H) set out in Annex IX; (c) conformity based on unit verification (module G) set out in Annex X.",
+    "locator": "REG, Art. 25(2)"
+   }
+  ]
+ },
+ {
+  "id": "CQ03",
+  "question": "Which category does a safety component with self-evolving behaviour based on machine learning fall under?",
+  "reader": "similar",
+  "value": "Annex I, Part A, point 5 of the REG Regulation: safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions.",
+  "text": "Under the REG Regulation, Annex I, Part A, point 5 covers safety components with fully or partially self-evolving machine-learning behaviour that ensure safety functions. Recital 54 explains that these require third-party conformity assessment.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 5441,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Annex I, Part A, point 5",
+    "quote": "5. Safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions.",
+    "locator": "REG, Annex I, Part A, point 5"
+   },
+   {
+    "text": "Read on demand: REG, Recital 54",
+    "quote": "Therefore, the conformity assessment of a safety component or a system with self-evolving behaviour ensuring safety functions should be carried out by a third party, whether or not the safety component has been placed independently on the market or is part of a system embedded in machinery that is placed on the market.",
+    "locator": "REG, Recital 54"
+   }
+  ]
+ },
+ {
+  "id": "CQ04",
+  "question": "When must guards for moving transmission parts be interlocking movable guards instead of fixed guards?",
+  "reader": "similar",
+  "value": "Interlocking movable guards must be used where frequent access is envisaged.",
+  "text": "Under Annex III, section 1.3.8.1 of the Regulation, guards for moving transmission parts must be interlocking movable guards where frequent access is envisaged; otherwise fixed guards under section 1.4.2.1 may be used. The earlier Directive (Annex I, 1.3.8.1) says 'should' rather than 'shall' for the same condition.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 5864,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Annex III, 1.3.8.1",
+    "quote": "Interlocking movable guards shall be used where frequent access is envisaged.",
+    "locator": "REG, Annex III, 1.3.8.1"
+   },
+   {
+    "text": "Read on demand: DIR, Annex I, 1.3.8.1",
+    "quote": "Interlocking movable guards should be used where frequent access is envisaged.",
+    "locator": "DIR, Annex I, 1.3.8.1"
+   }
+  ]
+ },
+ {
+  "id": "CQ05",
+  "question": "Which risks does essential health and safety requirement 1.3.7 of Annex III address?",
+  "reader": "similar",
+  "value": null,
+  "text": "The provided passages do not state the content of essential health and safety requirement 1.3.7 of Annex III. They show only the heading of point 1.3, 'Protection against mechanical risks' (Regulation, Annex III, point 1.3), so the specific risks covered by 1.3.7 cannot be confirmed from these passages.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 3346,
+  "steps": []
+ },
+ {
+  "id": "CQ06",
+  "question": "Who is considered the manufacturer after a substantial modification of machinery?",
+  "reader": "similar",
+  "value": "The natural or legal person who carries out the substantial modification of the machinery or related product is considered the manufacturer (REG Art. 18), except a non-professional user modifying for their own use.",
+  "text": "Under Article 18 of the Machinery Regulation (REG), any natural or legal person that carries out a substantial modification of machinery or a related product is considered its manufacturer, unless it is a non-professional user modifying the machinery for their own use.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4628,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 18",
+    "quote": "A natural or legal person that carries out a substantial modification of machinery or a related product shall be considered to be a manufacturer for the purposes of this Regulation",
+    "locator": "REG, Art. 18"
+   },
+   {
+    "text": "Read on demand: REG, Art. 18",
+    "quote": "A non-professional user who carries out a substantial modification to his or her machinery or related product, for his or her own use, shall not be considered to be a manufacturer for the purposes of this Regulation",
+    "locator": "REG, Art. 18"
+   }
+  ]
+ },
+ {
+  "id": "CQ07",
+  "question": "What must accompany machinery when it is placed on the market?",
+  "reader": "similar",
+  "value": [
+   "EC declaration of conformity (EU declaration of conformity)",
+   "instructions for use",
+   "information referred to in Article 10(7) of the Regulation"
+  ],
+  "text": "Under the Directive (Art. 5(1)(e)) the EC declaration of conformity must accompany the machinery. Under the Regulation (Art. 15(2)(b) and (c)) the machinery must be accompanied by the EU declaration of conformity and by the instructions for use and the information referred to in Art. 10(7).",
+  "basis": "similar",
+  "answered": true,
+  "score": 0.8,
+  "right": false,
+  "tokens": 6220,
+  "steps": [
+   {
+    "text": "Read on demand: DIR, Art. 5(1)",
+    "quote": "(e) draw up the EC declaration of conformity in accordance with Annex II, part 1, Section A and ensure that it accompanies the machinery",
+    "locator": "DIR, Art. 5(1)"
+   },
+   {
+    "text": "Read on demand: REG, Art. 15(2)",
+    "quote": "(b) the machinery or related product is accompanied by the EU declaration of conformity referred to in Article 10(8)",
+    "locator": "REG, Art. 15(2)"
+   },
+   {
+    "text": "Read on demand: REG, Art. 15(2)",
+    "quote": "(c) the machinery or related product is accompanied by the instructions for use and the information referred to in Article 10(7)",
+    "locator": "REG, Art. 15(2)"
+   }
+  ]
+ },
+ {
+  "id": "CQ08",
+  "question": "For how long must the manufacturer keep the technical documentation and the EU declaration of conformity?",
+  "reader": "similar",
+  "value": "P10Y",
+  "text": "Under the product directives and regulations in the passages, the manufacturer must keep the technical documentation and the EU declaration of conformity for 10 years after the product is placed on the market (e.g. Directive 2014/30/EU Art. 7(3); Regulation (EU) 2016/425 Art. 8(3)); machinery under Regulation Art. 10(3) requires 'at least 10 years'.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4276,
+  "steps": [
+   {
+    "text": "Read on demand: eu-dir-2014-30, Art. 7(3)",
+    "quote": "Manufacturers shall keep the technical documentation and the EU declaration of conformity for 10 years after the apparatus has been placed on the market.",
+    "locator": "eu-dir-2014-30, Art. 7(3)"
+   },
+   {
+    "text": "Read on demand: eu-reg-2016-425, Art. 8(3)",
+    "quote": "Manufacturers shall keep the technical documentation and the EU declaration of conformity for 10 years after the PPE has been placed on the market.",
+    "locator": "eu-reg-2016-425, Art. 8(3)"
+   },
+   {
+    "text": "Read on demand: REG, Art. 10(3)",
+    "quote": "Manufacturers shall keep the technical documentation and the EU declaration of conformity at the disposal of the market surveillance authorities for at least 10 years after the machinery or the related product has been placed on the market or put into service.",
+    "locator": "REG, Art. 10(3)"
+   }
+  ]
+ },
+ {
+  "id": "CQ09",
+  "question": "From which date does Regulation (EU) 2023/1230 apply?",
+  "reader": "similar",
+  "value": null,
+  "text": "The provided passages do not state the date from which Regulation (EU) 2023/1230 applies; none of them is from that regulation's entry-into-force and application article.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 5385,
+  "steps": []
+ },
+ {
+  "id": "CQ10",
+  "question": "On 16 January 2027, can machinery conforming to Directive 2006/42/EC still be placed on the market?",
+  "reader": "similar",
+  "value": true,
+  "text": "Yes. Under Article 51(2) of the Regulation (as corrected), Directive 2006/42/EC is repealed with effect from 20 January 2027, so it still applies on 16 January 2027 and conforming machinery can still be placed on the market that day.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4545,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 51(2) (corrected by the corrigendum (Corrigendum, point 5: '14 January 2027' now reads '20 January 2027'))",
+    "quote": "Directive 2006/42/EC is repealed with effect from 20 January 2027.",
+    "locator": "REG, Art. 51(2)"
+   }
+  ]
+ },
+ {
+  "id": "CQ11",
+  "question": "For the work equipment listed in Annex VII of Legislative Decree 81/2008, who carries out the first periodic verification, and within what time?",
+  "reader": "similar",
+  "value": "INAIL carries out the first periodic verification, within 45 days of the employer's request.",
+  "text": "Under art. 71, comma 11 of D.Lgs. 81/2008, the employer uses INAIL for the first periodic verification of Annex VII equipment, and INAIL must carry it out within forty-five days of the request. Guidance (INAIL guide, p. 40) specifies that the period runs from receipt of the complete request.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 12313,
+  "steps": [
+   {
+    "text": "Read on demand: DLGS71, art. 71, c. 11",
+    "quote": "Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta.",
+    "locator": "DLGS71, art. 71, c. 11"
+   }
+  ]
+ },
+ {
+  "id": "CQ12",
+  "question": "For how long must the employer keep the results of the checks on work equipment?",
+  "reader": "similar",
+  "value": "P3Y",
+  "text": "The Italian rule reproduced in the University of Catania guideline (point 9, comma 9 on checks of work equipment) requires the results of the checks to be kept at least for the last three years, while EU Directive 2009/104/EC, Art. 5(3), only requires them to be kept 'for a suitable period of time'.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 7220,
+  "steps": [
+   {
+    "text": "Read on demand: unict-guideline, p. 18",
+    "quote": "9. I risultati dei controlli di cui al comma 8 devono essere riportati per iscritto e, almeno quelli relativi agli ultimi tre anni, devono essere conservati e tenuti a disposizione degli organi di vigilanza.",
+    "locator": "unict-guideline, p. 18"
+   },
+   {
+    "text": "Read on demand: eu-dir-2009-104, Art. 5(3)",
+    "quote": "They must be kept for a suitable period of time.",
+    "locator": "eu-dir-2009-104, Art. 5(3)"
+   }
+  ]
+ },
+ {
+  "id": "CQ13",
+  "question": "Which models in the catalogue, self-certified today with internal checks, will need a notified body from 20 January 2027?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state which models would need a notified body from 20 January 2027, so no answer can be given from them.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 7539,
+  "steps": []
+ },
+ {
+  "id": "CQ14",
+  "question": "Which conformity assessment procedure will model RC-5 need from 20 January 2027, and why?",
+  "reader": "similar",
+  "value": null,
+  "text": "The provided passages do not say which conformity assessment procedure model RC-5 will need from 20 January 2027, so this cannot be determined from them.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 5784,
+  "steps": []
+ },
+ {
+  "id": "CQ15",
+  "question": "Can model CS-400 stay with internal production control after 20 January 2027?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not say whether model CS-400 may remain under internal production control after 20 January 2027; they only define Module A in the listed directives and regulations, with no model-specific or date-specific rule.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 4485,
+  "steps": []
+ },
+ {
+  "id": "CQ21",
+  "question": "How often must the DEMAG overhead travelling crane at position 8 of the IGEA lifting equipment list be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state the verification interval for the DEMAG overhead travelling crane at position 8. Passage 1 says all 24 positions follow the cadences of Allegato VII del D.Lgs. 81/08, but the category of position 8 (mobile or fixed, sector, year of manufacture) is not given, so the specific interval cannot be determined from these passages. The row of table A2 for position 8 would be needed.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 15467,
+  "steps": []
+ },
+ {
+  "id": "CQ22",
+  "question": "How often must the Effer truck-mounted hydraulic crane at position 7 of the IGEA list, built in 2017, be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not give the verification interval for the Effer truck-mounted crane at position 7. The plant scheda tecnica refers the 24 positions to the Allegato VII cadences of D.Lgs. 81/08 but the row for position 7 is not reproduced, and the sector of use needed to choose the interval is not stated.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 15611,
+  "steps": []
+ },
+ {
+  "id": "CQ23",
+  "question": "Who carries out the periodic verifications after the first one on the equipment listed in Annex VII?",
+  "reader": "similar",
+  "value": "After the first verification (by INAIL), the subsequent periodic verifications are carried out at the employer's free choice by the ASL, or by ARPA where a regional law provides for it, or by authorised public or private bodies.",
+  "text": "Under art. 71, c. 11 of D.Lgs. 81/2008 (Allegato VII equipment), the employer chooses the ASL, or ARPA where regional law provides for it, or an authorised public or private body for the verifications after the first one.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 11958,
+  "steps": [
+   {
+    "text": "Read on demand: DLGS71, art. 71, c. 11",
+    "quote": "Le successive verifiche sono effettuate su libera scelta del datore di lavoro dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati che vi provvedono secondo le modalità di cui al comma 13.",
+    "locator": "DLGS71, art. 71, c. 11"
+   }
+  ]
+ },
+ {
+  "id": "CQ24",
+  "question": "The Ministerial Decree of 11 April 2011 says sixty days and Article 71 of Legislative Decree 81/2008 says forty-five: within how many days of the request must the first periodic verification be carried out today?",
+  "reader": "similar",
+  "value": "P45D",
+  "text": "Under Article 71(11) of Legislative Decree 81/2008, the first periodic verification must be carried out by INAIL within forty-five days of the request. This prevails over the sixty days in Article 2(1) of the Ministerial Decree of 11 April 2011, because the legislative decree ranks higher.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 6667,
+  "steps": [
+   {
+    "text": "Read on demand: DLGS71, art. 71, c. 11",
+    "quote": "Per la prima verifica il datore di lavoro si avvale dell'INAIL, che vi provvede nel termine di quarantacinque giorni dalla richiesta.",
+    "locator": "DLGS71, art. 71, c. 11"
+   },
+   {
+    "text": "Read on demand: DM2011, art. 2, c. 1",
+    "quote": "l'INAIL e' titolare della prima delle verifiche periodiche da effettuarsi nel termine di sessanta giorni dalla richiesta",
+    "locator": "DM2011, art. 2, c. 1"
+   }
+  ]
+ },
+ {
+  "id": "CQ25",
+  "question": "Can the UR5e robot arm be put into service on its own, as delivered by the manufacturer?",
+  "reader": "similar",
+  "value": false,
+  "text": "According to the UR5e manual, Section 3.2.1 (Robot Arm, p. 17), the robot is partly completed machinery. It needs a risk assessment for each application before use, so it cannot be treated as a finished, stand-alone machine.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 8256,
+  "steps": [
+   {
+    "text": "Read on demand: ur5e-manual, p. 17",
+    "quote": "The robot is partly completed machinery, as such a Declaration of Incorporation is provided.",
+    "locator": "ur5e-manual, p. 17"
+   },
+   {
+    "text": "Read on demand: ur5e-manual, p. 17",
+    "quote": "A risk assessment is required for each robot application.",
+    "locator": "ur5e-manual, p. 17"
+   }
+  ]
+ },
+ {
+  "id": "CQ26",
+  "question": "How often must the nanoScan3 safety laser scanner be tested?",
+  "reader": "similar",
+  "value": null,
+  "text": "The facts in force do not answer this question. (the period P1Y is not written in the sentences pointed at)",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 10864,
+  "steps": []
+ },
+ {
+  "id": "CQ27",
+  "question": "How much notice must the verifier give IGEA when planning the checks?",
+  "reader": "similar",
+  "value": "P15D",
+  "text": "The verifier must notify IGEA at least 15 days in advance when planning the checks, according to the verifier commitments in the igea-equipment technical specification (p. 5, section 4).",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 11965,
+  "steps": [
+   {
+    "text": "Read on demand: igea-equipment, p. 5",
+    "quote": "dando comunicazione a IGEA con un preavviso di almeno 15 giorni",
+    "locator": "igea-equipment, p. 5"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-01",
+  "question": "How often must the wear indicator of the load nut of the MA STAR two post lift be checked?",
+  "reader": "similar",
+  "value": "P6M",
+  "text": "According to the MA STAR two post lift manufacturer's manual, section 7.3 (Checking the Load Nut's Wear Indicator), the load nut's wear indicator must be checked every 6 months.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 7327,
+  "steps": [
+   {
+    "text": "Read on demand: mastar-manual, p. 34",
+    "quote": "The load nut’s wear indicator must be checked every 6 months, and the pair of nuts must be replaced when the wear limit is reached.",
+    "locator": "mastar-manual, p. 34"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-02",
+  "question": "How often does the manufacturer recommend unpacking and starting up a UR10e robot kept in long-term storage?",
+  "reader": "similar",
+  "value": "P1Y",
+  "text": "The UR10e User Manual (section 17, Transportation, long-term storage guidelines, p. 209) recommends unpacking and starting up the robot at least yearly.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 7701,
+  "steps": [
+   {
+    "text": "Read on demand: ur10e-manual, p. 209",
+    "quote": "Universal Robots recommends to unpack and start up robots at least yearly and let them run a light load program rotating in all joints at least 90 degrees 5 times in each direction to distribute the lubricants.",
+    "locator": "ur10e-manual, p. 209"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-03",
+  "question": "What mission time (TM, ISO 13849) does the manufacturer state for the nanoScan3 safety laser scanner?",
+  "reader": "similar",
+  "value": "P20Y",
+  "text": "The SICK nanoScan3 manual (technical data, performance data table, p. 130) states a mission time TM of 20 years under ISO 13849.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 10477,
+  "steps": [
+   {
+    "text": "Read on demand: nanoscan3-manual, p. 130",
+    "quote": "TM (mission time) (ISO 13849) 20 years",
+    "locator": "nanoscan3-manual, p. 130"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-04",
+  "question": "For how long does the UR5e manual say to wait after powering the robot off to let it cool down before handling it?",
+  "reader": "similar",
+  "value": "PT1H",
+  "text": "The UR5e manual (Safety, section 4, Warning: Hot Surface, p. 30) says to let the robot cool down by powering it off and waiting one hour before handling it.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 7182,
+  "steps": [
+   {
+    "text": "Read on demand: ur5e-manual, p. 30",
+    "quote": "Allow the robot to cool down by powering it off and waiting one hour.",
+    "locator": "ur5e-manual, p. 30"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-05",
+  "question": "According to the UNIVPM equipment guideline, the written results of the checks on work equipment (such as the machines of the cell) must be kept available to the supervisory bodies for at least how long back?",
+  "reader": "similar",
+  "value": null,
+  "text": "The UNIVPM equipment guideline (Linee guida Gestione e Manutenzione Attrezzature, Ver. 1.0, March 2024) does not state how long back the written check results must be kept available to supervisory bodies. The EU Directive 2009/104/EC, Art. 5(3), only requires 'a suitable period of time'.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 10829,
+  "steps": []
+ },
+ {
+  "id": "DEV-CELL-06",
+  "question": "Must the UR10e robot, as delivered by the manufacturer, bear the CE mark under the Machinery Directive?",
+  "reader": "similar",
+  "value": false,
+  "text": "No. The UR10e User Manual, chapter 20 (Declarations and Certifications), says the robot is a partly completed machine under the Machinery Directive and a CE mark is not to be affixed; the integrator applies the CE mark to the completed machine.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 12132,
+  "steps": [
+   {
+    "text": "Read on demand: ur10e-manual, p. 229",
+    "quote": "According to the Machinery Directive, Universal Robots’ robots are partly completed machines, as such a CE mark is not to be affixed.",
+    "locator": "ur10e-manual, p. 229"
+   },
+   {
+    "text": "Read on demand: ur10e-manual, p. 227",
+    "quote": "When this partly completed machine is integrated and becomes a complete machine, the integrator is responsible for the completed machine fulfiling all applicable Directives, applying the CE mark and providing the Declaration of Conformity (DOC).",
+    "locator": "ur10e-manual, p. 227"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-07",
+  "question": "May the nanoScan3 safety laser scanner be used outdoors?",
+  "reader": "similar",
+  "value": false,
+  "text": "No. The nanoScan3 manual, section 2.3 (Improper use), lists outdoor operation as an impermissible ambient condition, and the device must only be used within its specified operating conditions.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 9329,
+  "steps": [
+   {
+    "text": "Read on demand: nanoscan3-manual, p. 11",
+    "quote": "Impermissible ambient conditions O Outdoors",
+    "locator": "nanoscan3-manual, p. 11"
+   },
+   {
+    "text": "Read on demand: nanoscan3-manual, p. 11",
+    "quote": "The safety laser scanner must only be used within the limits of the prescribed and specified technical data and operating conditions at all times.",
+    "locator": "nanoscan3-manual, p. 11"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-08",
+  "question": "May the UR10e robot be used without the Teach Pendant attached, provided another emergency stop source is defined?",
+  "reader": "similar",
+  "value": true,
+  "text": "Yes. Per the UR10e User Manual, section 10.3.3 (Safety Configuration without Teach Pendant), the robot can be used without the Teach Pendant if another Emergency Stop source is defined. The pendant must also be removed from the robot's vicinity, because its E-stop is no longer active once it is detached.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 8275,
+  "steps": [
+   {
+    "text": "Read on demand: ur10e-manual, p. 123",
+    "quote": "You can use the robot without attaching the Teach Pendant. Removing the Teach Pendant requires defining another Emergency Stop source.",
+    "locator": "ur10e-manual, p. 123"
+   },
+   {
+    "text": "Read on demand: ur10e-manual, p. 123",
+    "quote": "CAUTION If the Teach Pendant is detached or disconnected from the robot, the Emergency Stop button is no longer active. You must remove the Teach Pendant from the vicinity of the robot.",
+    "locator": "ur10e-manual, p. 123"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-09",
+  "question": "According to the nanoScan3 manual, in which situations (apart from the regular check) must the protective device and its application be thoroughly checked?",
+  "reader": "similar",
+  "value": [
+   "Before commissioning",
+   "After changes to the configuration or the safety function",
+   "After changes to the mounting, the alignment, or the electrical connection",
+   "After exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components"
+  ],
+  "text": "According to the nanoScan3 manual, section 5.6.1 (p. 50), the protective device and its application must be thoroughly checked before commissioning, after changes to the configuration or safety function, after changes to mounting, alignment or electrical connection, and after exceptional events such as manipulation, machine modification or component replacement.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 9486,
+  "steps": [
+   {
+    "text": "Read on demand: nanoscan3-manual, p. 50",
+    "quote": "The protective device and its application must be thoroughly checked in the follow- ing situations: O Before commissioning O After changes to the configuration or the safety function O After changes to the mounting, the alignment, or the electrical connection O After exceptional events, such as after manipulation has been detected, after modification of the machine, or after replacing components",
+    "locator": "nanoscan3-manual, p. 50"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-10",
+  "question": "According to the UR10e manual, who is responsible for the risk assessment of the robot application?",
+  "reader": "similar",
+  "value": "The integrator is responsible for the application risk assessment; the user can also be the integrator.",
+  "text": "According to the UR10e manual, section 14 (Risk Assessment), the integrator is responsible for the application risk assessment, and the user may also be the integrator.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 8530,
+  "steps": [
+   {
+    "text": "Read on demand: ur10e-manual, p. 183",
+    "quote": "The application risk assessment is the responsibility of the integrator. The user can also be the integrator.",
+    "locator": "ur10e-manual, p. 183"
+   }
+  ]
+ },
+ {
+  "id": "DEV-CELL-12",
+  "question": "How often must the filters of the UR10e Control Box be replaced?",
+  "reader": "similar",
+  "value": null,
+  "text": "The UR10e User Manual (section 18.4, Log Tab, p. 216) explains how to replace the Control Box filters but does not state how often they must be replaced.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 8352,
+  "steps": []
+ },
+ {
+  "id": "DEV-CELL-13",
+  "question": "On what date was the last regular thorough check of the cell's nanoScan3 laser scanner carried out?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not record when the last regular thorough check of this nanoScan3 was carried out. The manual (page 51, section 5) only requires that these checks be done at least once a year.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 10573,
+  "steps": []
+ },
+ {
+  "id": "DEV-CELL-14",
+  "question": "How often must the UR5e robot arm be recalibrated?",
+  "reader": "similar",
+  "value": null,
+  "text": "The provided passages do not state a recalibration interval for the UR5e. Section 18 of the UR5e User Manual gives inspection timeframes (monthly, biannually, annually) for cables, flat rings and bolts, and says calibration must follow the UR Service Manual, which is not included.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 8419,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-01",
+  "question": "Given that the company works in mining areas (extractive sector), how often must the IGEA-PRIM 5t overhead travelling crane at position 13 be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state the verification frequency for position 13 (IGEA-PRIM 5t overhead travelling crane): the Igea technical specification (Scheda Tecnica, section 2.3) defers to the Allegato VII of D.Lgs. 81/08, but the crane's row in table A2 (type and year of manufacture) is not provided.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 16477,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-02",
+  "question": "Given that the company works in mining areas (extractive sector), how often must the DEFRIES-TITANO overhead travelling crane at position 11 be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not identify the DEFRIES-TITANO overhead travelling crane at position 11, so its verification frequency cannot be determined. For lifting appliances in extractive settings, the guidance and Allegato VII distinguish annual checks for mobile or transferable units and, for fixed units, biennial or annual checks depending on whether the unit was manufactured within the last 10 years; the crane's type and build year are needed to apply this.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 16325,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-03",
+  "question": "How often must the AMCO VEBA hydraulic truck-mounted crane at position 4, whose capacity is only 520 kg, be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not give the verification frequency for the AMCO VEBA truck-mounted crane at position 4. Its entry is in table A1 of the Igea technical specification, which is not provided, and the answer also depends on the crane's use sector and manufacturing year under Allegato VII of D.Lgs. 81/08.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 16066,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-04",
+  "question": "If the JCB JS190NLC mobile crane at position 18 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "Under Allegato VII of D.Lgs. 81/2008 (as reflected in the INAIL guide), a mobile lifting crane over 200 kg used regularly outside the construction, steel, port and extractive sectors needs a biennial check if it was built within the last 10 years, and an annual check if it is older; the year of manufacture of the JCB JS190NLC is needed to choose between them. Row 18 (triennial) applies to fixed equipment and does not apply here.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 16636,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-06",
+  "question": "If the IGEA-PRIM 5t overhead travelling crane at position 13 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "Under Allegato VII of D.Lgs. 81/08 (as quoted in the company procedure), a mobile/transferable lifting device over 200 kg used outside the construction, steel, port and extractive sectors must be verified every two years if its manufacturing year is not earlier than 10 years ago, and every year if it is older. The passages do not give this crane's manufacturing year or its mobile/fixed classification, so the applicable interval cannot be confirmed.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 18626,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-07",
+  "question": "If the GUTTER overhead travelling crane at position 10 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not establish the verification interval for this crane. Allegato VII of the Italian decree (in the unict-guideline, p. 19) gives annual or biennial checks for mobile lifting equipment outside the special sectors, depending on whether it was made within the last 10 years, and a triennial check for fixed equipment in the same case. Confirming the crane's type and year of manufacture would settle which interval applies.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 11605,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-08",
+  "question": "Which positions of the list are the lifting devices located in the municipality of Lula (Sos Enattos mine)?",
+  "reader": "similar",
+  "value": [
+   "3",
+   "23"
+  ],
+  "text": "According to the IGEA equipment list, Allegato B, Tabella B3 (p. 9), the lifting devices located in Lula (Sos Enattos) are positions 3 and 23.",
+  "basis": "similar",
+  "answered": true,
+  "score": 0.5,
+  "right": false,
+  "tokens": 9056,
+  "steps": [
+   {
+    "text": "Read on demand: igea-equipment, p. 9",
+    "quote": "Lula Lula (Sos Enattos) F 28A. 22 FIAT RY AUTOCARRO 3 Euro costruzioni Pellegrini GRU A Lula (Sos Enattos) 23 GCB 35 X 35000 NU 16/95 1989 459 Lula CAVALLETTO - ex Rimisa 12/21 Classe: matr.459",
+    "locator": "igea-equipment, p. 9"
+   }
+  ]
+ },
+ {
+  "id": "DEV-IGEA-09",
+  "question": "With what minimum notice must the appointed verifier communicate to IGEA the planning of the checks on the devices?",
+  "reader": "similar",
+  "value": "P15D",
+  "text": "The verifier must plan the equipment checks jointly with IGEA's appointed staff and notify IGEA at least 15 days in advance (igea-equipment, p. 5, section 4, Impegni Aggiudicatario/Verificatore).",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 10567,
+  "steps": [
+   {
+    "text": "Read on demand: igea-equipment, p. 5",
+    "quote": "Pianificare i controlli, congiuntamente agli incaricati IGEA, dei diversi apparecchi dando comunicazione a IGEA con un preavviso di almeno 15 giorni – tempo necessario per la programmazione relativa ai punti 4.1 – 4.2 (impegni Appaltatore);",
+    "locator": "igea-equipment, p. 5"
+   }
+  ]
+ },
+ {
+  "id": "DEV-IGEA-10",
+  "question": "For the verification operations, must IGEA also make the measuring instruments available to the verifier?",
+  "reader": "similar",
+  "value": false,
+  "text": "No. Under item 4.2.1 of the IGEA technical specification (Scheda Tecnica), IGEA provides the supervised personnel and the means for the operations (test weights), but the measuring instruments are expressly excluded.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 9600,
+  "steps": [
+   {
+    "text": "Read on demand: igea-equipment, p. 4",
+    "quote": "4.2.1 Il personale occorrente sotto la vigilanza di un preposto e i mezzi necessari per l’esecuzione delle operazioni stesse (pesi campione), esclusi gli apparecchi di misurazione;",
+    "locator": "igea-equipment, p. 4"
+   }
+  ]
+ },
+ {
+  "id": "DEV-IGEA-11",
+  "question": "The verifications covered by the IGEA technical sheet are periodic verifications after the first one: under the Ministerial Decree of 11 April 2011, which body is in charge of them and within how many days from the request must they be carried out?",
+  "reader": "similar",
+  "value": "P30D",
+  "text": "Under art. 2, c. 1 of the Ministerial Decree of 11 April 2011, the ASL (local health authorities) are in charge of the periodic verifications after the first, to be carried out within 30 days from the request.",
+  "basis": "similar",
+  "answered": true,
+  "score": 0.5,
+  "right": false,
+  "tokens": 10151,
+  "steps": [
+   {
+    "text": "Read on demand: DM2011, art. 2, c. 1",
+    "quote": "mentre le ASL sono titolari delle verifiche periodiche successive alla prima, da effettuarsi nel termine di trenta giorni dalla richiesta.",
+    "locator": "DM2011, art. 2, c. 1"
+   }
+  ]
+ },
+ {
+  "id": "DEV-IGEA-12",
+  "question": "During the periodic verification of the P&H R200 mobile crane at position 17, must the employer show the results of a supplementary investigation?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not say whether the employer must show the results of a supplementary investigation for the P&H R200 crane at position 17. DM 11 aprile 2011, Allegato II, point 2(c), only defines the supplementary investigation as applying to equipment in service for more than 20 years.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 12053,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-13",
+  "question": "On what date was the last periodic verification of the DEMAG overhead travelling crane at position 9 carried out?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not give the date of the last periodic verification of the DEMAG overhead travelling crane at position 9. The igea-equipment scheda tecnica (section 2.1) refers to Allegato A, tables A1-A6, for those dates, and that annex is not among the passages.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 13040,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEA-14",
+  "question": "As of 14 November 2026, is the periodic verification of the P&H R200 mobile crane at position 17 overdue?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not identify the P&H R200 at position 17 or record its last periodic verification, so it cannot be determined from them whether that verification is overdue on 14 November 2026. Allegato VII of D.Lgs. 81/2008 (passage 0) sets the frequency for mobile lifting equipment by sector and year of manufacture, and the crane's sector, manufacture year and last check date are needed to apply it.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 13585,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-01",
+  "question": "Given that the company works in mining areas (extractive sector), how often must the IGEA-PRIM 5t overhead travelling crane at position 13 be verified on 1 June 2027?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not give the verification frequency for position 13: the table A2 row for that crane is missing, so its fixed/mobile type and year of manufacture cannot be checked against Allegato VII of D.Lgs. 81/08 (as referenced in the plant record scheda tecnica, section 2.3).",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 16289,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-02",
+  "question": "Given that the company works in mining areas (extractive sector), how often will the IGEA-PRIM 5t overhead travelling crane at position 13 have to be verified in 2028?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state the verification frequency for position 13 (IGEA-PRIM 5t overhead travelling crane). Under the Allegato VII of D.Lgs. 81/08 it would be annual for a mobile or transferable crane in extractive use, and biennial for a fixed one built within the last 10 years, but the crane's type and year of manufacture are not in the passages.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 15542,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-03",
+  "question": "If the 1500 kg FASSI F 28 B22 hydraulic truck-mounted crane at position 3 had been used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often did it have to be verified in 2018?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not give the crane's manufacture year, so the verification interval under the regular-use rule for mobile lifting equipment (INAIL guide, p. 34) cannot be determined from them.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 9231,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-04",
+  "question": "If the 1500 kg FASSI F 28 B22 hydraulic truck-mounted crane at position 3 had been used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often did it have to be verified in 2024?",
+  "reader": "similar",
+  "value": null,
+  "text": "Under the guidance tables (INAIL guide, and the UNICT guideline's Allegato VII table), a mobile crane over 200 kg used in regular sectors needs a biennial check if built within the last 10 years and an annual check if older. The passages do not give the FASSI F 28 B22's manufacture year, so the required frequency for 2024 cannot be determined.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 9059,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-05",
+  "question": "Given that the company works in mining areas (extractive sector), how often will the Effer hydraulic truck-mounted crane at position 7 have to be verified on 1 June 2029?",
+  "reader": "similar",
+  "value": "P1Y",
+  "text": "Per D.Lgs. 81/08, Allegato VII (as reproduced in the company's unict-guideline), mobile lifting equipment over 200 kg used in the extractive sector requires annual verification, so the Effer truck-mounted crane at position 7 is verified every year (P1Y).",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 12944,
+  "steps": [
+   {
+    "text": "Read on demand: unict-guideline, p. 19",
+    "quote": "Apparecchi di sollevamento di portata superiore a 200 Kg materiali di tipo mobile o Verifica annuale trasferibili, operanti in particolari settori di impiego come: costruzioni, siderurgico, portuale, estrattivo.",
+    "locator": "unict-guideline, p. 19"
+   },
+   {
+    "text": "Read on demand: igea-equipment, p. 3",
+    "quote": "Per tutte e 24 le posizioni in oggetto, la verifica è da considerarsi secondo le cadenze previste dall’Allegato VII del D.Lgs. 81/08;",
+    "locator": "igea-equipment, p. 3"
+   }
+  ]
+ },
+ {
+  "id": "DEV-IGEB-06",
+  "question": "If the IGEA-PRIM 5t overhead travelling crane at position 13 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified in 2031?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not give the manufacturing year or the mobile/fixed classification of position 13 (an overhead travelling crane in table A2 of the IGEA schedule), so the 2031 verification frequency cannot be determined. For mobile or transferable cranes over 200 kg outside the special sectors, Allegato VII of D.Lgs. 81/08 requires biennial verification if built no more than 10 years earlier and annual verification if older.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 15961,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-07",
+  "question": "Given that the company works in mining areas (extractive sector), how often must the KITO KR50L electric hoist at position 16 be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not identify the KITO KR50L hoist or confirm that it is fixed or built within the last 10 years. Law row 16 (D.lgs. 81/2008, Allegato VII) would require biennial verification only if those conditions are met, so the hoist's type and build year must be checked before a frequency can be set.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 14819,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-08",
+  "question": "Given that the company works in mining areas (extractive sector), how often must the 35,000 kg GCB 35 gantry crane at position 23 be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not establish this. Allegato VII (quoted in the inail-guide, p. 34, and the unict-guideline, p. 19) gives annual verification for mobile or transferable lifting appliances over 200 kg used in extractive settings, and for fixed ones only if built more than 10 years ago. Whether the GCB 35 is mobile or fixed, and its year of manufacture, must be known to apply the rule.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 15466,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-09",
+  "question": "If the 10,000 kg SIS PROFI 10 TI pneumatic hoist at position 14 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not identify this hoist or its manufacturing year. Under Allegato VII (passage 0, company procedure, and passage 3, Inail guide), a mobile hoist over 200 kg outside construction, steel, port and extractive use is verified biennially if manufactured not more than 10 years earlier and annually if older. The year of manufacture is needed to choose between them.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 10901,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-10",
+  "question": "Which positions of the list are devices whose year of construction is earlier than 1990?",
+  "reader": "similar",
+  "value": [
+   "8",
+   "9",
+   "10",
+   "11",
+   "12",
+   "17",
+   "23"
+  ],
+  "text": "Positions 8, 9, 10, 11, 12, 17 and 23 are the devices built before 1990, per the igea-equipment plant records in Allegato A, Tabelle A2, A4 and A5.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 11563,
+  "steps": [
+   {
+    "text": "Read on demand: igea-equipment, p. 6",
+    "quote": "8 DEMAG 5000 CA 127 / 86 1985 503291",
+    "locator": "igea-equipment, p. 6"
+   },
+   {
+    "text": "Read on demand: igea-equipment, p. 6",
+    "quote": "9 DEMAG 5000 CA 128 / 86 1985 503292",
+    "locator": "igea-equipment, p. 6"
+   },
+   {
+    "text": "Read on demand: igea-equipment, p. 6",
+    "quote": "10 GUTTER 3000 CA 197 / 88 1988 24984",
+    "locator": "igea-equipment, p. 6"
+   },
+   {
+    "text": "Read on demand: igea-equipment, p. 6",
+    "quote": "11 3000 CA 194 / 85 1978 11222",
+    "locator": "igea-equipment, p. 6"
+   },
+   {
+    "text": "Read on demand: igea-equipment, p. 6",
+    "quote": "12 PRIM 5000 NU 41/85 1980 160",
+    "locator": "igea-equipment, p. 6"
+   },
+   {
+    "text": "Read on demand: igea-equipment, p. 7",
+    "quote": "AUTOGRU' P&H R200 18760 RM - I - 22027 1977 70761",
+    "locator": "igea-equipment, p. 7"
+   },
+   {
+    "text": "Read on demand: igea-equipment, p. 7",
+    "quote": "23 GRU A CAVALLETTO 35000 NU 16/95 1989 459 GCB 35 X 12/21 Classe: matr.459",
+    "locator": "igea-equipment, p. 7"
+   }
+  ]
+ },
+ {
+  "id": "DEV-IGEB-11",
+  "question": "Which positions of the list are devices with a capacity below 1,000 kg?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state which list positions are devices with a capacity below 1,000 kg. The list rows (Allegato VII, rows 13 to 16 of the Italian law, and the inail-guide table) only give capacities above 200 kg.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 6659,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-12",
+  "question": "According to Annex B, which positions of the list have Monteponi as their location (sector/service)?",
+  "reader": "similar",
+  "value": [
+   "13",
+   "14"
+  ],
+  "text": "According to Annex B (Table B1, IGEA equipment list, p. 8), positions 13 and 14 have Monteponi as their sector/service.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 6994,
+  "steps": [
+   {
+    "text": "Read on demand: igea-equipment, p. 8",
+    "quote": "200086/CA Monteponi",
+    "locator": "igea-equipment, p. 8"
+   },
+   {
+    "text": "Read on demand: igea-equipment, p. 8",
+    "quote": "PNEUMATICO SIS PROFI 200100/06 Monteponi",
+    "locator": "igea-equipment, p. 8"
+   }
+  ]
+ },
+ {
+  "id": "DEV-IGEB-13",
+  "question": "The technical sheet requires IGEA to make available to the verifier, for devices more than 20 years old, the certification of structural verification of the residual life cycles. As of 14 November 2026, for which of the seven truck-mounted cranes (positions 1-7) does this apply?",
+  "reader": "similar",
+  "value": null,
+  "text": "The Scheda Tecnica (igea-equipment, p. 5) requires the structural residual-life certification for devices over 20 years old, but the age data for the seven truck-mounted cranes (positions 1-7, table A1 of Allegato A) is not in the provided passages, so it cannot be determined which cranes are affected as of 14 November 2026.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 7201,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-14",
+  "question": "The verifications of the IGEA devices are entrusted to an authorised body: under the Ministerial Decree of 11 April 2011, for how long at least must the authorised body keep the documents relating to the verification activity?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state how long the authorised body must keep verification documents under the Ministerial Decree of 11 April 2011. The IGEA equipment technical sheet (plant record, p. 5) only refers to that decree for the rules on how periodic verifications are carried out.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 6178,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-15",
+  "question": "What is the registration plate of the truck on which the Effer hydraulic crane at position 7 is mounted?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state the registration plate of the truck carrying the Effer 790 crane at position 7; Allegato A, Tabella A1 of the IGEA equipment document lists the crane and its truck without a plate.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 13113,
+  "steps": []
+ },
+ {
+  "id": "DEV-IGEB-16",
+  "question": "What amount in euro is paid to the verifier for the periodic verification of the 35,000 kg gantry crane at position 23?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not give a euro amount for the periodic verification of the gantry crane at position 23. The fee is set by the tariff of the 23 November 2012 decree, which is not included, and the position 23 entry refers to table A5 of the plant document (igea-equipment, p. 3).",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 13536,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-01",
+  "question": "A machine was built and its EC declaration of conformity signed on 10 January 2027, but it is made available on the Union market for the first time on 25 January 2027. Which act governs its placing on the market: Directive 2006/42/EC or Regulation (EU) 2023/1230?",
+  "reader": "similar",
+  "value": "Regulation (EU) 2023/1230 governs, because the machine is first placed on the market on 25 January 2027, after the 20 January 2027 date and outside the Directive 2006/42/EC transitional protection.",
+  "text": "Regulation (EU) 2023/1230, Article 54, applies from 20 January 2027, and the Article 52(1) transitional protection for Directive 2006/42/EC covers only products placed on the market before that date, so this machine falls under the Regulation.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 5059,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 54 (corrected by the corrigendum (Corrigendum, point 10: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 11: '14 January 2024' now reads '20 January 2024'; Corrigendum, point 12: '14 October 2023' now reads '20 October 2026'; Corrigendum, point 13: '13 July 2023' now reads '19 July 2023'; Corrigendum, point 14: '14 July 2024' now reads '20 July 2024'))",
+    "quote": "It shall apply from 20 January 2027.",
+    "locator": "REG, Art. 54"
+   },
+   {
+    "text": "Read on demand: REG, Art. 52(1) (corrected by the corrigendum (Corrigendum, point 6: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 7: '13 July 2023' now reads '19 July 2023'))",
+    "quote": "Member States shall not impede the making available on the market of products which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027.",
+    "locator": "REG, Art. 52(1)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-02",
+  "question": "On 1 December 2026 the manufacturer of a machine in a category listed in Annex IV to Directive 2006/42/EC, not built to harmonised standards, wants to place it on the market using unit verification (module G) instead of EC type-examination or full quality assurance. Is that procedure admitted by the act applicable on that day?",
+  "reader": "similar",
+  "value": null,
+  "text": "Under Article 12(4) of Directive 2006/42/EC, Annex IV machinery not built to harmonised standards may use only EC type-examination plus internal checks, or full quality assurance, so module G is not admitted under that Directive. The passages do not state the date from which the Regulation applies or the date on which the Directive is repealed, so they do not establish whether the Directive or the Regulation governs on 1 December 2026.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 7985,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-03",
+  "question": "On 1 December 2026, for Annex IV categories of Directive 2006/42/EC built to harmonised standards covering all the relevant requirements, the manufacturer may use internal checks on manufacture alone. For which of those categories is internal production control (module A) no longer admitted on 1 February 2027, even when harmonised standards are fully applied?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state which Annex IV categories of Directive 2006/42/EC lose internal production control (module A) on 1 February 2027. Article 25(3) of the Regulation sets the module A conditions for Annex I Part B categories, but no passage gives that date or the list of affected categories.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 5604,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-04",
+  "question": "On 1 March 2027 a company that is neither the original manufacturer nor a non-professional user carries out a substantial modification of a machine placed on the market in February 2027. In what capacity (as which economic operator) does it answer for that machine under the act applicable on that day?",
+  "reader": "similar",
+  "value": "Manufacturer: the company takes on the obligations of the manufacturer (Article 10) for the machinery, under REG Article 18.",
+  "text": "Under Article 18 of the Regulation (REG), a company that substantially modifies machinery is considered its manufacturer and must meet the Article 10 manufacturer obligations. The passages do not give the date from which the Regulation applies, so its applicability on 1 March 2027 is not confirmed by them.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4941,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 18",
+    "quote": "A natural or legal person that carries out a substantial modification of machinery or a related product shall be considered to be a manufacturer for the purposes of this Regulation and shall be subject to the obligations of the manufacturer set out in Article 10 for that machinery or related product",
+    "locator": "REG, Art. 18"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-05",
+  "question": "The UNIVPM equipment guideline states that the manufacturer is obliged to supply the instructions for use on paper. On 1 March 2027, for a machine intended only for professional users and placed on the market that day, may the manufacturer provide the instructions for use in digital format instead of on paper?",
+  "reader": "similar",
+  "value": true,
+  "text": "Yes. Under Article 10(7) of the Machinery Regulation, a professional-use machine may have its instructions for use provided in digital format, provided the manufacturer meets the conditions in points (a) to (c) of that article. The UNIVPM guideline's paper requirement is a company procedure and yields to the higher-ranking regulation.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 7447,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 10(7)",
+    "quote": "The instructions may be provided in a digital format.",
+    "locator": "REG, Art. 10(7)"
+   },
+   {
+    "text": "Read on demand: REG, Art. 10(7)",
+    "quote": "In the case of machinery or a related product intended for non-professional users or that can, under reasonably foreseeable conditions, be used by non-professional users, even if not intended for them, the manufacturer shall provide, in paper format, the safety information that is essential for putting the machinery or related product into service and for using it in a safe way.",
+    "locator": "REG, Art. 10(7)"
+   },
+   {
+    "text": "Read on demand: univpm-guideline, p. 7",
+    "quote": "Con l’entrata in vigore della Direttiva Macchine 2006/42/CE il costruttore di un macchinario è obbligato a fornire in formato cartaceo le istruzioni per l'uso sicuro.",
+    "locator": "univpm-guideline, p. 7"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-06",
+  "question": "On 1 March 2027 a distributor is about to make a machine (not partly completed machinery) available on the market. Under the act applicable on that day, which items must it verify before doing so?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state which act applies on 1 March 2027. If the Regulation (Art. 15(2)) applies on that day, the distributor must verify the CE marking, the EU declaration of conformity, the instructions and information in a language easily understood by users, and that the manufacturer and importer complied with their obligations.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 5508,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-07",
+  "question": "What is the last day on which a machine can be placed on the market in conformity with Directive 2006/42/EC so that Member States may not afterwards impede its making available on the market under the transitional provisions of Regulation (EU) 2023/1230?",
+  "reader": "similar",
+  "value": "2027-01-19",
+  "text": "Under Article 52(1) of Regulation (EU) 2023/1230, machinery placed on the market in conformity with Directive 2006/42/EC before 20 January 2027 may still be made available on the market, so the last such placing date is 19 January 2027.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4111,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 52(1) (corrected by the corrigendum (Corrigendum, point 6: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 7: '13 July 2023' now reads '19 July 2023'))",
+    "quote": "Member States shall not impede the making available on the market of products which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027.",
+    "locator": "REG, Art. 52(1)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-08",
+  "question": "Article 54 of Regulation (EU) 2023/1230 sets several dates of application. From which date does Article 6(7) (conditions for including a category in Annex I, Part A or Part B) apply?",
+  "reader": "similar",
+  "value": "2023-07-19",
+  "text": "Under Article 54(c) of Regulation (EU) 2023/1230, as corrected by the corrigendum, Article 6(7) (conditions for including a category in Annex I, Part A or Part B) applies from 19 July 2023.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 5682,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 54 (corrected by the corrigendum (Corrigendum, point 10: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 11: '14 January 2024' now reads '20 January 2024'; Corrigendum, point 12: '14 October 2023' now reads '20 October 2026'; Corrigendum, point 13: '13 July 2023' now reads '19 July 2023'; Corrigendum, point 14: '14 July 2024' now reads '20 July 2024'))",
+    "quote": "(c) Article 6(7) and Articles 48 and 52 from 19 July 2023;",
+    "locator": "REG, Art. 54"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-09",
+  "question": "By which date must the Commission submit the second specific report on the assessment of Article 6(4) and (5) of Regulation (EU) 2023/1230, provided for in Article 53(3)?",
+  "reader": "similar",
+  "value": "2031-07-20",
+  "text": "The second specific report on Article 6(4) and (5) of Regulation (EU) 2023/1230 is due by 20 July 2031, under Article 53(3) as corrected by the corrigendum, which sets the first report at 20 July 2026 and repeats every five years.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4486,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 53(3) (corrected by the corrigendum (Corrigendum, point 9: '14 July 2026' now reads '20 July 2026'))",
+    "quote": "By 20 July 2026 and every five years thereafter, the Commission shall submit a specific report on the assessment of Article 6(4) and (5) of this Regulation to the European Parliament and to the Council.",
+    "locator": "REG, Art. 53(3)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-10",
+  "question": "As of today (14 November 2026), has the time limit within which the Commission must draw up the report on the delegation of power under Article 47(2) of Regulation (EU) 2023/1230 already expired?",
+  "reader": "similar",
+  "value": false,
+  "text": "No. Under Article 47(2) of Regulation (EU) 2023/1230, the Commission must draw up the report on the delegation of power not later than nine months before the end of the five-year period that runs from 19 July 2023, so the deadline is around 19 October 2027 and has not yet expired on 14 November 2026.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 5438,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 47(2) (corrected by the corrigendum (Corrigendum, point 3: '13 July 2023' now reads '19 July 2023'))",
+    "quote": "The power to adopt delegated acts referred to in Articles 6(2), 6(11) and 7(2) shall be conferred on the Commission for a period of five years from 19 July 2023.",
+    "locator": "REG, Art. 47(2)"
+   },
+   {
+    "text": "Read on demand: REG, Art. 47(2) (corrected by the corrigendum (Corrigendum, point 3: '13 July 2023' now reads '19 July 2023'))",
+    "quote": "The Commission shall draw up a report in respect of the delegation of power not later than nine months before the end of the five-year period.",
+    "locator": "REG, Art. 47(2)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-11",
+  "question": "May the UR10e arm of the cell be put into service on the sole basis of the declaration supplied by its manufacturer, before the complete robot cell has been declared in conformity?",
+  "reader": "similar",
+  "value": false,
+  "text": "No. Section 20.1 (Declaration of Incorporation) of the UR10e User Manual, p. 227, says the e-Series robot shall only be put into service after it is integrated into a final complete machine (robot application or cell) that conforms with the Machinery Directive and other applicable Directives.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 11356,
+  "steps": [
+   {
+    "text": "Read on demand: ur10e-manual, p. 227",
+    "quote": "Universal Robots e-Series (UR3e, UR5e, UR7e, UR10e, UR12e and UR16e) shall only be put into service upon being integrated into a final complete machine (robot application or cell), which conforms with the provisions of the Machinery Directive and other applicable Directives.",
+    "locator": "ur10e-manual, p. 227"
+   },
+   {
+    "text": "Read on demand: ur10e-manual, p. 227",
+    "quote": "When this partly completed machine is integrated and becomes a complete machine, the integrator is responsible for the completed machine fulfiling all applicable Directives, applying the CE mark and providing the Declaration of Conformity (DOC).",
+    "locator": "ur10e-manual, p. 227"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-12",
+  "question": "The UR5e manual contains a Declaration of Incorporation and the robot's assembly instructions. Once the robot has been incorporated into the robot cell, of which documentation of the final machinery must these two documents become part under Directive 2006/42/EC?",
+  "reader": "similar",
+  "value": "The technical file for the final machinery (the completed machine into which the partly completed machinery is incorporated).",
+  "text": "Under Directive 2006/42/EC, Article 13(2), the assembly instructions and the declaration of incorporation become part of the technical file for the final machinery once the partly completed machinery is incorporated into it.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 11251,
+  "steps": [
+   {
+    "text": "Read on demand: DIR, Art. 13(2)",
+    "quote": "The assembly instructions and the declaration of incorporation shall accompany the partly completed machinery until it is incorporated into the final machinery and shall then form part of the technical file for that machinery.",
+    "locator": "DIR, Art. 13(2)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-REG-13",
+  "question": "Today (14 November 2026) the integrator completes the robot cell with the UR5e and UR10e arms. According to the robots' Declaration of Incorporation the integrator is responsible for the complete machine. Which steps does Article 5(1) of the act applicable today require of the integrator before the cell is put into service?",
+  "reader": "similar",
+  "value": null,
+  "text": "The provided passages do not include Article 5(1) of the applicable act, so the required steps cannot be stated from them; the manufacturer's manuals list general integrator duties (risk assessment, safety settings, validation, marking, documentation) but are not the act.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 11618,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-14",
+  "question": "The manual of the MA STAR two post lift carries an EC declaration of conformity to Directive 2006/42/EC. For a unit of the same model placed on the market on 1 March 2027, must the CE marking be followed by the identification number of a notified body?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not settle this: they do not address Directive 2006/42/EC or state which conformity assessment procedure applies to the MA STAR, so whether a notified body number must follow the CE marking cannot be determined from them. Art. 24(3) of the machinery regulation is the closest rule, but it applies only to specific procedures and its application date is not given.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 5320,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-15",
+  "question": "What is the maximum amount of the penalty applicable in Italy, on 1 February 2027, to a manufacturer infringing Regulation (EU) 2023/1230?",
+  "reader": "similar",
+  "value": null,
+  "text": "The provided passages do not state the maximum penalty in Italy for a manufacturer infringing Regulation (EU) 2023/1230 on machinery, so this cannot be determined from them.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 5468,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-16",
+  "question": "On which date did the Commission actually adopt the first implementing act with the template for Member States' data collection provided for in Article 6(10) of Regulation (EU) 2023/1230?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages set a deadline for the first implementing act under Article 6(10) of Regulation (EU) 2023/1230, not later than 20 July 2024 as corrected by the corrigendum, but do not record the date it was actually adopted.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4987,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-17",
+  "question": "Which notified body carried out the EC type-examination of the MA STAR two post lift?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not name the notified body that carried out the EC type-examination of the MA STAR two post lift. The EC Declaration of Conformity in the MA STAR manual (p. 37) lists the directives and standards but does not identify a notified body.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 9159,
+  "steps": []
+ },
+ {
+  "id": "DEV-REG-18",
+  "question": "On what date was the EC declaration of conformity of the complete robot cell (the final machine into which the UR5e and UR10e arms are integrated) drawn up?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not give a date for the EC declaration of conformity of the complete robot cell. The UR10e manual (section 20.1, Declaration of Incorporation) states that the integrator is responsible for providing that declaration, and the only date given there, 20 December 2024, belongs to the robot's own declaration of incorporation.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 12249,
+  "steps": []
+ },
+ {
+  "id": "DEV-VER-01",
+  "question": "From which date does Article 50(1) of Regulation (EU) 2023/1230 (Member States' duty to lay down penalties) apply?",
+  "reader": "similar",
+  "value": null,
+  "text": "The passages do not state from which date Article 50(1) of Regulation (EU) 2023/1230 applies; they only give its content and the separate Article 50(2) notification deadline of 20 October 2026.",
+  "basis": "similar",
+  "answered": false,
+  "score": 0.0,
+  "right": false,
+  "tokens": 3968,
+  "steps": []
+ },
+ {
+  "id": "DEV-VER-02",
+  "question": "From which date do Articles 26 to 42 of Regulation (EU) 2023/1230 (notification of conformity assessment bodies) apply?",
+  "reader": "similar",
+  "value": "2024-01-20",
+  "text": "Under Article 54(a) of Regulation (EU) 2023/1230, as corrected by the corrigendum, Articles 26 to 42 apply from 20 January 2024.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4207,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 54 (corrected by the corrigendum (Corrigendum, point 10: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 11: '14 January 2024' now reads '20 January 2024'; Corrigendum, point 12: '14 October 2023' now reads '20 October 2026'; Corrigendum, point 13: '13 July 2023' now reads '19 July 2023'; Corrigendum, point 14: '14 July 2024' now reads '20 July 2024'))",
+    "quote": "(a) Articles 26 to 42 from 20 January 2024;",
+    "locator": "REG, Art. 54"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-03",
+  "question": "By which date must Member States provide for the first time the data and information referred to in Article 6(5) of Regulation (EU) 2023/1230?",
+  "reader": "similar",
+  "value": "2025-07-20",
+  "text": "Under Article 6(9) of Regulation (EU) 2023/1230, as corrected by the corrigendum, Member States must first provide the Article 6(5) data and information by 20 July 2025.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4438,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 6(9) (corrected by the corrigendum (Corrigendum, point 1: '14 July 2025' now reads '20 July 2025'))",
+    "quote": "By 20 July 2025, and every five years thereafter, Member States shall provide the data and information referred to in paragraph 5",
+    "locator": "REG, Art. 6(9)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-04",
+  "question": "By which date must the Commission submit its first report on the evaluation and review of Regulation (EU) 2023/1230 (Article 53(1))?",
+  "reader": "similar",
+  "value": "2028-07-20",
+  "text": "Under Article 53(1) of Regulation (EU) 2023/1230, as corrected by the corrigendum, the Commission must submit its first report on the evaluation and review of the Regulation by 20 July 2028.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4727,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 53(1) (corrected by the corrigendum (Corrigendum, point 8: '14 July 2028' now reads '20 July 2028'))",
+    "quote": "By 20 July 2028 and every four years thereafter, the Commission shall submit a report on the evaluation and review of this Regulation to the European Parliament and to the Council.",
+    "locator": "REG, Art. 53(1)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-05",
+  "question": "On 18 January 2027, is Directive 2006/42/EC still in force (not yet repealed)?",
+  "reader": "similar",
+  "value": true,
+  "text": "Yes. Under Article 51(2) of the Regulation, Directive 2006/42/EC is repealed with effect from 20 January 2027, so it remains in force on 18 January 2027.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4228,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 51(2) (corrected by the corrigendum (Corrigendum, point 5: '14 January 2027' now reads '20 January 2027'))",
+    "quote": "2. Directive 2006/42/EC is repealed with effect from 20 January 2027.",
+    "locator": "REG, Art. 51(2)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-06",
+  "question": "On 1 September 2026, does Article 50(1) of Regulation (EU) 2023/1230 (rules on penalties) already apply?",
+  "reader": "similar",
+  "value": false,
+  "text": "No. Under Article 54(b) of Regulation (EU) 2023/1230, Article 50(1) (penalties) applies from 20 October 2026, so it does not yet apply on 1 September 2026.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4939,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 54 (corrected by the corrigendum (Corrigendum, point 10: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 11: '14 January 2024' now reads '20 January 2024'; Corrigendum, point 12: '14 October 2023' now reads '20 October 2026'; Corrigendum, point 13: '13 July 2023' now reads '19 July 2023'; Corrigendum, point 14: '14 July 2024' now reads '20 July 2024'))",
+    "quote": "(b) Article 50(1) from 20 October 2026;",
+    "locator": "REG, Art. 54"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-07",
+  "question": "On 15 July 2023, did Chapter VI of Regulation (EU) 2023/1230 already apply, instead of Article 11 of Directive 2006/42/EC, to products placed on the market in conformity with the Directive?",
+  "reader": "similar",
+  "value": false,
+  "text": "No. Under Article 52(1) of Regulation (EU) 2023/1230, as corrected by the corrigendum, Chapter VI applies to such products from 19 July 2023, so it did not yet apply on 15 July 2023.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4804,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 52(1) (corrected by the corrigendum (Corrigendum, point 6: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 7: '13 July 2023' now reads '19 July 2023'))",
+    "quote": "However, Chapter VI of this Regulation shall apply, from 19 July 2023, mutatis mutandis to such products instead of Article 11 of that Directive, including products for which a procedure has already been initiated under Article 11 of Directive 2006/42/EC.",
+    "locator": "REG, Art. 52(1)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-08",
+  "question": "A machine was placed on the market on 15 January 2027 in conformity with Directive 2006/42/EC. On 1 March 2027, is it among the products whose making available on the market Member States may not impede under the transitional provisions of Regulation (EU) 2023/1230?",
+  "reader": "similar",
+  "value": true,
+  "text": "Yes. Under Article 52(1) of Regulation (EU) 2023/1230, as corrected, Member States may not impede making available on the market products placed on the market in conformity with Directive 2006/42/EC before 20 January 2027, and a machine placed on 15 January 2027 is within that group.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 4206,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 52(1) (corrected by the corrigendum (Corrigendum, point 6: '14 January 2027' now reads '20 January 2027'; Corrigendum, point 7: '13 July 2023' now reads '19 July 2023'))",
+    "quote": "Member States shall not impede the making available on the market of products which were placed on the market in conformity with Directive 2006/42/EC before 20 January 2027.",
+    "locator": "REG, Art. 52(1)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-09",
+  "question": "For the periodic verifications after the first one of Annex VII equipment, is the employer obliged to apply to the ASL (local health authority), being allowed to use an authorised body only once thirty days from the request have elapsed?",
+  "reader": "similar",
+  "value": false,
+  "text": "No. Under art. 71(11) of D.Lgs. 81/2008, successive periodic verifications of Annex VII equipment are at the employer's free choice between the ASL (or ARPA) and authorised bodies, and the 30-day period in DM 2011 does not override this legislative rule.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 12047,
+  "steps": [
+   {
+    "text": "Read on demand: DLGS71, art. 71, c. 11",
+    "quote": "Le successive verifiche sono effettuate su libera scelta del datore di lavoro dalle ASL o, ove ciò sia previsto con legge regionale, dall'ARPA, o da soggetti pubblici o privati abilitati che vi provvedono secondo le modalità di cui al comma 13.",
+    "locator": "DLGS71, art. 71, c. 11"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-10",
+  "question": "The Ministerial Decree of 11 April 2011 names INAIL as holder of the first periodic verification and the ASL for the following ones. For a variable-inclination aerial ladder owned by the national fire brigade (Corpo nazionale dei vigili del fuoco), may the brigade carry out the periodic verifications itself?",
+  "reader": "similar",
+  "value": true,
+  "text": "Yes. Under D.Lgs. 81/2008, art. 71, comma 13-bis, the Corpo nazionale dei vigili del fuoco may directly carry out the periodic verifications for Allegato VII equipment it owns or holds on loan, which overrides the INAIL/ASL allocation in the 2011 Ministerial Decree (assuming the ladder is listed in Allegato VII).",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 11433,
+  "steps": [
+   {
+    "text": "Read on demand: DLGS71, art. 71, c. 13-bis",
+    "quote": "Il Corpo nazionale dei vigili del fuoco può effettuare direttamente le verifiche periodiche di cui al comma 11, relativamente alle attrezzature riportate nell'allegato VII di cui dispone a titolo di proprietà o comodato d'uso.",
+    "locator": "DLGS71, art. 71, c. 13-bis"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-11",
+  "question": "After the repeal of Directive 2006/42/EC, until when do EC type-examination certificates issued under Article 12 of the Directive remain valid?",
+  "reader": "similar",
+  "value": "Until they expire; the regulation sets no fixed end date.",
+  "text": "Under Article 52(2) of the Regulation, which repeals Directive 2006/42/EC, EC type-examination certificates issued under Article 12 of that Directive remain valid until they expire.",
+  "basis": "similar",
+  "answered": true,
+  "score": 1.0,
+  "right": true,
+  "tokens": 5148,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 52(2)",
+    "quote": "2. EC type-examination certificates and approval decisions issued in accordance with Article 12 of Directive 2006/42/EC shall remain valid until they expire.",
+    "locator": "REG, Art. 52(2)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-12",
+  "question": "By which date must the Commission adopt the delegated acts provided for in Article 6(11) of Regulation (EU) 2023/1230 (common methodology for the data Member States must provide)?",
+  "reader": "similar",
+  "value": "2028-07-19",
+  "text": "Under Article 47(2) of Regulation (EU) 2023/1230, the Commission's power to adopt the Article 6(11) delegated acts runs for five years from 19 July 2023, so the period ends on 19 July 2028 (the corrigendum corrected the start date from 13 July 2023).",
+  "basis": "similar",
+  "answered": true,
+  "score": 0.0,
+  "right": false,
+  "tokens": 5263,
+  "steps": [
+   {
+    "text": "Read on demand: REG, Art. 47(2) (corrected by the corrigendum (Corrigendum, point 3: '13 July 2023' now reads '19 July 2023'))",
+    "quote": "The power to adopt delegated acts referred to in Articles 6(2), 6(11) and 7(2) shall be conferred on the Commission for a period of five years from 19 July 2023.",
+    "locator": "REG, Art. 47(2)"
+   }
+  ]
+ },
+ {
+  "id": "DEV-VER-13",
+  "question": "Within what time limit must the ministerial decree amending the list of equipment in Annex VII, provided for by Article 71(14) of Legislative Decree 81/2008, be adopted?",
+  "reader": "similar",
+  "value": null,
+  "text": "Article 71(14) of Legislative Decree 81/2008 provides for the ministerial decree amending the Annex VII equipment list but sets no time limit for its adoption; the twelve-month limit in Article 71(13) applies to a different decree.",
+  "basis": "similar",
+  "answered": false,
+  "score": 1.0,
+  "right": true,
+  "tokens": 5503,
+  "steps": []
+ }
+]
