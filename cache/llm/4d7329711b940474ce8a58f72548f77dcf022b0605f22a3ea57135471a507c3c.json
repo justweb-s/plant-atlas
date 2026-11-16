@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "If the 10,000 kg SIS PROFI 10 TI pneumatic hoist at position 14 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Under normal operating conditions, meaning outside the construction, steel, port and extractive sectors, how frequently would the 10,000 kg SIS PROFI 10 TI pneumatic hoist at position 14 need to be verified?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 742,
+   "completion_tokens": 77,
+   "total_tokens": 819
+  }
+ }
+}

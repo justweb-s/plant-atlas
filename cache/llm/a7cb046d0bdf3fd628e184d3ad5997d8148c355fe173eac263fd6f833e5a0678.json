@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "May the UR10e arm of the cell be put into service on the sole basis of the declaration supplied by its manufacturer, before the complete robot cell has been declared in conformity?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Is it permissible to commission the cell's UR10e arm solely on the strength of the manufacturer's supplied declaration, prior to the entire robot cell having been declared compliant?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 721,
+   "completion_tokens": 60,
+   "total_tokens": 781
+  }
+ }
+}

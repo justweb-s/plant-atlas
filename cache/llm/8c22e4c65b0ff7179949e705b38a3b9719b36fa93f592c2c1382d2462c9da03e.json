@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "The UNIVPM equipment guideline states that the manufacturer is obliged to supply the instructions for use on paper. On 1 March 2027, for a machine intended only for professional users and placed on the market that day, may the manufacturer provide the instructions for use in digital format instead of on paper?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "According to the UNIVPM equipment guideline, the manufacturer must supply the instructions for use on paper. For a machine intended solely for professional users and placed on the market on 1 March 2027, is the manufacturer permitted to supply those instructions in digital format rather than on paper?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 758,
+   "completion_tokens": 92,
+   "total_tokens": 850
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Is the UR5e robot arm able to be commissioned and operated by itself, straight from the manufacturer, without anything else being added?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il braccio robotico UR5e può essere messo in servizio e utilizzato da solo, direttamente dal produttore, senza aggiungere nulla?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 701,
+   "completion_tokens": 179,
+   "total_tokens": 880
+  }
+ }
+}

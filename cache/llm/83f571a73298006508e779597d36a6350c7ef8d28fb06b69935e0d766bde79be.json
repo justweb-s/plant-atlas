@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "For which of the seven truck-mounted cranes (positions 1-7) does the requirement apply, as of 14 November 2026, that IGEA must provide the verifier with the certification of structural verification of the residual life cycles, given that the technical sheet imposes this for devices more than 20 years old?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Per quale delle sette gru su autocarro (posizioni 1-7) vige, a partire dal 14 novembre 2026, l'obbligo per IGEA di fornire al verificatore la certificazione della verifica strutturale dei cicli di vita residui, considerando che la scheda tecnica lo impone per i dispositivi con più di 20 anni di età?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 754,
+   "completion_tokens": 435,
+   "total_tokens": 1189
+  }
+ }
+}

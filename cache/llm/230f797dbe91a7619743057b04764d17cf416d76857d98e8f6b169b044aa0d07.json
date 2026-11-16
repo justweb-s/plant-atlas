@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "What is the maximum amount of the penalty applicable in Italy, on 1 February 2027, to a manufacturer infringing Regulation (EU) 2023/1230?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "On 1 February 2027, what is the highest penalty that Italy would impose on a manufacturer that violates Regulation (EU) 2023/1230?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 723,
+   "completion_tokens": 51,
+   "total_tokens": 774
+  }
+ }
+}

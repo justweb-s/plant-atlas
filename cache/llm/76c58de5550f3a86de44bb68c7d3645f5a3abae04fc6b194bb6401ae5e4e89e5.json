@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "What is the required replacement frequency for the filters in the UR10e Control Box?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Qual è la frequenza di sostituzione richiesta per i filtri nella Control Box dell'UR10e?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 683,
+   "completion_tokens": 169,
+   "total_tokens": 852
+  }
+ }
+}

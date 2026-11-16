@@ -1,0 +1,59 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You check one claim against one passage of law. Use only the passage; do not use what you know of the law.\nAnswer with JSON: \"why\" (at most 20 words), then \"label\", then \"confidence\" (0 to 1)."
+   },
+   {
+    "role": "user",
+    "content": "Does the passage state the claim, and does the claim keep every condition the passage attaches to it?\n\nChoose one label:\n- stated: the passage says what the claim says, and every exception, condition or restriction of scope\n  that the passage attaches to it (except, unless, where, if, provided that, only for, an \"or\" list of\n  alternatives, salvo, qualora, a proviso in the sentence before or after) is present in the claim's condition.\n- stated_but_condition_dropped: the passage says it, but attaches an exception, condition, alternative or restriction\n  of scope that the claim leaves out, so the claim as written is broader than the passage.\n- not_stated: the passage does not say this: wrong subject, wrong value, wrong relation, or a value that\n  is only a fragment and does not carry the meaning (for example \"means:\" or \"the following\").\n- unclear: the passage is not enough to tell (for example the value depends on text that is not shown).\n\nThe value is a few words copied from the passage: a shortened but faithful excerpt is fine, do not ask for the\nwhole sentence. Words of manner or purpose (\"without risk to persons\", \"immediately\") are not conditions; only\nwhat changes when, where or to whom the claim applies counts. Judge only from the passage.\n\nLabels: stated, stated_but_condition_dropped, not_stated, unclear\n\nPASSAGE (igea-equipment, p. 8)\nsentence before: GRU A PONTE 8 DEMAG 5000 CA 127 / 86 1985 503291 Iglesias Elettromeccanica SCORREVOLE Campo Pisano GRU A PONTE Meccanizzazione 9 DEMAG 5000 CA 128 / 86 1985 503292 Iglesias SCORREVOLE Campo Pisano GRU A PONTE Meccanizzazione 10 GUTTER 3000 CA 197 / 88 1988 24984 Iglesias SCORREVOLE Masua GRU A PONTE DEFRIES - 11 3000 CA 194 / 85 1978 11222 Iglesias Acquaresi SCORREVOLE TITANO GRU A PONTE IGEA – 2017- Pozzo Vittorio 13 5000 2017 gen-17 Iglesias\nquoted sentences: SCORREVOLE PRIM 5t 200086/CA Monteponi\nsentence after: J.D.NEUHA PARANCO US CA Livello Vesme 14 10000 2002 801453 Iglesias PNEUMATICO SIS PROFI 200100/06 Monteponi 10 TI INGERSOLL 25000 RAND PARANCO declas 2011- Pozzo 2 15 PALAIR 1997 9712150/97 Iglesias PNEUMATICO s.\n\nCLAIM\nrelation: siteSector (the sector a site works in)\nsubject: Annex B equipment list, row for SCORREVOLE PRIM 5t 200086/CA (igea-equipment, p. 8)\nvalue: Monteponi\ncondition: (none)"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 150,
+  "response_format": {
+   "type": "json_schema",
+   "json_schema": {
+    "name": "verdict",
+    "strict": true,
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "why": {
+       "type": "string"
+      },
+      "label": {
+       "type": "string",
+       "enum": [
+        "stated",
+        "stated_but_condition_dropped",
+        "not_stated",
+        "unclear"
+       ]
+      },
+      "confidence": {
+       "type": "number"
+      }
+     },
+     "required": [
+      "why",
+      "label",
+      "confidence"
+     ]
+    }
+   }
+  }
+ },
+ "response": {
+  "text": "{\"why\":\"The quoted row 'SCORREVOLE PRIM 5t 200086/CA Monteponi' lists Monteponi as the location; the passage attaches no conditions to it.\",\"label\":\"stated\",\"confidence\":0.72}",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 1668,
+   "completion_tokens": 80,
+   "total_tokens": 1748
+  }
+ }
+}

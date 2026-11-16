@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "By which date must the Commission adopt the delegated acts provided for in Article 6(11) of Regulation (EU) 2023/1230 (common methodology for the data Member States must provide)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "By what date is the Commission required to adopt the delegated acts referred to in Article 6(11) of Regulation (EU) 2023/1230, which concern the common methodology for the data that Member States must provide?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 727,
+   "completion_tokens": 67,
+   "total_tokens": 794
+  }
+ }
+}

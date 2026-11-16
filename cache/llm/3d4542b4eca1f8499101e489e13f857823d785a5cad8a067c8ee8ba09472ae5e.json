@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "What amount in euro is paid to the verifier for the periodic verification of the 35,000 kg gantry crane at position 23?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "How many euros does the verifier receive for carrying out the periodic verification of the 35,000 kg gantry crane listed at position 23?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 705,
+   "completion_tokens": 45,
+   "total_tokens": 750
+  }
+ }
+}

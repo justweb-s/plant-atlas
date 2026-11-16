@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 1 March 2027, a company that is neither the original manufacturer nor a non-professional user performs a substantial modification to a machine that was placed on the market in February 2027. Under the act in force on that date, as which economic operator is it answerable for the machine?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il 1° marzo 2027, un'azienda che non è né il fabbricante originale né un utente non professionale apporta una modifica sostanziale a una macchina immessa sul mercato nel febbraio 2027. Ai sensi della normativa in vigore a tale data, come quale operatore economico risponde della macchina?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 740,
+   "completion_tokens": 482,
+   "total_tokens": 1222
+  }
+ }
+}

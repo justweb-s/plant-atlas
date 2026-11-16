@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "For the work equipment listed in Annex VII of Legislative Decree 81/2008, who carries out the first periodic verification, and within what time?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Under Annex VII of Legislative Decree 81/2008, which party performs the first periodic verification of the listed work equipment, and what is the deadline for it?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 712,
+   "completion_tokens": 53,
+   "total_tokens": 765
+  }
+ }
+}

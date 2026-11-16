@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "As of today (14 November 2026), has the time limit within which the Commission must draw up the report on the delegation of power under Article 47(2) of Regulation (EU) 2023/1230 already expired?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Has the deadline by which the Commission must prepare the report on the delegation of power under Article 47(2) of Regulation (EU) 2023/1230 already passed as of today, 14 November 2026?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 729,
+   "completion_tokens": 66,
+   "total_tokens": 795
+  }
+ }
+}

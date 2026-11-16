@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "The Ministerial Decree of 11 April 2011 names INAIL as holder of the first periodic verification and the ASL for the following ones. For a variable-inclination aerial ladder owned by the national fire brigade (Corpo nazionale dei vigili del fuoco), may the brigade carry out the periodic verifications itself?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Under the Ministerial Decree of 11 April 2011, which assigns the first periodic verification to INAIL and the later ones to the ASL, can the Corpo nazionale dei vigili del fuoco itself perform the periodic verifications on a variable-inclination aerial ladder that it owns?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 774,
+   "completion_tokens": 99,
+   "total_tokens": 873
+  }
+ }
+}

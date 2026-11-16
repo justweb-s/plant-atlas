@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "A machine was constructed and had its EC declaration of conformity signed on 10 January 2027, yet it is first made available on the Union market on 25 January 2027. Is its placing on the market governed by Directive 2006/42/EC or by Regulation (EU) 2023/1230?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Una macchina è stata costruita e la sua dichiarazione CE di conformità è stata firmata il 10 gennaio 2027, ma è stata messa a disposizione per la prima volta sul mercato dell'Unione il 25 gennaio 2027. La sua immissione sul mercato è disciplinata dalla direttiva 2006/42/CE o dal regolamento (UE) 2023/1230?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 749,
+   "completion_tokens": 544,
+   "total_tokens": 1293
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "When must guards for moving transmission parts be interlocking movable guards instead of fixed guards?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Under what circumstances is it required that guards on moving transmission parts be interlocking movable guards rather than fixed guards?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 698,
+   "completion_tokens": 41,
+   "total_tokens": 739
+  }
+ }
+}

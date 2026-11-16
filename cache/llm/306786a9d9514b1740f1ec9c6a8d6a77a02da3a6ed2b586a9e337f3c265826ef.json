@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "For the periodic verifications after the first one of Annex VII equipment, is the employer obliged to apply to the ASL (local health authority), being allowed to use an authorised body only once thirty days from the request have elapsed?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "For the periodic verifications following the first one on Annex VII equipment, must the employer submit a request to the ASL (local health authority), with the option of turning to an authorised body only after thirty days have passed since that request?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 736,
+   "completion_tokens": 68,
+   "total_tokens": 804
+  }
+ }
+}

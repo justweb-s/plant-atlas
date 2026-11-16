@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Has Directive 2006/42/EC not yet been repealed as of 18 January 2027, meaning it is still in force on that date?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "La direttiva 2006/42/CE non è stata ancora abrogata alla data del 18 gennaio 2027, quindi è ancora in vigore a tale data?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 702,
+   "completion_tokens": 284,
+   "total_tokens": 986
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "Today (14 November 2026) the integrator completes the robot cell with the UR5e and UR10e arms. According to the robots' Declaration of Incorporation the integrator is responsible for the complete machine. Which steps does Article 5(1) of the act applicable today require of the integrator before the cell is put into service?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "On 14 November 2026, the integrator is completing the robot cell with the UR5e and UR10e arms, and the Declaration of Incorporation makes the integrator responsible for the complete machine. Under the act in force on that date, which steps does Article 5(1) require the integrator to take before the cell is put into service?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 767,
+   "completion_tokens": 102,
+   "total_tokens": 869
+  }
+ }
+}

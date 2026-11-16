@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "Given that the company works in mining areas (extractive sector), how often must the IGEA-PRIM 5t overhead travelling crane at position 13 be verified?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Since the company operates in mining areas (the extractive sector), what is the required verification frequency for the IGEA-PRIM 5t overhead travelling crane at position 13?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 718,
+   "completion_tokens": 57,
+   "total_tokens": 775
+  }
+ }
+}

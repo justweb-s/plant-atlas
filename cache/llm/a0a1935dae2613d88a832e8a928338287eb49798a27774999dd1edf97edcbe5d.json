@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "According to the nanoScan3 manual, in which situations (apart from the regular check) must the protective device and its application be thoroughly checked?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Per the nanoScan3 manual, under which circumstances, other than the routine check, does the protective device along with its application have to undergo a thorough check?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 710,
+   "completion_tokens": 49,
+   "total_tokens": 759
+  }
+ }
+}

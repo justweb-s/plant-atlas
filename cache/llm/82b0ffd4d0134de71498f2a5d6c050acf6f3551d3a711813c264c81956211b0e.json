@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "If the GUTTER overhead travelling crane at position 10 were used under regular conditions, i.e. outside the construction, steel, port and extractive sectors, how often would it have to be verified?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "At position 10, if the GUTTER overhead travelling crane were operated under normal circumstances, meaning outside the construction, steel, port and extractive sectors, what would the required frequency of its verification be?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 729,
+   "completion_tokens": 67,
+   "total_tokens": 796
+  }
+ }
+}

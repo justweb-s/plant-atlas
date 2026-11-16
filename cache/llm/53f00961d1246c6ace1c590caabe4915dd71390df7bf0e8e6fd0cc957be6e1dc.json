@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "Who is considered the manufacturer after a substantial modification of machinery?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Following a substantial modification of machinery, which party is regarded as its manufacturer?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 690,
+   "completion_tokens": 29,
+   "total_tokens": 719
+  }
+ }
+}

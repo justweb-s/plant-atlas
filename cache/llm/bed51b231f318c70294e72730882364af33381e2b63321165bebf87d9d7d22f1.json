@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "For how long does the UR5e manual say to wait after powering the robot off to let it cool down before handling it?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "According to the UR5e manual, how long should one wait after switching the robot off before touching it, so that it has time to cool down?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 698,
+   "completion_tokens": 40,
+   "total_tokens": 738
+  }
+ }
+}

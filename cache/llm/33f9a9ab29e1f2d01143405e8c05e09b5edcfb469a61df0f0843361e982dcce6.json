@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "On 1 February 2027, what is the highest penalty that Italy would impose on a manufacturer that violates Regulation (EU) 2023/1230?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il 1° febbraio 2027, qual è la sanzione massima che l'Italia imporrebbe a un fabbricante che viola il Regolamento (UE) 2023/1230?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 707,
+   "completion_tokens": 278,
+   "total_tokens": 985
+  }
+ }
+}

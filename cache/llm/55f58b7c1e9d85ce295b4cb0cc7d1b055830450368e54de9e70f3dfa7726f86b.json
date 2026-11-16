@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "On 1 March 2027 a company that is neither the original manufacturer nor a non-professional user carries out a substantial modification of a machine placed on the market in February 2027. In what capacity (as which economic operator) does it answer for that machine under the act applicable on that day?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "On 1 March 2027, a company that is neither the original manufacturer nor a non-professional user performs a substantial modification to a machine that was placed on the market in February 2027. Under the act in force on that date, as which economic operator is it answerable for the machine?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 752,
+   "completion_tokens": 83,
+   "total_tokens": 835
+  }
+ }
+}

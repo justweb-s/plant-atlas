@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "As of 14 November 2026, has the periodic verification of the P&H R200 mobile crane at position 17 passed its due date?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Alla data del 14 novembre 2026, la verifica periodica della gru mobile P&H R200 in posizione 17 ha superato la scadenza prevista?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 701,
+   "completion_tokens": 128,
+   "total_tokens": 829
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "How often does the manufacturer recommend unpacking and starting up a UR10e robot kept in long-term storage?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "At what interval does the manufacturer advise taking a UR10e robot that's in long-term storage out of its packaging and powering it on?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 702,
+   "completion_tokens": 44,
+   "total_tokens": 746
+  }
+ }
+}

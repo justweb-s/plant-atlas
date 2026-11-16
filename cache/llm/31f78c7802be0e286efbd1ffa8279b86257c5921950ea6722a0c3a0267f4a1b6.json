@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "Under the Ministerial Decree of 11 April 2011, which assigns the first periodic verification to INAIL and the later ones to the ASL, can the Corpo nazionale dei vigili del fuoco itself perform the periodic verifications on a variable-inclination aerial ladder that it owns?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Ai sensi del Decreto Ministeriale dell'11 aprile 2011, che assegna la prima verifica periodica all'INAIL e quelle successive alle ASL, il Corpo nazionale dei vigili del fuoco può eseguire direttamente le verifiche periodiche su una scala aerea a inclinazione variabile di sua proprietà?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 754,
+   "completion_tokens": 398,
+   "total_tokens": 1152
+  }
+ }
+}

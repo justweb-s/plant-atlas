@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "How often must the Effer truck-mounted hydraulic crane at position 7 of the IGEA list, built in 2017, be verified?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "At position 7 of the IGEA list, what is the required verification frequency for the Effer truck-mounted hydraulic crane built in 2017?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 711,
+   "completion_tokens": 48,
+   "total_tokens": 759
+  }
+ }
+}

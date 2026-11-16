@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "Within what time limit must the ministerial decree amending the list of equipment in Annex VII, provided for by Article 71(14) of Legislative Decree 81/2008, be adopted?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "By what deadline is the ministerial decree that revises the list of equipment in Annex VII, as envisioned by Article 71(14) of Legislative Decree 81/2008, required to be adopted?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 726,
+   "completion_tokens": 65,
+   "total_tokens": 791
+  }
+ }
+}

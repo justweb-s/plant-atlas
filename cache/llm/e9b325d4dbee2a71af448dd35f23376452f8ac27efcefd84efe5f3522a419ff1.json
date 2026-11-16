@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "May the UR10e robot be used without the Teach Pendant attached, provided another emergency stop source is defined?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Is it permissible to operate the UR10e robot with the Teach Pendant detached, as long as a different source of emergency stop has been defined?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 700,
+   "completion_tokens": 47,
+   "total_tokens": 747
+  }
+ }
+}

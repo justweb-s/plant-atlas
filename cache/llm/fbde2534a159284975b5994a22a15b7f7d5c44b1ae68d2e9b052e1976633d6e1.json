@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "On 15 July 2023, did Chapter VI of Regulation (EU) 2023/1230 already apply, instead of Article 11 of Directive 2006/42/EC, to products placed on the market in conformity with the Directive?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "As of 15 July 2023, was Chapter VI of Regulation (EU) 2023/1230 already in force in place of Article 11 of Directive 2006/42/EC for products that had been placed on the market in conformity with the Directive?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 740,
+   "completion_tokens": 78,
+   "total_tokens": 818
+  }
+ }
+}

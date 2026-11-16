@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "How often must the wear indicator of the load nut of the MA STAR two post lift be checked?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "At what interval is it necessary to inspect the load nut's wear indicator on the MA STAR two post lift?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 694,
+   "completion_tokens": 37,
+   "total_tokens": 731
+  }
+ }
+}

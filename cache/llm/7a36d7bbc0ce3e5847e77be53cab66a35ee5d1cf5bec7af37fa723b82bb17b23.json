@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "By which date must the Commission submit the second specific report on the assessment of Article 6(4) and (5) of Regulation (EU) 2023/1230, provided for in Article 53(3)?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "By what date is the Commission required to present the second specific report, under Article 53(3), evaluating Article 6(4) and (5) of Regulation (EU) 2023/1230?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 726,
+   "completion_tokens": 58,
+   "total_tokens": 784
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "Which notified body carried out the EC type-examination of the MA STAR two post lift?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Which notified body was responsible for performing the EC type-examination of the MA STAR two post lift?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 695,
+   "completion_tokens": 33,
+   "total_tokens": 728
+  }
+ }
+}

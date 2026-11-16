@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "Which positions of the list are devices with a capacity below 1,000 kg?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Among the items in the list, which positions hold devices whose capacity is under 1,000 kg?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 689,
+   "completion_tokens": 32,
+   "total_tokens": 721
+  }
+ }
+}

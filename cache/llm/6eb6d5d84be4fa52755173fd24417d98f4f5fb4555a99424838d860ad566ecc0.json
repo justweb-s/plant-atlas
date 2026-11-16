@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "On 1 December 2026, for Annex IV categories of Directive 2006/42/EC built to harmonised standards covering all the relevant requirements, the manufacturer may use internal checks on manufacture alone. For which of those categories is internal production control (module A) no longer admitted on 1 February 2027, even when harmonised standards are fully applied?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "As of 1 February 2027, for which of the Annex IV categories of Directive 2006/42/EC is the manufacturer no longer permitted to use internal production control (module A), even if harmonised standards covering all the relevant requirements have been fully applied, given that on 1 December 2026 the manufacturer may rely on internal checks on manufacture alone for Annex IV categories built to such standards?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 778,
+   "completion_tokens": 129,
+   "total_tokens": 907
+  }
+ }
+}

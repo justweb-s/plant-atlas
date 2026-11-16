@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "The UR10e manual says the robots are designed for collaborative applications where the application operates together with a human; the robot cell sheet instead requires that no persons be in the Protected Space during automatic operation. For the cell, which indication prevails and what does it require?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Il manuale dell'UR10e afferma che i robot sono progettati per applicazioni collaborative, in cui l'applicazione opera insieme a una persona. La scheda della cella robotizzata richiede invece che nessuna persona si trovi nello Spazio Protetto durante il funzionamento automatico. Per la cella, quale indicazione prevale e cosa richiede?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 737,
+   "completion_tokens": 279,
+   "total_tokens": 1016
+  }
+ }
+}

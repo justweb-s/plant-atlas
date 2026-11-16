@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "How much notice must the verifier give IGEA when planning the checks?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "How much advance notice does IGEA have to receive from the verifier when the checks are being planned?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 688,
+   "completion_tokens": 31,
+   "total_tokens": 719
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "At what interval is it necessary to inspect the load nut's wear indicator on the MA STAR two post lift?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Con quale intervallo è necessario controllare l'indicatore di usura del dado di carico del ponte a due colonne MA STAR?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 694,
+   "completion_tokens": 209,
+   "total_tokens": 903
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "During the periodic verification of the P&H R200 mobile crane at position 17, must the employer show the results of a supplementary investigation?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Is the employer required to present the outcomes of a supplementary investigation when the P&H R200 mobile crane at position 17 undergoes its periodic verification?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 709,
+   "completion_tokens": 53,
+   "total_tokens": 762
+  }
+ }
+}

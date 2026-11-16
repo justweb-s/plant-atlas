@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-haiku-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Translate the question into Italian if it is in English, into English if it is in Italian. Keep names, numbers and dates. Return only the translation."
+   },
+   {
+    "role": "user",
+    "content": "How many euros does the verifier receive for carrying out the periodic verification of the 35,000 kg gantry crane listed at position 23?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "Quanti euro riceve il verificatore per l'esecuzione della verifica periodica della gru a portale da 35,000 kg indicata alla posizione 23?",
+  "model": "claude-haiku-5-5",
+  "usage": {
+   "prompt_tokens": 701,
+   "completion_tokens": 325,
+   "total_tokens": 1026
+  }
+ }
+}

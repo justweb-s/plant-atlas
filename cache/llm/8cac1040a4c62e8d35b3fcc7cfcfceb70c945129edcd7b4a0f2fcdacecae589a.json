@@ -1,0 +1,26 @@
+{
+ "request": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "messages": [
+   {
+    "role": "system",
+    "content": "Reword the question so that it asks exactly the same thing in different words and a different sentence\nstructure. Keep every name, model, position number, article number, date and condition exactly. Do not add or\nremove any detail. Return only the reworded question."
+   },
+   {
+    "role": "user",
+    "content": "On what date was the EC declaration of conformity of the complete robot cell (the final machine into which the UR5e and UR10e arms are integrated) drawn up?"
+   }
+  ],
+  "temperature": 0,
+  "max_tokens": 300
+ },
+ "response": {
+  "text": "On which date was the EC declaration of conformity drawn up for the complete robot cell, meaning the final machine in which the UR5e and UR10e arms are integrated?",
+  "model": "claude-sonnet-5-5",
+  "usage": {
+   "prompt_tokens": 719,
+   "completion_tokens": 55,
+   "total_tokens": 774
+  }
+ }
+}

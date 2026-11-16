@@ -70,7 +70,11 @@ def raw_store(strategy: str):
     store = Store.load(ChunkCorpus(list(load())), path)
     # Further extractions (other layers, the plant's records) live in ontology/<strategy>/parts/<name>.json,
     # one file per extraction and one writer per file. Their ids are prefixed with the part's name.
+    import os
     for part in sorted((folder(strategy) / "parts").glob("*.json")):
+        if part.stem == "learned" and (os.getenv("ATLAS_NO_LEARNED") == "1" or os.getenv("ATLAS_LEARNED", "0") != "1"):
+            continue   # facts learned from questions are used only when asked for (ATLAS_LEARNED=1): the first
+                       # round of learning did not yet make the store answer better (results/growth/board.md)
         payload = json.loads(part.read_text(encoding="utf-8"))
         if "statements" not in payload:
             continue
